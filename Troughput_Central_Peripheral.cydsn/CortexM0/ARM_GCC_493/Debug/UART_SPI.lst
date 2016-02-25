@@ -1,0 +1,2848 @@
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"UART_SPI.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.UART_SpiPostEnable,"ax",%progbits
+  18              		.align	2
+  19              		.global	UART_SpiPostEnable
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	UART_SpiPostEnable, %function
+  23              	UART_SpiPostEnable:
+  24              	.LFB3:
+  25              		.file 1 ".\\Generated_Source\\PSoC4\\UART_SPI.c"
+   1:.\Generated_Source\PSoC4/UART_SPI.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/UART_SPI.c **** * File Name: UART_SPI.c
+   3:.\Generated_Source\PSoC4/UART_SPI.c **** * Version 3.0
+   4:.\Generated_Source\PSoC4/UART_SPI.c **** *
+   5:.\Generated_Source\PSoC4/UART_SPI.c **** * Description:
+   6:.\Generated_Source\PSoC4/UART_SPI.c **** *  This file provides the source code to the API for the SCB Component in
+   7:.\Generated_Source\PSoC4/UART_SPI.c **** *  SPI mode.
+   8:.\Generated_Source\PSoC4/UART_SPI.c **** *
+   9:.\Generated_Source\PSoC4/UART_SPI.c **** * Note:
+  10:.\Generated_Source\PSoC4/UART_SPI.c **** *
+  11:.\Generated_Source\PSoC4/UART_SPI.c **** *******************************************************************************
+  12:.\Generated_Source\PSoC4/UART_SPI.c **** * Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:.\Generated_Source\PSoC4/UART_SPI.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:.\Generated_Source\PSoC4/UART_SPI.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:.\Generated_Source\PSoC4/UART_SPI.c **** * the software package with which this file was provided.
+  16:.\Generated_Source\PSoC4/UART_SPI.c **** *******************************************************************************/
+  17:.\Generated_Source\PSoC4/UART_SPI.c **** 
+  18:.\Generated_Source\PSoC4/UART_SPI.c **** #include "UART_PVT.h"
+  19:.\Generated_Source\PSoC4/UART_SPI.c **** #include "UART_SPI_UART_PVT.h"
+  20:.\Generated_Source\PSoC4/UART_SPI.c **** 
+  21:.\Generated_Source\PSoC4/UART_SPI.c **** #if(UART_SCB_MODE_UNCONFIG_CONST_CFG)
+  22:.\Generated_Source\PSoC4/UART_SPI.c **** 
+  23:.\Generated_Source\PSoC4/UART_SPI.c ****     /***************************************
+  24:.\Generated_Source\PSoC4/UART_SPI.c ****     *  Configuration Structure Initialization
+  25:.\Generated_Source\PSoC4/UART_SPI.c ****     ***************************************/
+  26:.\Generated_Source\PSoC4/UART_SPI.c **** 
+  27:.\Generated_Source\PSoC4/UART_SPI.c ****     const UART_SPI_INIT_STRUCT UART_configSpi =
+  28:.\Generated_Source\PSoC4/UART_SPI.c ****     {
+  29:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_MODE,
+  30:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_SUB_MODE,
+  31:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_CLOCK_MODE,
+  32:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_OVS_FACTOR,
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 2
+
+
+  33:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_MEDIAN_FILTER_ENABLE,
+  34:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_LATE_MISO_SAMPLE_ENABLE,
+  35:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_WAKE_ENABLE,
+  36:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_RX_DATA_BITS_NUM,
+  37:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_TX_DATA_BITS_NUM,
+  38:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_BITS_ORDER,
+  39:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_TRANSFER_SEPARATION,
+  40:.\Generated_Source\PSoC4/UART_SPI.c ****         0u,
+  41:.\Generated_Source\PSoC4/UART_SPI.c ****         NULL,
+  42:.\Generated_Source\PSoC4/UART_SPI.c ****         0u,
+  43:.\Generated_Source\PSoC4/UART_SPI.c ****         NULL,
+  44:.\Generated_Source\PSoC4/UART_SPI.c ****         (uint32) UART_SCB_IRQ_INTERNAL,
+  45:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_INTR_RX_MASK,
+  46:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_RX_TRIGGER_LEVEL,
+  47:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_INTR_TX_MASK,
+  48:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_TX_TRIGGER_LEVEL,
+  49:.\Generated_Source\PSoC4/UART_SPI.c ****         (uint8) UART_SPI_BYTE_MODE_ENABLE,
+  50:.\Generated_Source\PSoC4/UART_SPI.c ****         (uint8) UART_SPI_FREE_RUN_SCLK_ENABLE,
+  51:.\Generated_Source\PSoC4/UART_SPI.c ****         (uint8) UART_SPI_SS_POLARITY
+  52:.\Generated_Source\PSoC4/UART_SPI.c ****     };
+  53:.\Generated_Source\PSoC4/UART_SPI.c **** 
+  54:.\Generated_Source\PSoC4/UART_SPI.c **** 
+  55:.\Generated_Source\PSoC4/UART_SPI.c ****     /*******************************************************************************
+  56:.\Generated_Source\PSoC4/UART_SPI.c ****     * Function Name: UART_SpiInit
+  57:.\Generated_Source\PSoC4/UART_SPI.c ****     ********************************************************************************
+  58:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+  59:.\Generated_Source\PSoC4/UART_SPI.c ****     * Summary:
+  60:.\Generated_Source\PSoC4/UART_SPI.c ****     *  Configures the SCB for the SPI operation.
+  61:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+  62:.\Generated_Source\PSoC4/UART_SPI.c ****     * Parameters:
+  63:.\Generated_Source\PSoC4/UART_SPI.c ****     *  config:  Pointer to a structure that contains the following ordered list of
+  64:.\Generated_Source\PSoC4/UART_SPI.c ****     *           fields. These fields match the selections available in the
+  65:.\Generated_Source\PSoC4/UART_SPI.c ****     *           customizer.
+  66:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+  67:.\Generated_Source\PSoC4/UART_SPI.c ****     * Return:
+  68:.\Generated_Source\PSoC4/UART_SPI.c ****     *  None
+  69:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+  70:.\Generated_Source\PSoC4/UART_SPI.c ****     *******************************************************************************/
+  71:.\Generated_Source\PSoC4/UART_SPI.c ****     void UART_SpiInit(const UART_SPI_INIT_STRUCT *config)
+  72:.\Generated_Source\PSoC4/UART_SPI.c ****     {
+  73:.\Generated_Source\PSoC4/UART_SPI.c ****         if(NULL == config)
+  74:.\Generated_Source\PSoC4/UART_SPI.c ****         {
+  75:.\Generated_Source\PSoC4/UART_SPI.c ****             CYASSERT(0u != 0u); /* Halt execution due to bad function parameter */
+  76:.\Generated_Source\PSoC4/UART_SPI.c ****         }
+  77:.\Generated_Source\PSoC4/UART_SPI.c ****         else
+  78:.\Generated_Source\PSoC4/UART_SPI.c ****         {
+  79:.\Generated_Source\PSoC4/UART_SPI.c ****             /* Configure pins */
+  80:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_SetPins(UART_SCB_MODE_SPI, config->mode, UART_DUMMY_PARAM);
+  81:.\Generated_Source\PSoC4/UART_SPI.c **** 
+  82:.\Generated_Source\PSoC4/UART_SPI.c ****             /* Store internal configuration */
+  83:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_scbMode       = (uint8) UART_SCB_MODE_SPI;
+  84:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_scbEnableWake = (uint8) config->enableWake;
+  85:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_scbEnableIntr = (uint8) config->enableInterrupt;
+  86:.\Generated_Source\PSoC4/UART_SPI.c **** 
+  87:.\Generated_Source\PSoC4/UART_SPI.c ****             /* Set RX direction internal variables */
+  88:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_rxBuffer      =         config->rxBuffer;
+  89:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_rxDataBits    = (uint8) config->rxDataBits;
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 3
+
+
+  90:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_rxBufferSize  = (uint8) config->rxBufferSize;
+  91:.\Generated_Source\PSoC4/UART_SPI.c **** 
+  92:.\Generated_Source\PSoC4/UART_SPI.c ****             /* Set TX direction internal variables */
+  93:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_txBuffer      =         config->txBuffer;
+  94:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_txDataBits    = (uint8) config->txDataBits;
+  95:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_txBufferSize  = (uint8) config->txBufferSize;
+  96:.\Generated_Source\PSoC4/UART_SPI.c **** 
+  97:.\Generated_Source\PSoC4/UART_SPI.c ****             /* Configure SPI interface */
+  98:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_CTRL_REG     = UART_GET_CTRL_OVS(config->oversample)           |
+  99:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_CTRL_BYTE_MODE(config->enableByteMode) |
+ 100:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_CTRL_EC_AM_MODE(config->enableWake)    |
+ 101:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_CTRL_SPI;
+ 102:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 103:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_SPI_CTRL_REG = UART_GET_SPI_CTRL_CONTINUOUS    (config->transferSeperation)  |
+ 104:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_SELECT_PRECEDE(config->submode &
+ 105:.\Generated_Source\PSoC4/UART_SPI.c ****                                                                           UART_SPI_MODE_TI_PRECEDES
+ 106:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_SCLK_MODE     (config->sclkMode)     
+ 107:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_LATE_MISO_SAMPLE(config->enableLateSa
+ 108:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_SCLK_CONTINUOUS(config->enableFreeRun
+ 109:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_SSEL_POLARITY (config->polaritySs)   
+ 110:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_SUB_MODE      (config->submode)      
+ 111:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_MASTER_MODE   (config->mode);
+ 112:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 113:.\Generated_Source\PSoC4/UART_SPI.c ****             /* Configure RX direction */
+ 114:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_RX_CTRL_REG     =  UART_GET_RX_CTRL_DATA_WIDTH(config->rxDataBits)         |
+ 115:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_GET_RX_CTRL_BIT_ORDER (config->bitOrder)      
+ 116:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_GET_RX_CTRL_MEDIAN    (config->enableMedianFil
+ 117:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_SPI_RX_CTRL;
+ 118:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 119:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_RX_FIFO_CTRL_REG = UART_GET_RX_FIFO_CTRL_TRIGGER_LEVEL(config->rxTriggerLevel);
+ 120:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 121:.\Generated_Source\PSoC4/UART_SPI.c ****             /* Configure TX direction */
+ 122:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_TX_CTRL_REG      = UART_GET_TX_CTRL_DATA_WIDTH(config->txDataBits) |
+ 123:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_GET_TX_CTRL_BIT_ORDER (config->bitOrder)   |
+ 124:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_SPI_TX_CTRL;
+ 125:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 126:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_TX_FIFO_CTRL_REG = UART_GET_TX_FIFO_CTRL_TRIGGER_LEVEL(config->txTriggerLevel);
+ 127:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 128:.\Generated_Source\PSoC4/UART_SPI.c ****             /* Configure interrupt with SPI handler but do not enable it */
+ 129:.\Generated_Source\PSoC4/UART_SPI.c ****             CyIntDisable    (UART_ISR_NUMBER);
+ 130:.\Generated_Source\PSoC4/UART_SPI.c ****             CyIntSetPriority(UART_ISR_NUMBER, UART_ISR_PRIORITY);
+ 131:.\Generated_Source\PSoC4/UART_SPI.c ****             (void) CyIntSetVector(UART_ISR_NUMBER, &UART_SPI_UART_ISR);
+ 132:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 133:.\Generated_Source\PSoC4/UART_SPI.c ****             /* Configure interrupt sources */
+ 134:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_INTR_I2C_EC_MASK_REG = UART_NO_INTR_SOURCES;
+ 135:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_INTR_SPI_EC_MASK_REG = UART_NO_INTR_SOURCES;
+ 136:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_INTR_SLAVE_MASK_REG  = UART_GET_SPI_INTR_SLAVE_MASK(config->rxInterruptMask);
+ 137:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_INTR_MASTER_MASK_REG = UART_GET_SPI_INTR_MASTER_MASK(config->txInterruptMask);
+ 138:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_INTR_RX_MASK_REG     = UART_GET_SPI_INTR_RX_MASK(config->rxInterruptMask);
+ 139:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_INTR_TX_MASK_REG     = UART_GET_SPI_INTR_TX_MASK(config->txInterruptMask);
+ 140:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 141:.\Generated_Source\PSoC4/UART_SPI.c ****             /* Set active SS0 */
+ 142:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_SpiSetActiveSlaveSelect(UART_SPI_SLAVE_SELECT0);
+ 143:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 144:.\Generated_Source\PSoC4/UART_SPI.c ****             /* Clear RX buffer indexes */
+ 145:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_rxBufferHead     = 0u;
+ 146:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_rxBufferTail     = 0u;
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 4
+
+
+ 147:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_rxBufferOverflow = 0u;
+ 148:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 149:.\Generated_Source\PSoC4/UART_SPI.c ****             /* Clear TX buffer indexes */
+ 150:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_txBufferHead = 0u;
+ 151:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_txBufferTail = 0u;
+ 152:.\Generated_Source\PSoC4/UART_SPI.c ****         }
+ 153:.\Generated_Source\PSoC4/UART_SPI.c ****     }
+ 154:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 155:.\Generated_Source\PSoC4/UART_SPI.c **** #else
+ 156:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 157:.\Generated_Source\PSoC4/UART_SPI.c ****     /*******************************************************************************
+ 158:.\Generated_Source\PSoC4/UART_SPI.c ****     * Function Name: UART_SpiInit
+ 159:.\Generated_Source\PSoC4/UART_SPI.c ****     ********************************************************************************
+ 160:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 161:.\Generated_Source\PSoC4/UART_SPI.c ****     * Summary:
+ 162:.\Generated_Source\PSoC4/UART_SPI.c ****     *  Configures the SCB for the SPI operation.
+ 163:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 164:.\Generated_Source\PSoC4/UART_SPI.c ****     * Parameters:
+ 165:.\Generated_Source\PSoC4/UART_SPI.c ****     *  None
+ 166:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 167:.\Generated_Source\PSoC4/UART_SPI.c ****     * Return:
+ 168:.\Generated_Source\PSoC4/UART_SPI.c ****     *  None
+ 169:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 170:.\Generated_Source\PSoC4/UART_SPI.c ****     *******************************************************************************/
+ 171:.\Generated_Source\PSoC4/UART_SPI.c ****     void UART_SpiInit(void)
+ 172:.\Generated_Source\PSoC4/UART_SPI.c ****     {
+ 173:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Configure SPI interface */
+ 174:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_CTRL_REG     = UART_SPI_DEFAULT_CTRL;
+ 175:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_CTRL_REG = UART_SPI_DEFAULT_SPI_CTRL;
+ 176:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 177:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Configure TX and RX direction */
+ 178:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_RX_CTRL_REG      = UART_SPI_DEFAULT_RX_CTRL;
+ 179:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_RX_FIFO_CTRL_REG = UART_SPI_DEFAULT_RX_FIFO_CTRL;
+ 180:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 181:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Configure TX and RX direction */
+ 182:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_TX_CTRL_REG      = UART_SPI_DEFAULT_TX_CTRL;
+ 183:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_TX_FIFO_CTRL_REG = UART_SPI_DEFAULT_TX_FIFO_CTRL;
+ 184:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 185:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Configure interrupt with SPI handler but do not enable it */
+ 186:.\Generated_Source\PSoC4/UART_SPI.c ****     #if(UART_SCB_IRQ_INTERNAL)
+ 187:.\Generated_Source\PSoC4/UART_SPI.c ****             CyIntDisable    (UART_ISR_NUMBER);
+ 188:.\Generated_Source\PSoC4/UART_SPI.c ****             CyIntSetPriority(UART_ISR_NUMBER, UART_ISR_PRIORITY);
+ 189:.\Generated_Source\PSoC4/UART_SPI.c ****             (void) CyIntSetVector(UART_ISR_NUMBER, &UART_SPI_UART_ISR);
+ 190:.\Generated_Source\PSoC4/UART_SPI.c ****     #endif /* (UART_SCB_IRQ_INTERNAL) */
+ 191:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 192:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Configure interrupt sources */
+ 193:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_INTR_I2C_EC_MASK_REG = UART_SPI_DEFAULT_INTR_I2C_EC_MASK;
+ 194:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_INTR_SPI_EC_MASK_REG = UART_SPI_DEFAULT_INTR_SPI_EC_MASK;
+ 195:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_INTR_SLAVE_MASK_REG  = UART_SPI_DEFAULT_INTR_SLAVE_MASK;
+ 196:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_INTR_MASTER_MASK_REG = UART_SPI_DEFAULT_INTR_MASTER_MASK;
+ 197:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_INTR_RX_MASK_REG     = UART_SPI_DEFAULT_INTR_RX_MASK;
+ 198:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_INTR_TX_MASK_REG     = UART_SPI_DEFAULT_INTR_TX_MASK;
+ 199:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 200:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Set active SS0 for master */
+ 201:.\Generated_Source\PSoC4/UART_SPI.c ****     #if (UART_SPI_MASTER_CONST)
+ 202:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SpiSetActiveSlaveSelect(UART_SPI_SLAVE_SELECT0);
+ 203:.\Generated_Source\PSoC4/UART_SPI.c ****     #endif /* (UART_SPI_MASTER_CONST) */
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 5
+
+
+ 204:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 205:.\Generated_Source\PSoC4/UART_SPI.c ****     #if(UART_INTERNAL_RX_SW_BUFFER_CONST)
+ 206:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_rxBufferHead     = 0u;
+ 207:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_rxBufferTail     = 0u;
+ 208:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_rxBufferOverflow = 0u;
+ 209:.\Generated_Source\PSoC4/UART_SPI.c ****     #endif /* (UART_INTERNAL_RX_SW_BUFFER_CONST) */
+ 210:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 211:.\Generated_Source\PSoC4/UART_SPI.c ****     #if(UART_INTERNAL_TX_SW_BUFFER_CONST)
+ 212:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_txBufferHead = 0u;
+ 213:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_txBufferTail = 0u;
+ 214:.\Generated_Source\PSoC4/UART_SPI.c ****     #endif /* (UART_INTERNAL_TX_SW_BUFFER_CONST) */
+ 215:.\Generated_Source\PSoC4/UART_SPI.c ****     }
+ 216:.\Generated_Source\PSoC4/UART_SPI.c **** #endif /* (UART_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 217:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 218:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 219:.\Generated_Source\PSoC4/UART_SPI.c **** /*******************************************************************************
+ 220:.\Generated_Source\PSoC4/UART_SPI.c **** * Function Name: UART_SpiPostEnable
+ 221:.\Generated_Source\PSoC4/UART_SPI.c **** ********************************************************************************
+ 222:.\Generated_Source\PSoC4/UART_SPI.c **** *
+ 223:.\Generated_Source\PSoC4/UART_SPI.c **** * Summary:
+ 224:.\Generated_Source\PSoC4/UART_SPI.c **** *  Restores HSIOM settings for the SPI master output pins (SCLK and/or SS0-SS3) 
+ 225:.\Generated_Source\PSoC4/UART_SPI.c **** *  to be controlled by the SCB SPI.
+ 226:.\Generated_Source\PSoC4/UART_SPI.c **** *
+ 227:.\Generated_Source\PSoC4/UART_SPI.c **** * Parameters:
+ 228:.\Generated_Source\PSoC4/UART_SPI.c **** *  None
+ 229:.\Generated_Source\PSoC4/UART_SPI.c **** *
+ 230:.\Generated_Source\PSoC4/UART_SPI.c **** * Return:
+ 231:.\Generated_Source\PSoC4/UART_SPI.c **** *  None
+ 232:.\Generated_Source\PSoC4/UART_SPI.c **** *
+ 233:.\Generated_Source\PSoC4/UART_SPI.c **** *******************************************************************************/
+ 234:.\Generated_Source\PSoC4/UART_SPI.c **** void UART_SpiPostEnable(void)
+ 235:.\Generated_Source\PSoC4/UART_SPI.c **** {
+  26              		.loc 1 235 0
+  27              		.cfi_startproc
+ 236:.\Generated_Source\PSoC4/UART_SPI.c **** #if(UART_SCB_MODE_UNCONFIG_CONST_CFG)
+ 237:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 238:.\Generated_Source\PSoC4/UART_SPI.c ****     if (UART_CHECK_SPI_MASTER)
+  28              		.loc 1 238 0
+  29 0000 014B     		ldr	r3, .L2
+  30 0002 1B68     		ldr	r3, [r3]
+ 239:.\Generated_Source\PSoC4/UART_SPI.c ****     {
+ 240:.\Generated_Source\PSoC4/UART_SPI.c ****     #if (UART_CTS_SCLK_PIN)
+ 241:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 242:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SET_HSIOM_SEL(UART_CTS_SCLK_HSIOM_REG, UART_CTS_SCLK_HSIOM_MASK,
+ 243:.\Generated_Source\PSoC4/UART_SPI.c ****                                        UART_CTS_SCLK_HSIOM_POS, UART_HSIOM_SPI_SEL);
+ 244:.\Generated_Source\PSoC4/UART_SPI.c ****     #endif /* (UART_CTS_SCLK_PIN) */
+ 245:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 246:.\Generated_Source\PSoC4/UART_SPI.c ****     #if (UART_RTS_SS0_PIN)
+ 247:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 248:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SET_HSIOM_SEL(UART_RTS_SS0_HSIOM_REG, UART_RTS_SS0_HSIOM_MASK,
+ 249:.\Generated_Source\PSoC4/UART_SPI.c ****                                        UART_RTS_SS0_HSIOM_POS, UART_HSIOM_SPI_SEL);
+ 250:.\Generated_Source\PSoC4/UART_SPI.c ****     #endif /* (UART_RTS_SS0_PIN) */
+ 251:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 252:.\Generated_Source\PSoC4/UART_SPI.c ****     #if (UART_SS1_PIN)
+ 253:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 254:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SET_HSIOM_SEL(UART_SS1_HSIOM_REG, UART_SS1_HSIOM_MASK,
+ 255:.\Generated_Source\PSoC4/UART_SPI.c ****                                        UART_SS1_HSIOM_POS, UART_HSIOM_SPI_SEL);
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 6
+
+
+ 256:.\Generated_Source\PSoC4/UART_SPI.c ****     #endif /* (UART_SS1_PIN) */
+ 257:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 258:.\Generated_Source\PSoC4/UART_SPI.c ****     #if (UART_SS2_PIN)
+ 259:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 260:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SET_HSIOM_SEL(UART_SS2_HSIOM_REG, UART_SS2_HSIOM_MASK,
+ 261:.\Generated_Source\PSoC4/UART_SPI.c ****                                        UART_SS2_HSIOM_POS, UART_HSIOM_SPI_SEL);
+ 262:.\Generated_Source\PSoC4/UART_SPI.c ****     #endif /* (UART_SS2_PIN) */
+ 263:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 264:.\Generated_Source\PSoC4/UART_SPI.c ****     #if (UART_SS3_PIN)
+ 265:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 266:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SET_HSIOM_SEL(UART_SS3_HSIOM_REG, UART_SS3_HSIOM_MASK,
+ 267:.\Generated_Source\PSoC4/UART_SPI.c ****                                        UART_SS3_HSIOM_POS, UART_HSIOM_SPI_SEL);
+ 268:.\Generated_Source\PSoC4/UART_SPI.c ****     #endif /* (UART_SS3_PIN) */
+ 269:.\Generated_Source\PSoC4/UART_SPI.c ****     }
+ 270:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 271:.\Generated_Source\PSoC4/UART_SPI.c **** #else
+ 272:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 273:.\Generated_Source\PSoC4/UART_SPI.c **** #if (UART_SPI_MASTER_SCLK_PIN)
+ 274:.\Generated_Source\PSoC4/UART_SPI.c ****     /* Set SCB SPI to drive output pin */
+ 275:.\Generated_Source\PSoC4/UART_SPI.c ****     UART_SET_HSIOM_SEL(UART_SCLK_M_HSIOM_REG, UART_SCLK_M_HSIOM_MASK,
+ 276:.\Generated_Source\PSoC4/UART_SPI.c ****                                    UART_SCLK_M_HSIOM_POS, UART_HSIOM_SPI_SEL);
+ 277:.\Generated_Source\PSoC4/UART_SPI.c **** #endif /* (UART_MISO_SDA_TX_PIN_PIN) */
+ 278:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 279:.\Generated_Source\PSoC4/UART_SPI.c **** #if (UART_SPI_MASTER_SS0_PIN)
+ 280:.\Generated_Source\PSoC4/UART_SPI.c ****     /* Set SCB SPI to drive output pin */
+ 281:.\Generated_Source\PSoC4/UART_SPI.c ****     UART_SET_HSIOM_SEL(UART_SS0_M_HSIOM_REG, UART_SS0_M_HSIOM_MASK,
+ 282:.\Generated_Source\PSoC4/UART_SPI.c ****                                    UART_SS0_M_HSIOM_POS, UART_HSIOM_SPI_SEL);
+ 283:.\Generated_Source\PSoC4/UART_SPI.c **** #endif /* (UART_SPI_MASTER_SS0_PIN) */
+ 284:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 285:.\Generated_Source\PSoC4/UART_SPI.c **** #if (UART_SPI_MASTER_SS1_PIN)
+ 286:.\Generated_Source\PSoC4/UART_SPI.c ****     /* Set SCB SPI to drive output pin */
+ 287:.\Generated_Source\PSoC4/UART_SPI.c ****     UART_SET_HSIOM_SEL(UART_SS1_M_HSIOM_REG, UART_SS1_M_HSIOM_MASK,
+ 288:.\Generated_Source\PSoC4/UART_SPI.c ****                                    UART_SS1_M_HSIOM_POS, UART_HSIOM_SPI_SEL);
+ 289:.\Generated_Source\PSoC4/UART_SPI.c **** #endif /* (UART_SPI_MASTER_SS1_PIN) */
+ 290:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 291:.\Generated_Source\PSoC4/UART_SPI.c **** #if (UART_SPI_MASTER_SS2_PIN)
+ 292:.\Generated_Source\PSoC4/UART_SPI.c ****     /* Set SCB SPI to drive output pin */
+ 293:.\Generated_Source\PSoC4/UART_SPI.c ****     UART_SET_HSIOM_SEL(UART_SS2_M_HSIOM_REG, UART_SS2_M_HSIOM_MASK,
+ 294:.\Generated_Source\PSoC4/UART_SPI.c ****                                    UART_SS2_M_HSIOM_POS, UART_HSIOM_SPI_SEL);
+ 295:.\Generated_Source\PSoC4/UART_SPI.c **** #endif /* (UART_SPI_MASTER_SS2_PIN) */
+ 296:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 297:.\Generated_Source\PSoC4/UART_SPI.c **** #if (UART_SPI_MASTER_SS3_PIN)
+ 298:.\Generated_Source\PSoC4/UART_SPI.c ****     /* Set SCB SPI to drive output pin */
+ 299:.\Generated_Source\PSoC4/UART_SPI.c ****     UART_SET_HSIOM_SEL(UART_SS3_M_HSIOM_REG, UART_SS3_M_HSIOM_MASK,
+ 300:.\Generated_Source\PSoC4/UART_SPI.c ****                                    UART_SS3_M_HSIOM_POS, UART_HSIOM_SPI_SEL);
+ 301:.\Generated_Source\PSoC4/UART_SPI.c **** #endif /* (UART_SPI_MASTER_SS3_PIN) */
+ 302:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 303:.\Generated_Source\PSoC4/UART_SPI.c **** #endif /* (UART_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 304:.\Generated_Source\PSoC4/UART_SPI.c **** }
+  31              		.loc 1 304 0
+  32              		@ sp needed
+  33 0004 7047     		bx	lr
+  34              	.L3:
+  35 0006 C046     		.align	2
+  36              	.L2:
+  37 0008 20002440 		.word	1076101152
+  38              		.cfi_endproc
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 7
+
+
+  39              	.LFE3:
+  40              		.size	UART_SpiPostEnable, .-UART_SpiPostEnable
+  41              		.section	.text.UART_SpiStop,"ax",%progbits
+  42              		.align	2
+  43              		.global	UART_SpiStop
+  44              		.code	16
+  45              		.thumb_func
+  46              		.type	UART_SpiStop, %function
+  47              	UART_SpiStop:
+  48              	.LFB4:
+ 305:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 306:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 307:.\Generated_Source\PSoC4/UART_SPI.c **** /*******************************************************************************
+ 308:.\Generated_Source\PSoC4/UART_SPI.c **** * Function Name: UART_SpiStop
+ 309:.\Generated_Source\PSoC4/UART_SPI.c **** ********************************************************************************
+ 310:.\Generated_Source\PSoC4/UART_SPI.c **** *
+ 311:.\Generated_Source\PSoC4/UART_SPI.c **** * Summary:
+ 312:.\Generated_Source\PSoC4/UART_SPI.c **** *  Changes the HSIOM settings for the SPI master output pins (SCLK and/or SS0-SS3) to
+ 313:.\Generated_Source\PSoC4/UART_SPI.c **** *  keep them inactive after the block is disabled. The output pins are
+ 314:.\Generated_Source\PSoC4/UART_SPI.c **** *  controlled by the GPIO data register.
+ 315:.\Generated_Source\PSoC4/UART_SPI.c **** *
+ 316:.\Generated_Source\PSoC4/UART_SPI.c **** * Parameters:
+ 317:.\Generated_Source\PSoC4/UART_SPI.c **** *  None
+ 318:.\Generated_Source\PSoC4/UART_SPI.c **** *
+ 319:.\Generated_Source\PSoC4/UART_SPI.c **** * Return:
+ 320:.\Generated_Source\PSoC4/UART_SPI.c **** *  None
+ 321:.\Generated_Source\PSoC4/UART_SPI.c **** *
+ 322:.\Generated_Source\PSoC4/UART_SPI.c **** *******************************************************************************/
+ 323:.\Generated_Source\PSoC4/UART_SPI.c **** void UART_SpiStop(void)
+ 324:.\Generated_Source\PSoC4/UART_SPI.c **** {
+  49              		.loc 1 324 0
+  50              		.cfi_startproc
+ 325:.\Generated_Source\PSoC4/UART_SPI.c **** #if(UART_SCB_MODE_UNCONFIG_CONST_CFG)
+ 326:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 327:.\Generated_Source\PSoC4/UART_SPI.c ****     if (UART_CHECK_SPI_MASTER)
+  51              		.loc 1 327 0
+  52 0000 014B     		ldr	r3, .L5
+  53 0002 1B68     		ldr	r3, [r3]
+ 328:.\Generated_Source\PSoC4/UART_SPI.c ****     {
+ 329:.\Generated_Source\PSoC4/UART_SPI.c ****     #if (UART_SCLK_PIN)
+ 330:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Set output pin state after block is disabled */
+ 331:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_uart_cts_spi_sclk_Write(UART_GET_SPI_SCLK_INACTIVE);
+ 332:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 333:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Set GPIO to drive output pin */
+ 334:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SET_HSIOM_SEL(UART_SCLK_HSIOM_REG, UART_SCLK_HSIOM_MASK,
+ 335:.\Generated_Source\PSoC4/UART_SPI.c ****                                        UART_SCLK_HSIOM_POS, UART_HSIOM_GPIO_SEL);
+ 336:.\Generated_Source\PSoC4/UART_SPI.c ****     #endif /* (UART_MISO_SDA_TX_PIN_PIN) */
+ 337:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 338:.\Generated_Source\PSoC4/UART_SPI.c ****     #if (UART_SS0_PIN)
+ 339:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Set output pin state after block is disabled */
+ 340:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_uart_rts_spi_ss0_Write(UART_GET_SPI_SS0_INACTIVE);
+ 341:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 342:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Set GPIO to drive output pin */
+ 343:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SET_HSIOM_SEL(UART_SS0_HSIOM_REG, UART_SS0_HSIOM_MASK,
+ 344:.\Generated_Source\PSoC4/UART_SPI.c ****                                        UART_SS0_HSIOM_POS, UART_HSIOM_GPIO_SEL);
+ 345:.\Generated_Source\PSoC4/UART_SPI.c ****     #endif /* (UART_SS0_PIN) */
+ 346:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 8
+
+
+ 347:.\Generated_Source\PSoC4/UART_SPI.c ****     #if (UART_SS1_PIN)
+ 348:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Set output pin state after block is disabled */
+ 349:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_spi_ss1_Write(UART_GET_SPI_SS1_INACTIVE);
+ 350:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 351:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Set GPIO to drive output pin */
+ 352:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SET_HSIOM_SEL(UART_SS1_HSIOM_REG, UART_SS1_HSIOM_MASK,
+ 353:.\Generated_Source\PSoC4/UART_SPI.c ****                                        UART_SS1_HSIOM_POS, UART_HSIOM_GPIO_SEL);
+ 354:.\Generated_Source\PSoC4/UART_SPI.c ****     #endif /* (UART_SS1_PIN) */
+ 355:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 356:.\Generated_Source\PSoC4/UART_SPI.c ****     #if (UART_SS2_PIN)
+ 357:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Set output pin state after block is disabled */
+ 358:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_spi_ss2_Write(UART_GET_SPI_SS2_INACTIVE);
+ 359:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 360:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Set GPIO to drive output pin */
+ 361:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SET_HSIOM_SEL(UART_SS2_HSIOM_REG, UART_SS2_HSIOM_MASK,
+ 362:.\Generated_Source\PSoC4/UART_SPI.c ****                                        UART_SS2_HSIOM_POS, UART_HSIOM_GPIO_SEL);
+ 363:.\Generated_Source\PSoC4/UART_SPI.c ****     #endif /* (UART_SS2_PIN) */
+ 364:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 365:.\Generated_Source\PSoC4/UART_SPI.c ****     #if (UART_SS3_PIN)
+ 366:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Set output pin state after block is disabled */
+ 367:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_spi_ss3_Write(UART_GET_SPI_SS3_INACTIVE);
+ 368:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 369:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Set GPIO to drive output pin */
+ 370:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SET_HSIOM_SEL(UART_SS3_HSIOM_REG, UART_SS3_HSIOM_MASK,
+ 371:.\Generated_Source\PSoC4/UART_SPI.c ****                                        UART_SS3_HSIOM_POS, UART_HSIOM_GPIO_SEL);
+ 372:.\Generated_Source\PSoC4/UART_SPI.c ****     #endif /* (UART_SS3_PIN) */
+ 373:.\Generated_Source\PSoC4/UART_SPI.c ****     }
+ 374:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 375:.\Generated_Source\PSoC4/UART_SPI.c **** #else
+ 376:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 377:.\Generated_Source\PSoC4/UART_SPI.c **** #if (UART_SPI_MASTER_SCLK_PIN)
+ 378:.\Generated_Source\PSoC4/UART_SPI.c ****     /* Set output pin state after block is disabled */
+ 379:.\Generated_Source\PSoC4/UART_SPI.c ****     UART_sclk_m_Write(UART_GET_SPI_SCLK_INACTIVE);
+ 380:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 381:.\Generated_Source\PSoC4/UART_SPI.c ****     /* Set GPIO to drive output pin */
+ 382:.\Generated_Source\PSoC4/UART_SPI.c ****     UART_SET_HSIOM_SEL(UART_SCLK_M_HSIOM_REG, UART_SCLK_M_HSIOM_MASK,
+ 383:.\Generated_Source\PSoC4/UART_SPI.c ****                                    UART_SCLK_M_HSIOM_POS, UART_HSIOM_GPIO_SEL);
+ 384:.\Generated_Source\PSoC4/UART_SPI.c **** #endif /* (UART_MISO_SDA_TX_PIN_PIN) */
+ 385:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 386:.\Generated_Source\PSoC4/UART_SPI.c **** #if (UART_SPI_MASTER_SS0_PIN)
+ 387:.\Generated_Source\PSoC4/UART_SPI.c ****     /* Set output pin state after block is disabled */
+ 388:.\Generated_Source\PSoC4/UART_SPI.c ****     UART_ss0_m_Write(UART_GET_SPI_SS0_INACTIVE);
+ 389:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 390:.\Generated_Source\PSoC4/UART_SPI.c ****     /* Set GPIO to drive output pin */
+ 391:.\Generated_Source\PSoC4/UART_SPI.c ****     UART_SET_HSIOM_SEL(UART_SS0_M_HSIOM_REG, UART_SS0_M_HSIOM_MASK,
+ 392:.\Generated_Source\PSoC4/UART_SPI.c ****                                    UART_SS0_M_HSIOM_POS, UART_HSIOM_GPIO_SEL);
+ 393:.\Generated_Source\PSoC4/UART_SPI.c **** #endif /* (UART_SPI_MASTER_SS0_PIN) */
+ 394:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 395:.\Generated_Source\PSoC4/UART_SPI.c **** #if (UART_SPI_MASTER_SS1_PIN)
+ 396:.\Generated_Source\PSoC4/UART_SPI.c ****     /* Set output pin state after block is disabled */
+ 397:.\Generated_Source\PSoC4/UART_SPI.c ****     UART_ss1_m_Write(UART_GET_SPI_SS1_INACTIVE);
+ 398:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 399:.\Generated_Source\PSoC4/UART_SPI.c ****     /* Set GPIO to drive output pin */
+ 400:.\Generated_Source\PSoC4/UART_SPI.c ****     UART_SET_HSIOM_SEL(UART_SS1_M_HSIOM_REG, UART_SS1_M_HSIOM_MASK,
+ 401:.\Generated_Source\PSoC4/UART_SPI.c ****                                    UART_SS1_M_HSIOM_POS, UART_HSIOM_GPIO_SEL);
+ 402:.\Generated_Source\PSoC4/UART_SPI.c **** #endif /* (UART_SPI_MASTER_SS1_PIN) */
+ 403:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 9
+
+
+ 404:.\Generated_Source\PSoC4/UART_SPI.c **** #if (UART_SPI_MASTER_SS2_PIN)
+ 405:.\Generated_Source\PSoC4/UART_SPI.c ****     /* Set output pin state after block is disabled */
+ 406:.\Generated_Source\PSoC4/UART_SPI.c ****     UART_ss2_m_Write(UART_GET_SPI_SS2_INACTIVE);
+ 407:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 408:.\Generated_Source\PSoC4/UART_SPI.c ****     /* Set GPIO to drive output pin */
+ 409:.\Generated_Source\PSoC4/UART_SPI.c ****     UART_SET_HSIOM_SEL(UART_SS2_M_HSIOM_REG, UART_SS2_M_HSIOM_MASK,
+ 410:.\Generated_Source\PSoC4/UART_SPI.c ****                                    UART_SS2_M_HSIOM_POS, UART_HSIOM_GPIO_SEL);
+ 411:.\Generated_Source\PSoC4/UART_SPI.c **** #endif /* (UART_SPI_MASTER_SS2_PIN) */
+ 412:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 413:.\Generated_Source\PSoC4/UART_SPI.c **** #if (UART_SPI_MASTER_SS3_PIN)
+ 414:.\Generated_Source\PSoC4/UART_SPI.c ****     /* Set output pin state after block is disabled */
+ 415:.\Generated_Source\PSoC4/UART_SPI.c ****     UART_ss3_m_Write(UART_GET_SPI_SS3_INACTIVE);
+ 416:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 417:.\Generated_Source\PSoC4/UART_SPI.c ****     /* Set GPIO to drive output pin */
+ 418:.\Generated_Source\PSoC4/UART_SPI.c ****     UART_SET_HSIOM_SEL(UART_SS3_M_HSIOM_REG, UART_SS3_M_HSIOM_MASK,
+ 419:.\Generated_Source\PSoC4/UART_SPI.c ****                                    UART_SS3_M_HSIOM_POS, UART_HSIOM_GPIO_SEL);
+ 420:.\Generated_Source\PSoC4/UART_SPI.c **** #endif /* (UART_SPI_MASTER_SS3_PIN) */
+ 421:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 422:.\Generated_Source\PSoC4/UART_SPI.c **** #endif /* (UART_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 423:.\Generated_Source\PSoC4/UART_SPI.c **** }
+  54              		.loc 1 423 0
+  55              		@ sp needed
+  56 0004 7047     		bx	lr
+  57              	.L6:
+  58 0006 C046     		.align	2
+  59              	.L5:
+  60 0008 20002440 		.word	1076101152
+  61              		.cfi_endproc
+  62              	.LFE4:
+  63              		.size	UART_SpiStop, .-UART_SpiStop
+  64              		.section	.text.UART_SpiSetActiveSlaveSelect,"ax",%progbits
+  65              		.align	2
+  66              		.global	UART_SpiSetActiveSlaveSelect
+  67              		.code	16
+  68              		.thumb_func
+  69              		.type	UART_SpiSetActiveSlaveSelect, %function
+  70              	UART_SpiSetActiveSlaveSelect:
+  71              	.LFB5:
+ 424:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 425:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 426:.\Generated_Source\PSoC4/UART_SPI.c **** #if (UART_SPI_MASTER_CONST)
+ 427:.\Generated_Source\PSoC4/UART_SPI.c ****     /*******************************************************************************
+ 428:.\Generated_Source\PSoC4/UART_SPI.c ****     * Function Name: UART_SetActiveSlaveSelect
+ 429:.\Generated_Source\PSoC4/UART_SPI.c ****     ********************************************************************************
+ 430:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 431:.\Generated_Source\PSoC4/UART_SPI.c ****     * Summary:
+ 432:.\Generated_Source\PSoC4/UART_SPI.c ****     *  Selects one of the four slave select lines to be active during the transfer.
+ 433:.\Generated_Source\PSoC4/UART_SPI.c ****     *  After initialization the active slave select line is 0.
+ 434:.\Generated_Source\PSoC4/UART_SPI.c ****     *  The component should be in one of the following states to change the active
+ 435:.\Generated_Source\PSoC4/UART_SPI.c ****     *  slave select signal source correctly:
+ 436:.\Generated_Source\PSoC4/UART_SPI.c ****     *   - The component is disabled
+ 437:.\Generated_Source\PSoC4/UART_SPI.c ****     *   - The component has completed transfer (TX FIFO is empty and the
+ 438:.\Generated_Source\PSoC4/UART_SPI.c ****     *     SCB_INTR_MASTER_SPI_DONE status is set)
+ 439:.\Generated_Source\PSoC4/UART_SPI.c ****     *  This function does not check that these conditions are met.
+ 440:.\Generated_Source\PSoC4/UART_SPI.c ****     *  This function is only applicable to SPI Master mode of operation.
+ 441:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 442:.\Generated_Source\PSoC4/UART_SPI.c ****     * Parameters:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 10
+
+
+ 443:.\Generated_Source\PSoC4/UART_SPI.c ****     *  slaveSelect: slave select line which will be active while the following
+ 444:.\Generated_Source\PSoC4/UART_SPI.c ****     *               transfer.
+ 445:.\Generated_Source\PSoC4/UART_SPI.c ****     *   UART_SPI_SLAVE_SELECT0 - Slave select 0
+ 446:.\Generated_Source\PSoC4/UART_SPI.c ****     *   UART_SPI_SLAVE_SELECT1 - Slave select 1
+ 447:.\Generated_Source\PSoC4/UART_SPI.c ****     *   UART_SPI_SLAVE_SELECT2 - Slave select 2
+ 448:.\Generated_Source\PSoC4/UART_SPI.c ****     *   UART_SPI_SLAVE_SELECT3 - Slave select 3
+ 449:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 450:.\Generated_Source\PSoC4/UART_SPI.c ****     * Return:
+ 451:.\Generated_Source\PSoC4/UART_SPI.c ****     *  None
+ 452:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 453:.\Generated_Source\PSoC4/UART_SPI.c ****     *******************************************************************************/
+ 454:.\Generated_Source\PSoC4/UART_SPI.c ****     void UART_SpiSetActiveSlaveSelect(uint32 slaveSelect)
+ 455:.\Generated_Source\PSoC4/UART_SPI.c ****     {
+  72              		.loc 1 455 0
+  73              		.cfi_startproc
+  74              	.LVL0:
+ 456:.\Generated_Source\PSoC4/UART_SPI.c ****         uint32 spiCtrl;
+ 457:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 458:.\Generated_Source\PSoC4/UART_SPI.c ****         spiCtrl = UART_SPI_CTRL_REG;
+  75              		.loc 1 458 0
+  76 0000 0549     		ldr	r1, .L8
+  77 0002 0A68     		ldr	r2, [r1]
+  78              	.LVL1:
+ 459:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 460:.\Generated_Source\PSoC4/UART_SPI.c ****         spiCtrl &= (uint32) ~UART_SPI_CTRL_SLAVE_SELECT_MASK;
+  79              		.loc 1 460 0
+  80 0004 054B     		ldr	r3, .L8+4
+  81 0006 1340     		and	r3, r2
+  82              	.LVL2:
+ 461:.\Generated_Source\PSoC4/UART_SPI.c ****         spiCtrl |= (uint32)  UART_GET_SPI_CTRL_SS(slaveSelect);
+  83              		.loc 1 461 0
+  84 0008 8006     		lsl	r0, r0, #26
+  85              	.LVL3:
+  86 000a C022     		mov	r2, #192
+  87 000c 1205     		lsl	r2, r2, #20
+  88 000e 1040     		and	r0, r2
+  89 0010 1843     		orr	r0, r3
+  90              	.LVL4:
+ 462:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 463:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SPI_CTRL_REG = spiCtrl;
+  91              		.loc 1 463 0
+  92 0012 0860     		str	r0, [r1]
+ 464:.\Generated_Source\PSoC4/UART_SPI.c ****     }
+  93              		.loc 1 464 0
+  94              		@ sp needed
+  95 0014 7047     		bx	lr
+  96              	.L9:
+  97 0016 C046     		.align	2
+  98              	.L8:
+  99 0018 20002440 		.word	1076101152
+ 100 001c FFFFFFF3 		.word	-201326593
+ 101              		.cfi_endproc
+ 102              	.LFE5:
+ 103              		.size	UART_SpiSetActiveSlaveSelect, .-UART_SpiSetActiveSlaveSelect
+ 104              		.section	.text.UART_SpiInit,"ax",%progbits
+ 105              		.align	2
+ 106              		.global	UART_SpiInit
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 11
+
+
+ 107              		.code	16
+ 108              		.thumb_func
+ 109              		.type	UART_SpiInit, %function
+ 110              	UART_SpiInit:
+ 111              	.LFB2:
+  72:.\Generated_Source\PSoC4/UART_SPI.c ****         if(NULL == config)
+ 112              		.loc 1 72 0
+ 113              		.cfi_startproc
+ 114              	.LVL5:
+ 115 0000 38B5     		push	{r3, r4, r5, lr}
+ 116              		.cfi_def_cfa_offset 16
+ 117              		.cfi_offset 3, -16
+ 118              		.cfi_offset 4, -12
+ 119              		.cfi_offset 5, -8
+ 120              		.cfi_offset 14, -4
+ 121 0002 041E     		sub	r4, r0, #0
+  73:.\Generated_Source\PSoC4/UART_SPI.c ****         {
+ 122              		.loc 1 73 0
+ 123 0004 03D1     		bne	.L11
+  75:.\Generated_Source\PSoC4/UART_SPI.c ****         }
+ 124              		.loc 1 75 0 discriminator 1
+ 125 0006 0020     		mov	r0, #0
+ 126              	.LVL6:
+ 127 0008 FFF7FEFF 		bl	CyHalt
+ 128              	.LVL7:
+ 129 000c CCE0     		b	.L10
+ 130              	.LVL8:
+ 131              	.L11:
+  80:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 132              		.loc 1 80 0
+ 133 000e 0220     		mov	r0, #2
+ 134              	.LVL9:
+ 135 0010 2168     		ldr	r1, [r4]
+ 136 0012 0022     		mov	r2, #0
+ 137 0014 FFF7FEFF 		bl	UART_SetPins
+ 138              	.LVL10:
+  83:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_scbEnableWake = (uint8) config->enableWake;
+ 139              		.loc 1 83 0
+ 140 0018 0222     		mov	r2, #2
+ 141 001a 644B     		ldr	r3, .L25
+ 142 001c 1A70     		strb	r2, [r3]
+  84:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_scbEnableIntr = (uint8) config->enableInterrupt;
+ 143              		.loc 1 84 0
+ 144 001e A369     		ldr	r3, [r4, #24]
+ 145 0020 634A     		ldr	r2, .L25+4
+ 146 0022 1370     		strb	r3, [r2]
+  85:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 147              		.loc 1 85 0
+ 148 0024 634A     		ldr	r2, .L25+8
+ 149 0026 E16B     		ldr	r1, [r4, #60]
+ 150 0028 1170     		strb	r1, [r2]
+  88:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_rxDataBits    = (uint8) config->rxDataBits;
+ 151              		.loc 1 88 0
+ 152 002a 634A     		ldr	r2, .L25+12
+ 153 002c 216B     		ldr	r1, [r4, #48]
+ 154 002e 1160     		str	r1, [r2]
+  89:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_rxBufferSize  = (uint8) config->rxBufferSize;
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 12
+
+
+ 155              		.loc 1 89 0
+ 156 0030 217F     		ldrb	r1, [r4, #28]
+ 157 0032 624A     		ldr	r2, .L25+16
+ 158 0034 1170     		strb	r1, [r2]
+  90:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 159              		.loc 1 90 0
+ 160 0036 FF22     		mov	r2, #255
+ 161 0038 E16A     		ldr	r1, [r4, #44]
+ 162 003a 1140     		and	r1, r2
+ 163 003c 6048     		ldr	r0, .L25+20
+ 164 003e 0160     		str	r1, [r0]
+  93:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_txDataBits    = (uint8) config->txDataBits;
+ 165              		.loc 1 93 0
+ 166 0040 6049     		ldr	r1, .L25+24
+ 167 0042 A06B     		ldr	r0, [r4, #56]
+ 168 0044 0860     		str	r0, [r1]
+  94:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_txBufferSize  = (uint8) config->txBufferSize;
+ 169              		.loc 1 94 0
+ 170 0046 6049     		ldr	r1, .L25+28
+ 171 0048 206A     		ldr	r0, [r4, #32]
+ 172 004a 0870     		strb	r0, [r1]
+  95:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 173              		.loc 1 95 0
+ 174 004c 616B     		ldr	r1, [r4, #52]
+ 175 004e 0A40     		and	r2, r1
+ 176 0050 5E49     		ldr	r1, .L25+32
+ 177 0052 0A60     		str	r2, [r1]
+  98:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_CTRL_BYTE_MODE(config->enableByteMode) |
+ 178              		.loc 1 98 0
+ 179 0054 E268     		ldr	r2, [r4, #12]
+ 180 0056 013A     		sub	r2, r2, #1
+ 181 0058 0F21     		mov	r1, #15
+ 182 005a 0A40     		and	r2, r1
+  99:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_CTRL_EC_AM_MODE(config->enableWake)    |
+ 183              		.loc 1 99 0
+ 184 005c 4131     		add	r1, r1, #65
+ 185 005e 615C     		ldrb	r1, [r4, r1]
+ 186 0060 0029     		cmp	r1, #0
+ 187 0062 02D0     		beq	.L23
+ 188 0064 8021     		mov	r1, #128
+ 189 0066 0901     		lsl	r1, r1, #4
+ 190 0068 00E0     		b	.L13
+ 191              	.L23:
+ 192 006a 0021     		mov	r1, #0
+ 193              	.L13:
+  98:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_CTRL_BYTE_MODE(config->enableByteMode) |
+ 194              		.loc 1 98 0
+ 195 006c 0A43     		orr	r2, r1
+ 100:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_CTRL_SPI;
+ 196              		.loc 1 100 0
+ 197 006e 002B     		cmp	r3, #0
+ 198 0070 01D0     		beq	.L14
+ 199 0072 8023     		mov	r3, #128
+ 200 0074 5B00     		lsl	r3, r3, #1
+ 201              	.L14:
+  99:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_CTRL_EC_AM_MODE(config->enableWake)    |
+ 202              		.loc 1 99 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 13
+
+
+ 203 0076 1343     		orr	r3, r2
+ 100:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_CTRL_SPI;
+ 204              		.loc 1 100 0
+ 205 0078 8022     		mov	r2, #128
+ 206 007a 5204     		lsl	r2, r2, #17
+ 207 007c 1343     		orr	r3, r2
+  98:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_CTRL_BYTE_MODE(config->enableByteMode) |
+ 208              		.loc 1 98 0
+ 209 007e 544A     		ldr	r2, .L25+36
+ 210 0080 1360     		str	r3, [r2]
+ 103:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_SELECT_PRECEDE(config->submode &
+ 211              		.loc 1 103 0
+ 212 0082 A16A     		ldr	r1, [r4, #40]
+ 213 0084 0029     		cmp	r1, #0
+ 214 0086 00D0     		beq	.L15
+ 215 0088 0121     		mov	r1, #1
+ 216              	.L15:
+ 104:.\Generated_Source\PSoC4/UART_SPI.c ****                                                                           UART_SPI_MODE_TI_PRECEDES
+ 217              		.loc 1 104 0
+ 218 008a 6568     		ldr	r5, [r4, #4]
+ 219 008c 1022     		mov	r2, #16
+ 220 008e 131C     		mov	r3, r2
+ 221 0090 2B40     		and	r3, r5
+ 222 0092 00D0     		beq	.L16
+ 223 0094 0223     		mov	r3, #2
+ 224              	.L16:
+ 103:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_SELECT_PRECEDE(config->submode &
+ 225              		.loc 1 103 0
+ 226 0096 1943     		orr	r1, r3
+ 106:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_LATE_MISO_SAMPLE(config->enableLateSa
+ 227              		.loc 1 106 0
+ 228 0098 A368     		ldr	r3, [r4, #8]
+ 229 009a 9A00     		lsl	r2, r3, #2
+ 230 009c 0C23     		mov	r3, #12
+ 231 009e 1340     		and	r3, r2
+ 105:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_SCLK_MODE     (config->sclkMode)     
+ 232              		.loc 1 105 0
+ 233 00a0 0B43     		orr	r3, r1
+ 107:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_SCLK_CONTINUOUS(config->enableFreeRun
+ 234              		.loc 1 107 0
+ 235 00a2 6069     		ldr	r0, [r4, #20]
+ 236 00a4 0028     		cmp	r0, #0
+ 237 00a6 00D0     		beq	.L17
+ 238 00a8 1020     		mov	r0, #16
+ 239              	.L17:
+ 106:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_LATE_MISO_SAMPLE(config->enableLateSa
+ 240              		.loc 1 106 0
+ 241 00aa 1843     		orr	r0, r3
+ 108:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_SSEL_POLARITY (config->polaritySs)   
+ 242              		.loc 1 108 0
+ 243 00ac 5123     		mov	r3, #81
+ 244 00ae E35C     		ldrb	r3, [r4, r3]
+ 245 00b0 002B     		cmp	r3, #0
+ 246 00b2 01D0     		beq	.L24
+ 247 00b4 2023     		mov	r3, #32
+ 248 00b6 00E0     		b	.L18
+ 249              	.L24:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 14
+
+
+ 250 00b8 0023     		mov	r3, #0
+ 251              	.L18:
+ 107:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_SCLK_CONTINUOUS(config->enableFreeRun
+ 252              		.loc 1 107 0
+ 253 00ba 0343     		orr	r3, r0
+ 109:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_SUB_MODE      (config->submode)      
+ 254              		.loc 1 109 0
+ 255 00bc 5222     		mov	r2, #82
+ 256 00be A05C     		ldrb	r0, [r4, r2]
+ 257 00c0 0002     		lsl	r0, r0, #8
+ 258 00c2 F021     		mov	r1, #240
+ 259 00c4 0901     		lsl	r1, r1, #4
+ 260 00c6 0840     		and	r0, r1
+ 108:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_SSEL_POLARITY (config->polaritySs)   
+ 261              		.loc 1 108 0
+ 262 00c8 1843     		orr	r0, r3
+ 110:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_MASTER_MODE   (config->mode);
+ 263              		.loc 1 110 0
+ 264 00ca 2B06     		lsl	r3, r5, #24
+ 265 00cc C021     		mov	r1, #192
+ 266 00ce 8904     		lsl	r1, r1, #18
+ 267 00d0 0B40     		and	r3, r1
+ 268 00d2 1A1C     		mov	r2, r3
+ 109:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_SUB_MODE      (config->submode)      
+ 269              		.loc 1 109 0
+ 270 00d4 031C     		mov	r3, r0
+ 271 00d6 1343     		orr	r3, r2
+ 111:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 272              		.loc 1 111 0
+ 273 00d8 2268     		ldr	r2, [r4]
+ 274 00da 002A     		cmp	r2, #0
+ 275 00dc 01D0     		beq	.L19
+ 276 00de 8022     		mov	r2, #128
+ 277 00e0 1206     		lsl	r2, r2, #24
+ 278              	.L19:
+ 110:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_MASTER_MODE   (config->mode);
+ 279              		.loc 1 110 0
+ 280 00e2 1343     		orr	r3, r2
+ 103:.\Generated_Source\PSoC4/UART_SPI.c ****                                             UART_GET_SPI_CTRL_SELECT_PRECEDE(config->submode &
+ 281              		.loc 1 103 0
+ 282 00e4 3B4A     		ldr	r2, .L25+40
+ 283 00e6 1360     		str	r3, [r2]
+ 114:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_GET_RX_CTRL_BIT_ORDER (config->bitOrder)      
+ 284              		.loc 1 114 0
+ 285 00e8 E369     		ldr	r3, [r4, #28]
+ 286 00ea 013B     		sub	r3, r3, #1
+ 287 00ec 0F22     		mov	r2, #15
+ 288 00ee 1340     		and	r3, r2
+ 115:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_GET_RX_CTRL_MEDIAN    (config->enableMedianFil
+ 289              		.loc 1 115 0
+ 290 00f0 626A     		ldr	r2, [r4, #36]
+ 291 00f2 002A     		cmp	r2, #0
+ 292 00f4 01D0     		beq	.L20
+ 293 00f6 8022     		mov	r2, #128
+ 294 00f8 5200     		lsl	r2, r2, #1
+ 295              	.L20:
+ 114:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_GET_RX_CTRL_BIT_ORDER (config->bitOrder)      
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 15
+
+
+ 296              		.loc 1 114 0
+ 297 00fa 1A43     		orr	r2, r3
+ 116:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_SPI_RX_CTRL;
+ 298              		.loc 1 116 0
+ 299 00fc 2369     		ldr	r3, [r4, #16]
+ 300 00fe 002B     		cmp	r3, #0
+ 301 0100 01D0     		beq	.L21
+ 302 0102 8023     		mov	r3, #128
+ 303 0104 9B00     		lsl	r3, r3, #2
+ 304              	.L21:
+ 115:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_GET_RX_CTRL_MEDIAN    (config->enableMedianFil
+ 305              		.loc 1 115 0
+ 306 0106 1343     		orr	r3, r2
+ 116:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_SPI_RX_CTRL;
+ 307              		.loc 1 116 0
+ 308 0108 8022     		mov	r2, #128
+ 309 010a 1206     		lsl	r2, r2, #24
+ 310 010c 1343     		orr	r3, r2
+ 114:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_GET_RX_CTRL_BIT_ORDER (config->bitOrder)      
+ 311              		.loc 1 114 0
+ 312 010e 324A     		ldr	r2, .L25+44
+ 313 0110 1360     		str	r3, [r2]
+ 119:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 314              		.loc 1 119 0
+ 315 0112 0F22     		mov	r2, #15
+ 316 0114 616C     		ldr	r1, [r4, #68]
+ 317 0116 1140     		and	r1, r2
+ 318 0118 304B     		ldr	r3, .L25+48
+ 319 011a 1960     		str	r1, [r3]
+ 122:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_GET_TX_CTRL_BIT_ORDER (config->bitOrder)   |
+ 320              		.loc 1 122 0
+ 321 011c 236A     		ldr	r3, [r4, #32]
+ 322 011e 013B     		sub	r3, r3, #1
+ 323 0120 1A40     		and	r2, r3
+ 123:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_SPI_TX_CTRL;
+ 324              		.loc 1 123 0
+ 325 0122 636A     		ldr	r3, [r4, #36]
+ 326 0124 002B     		cmp	r3, #0
+ 327 0126 01D0     		beq	.L22
+ 328 0128 8023     		mov	r3, #128
+ 329 012a 5B00     		lsl	r3, r3, #1
+ 330              	.L22:
+ 122:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_GET_TX_CTRL_BIT_ORDER (config->bitOrder)   |
+ 331              		.loc 1 122 0
+ 332 012c 1343     		orr	r3, r2
+ 123:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_SPI_TX_CTRL;
+ 333              		.loc 1 123 0
+ 334 012e 8022     		mov	r2, #128
+ 335 0130 1206     		lsl	r2, r2, #24
+ 336 0132 1343     		orr	r3, r2
+ 122:.\Generated_Source\PSoC4/UART_SPI.c ****                                                 UART_GET_TX_CTRL_BIT_ORDER (config->bitOrder)   |
+ 337              		.loc 1 122 0
+ 338 0134 2A4A     		ldr	r2, .L25+52
+ 339 0136 1360     		str	r3, [r2]
+ 126:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 340              		.loc 1 126 0
+ 341 0138 0F23     		mov	r3, #15
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 16
+
+
+ 342 013a E26C     		ldr	r2, [r4, #76]
+ 343 013c 1340     		and	r3, r2
+ 344 013e 294A     		ldr	r2, .L25+56
+ 345 0140 1360     		str	r3, [r2]
+ 129:.\Generated_Source\PSoC4/UART_SPI.c ****             CyIntSetPriority(UART_ISR_NUMBER, UART_ISR_PRIORITY);
+ 346              		.loc 1 129 0
+ 347 0142 0920     		mov	r0, #9
+ 348 0144 FFF7FEFF 		bl	CyIntDisable
+ 349              	.LVL11:
+ 130:.\Generated_Source\PSoC4/UART_SPI.c ****             (void) CyIntSetVector(UART_ISR_NUMBER, &UART_SPI_UART_ISR);
+ 350              		.loc 1 130 0
+ 351 0148 0920     		mov	r0, #9
+ 352 014a 0321     		mov	r1, #3
+ 353 014c FFF7FEFF 		bl	CyIntSetPriority
+ 354              	.LVL12:
+ 131:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 355              		.loc 1 131 0
+ 356 0150 0920     		mov	r0, #9
+ 357 0152 2549     		ldr	r1, .L25+60
+ 358 0154 FFF7FEFF 		bl	CyIntSetVector
+ 359              	.LVL13:
+ 134:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_INTR_SPI_EC_MASK_REG = UART_NO_INTR_SOURCES;
+ 360              		.loc 1 134 0
+ 361 0158 0025     		mov	r5, #0
+ 362 015a 244B     		ldr	r3, .L25+64
+ 363 015c 1D60     		str	r5, [r3]
+ 135:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_INTR_SLAVE_MASK_REG  = UART_GET_SPI_INTR_SLAVE_MASK(config->rxInterruptMask);
+ 364              		.loc 1 135 0
+ 365 015e 244B     		ldr	r3, .L25+68
+ 366 0160 1D60     		str	r5, [r3]
+ 136:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_INTR_MASTER_MASK_REG = UART_GET_SPI_INTR_MASTER_MASK(config->txInterruptMask);
+ 367              		.loc 1 136 0
+ 368 0162 8023     		mov	r3, #128
+ 369 0164 1B01     		lsl	r3, r3, #4
+ 370 0166 226C     		ldr	r2, [r4, #64]
+ 371 0168 1340     		and	r3, r2
+ 372 016a 224A     		ldr	r2, .L25+72
+ 373 016c 1360     		str	r3, [r2]
+ 137:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_INTR_RX_MASK_REG     = UART_GET_SPI_INTR_RX_MASK(config->rxInterruptMask);
+ 374              		.loc 1 137 0
+ 375 016e 8023     		mov	r3, #128
+ 376 0170 9B00     		lsl	r3, r3, #2
+ 377 0172 A26C     		ldr	r2, [r4, #72]
+ 378 0174 1340     		and	r3, r2
+ 379 0176 204A     		ldr	r2, .L25+76
+ 380 0178 1360     		str	r3, [r2]
+ 138:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_INTR_TX_MASK_REG     = UART_GET_SPI_INTR_TX_MASK(config->txInterruptMask);
+ 381              		.loc 1 138 0
+ 382 017a 204B     		ldr	r3, .L25+80
+ 383 017c 226C     		ldr	r2, [r4, #64]
+ 384 017e 1340     		and	r3, r2
+ 385 0180 1F4A     		ldr	r2, .L25+84
+ 386 0182 1360     		str	r3, [r2]
+ 139:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 387              		.loc 1 139 0
+ 388 0184 A26C     		ldr	r2, [r4, #72]
+ 389 0186 1F4B     		ldr	r3, .L25+88
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 17
+
+
+ 390 0188 1340     		and	r3, r2
+ 391 018a 1F4A     		ldr	r2, .L25+92
+ 392 018c 1360     		str	r3, [r2]
+ 142:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 393              		.loc 1 142 0
+ 394 018e 0020     		mov	r0, #0
+ 395 0190 FFF7FEFF 		bl	UART_SpiSetActiveSlaveSelect
+ 396              	.LVL14:
+ 145:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_rxBufferTail     = 0u;
+ 397              		.loc 1 145 0
+ 398 0194 1D4B     		ldr	r3, .L25+96
+ 399 0196 1D60     		str	r5, [r3]
+ 146:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_rxBufferOverflow = 0u;
+ 400              		.loc 1 146 0
+ 401 0198 1D4B     		ldr	r3, .L25+100
+ 402 019a 1D60     		str	r5, [r3]
+ 147:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 403              		.loc 1 147 0
+ 404 019c 1D4B     		ldr	r3, .L25+104
+ 405 019e 1D70     		strb	r5, [r3]
+ 150:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_txBufferTail = 0u;
+ 406              		.loc 1 150 0
+ 407 01a0 1D4B     		ldr	r3, .L25+108
+ 408 01a2 1D60     		str	r5, [r3]
+ 151:.\Generated_Source\PSoC4/UART_SPI.c ****         }
+ 409              		.loc 1 151 0
+ 410 01a4 1D4B     		ldr	r3, .L25+112
+ 411 01a6 1D60     		str	r5, [r3]
+ 412              	.L10:
+ 153:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 413              		.loc 1 153 0
+ 414              		@ sp needed
+ 415              	.LVL15:
+ 416 01a8 38BD     		pop	{r3, r4, r5, pc}
+ 417              	.L26:
+ 418 01aa C046     		.align	2
+ 419              	.L25:
+ 420 01ac 00000000 		.word	UART_scbMode
+ 421 01b0 00000000 		.word	UART_scbEnableWake
+ 422 01b4 00000000 		.word	UART_scbEnableIntr
+ 423 01b8 00000000 		.word	UART_rxBuffer
+ 424 01bc 00000000 		.word	UART_rxDataBits
+ 425 01c0 00000000 		.word	UART_rxBufferSize
+ 426 01c4 00000000 		.word	UART_txBuffer
+ 427 01c8 00000000 		.word	UART_txDataBits
+ 428 01cc 00000000 		.word	UART_txBufferSize
+ 429 01d0 00002440 		.word	1076101120
+ 430 01d4 20002440 		.word	1076101152
+ 431 01d8 00032440 		.word	1076101888
+ 432 01dc 04032440 		.word	1076101892
+ 433 01e0 00022440 		.word	1076101632
+ 434 01e4 04022440 		.word	1076101636
+ 435 01e8 00000000 		.word	UART_SPI_UART_ISR
+ 436 01ec 880E2440 		.word	1076104840
+ 437 01f0 C80E2440 		.word	1076104904
+ 438 01f4 480F2440 		.word	1076105032
+ 439 01f8 080F2440 		.word	1076104968
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 18
+
+
+ 440 01fc FFF7FFFF 		.word	-2049
+ 441 0200 C80F2440 		.word	1076105160
+ 442 0204 FFFDFFFF 		.word	-513
+ 443 0208 880F2440 		.word	1076105096
+ 444 020c 00000000 		.word	UART_rxBufferHead
+ 445 0210 00000000 		.word	UART_rxBufferTail
+ 446 0214 00000000 		.word	UART_rxBufferOverflow
+ 447 0218 00000000 		.word	UART_txBufferHead
+ 448 021c 00000000 		.word	UART_txBufferTail
+ 449              		.cfi_endproc
+ 450              	.LFE2:
+ 451              		.size	UART_SpiInit, .-UART_SpiInit
+ 452              		.section	.text.UART_SpiSetSlaveSelectPolarity,"ax",%progbits
+ 453              		.align	2
+ 454              		.global	UART_SpiSetSlaveSelectPolarity
+ 455              		.code	16
+ 456              		.thumb_func
+ 457              		.type	UART_SpiSetSlaveSelectPolarity, %function
+ 458              	UART_SpiSetSlaveSelectPolarity:
+ 459              	.LFB6:
+ 465:.\Generated_Source\PSoC4/UART_SPI.c **** #endif /* (UART_SPI_MASTER_CONST) */
+ 466:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 467:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 468:.\Generated_Source\PSoC4/UART_SPI.c **** #if !(UART_CY_SCBIP_V0 || UART_CY_SCBIP_V1)
+ 469:.\Generated_Source\PSoC4/UART_SPI.c ****     /*******************************************************************************
+ 470:.\Generated_Source\PSoC4/UART_SPI.c ****     * Function Name: UART_SpiSetSlaveSelectPolarity
+ 471:.\Generated_Source\PSoC4/UART_SPI.c ****     ********************************************************************************
+ 472:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 473:.\Generated_Source\PSoC4/UART_SPI.c ****     * Summary:
+ 474:.\Generated_Source\PSoC4/UART_SPI.c ****     *  Sets active polarity for slave select line.
+ 475:.\Generated_Source\PSoC4/UART_SPI.c ****     *  The component should be in one of the following states to change the active
+ 476:.\Generated_Source\PSoC4/UART_SPI.c ****     *  slave select signal source correctly:
+ 477:.\Generated_Source\PSoC4/UART_SPI.c ****     *   - The component is disabled.
+ 478:.\Generated_Source\PSoC4/UART_SPI.c ****     *   - The component has completed transfer.
+ 479:.\Generated_Source\PSoC4/UART_SPI.c ****     *  This function does not check that these conditions are met.
+ 480:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 481:.\Generated_Source\PSoC4/UART_SPI.c ****     * Parameters:
+ 482:.\Generated_Source\PSoC4/UART_SPI.c ****     *  slaveSelect: slave select line to change active polarity.
+ 483:.\Generated_Source\PSoC4/UART_SPI.c ****     *   UART_SPI_SLAVE_SELECT0 - Slave select 0
+ 484:.\Generated_Source\PSoC4/UART_SPI.c ****     *   UART_SPI_SLAVE_SELECT1 - Slave select 1
+ 485:.\Generated_Source\PSoC4/UART_SPI.c ****     *   UART_SPI_SLAVE_SELECT2 - Slave select 2
+ 486:.\Generated_Source\PSoC4/UART_SPI.c ****     *   UART_SPI_SLAVE_SELECT3 - Slave select 3
+ 487:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 488:.\Generated_Source\PSoC4/UART_SPI.c ****     *  polarity: active polarity of slave select line.
+ 489:.\Generated_Source\PSoC4/UART_SPI.c ****     *   UART_SPI_SS_ACTIVE_LOW  - Slave select is active low
+ 490:.\Generated_Source\PSoC4/UART_SPI.c ****     *   UART_SPI_SS_ACTIVE_HIGH - Slave select is active high
+ 491:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 492:.\Generated_Source\PSoC4/UART_SPI.c ****     * Return:
+ 493:.\Generated_Source\PSoC4/UART_SPI.c ****     *  None
+ 494:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 495:.\Generated_Source\PSoC4/UART_SPI.c ****     *******************************************************************************/
+ 496:.\Generated_Source\PSoC4/UART_SPI.c ****     void UART_SpiSetSlaveSelectPolarity(uint32 slaveSelect, uint32 polarity)
+ 497:.\Generated_Source\PSoC4/UART_SPI.c ****     {
+ 460              		.loc 1 497 0
+ 461              		.cfi_startproc
+ 462              	.LVL16:
+ 498:.\Generated_Source\PSoC4/UART_SPI.c ****         uint32 ssPolarity;
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 19
+
+
+ 499:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 500:.\Generated_Source\PSoC4/UART_SPI.c ****         /* Get position of the polarity bit associated with slave select line */
+ 501:.\Generated_Source\PSoC4/UART_SPI.c ****         ssPolarity = UART_GET_SPI_CTRL_SSEL_POLARITY((uint32) 1u << slaveSelect);
+ 463              		.loc 1 501 0
+ 464 0000 8023     		mov	r3, #128
+ 465 0002 5B00     		lsl	r3, r3, #1
+ 466 0004 8340     		lsl	r3, r3, r0
+ 467 0006 181C     		mov	r0, r3
+ 468              	.LVL17:
+ 469 0008 F023     		mov	r3, #240
+ 470 000a 1B01     		lsl	r3, r3, #4
+ 471 000c 1840     		and	r0, r3
+ 472              	.LVL18:
+ 502:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 503:.\Generated_Source\PSoC4/UART_SPI.c ****         if (0u != polarity)
+ 473              		.loc 1 503 0
+ 474 000e 0029     		cmp	r1, #0
+ 475 0010 04D0     		beq	.L28
+ 504:.\Generated_Source\PSoC4/UART_SPI.c ****         {
+ 505:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_SPI_CTRL_REG |= (uint32)  ssPolarity;
+ 476              		.loc 1 505 0
+ 477 0012 054B     		ldr	r3, .L30
+ 478 0014 1A68     		ldr	r2, [r3]
+ 479 0016 1043     		orr	r0, r2
+ 480              	.LVL19:
+ 481 0018 1860     		str	r0, [r3]
+ 482 001a 03E0     		b	.L27
+ 483              	.LVL20:
+ 484              	.L28:
+ 506:.\Generated_Source\PSoC4/UART_SPI.c ****         }
+ 507:.\Generated_Source\PSoC4/UART_SPI.c ****         else
+ 508:.\Generated_Source\PSoC4/UART_SPI.c ****         {
+ 509:.\Generated_Source\PSoC4/UART_SPI.c ****             UART_SPI_CTRL_REG &= (uint32) ~ssPolarity;
+ 485              		.loc 1 509 0
+ 486 001c 024A     		ldr	r2, .L30
+ 487 001e 1368     		ldr	r3, [r2]
+ 488 0020 8343     		bic	r3, r0
+ 489 0022 1360     		str	r3, [r2]
+ 490              	.LVL21:
+ 491              	.L27:
+ 510:.\Generated_Source\PSoC4/UART_SPI.c ****         }
+ 511:.\Generated_Source\PSoC4/UART_SPI.c ****     }
+ 492              		.loc 1 511 0
+ 493              		@ sp needed
+ 494 0024 7047     		bx	lr
+ 495              	.L31:
+ 496 0026 C046     		.align	2
+ 497              	.L30:
+ 498 0028 20002440 		.word	1076101152
+ 499              		.cfi_endproc
+ 500              	.LFE6:
+ 501              		.size	UART_SpiSetSlaveSelectPolarity, .-UART_SpiSetSlaveSelectPolarity
+ 502              		.section	.text.UART_SpiSaveConfig,"ax",%progbits
+ 503              		.align	2
+ 504              		.global	UART_SpiSaveConfig
+ 505              		.code	16
+ 506              		.thumb_func
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 20
+
+
+ 507              		.type	UART_SpiSaveConfig, %function
+ 508              	UART_SpiSaveConfig:
+ 509              	.LFB7:
+ 512:.\Generated_Source\PSoC4/UART_SPI.c **** #endif /* !(UART_CY_SCBIP_V0 || UART_CY_SCBIP_V1) */
+ 513:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 514:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 515:.\Generated_Source\PSoC4/UART_SPI.c **** #if(UART_SPI_WAKE_ENABLE_CONST)
+ 516:.\Generated_Source\PSoC4/UART_SPI.c ****     /*******************************************************************************
+ 517:.\Generated_Source\PSoC4/UART_SPI.c ****     * Function Name: UART_SpiSaveConfig
+ 518:.\Generated_Source\PSoC4/UART_SPI.c ****     ********************************************************************************
+ 519:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 520:.\Generated_Source\PSoC4/UART_SPI.c ****     * Summary:
+ 521:.\Generated_Source\PSoC4/UART_SPI.c ****     *  Clears INTR_SPI_EC.WAKE_UP and enables it. This interrupt
+ 522:.\Generated_Source\PSoC4/UART_SPI.c ****     *  source triggers when the master assigns the SS line and wakes up the device.
+ 523:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 524:.\Generated_Source\PSoC4/UART_SPI.c ****     * Parameters:
+ 525:.\Generated_Source\PSoC4/UART_SPI.c ****     *  None
+ 526:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 527:.\Generated_Source\PSoC4/UART_SPI.c ****     * Return:
+ 528:.\Generated_Source\PSoC4/UART_SPI.c ****     *  None
+ 529:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 530:.\Generated_Source\PSoC4/UART_SPI.c ****     *******************************************************************************/
+ 531:.\Generated_Source\PSoC4/UART_SPI.c ****     void UART_SpiSaveConfig(void)
+ 532:.\Generated_Source\PSoC4/UART_SPI.c ****     {
+ 510              		.loc 1 532 0
+ 511              		.cfi_startproc
+ 533:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_ClearSpiExtClkInterruptSource(UART_INTR_SPI_EC_WAKE_UP);
+ 512              		.loc 1 533 0
+ 513 0000 0123     		mov	r3, #1
+ 514 0002 024A     		ldr	r2, .L33
+ 515 0004 1360     		str	r3, [r2]
+ 534:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SetSpiExtClkInterruptMode(UART_INTR_SPI_EC_WAKE_UP);
+ 516              		.loc 1 534 0
+ 517 0006 024A     		ldr	r2, .L33+4
+ 518 0008 1360     		str	r3, [r2]
+ 535:.\Generated_Source\PSoC4/UART_SPI.c ****     }
+ 519              		.loc 1 535 0
+ 520              		@ sp needed
+ 521 000a 7047     		bx	lr
+ 522              	.L34:
+ 523              		.align	2
+ 524              	.L33:
+ 525 000c C00E2440 		.word	1076104896
+ 526 0010 C80E2440 		.word	1076104904
+ 527              		.cfi_endproc
+ 528              	.LFE7:
+ 529              		.size	UART_SpiSaveConfig, .-UART_SpiSaveConfig
+ 530              		.section	.text.UART_SpiRestoreConfig,"ax",%progbits
+ 531              		.align	2
+ 532              		.global	UART_SpiRestoreConfig
+ 533              		.code	16
+ 534              		.thumb_func
+ 535              		.type	UART_SpiRestoreConfig, %function
+ 536              	UART_SpiRestoreConfig:
+ 537              	.LFB8:
+ 536:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ 537:.\Generated_Source\PSoC4/UART_SPI.c **** 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 21
+
+
+ 538:.\Generated_Source\PSoC4/UART_SPI.c ****     /*******************************************************************************
+ 539:.\Generated_Source\PSoC4/UART_SPI.c ****     * Function Name: UART_SpiRestoreConfig
+ 540:.\Generated_Source\PSoC4/UART_SPI.c ****     ********************************************************************************
+ 541:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 542:.\Generated_Source\PSoC4/UART_SPI.c ****     * Summary:
+ 543:.\Generated_Source\PSoC4/UART_SPI.c ****     *  Disables the INTR_SPI_EC.WAKE_UP interrupt source. After wakeup
+ 544:.\Generated_Source\PSoC4/UART_SPI.c ****     *  slave does not drive the MISO line and the master receives 0xFF.
+ 545:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 546:.\Generated_Source\PSoC4/UART_SPI.c ****     * Parameters:
+ 547:.\Generated_Source\PSoC4/UART_SPI.c ****     *  None
+ 548:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 549:.\Generated_Source\PSoC4/UART_SPI.c ****     * Return:
+ 550:.\Generated_Source\PSoC4/UART_SPI.c ****     *  None
+ 551:.\Generated_Source\PSoC4/UART_SPI.c ****     *
+ 552:.\Generated_Source\PSoC4/UART_SPI.c ****     *******************************************************************************/
+ 553:.\Generated_Source\PSoC4/UART_SPI.c ****     void UART_SpiRestoreConfig(void)
+ 554:.\Generated_Source\PSoC4/UART_SPI.c ****     {
+ 538              		.loc 1 554 0
+ 539              		.cfi_startproc
+ 555:.\Generated_Source\PSoC4/UART_SPI.c ****         UART_SetSpiExtClkInterruptMode(UART_NO_INTR_SOURCES);
+ 540              		.loc 1 555 0
+ 541 0000 0022     		mov	r2, #0
+ 542 0002 014B     		ldr	r3, .L36
+ 543 0004 1A60     		str	r2, [r3]
+ 556:.\Generated_Source\PSoC4/UART_SPI.c ****     }
+ 544              		.loc 1 556 0
+ 545              		@ sp needed
+ 546 0006 7047     		bx	lr
+ 547              	.L37:
+ 548              		.align	2
+ 549              	.L36:
+ 550 0008 C80E2440 		.word	1076104904
+ 551              		.cfi_endproc
+ 552              	.LFE8:
+ 553              		.size	UART_SpiRestoreConfig, .-UART_SpiRestoreConfig
+ 554              		.global	UART_configSpi
+ 555              		.section	.rodata
+ 556              		.align	2
+ 557              		.type	UART_configSpi, %object
+ 558              		.size	UART_configSpi, 84
+ 559              	UART_configSpi:
+ 560 0000 00000000 		.word	0
+ 561 0004 00000000 		.word	0
+ 562 0008 00000000 		.word	0
+ 563 000c 10000000 		.word	16
+ 564 0010 00000000 		.word	0
+ 565 0014 00000000 		.word	0
+ 566 0018 00000000 		.word	0
+ 567 001c 08000000 		.word	8
+ 568 0020 08000000 		.word	8
+ 569 0024 01000000 		.word	1
+ 570 0028 01000000 		.word	1
+ 571 002c 00000000 		.word	0
+ 572 0030 00000000 		.word	0
+ 573 0034 00000000 		.word	0
+ 574 0038 00000000 		.word	0
+ 575 003c 01000000 		.word	1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 22
+
+
+ 576 0040 00000000 		.word	0
+ 577 0044 07000000 		.word	7
+ 578 0048 00000000 		.word	0
+ 579 004c 00000000 		.word	0
+ 580 0050 00       		.byte	0
+ 581 0051 00       		.byte	0
+ 582 0052 00       		.byte	0
+ 583 0053 00       		.space	1
+ 584              		.text
+ 585              	.Letext0:
+ 586              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 587              		.file 3 ".\\Generated_Source\\PSoC4\\UART_SPI_UART.h"
+ 588              		.file 4 ".\\Generated_Source\\PSoC4\\UART_PVT.h"
+ 589              		.file 5 ".\\Generated_Source\\PSoC4\\UART_SPI_UART_PVT.h"
+ 590              		.file 6 "Generated_Source\\PSoC4/CyLib.h"
+ 591              		.section	.debug_info,"",%progbits
+ 592              	.Ldebug_info0:
+ 593 0000 90040000 		.4byte	0x490
+ 594 0004 0400     		.2byte	0x4
+ 595 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 596 000a 04       		.byte	0x4
+ 597 000b 01       		.uleb128 0x1
+ 598 000c CB020000 		.4byte	.LASF73
+ 599 0010 01       		.byte	0x1
+ 600 0011 80030000 		.4byte	.LASF74
+ 601 0015 27020000 		.4byte	.LASF75
+ 602 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 603 001d 00000000 		.4byte	0
+ 604 0021 00000000 		.4byte	.Ldebug_line0
+ 605 0025 02       		.uleb128 0x2
+ 606 0026 01       		.byte	0x1
+ 607 0027 06       		.byte	0x6
+ 608 0028 68000000 		.4byte	.LASF0
+ 609 002c 02       		.uleb128 0x2
+ 610 002d 01       		.byte	0x1
+ 611 002e 08       		.byte	0x8
+ 612 002f AB030000 		.4byte	.LASF1
+ 613 0033 02       		.uleb128 0x2
+ 614 0034 02       		.byte	0x2
+ 615 0035 05       		.byte	0x5
+ 616 0036 C6030000 		.4byte	.LASF2
+ 617 003a 02       		.uleb128 0x2
+ 618 003b 02       		.byte	0x2
+ 619 003c 07       		.byte	0x7
+ 620 003d 90010000 		.4byte	.LASF3
+ 621 0041 02       		.uleb128 0x2
+ 622 0042 04       		.byte	0x4
+ 623 0043 05       		.byte	0x5
+ 624 0044 A5000000 		.4byte	.LASF4
+ 625 0048 02       		.uleb128 0x2
+ 626 0049 04       		.byte	0x4
+ 627 004a 07       		.byte	0x7
+ 628 004b 6B010000 		.4byte	.LASF5
+ 629 004f 02       		.uleb128 0x2
+ 630 0050 08       		.byte	0x8
+ 631 0051 05       		.byte	0x5
+ 632 0052 5A000000 		.4byte	.LASF6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 23
+
+
+ 633 0056 02       		.uleb128 0x2
+ 634 0057 08       		.byte	0x8
+ 635 0058 07       		.byte	0x7
+ 636 0059 0D000000 		.4byte	.LASF7
+ 637 005d 03       		.uleb128 0x3
+ 638 005e 04       		.byte	0x4
+ 639 005f 05       		.byte	0x5
+ 640 0060 696E7400 		.ascii	"int\000"
+ 641 0064 02       		.uleb128 0x2
+ 642 0065 04       		.byte	0x4
+ 643 0066 07       		.byte	0x7
+ 644 0067 5E010000 		.4byte	.LASF8
+ 645 006b 04       		.uleb128 0x4
+ 646 006c E0000000 		.4byte	.LASF9
+ 647 0070 02       		.byte	0x2
+ 648 0071 C2       		.byte	0xc2
+ 649 0072 2C000000 		.4byte	0x2c
+ 650 0076 04       		.uleb128 0x4
+ 651 0077 0E010000 		.4byte	.LASF10
+ 652 007b 02       		.byte	0x2
+ 653 007c C4       		.byte	0xc4
+ 654 007d 48000000 		.4byte	0x48
+ 655 0081 02       		.uleb128 0x2
+ 656 0082 04       		.byte	0x4
+ 657 0083 04       		.byte	0x4
+ 658 0084 7A030000 		.4byte	.LASF11
+ 659 0088 02       		.uleb128 0x2
+ 660 0089 08       		.byte	0x8
+ 661 008a 04       		.byte	0x4
+ 662 008b F8000000 		.4byte	.LASF12
+ 663 008f 02       		.uleb128 0x2
+ 664 0090 01       		.byte	0x1
+ 665 0091 08       		.byte	0x8
+ 666 0092 21040000 		.4byte	.LASF13
+ 667 0096 05       		.uleb128 0x5
+ 668 0097 6B000000 		.4byte	0x6b
+ 669 009b 06       		.uleb128 0x6
+ 670 009c E3010000 		.4byte	.LASF14
+ 671 00a0 02       		.byte	0x2
+ 672 00a1 6E01     		.2byte	0x16e
+ 673 00a3 A7000000 		.4byte	0xa7
+ 674 00a7 05       		.uleb128 0x5
+ 675 00a8 76000000 		.4byte	0x76
+ 676 00ac 06       		.uleb128 0x6
+ 677 00ad 2B040000 		.4byte	.LASF15
+ 678 00b1 02       		.byte	0x2
+ 679 00b2 7E01     		.2byte	0x17e
+ 680 00b4 B8000000 		.4byte	0xb8
+ 681 00b8 07       		.uleb128 0x7
+ 682 00b9 04       		.byte	0x4
+ 683 00ba BE000000 		.4byte	0xbe
+ 684 00be 08       		.uleb128 0x8
+ 685 00bf 02       		.uleb128 0x2
+ 686 00c0 04       		.byte	0x4
+ 687 00c1 07       		.byte	0x7
+ 688 00c2 11020000 		.4byte	.LASF16
+ 689 00c6 09       		.uleb128 0x9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 24
+
+
+ 690 00c7 54       		.byte	0x54
+ 691 00c8 03       		.byte	0x3
+ 692 00c9 0901     		.2byte	0x109
+ 693 00cb FB010000 		.4byte	0x1fb
+ 694 00cf 0A       		.uleb128 0xa
+ 695 00d0 26040000 		.4byte	.LASF17
+ 696 00d4 03       		.byte	0x3
+ 697 00d5 0B01     		.2byte	0x10b
+ 698 00d7 76000000 		.4byte	0x76
+ 699 00db 00       		.byte	0
+ 700 00dc 0A       		.uleb128 0xa
+ 701 00dd D2010000 		.4byte	.LASF18
+ 702 00e1 03       		.byte	0x3
+ 703 00e2 0C01     		.2byte	0x10c
+ 704 00e4 76000000 		.4byte	0x76
+ 705 00e8 04       		.byte	0x4
+ 706 00e9 0A       		.uleb128 0xa
+ 707 00ea E9010000 		.4byte	.LASF19
+ 708 00ee 03       		.byte	0x3
+ 709 00ef 0D01     		.2byte	0x10d
+ 710 00f1 76000000 		.4byte	0x76
+ 711 00f5 08       		.byte	0x8
+ 712 00f6 0A       		.uleb128 0xa
+ 713 00f7 F6030000 		.4byte	.LASF20
+ 714 00fb 03       		.byte	0x3
+ 715 00fc 0E01     		.2byte	0x10e
+ 716 00fe 76000000 		.4byte	0x76
+ 717 0102 0C       		.byte	0xc
+ 718 0103 0A       		.uleb128 0xa
+ 719 0104 D0030000 		.4byte	.LASF21
+ 720 0108 03       		.byte	0x3
+ 721 0109 0F01     		.2byte	0x10f
+ 722 010b 76000000 		.4byte	0x76
+ 723 010f 10       		.byte	0x10
+ 724 0110 0A       		.uleb128 0xa
+ 725 0111 F6040000 		.4byte	.LASF22
+ 726 0115 03       		.byte	0x3
+ 727 0116 1001     		.2byte	0x110
+ 728 0118 76000000 		.4byte	0x76
+ 729 011c 14       		.byte	0x14
+ 730 011d 0A       		.uleb128 0xa
+ 731 011e BB000000 		.4byte	.LASF23
+ 732 0122 03       		.byte	0x3
+ 733 0123 1101     		.2byte	0x111
+ 734 0125 76000000 		.4byte	0x76
+ 735 0129 18       		.byte	0x18
+ 736 012a 0A       		.uleb128 0xa
+ 737 012b E0040000 		.4byte	.LASF24
+ 738 012f 03       		.byte	0x3
+ 739 0130 1201     		.2byte	0x112
+ 740 0132 76000000 		.4byte	0x76
+ 741 0136 1C       		.byte	0x1c
+ 742 0137 0A       		.uleb128 0xa
+ 743 0138 EB040000 		.4byte	.LASF25
+ 744 013c 03       		.byte	0x3
+ 745 013d 1301     		.2byte	0x113
+ 746 013f 76000000 		.4byte	0x76
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 25
+
+
+ 747 0143 20       		.byte	0x20
+ 748 0144 0A       		.uleb128 0xa
+ 749 0145 DA010000 		.4byte	.LASF26
+ 750 0149 03       		.byte	0x3
+ 751 014a 1401     		.2byte	0x114
+ 752 014c 76000000 		.4byte	0x76
+ 753 0150 24       		.byte	0x24
+ 754 0151 0A       		.uleb128 0xa
+ 755 0152 BF010000 		.4byte	.LASF27
+ 756 0156 03       		.byte	0x3
+ 757 0157 1501     		.2byte	0x115
+ 758 0159 76000000 		.4byte	0x76
+ 759 015d 28       		.byte	0x28
+ 760 015e 0A       		.uleb128 0xa
+ 761 015f B9030000 		.4byte	.LASF28
+ 762 0163 03       		.byte	0x3
+ 763 0164 1601     		.2byte	0x116
+ 764 0166 76000000 		.4byte	0x76
+ 765 016a 2C       		.byte	0x2c
+ 766 016b 0A       		.uleb128 0xa
+ 767 016c 89000000 		.4byte	.LASF29
+ 768 0170 03       		.byte	0x3
+ 769 0171 1701     		.2byte	0x117
+ 770 0173 FB010000 		.4byte	0x1fb
+ 771 0177 30       		.byte	0x30
+ 772 0178 0A       		.uleb128 0xa
+ 773 0179 00000000 		.4byte	.LASF30
+ 774 017d 03       		.byte	0x3
+ 775 017e 1801     		.2byte	0x118
+ 776 0180 76000000 		.4byte	0x76
+ 777 0184 34       		.byte	0x34
+ 778 0185 0A       		.uleb128 0xa
+ 779 0186 AC040000 		.4byte	.LASF31
+ 780 018a 03       		.byte	0x3
+ 781 018b 1901     		.2byte	0x119
+ 782 018d FB010000 		.4byte	0x1fb
+ 783 0191 38       		.byte	0x38
+ 784 0192 0A       		.uleb128 0xa
+ 785 0193 5E040000 		.4byte	.LASF32
+ 786 0197 03       		.byte	0x3
+ 787 0198 1A01     		.2byte	0x11a
+ 788 019a 76000000 		.4byte	0x76
+ 789 019e 3C       		.byte	0x3c
+ 790 019f 0A       		.uleb128 0xa
+ 791 01a0 59030000 		.4byte	.LASF33
+ 792 01a4 03       		.byte	0x3
+ 793 01a5 1B01     		.2byte	0x11b
+ 794 01a7 76000000 		.4byte	0x76
+ 795 01ab 40       		.byte	0x40
+ 796 01ac 0A       		.uleb128 0xa
+ 797 01ad BC020000 		.4byte	.LASF34
+ 798 01b1 03       		.byte	0x3
+ 799 01b2 1C01     		.2byte	0x11c
+ 800 01b4 76000000 		.4byte	0x76
+ 801 01b8 44       		.byte	0x44
+ 802 01b9 0A       		.uleb128 0xa
+ 803 01ba 8A040000 		.4byte	.LASF35
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 26
+
+
+ 804 01be 03       		.byte	0x3
+ 805 01bf 1D01     		.2byte	0x11d
+ 806 01c1 76000000 		.4byte	0x76
+ 807 01c5 48       		.byte	0x48
+ 808 01c6 0A       		.uleb128 0xa
+ 809 01c7 09050000 		.4byte	.LASF36
+ 810 01cb 03       		.byte	0x3
+ 811 01cc 1E01     		.2byte	0x11e
+ 812 01ce 76000000 		.4byte	0x76
+ 813 01d2 4C       		.byte	0x4c
+ 814 01d3 0A       		.uleb128 0xa
+ 815 01d4 FF000000 		.4byte	.LASF37
+ 816 01d8 03       		.byte	0x3
+ 817 01d9 1F01     		.2byte	0x11f
+ 818 01db 6B000000 		.4byte	0x6b
+ 819 01df 50       		.byte	0x50
+ 820 01e0 0A       		.uleb128 0xa
+ 821 01e1 C6000000 		.4byte	.LASF38
+ 822 01e5 03       		.byte	0x3
+ 823 01e6 2001     		.2byte	0x120
+ 824 01e8 6B000000 		.4byte	0x6b
+ 825 01ec 51       		.byte	0x51
+ 826 01ed 0A       		.uleb128 0xa
+ 827 01ee 01040000 		.4byte	.LASF39
+ 828 01f2 03       		.byte	0x3
+ 829 01f3 2101     		.2byte	0x121
+ 830 01f5 6B000000 		.4byte	0x6b
+ 831 01f9 52       		.byte	0x52
+ 832 01fa 00       		.byte	0
+ 833 01fb 07       		.uleb128 0x7
+ 834 01fc 04       		.byte	0x4
+ 835 01fd 6B000000 		.4byte	0x6b
+ 836 0201 06       		.uleb128 0x6
+ 837 0202 74000000 		.4byte	.LASF40
+ 838 0206 03       		.byte	0x3
+ 839 0207 2201     		.2byte	0x122
+ 840 0209 C6000000 		.4byte	0xc6
+ 841 020d 0B       		.uleb128 0xb
+ 842 020e 7D010000 		.4byte	.LASF41
+ 843 0212 01       		.byte	0x1
+ 844 0213 EA       		.byte	0xea
+ 845 0214 00000000 		.4byte	.LFB3
+ 846 0218 0C000000 		.4byte	.LFE3-.LFB3
+ 847 021c 01       		.uleb128 0x1
+ 848 021d 9C       		.byte	0x9c
+ 849 021e 0C       		.uleb128 0xc
+ 850 021f 6E040000 		.4byte	.LASF42
+ 851 0223 01       		.byte	0x1
+ 852 0224 4301     		.2byte	0x143
+ 853 0226 00000000 		.4byte	.LFB4
+ 854 022a 0C000000 		.4byte	.LFE4-.LFB4
+ 855 022e 01       		.uleb128 0x1
+ 856 022f 9C       		.byte	0x9c
+ 857 0230 0D       		.uleb128 0xd
+ 858 0231 B5040000 		.4byte	.LASF43
+ 859 0235 01       		.byte	0x1
+ 860 0236 C601     		.2byte	0x1c6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 27
+
+
+ 861 0238 00000000 		.4byte	.LFB5
+ 862 023c 20000000 		.4byte	.LFE5-.LFB5
+ 863 0240 01       		.uleb128 0x1
+ 864 0241 9C       		.byte	0x9c
+ 865 0242 67020000 		.4byte	0x267
+ 866 0246 0E       		.uleb128 0xe
+ 867 0247 15040000 		.4byte	.LASF45
+ 868 024b 01       		.byte	0x1
+ 869 024c C601     		.2byte	0x1c6
+ 870 024e 76000000 		.4byte	0x76
+ 871 0252 00000000 		.4byte	.LLST0
+ 872 0256 0F       		.uleb128 0xf
+ 873 0257 D8000000 		.4byte	.LASF49
+ 874 025b 01       		.byte	0x1
+ 875 025c C801     		.2byte	0x1c8
+ 876 025e 76000000 		.4byte	0x76
+ 877 0262 21000000 		.4byte	.LLST1
+ 878 0266 00       		.byte	0
+ 879 0267 10       		.uleb128 0x10
+ 880 0268 3F040000 		.4byte	.LASF44
+ 881 026c 01       		.byte	0x1
+ 882 026d 47       		.byte	0x47
+ 883 026e 00000000 		.4byte	.LFB2
+ 884 0272 20020000 		.4byte	.LFE2-.LFB2
+ 885 0276 01       		.uleb128 0x1
+ 886 0277 9C       		.byte	0x9c
+ 887 0278 05030000 		.4byte	0x305
+ 888 027c 11       		.uleb128 0x11
+ 889 027d 38040000 		.4byte	.LASF46
+ 890 0281 01       		.byte	0x1
+ 891 0282 47       		.byte	0x47
+ 892 0283 05030000 		.4byte	0x305
+ 893 0287 4A000000 		.4byte	.LLST2
+ 894 028b 12       		.uleb128 0x12
+ 895 028c 0C000000 		.4byte	.LVL7
+ 896 0290 2A040000 		.4byte	0x42a
+ 897 0294 9E020000 		.4byte	0x29e
+ 898 0298 13       		.uleb128 0x13
+ 899 0299 01       		.uleb128 0x1
+ 900 029a 50       		.byte	0x50
+ 901 029b 01       		.uleb128 0x1
+ 902 029c 30       		.byte	0x30
+ 903 029d 00       		.byte	0
+ 904 029e 12       		.uleb128 0x12
+ 905 029f 18000000 		.4byte	.LVL10
+ 906 02a3 3B040000 		.4byte	0x43b
+ 907 02a7 B6020000 		.4byte	0x2b6
+ 908 02ab 13       		.uleb128 0x13
+ 909 02ac 01       		.uleb128 0x1
+ 910 02ad 52       		.byte	0x52
+ 911 02ae 01       		.uleb128 0x1
+ 912 02af 30       		.byte	0x30
+ 913 02b0 13       		.uleb128 0x13
+ 914 02b1 01       		.uleb128 0x1
+ 915 02b2 50       		.byte	0x50
+ 916 02b3 01       		.uleb128 0x1
+ 917 02b4 32       		.byte	0x32
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 28
+
+
+ 918 02b5 00       		.byte	0
+ 919 02b6 12       		.uleb128 0x12
+ 920 02b7 48010000 		.4byte	.LVL11
+ 921 02bb 56040000 		.4byte	0x456
+ 922 02bf C9020000 		.4byte	0x2c9
+ 923 02c3 13       		.uleb128 0x13
+ 924 02c4 01       		.uleb128 0x1
+ 925 02c5 50       		.byte	0x50
+ 926 02c6 01       		.uleb128 0x1
+ 927 02c7 39       		.byte	0x39
+ 928 02c8 00       		.byte	0
+ 929 02c9 12       		.uleb128 0x12
+ 930 02ca 50010000 		.4byte	.LVL12
+ 931 02ce 67040000 		.4byte	0x467
+ 932 02d2 E1020000 		.4byte	0x2e1
+ 933 02d6 13       		.uleb128 0x13
+ 934 02d7 01       		.uleb128 0x1
+ 935 02d8 51       		.byte	0x51
+ 936 02d9 01       		.uleb128 0x1
+ 937 02da 33       		.byte	0x33
+ 938 02db 13       		.uleb128 0x13
+ 939 02dc 01       		.uleb128 0x1
+ 940 02dd 50       		.byte	0x50
+ 941 02de 01       		.uleb128 0x1
+ 942 02df 39       		.byte	0x39
+ 943 02e0 00       		.byte	0
+ 944 02e1 12       		.uleb128 0x12
+ 945 02e2 58010000 		.4byte	.LVL13
+ 946 02e6 7D040000 		.4byte	0x47d
+ 947 02ea F4020000 		.4byte	0x2f4
+ 948 02ee 13       		.uleb128 0x13
+ 949 02ef 01       		.uleb128 0x1
+ 950 02f0 50       		.byte	0x50
+ 951 02f1 01       		.uleb128 0x1
+ 952 02f2 39       		.byte	0x39
+ 953 02f3 00       		.byte	0
+ 954 02f4 14       		.uleb128 0x14
+ 955 02f5 94010000 		.4byte	.LVL14
+ 956 02f9 30020000 		.4byte	0x230
+ 957 02fd 13       		.uleb128 0x13
+ 958 02fe 01       		.uleb128 0x1
+ 959 02ff 50       		.byte	0x50
+ 960 0300 02       		.uleb128 0x2
+ 961 0301 75       		.byte	0x75
+ 962 0302 00       		.sleb128 0
+ 963 0303 00       		.byte	0
+ 964 0304 00       		.byte	0
+ 965 0305 07       		.uleb128 0x7
+ 966 0306 04       		.byte	0x4
+ 967 0307 0B030000 		.4byte	0x30b
+ 968 030b 15       		.uleb128 0x15
+ 969 030c 01020000 		.4byte	0x201
+ 970 0310 0D       		.uleb128 0xd
+ 971 0311 F2010000 		.4byte	.LASF47
+ 972 0315 01       		.byte	0x1
+ 973 0316 F001     		.2byte	0x1f0
+ 974 0318 00000000 		.4byte	.LFB6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 29
+
+
+ 975 031c 2C000000 		.4byte	.LFE6-.LFB6
+ 976 0320 01       		.uleb128 0x1
+ 977 0321 9C       		.byte	0x9c
+ 978 0322 55030000 		.4byte	0x355
+ 979 0326 0E       		.uleb128 0xe
+ 980 0327 15040000 		.4byte	.LASF45
+ 981 032b 01       		.byte	0x1
+ 982 032c F001     		.2byte	0x1f0
+ 983 032e 76000000 		.4byte	0x76
+ 984 0332 8C000000 		.4byte	.LLST3
+ 985 0336 16       		.uleb128 0x16
+ 986 0337 0C040000 		.4byte	.LASF48
+ 987 033b 01       		.byte	0x1
+ 988 033c F001     		.2byte	0x1f0
+ 989 033e 76000000 		.4byte	0x76
+ 990 0342 01       		.uleb128 0x1
+ 991 0343 51       		.byte	0x51
+ 992 0344 0F       		.uleb128 0xf
+ 993 0345 9F020000 		.4byte	.LASF50
+ 994 0349 01       		.byte	0x1
+ 995 034a F201     		.2byte	0x1f2
+ 996 034c 76000000 		.4byte	0x76
+ 997 0350 AD000000 		.4byte	.LLST4
+ 998 0354 00       		.byte	0
+ 999 0355 0C       		.uleb128 0xc
+ 1000 0356 92000000 		.4byte	.LASF51
+ 1001 035a 01       		.byte	0x1
+ 1002 035b 1302     		.2byte	0x213
+ 1003 035d 00000000 		.4byte	.LFB7
+ 1004 0361 14000000 		.4byte	.LFE7-.LFB7
+ 1005 0365 01       		.uleb128 0x1
+ 1006 0366 9C       		.byte	0x9c
+ 1007 0367 0C       		.uleb128 0xc
+ 1008 0368 15010000 		.4byte	.LASF52
+ 1009 036c 01       		.byte	0x1
+ 1010 036d 2902     		.2byte	0x229
+ 1011 036f 00000000 		.4byte	.LFB8
+ 1012 0373 0C000000 		.4byte	.LFE8-.LFB8
+ 1013 0377 01       		.uleb128 0x1
+ 1014 0378 9C       		.byte	0x9c
+ 1015 0379 17       		.uleb128 0x17
+ 1016 037a 1A020000 		.4byte	.LASF53
+ 1017 037e 04       		.byte	0x4
+ 1018 037f 42       		.byte	0x42
+ 1019 0380 6B000000 		.4byte	0x6b
+ 1020 0384 17       		.uleb128 0x17
+ 1021 0385 2B010000 		.4byte	.LASF54
+ 1022 0389 04       		.byte	0x4
+ 1023 038a 43       		.byte	0x43
+ 1024 038b 6B000000 		.4byte	0x6b
+ 1025 038f 17       		.uleb128 0x17
+ 1026 0390 E3030000 		.4byte	.LASF55
+ 1027 0394 04       		.byte	0x4
+ 1028 0395 44       		.byte	0x44
+ 1029 0396 6B000000 		.4byte	0x6b
+ 1030 039a 17       		.uleb128 0x17
+ 1031 039b D2040000 		.4byte	.LASF56
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 30
+
+
+ 1032 039f 04       		.byte	0x4
+ 1033 03a0 4B       		.byte	0x4b
+ 1034 03a1 A5030000 		.4byte	0x3a5
+ 1035 03a5 07       		.uleb128 0x7
+ 1036 03a6 04       		.byte	0x4
+ 1037 03a7 96000000 		.4byte	0x96
+ 1038 03ab 17       		.uleb128 0x17
+ 1039 03ac 24000000 		.4byte	.LASF57
+ 1040 03b0 04       		.byte	0x4
+ 1041 03b1 4C       		.byte	0x4c
+ 1042 03b2 6B000000 		.4byte	0x6b
+ 1043 03b6 17       		.uleb128 0x17
+ 1044 03b7 9A040000 		.4byte	.LASF58
+ 1045 03bb 04       		.byte	0x4
+ 1046 03bc 4D       		.byte	0x4d
+ 1047 03bd 76000000 		.4byte	0x76
+ 1048 03c1 17       		.uleb128 0x17
+ 1049 03c2 50010000 		.4byte	.LASF59
+ 1050 03c6 04       		.byte	0x4
+ 1051 03c7 4F       		.byte	0x4f
+ 1052 03c8 A5030000 		.4byte	0x3a5
+ 1053 03cc 17       		.uleb128 0x17
+ 1054 03cd 34000000 		.4byte	.LASF60
+ 1055 03d1 04       		.byte	0x4
+ 1056 03d2 50       		.byte	0x50
+ 1057 03d3 6B000000 		.4byte	0x6b
+ 1058 03d7 17       		.uleb128 0x17
+ 1059 03d8 AA020000 		.4byte	.LASF61
+ 1060 03dc 04       		.byte	0x4
+ 1061 03dd 51       		.byte	0x51
+ 1062 03de 76000000 		.4byte	0x76
+ 1063 03e2 18       		.uleb128 0x18
+ 1064 03e3 7B040000 		.4byte	.LASF62
+ 1065 03e7 01       		.byte	0x1
+ 1066 03e8 1B       		.byte	0x1b
+ 1067 03e9 0B030000 		.4byte	0x30b
+ 1068 03ed 05       		.uleb128 0x5
+ 1069 03ee 03       		.byte	0x3
+ 1070 03ef 00000000 		.4byte	UART_configSpi
+ 1071 03f3 17       		.uleb128 0x17
+ 1072 03f4 3E010000 		.4byte	.LASF63
+ 1073 03f8 05       		.byte	0x5
+ 1074 03f9 1E       		.byte	0x1e
+ 1075 03fa A7000000 		.4byte	0xa7
+ 1076 03fe 17       		.uleb128 0x17
+ 1077 03ff 18050000 		.4byte	.LASF64
+ 1078 0403 05       		.byte	0x5
+ 1079 0404 1F       		.byte	0x1f
+ 1080 0405 A7000000 		.4byte	0xa7
+ 1081 0409 17       		.uleb128 0x17
+ 1082 040a 44000000 		.4byte	.LASF65
+ 1083 040e 05       		.byte	0x5
+ 1084 040f 20       		.byte	0x20
+ 1085 0410 96000000 		.4byte	0x96
+ 1086 0414 17       		.uleb128 0x17
+ 1087 0415 E6000000 		.4byte	.LASF66
+ 1088 0419 05       		.byte	0x5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 31
+
+
+ 1089 041a 24       		.byte	0x24
+ 1090 041b A7000000 		.4byte	0xa7
+ 1091 041f 17       		.uleb128 0x17
+ 1092 0420 4C040000 		.4byte	.LASF67
+ 1093 0424 05       		.byte	0x5
+ 1094 0425 25       		.byte	0x25
+ 1095 0426 A7000000 		.4byte	0xa7
+ 1096 042a 19       		.uleb128 0x19
+ 1097 042b A4030000 		.4byte	.LASF68
+ 1098 042f 06       		.byte	0x6
+ 1099 0430 60       		.byte	0x60
+ 1100 0431 3B040000 		.4byte	0x43b
+ 1101 0435 1A       		.uleb128 0x1a
+ 1102 0436 6B000000 		.4byte	0x6b
+ 1103 043a 00       		.byte	0
+ 1104 043b 19       		.uleb128 0x19
+ 1105 043c A3010000 		.4byte	.LASF69
+ 1106 0440 04       		.byte	0x4
+ 1107 0441 30       		.byte	0x30
+ 1108 0442 56040000 		.4byte	0x456
+ 1109 0446 1A       		.uleb128 0x1a
+ 1110 0447 76000000 		.4byte	0x76
+ 1111 044b 1A       		.uleb128 0x1a
+ 1112 044c 76000000 		.4byte	0x76
+ 1113 0450 1A       		.uleb128 0x1a
+ 1114 0451 76000000 		.4byte	0x76
+ 1115 0455 00       		.byte	0
+ 1116 0456 19       		.uleb128 0x19
+ 1117 0457 AE000000 		.4byte	.LASF70
+ 1118 045b 06       		.byte	0x6
+ 1119 045c 4E       		.byte	0x4e
+ 1120 045d 67040000 		.4byte	0x467
+ 1121 0461 1A       		.uleb128 0x1a
+ 1122 0462 6B000000 		.4byte	0x6b
+ 1123 0466 00       		.byte	0
+ 1124 0467 19       		.uleb128 0x19
+ 1125 0468 69030000 		.4byte	.LASF71
+ 1126 046c 06       		.byte	0x6
+ 1127 046d 49       		.byte	0x49
+ 1128 046e 7D040000 		.4byte	0x47d
+ 1129 0472 1A       		.uleb128 0x1a
+ 1130 0473 6B000000 		.4byte	0x6b
+ 1131 0477 1A       		.uleb128 0x1a
+ 1132 0478 6B000000 		.4byte	0x6b
+ 1133 047c 00       		.byte	0
+ 1134 047d 1B       		.uleb128 0x1b
+ 1135 047e B0010000 		.4byte	.LASF72
+ 1136 0482 06       		.byte	0x6
+ 1137 0483 46       		.byte	0x46
+ 1138 0484 AC000000 		.4byte	0xac
+ 1139 0488 1A       		.uleb128 0x1a
+ 1140 0489 6B000000 		.4byte	0x6b
+ 1141 048d 1A       		.uleb128 0x1a
+ 1142 048e AC000000 		.4byte	0xac
+ 1143 0492 00       		.byte	0
+ 1144 0493 00       		.byte	0
+ 1145              		.section	.debug_abbrev,"",%progbits
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 32
+
+
+ 1146              	.Ldebug_abbrev0:
+ 1147 0000 01       		.uleb128 0x1
+ 1148 0001 11       		.uleb128 0x11
+ 1149 0002 01       		.byte	0x1
+ 1150 0003 25       		.uleb128 0x25
+ 1151 0004 0E       		.uleb128 0xe
+ 1152 0005 13       		.uleb128 0x13
+ 1153 0006 0B       		.uleb128 0xb
+ 1154 0007 03       		.uleb128 0x3
+ 1155 0008 0E       		.uleb128 0xe
+ 1156 0009 1B       		.uleb128 0x1b
+ 1157 000a 0E       		.uleb128 0xe
+ 1158 000b 55       		.uleb128 0x55
+ 1159 000c 17       		.uleb128 0x17
+ 1160 000d 11       		.uleb128 0x11
+ 1161 000e 01       		.uleb128 0x1
+ 1162 000f 10       		.uleb128 0x10
+ 1163 0010 17       		.uleb128 0x17
+ 1164 0011 00       		.byte	0
+ 1165 0012 00       		.byte	0
+ 1166 0013 02       		.uleb128 0x2
+ 1167 0014 24       		.uleb128 0x24
+ 1168 0015 00       		.byte	0
+ 1169 0016 0B       		.uleb128 0xb
+ 1170 0017 0B       		.uleb128 0xb
+ 1171 0018 3E       		.uleb128 0x3e
+ 1172 0019 0B       		.uleb128 0xb
+ 1173 001a 03       		.uleb128 0x3
+ 1174 001b 0E       		.uleb128 0xe
+ 1175 001c 00       		.byte	0
+ 1176 001d 00       		.byte	0
+ 1177 001e 03       		.uleb128 0x3
+ 1178 001f 24       		.uleb128 0x24
+ 1179 0020 00       		.byte	0
+ 1180 0021 0B       		.uleb128 0xb
+ 1181 0022 0B       		.uleb128 0xb
+ 1182 0023 3E       		.uleb128 0x3e
+ 1183 0024 0B       		.uleb128 0xb
+ 1184 0025 03       		.uleb128 0x3
+ 1185 0026 08       		.uleb128 0x8
+ 1186 0027 00       		.byte	0
+ 1187 0028 00       		.byte	0
+ 1188 0029 04       		.uleb128 0x4
+ 1189 002a 16       		.uleb128 0x16
+ 1190 002b 00       		.byte	0
+ 1191 002c 03       		.uleb128 0x3
+ 1192 002d 0E       		.uleb128 0xe
+ 1193 002e 3A       		.uleb128 0x3a
+ 1194 002f 0B       		.uleb128 0xb
+ 1195 0030 3B       		.uleb128 0x3b
+ 1196 0031 0B       		.uleb128 0xb
+ 1197 0032 49       		.uleb128 0x49
+ 1198 0033 13       		.uleb128 0x13
+ 1199 0034 00       		.byte	0
+ 1200 0035 00       		.byte	0
+ 1201 0036 05       		.uleb128 0x5
+ 1202 0037 35       		.uleb128 0x35
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 33
+
+
+ 1203 0038 00       		.byte	0
+ 1204 0039 49       		.uleb128 0x49
+ 1205 003a 13       		.uleb128 0x13
+ 1206 003b 00       		.byte	0
+ 1207 003c 00       		.byte	0
+ 1208 003d 06       		.uleb128 0x6
+ 1209 003e 16       		.uleb128 0x16
+ 1210 003f 00       		.byte	0
+ 1211 0040 03       		.uleb128 0x3
+ 1212 0041 0E       		.uleb128 0xe
+ 1213 0042 3A       		.uleb128 0x3a
+ 1214 0043 0B       		.uleb128 0xb
+ 1215 0044 3B       		.uleb128 0x3b
+ 1216 0045 05       		.uleb128 0x5
+ 1217 0046 49       		.uleb128 0x49
+ 1218 0047 13       		.uleb128 0x13
+ 1219 0048 00       		.byte	0
+ 1220 0049 00       		.byte	0
+ 1221 004a 07       		.uleb128 0x7
+ 1222 004b 0F       		.uleb128 0xf
+ 1223 004c 00       		.byte	0
+ 1224 004d 0B       		.uleb128 0xb
+ 1225 004e 0B       		.uleb128 0xb
+ 1226 004f 49       		.uleb128 0x49
+ 1227 0050 13       		.uleb128 0x13
+ 1228 0051 00       		.byte	0
+ 1229 0052 00       		.byte	0
+ 1230 0053 08       		.uleb128 0x8
+ 1231 0054 15       		.uleb128 0x15
+ 1232 0055 00       		.byte	0
+ 1233 0056 27       		.uleb128 0x27
+ 1234 0057 19       		.uleb128 0x19
+ 1235 0058 00       		.byte	0
+ 1236 0059 00       		.byte	0
+ 1237 005a 09       		.uleb128 0x9
+ 1238 005b 13       		.uleb128 0x13
+ 1239 005c 01       		.byte	0x1
+ 1240 005d 0B       		.uleb128 0xb
+ 1241 005e 0B       		.uleb128 0xb
+ 1242 005f 3A       		.uleb128 0x3a
+ 1243 0060 0B       		.uleb128 0xb
+ 1244 0061 3B       		.uleb128 0x3b
+ 1245 0062 05       		.uleb128 0x5
+ 1246 0063 01       		.uleb128 0x1
+ 1247 0064 13       		.uleb128 0x13
+ 1248 0065 00       		.byte	0
+ 1249 0066 00       		.byte	0
+ 1250 0067 0A       		.uleb128 0xa
+ 1251 0068 0D       		.uleb128 0xd
+ 1252 0069 00       		.byte	0
+ 1253 006a 03       		.uleb128 0x3
+ 1254 006b 0E       		.uleb128 0xe
+ 1255 006c 3A       		.uleb128 0x3a
+ 1256 006d 0B       		.uleb128 0xb
+ 1257 006e 3B       		.uleb128 0x3b
+ 1258 006f 05       		.uleb128 0x5
+ 1259 0070 49       		.uleb128 0x49
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 34
+
+
+ 1260 0071 13       		.uleb128 0x13
+ 1261 0072 38       		.uleb128 0x38
+ 1262 0073 0B       		.uleb128 0xb
+ 1263 0074 00       		.byte	0
+ 1264 0075 00       		.byte	0
+ 1265 0076 0B       		.uleb128 0xb
+ 1266 0077 2E       		.uleb128 0x2e
+ 1267 0078 00       		.byte	0
+ 1268 0079 3F       		.uleb128 0x3f
+ 1269 007a 19       		.uleb128 0x19
+ 1270 007b 03       		.uleb128 0x3
+ 1271 007c 0E       		.uleb128 0xe
+ 1272 007d 3A       		.uleb128 0x3a
+ 1273 007e 0B       		.uleb128 0xb
+ 1274 007f 3B       		.uleb128 0x3b
+ 1275 0080 0B       		.uleb128 0xb
+ 1276 0081 27       		.uleb128 0x27
+ 1277 0082 19       		.uleb128 0x19
+ 1278 0083 11       		.uleb128 0x11
+ 1279 0084 01       		.uleb128 0x1
+ 1280 0085 12       		.uleb128 0x12
+ 1281 0086 06       		.uleb128 0x6
+ 1282 0087 40       		.uleb128 0x40
+ 1283 0088 18       		.uleb128 0x18
+ 1284 0089 9742     		.uleb128 0x2117
+ 1285 008b 19       		.uleb128 0x19
+ 1286 008c 00       		.byte	0
+ 1287 008d 00       		.byte	0
+ 1288 008e 0C       		.uleb128 0xc
+ 1289 008f 2E       		.uleb128 0x2e
+ 1290 0090 00       		.byte	0
+ 1291 0091 3F       		.uleb128 0x3f
+ 1292 0092 19       		.uleb128 0x19
+ 1293 0093 03       		.uleb128 0x3
+ 1294 0094 0E       		.uleb128 0xe
+ 1295 0095 3A       		.uleb128 0x3a
+ 1296 0096 0B       		.uleb128 0xb
+ 1297 0097 3B       		.uleb128 0x3b
+ 1298 0098 05       		.uleb128 0x5
+ 1299 0099 27       		.uleb128 0x27
+ 1300 009a 19       		.uleb128 0x19
+ 1301 009b 11       		.uleb128 0x11
+ 1302 009c 01       		.uleb128 0x1
+ 1303 009d 12       		.uleb128 0x12
+ 1304 009e 06       		.uleb128 0x6
+ 1305 009f 40       		.uleb128 0x40
+ 1306 00a0 18       		.uleb128 0x18
+ 1307 00a1 9742     		.uleb128 0x2117
+ 1308 00a3 19       		.uleb128 0x19
+ 1309 00a4 00       		.byte	0
+ 1310 00a5 00       		.byte	0
+ 1311 00a6 0D       		.uleb128 0xd
+ 1312 00a7 2E       		.uleb128 0x2e
+ 1313 00a8 01       		.byte	0x1
+ 1314 00a9 3F       		.uleb128 0x3f
+ 1315 00aa 19       		.uleb128 0x19
+ 1316 00ab 03       		.uleb128 0x3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 35
+
+
+ 1317 00ac 0E       		.uleb128 0xe
+ 1318 00ad 3A       		.uleb128 0x3a
+ 1319 00ae 0B       		.uleb128 0xb
+ 1320 00af 3B       		.uleb128 0x3b
+ 1321 00b0 05       		.uleb128 0x5
+ 1322 00b1 27       		.uleb128 0x27
+ 1323 00b2 19       		.uleb128 0x19
+ 1324 00b3 11       		.uleb128 0x11
+ 1325 00b4 01       		.uleb128 0x1
+ 1326 00b5 12       		.uleb128 0x12
+ 1327 00b6 06       		.uleb128 0x6
+ 1328 00b7 40       		.uleb128 0x40
+ 1329 00b8 18       		.uleb128 0x18
+ 1330 00b9 9742     		.uleb128 0x2117
+ 1331 00bb 19       		.uleb128 0x19
+ 1332 00bc 01       		.uleb128 0x1
+ 1333 00bd 13       		.uleb128 0x13
+ 1334 00be 00       		.byte	0
+ 1335 00bf 00       		.byte	0
+ 1336 00c0 0E       		.uleb128 0xe
+ 1337 00c1 05       		.uleb128 0x5
+ 1338 00c2 00       		.byte	0
+ 1339 00c3 03       		.uleb128 0x3
+ 1340 00c4 0E       		.uleb128 0xe
+ 1341 00c5 3A       		.uleb128 0x3a
+ 1342 00c6 0B       		.uleb128 0xb
+ 1343 00c7 3B       		.uleb128 0x3b
+ 1344 00c8 05       		.uleb128 0x5
+ 1345 00c9 49       		.uleb128 0x49
+ 1346 00ca 13       		.uleb128 0x13
+ 1347 00cb 02       		.uleb128 0x2
+ 1348 00cc 17       		.uleb128 0x17
+ 1349 00cd 00       		.byte	0
+ 1350 00ce 00       		.byte	0
+ 1351 00cf 0F       		.uleb128 0xf
+ 1352 00d0 34       		.uleb128 0x34
+ 1353 00d1 00       		.byte	0
+ 1354 00d2 03       		.uleb128 0x3
+ 1355 00d3 0E       		.uleb128 0xe
+ 1356 00d4 3A       		.uleb128 0x3a
+ 1357 00d5 0B       		.uleb128 0xb
+ 1358 00d6 3B       		.uleb128 0x3b
+ 1359 00d7 05       		.uleb128 0x5
+ 1360 00d8 49       		.uleb128 0x49
+ 1361 00d9 13       		.uleb128 0x13
+ 1362 00da 02       		.uleb128 0x2
+ 1363 00db 17       		.uleb128 0x17
+ 1364 00dc 00       		.byte	0
+ 1365 00dd 00       		.byte	0
+ 1366 00de 10       		.uleb128 0x10
+ 1367 00df 2E       		.uleb128 0x2e
+ 1368 00e0 01       		.byte	0x1
+ 1369 00e1 3F       		.uleb128 0x3f
+ 1370 00e2 19       		.uleb128 0x19
+ 1371 00e3 03       		.uleb128 0x3
+ 1372 00e4 0E       		.uleb128 0xe
+ 1373 00e5 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 36
+
+
+ 1374 00e6 0B       		.uleb128 0xb
+ 1375 00e7 3B       		.uleb128 0x3b
+ 1376 00e8 0B       		.uleb128 0xb
+ 1377 00e9 27       		.uleb128 0x27
+ 1378 00ea 19       		.uleb128 0x19
+ 1379 00eb 11       		.uleb128 0x11
+ 1380 00ec 01       		.uleb128 0x1
+ 1381 00ed 12       		.uleb128 0x12
+ 1382 00ee 06       		.uleb128 0x6
+ 1383 00ef 40       		.uleb128 0x40
+ 1384 00f0 18       		.uleb128 0x18
+ 1385 00f1 9742     		.uleb128 0x2117
+ 1386 00f3 19       		.uleb128 0x19
+ 1387 00f4 01       		.uleb128 0x1
+ 1388 00f5 13       		.uleb128 0x13
+ 1389 00f6 00       		.byte	0
+ 1390 00f7 00       		.byte	0
+ 1391 00f8 11       		.uleb128 0x11
+ 1392 00f9 05       		.uleb128 0x5
+ 1393 00fa 00       		.byte	0
+ 1394 00fb 03       		.uleb128 0x3
+ 1395 00fc 0E       		.uleb128 0xe
+ 1396 00fd 3A       		.uleb128 0x3a
+ 1397 00fe 0B       		.uleb128 0xb
+ 1398 00ff 3B       		.uleb128 0x3b
+ 1399 0100 0B       		.uleb128 0xb
+ 1400 0101 49       		.uleb128 0x49
+ 1401 0102 13       		.uleb128 0x13
+ 1402 0103 02       		.uleb128 0x2
+ 1403 0104 17       		.uleb128 0x17
+ 1404 0105 00       		.byte	0
+ 1405 0106 00       		.byte	0
+ 1406 0107 12       		.uleb128 0x12
+ 1407 0108 898201   		.uleb128 0x4109
+ 1408 010b 01       		.byte	0x1
+ 1409 010c 11       		.uleb128 0x11
+ 1410 010d 01       		.uleb128 0x1
+ 1411 010e 31       		.uleb128 0x31
+ 1412 010f 13       		.uleb128 0x13
+ 1413 0110 01       		.uleb128 0x1
+ 1414 0111 13       		.uleb128 0x13
+ 1415 0112 00       		.byte	0
+ 1416 0113 00       		.byte	0
+ 1417 0114 13       		.uleb128 0x13
+ 1418 0115 8A8201   		.uleb128 0x410a
+ 1419 0118 00       		.byte	0
+ 1420 0119 02       		.uleb128 0x2
+ 1421 011a 18       		.uleb128 0x18
+ 1422 011b 9142     		.uleb128 0x2111
+ 1423 011d 18       		.uleb128 0x18
+ 1424 011e 00       		.byte	0
+ 1425 011f 00       		.byte	0
+ 1426 0120 14       		.uleb128 0x14
+ 1427 0121 898201   		.uleb128 0x4109
+ 1428 0124 01       		.byte	0x1
+ 1429 0125 11       		.uleb128 0x11
+ 1430 0126 01       		.uleb128 0x1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 37
+
+
+ 1431 0127 31       		.uleb128 0x31
+ 1432 0128 13       		.uleb128 0x13
+ 1433 0129 00       		.byte	0
+ 1434 012a 00       		.byte	0
+ 1435 012b 15       		.uleb128 0x15
+ 1436 012c 26       		.uleb128 0x26
+ 1437 012d 00       		.byte	0
+ 1438 012e 49       		.uleb128 0x49
+ 1439 012f 13       		.uleb128 0x13
+ 1440 0130 00       		.byte	0
+ 1441 0131 00       		.byte	0
+ 1442 0132 16       		.uleb128 0x16
+ 1443 0133 05       		.uleb128 0x5
+ 1444 0134 00       		.byte	0
+ 1445 0135 03       		.uleb128 0x3
+ 1446 0136 0E       		.uleb128 0xe
+ 1447 0137 3A       		.uleb128 0x3a
+ 1448 0138 0B       		.uleb128 0xb
+ 1449 0139 3B       		.uleb128 0x3b
+ 1450 013a 05       		.uleb128 0x5
+ 1451 013b 49       		.uleb128 0x49
+ 1452 013c 13       		.uleb128 0x13
+ 1453 013d 02       		.uleb128 0x2
+ 1454 013e 18       		.uleb128 0x18
+ 1455 013f 00       		.byte	0
+ 1456 0140 00       		.byte	0
+ 1457 0141 17       		.uleb128 0x17
+ 1458 0142 34       		.uleb128 0x34
+ 1459 0143 00       		.byte	0
+ 1460 0144 03       		.uleb128 0x3
+ 1461 0145 0E       		.uleb128 0xe
+ 1462 0146 3A       		.uleb128 0x3a
+ 1463 0147 0B       		.uleb128 0xb
+ 1464 0148 3B       		.uleb128 0x3b
+ 1465 0149 0B       		.uleb128 0xb
+ 1466 014a 49       		.uleb128 0x49
+ 1467 014b 13       		.uleb128 0x13
+ 1468 014c 3F       		.uleb128 0x3f
+ 1469 014d 19       		.uleb128 0x19
+ 1470 014e 3C       		.uleb128 0x3c
+ 1471 014f 19       		.uleb128 0x19
+ 1472 0150 00       		.byte	0
+ 1473 0151 00       		.byte	0
+ 1474 0152 18       		.uleb128 0x18
+ 1475 0153 34       		.uleb128 0x34
+ 1476 0154 00       		.byte	0
+ 1477 0155 03       		.uleb128 0x3
+ 1478 0156 0E       		.uleb128 0xe
+ 1479 0157 3A       		.uleb128 0x3a
+ 1480 0158 0B       		.uleb128 0xb
+ 1481 0159 3B       		.uleb128 0x3b
+ 1482 015a 0B       		.uleb128 0xb
+ 1483 015b 49       		.uleb128 0x49
+ 1484 015c 13       		.uleb128 0x13
+ 1485 015d 3F       		.uleb128 0x3f
+ 1486 015e 19       		.uleb128 0x19
+ 1487 015f 02       		.uleb128 0x2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 38
+
+
+ 1488 0160 18       		.uleb128 0x18
+ 1489 0161 00       		.byte	0
+ 1490 0162 00       		.byte	0
+ 1491 0163 19       		.uleb128 0x19
+ 1492 0164 2E       		.uleb128 0x2e
+ 1493 0165 01       		.byte	0x1
+ 1494 0166 3F       		.uleb128 0x3f
+ 1495 0167 19       		.uleb128 0x19
+ 1496 0168 03       		.uleb128 0x3
+ 1497 0169 0E       		.uleb128 0xe
+ 1498 016a 3A       		.uleb128 0x3a
+ 1499 016b 0B       		.uleb128 0xb
+ 1500 016c 3B       		.uleb128 0x3b
+ 1501 016d 0B       		.uleb128 0xb
+ 1502 016e 27       		.uleb128 0x27
+ 1503 016f 19       		.uleb128 0x19
+ 1504 0170 3C       		.uleb128 0x3c
+ 1505 0171 19       		.uleb128 0x19
+ 1506 0172 01       		.uleb128 0x1
+ 1507 0173 13       		.uleb128 0x13
+ 1508 0174 00       		.byte	0
+ 1509 0175 00       		.byte	0
+ 1510 0176 1A       		.uleb128 0x1a
+ 1511 0177 05       		.uleb128 0x5
+ 1512 0178 00       		.byte	0
+ 1513 0179 49       		.uleb128 0x49
+ 1514 017a 13       		.uleb128 0x13
+ 1515 017b 00       		.byte	0
+ 1516 017c 00       		.byte	0
+ 1517 017d 1B       		.uleb128 0x1b
+ 1518 017e 2E       		.uleb128 0x2e
+ 1519 017f 01       		.byte	0x1
+ 1520 0180 3F       		.uleb128 0x3f
+ 1521 0181 19       		.uleb128 0x19
+ 1522 0182 03       		.uleb128 0x3
+ 1523 0183 0E       		.uleb128 0xe
+ 1524 0184 3A       		.uleb128 0x3a
+ 1525 0185 0B       		.uleb128 0xb
+ 1526 0186 3B       		.uleb128 0x3b
+ 1527 0187 0B       		.uleb128 0xb
+ 1528 0188 27       		.uleb128 0x27
+ 1529 0189 19       		.uleb128 0x19
+ 1530 018a 49       		.uleb128 0x49
+ 1531 018b 13       		.uleb128 0x13
+ 1532 018c 3C       		.uleb128 0x3c
+ 1533 018d 19       		.uleb128 0x19
+ 1534 018e 00       		.byte	0
+ 1535 018f 00       		.byte	0
+ 1536 0190 00       		.byte	0
+ 1537              		.section	.debug_loc,"",%progbits
+ 1538              	.Ldebug_loc0:
+ 1539              	.LLST0:
+ 1540 0000 00000000 		.4byte	.LVL0
+ 1541 0004 0A000000 		.4byte	.LVL3
+ 1542 0008 0100     		.2byte	0x1
+ 1543 000a 50       		.byte	0x50
+ 1544 000b 0A000000 		.4byte	.LVL3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 39
+
+
+ 1545 000f 20000000 		.4byte	.LFE5
+ 1546 0013 0400     		.2byte	0x4
+ 1547 0015 F3       		.byte	0xf3
+ 1548 0016 01       		.uleb128 0x1
+ 1549 0017 50       		.byte	0x50
+ 1550 0018 9F       		.byte	0x9f
+ 1551 0019 00000000 		.4byte	0
+ 1552 001d 00000000 		.4byte	0
+ 1553              	.LLST1:
+ 1554 0021 04000000 		.4byte	.LVL1
+ 1555 0025 08000000 		.4byte	.LVL2
+ 1556 0029 0100     		.2byte	0x1
+ 1557 002b 52       		.byte	0x52
+ 1558 002c 08000000 		.4byte	.LVL2
+ 1559 0030 12000000 		.4byte	.LVL4
+ 1560 0034 0100     		.2byte	0x1
+ 1561 0036 53       		.byte	0x53
+ 1562 0037 12000000 		.4byte	.LVL4
+ 1563 003b 20000000 		.4byte	.LFE5
+ 1564 003f 0100     		.2byte	0x1
+ 1565 0041 50       		.byte	0x50
+ 1566 0042 00000000 		.4byte	0
+ 1567 0046 00000000 		.4byte	0
+ 1568              	.LLST2:
+ 1569 004a 00000000 		.4byte	.LVL5
+ 1570 004e 08000000 		.4byte	.LVL6
+ 1571 0052 0100     		.2byte	0x1
+ 1572 0054 50       		.byte	0x50
+ 1573 0055 08000000 		.4byte	.LVL6
+ 1574 0059 0E000000 		.4byte	.LVL8
+ 1575 005d 0100     		.2byte	0x1
+ 1576 005f 54       		.byte	0x54
+ 1577 0060 0E000000 		.4byte	.LVL8
+ 1578 0064 10000000 		.4byte	.LVL9
+ 1579 0068 0100     		.2byte	0x1
+ 1580 006a 50       		.byte	0x50
+ 1581 006b 10000000 		.4byte	.LVL9
+ 1582 006f A8010000 		.4byte	.LVL15
+ 1583 0073 0100     		.2byte	0x1
+ 1584 0075 54       		.byte	0x54
+ 1585 0076 A8010000 		.4byte	.LVL15
+ 1586 007a 20020000 		.4byte	.LFE2
+ 1587 007e 0400     		.2byte	0x4
+ 1588 0080 F3       		.byte	0xf3
+ 1589 0081 01       		.uleb128 0x1
+ 1590 0082 50       		.byte	0x50
+ 1591 0083 9F       		.byte	0x9f
+ 1592 0084 00000000 		.4byte	0
+ 1593 0088 00000000 		.4byte	0
+ 1594              	.LLST3:
+ 1595 008c 00000000 		.4byte	.LVL16
+ 1596 0090 08000000 		.4byte	.LVL17
+ 1597 0094 0100     		.2byte	0x1
+ 1598 0096 50       		.byte	0x50
+ 1599 0097 08000000 		.4byte	.LVL17
+ 1600 009b 2C000000 		.4byte	.LFE6
+ 1601 009f 0400     		.2byte	0x4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 40
+
+
+ 1602 00a1 F3       		.byte	0xf3
+ 1603 00a2 01       		.uleb128 0x1
+ 1604 00a3 50       		.byte	0x50
+ 1605 00a4 9F       		.byte	0x9f
+ 1606 00a5 00000000 		.4byte	0
+ 1607 00a9 00000000 		.4byte	0
+ 1608              	.LLST4:
+ 1609 00ad 0E000000 		.4byte	.LVL18
+ 1610 00b1 18000000 		.4byte	.LVL19
+ 1611 00b5 0100     		.2byte	0x1
+ 1612 00b7 50       		.byte	0x50
+ 1613 00b8 18000000 		.4byte	.LVL19
+ 1614 00bc 1C000000 		.4byte	.LVL20
+ 1615 00c0 0C00     		.2byte	0xc
+ 1616 00c2 0A       		.byte	0xa
+ 1617 00c3 0001     		.2byte	0x100
+ 1618 00c5 F3       		.byte	0xf3
+ 1619 00c6 01       		.uleb128 0x1
+ 1620 00c7 50       		.byte	0x50
+ 1621 00c8 24       		.byte	0x24
+ 1622 00c9 0A       		.byte	0xa
+ 1623 00ca 000F     		.2byte	0xf00
+ 1624 00cc 1A       		.byte	0x1a
+ 1625 00cd 9F       		.byte	0x9f
+ 1626 00ce 1C000000 		.4byte	.LVL20
+ 1627 00d2 24000000 		.4byte	.LVL21
+ 1628 00d6 0100     		.2byte	0x1
+ 1629 00d8 50       		.byte	0x50
+ 1630 00d9 24000000 		.4byte	.LVL21
+ 1631 00dd 2C000000 		.4byte	.LFE6
+ 1632 00e1 0C00     		.2byte	0xc
+ 1633 00e3 0A       		.byte	0xa
+ 1634 00e4 0001     		.2byte	0x100
+ 1635 00e6 F3       		.byte	0xf3
+ 1636 00e7 01       		.uleb128 0x1
+ 1637 00e8 50       		.byte	0x50
+ 1638 00e9 24       		.byte	0x24
+ 1639 00ea 0A       		.byte	0xa
+ 1640 00eb 000F     		.2byte	0xf00
+ 1641 00ed 1A       		.byte	0x1a
+ 1642 00ee 9F       		.byte	0x9f
+ 1643 00ef 00000000 		.4byte	0
+ 1644 00f3 00000000 		.4byte	0
+ 1645              		.section	.debug_aranges,"",%progbits
+ 1646 0000 4C000000 		.4byte	0x4c
+ 1647 0004 0200     		.2byte	0x2
+ 1648 0006 00000000 		.4byte	.Ldebug_info0
+ 1649 000a 04       		.byte	0x4
+ 1650 000b 00       		.byte	0
+ 1651 000c 0000     		.2byte	0
+ 1652 000e 0000     		.2byte	0
+ 1653 0010 00000000 		.4byte	.LFB3
+ 1654 0014 0C000000 		.4byte	.LFE3-.LFB3
+ 1655 0018 00000000 		.4byte	.LFB4
+ 1656 001c 0C000000 		.4byte	.LFE4-.LFB4
+ 1657 0020 00000000 		.4byte	.LFB5
+ 1658 0024 20000000 		.4byte	.LFE5-.LFB5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 41
+
+
+ 1659 0028 00000000 		.4byte	.LFB2
+ 1660 002c 20020000 		.4byte	.LFE2-.LFB2
+ 1661 0030 00000000 		.4byte	.LFB6
+ 1662 0034 2C000000 		.4byte	.LFE6-.LFB6
+ 1663 0038 00000000 		.4byte	.LFB7
+ 1664 003c 14000000 		.4byte	.LFE7-.LFB7
+ 1665 0040 00000000 		.4byte	.LFB8
+ 1666 0044 0C000000 		.4byte	.LFE8-.LFB8
+ 1667 0048 00000000 		.4byte	0
+ 1668 004c 00000000 		.4byte	0
+ 1669              		.section	.debug_ranges,"",%progbits
+ 1670              	.Ldebug_ranges0:
+ 1671 0000 00000000 		.4byte	.LFB3
+ 1672 0004 0C000000 		.4byte	.LFE3
+ 1673 0008 00000000 		.4byte	.LFB4
+ 1674 000c 0C000000 		.4byte	.LFE4
+ 1675 0010 00000000 		.4byte	.LFB5
+ 1676 0014 20000000 		.4byte	.LFE5
+ 1677 0018 00000000 		.4byte	.LFB2
+ 1678 001c 20020000 		.4byte	.LFE2
+ 1679 0020 00000000 		.4byte	.LFB6
+ 1680 0024 2C000000 		.4byte	.LFE6
+ 1681 0028 00000000 		.4byte	.LFB7
+ 1682 002c 14000000 		.4byte	.LFE7
+ 1683 0030 00000000 		.4byte	.LFB8
+ 1684 0034 0C000000 		.4byte	.LFE8
+ 1685 0038 00000000 		.4byte	0
+ 1686 003c 00000000 		.4byte	0
+ 1687              		.section	.debug_line,"",%progbits
+ 1688              	.Ldebug_line0:
+ 1689 0000 79010000 		.section	.debug_str,"MS",%progbits,1
+ 1689      0200A100 
+ 1689      00000201 
+ 1689      FB0E0D00 
+ 1689      01010101 
+ 1690              	.LASF30:
+ 1691 0000 74784275 		.ascii	"txBufferSize\000"
+ 1691      66666572 
+ 1691      53697A65 
+ 1691      00
+ 1692              	.LASF7:
+ 1693 000d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1693      206C6F6E 
+ 1693      6720756E 
+ 1693      7369676E 
+ 1693      65642069 
+ 1694              	.LASF57:
+ 1695 0024 55415254 		.ascii	"UART_rxDataBits\000"
+ 1695      5F727844 
+ 1695      61746142 
+ 1695      69747300 
+ 1696              	.LASF60:
+ 1697 0034 55415254 		.ascii	"UART_txDataBits\000"
+ 1697      5F747844 
+ 1697      61746142 
+ 1697      69747300 
+ 1698              	.LASF65:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 42
+
+
+ 1699 0044 55415254 		.ascii	"UART_rxBufferOverflow\000"
+ 1699      5F727842 
+ 1699      75666665 
+ 1699      724F7665 
+ 1699      72666C6F 
+ 1700              	.LASF6:
+ 1701 005a 6C6F6E67 		.ascii	"long long int\000"
+ 1701      206C6F6E 
+ 1701      6720696E 
+ 1701      7400
+ 1702              	.LASF0:
+ 1703 0068 7369676E 		.ascii	"signed char\000"
+ 1703      65642063 
+ 1703      68617200 
+ 1704              	.LASF40:
+ 1705 0074 55415254 		.ascii	"UART_SPI_INIT_STRUCT\000"
+ 1705      5F535049 
+ 1705      5F494E49 
+ 1705      545F5354 
+ 1705      52554354 
+ 1706              	.LASF29:
+ 1707 0089 72784275 		.ascii	"rxBuffer\000"
+ 1707      66666572 
+ 1707      00
+ 1708              	.LASF51:
+ 1709 0092 55415254 		.ascii	"UART_SpiSaveConfig\000"
+ 1709      5F537069 
+ 1709      53617665 
+ 1709      436F6E66 
+ 1709      696700
+ 1710              	.LASF4:
+ 1711 00a5 6C6F6E67 		.ascii	"long int\000"
+ 1711      20696E74 
+ 1711      00
+ 1712              	.LASF70:
+ 1713 00ae 4379496E 		.ascii	"CyIntDisable\000"
+ 1713      74446973 
+ 1713      61626C65 
+ 1713      00
+ 1714              	.LASF23:
+ 1715 00bb 656E6162 		.ascii	"enableWake\000"
+ 1715      6C655761 
+ 1715      6B6500
+ 1716              	.LASF38:
+ 1717 00c6 656E6162 		.ascii	"enableFreeRunSclk\000"
+ 1717      6C654672 
+ 1717      65655275 
+ 1717      6E53636C 
+ 1717      6B00
+ 1718              	.LASF49:
+ 1719 00d8 73706943 		.ascii	"spiCtrl\000"
+ 1719      74726C00 
+ 1720              	.LASF9:
+ 1721 00e0 75696E74 		.ascii	"uint8\000"
+ 1721      3800
+ 1722              	.LASF66:
+ 1723 00e6 55415254 		.ascii	"UART_txBufferHead\000"
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 43
+
+
+ 1723      5F747842 
+ 1723      75666665 
+ 1723      72486561 
+ 1723      6400
+ 1724              	.LASF12:
+ 1725 00f8 646F7562 		.ascii	"double\000"
+ 1725      6C6500
+ 1726              	.LASF37:
+ 1727 00ff 656E6162 		.ascii	"enableByteMode\000"
+ 1727      6C654279 
+ 1727      74654D6F 
+ 1727      646500
+ 1728              	.LASF10:
+ 1729 010e 75696E74 		.ascii	"uint32\000"
+ 1729      333200
+ 1730              	.LASF52:
+ 1731 0115 55415254 		.ascii	"UART_SpiRestoreConfig\000"
+ 1731      5F537069 
+ 1731      52657374 
+ 1731      6F726543 
+ 1731      6F6E6669 
+ 1732              	.LASF54:
+ 1733 012b 55415254 		.ascii	"UART_scbEnableWake\000"
+ 1733      5F736362 
+ 1733      456E6162 
+ 1733      6C655761 
+ 1733      6B6500
+ 1734              	.LASF63:
+ 1735 013e 55415254 		.ascii	"UART_rxBufferHead\000"
+ 1735      5F727842 
+ 1735      75666665 
+ 1735      72486561 
+ 1735      6400
+ 1736              	.LASF59:
+ 1737 0150 55415254 		.ascii	"UART_txBuffer\000"
+ 1737      5F747842 
+ 1737      75666665 
+ 1737      7200
+ 1738              	.LASF8:
+ 1739 015e 756E7369 		.ascii	"unsigned int\000"
+ 1739      676E6564 
+ 1739      20696E74 
+ 1739      00
+ 1740              	.LASF5:
+ 1741 016b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1741      20756E73 
+ 1741      69676E65 
+ 1741      6420696E 
+ 1741      7400
+ 1742              	.LASF41:
+ 1743 017d 55415254 		.ascii	"UART_SpiPostEnable\000"
+ 1743      5F537069 
+ 1743      506F7374 
+ 1743      456E6162 
+ 1743      6C6500
+ 1744              	.LASF3:
+ 1745 0190 73686F72 		.ascii	"short unsigned int\000"
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 44
+
+
+ 1745      7420756E 
+ 1745      7369676E 
+ 1745      65642069 
+ 1745      6E7400
+ 1746              	.LASF69:
+ 1747 01a3 55415254 		.ascii	"UART_SetPins\000"
+ 1747      5F536574 
+ 1747      50696E73 
+ 1747      00
+ 1748              	.LASF72:
+ 1749 01b0 4379496E 		.ascii	"CyIntSetVector\000"
+ 1749      74536574 
+ 1749      56656374 
+ 1749      6F7200
+ 1750              	.LASF27:
+ 1751 01bf 7472616E 		.ascii	"transferSeperation\000"
+ 1751      73666572 
+ 1751      53657065 
+ 1751      72617469 
+ 1751      6F6E00
+ 1752              	.LASF18:
+ 1753 01d2 7375626D 		.ascii	"submode\000"
+ 1753      6F646500 
+ 1754              	.LASF26:
+ 1755 01da 6269744F 		.ascii	"bitOrder\000"
+ 1755      72646572 
+ 1755      00
+ 1756              	.LASF14:
+ 1757 01e3 72656733 		.ascii	"reg32\000"
+ 1757      3200
+ 1758              	.LASF19:
+ 1759 01e9 73636C6B 		.ascii	"sclkMode\000"
+ 1759      4D6F6465 
+ 1759      00
+ 1760              	.LASF47:
+ 1761 01f2 55415254 		.ascii	"UART_SpiSetSlaveSelectPolarity\000"
+ 1761      5F537069 
+ 1761      53657453 
+ 1761      6C617665 
+ 1761      53656C65 
+ 1762              	.LASF16:
+ 1763 0211 73697A65 		.ascii	"sizetype\000"
+ 1763      74797065 
+ 1763      00
+ 1764              	.LASF53:
+ 1765 021a 55415254 		.ascii	"UART_scbMode\000"
+ 1765      5F736362 
+ 1765      4D6F6465 
+ 1765      00
+ 1766              	.LASF75:
+ 1767 0227 473A5C43 		.ascii	"G:\\Company\\Jetronic\\CYPRESS\\CYPRESS_BLE_Study\\"
+ 1767      6F6D7061 
+ 1767      6E795C4A 
+ 1767      6574726F 
+ 1767      6E69635C 
+ 1768 0255 54726F75 		.ascii	"Troughput\\Troughpur_Central_Peripheral\\Troughput_"
+ 1768      67687075 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 45
+
+
+ 1768      745C5472 
+ 1768      6F756768 
+ 1768      7075725F 
+ 1769 0286 43656E74 		.ascii	"Central_Peripheral.cydsn\000"
+ 1769      72616C5F 
+ 1769      50657269 
+ 1769      70686572 
+ 1769      616C2E63 
+ 1770              	.LASF50:
+ 1771 029f 7373506F 		.ascii	"ssPolarity\000"
+ 1771      6C617269 
+ 1771      747900
+ 1772              	.LASF61:
+ 1773 02aa 55415254 		.ascii	"UART_txBufferSize\000"
+ 1773      5F747842 
+ 1773      75666665 
+ 1773      7253697A 
+ 1773      6500
+ 1774              	.LASF34:
+ 1775 02bc 72785472 		.ascii	"rxTriggerLevel\000"
+ 1775      69676765 
+ 1775      724C6576 
+ 1775      656C00
+ 1776              	.LASF73:
+ 1777 02cb 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1777      4320342E 
+ 1777      392E3320 
+ 1777      32303135 
+ 1777      30333033 
+ 1778 02fe 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 1778      20726576 
+ 1778      6973696F 
+ 1778      6E203232 
+ 1778      31323230 
+ 1779 0331 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1779      66756E63 
+ 1779      74696F6E 
+ 1779      2D736563 
+ 1779      74696F6E 
+ 1780              	.LASF33:
+ 1781 0359 7278496E 		.ascii	"rxInterruptMask\000"
+ 1781      74657272 
+ 1781      7570744D 
+ 1781      61736B00 
+ 1782              	.LASF71:
+ 1783 0369 4379496E 		.ascii	"CyIntSetPriority\000"
+ 1783      74536574 
+ 1783      5072696F 
+ 1783      72697479 
+ 1783      00
+ 1784              	.LASF11:
+ 1785 037a 666C6F61 		.ascii	"float\000"
+ 1785      7400
+ 1786              	.LASF74:
+ 1787 0380 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\UART_SPI.c\000"
+ 1787      6E657261 
+ 1787      7465645F 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 46
+
+
+ 1787      536F7572 
+ 1787      63655C50 
+ 1788              	.LASF68:
+ 1789 03a4 43794861 		.ascii	"CyHalt\000"
+ 1789      6C7400
+ 1790              	.LASF1:
+ 1791 03ab 756E7369 		.ascii	"unsigned char\000"
+ 1791      676E6564 
+ 1791      20636861 
+ 1791      7200
+ 1792              	.LASF28:
+ 1793 03b9 72784275 		.ascii	"rxBufferSize\000"
+ 1793      66666572 
+ 1793      53697A65 
+ 1793      00
+ 1794              	.LASF2:
+ 1795 03c6 73686F72 		.ascii	"short int\000"
+ 1795      7420696E 
+ 1795      7400
+ 1796              	.LASF21:
+ 1797 03d0 656E6162 		.ascii	"enableMedianFilter\000"
+ 1797      6C654D65 
+ 1797      6469616E 
+ 1797      46696C74 
+ 1797      657200
+ 1798              	.LASF55:
+ 1799 03e3 55415254 		.ascii	"UART_scbEnableIntr\000"
+ 1799      5F736362 
+ 1799      456E6162 
+ 1799      6C65496E 
+ 1799      747200
+ 1800              	.LASF20:
+ 1801 03f6 6F766572 		.ascii	"oversample\000"
+ 1801      73616D70 
+ 1801      6C6500
+ 1802              	.LASF39:
+ 1803 0401 706F6C61 		.ascii	"polaritySs\000"
+ 1803      72697479 
+ 1803      537300
+ 1804              	.LASF48:
+ 1805 040c 706F6C61 		.ascii	"polarity\000"
+ 1805      72697479 
+ 1805      00
+ 1806              	.LASF45:
+ 1807 0415 736C6176 		.ascii	"slaveSelect\000"
+ 1807      6553656C 
+ 1807      65637400 
+ 1808              	.LASF13:
+ 1809 0421 63686172 		.ascii	"char\000"
+ 1809      00
+ 1810              	.LASF17:
+ 1811 0426 6D6F6465 		.ascii	"mode\000"
+ 1811      00
+ 1812              	.LASF15:
+ 1813 042b 63796973 		.ascii	"cyisraddress\000"
+ 1813      72616464 
+ 1813      72657373 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 47
+
+
+ 1813      00
+ 1814              	.LASF46:
+ 1815 0438 636F6E66 		.ascii	"config\000"
+ 1815      696700
+ 1816              	.LASF44:
+ 1817 043f 55415254 		.ascii	"UART_SpiInit\000"
+ 1817      5F537069 
+ 1817      496E6974 
+ 1817      00
+ 1818              	.LASF67:
+ 1819 044c 55415254 		.ascii	"UART_txBufferTail\000"
+ 1819      5F747842 
+ 1819      75666665 
+ 1819      72546169 
+ 1819      6C00
+ 1820              	.LASF32:
+ 1821 045e 656E6162 		.ascii	"enableInterrupt\000"
+ 1821      6C65496E 
+ 1821      74657272 
+ 1821      75707400 
+ 1822              	.LASF42:
+ 1823 046e 55415254 		.ascii	"UART_SpiStop\000"
+ 1823      5F537069 
+ 1823      53746F70 
+ 1823      00
+ 1824              	.LASF62:
+ 1825 047b 55415254 		.ascii	"UART_configSpi\000"
+ 1825      5F636F6E 
+ 1825      66696753 
+ 1825      706900
+ 1826              	.LASF35:
+ 1827 048a 7478496E 		.ascii	"txInterruptMask\000"
+ 1827      74657272 
+ 1827      7570744D 
+ 1827      61736B00 
+ 1828              	.LASF58:
+ 1829 049a 55415254 		.ascii	"UART_rxBufferSize\000"
+ 1829      5F727842 
+ 1829      75666665 
+ 1829      7253697A 
+ 1829      6500
+ 1830              	.LASF31:
+ 1831 04ac 74784275 		.ascii	"txBuffer\000"
+ 1831      66666572 
+ 1831      00
+ 1832              	.LASF43:
+ 1833 04b5 55415254 		.ascii	"UART_SpiSetActiveSlaveSelect\000"
+ 1833      5F537069 
+ 1833      53657441 
+ 1833      63746976 
+ 1833      65536C61 
+ 1834              	.LASF56:
+ 1835 04d2 55415254 		.ascii	"UART_rxBuffer\000"
+ 1835      5F727842 
+ 1835      75666665 
+ 1835      7200
+ 1836              	.LASF24:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfRxaTo.s 			page 48
+
+
+ 1837 04e0 72784461 		.ascii	"rxDataBits\000"
+ 1837      74614269 
+ 1837      747300
+ 1838              	.LASF25:
+ 1839 04eb 74784461 		.ascii	"txDataBits\000"
+ 1839      74614269 
+ 1839      747300
+ 1840              	.LASF22:
+ 1841 04f6 656E6162 		.ascii	"enableLateSampling\000"
+ 1841      6C654C61 
+ 1841      74655361 
+ 1841      6D706C69 
+ 1841      6E6700
+ 1842              	.LASF36:
+ 1843 0509 74785472 		.ascii	"txTriggerLevel\000"
+ 1843      69676765 
+ 1843      724C6576 
+ 1843      656C00
+ 1844              	.LASF64:
+ 1845 0518 55415254 		.ascii	"UART_rxBufferTail\000"
+ 1845      5F727842 
+ 1845      75666665 
+ 1845      72546169 
+ 1845      6C00
+ 1846              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -1,0 +1,2403 @@
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"TimerInterrupt.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.TimerInterrupt_Interrupt,"ax",%progbits
+  18              		.align	1
+  19              		.global	TimerInterrupt_Interrupt
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	TimerInterrupt_Interrupt, %function
+  23              	TimerInterrupt_Interrupt:
+  24              	.LFB5:
+  25              		.file 1 ".\\Generated_Source\\PSoC4\\TimerInterrupt.c"
+   1:.\Generated_Source\PSoC4/TimerInterrupt.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/TimerInterrupt.c **** * File Name: TimerInterrupt.c  
+   3:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Version 1.70
+   4:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+   5:.\Generated_Source\PSoC4/TimerInterrupt.c **** *  Description:
+   6:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   API for controlling the state of an interrupt.
+   7:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+   8:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+   9:.\Generated_Source\PSoC4/TimerInterrupt.c **** *  Note:
+  10:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+  11:.\Generated_Source\PSoC4/TimerInterrupt.c **** ********************************************************************************
+  12:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:.\Generated_Source\PSoC4/TimerInterrupt.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:.\Generated_Source\PSoC4/TimerInterrupt.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:.\Generated_Source\PSoC4/TimerInterrupt.c **** * the software package with which this file was provided.
+  16:.\Generated_Source\PSoC4/TimerInterrupt.c **** *******************************************************************************/
+  17:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+  18:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+  19:.\Generated_Source\PSoC4/TimerInterrupt.c **** #include <cydevice_trm.h>
+  20:.\Generated_Source\PSoC4/TimerInterrupt.c **** #include <CyLib.h>
+  21:.\Generated_Source\PSoC4/TimerInterrupt.c **** #include <TimerInterrupt.h>
+  22:.\Generated_Source\PSoC4/TimerInterrupt.c **** #include "cyapicallbacks.h"
+  23:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+  24:.\Generated_Source\PSoC4/TimerInterrupt.c **** #if !defined(TimerInterrupt__REMOVED) /* Check for removal by optimization */
+  25:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+  26:.\Generated_Source\PSoC4/TimerInterrupt.c **** /*******************************************************************************
+  27:.\Generated_Source\PSoC4/TimerInterrupt.c **** *  Place your includes, defines and code here 
+  28:.\Generated_Source\PSoC4/TimerInterrupt.c **** ********************************************************************************/
+  29:.\Generated_Source\PSoC4/TimerInterrupt.c **** /* `#START TimerInterrupt_intc` */
+  30:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+  31:.\Generated_Source\PSoC4/TimerInterrupt.c **** /* `#END` */
+  32:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 2
+
+
+  33:.\Generated_Source\PSoC4/TimerInterrupt.c **** extern cyisraddress CyRamVectors[CYINT_IRQ_BASE + CY_NUM_INTERRUPTS];
+  34:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+  35:.\Generated_Source\PSoC4/TimerInterrupt.c **** /* Declared in startup, used to set unused interrupts to. */
+  36:.\Generated_Source\PSoC4/TimerInterrupt.c **** CY_ISR_PROTO(IntDefaultHandler);
+  37:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+  38:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+  39:.\Generated_Source\PSoC4/TimerInterrupt.c **** /*******************************************************************************
+  40:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Function Name: TimerInterrupt_Start
+  41:.\Generated_Source\PSoC4/TimerInterrupt.c **** ********************************************************************************
+  42:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+  43:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Summary:
+  44:.\Generated_Source\PSoC4/TimerInterrupt.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
+  45:.\Generated_Source\PSoC4/TimerInterrupt.c **** *  sets the default interrupt vector, sets the priority from the value in the
+  46:.\Generated_Source\PSoC4/TimerInterrupt.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
+  47:.\Generated_Source\PSoC4/TimerInterrupt.c **** *  interrupt controller.
+  48:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+  49:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Parameters:  
+  50:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+  51:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+  52:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Return:
+  53:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+  54:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+  55:.\Generated_Source\PSoC4/TimerInterrupt.c **** *******************************************************************************/
+  56:.\Generated_Source\PSoC4/TimerInterrupt.c **** void TimerInterrupt_Start(void)
+  57:.\Generated_Source\PSoC4/TimerInterrupt.c **** {
+  58:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* For all we know the interrupt is active. */
+  59:.\Generated_Source\PSoC4/TimerInterrupt.c ****     TimerInterrupt_Disable();
+  60:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+  61:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* Set the ISR to point to the TimerInterrupt Interrupt. */
+  62:.\Generated_Source\PSoC4/TimerInterrupt.c ****     TimerInterrupt_SetVector(&TimerInterrupt_Interrupt);
+  63:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+  64:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* Set the priority. */
+  65:.\Generated_Source\PSoC4/TimerInterrupt.c ****     TimerInterrupt_SetPriority((uint8)TimerInterrupt_INTC_PRIOR_NUMBER);
+  66:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+  67:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* Enable it. */
+  68:.\Generated_Source\PSoC4/TimerInterrupt.c ****     TimerInterrupt_Enable();
+  69:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+  70:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+  71:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+  72:.\Generated_Source\PSoC4/TimerInterrupt.c **** /*******************************************************************************
+  73:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Function Name: TimerInterrupt_StartEx
+  74:.\Generated_Source\PSoC4/TimerInterrupt.c **** ********************************************************************************
+  75:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+  76:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Summary:
+  77:.\Generated_Source\PSoC4/TimerInterrupt.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
+  78:.\Generated_Source\PSoC4/TimerInterrupt.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
+  79:.\Generated_Source\PSoC4/TimerInterrupt.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
+  80:.\Generated_Source\PSoC4/TimerInterrupt.c **** *  the interrupt to the interrupt controller.
+  81:.\Generated_Source\PSoC4/TimerInterrupt.c **** *  
+  82:.\Generated_Source\PSoC4/TimerInterrupt.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+  83:.\Generated_Source\PSoC4/TimerInterrupt.c **** *  used to provide consistent definition across compilers:
+  84:.\Generated_Source\PSoC4/TimerInterrupt.c **** *  
+  85:.\Generated_Source\PSoC4/TimerInterrupt.c **** *  Function definition example:
+  86:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   CY_ISR(MyISR)
+  87:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   {
+  88:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   }
+  89:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Function prototype example:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 3
+
+
+  90:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   CY_ISR_PROTO(MyISR);
+  91:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+  92:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Parameters:  
+  93:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   address: Address of the ISR to set in the interrupt vector table.
+  94:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+  95:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Return:
+  96:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+  97:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+  98:.\Generated_Source\PSoC4/TimerInterrupt.c **** *******************************************************************************/
+  99:.\Generated_Source\PSoC4/TimerInterrupt.c **** void TimerInterrupt_StartEx(cyisraddress address)
+ 100:.\Generated_Source\PSoC4/TimerInterrupt.c **** {
+ 101:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* For all we know the interrupt is active. */
+ 102:.\Generated_Source\PSoC4/TimerInterrupt.c ****     TimerInterrupt_Disable();
+ 103:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 104:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* Set the ISR to point to the TimerInterrupt Interrupt. */
+ 105:.\Generated_Source\PSoC4/TimerInterrupt.c ****     TimerInterrupt_SetVector(address);
+ 106:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 107:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* Set the priority. */
+ 108:.\Generated_Source\PSoC4/TimerInterrupt.c ****     TimerInterrupt_SetPriority((uint8)TimerInterrupt_INTC_PRIOR_NUMBER);
+ 109:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 110:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* Enable it. */
+ 111:.\Generated_Source\PSoC4/TimerInterrupt.c ****     TimerInterrupt_Enable();
+ 112:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 113:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 114:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 115:.\Generated_Source\PSoC4/TimerInterrupt.c **** /*******************************************************************************
+ 116:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Function Name: TimerInterrupt_Stop
+ 117:.\Generated_Source\PSoC4/TimerInterrupt.c **** ********************************************************************************
+ 118:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 119:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Summary:
+ 120:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Disables and removes the interrupt.
+ 121:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 122:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Parameters:  
+ 123:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 124:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 125:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Return:
+ 126:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 127:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 128:.\Generated_Source\PSoC4/TimerInterrupt.c **** *******************************************************************************/
+ 129:.\Generated_Source\PSoC4/TimerInterrupt.c **** void TimerInterrupt_Stop(void)
+ 130:.\Generated_Source\PSoC4/TimerInterrupt.c **** {
+ 131:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* Disable this interrupt. */
+ 132:.\Generated_Source\PSoC4/TimerInterrupt.c ****     TimerInterrupt_Disable();
+ 133:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 134:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* Set the ISR to point to the passive one. */
+ 135:.\Generated_Source\PSoC4/TimerInterrupt.c ****     TimerInterrupt_SetVector(&IntDefaultHandler);
+ 136:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 137:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 138:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 139:.\Generated_Source\PSoC4/TimerInterrupt.c **** /*******************************************************************************
+ 140:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Function Name: TimerInterrupt_Interrupt
+ 141:.\Generated_Source\PSoC4/TimerInterrupt.c **** ********************************************************************************
+ 142:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 143:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Summary:
+ 144:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   The default Interrupt Service Routine for TimerInterrupt.
+ 145:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 146:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Add custom code between the START and END comments to keep the next version
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 4
+
+
+ 147:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   of this file from over-writing your code.
+ 148:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 149:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Note You may use either the default ISR by using this API, or you may define
+ 150:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   your own separate ISR through ISR_StartEx().
+ 151:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 152:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Parameters:  
+ 153:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 154:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 155:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Return:
+ 156:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 157:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 158:.\Generated_Source\PSoC4/TimerInterrupt.c **** *******************************************************************************/
+ 159:.\Generated_Source\PSoC4/TimerInterrupt.c **** CY_ISR(TimerInterrupt_Interrupt)
+ 160:.\Generated_Source\PSoC4/TimerInterrupt.c **** {
+  26              		.loc 1 160 0
+  27              		.cfi_startproc
+ 161:.\Generated_Source\PSoC4/TimerInterrupt.c ****     #ifdef TimerInterrupt_INTERRUPT_INTERRUPT_CALLBACK
+ 162:.\Generated_Source\PSoC4/TimerInterrupt.c ****         TimerInterrupt_Interrupt_InterruptCallback();
+ 163:.\Generated_Source\PSoC4/TimerInterrupt.c ****     #endif /* TimerInterrupt_INTERRUPT_INTERRUPT_CALLBACK */ 
+ 164:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 165:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /*  Place your Interrupt code here. */
+ 166:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* `#START TimerInterrupt_Interrupt` */
+ 167:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 168:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* `#END` */
+ 169:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+  28              		.loc 1 169 0
+  29              		@ sp needed
+  30 0000 7047     		bx	lr
+  31              		.cfi_endproc
+  32              	.LFE5:
+  33              		.size	TimerInterrupt_Interrupt, .-TimerInterrupt_Interrupt
+  34              		.section	.text.TimerInterrupt_Stop,"ax",%progbits
+  35              		.align	1
+  36              		.global	TimerInterrupt_Stop
+  37              		.code	16
+  38              		.thumb_func
+  39              		.type	TimerInterrupt_Stop, %function
+  40              	TimerInterrupt_Stop:
+  41              	.LFB4:
+ 130:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* Disable this interrupt. */
+  42              		.loc 1 130 0
+  43              		.cfi_startproc
+  44              	.LBB18:
+  45              	.LBB19:
+ 170:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 171:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 172:.\Generated_Source\PSoC4/TimerInterrupt.c **** /*******************************************************************************
+ 173:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Function Name: TimerInterrupt_SetVector
+ 174:.\Generated_Source\PSoC4/TimerInterrupt.c **** ********************************************************************************
+ 175:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 176:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Summary:
+ 177:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Change the ISR vector for the Interrupt. Note calling TimerInterrupt_Start
+ 178:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   will override any effect this method would have had. To set the vector 
+ 179:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   before the component has been started use TimerInterrupt_StartEx instead.
+ 180:.\Generated_Source\PSoC4/TimerInterrupt.c **** * 
+ 181:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 182:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   used to provide consistent definition across compilers:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 5
+
+
+ 183:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 184:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Function definition example:
+ 185:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   CY_ISR(MyISR)
+ 186:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   {
+ 187:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   }
+ 188:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 189:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Function prototype example:
+ 190:.\Generated_Source\PSoC4/TimerInterrupt.c **** *     CY_ISR_PROTO(MyISR);
+ 191:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 192:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Parameters:
+ 193:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 194:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 195:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Return:
+ 196:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 197:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 198:.\Generated_Source\PSoC4/TimerInterrupt.c **** *******************************************************************************/
+ 199:.\Generated_Source\PSoC4/TimerInterrupt.c **** void TimerInterrupt_SetVector(cyisraddress address)
+ 200:.\Generated_Source\PSoC4/TimerInterrupt.c **** {
+ 201:.\Generated_Source\PSoC4/TimerInterrupt.c ****     CyRamVectors[CYINT_IRQ_BASE + TimerInterrupt__INTC_NUMBER] = address;
+ 202:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 203:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 204:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 205:.\Generated_Source\PSoC4/TimerInterrupt.c **** /*******************************************************************************
+ 206:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Function Name: TimerInterrupt_GetVector
+ 207:.\Generated_Source\PSoC4/TimerInterrupt.c **** ********************************************************************************
+ 208:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 209:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Summary:
+ 210:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 211:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 212:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Parameters:
+ 213:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 214:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 215:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Return:
+ 216:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Address of the ISR in the interrupt vector table.
+ 217:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 218:.\Generated_Source\PSoC4/TimerInterrupt.c **** *******************************************************************************/
+ 219:.\Generated_Source\PSoC4/TimerInterrupt.c **** cyisraddress TimerInterrupt_GetVector(void)
+ 220:.\Generated_Source\PSoC4/TimerInterrupt.c **** {
+ 221:.\Generated_Source\PSoC4/TimerInterrupt.c ****     return CyRamVectors[CYINT_IRQ_BASE + TimerInterrupt__INTC_NUMBER];
+ 222:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 223:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 224:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 225:.\Generated_Source\PSoC4/TimerInterrupt.c **** /*******************************************************************************
+ 226:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Function Name: TimerInterrupt_SetPriority
+ 227:.\Generated_Source\PSoC4/TimerInterrupt.c **** ********************************************************************************
+ 228:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 229:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Summary:
+ 230:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Sets the Priority of the Interrupt. 
+ 231:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 232:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Note calling TimerInterrupt_Start or TimerInterrupt_StartEx will 
+ 233:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   override any effect this API would have had. This API should only be called
+ 234:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   after TimerInterrupt_Start or TimerInterrupt_StartEx has been called. 
+ 235:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 236:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Interrupt Editor.
+ 237:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 238:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 239:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 6
+
+
+ 240:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Parameters:
+ 241:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 242:.\Generated_Source\PSoC4/TimerInterrupt.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 243:.\Generated_Source\PSoC4/TimerInterrupt.c **** *             PSoC 4: Priority is from 0 to 3.
+ 244:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 245:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Return:
+ 246:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 247:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 248:.\Generated_Source\PSoC4/TimerInterrupt.c **** *******************************************************************************/
+ 249:.\Generated_Source\PSoC4/TimerInterrupt.c **** void TimerInterrupt_SetPriority(uint8 priority)
+ 250:.\Generated_Source\PSoC4/TimerInterrupt.c **** {
+ 251:.\Generated_Source\PSoC4/TimerInterrupt.c **** 	uint8 interruptState;
+ 252:.\Generated_Source\PSoC4/TimerInterrupt.c ****     uint32 priorityOffset = ((TimerInterrupt__INTC_NUMBER % 4u) * 8u) + 6u;
+ 253:.\Generated_Source\PSoC4/TimerInterrupt.c ****     
+ 254:.\Generated_Source\PSoC4/TimerInterrupt.c **** 	interruptState = CyEnterCriticalSection();
+ 255:.\Generated_Source\PSoC4/TimerInterrupt.c ****     *TimerInterrupt_INTC_PRIOR = (*TimerInterrupt_INTC_PRIOR & (uint32)(~TimerInterrupt__INTC_PRIOR
+ 256:.\Generated_Source\PSoC4/TimerInterrupt.c ****                                     ((uint32)priority << priorityOffset);
+ 257:.\Generated_Source\PSoC4/TimerInterrupt.c **** 	CyExitCriticalSection(interruptState);
+ 258:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 259:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 260:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 261:.\Generated_Source\PSoC4/TimerInterrupt.c **** /*******************************************************************************
+ 262:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Function Name: TimerInterrupt_GetPriority
+ 263:.\Generated_Source\PSoC4/TimerInterrupt.c **** ********************************************************************************
+ 264:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 265:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Summary:
+ 266:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Gets the Priority of the Interrupt.
+ 267:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 268:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Parameters:
+ 269:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 270:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 271:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Return:
+ 272:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Priority of the interrupt, 0 being the highest priority
+ 273:.\Generated_Source\PSoC4/TimerInterrupt.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 274:.\Generated_Source\PSoC4/TimerInterrupt.c **** *    PSoC 4: Priority is from 0 to 3.
+ 275:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 276:.\Generated_Source\PSoC4/TimerInterrupt.c **** *******************************************************************************/
+ 277:.\Generated_Source\PSoC4/TimerInterrupt.c **** uint8 TimerInterrupt_GetPriority(void)
+ 278:.\Generated_Source\PSoC4/TimerInterrupt.c **** {
+ 279:.\Generated_Source\PSoC4/TimerInterrupt.c ****     uint32 priority;
+ 280:.\Generated_Source\PSoC4/TimerInterrupt.c **** 	uint32 priorityOffset = ((TimerInterrupt__INTC_NUMBER % 4u) * 8u) + 6u;
+ 281:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 282:.\Generated_Source\PSoC4/TimerInterrupt.c ****     priority = (*TimerInterrupt_INTC_PRIOR & TimerInterrupt__INTC_PRIOR_MASK) >> priorityOffset;
+ 283:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 284:.\Generated_Source\PSoC4/TimerInterrupt.c ****     return (uint8)priority;
+ 285:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 286:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 287:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 288:.\Generated_Source\PSoC4/TimerInterrupt.c **** /*******************************************************************************
+ 289:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Function Name: TimerInterrupt_Enable
+ 290:.\Generated_Source\PSoC4/TimerInterrupt.c **** ********************************************************************************
+ 291:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 292:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Summary:
+ 293:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 294:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 295:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   function, which sets the vector and the priority, has been called.
+ 296:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 7
+
+
+ 297:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Parameters:
+ 298:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 299:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 300:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Return:
+ 301:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 302:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 303:.\Generated_Source\PSoC4/TimerInterrupt.c **** *******************************************************************************/
+ 304:.\Generated_Source\PSoC4/TimerInterrupt.c **** void TimerInterrupt_Enable(void)
+ 305:.\Generated_Source\PSoC4/TimerInterrupt.c **** {
+ 306:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* Enable the general interrupt. */
+ 307:.\Generated_Source\PSoC4/TimerInterrupt.c ****     *TimerInterrupt_INTC_SET_EN = TimerInterrupt__INTC_MASK;
+ 308:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 309:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 310:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 311:.\Generated_Source\PSoC4/TimerInterrupt.c **** /*******************************************************************************
+ 312:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Function Name: TimerInterrupt_GetState
+ 313:.\Generated_Source\PSoC4/TimerInterrupt.c **** ********************************************************************************
+ 314:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 315:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Summary:
+ 316:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 317:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 318:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Parameters:
+ 319:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 320:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 321:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Return:
+ 322:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   1 if enabled, 0 if disabled.
+ 323:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 324:.\Generated_Source\PSoC4/TimerInterrupt.c **** *******************************************************************************/
+ 325:.\Generated_Source\PSoC4/TimerInterrupt.c **** uint8 TimerInterrupt_GetState(void)
+ 326:.\Generated_Source\PSoC4/TimerInterrupt.c **** {
+ 327:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* Get the state of the general interrupt. */
+ 328:.\Generated_Source\PSoC4/TimerInterrupt.c ****     return ((*TimerInterrupt_INTC_SET_EN & (uint32)TimerInterrupt__INTC_MASK) != 0u) ? 1u:0u;
+ 329:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 330:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 331:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 332:.\Generated_Source\PSoC4/TimerInterrupt.c **** /*******************************************************************************
+ 333:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Function Name: TimerInterrupt_Disable
+ 334:.\Generated_Source\PSoC4/TimerInterrupt.c **** ********************************************************************************
+ 335:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 336:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Summary:
+ 337:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Disables the Interrupt in the interrupt controller.
+ 338:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 339:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Parameters:
+ 340:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 341:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 342:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Return:
+ 343:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 344:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 345:.\Generated_Source\PSoC4/TimerInterrupt.c **** *******************************************************************************/
+ 346:.\Generated_Source\PSoC4/TimerInterrupt.c **** void TimerInterrupt_Disable(void)
+ 347:.\Generated_Source\PSoC4/TimerInterrupt.c **** {
+ 348:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* Disable the general interrupt. */
+ 349:.\Generated_Source\PSoC4/TimerInterrupt.c ****     *TimerInterrupt_INTC_CLR_EN = TimerInterrupt__INTC_MASK;
+  46              		.loc 1 349 0
+  47 0000 8022     		mov	r2, #128
+  48 0002 044B     		ldr	r3, .L3
+  49 0004 9202     		lsl	r2, r2, #10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 8
+
+
+  50 0006 1A60     		str	r2, [r3]
+  51              	.LVL0:
+  52              	.LBE19:
+  53              	.LBE18:
+  54              	.LBB20:
+  55              	.LBB21:
+ 201:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+  56              		.loc 1 201 0
+  57 0008 034B     		ldr	r3, .L3+4
+  58 000a 044A     		ldr	r2, .L3+8
+  59 000c 0833     		add	r3, r3, #8
+  60 000e DA67     		str	r2, [r3, #124]
+  61              	.LBE21:
+  62              	.LBE20:
+ 136:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+  63              		.loc 1 136 0
+  64              		@ sp needed
+  65 0010 7047     		bx	lr
+  66              	.L4:
+  67 0012 C046     		.align	2
+  68              	.L3:
+  69 0014 80E100E0 		.word	-536813184
+  70 0018 00000000 		.word	CyRamVectors
+  71 001c 00000000 		.word	IntDefaultHandler
+  72              		.cfi_endproc
+  73              	.LFE4:
+  74              		.size	TimerInterrupt_Stop, .-TimerInterrupt_Stop
+  75              		.section	.text.TimerInterrupt_SetVector,"ax",%progbits
+  76              		.align	1
+  77              		.global	TimerInterrupt_SetVector
+  78              		.code	16
+  79              		.thumb_func
+  80              		.type	TimerInterrupt_SetVector, %function
+  81              	TimerInterrupt_SetVector:
+  82              	.LFB6:
+ 200:.\Generated_Source\PSoC4/TimerInterrupt.c ****     CyRamVectors[CYINT_IRQ_BASE + TimerInterrupt__INTC_NUMBER] = address;
+  83              		.loc 1 200 0
+  84              		.cfi_startproc
+  85              	.LVL1:
+ 201:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+  86              		.loc 1 201 0
+  87 0000 014B     		ldr	r3, .L6
+ 202:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+  88              		.loc 1 202 0
+  89              		@ sp needed
+ 201:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+  90              		.loc 1 201 0
+  91 0002 0833     		add	r3, r3, #8
+  92 0004 D867     		str	r0, [r3, #124]
+ 202:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+  93              		.loc 1 202 0
+  94 0006 7047     		bx	lr
+  95              	.L7:
+  96              		.align	2
+  97              	.L6:
+  98 0008 00000000 		.word	CyRamVectors
+  99              		.cfi_endproc
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 9
+
+
+ 100              	.LFE6:
+ 101              		.size	TimerInterrupt_SetVector, .-TimerInterrupt_SetVector
+ 102              		.section	.text.TimerInterrupt_GetVector,"ax",%progbits
+ 103              		.align	1
+ 104              		.global	TimerInterrupt_GetVector
+ 105              		.code	16
+ 106              		.thumb_func
+ 107              		.type	TimerInterrupt_GetVector, %function
+ 108              	TimerInterrupt_GetVector:
+ 109              	.LFB7:
+ 220:.\Generated_Source\PSoC4/TimerInterrupt.c ****     return CyRamVectors[CYINT_IRQ_BASE + TimerInterrupt__INTC_NUMBER];
+ 110              		.loc 1 220 0
+ 111              		.cfi_startproc
+ 221:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 112              		.loc 1 221 0
+ 113 0000 014B     		ldr	r3, .L9
+ 222:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 114              		.loc 1 222 0
+ 115              		@ sp needed
+ 221:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 116              		.loc 1 221 0
+ 117 0002 0833     		add	r3, r3, #8
+ 118 0004 D86F     		ldr	r0, [r3, #124]
+ 222:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 119              		.loc 1 222 0
+ 120 0006 7047     		bx	lr
+ 121              	.L10:
+ 122              		.align	2
+ 123              	.L9:
+ 124 0008 00000000 		.word	CyRamVectors
+ 125              		.cfi_endproc
+ 126              	.LFE7:
+ 127              		.size	TimerInterrupt_GetVector, .-TimerInterrupt_GetVector
+ 128              		.section	.text.TimerInterrupt_SetPriority,"ax",%progbits
+ 129              		.align	1
+ 130              		.global	TimerInterrupt_SetPriority
+ 131              		.code	16
+ 132              		.thumb_func
+ 133              		.type	TimerInterrupt_SetPriority, %function
+ 134              	TimerInterrupt_SetPriority:
+ 135              	.LFB8:
+ 250:.\Generated_Source\PSoC4/TimerInterrupt.c **** 	uint8 interruptState;
+ 136              		.loc 1 250 0
+ 137              		.cfi_startproc
+ 138              	.LVL2:
+ 139 0000 10B5     		push	{r4, lr}
+ 140              		.cfi_def_cfa_offset 8
+ 141              		.cfi_offset 4, -8
+ 142              		.cfi_offset 14, -4
+ 250:.\Generated_Source\PSoC4/TimerInterrupt.c **** 	uint8 interruptState;
+ 143              		.loc 1 250 0
+ 144 0002 041C     		mov	r4, r0
+ 254:.\Generated_Source\PSoC4/TimerInterrupt.c ****     *TimerInterrupt_INTC_PRIOR = (*TimerInterrupt_INTC_PRIOR & (uint32)(~TimerInterrupt__INTC_PRIOR
+ 145              		.loc 1 254 0
+ 146 0004 FFF7FEFF 		bl	CyEnterCriticalSection
+ 147              	.LVL3:
+ 255:.\Generated_Source\PSoC4/TimerInterrupt.c ****                                     ((uint32)priority << priorityOffset);
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 10
+
+
+ 148              		.loc 1 255 0
+ 149 0008 0449     		ldr	r1, .L12
+ 150 000a 054A     		ldr	r2, .L12+4
+ 151 000c 0B68     		ldr	r3, [r1]
+ 256:.\Generated_Source\PSoC4/TimerInterrupt.c **** 	CyExitCriticalSection(interruptState);
+ 152              		.loc 1 256 0
+ 153 000e A403     		lsl	r4, r4, #14
+ 255:.\Generated_Source\PSoC4/TimerInterrupt.c ****                                     ((uint32)priority << priorityOffset);
+ 154              		.loc 1 255 0
+ 155 0010 1340     		and	r3, r2
+ 156 0012 2343     		orr	r3, r4
+ 157 0014 0B60     		str	r3, [r1]
+ 257:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 158              		.loc 1 257 0
+ 159 0016 FFF7FEFF 		bl	CyExitCriticalSection
+ 160              	.LVL4:
+ 258:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 161              		.loc 1 258 0
+ 162              		@ sp needed
+ 163 001a 10BD     		pop	{r4, pc}
+ 164              	.L13:
+ 165              		.align	2
+ 166              	.L12:
+ 167 001c 10E400E0 		.word	-536812528
+ 168 0020 FF3FFFFF 		.word	-49153
+ 169              		.cfi_endproc
+ 170              	.LFE8:
+ 171              		.size	TimerInterrupt_SetPriority, .-TimerInterrupt_SetPriority
+ 172              		.section	.text.TimerInterrupt_Start,"ax",%progbits
+ 173              		.align	1
+ 174              		.global	TimerInterrupt_Start
+ 175              		.code	16
+ 176              		.thumb_func
+ 177              		.type	TimerInterrupt_Start, %function
+ 178              	TimerInterrupt_Start:
+ 179              	.LFB2:
+  57:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* For all we know the interrupt is active. */
+ 180              		.loc 1 57 0
+ 181              		.cfi_startproc
+ 182 0000 10B5     		push	{r4, lr}
+ 183              		.cfi_def_cfa_offset 8
+ 184              		.cfi_offset 4, -8
+ 185              		.cfi_offset 14, -4
+ 186              	.LBB22:
+ 187              	.LBB23:
+ 188              		.loc 1 349 0
+ 189 0002 8024     		mov	r4, #128
+ 190 0004 064B     		ldr	r3, .L15
+ 191 0006 A402     		lsl	r4, r4, #10
+ 192 0008 1C60     		str	r4, [r3]
+ 193              	.LVL5:
+ 194              	.LBE23:
+ 195              	.LBE22:
+ 196              	.LBB24:
+ 197              	.LBB25:
+ 201:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 198              		.loc 1 201 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 11
+
+
+ 199 000a 064B     		ldr	r3, .L15+4
+ 200 000c 064A     		ldr	r2, .L15+8
+ 201 000e 0833     		add	r3, r3, #8
+ 202              	.LBE25:
+ 203              	.LBE24:
+  65:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 204              		.loc 1 65 0
+ 205 0010 0320     		mov	r0, #3
+ 206              	.LBB27:
+ 207              	.LBB26:
+ 201:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 208              		.loc 1 201 0
+ 209 0012 DA67     		str	r2, [r3, #124]
+ 210              	.LBE26:
+ 211              	.LBE27:
+  65:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 212              		.loc 1 65 0
+ 213 0014 FFF7FEFF 		bl	TimerInterrupt_SetPriority
+ 214              	.LVL6:
+ 215              	.LBB28:
+ 216              	.LBB29:
+ 307:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 217              		.loc 1 307 0
+ 218 0018 044B     		ldr	r3, .L15+12
+ 219              	.LBE29:
+ 220              	.LBE28:
+  69:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 221              		.loc 1 69 0
+ 222              		@ sp needed
+ 223              	.LBB31:
+ 224              	.LBB30:
+ 307:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 225              		.loc 1 307 0
+ 226 001a 1C60     		str	r4, [r3]
+ 227              	.LBE30:
+ 228              	.LBE31:
+  69:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 229              		.loc 1 69 0
+ 230 001c 10BD     		pop	{r4, pc}
+ 231              	.L16:
+ 232 001e C046     		.align	2
+ 233              	.L15:
+ 234 0020 80E100E0 		.word	-536813184
+ 235 0024 00000000 		.word	CyRamVectors
+ 236 0028 00000000 		.word	TimerInterrupt_Interrupt
+ 237 002c 00E100E0 		.word	-536813312
+ 238              		.cfi_endproc
+ 239              	.LFE2:
+ 240              		.size	TimerInterrupt_Start, .-TimerInterrupt_Start
+ 241              		.section	.text.TimerInterrupt_StartEx,"ax",%progbits
+ 242              		.align	1
+ 243              		.global	TimerInterrupt_StartEx
+ 244              		.code	16
+ 245              		.thumb_func
+ 246              		.type	TimerInterrupt_StartEx, %function
+ 247              	TimerInterrupt_StartEx:
+ 248              	.LFB3:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 12
+
+
+ 100:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* For all we know the interrupt is active. */
+ 249              		.loc 1 100 0
+ 250              		.cfi_startproc
+ 251              	.LVL7:
+ 252 0000 10B5     		push	{r4, lr}
+ 253              		.cfi_def_cfa_offset 8
+ 254              		.cfi_offset 4, -8
+ 255              		.cfi_offset 14, -4
+ 256              	.LBB32:
+ 257              	.LBB33:
+ 258              		.loc 1 349 0
+ 259 0002 8024     		mov	r4, #128
+ 260 0004 054B     		ldr	r3, .L18
+ 261 0006 A402     		lsl	r4, r4, #10
+ 262 0008 1C60     		str	r4, [r3]
+ 263              	.LVL8:
+ 264              	.LBE33:
+ 265              	.LBE32:
+ 266              	.LBB34:
+ 267              	.LBB35:
+ 201:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 268              		.loc 1 201 0
+ 269 000a 054B     		ldr	r3, .L18+4
+ 270              	.LBE35:
+ 271              	.LBE34:
+ 112:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 272              		.loc 1 112 0
+ 273              		@ sp needed
+ 274              	.LBB37:
+ 275              	.LBB36:
+ 201:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 276              		.loc 1 201 0
+ 277 000c 0833     		add	r3, r3, #8
+ 278 000e D867     		str	r0, [r3, #124]
+ 279              	.LBE36:
+ 280              	.LBE37:
+ 108:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 281              		.loc 1 108 0
+ 282 0010 0320     		mov	r0, #3
+ 283              	.LVL9:
+ 284 0012 FFF7FEFF 		bl	TimerInterrupt_SetPriority
+ 285              	.LVL10:
+ 286              	.LBB38:
+ 287              	.LBB39:
+ 307:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 288              		.loc 1 307 0
+ 289 0016 034B     		ldr	r3, .L18+8
+ 290 0018 1C60     		str	r4, [r3]
+ 291              	.LBE39:
+ 292              	.LBE38:
+ 112:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 293              		.loc 1 112 0
+ 294 001a 10BD     		pop	{r4, pc}
+ 295              	.L19:
+ 296              		.align	2
+ 297              	.L18:
+ 298 001c 80E100E0 		.word	-536813184
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 13
+
+
+ 299 0020 00000000 		.word	CyRamVectors
+ 300 0024 00E100E0 		.word	-536813312
+ 301              		.cfi_endproc
+ 302              	.LFE3:
+ 303              		.size	TimerInterrupt_StartEx, .-TimerInterrupt_StartEx
+ 304              		.section	.text.TimerInterrupt_GetPriority,"ax",%progbits
+ 305              		.align	1
+ 306              		.global	TimerInterrupt_GetPriority
+ 307              		.code	16
+ 308              		.thumb_func
+ 309              		.type	TimerInterrupt_GetPriority, %function
+ 310              	TimerInterrupt_GetPriority:
+ 311              	.LFB9:
+ 278:.\Generated_Source\PSoC4/TimerInterrupt.c ****     uint32 priority;
+ 312              		.loc 1 278 0
+ 313              		.cfi_startproc
+ 314              	.LVL11:
+ 282:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 315              		.loc 1 282 0
+ 316 0000 024B     		ldr	r3, .L21
+ 285:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 317              		.loc 1 285 0
+ 318              		@ sp needed
+ 282:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 319              		.loc 1 282 0
+ 320 0002 1868     		ldr	r0, [r3]
+ 321              	.LVL12:
+ 322 0004 0004     		lsl	r0, r0, #16
+ 323              	.LVL13:
+ 284:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 324              		.loc 1 284 0
+ 325 0006 800F     		lsr	r0, r0, #30
+ 285:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 326              		.loc 1 285 0
+ 327 0008 7047     		bx	lr
+ 328              	.L22:
+ 329 000a C046     		.align	2
+ 330              	.L21:
+ 331 000c 10E400E0 		.word	-536812528
+ 332              		.cfi_endproc
+ 333              	.LFE9:
+ 334              		.size	TimerInterrupt_GetPriority, .-TimerInterrupt_GetPriority
+ 335              		.section	.text.TimerInterrupt_Enable,"ax",%progbits
+ 336              		.align	1
+ 337              		.global	TimerInterrupt_Enable
+ 338              		.code	16
+ 339              		.thumb_func
+ 340              		.type	TimerInterrupt_Enable, %function
+ 341              	TimerInterrupt_Enable:
+ 342              	.LFB10:
+ 305:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* Enable the general interrupt. */
+ 343              		.loc 1 305 0
+ 344              		.cfi_startproc
+ 307:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 345              		.loc 1 307 0
+ 346 0000 8022     		mov	r2, #128
+ 347 0002 024B     		ldr	r3, .L24
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 14
+
+
+ 348 0004 9202     		lsl	r2, r2, #10
+ 349 0006 1A60     		str	r2, [r3]
+ 308:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 350              		.loc 1 308 0
+ 351              		@ sp needed
+ 352 0008 7047     		bx	lr
+ 353              	.L25:
+ 354 000a C046     		.align	2
+ 355              	.L24:
+ 356 000c 00E100E0 		.word	-536813312
+ 357              		.cfi_endproc
+ 358              	.LFE10:
+ 359              		.size	TimerInterrupt_Enable, .-TimerInterrupt_Enable
+ 360              		.section	.text.TimerInterrupt_GetState,"ax",%progbits
+ 361              		.align	1
+ 362              		.global	TimerInterrupt_GetState
+ 363              		.code	16
+ 364              		.thumb_func
+ 365              		.type	TimerInterrupt_GetState, %function
+ 366              	TimerInterrupt_GetState:
+ 367              	.LFB11:
+ 326:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* Get the state of the general interrupt. */
+ 368              		.loc 1 326 0
+ 369              		.cfi_startproc
+ 328:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 370              		.loc 1 328 0
+ 371 0000 024B     		ldr	r3, .L27
+ 329:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 372              		.loc 1 329 0
+ 373              		@ sp needed
+ 328:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 374              		.loc 1 328 0
+ 375 0002 1868     		ldr	r0, [r3]
+ 376 0004 8003     		lsl	r0, r0, #14
+ 377 0006 C00F     		lsr	r0, r0, #31
+ 329:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 378              		.loc 1 329 0
+ 379 0008 7047     		bx	lr
+ 380              	.L28:
+ 381 000a C046     		.align	2
+ 382              	.L27:
+ 383 000c 00E100E0 		.word	-536813312
+ 384              		.cfi_endproc
+ 385              	.LFE11:
+ 386              		.size	TimerInterrupt_GetState, .-TimerInterrupt_GetState
+ 387              		.section	.text.TimerInterrupt_Disable,"ax",%progbits
+ 388              		.align	1
+ 389              		.global	TimerInterrupt_Disable
+ 390              		.code	16
+ 391              		.thumb_func
+ 392              		.type	TimerInterrupt_Disable, %function
+ 393              	TimerInterrupt_Disable:
+ 394              	.LFB12:
+ 347:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* Disable the general interrupt. */
+ 395              		.loc 1 347 0
+ 396              		.cfi_startproc
+ 397              		.loc 1 349 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 15
+
+
+ 398 0000 8022     		mov	r2, #128
+ 399 0002 024B     		ldr	r3, .L30
+ 400 0004 9202     		lsl	r2, r2, #10
+ 401 0006 1A60     		str	r2, [r3]
+ 350:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 402              		.loc 1 350 0
+ 403              		@ sp needed
+ 404 0008 7047     		bx	lr
+ 405              	.L31:
+ 406 000a C046     		.align	2
+ 407              	.L30:
+ 408 000c 80E100E0 		.word	-536813184
+ 409              		.cfi_endproc
+ 410              	.LFE12:
+ 411              		.size	TimerInterrupt_Disable, .-TimerInterrupt_Disable
+ 412              		.section	.text.TimerInterrupt_SetPending,"ax",%progbits
+ 413              		.align	1
+ 414              		.global	TimerInterrupt_SetPending
+ 415              		.code	16
+ 416              		.thumb_func
+ 417              		.type	TimerInterrupt_SetPending, %function
+ 418              	TimerInterrupt_SetPending:
+ 419              	.LFB13:
+ 351:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 352:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 353:.\Generated_Source\PSoC4/TimerInterrupt.c **** /*******************************************************************************
+ 354:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Function Name: TimerInterrupt_SetPending
+ 355:.\Generated_Source\PSoC4/TimerInterrupt.c **** ********************************************************************************
+ 356:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 357:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Summary:
+ 358:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 359:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   generating the interrupt.
+ 360:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 361:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Parameters:
+ 362:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 363:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 364:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Return:
+ 365:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 366:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 367:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Side Effects:
+ 368:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 369:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 370:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   interrupts).
+ 371:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 372:.\Generated_Source\PSoC4/TimerInterrupt.c **** *******************************************************************************/
+ 373:.\Generated_Source\PSoC4/TimerInterrupt.c **** void TimerInterrupt_SetPending(void)
+ 374:.\Generated_Source\PSoC4/TimerInterrupt.c **** {
+ 420              		.loc 1 374 0
+ 421              		.cfi_startproc
+ 375:.\Generated_Source\PSoC4/TimerInterrupt.c ****     *TimerInterrupt_INTC_SET_PD = TimerInterrupt__INTC_MASK;
+ 422              		.loc 1 375 0
+ 423 0000 8022     		mov	r2, #128
+ 424 0002 024B     		ldr	r3, .L33
+ 425 0004 9202     		lsl	r2, r2, #10
+ 426 0006 1A60     		str	r2, [r3]
+ 376:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 427              		.loc 1 376 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 16
+
+
+ 428              		@ sp needed
+ 429 0008 7047     		bx	lr
+ 430              	.L34:
+ 431 000a C046     		.align	2
+ 432              	.L33:
+ 433 000c 00E200E0 		.word	-536813056
+ 434              		.cfi_endproc
+ 435              	.LFE13:
+ 436              		.size	TimerInterrupt_SetPending, .-TimerInterrupt_SetPending
+ 437              		.section	.text.TimerInterrupt_ClearPending,"ax",%progbits
+ 438              		.align	1
+ 439              		.global	TimerInterrupt_ClearPending
+ 440              		.code	16
+ 441              		.thumb_func
+ 442              		.type	TimerInterrupt_ClearPending, %function
+ 443              	TimerInterrupt_ClearPending:
+ 444              	.LFB14:
+ 377:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 378:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
+ 379:.\Generated_Source\PSoC4/TimerInterrupt.c **** /*******************************************************************************
+ 380:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Function Name: TimerInterrupt_ClearPending
+ 381:.\Generated_Source\PSoC4/TimerInterrupt.c **** ********************************************************************************
+ 382:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 383:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Summary:
+ 384:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Clears a pending interrupt in the interrupt controller.
+ 385:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 386:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 387:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 388:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ 389:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 390:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 391:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Parameters:
+ 392:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 393:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 394:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Return:
+ 395:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   None
+ 396:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
+ 397:.\Generated_Source\PSoC4/TimerInterrupt.c **** *******************************************************************************/
+ 398:.\Generated_Source\PSoC4/TimerInterrupt.c **** void TimerInterrupt_ClearPending(void)
+ 399:.\Generated_Source\PSoC4/TimerInterrupt.c **** {
+ 445              		.loc 1 399 0
+ 446              		.cfi_startproc
+ 400:.\Generated_Source\PSoC4/TimerInterrupt.c ****     *TimerInterrupt_INTC_CLR_PD = TimerInterrupt__INTC_MASK;
+ 447              		.loc 1 400 0
+ 448 0000 8022     		mov	r2, #128
+ 449 0002 024B     		ldr	r3, .L36
+ 450 0004 9202     		lsl	r2, r2, #10
+ 451 0006 1A60     		str	r2, [r3]
+ 401:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
+ 452              		.loc 1 401 0
+ 453              		@ sp needed
+ 454 0008 7047     		bx	lr
+ 455              	.L37:
+ 456 000a C046     		.align	2
+ 457              	.L36:
+ 458 000c 80E200E0 		.word	-536812928
+ 459              		.cfi_endproc
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 17
+
+
+ 460              	.LFE14:
+ 461              		.size	TimerInterrupt_ClearPending, .-TimerInterrupt_ClearPending
+ 462              		.text
+ 463              	.Letext0:
+ 464              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 465              		.file 3 "Generated_Source\\PSoC4/CyLib.h"
+ 466              		.section	.debug_info,"",%progbits
+ 467              	.Ldebug_info0:
+ 468 0000 4A030000 		.4byte	0x34a
+ 469 0004 0400     		.2byte	0x4
+ 470 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 471 000a 04       		.byte	0x4
+ 472 000b 01       		.uleb128 0x1
+ 473 000c 1D000000 		.4byte	.LASF32
+ 474 0010 01       		.byte	0x1
+ 475 0011 0A030000 		.4byte	.LASF33
+ 476 0015 4A020000 		.4byte	.LASF34
+ 477 0019 48000000 		.4byte	.Ldebug_ranges0+0x48
+ 478 001d 00000000 		.4byte	0
+ 479 0021 00000000 		.4byte	.Ldebug_line0
+ 480 0025 02       		.uleb128 0x2
+ 481 0026 01       		.byte	0x1
+ 482 0027 06       		.byte	0x6
+ 483 0028 72030000 		.4byte	.LASF0
+ 484 002c 02       		.uleb128 0x2
+ 485 002d 01       		.byte	0x1
+ 486 002e 08       		.byte	0x8
+ 487 002f 73010000 		.4byte	.LASF1
+ 488 0033 02       		.uleb128 0x2
+ 489 0034 02       		.byte	0x2
+ 490 0035 05       		.byte	0x5
+ 491 0036 50030000 		.4byte	.LASF2
+ 492 003a 02       		.uleb128 0x2
+ 493 003b 02       		.byte	0x2
+ 494 003c 07       		.byte	0x7
+ 495 003d E7000000 		.4byte	.LASF3
+ 496 0041 02       		.uleb128 0x2
+ 497 0042 04       		.byte	0x4
+ 498 0043 05       		.byte	0x5
+ 499 0044 69030000 		.4byte	.LASF4
+ 500 0048 02       		.uleb128 0x2
+ 501 0049 04       		.byte	0x4
+ 502 004a 07       		.byte	0x7
+ 503 004b C5010000 		.4byte	.LASF5
+ 504 004f 02       		.uleb128 0x2
+ 505 0050 08       		.byte	0x8
+ 506 0051 05       		.byte	0x5
+ 507 0052 3D030000 		.4byte	.LASF6
+ 508 0056 02       		.uleb128 0x2
+ 509 0057 08       		.byte	0x8
+ 510 0058 07       		.byte	0x7
+ 511 0059 47010000 		.4byte	.LASF7
+ 512 005d 03       		.uleb128 0x3
+ 513 005e 04       		.byte	0x4
+ 514 005f 05       		.byte	0x5
+ 515 0060 696E7400 		.ascii	"int\000"
+ 516 0064 02       		.uleb128 0x2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 18
+
+
+ 517 0065 04       		.byte	0x4
+ 518 0066 07       		.byte	0x7
+ 519 0067 3D020000 		.4byte	.LASF8
+ 520 006b 04       		.uleb128 0x4
+ 521 006c D7010000 		.4byte	.LASF9
+ 522 0070 02       		.byte	0x2
+ 523 0071 C2       		.byte	0xc2
+ 524 0072 2C000000 		.4byte	0x2c
+ 525 0076 04       		.uleb128 0x4
+ 526 0077 1F020000 		.4byte	.LASF10
+ 527 007b 02       		.byte	0x2
+ 528 007c C4       		.byte	0xc4
+ 529 007d 48000000 		.4byte	0x48
+ 530 0081 02       		.uleb128 0x2
+ 531 0082 04       		.byte	0x4
+ 532 0083 04       		.byte	0x4
+ 533 0084 41010000 		.4byte	.LASF11
+ 534 0088 02       		.uleb128 0x2
+ 535 0089 08       		.byte	0x8
+ 536 008a 04       		.byte	0x4
+ 537 008b E6010000 		.4byte	.LASF12
+ 538 008f 02       		.uleb128 0x2
+ 539 0090 01       		.byte	0x1
+ 540 0091 08       		.byte	0x8
+ 541 0092 4B030000 		.4byte	.LASF13
+ 542 0096 05       		.uleb128 0x5
+ 543 0097 17000000 		.4byte	.LASF14
+ 544 009b 02       		.byte	0x2
+ 545 009c 6E01     		.2byte	0x16e
+ 546 009e A2000000 		.4byte	0xa2
+ 547 00a2 06       		.uleb128 0x6
+ 548 00a3 76000000 		.4byte	0x76
+ 549 00a7 05       		.uleb128 0x5
+ 550 00a8 E5020000 		.4byte	.LASF15
+ 551 00ac 02       		.byte	0x2
+ 552 00ad 7E01     		.2byte	0x17e
+ 553 00af B3000000 		.4byte	0xb3
+ 554 00b3 07       		.uleb128 0x7
+ 555 00b4 04       		.byte	0x4
+ 556 00b5 B9000000 		.4byte	0xb9
+ 557 00b9 08       		.uleb128 0x8
+ 558 00ba 02       		.uleb128 0x2
+ 559 00bb 04       		.byte	0x4
+ 560 00bc 07       		.byte	0x7
+ 561 00bd 34030000 		.4byte	.LASF16
+ 562 00c1 09       		.uleb128 0x9
+ 563 00c2 00000000 		.4byte	.LASF17
+ 564 00c6 01       		.byte	0x1
+ 565 00c7 5A01     		.2byte	0x15a
+ 566 00c9 01       		.byte	0x1
+ 567 00ca 0A       		.uleb128 0xa
+ 568 00cb CE000000 		.4byte	.LASF35
+ 569 00cf 01       		.byte	0x1
+ 570 00d0 C7       		.byte	0xc7
+ 571 00d1 01       		.byte	0x1
+ 572 00d2 E2000000 		.4byte	0xe2
+ 573 00d6 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 19
+
+
+ 574 00d7 C7020000 		.4byte	.LASF26
+ 575 00db 01       		.byte	0x1
+ 576 00dc C7       		.byte	0xc7
+ 577 00dd A7000000 		.4byte	0xa7
+ 578 00e1 00       		.byte	0
+ 579 00e2 09       		.uleb128 0x9
+ 580 00e3 B8000000 		.4byte	.LASF18
+ 581 00e7 01       		.byte	0x1
+ 582 00e8 3001     		.2byte	0x130
+ 583 00ea 01       		.byte	0x1
+ 584 00eb 0C       		.uleb128 0xc
+ 585 00ec 06020000 		.4byte	.LASF29
+ 586 00f0 01       		.byte	0x1
+ 587 00f1 9F       		.byte	0x9f
+ 588 00f2 00000000 		.4byte	.LFB5
+ 589 00f6 02000000 		.4byte	.LFE5-.LFB5
+ 590 00fa 01       		.uleb128 0x1
+ 591 00fb 9C       		.byte	0x9c
+ 592 00fc 0D       		.uleb128 0xd
+ 593 00fd 2D010000 		.4byte	.LASF19
+ 594 0101 01       		.byte	0x1
+ 595 0102 81       		.byte	0x81
+ 596 0103 00000000 		.4byte	.LFB4
+ 597 0107 20000000 		.4byte	.LFE4-.LFB4
+ 598 010b 01       		.uleb128 0x1
+ 599 010c 9C       		.byte	0x9c
+ 600 010d 36010000 		.4byte	0x136
+ 601 0111 0E       		.uleb128 0xe
+ 602 0112 C1000000 		.4byte	0xc1
+ 603 0116 00000000 		.4byte	.LBB18
+ 604 011a 08000000 		.4byte	.LBE18-.LBB18
+ 605 011e 01       		.byte	0x1
+ 606 011f 84       		.byte	0x84
+ 607 0120 0F       		.uleb128 0xf
+ 608 0121 CA000000 		.4byte	0xca
+ 609 0125 08000000 		.4byte	.LBB20
+ 610 0129 08000000 		.4byte	.LBE20-.LBB20
+ 611 012d 01       		.byte	0x1
+ 612 012e 87       		.byte	0x87
+ 613 012f 10       		.uleb128 0x10
+ 614 0130 D6000000 		.4byte	0xd6
+ 615 0134 00       		.byte	0
+ 616 0135 00       		.byte	0
+ 617 0136 11       		.uleb128 0x11
+ 618 0137 CA000000 		.4byte	0xca
+ 619 013b 00000000 		.4byte	.LFB6
+ 620 013f 0C000000 		.4byte	.LFE6-.LFB6
+ 621 0143 01       		.uleb128 0x1
+ 622 0144 9C       		.byte	0x9c
+ 623 0145 51010000 		.4byte	0x151
+ 624 0149 12       		.uleb128 0x12
+ 625 014a D6000000 		.4byte	0xd6
+ 626 014e 01       		.uleb128 0x1
+ 627 014f 50       		.byte	0x50
+ 628 0150 00       		.byte	0
+ 629 0151 13       		.uleb128 0x13
+ 630 0152 ED010000 		.4byte	.LASF27
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 20
+
+
+ 631 0156 01       		.byte	0x1
+ 632 0157 DB       		.byte	0xdb
+ 633 0158 A7000000 		.4byte	0xa7
+ 634 015c 00000000 		.4byte	.LFB7
+ 635 0160 0C000000 		.4byte	.LFE7-.LFB7
+ 636 0164 01       		.uleb128 0x1
+ 637 0165 9C       		.byte	0x9c
+ 638 0166 0D       		.uleb128 0xd
+ 639 0167 9B010000 		.4byte	.LASF20
+ 640 016b 01       		.byte	0x1
+ 641 016c F9       		.byte	0xf9
+ 642 016d 00000000 		.4byte	.LFB8
+ 643 0171 24000000 		.4byte	.LFE8-.LFB8
+ 644 0175 01       		.uleb128 0x1
+ 645 0176 9C       		.byte	0x9c
+ 646 0177 B8010000 		.4byte	0x1b8
+ 647 017b 14       		.uleb128 0x14
+ 648 017c DD010000 		.4byte	.LASF25
+ 649 0180 01       		.byte	0x1
+ 650 0181 F9       		.byte	0xf9
+ 651 0182 6B000000 		.4byte	0x6b
+ 652 0186 00000000 		.4byte	.LLST0
+ 653 018a 15       		.uleb128 0x15
+ 654 018b B6010000 		.4byte	.LASF21
+ 655 018f 01       		.byte	0x1
+ 656 0190 FB       		.byte	0xfb
+ 657 0191 6B000000 		.4byte	0x6b
+ 658 0195 21000000 		.4byte	.LLST1
+ 659 0199 16       		.uleb128 0x16
+ 660 019a 5A030000 		.4byte	.LASF22
+ 661 019e 01       		.byte	0x1
+ 662 019f FC       		.byte	0xfc
+ 663 01a0 76000000 		.4byte	0x76
+ 664 01a4 0E       		.byte	0xe
+ 665 01a5 17       		.uleb128 0x17
+ 666 01a6 08000000 		.4byte	.LVL3
+ 667 01aa 35030000 		.4byte	0x335
+ 668 01ae 17       		.uleb128 0x17
+ 669 01af 1A000000 		.4byte	.LVL4
+ 670 01b3 40030000 		.4byte	0x340
+ 671 01b7 00       		.byte	0
+ 672 01b8 0D       		.uleb128 0xd
+ 673 01b9 5E010000 		.4byte	.LASF23
+ 674 01bd 01       		.byte	0x1
+ 675 01be 38       		.byte	0x38
+ 676 01bf 00000000 		.4byte	.LFB2
+ 677 01c3 30000000 		.4byte	.LFE2-.LFB2
+ 678 01c7 01       		.uleb128 0x1
+ 679 01c8 9C       		.byte	0x9c
+ 680 01c9 1B020000 		.4byte	0x21b
+ 681 01cd 0E       		.uleb128 0xe
+ 682 01ce C1000000 		.4byte	0xc1
+ 683 01d2 02000000 		.4byte	.LBB22
+ 684 01d6 08000000 		.4byte	.LBE22-.LBB22
+ 685 01da 01       		.byte	0x1
+ 686 01db 3B       		.byte	0x3b
+ 687 01dc 18       		.uleb128 0x18
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 21
+
+
+ 688 01dd CA000000 		.4byte	0xca
+ 689 01e1 0A000000 		.4byte	.LBB24
+ 690 01e5 00000000 		.4byte	.Ldebug_ranges0+0
+ 691 01e9 01       		.byte	0x1
+ 692 01ea 3E       		.byte	0x3e
+ 693 01eb FC010000 		.4byte	0x1fc
+ 694 01ef 12       		.uleb128 0x12
+ 695 01f0 D6000000 		.4byte	0xd6
+ 696 01f4 06       		.uleb128 0x6
+ 697 01f5 03       		.byte	0x3
+ 698 01f6 00000000 		.4byte	TimerInterrupt_Interrupt
+ 699 01fa 9F       		.byte	0x9f
+ 700 01fb 00       		.byte	0
+ 701 01fc 19       		.uleb128 0x19
+ 702 01fd E2000000 		.4byte	0xe2
+ 703 0201 18000000 		.4byte	.LBB28
+ 704 0205 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 705 0209 01       		.byte	0x1
+ 706 020a 44       		.byte	0x44
+ 707 020b 1A       		.uleb128 0x1a
+ 708 020c 18000000 		.4byte	.LVL6
+ 709 0210 66010000 		.4byte	0x166
+ 710 0214 1B       		.uleb128 0x1b
+ 711 0215 01       		.uleb128 0x1
+ 712 0216 50       		.byte	0x50
+ 713 0217 01       		.uleb128 0x1
+ 714 0218 33       		.byte	0x33
+ 715 0219 00       		.byte	0
+ 716 021a 00       		.byte	0
+ 717 021b 0D       		.uleb128 0xd
+ 718 021c FA000000 		.4byte	.LASF24
+ 719 0220 01       		.byte	0x1
+ 720 0221 63       		.byte	0x63
+ 721 0222 00000000 		.4byte	.LFB3
+ 722 0226 28000000 		.4byte	.LFE3-.LFB3
+ 723 022a 01       		.uleb128 0x1
+ 724 022b 9C       		.byte	0x9c
+ 725 022c 8A020000 		.4byte	0x28a
+ 726 0230 14       		.uleb128 0x14
+ 727 0231 C7020000 		.4byte	.LASF26
+ 728 0235 01       		.byte	0x1
+ 729 0236 63       		.byte	0x63
+ 730 0237 A7000000 		.4byte	0xa7
+ 731 023b 34000000 		.4byte	.LLST2
+ 732 023f 0E       		.uleb128 0xe
+ 733 0240 C1000000 		.4byte	0xc1
+ 734 0244 02000000 		.4byte	.LBB32
+ 735 0248 08000000 		.4byte	.LBE32-.LBB32
+ 736 024c 01       		.byte	0x1
+ 737 024d 66       		.byte	0x66
+ 738 024e 18       		.uleb128 0x18
+ 739 024f CA000000 		.4byte	0xca
+ 740 0253 0A000000 		.4byte	.LBB34
+ 741 0257 30000000 		.4byte	.Ldebug_ranges0+0x30
+ 742 025b 01       		.byte	0x1
+ 743 025c 69       		.byte	0x69
+ 744 025d 6B020000 		.4byte	0x26b
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 22
+
+
+ 745 0261 1C       		.uleb128 0x1c
+ 746 0262 D6000000 		.4byte	0xd6
+ 747 0266 62000000 		.4byte	.LLST3
+ 748 026a 00       		.byte	0
+ 749 026b 0E       		.uleb128 0xe
+ 750 026c E2000000 		.4byte	0xe2
+ 751 0270 16000000 		.4byte	.LBB38
+ 752 0274 04000000 		.4byte	.LBE38-.LBB38
+ 753 0278 01       		.byte	0x1
+ 754 0279 6F       		.byte	0x6f
+ 755 027a 1A       		.uleb128 0x1a
+ 756 027b 16000000 		.4byte	.LVL10
+ 757 027f 66010000 		.4byte	0x166
+ 758 0283 1B       		.uleb128 0x1b
+ 759 0284 01       		.uleb128 0x1
+ 760 0285 50       		.byte	0x50
+ 761 0286 01       		.uleb128 0x1
+ 762 0287 33       		.byte	0x33
+ 763 0288 00       		.byte	0
+ 764 0289 00       		.byte	0
+ 765 028a 1D       		.uleb128 0x1d
+ 766 028b 7E030000 		.4byte	.LASF36
+ 767 028f 01       		.byte	0x1
+ 768 0290 1501     		.2byte	0x115
+ 769 0292 6B000000 		.4byte	0x6b
+ 770 0296 00000000 		.4byte	.LFB9
+ 771 029a 10000000 		.4byte	.LFE9-.LFB9
+ 772 029e 01       		.uleb128 0x1
+ 773 029f 9C       		.byte	0x9c
+ 774 02a0 C2020000 		.4byte	0x2c2
+ 775 02a4 1E       		.uleb128 0x1e
+ 776 02a5 DD010000 		.4byte	.LASF25
+ 777 02a9 01       		.byte	0x1
+ 778 02aa 1701     		.2byte	0x117
+ 779 02ac 76000000 		.4byte	0x76
+ 780 02b0 90000000 		.4byte	.LLST4
+ 781 02b4 1F       		.uleb128 0x1f
+ 782 02b5 5A030000 		.4byte	.LASF22
+ 783 02b9 01       		.byte	0x1
+ 784 02ba 1801     		.2byte	0x118
+ 785 02bc 76000000 		.4byte	0x76
+ 786 02c0 0E       		.byte	0xe
+ 787 02c1 00       		.byte	0
+ 788 02c2 20       		.uleb128 0x20
+ 789 02c3 E2000000 		.4byte	0xe2
+ 790 02c7 00000000 		.4byte	.LFB10
+ 791 02cb 10000000 		.4byte	.LFE10-.LFB10
+ 792 02cf 01       		.uleb128 0x1
+ 793 02d0 9C       		.byte	0x9c
+ 794 02d1 21       		.uleb128 0x21
+ 795 02d2 F2020000 		.4byte	.LASF28
+ 796 02d6 01       		.byte	0x1
+ 797 02d7 4501     		.2byte	0x145
+ 798 02d9 6B000000 		.4byte	0x6b
+ 799 02dd 00000000 		.4byte	.LFB11
+ 800 02e1 10000000 		.4byte	.LFE11-.LFB11
+ 801 02e5 01       		.uleb128 0x1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 23
+
+
+ 802 02e6 9C       		.byte	0x9c
+ 803 02e7 20       		.uleb128 0x20
+ 804 02e8 C1000000 		.4byte	0xc1
+ 805 02ec 00000000 		.4byte	.LFB12
+ 806 02f0 10000000 		.4byte	.LFE12-.LFB12
+ 807 02f4 01       		.uleb128 0x1
+ 808 02f5 9C       		.byte	0x9c
+ 809 02f6 22       		.uleb128 0x22
+ 810 02f7 81010000 		.4byte	.LASF30
+ 811 02fb 01       		.byte	0x1
+ 812 02fc 7501     		.2byte	0x175
+ 813 02fe 00000000 		.4byte	.LFB13
+ 814 0302 10000000 		.4byte	.LFE13-.LFB13
+ 815 0306 01       		.uleb128 0x1
+ 816 0307 9C       		.byte	0x9c
+ 817 0308 22       		.uleb128 0x22
+ 818 0309 11010000 		.4byte	.LASF31
+ 819 030d 01       		.byte	0x1
+ 820 030e 8E01     		.2byte	0x18e
+ 821 0310 00000000 		.4byte	.LFB14
+ 822 0314 10000000 		.4byte	.LFE14-.LFB14
+ 823 0318 01       		.uleb128 0x1
+ 824 0319 9C       		.byte	0x9c
+ 825 031a 23       		.uleb128 0x23
+ 826 031b A7000000 		.4byte	0xa7
+ 827 031f 2A030000 		.4byte	0x32a
+ 828 0323 24       		.uleb128 0x24
+ 829 0324 BA000000 		.4byte	0xba
+ 830 0328 2F       		.byte	0x2f
+ 831 0329 00       		.byte	0
+ 832 032a 25       		.uleb128 0x25
+ 833 032b AB000000 		.4byte	.LASF37
+ 834 032f 01       		.byte	0x1
+ 835 0330 21       		.byte	0x21
+ 836 0331 1A030000 		.4byte	0x31a
+ 837 0335 26       		.uleb128 0x26
+ 838 0336 26020000 		.4byte	.LASF38
+ 839 033a 03       		.byte	0x3
+ 840 033b 5E       		.byte	0x5e
+ 841 033c 6B000000 		.4byte	0x6b
+ 842 0340 27       		.uleb128 0x27
+ 843 0341 CF020000 		.4byte	.LASF39
+ 844 0345 03       		.byte	0x3
+ 845 0346 5F       		.byte	0x5f
+ 846 0347 28       		.uleb128 0x28
+ 847 0348 6B000000 		.4byte	0x6b
+ 848 034c 00       		.byte	0
+ 849 034d 00       		.byte	0
+ 850              		.section	.debug_abbrev,"",%progbits
+ 851              	.Ldebug_abbrev0:
+ 852 0000 01       		.uleb128 0x1
+ 853 0001 11       		.uleb128 0x11
+ 854 0002 01       		.byte	0x1
+ 855 0003 25       		.uleb128 0x25
+ 856 0004 0E       		.uleb128 0xe
+ 857 0005 13       		.uleb128 0x13
+ 858 0006 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 24
+
+
+ 859 0007 03       		.uleb128 0x3
+ 860 0008 0E       		.uleb128 0xe
+ 861 0009 1B       		.uleb128 0x1b
+ 862 000a 0E       		.uleb128 0xe
+ 863 000b 55       		.uleb128 0x55
+ 864 000c 17       		.uleb128 0x17
+ 865 000d 11       		.uleb128 0x11
+ 866 000e 01       		.uleb128 0x1
+ 867 000f 10       		.uleb128 0x10
+ 868 0010 17       		.uleb128 0x17
+ 869 0011 00       		.byte	0
+ 870 0012 00       		.byte	0
+ 871 0013 02       		.uleb128 0x2
+ 872 0014 24       		.uleb128 0x24
+ 873 0015 00       		.byte	0
+ 874 0016 0B       		.uleb128 0xb
+ 875 0017 0B       		.uleb128 0xb
+ 876 0018 3E       		.uleb128 0x3e
+ 877 0019 0B       		.uleb128 0xb
+ 878 001a 03       		.uleb128 0x3
+ 879 001b 0E       		.uleb128 0xe
+ 880 001c 00       		.byte	0
+ 881 001d 00       		.byte	0
+ 882 001e 03       		.uleb128 0x3
+ 883 001f 24       		.uleb128 0x24
+ 884 0020 00       		.byte	0
+ 885 0021 0B       		.uleb128 0xb
+ 886 0022 0B       		.uleb128 0xb
+ 887 0023 3E       		.uleb128 0x3e
+ 888 0024 0B       		.uleb128 0xb
+ 889 0025 03       		.uleb128 0x3
+ 890 0026 08       		.uleb128 0x8
+ 891 0027 00       		.byte	0
+ 892 0028 00       		.byte	0
+ 893 0029 04       		.uleb128 0x4
+ 894 002a 16       		.uleb128 0x16
+ 895 002b 00       		.byte	0
+ 896 002c 03       		.uleb128 0x3
+ 897 002d 0E       		.uleb128 0xe
+ 898 002e 3A       		.uleb128 0x3a
+ 899 002f 0B       		.uleb128 0xb
+ 900 0030 3B       		.uleb128 0x3b
+ 901 0031 0B       		.uleb128 0xb
+ 902 0032 49       		.uleb128 0x49
+ 903 0033 13       		.uleb128 0x13
+ 904 0034 00       		.byte	0
+ 905 0035 00       		.byte	0
+ 906 0036 05       		.uleb128 0x5
+ 907 0037 16       		.uleb128 0x16
+ 908 0038 00       		.byte	0
+ 909 0039 03       		.uleb128 0x3
+ 910 003a 0E       		.uleb128 0xe
+ 911 003b 3A       		.uleb128 0x3a
+ 912 003c 0B       		.uleb128 0xb
+ 913 003d 3B       		.uleb128 0x3b
+ 914 003e 05       		.uleb128 0x5
+ 915 003f 49       		.uleb128 0x49
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 25
+
+
+ 916 0040 13       		.uleb128 0x13
+ 917 0041 00       		.byte	0
+ 918 0042 00       		.byte	0
+ 919 0043 06       		.uleb128 0x6
+ 920 0044 35       		.uleb128 0x35
+ 921 0045 00       		.byte	0
+ 922 0046 49       		.uleb128 0x49
+ 923 0047 13       		.uleb128 0x13
+ 924 0048 00       		.byte	0
+ 925 0049 00       		.byte	0
+ 926 004a 07       		.uleb128 0x7
+ 927 004b 0F       		.uleb128 0xf
+ 928 004c 00       		.byte	0
+ 929 004d 0B       		.uleb128 0xb
+ 930 004e 0B       		.uleb128 0xb
+ 931 004f 49       		.uleb128 0x49
+ 932 0050 13       		.uleb128 0x13
+ 933 0051 00       		.byte	0
+ 934 0052 00       		.byte	0
+ 935 0053 08       		.uleb128 0x8
+ 936 0054 15       		.uleb128 0x15
+ 937 0055 00       		.byte	0
+ 938 0056 27       		.uleb128 0x27
+ 939 0057 19       		.uleb128 0x19
+ 940 0058 00       		.byte	0
+ 941 0059 00       		.byte	0
+ 942 005a 09       		.uleb128 0x9
+ 943 005b 2E       		.uleb128 0x2e
+ 944 005c 00       		.byte	0
+ 945 005d 3F       		.uleb128 0x3f
+ 946 005e 19       		.uleb128 0x19
+ 947 005f 03       		.uleb128 0x3
+ 948 0060 0E       		.uleb128 0xe
+ 949 0061 3A       		.uleb128 0x3a
+ 950 0062 0B       		.uleb128 0xb
+ 951 0063 3B       		.uleb128 0x3b
+ 952 0064 05       		.uleb128 0x5
+ 953 0065 27       		.uleb128 0x27
+ 954 0066 19       		.uleb128 0x19
+ 955 0067 20       		.uleb128 0x20
+ 956 0068 0B       		.uleb128 0xb
+ 957 0069 00       		.byte	0
+ 958 006a 00       		.byte	0
+ 959 006b 0A       		.uleb128 0xa
+ 960 006c 2E       		.uleb128 0x2e
+ 961 006d 01       		.byte	0x1
+ 962 006e 3F       		.uleb128 0x3f
+ 963 006f 19       		.uleb128 0x19
+ 964 0070 03       		.uleb128 0x3
+ 965 0071 0E       		.uleb128 0xe
+ 966 0072 3A       		.uleb128 0x3a
+ 967 0073 0B       		.uleb128 0xb
+ 968 0074 3B       		.uleb128 0x3b
+ 969 0075 0B       		.uleb128 0xb
+ 970 0076 27       		.uleb128 0x27
+ 971 0077 19       		.uleb128 0x19
+ 972 0078 20       		.uleb128 0x20
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 26
+
+
+ 973 0079 0B       		.uleb128 0xb
+ 974 007a 01       		.uleb128 0x1
+ 975 007b 13       		.uleb128 0x13
+ 976 007c 00       		.byte	0
+ 977 007d 00       		.byte	0
+ 978 007e 0B       		.uleb128 0xb
+ 979 007f 05       		.uleb128 0x5
+ 980 0080 00       		.byte	0
+ 981 0081 03       		.uleb128 0x3
+ 982 0082 0E       		.uleb128 0xe
+ 983 0083 3A       		.uleb128 0x3a
+ 984 0084 0B       		.uleb128 0xb
+ 985 0085 3B       		.uleb128 0x3b
+ 986 0086 0B       		.uleb128 0xb
+ 987 0087 49       		.uleb128 0x49
+ 988 0088 13       		.uleb128 0x13
+ 989 0089 00       		.byte	0
+ 990 008a 00       		.byte	0
+ 991 008b 0C       		.uleb128 0xc
+ 992 008c 2E       		.uleb128 0x2e
+ 993 008d 00       		.byte	0
+ 994 008e 3F       		.uleb128 0x3f
+ 995 008f 19       		.uleb128 0x19
+ 996 0090 03       		.uleb128 0x3
+ 997 0091 0E       		.uleb128 0xe
+ 998 0092 3A       		.uleb128 0x3a
+ 999 0093 0B       		.uleb128 0xb
+ 1000 0094 3B       		.uleb128 0x3b
+ 1001 0095 0B       		.uleb128 0xb
+ 1002 0096 27       		.uleb128 0x27
+ 1003 0097 19       		.uleb128 0x19
+ 1004 0098 11       		.uleb128 0x11
+ 1005 0099 01       		.uleb128 0x1
+ 1006 009a 12       		.uleb128 0x12
+ 1007 009b 06       		.uleb128 0x6
+ 1008 009c 40       		.uleb128 0x40
+ 1009 009d 18       		.uleb128 0x18
+ 1010 009e 9742     		.uleb128 0x2117
+ 1011 00a0 19       		.uleb128 0x19
+ 1012 00a1 00       		.byte	0
+ 1013 00a2 00       		.byte	0
+ 1014 00a3 0D       		.uleb128 0xd
+ 1015 00a4 2E       		.uleb128 0x2e
+ 1016 00a5 01       		.byte	0x1
+ 1017 00a6 3F       		.uleb128 0x3f
+ 1018 00a7 19       		.uleb128 0x19
+ 1019 00a8 03       		.uleb128 0x3
+ 1020 00a9 0E       		.uleb128 0xe
+ 1021 00aa 3A       		.uleb128 0x3a
+ 1022 00ab 0B       		.uleb128 0xb
+ 1023 00ac 3B       		.uleb128 0x3b
+ 1024 00ad 0B       		.uleb128 0xb
+ 1025 00ae 27       		.uleb128 0x27
+ 1026 00af 19       		.uleb128 0x19
+ 1027 00b0 11       		.uleb128 0x11
+ 1028 00b1 01       		.uleb128 0x1
+ 1029 00b2 12       		.uleb128 0x12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 27
+
+
+ 1030 00b3 06       		.uleb128 0x6
+ 1031 00b4 40       		.uleb128 0x40
+ 1032 00b5 18       		.uleb128 0x18
+ 1033 00b6 9742     		.uleb128 0x2117
+ 1034 00b8 19       		.uleb128 0x19
+ 1035 00b9 01       		.uleb128 0x1
+ 1036 00ba 13       		.uleb128 0x13
+ 1037 00bb 00       		.byte	0
+ 1038 00bc 00       		.byte	0
+ 1039 00bd 0E       		.uleb128 0xe
+ 1040 00be 1D       		.uleb128 0x1d
+ 1041 00bf 00       		.byte	0
+ 1042 00c0 31       		.uleb128 0x31
+ 1043 00c1 13       		.uleb128 0x13
+ 1044 00c2 11       		.uleb128 0x11
+ 1045 00c3 01       		.uleb128 0x1
+ 1046 00c4 12       		.uleb128 0x12
+ 1047 00c5 06       		.uleb128 0x6
+ 1048 00c6 58       		.uleb128 0x58
+ 1049 00c7 0B       		.uleb128 0xb
+ 1050 00c8 59       		.uleb128 0x59
+ 1051 00c9 0B       		.uleb128 0xb
+ 1052 00ca 00       		.byte	0
+ 1053 00cb 00       		.byte	0
+ 1054 00cc 0F       		.uleb128 0xf
+ 1055 00cd 1D       		.uleb128 0x1d
+ 1056 00ce 01       		.byte	0x1
+ 1057 00cf 31       		.uleb128 0x31
+ 1058 00d0 13       		.uleb128 0x13
+ 1059 00d1 11       		.uleb128 0x11
+ 1060 00d2 01       		.uleb128 0x1
+ 1061 00d3 12       		.uleb128 0x12
+ 1062 00d4 06       		.uleb128 0x6
+ 1063 00d5 58       		.uleb128 0x58
+ 1064 00d6 0B       		.uleb128 0xb
+ 1065 00d7 59       		.uleb128 0x59
+ 1066 00d8 0B       		.uleb128 0xb
+ 1067 00d9 00       		.byte	0
+ 1068 00da 00       		.byte	0
+ 1069 00db 10       		.uleb128 0x10
+ 1070 00dc 05       		.uleb128 0x5
+ 1071 00dd 00       		.byte	0
+ 1072 00de 31       		.uleb128 0x31
+ 1073 00df 13       		.uleb128 0x13
+ 1074 00e0 00       		.byte	0
+ 1075 00e1 00       		.byte	0
+ 1076 00e2 11       		.uleb128 0x11
+ 1077 00e3 2E       		.uleb128 0x2e
+ 1078 00e4 01       		.byte	0x1
+ 1079 00e5 31       		.uleb128 0x31
+ 1080 00e6 13       		.uleb128 0x13
+ 1081 00e7 11       		.uleb128 0x11
+ 1082 00e8 01       		.uleb128 0x1
+ 1083 00e9 12       		.uleb128 0x12
+ 1084 00ea 06       		.uleb128 0x6
+ 1085 00eb 40       		.uleb128 0x40
+ 1086 00ec 18       		.uleb128 0x18
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 28
+
+
+ 1087 00ed 9742     		.uleb128 0x2117
+ 1088 00ef 19       		.uleb128 0x19
+ 1089 00f0 01       		.uleb128 0x1
+ 1090 00f1 13       		.uleb128 0x13
+ 1091 00f2 00       		.byte	0
+ 1092 00f3 00       		.byte	0
+ 1093 00f4 12       		.uleb128 0x12
+ 1094 00f5 05       		.uleb128 0x5
+ 1095 00f6 00       		.byte	0
+ 1096 00f7 31       		.uleb128 0x31
+ 1097 00f8 13       		.uleb128 0x13
+ 1098 00f9 02       		.uleb128 0x2
+ 1099 00fa 18       		.uleb128 0x18
+ 1100 00fb 00       		.byte	0
+ 1101 00fc 00       		.byte	0
+ 1102 00fd 13       		.uleb128 0x13
+ 1103 00fe 2E       		.uleb128 0x2e
+ 1104 00ff 00       		.byte	0
+ 1105 0100 3F       		.uleb128 0x3f
+ 1106 0101 19       		.uleb128 0x19
+ 1107 0102 03       		.uleb128 0x3
+ 1108 0103 0E       		.uleb128 0xe
+ 1109 0104 3A       		.uleb128 0x3a
+ 1110 0105 0B       		.uleb128 0xb
+ 1111 0106 3B       		.uleb128 0x3b
+ 1112 0107 0B       		.uleb128 0xb
+ 1113 0108 27       		.uleb128 0x27
+ 1114 0109 19       		.uleb128 0x19
+ 1115 010a 49       		.uleb128 0x49
+ 1116 010b 13       		.uleb128 0x13
+ 1117 010c 11       		.uleb128 0x11
+ 1118 010d 01       		.uleb128 0x1
+ 1119 010e 12       		.uleb128 0x12
+ 1120 010f 06       		.uleb128 0x6
+ 1121 0110 40       		.uleb128 0x40
+ 1122 0111 18       		.uleb128 0x18
+ 1123 0112 9742     		.uleb128 0x2117
+ 1124 0114 19       		.uleb128 0x19
+ 1125 0115 00       		.byte	0
+ 1126 0116 00       		.byte	0
+ 1127 0117 14       		.uleb128 0x14
+ 1128 0118 05       		.uleb128 0x5
+ 1129 0119 00       		.byte	0
+ 1130 011a 03       		.uleb128 0x3
+ 1131 011b 0E       		.uleb128 0xe
+ 1132 011c 3A       		.uleb128 0x3a
+ 1133 011d 0B       		.uleb128 0xb
+ 1134 011e 3B       		.uleb128 0x3b
+ 1135 011f 0B       		.uleb128 0xb
+ 1136 0120 49       		.uleb128 0x49
+ 1137 0121 13       		.uleb128 0x13
+ 1138 0122 02       		.uleb128 0x2
+ 1139 0123 17       		.uleb128 0x17
+ 1140 0124 00       		.byte	0
+ 1141 0125 00       		.byte	0
+ 1142 0126 15       		.uleb128 0x15
+ 1143 0127 34       		.uleb128 0x34
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 29
+
+
+ 1144 0128 00       		.byte	0
+ 1145 0129 03       		.uleb128 0x3
+ 1146 012a 0E       		.uleb128 0xe
+ 1147 012b 3A       		.uleb128 0x3a
+ 1148 012c 0B       		.uleb128 0xb
+ 1149 012d 3B       		.uleb128 0x3b
+ 1150 012e 0B       		.uleb128 0xb
+ 1151 012f 49       		.uleb128 0x49
+ 1152 0130 13       		.uleb128 0x13
+ 1153 0131 02       		.uleb128 0x2
+ 1154 0132 17       		.uleb128 0x17
+ 1155 0133 00       		.byte	0
+ 1156 0134 00       		.byte	0
+ 1157 0135 16       		.uleb128 0x16
+ 1158 0136 34       		.uleb128 0x34
+ 1159 0137 00       		.byte	0
+ 1160 0138 03       		.uleb128 0x3
+ 1161 0139 0E       		.uleb128 0xe
+ 1162 013a 3A       		.uleb128 0x3a
+ 1163 013b 0B       		.uleb128 0xb
+ 1164 013c 3B       		.uleb128 0x3b
+ 1165 013d 0B       		.uleb128 0xb
+ 1166 013e 49       		.uleb128 0x49
+ 1167 013f 13       		.uleb128 0x13
+ 1168 0140 1C       		.uleb128 0x1c
+ 1169 0141 0B       		.uleb128 0xb
+ 1170 0142 00       		.byte	0
+ 1171 0143 00       		.byte	0
+ 1172 0144 17       		.uleb128 0x17
+ 1173 0145 898201   		.uleb128 0x4109
+ 1174 0148 00       		.byte	0
+ 1175 0149 11       		.uleb128 0x11
+ 1176 014a 01       		.uleb128 0x1
+ 1177 014b 31       		.uleb128 0x31
+ 1178 014c 13       		.uleb128 0x13
+ 1179 014d 00       		.byte	0
+ 1180 014e 00       		.byte	0
+ 1181 014f 18       		.uleb128 0x18
+ 1182 0150 1D       		.uleb128 0x1d
+ 1183 0151 01       		.byte	0x1
+ 1184 0152 31       		.uleb128 0x31
+ 1185 0153 13       		.uleb128 0x13
+ 1186 0154 52       		.uleb128 0x52
+ 1187 0155 01       		.uleb128 0x1
+ 1188 0156 55       		.uleb128 0x55
+ 1189 0157 17       		.uleb128 0x17
+ 1190 0158 58       		.uleb128 0x58
+ 1191 0159 0B       		.uleb128 0xb
+ 1192 015a 59       		.uleb128 0x59
+ 1193 015b 0B       		.uleb128 0xb
+ 1194 015c 01       		.uleb128 0x1
+ 1195 015d 13       		.uleb128 0x13
+ 1196 015e 00       		.byte	0
+ 1197 015f 00       		.byte	0
+ 1198 0160 19       		.uleb128 0x19
+ 1199 0161 1D       		.uleb128 0x1d
+ 1200 0162 00       		.byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 30
+
+
+ 1201 0163 31       		.uleb128 0x31
+ 1202 0164 13       		.uleb128 0x13
+ 1203 0165 52       		.uleb128 0x52
+ 1204 0166 01       		.uleb128 0x1
+ 1205 0167 55       		.uleb128 0x55
+ 1206 0168 17       		.uleb128 0x17
+ 1207 0169 58       		.uleb128 0x58
+ 1208 016a 0B       		.uleb128 0xb
+ 1209 016b 59       		.uleb128 0x59
+ 1210 016c 0B       		.uleb128 0xb
+ 1211 016d 00       		.byte	0
+ 1212 016e 00       		.byte	0
+ 1213 016f 1A       		.uleb128 0x1a
+ 1214 0170 898201   		.uleb128 0x4109
+ 1215 0173 01       		.byte	0x1
+ 1216 0174 11       		.uleb128 0x11
+ 1217 0175 01       		.uleb128 0x1
+ 1218 0176 31       		.uleb128 0x31
+ 1219 0177 13       		.uleb128 0x13
+ 1220 0178 00       		.byte	0
+ 1221 0179 00       		.byte	0
+ 1222 017a 1B       		.uleb128 0x1b
+ 1223 017b 8A8201   		.uleb128 0x410a
+ 1224 017e 00       		.byte	0
+ 1225 017f 02       		.uleb128 0x2
+ 1226 0180 18       		.uleb128 0x18
+ 1227 0181 9142     		.uleb128 0x2111
+ 1228 0183 18       		.uleb128 0x18
+ 1229 0184 00       		.byte	0
+ 1230 0185 00       		.byte	0
+ 1231 0186 1C       		.uleb128 0x1c
+ 1232 0187 05       		.uleb128 0x5
+ 1233 0188 00       		.byte	0
+ 1234 0189 31       		.uleb128 0x31
+ 1235 018a 13       		.uleb128 0x13
+ 1236 018b 02       		.uleb128 0x2
+ 1237 018c 17       		.uleb128 0x17
+ 1238 018d 00       		.byte	0
+ 1239 018e 00       		.byte	0
+ 1240 018f 1D       		.uleb128 0x1d
+ 1241 0190 2E       		.uleb128 0x2e
+ 1242 0191 01       		.byte	0x1
+ 1243 0192 3F       		.uleb128 0x3f
+ 1244 0193 19       		.uleb128 0x19
+ 1245 0194 03       		.uleb128 0x3
+ 1246 0195 0E       		.uleb128 0xe
+ 1247 0196 3A       		.uleb128 0x3a
+ 1248 0197 0B       		.uleb128 0xb
+ 1249 0198 3B       		.uleb128 0x3b
+ 1250 0199 05       		.uleb128 0x5
+ 1251 019a 27       		.uleb128 0x27
+ 1252 019b 19       		.uleb128 0x19
+ 1253 019c 49       		.uleb128 0x49
+ 1254 019d 13       		.uleb128 0x13
+ 1255 019e 11       		.uleb128 0x11
+ 1256 019f 01       		.uleb128 0x1
+ 1257 01a0 12       		.uleb128 0x12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 31
+
+
+ 1258 01a1 06       		.uleb128 0x6
+ 1259 01a2 40       		.uleb128 0x40
+ 1260 01a3 18       		.uleb128 0x18
+ 1261 01a4 9742     		.uleb128 0x2117
+ 1262 01a6 19       		.uleb128 0x19
+ 1263 01a7 01       		.uleb128 0x1
+ 1264 01a8 13       		.uleb128 0x13
+ 1265 01a9 00       		.byte	0
+ 1266 01aa 00       		.byte	0
+ 1267 01ab 1E       		.uleb128 0x1e
+ 1268 01ac 34       		.uleb128 0x34
+ 1269 01ad 00       		.byte	0
+ 1270 01ae 03       		.uleb128 0x3
+ 1271 01af 0E       		.uleb128 0xe
+ 1272 01b0 3A       		.uleb128 0x3a
+ 1273 01b1 0B       		.uleb128 0xb
+ 1274 01b2 3B       		.uleb128 0x3b
+ 1275 01b3 05       		.uleb128 0x5
+ 1276 01b4 49       		.uleb128 0x49
+ 1277 01b5 13       		.uleb128 0x13
+ 1278 01b6 02       		.uleb128 0x2
+ 1279 01b7 17       		.uleb128 0x17
+ 1280 01b8 00       		.byte	0
+ 1281 01b9 00       		.byte	0
+ 1282 01ba 1F       		.uleb128 0x1f
+ 1283 01bb 34       		.uleb128 0x34
+ 1284 01bc 00       		.byte	0
+ 1285 01bd 03       		.uleb128 0x3
+ 1286 01be 0E       		.uleb128 0xe
+ 1287 01bf 3A       		.uleb128 0x3a
+ 1288 01c0 0B       		.uleb128 0xb
+ 1289 01c1 3B       		.uleb128 0x3b
+ 1290 01c2 05       		.uleb128 0x5
+ 1291 01c3 49       		.uleb128 0x49
+ 1292 01c4 13       		.uleb128 0x13
+ 1293 01c5 1C       		.uleb128 0x1c
+ 1294 01c6 0B       		.uleb128 0xb
+ 1295 01c7 00       		.byte	0
+ 1296 01c8 00       		.byte	0
+ 1297 01c9 20       		.uleb128 0x20
+ 1298 01ca 2E       		.uleb128 0x2e
+ 1299 01cb 00       		.byte	0
+ 1300 01cc 31       		.uleb128 0x31
+ 1301 01cd 13       		.uleb128 0x13
+ 1302 01ce 11       		.uleb128 0x11
+ 1303 01cf 01       		.uleb128 0x1
+ 1304 01d0 12       		.uleb128 0x12
+ 1305 01d1 06       		.uleb128 0x6
+ 1306 01d2 40       		.uleb128 0x40
+ 1307 01d3 18       		.uleb128 0x18
+ 1308 01d4 9742     		.uleb128 0x2117
+ 1309 01d6 19       		.uleb128 0x19
+ 1310 01d7 00       		.byte	0
+ 1311 01d8 00       		.byte	0
+ 1312 01d9 21       		.uleb128 0x21
+ 1313 01da 2E       		.uleb128 0x2e
+ 1314 01db 00       		.byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 32
+
+
+ 1315 01dc 3F       		.uleb128 0x3f
+ 1316 01dd 19       		.uleb128 0x19
+ 1317 01de 03       		.uleb128 0x3
+ 1318 01df 0E       		.uleb128 0xe
+ 1319 01e0 3A       		.uleb128 0x3a
+ 1320 01e1 0B       		.uleb128 0xb
+ 1321 01e2 3B       		.uleb128 0x3b
+ 1322 01e3 05       		.uleb128 0x5
+ 1323 01e4 27       		.uleb128 0x27
+ 1324 01e5 19       		.uleb128 0x19
+ 1325 01e6 49       		.uleb128 0x49
+ 1326 01e7 13       		.uleb128 0x13
+ 1327 01e8 11       		.uleb128 0x11
+ 1328 01e9 01       		.uleb128 0x1
+ 1329 01ea 12       		.uleb128 0x12
+ 1330 01eb 06       		.uleb128 0x6
+ 1331 01ec 40       		.uleb128 0x40
+ 1332 01ed 18       		.uleb128 0x18
+ 1333 01ee 9742     		.uleb128 0x2117
+ 1334 01f0 19       		.uleb128 0x19
+ 1335 01f1 00       		.byte	0
+ 1336 01f2 00       		.byte	0
+ 1337 01f3 22       		.uleb128 0x22
+ 1338 01f4 2E       		.uleb128 0x2e
+ 1339 01f5 00       		.byte	0
+ 1340 01f6 3F       		.uleb128 0x3f
+ 1341 01f7 19       		.uleb128 0x19
+ 1342 01f8 03       		.uleb128 0x3
+ 1343 01f9 0E       		.uleb128 0xe
+ 1344 01fa 3A       		.uleb128 0x3a
+ 1345 01fb 0B       		.uleb128 0xb
+ 1346 01fc 3B       		.uleb128 0x3b
+ 1347 01fd 05       		.uleb128 0x5
+ 1348 01fe 27       		.uleb128 0x27
+ 1349 01ff 19       		.uleb128 0x19
+ 1350 0200 11       		.uleb128 0x11
+ 1351 0201 01       		.uleb128 0x1
+ 1352 0202 12       		.uleb128 0x12
+ 1353 0203 06       		.uleb128 0x6
+ 1354 0204 40       		.uleb128 0x40
+ 1355 0205 18       		.uleb128 0x18
+ 1356 0206 9742     		.uleb128 0x2117
+ 1357 0208 19       		.uleb128 0x19
+ 1358 0209 00       		.byte	0
+ 1359 020a 00       		.byte	0
+ 1360 020b 23       		.uleb128 0x23
+ 1361 020c 01       		.uleb128 0x1
+ 1362 020d 01       		.byte	0x1
+ 1363 020e 49       		.uleb128 0x49
+ 1364 020f 13       		.uleb128 0x13
+ 1365 0210 01       		.uleb128 0x1
+ 1366 0211 13       		.uleb128 0x13
+ 1367 0212 00       		.byte	0
+ 1368 0213 00       		.byte	0
+ 1369 0214 24       		.uleb128 0x24
+ 1370 0215 21       		.uleb128 0x21
+ 1371 0216 00       		.byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 33
+
+
+ 1372 0217 49       		.uleb128 0x49
+ 1373 0218 13       		.uleb128 0x13
+ 1374 0219 2F       		.uleb128 0x2f
+ 1375 021a 0B       		.uleb128 0xb
+ 1376 021b 00       		.byte	0
+ 1377 021c 00       		.byte	0
+ 1378 021d 25       		.uleb128 0x25
+ 1379 021e 34       		.uleb128 0x34
+ 1380 021f 00       		.byte	0
+ 1381 0220 03       		.uleb128 0x3
+ 1382 0221 0E       		.uleb128 0xe
+ 1383 0222 3A       		.uleb128 0x3a
+ 1384 0223 0B       		.uleb128 0xb
+ 1385 0224 3B       		.uleb128 0x3b
+ 1386 0225 0B       		.uleb128 0xb
+ 1387 0226 49       		.uleb128 0x49
+ 1388 0227 13       		.uleb128 0x13
+ 1389 0228 3F       		.uleb128 0x3f
+ 1390 0229 19       		.uleb128 0x19
+ 1391 022a 3C       		.uleb128 0x3c
+ 1392 022b 19       		.uleb128 0x19
+ 1393 022c 00       		.byte	0
+ 1394 022d 00       		.byte	0
+ 1395 022e 26       		.uleb128 0x26
+ 1396 022f 2E       		.uleb128 0x2e
+ 1397 0230 00       		.byte	0
+ 1398 0231 3F       		.uleb128 0x3f
+ 1399 0232 19       		.uleb128 0x19
+ 1400 0233 03       		.uleb128 0x3
+ 1401 0234 0E       		.uleb128 0xe
+ 1402 0235 3A       		.uleb128 0x3a
+ 1403 0236 0B       		.uleb128 0xb
+ 1404 0237 3B       		.uleb128 0x3b
+ 1405 0238 0B       		.uleb128 0xb
+ 1406 0239 27       		.uleb128 0x27
+ 1407 023a 19       		.uleb128 0x19
+ 1408 023b 49       		.uleb128 0x49
+ 1409 023c 13       		.uleb128 0x13
+ 1410 023d 3C       		.uleb128 0x3c
+ 1411 023e 19       		.uleb128 0x19
+ 1412 023f 00       		.byte	0
+ 1413 0240 00       		.byte	0
+ 1414 0241 27       		.uleb128 0x27
+ 1415 0242 2E       		.uleb128 0x2e
+ 1416 0243 01       		.byte	0x1
+ 1417 0244 3F       		.uleb128 0x3f
+ 1418 0245 19       		.uleb128 0x19
+ 1419 0246 03       		.uleb128 0x3
+ 1420 0247 0E       		.uleb128 0xe
+ 1421 0248 3A       		.uleb128 0x3a
+ 1422 0249 0B       		.uleb128 0xb
+ 1423 024a 3B       		.uleb128 0x3b
+ 1424 024b 0B       		.uleb128 0xb
+ 1425 024c 27       		.uleb128 0x27
+ 1426 024d 19       		.uleb128 0x19
+ 1427 024e 3C       		.uleb128 0x3c
+ 1428 024f 19       		.uleb128 0x19
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 34
+
+
+ 1429 0250 00       		.byte	0
+ 1430 0251 00       		.byte	0
+ 1431 0252 28       		.uleb128 0x28
+ 1432 0253 05       		.uleb128 0x5
+ 1433 0254 00       		.byte	0
+ 1434 0255 49       		.uleb128 0x49
+ 1435 0256 13       		.uleb128 0x13
+ 1436 0257 00       		.byte	0
+ 1437 0258 00       		.byte	0
+ 1438 0259 00       		.byte	0
+ 1439              		.section	.debug_loc,"",%progbits
+ 1440              	.Ldebug_loc0:
+ 1441              	.LLST0:
+ 1442 0000 00000000 		.4byte	.LVL2
+ 1443 0004 07000000 		.4byte	.LVL3-1
+ 1444 0008 0100     		.2byte	0x1
+ 1445 000a 50       		.byte	0x50
+ 1446 000b 07000000 		.4byte	.LVL3-1
+ 1447 000f 24000000 		.4byte	.LFE8
+ 1448 0013 0400     		.2byte	0x4
+ 1449 0015 F3       		.byte	0xf3
+ 1450 0016 01       		.uleb128 0x1
+ 1451 0017 50       		.byte	0x50
+ 1452 0018 9F       		.byte	0x9f
+ 1453 0019 00000000 		.4byte	0
+ 1454 001d 00000000 		.4byte	0
+ 1455              	.LLST1:
+ 1456 0021 08000000 		.4byte	.LVL3
+ 1457 0025 19000000 		.4byte	.LVL4-1
+ 1458 0029 0100     		.2byte	0x1
+ 1459 002b 50       		.byte	0x50
+ 1460 002c 00000000 		.4byte	0
+ 1461 0030 00000000 		.4byte	0
+ 1462              	.LLST2:
+ 1463 0034 00000000 		.4byte	.LVL7
+ 1464 0038 12000000 		.4byte	.LVL9
+ 1465 003c 0100     		.2byte	0x1
+ 1466 003e 50       		.byte	0x50
+ 1467 003f 12000000 		.4byte	.LVL9
+ 1468 0043 15000000 		.4byte	.LVL10-1
+ 1469 0047 0300     		.2byte	0x3
+ 1470 0049 73       		.byte	0x73
+ 1471 004a FC00     		.sleb128 124
+ 1472 004c 15000000 		.4byte	.LVL10-1
+ 1473 0050 28000000 		.4byte	.LFE3
+ 1474 0054 0400     		.2byte	0x4
+ 1475 0056 F3       		.byte	0xf3
+ 1476 0057 01       		.uleb128 0x1
+ 1477 0058 50       		.byte	0x50
+ 1478 0059 9F       		.byte	0x9f
+ 1479 005a 00000000 		.4byte	0
+ 1480 005e 00000000 		.4byte	0
+ 1481              	.LLST3:
+ 1482 0062 0A000000 		.4byte	.LVL8
+ 1483 0066 12000000 		.4byte	.LVL9
+ 1484 006a 0100     		.2byte	0x1
+ 1485 006c 50       		.byte	0x50
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 35
+
+
+ 1486 006d 12000000 		.4byte	.LVL9
+ 1487 0071 15000000 		.4byte	.LVL10-1
+ 1488 0075 0300     		.2byte	0x3
+ 1489 0077 73       		.byte	0x73
+ 1490 0078 FC00     		.sleb128 124
+ 1491 007a 15000000 		.4byte	.LVL10-1
+ 1492 007e 28000000 		.4byte	.LFE3
+ 1493 0082 0400     		.2byte	0x4
+ 1494 0084 F3       		.byte	0xf3
+ 1495 0085 01       		.uleb128 0x1
+ 1496 0086 50       		.byte	0x50
+ 1497 0087 9F       		.byte	0x9f
+ 1498 0088 00000000 		.4byte	0
+ 1499 008c 00000000 		.4byte	0
+ 1500              	.LLST4:
+ 1501 0090 04000000 		.4byte	.LVL12
+ 1502 0094 06000000 		.4byte	.LVL13
+ 1503 0098 0900     		.2byte	0x9
+ 1504 009a 70       		.byte	0x70
+ 1505 009b 00       		.sleb128 0
+ 1506 009c 0A       		.byte	0xa
+ 1507 009d 00C0     		.2byte	0xc000
+ 1508 009f 1A       		.byte	0x1a
+ 1509 00a0 3E       		.byte	0x3e
+ 1510 00a1 25       		.byte	0x25
+ 1511 00a2 9F       		.byte	0x9f
+ 1512 00a3 00000000 		.4byte	0
+ 1513 00a7 00000000 		.4byte	0
+ 1514              		.section	.debug_aranges,"",%progbits
+ 1515 0000 7C000000 		.4byte	0x7c
+ 1516 0004 0200     		.2byte	0x2
+ 1517 0006 00000000 		.4byte	.Ldebug_info0
+ 1518 000a 04       		.byte	0x4
+ 1519 000b 00       		.byte	0
+ 1520 000c 0000     		.2byte	0
+ 1521 000e 0000     		.2byte	0
+ 1522 0010 00000000 		.4byte	.LFB5
+ 1523 0014 02000000 		.4byte	.LFE5-.LFB5
+ 1524 0018 00000000 		.4byte	.LFB4
+ 1525 001c 20000000 		.4byte	.LFE4-.LFB4
+ 1526 0020 00000000 		.4byte	.LFB6
+ 1527 0024 0C000000 		.4byte	.LFE6-.LFB6
+ 1528 0028 00000000 		.4byte	.LFB7
+ 1529 002c 0C000000 		.4byte	.LFE7-.LFB7
+ 1530 0030 00000000 		.4byte	.LFB8
+ 1531 0034 24000000 		.4byte	.LFE8-.LFB8
+ 1532 0038 00000000 		.4byte	.LFB2
+ 1533 003c 30000000 		.4byte	.LFE2-.LFB2
+ 1534 0040 00000000 		.4byte	.LFB3
+ 1535 0044 28000000 		.4byte	.LFE3-.LFB3
+ 1536 0048 00000000 		.4byte	.LFB9
+ 1537 004c 10000000 		.4byte	.LFE9-.LFB9
+ 1538 0050 00000000 		.4byte	.LFB10
+ 1539 0054 10000000 		.4byte	.LFE10-.LFB10
+ 1540 0058 00000000 		.4byte	.LFB11
+ 1541 005c 10000000 		.4byte	.LFE11-.LFB11
+ 1542 0060 00000000 		.4byte	.LFB12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 36
+
+
+ 1543 0064 10000000 		.4byte	.LFE12-.LFB12
+ 1544 0068 00000000 		.4byte	.LFB13
+ 1545 006c 10000000 		.4byte	.LFE13-.LFB13
+ 1546 0070 00000000 		.4byte	.LFB14
+ 1547 0074 10000000 		.4byte	.LFE14-.LFB14
+ 1548 0078 00000000 		.4byte	0
+ 1549 007c 00000000 		.4byte	0
+ 1550              		.section	.debug_ranges,"",%progbits
+ 1551              	.Ldebug_ranges0:
+ 1552 0000 0A000000 		.4byte	.LBB24
+ 1553 0004 10000000 		.4byte	.LBE24
+ 1554 0008 12000000 		.4byte	.LBB27
+ 1555 000c 14000000 		.4byte	.LBE27
+ 1556 0010 00000000 		.4byte	0
+ 1557 0014 00000000 		.4byte	0
+ 1558 0018 18000000 		.4byte	.LBB28
+ 1559 001c 1A000000 		.4byte	.LBE28
+ 1560 0020 1A000000 		.4byte	.LBB31
+ 1561 0024 1C000000 		.4byte	.LBE31
+ 1562 0028 00000000 		.4byte	0
+ 1563 002c 00000000 		.4byte	0
+ 1564 0030 0A000000 		.4byte	.LBB34
+ 1565 0034 0C000000 		.4byte	.LBE34
+ 1566 0038 0C000000 		.4byte	.LBB37
+ 1567 003c 10000000 		.4byte	.LBE37
+ 1568 0040 00000000 		.4byte	0
+ 1569 0044 00000000 		.4byte	0
+ 1570 0048 00000000 		.4byte	.LFB5
+ 1571 004c 02000000 		.4byte	.LFE5
+ 1572 0050 00000000 		.4byte	.LFB4
+ 1573 0054 20000000 		.4byte	.LFE4
+ 1574 0058 00000000 		.4byte	.LFB6
+ 1575 005c 0C000000 		.4byte	.LFE6
+ 1576 0060 00000000 		.4byte	.LFB7
+ 1577 0064 0C000000 		.4byte	.LFE7
+ 1578 0068 00000000 		.4byte	.LFB8
+ 1579 006c 24000000 		.4byte	.LFE8
+ 1580 0070 00000000 		.4byte	.LFB2
+ 1581 0074 30000000 		.4byte	.LFE2
+ 1582 0078 00000000 		.4byte	.LFB3
+ 1583 007c 28000000 		.4byte	.LFE3
+ 1584 0080 00000000 		.4byte	.LFB9
+ 1585 0084 10000000 		.4byte	.LFE9
+ 1586 0088 00000000 		.4byte	.LFB10
+ 1587 008c 10000000 		.4byte	.LFE10
+ 1588 0090 00000000 		.4byte	.LFB11
+ 1589 0094 10000000 		.4byte	.LFE11
+ 1590 0098 00000000 		.4byte	.LFB12
+ 1591 009c 10000000 		.4byte	.LFE12
+ 1592 00a0 00000000 		.4byte	.LFB13
+ 1593 00a4 10000000 		.4byte	.LFE13
+ 1594 00a8 00000000 		.4byte	.LFB14
+ 1595 00ac 10000000 		.4byte	.LFE14
+ 1596 00b0 00000000 		.4byte	0
+ 1597 00b4 00000000 		.4byte	0
+ 1598              		.section	.debug_line,"",%progbits
+ 1599              	.Ldebug_line0:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 37
+
+
+ 1600 0000 B3010000 		.section	.debug_str,"MS",%progbits,1
+ 1600      02006F00 
+ 1600      00000201 
+ 1600      FB0E0D00 
+ 1600      01010101 
+ 1601              	.LASF17:
+ 1602 0000 54696D65 		.ascii	"TimerInterrupt_Disable\000"
+ 1602      72496E74 
+ 1602      65727275 
+ 1602      70745F44 
+ 1602      69736162 
+ 1603              	.LASF14:
+ 1604 0017 72656733 		.ascii	"reg32\000"
+ 1604      3200
+ 1605              	.LASF32:
+ 1606 001d 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1606      4320342E 
+ 1606      392E3320 
+ 1606      32303135 
+ 1606      30333033 
+ 1607 0050 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 1607      20726576 
+ 1607      6973696F 
+ 1607      6E203232 
+ 1607      31323230 
+ 1608 0083 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
+ 1608      66756E63 
+ 1608      74696F6E 
+ 1608      2D736563 
+ 1608      74696F6E 
+ 1609              	.LASF37:
+ 1610 00ab 43795261 		.ascii	"CyRamVectors\000"
+ 1610      6D566563 
+ 1610      746F7273 
+ 1610      00
+ 1611              	.LASF18:
+ 1612 00b8 54696D65 		.ascii	"TimerInterrupt_Enable\000"
+ 1612      72496E74 
+ 1612      65727275 
+ 1612      70745F45 
+ 1612      6E61626C 
+ 1613              	.LASF35:
+ 1614 00ce 54696D65 		.ascii	"TimerInterrupt_SetVector\000"
+ 1614      72496E74 
+ 1614      65727275 
+ 1614      70745F53 
+ 1614      65745665 
+ 1615              	.LASF3:
+ 1616 00e7 73686F72 		.ascii	"short unsigned int\000"
+ 1616      7420756E 
+ 1616      7369676E 
+ 1616      65642069 
+ 1616      6E7400
+ 1617              	.LASF24:
+ 1618 00fa 54696D65 		.ascii	"TimerInterrupt_StartEx\000"
+ 1618      72496E74 
+ 1618      65727275 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 38
+
+
+ 1618      70745F53 
+ 1618      74617274 
+ 1619              	.LASF31:
+ 1620 0111 54696D65 		.ascii	"TimerInterrupt_ClearPending\000"
+ 1620      72496E74 
+ 1620      65727275 
+ 1620      70745F43 
+ 1620      6C656172 
+ 1621              	.LASF19:
+ 1622 012d 54696D65 		.ascii	"TimerInterrupt_Stop\000"
+ 1622      72496E74 
+ 1622      65727275 
+ 1622      70745F53 
+ 1622      746F7000 
+ 1623              	.LASF11:
+ 1624 0141 666C6F61 		.ascii	"float\000"
+ 1624      7400
+ 1625              	.LASF7:
+ 1626 0147 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1626      206C6F6E 
+ 1626      6720756E 
+ 1626      7369676E 
+ 1626      65642069 
+ 1627              	.LASF23:
+ 1628 015e 54696D65 		.ascii	"TimerInterrupt_Start\000"
+ 1628      72496E74 
+ 1628      65727275 
+ 1628      70745F53 
+ 1628      74617274 
+ 1629              	.LASF1:
+ 1630 0173 756E7369 		.ascii	"unsigned char\000"
+ 1630      676E6564 
+ 1630      20636861 
+ 1630      7200
+ 1631              	.LASF30:
+ 1632 0181 54696D65 		.ascii	"TimerInterrupt_SetPending\000"
+ 1632      72496E74 
+ 1632      65727275 
+ 1632      70745F53 
+ 1632      65745065 
+ 1633              	.LASF20:
+ 1634 019b 54696D65 		.ascii	"TimerInterrupt_SetPriority\000"
+ 1634      72496E74 
+ 1634      65727275 
+ 1634      70745F53 
+ 1634      65745072 
+ 1635              	.LASF21:
+ 1636 01b6 696E7465 		.ascii	"interruptState\000"
+ 1636      72727570 
+ 1636      74537461 
+ 1636      746500
+ 1637              	.LASF5:
+ 1638 01c5 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1638      20756E73 
+ 1638      69676E65 
+ 1638      6420696E 
+ 1638      7400
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 39
+
+
+ 1639              	.LASF9:
+ 1640 01d7 75696E74 		.ascii	"uint8\000"
+ 1640      3800
+ 1641              	.LASF25:
+ 1642 01dd 7072696F 		.ascii	"priority\000"
+ 1642      72697479 
+ 1642      00
+ 1643              	.LASF12:
+ 1644 01e6 646F7562 		.ascii	"double\000"
+ 1644      6C6500
+ 1645              	.LASF27:
+ 1646 01ed 54696D65 		.ascii	"TimerInterrupt_GetVector\000"
+ 1646      72496E74 
+ 1646      65727275 
+ 1646      70745F47 
+ 1646      65745665 
+ 1647              	.LASF29:
+ 1648 0206 54696D65 		.ascii	"TimerInterrupt_Interrupt\000"
+ 1648      72496E74 
+ 1648      65727275 
+ 1648      70745F49 
+ 1648      6E746572 
+ 1649              	.LASF10:
+ 1650 021f 75696E74 		.ascii	"uint32\000"
+ 1650      333200
+ 1651              	.LASF38:
+ 1652 0226 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1652      74657243 
+ 1652      72697469 
+ 1652      63616C53 
+ 1652      65637469 
+ 1653              	.LASF8:
+ 1654 023d 756E7369 		.ascii	"unsigned int\000"
+ 1654      676E6564 
+ 1654      20696E74 
+ 1654      00
+ 1655              	.LASF34:
+ 1656 024a 473A5C43 		.ascii	"G:\\Company\\Jetronic\\CYPRESS\\CYPRESS_BLE_Study\\"
+ 1656      6F6D7061 
+ 1656      6E795C4A 
+ 1656      6574726F 
+ 1656      6E69635C 
+ 1657 0278 54726F75 		.ascii	"Troughput\\Troughpur_Central_Peripheral_V2.7\\Troug"
+ 1657      67687075 
+ 1657      745C5472 
+ 1657      6F756768 
+ 1657      7075725F 
+ 1658 02a9 68707574 		.ascii	"hput_Central_Peripheral.cydsn\000"
+ 1658      5F43656E 
+ 1658      7472616C 
+ 1658      5F506572 
+ 1658      69706865 
+ 1659              	.LASF26:
+ 1660 02c7 61646472 		.ascii	"address\000"
+ 1660      65737300 
+ 1661              	.LASF39:
+ 1662 02cf 43794578 		.ascii	"CyExitCriticalSection\000"
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 40
+
+
+ 1662      69744372 
+ 1662      69746963 
+ 1662      616C5365 
+ 1662      6374696F 
+ 1663              	.LASF15:
+ 1664 02e5 63796973 		.ascii	"cyisraddress\000"
+ 1664      72616464 
+ 1664      72657373 
+ 1664      00
+ 1665              	.LASF28:
+ 1666 02f2 54696D65 		.ascii	"TimerInterrupt_GetState\000"
+ 1666      72496E74 
+ 1666      65727275 
+ 1666      70745F47 
+ 1666      65745374 
+ 1667              	.LASF33:
+ 1668 030a 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\TimerInterrupt.c\000"
+ 1668      6E657261 
+ 1668      7465645F 
+ 1668      536F7572 
+ 1668      63655C50 
+ 1669              	.LASF16:
+ 1670 0334 73697A65 		.ascii	"sizetype\000"
+ 1670      74797065 
+ 1670      00
+ 1671              	.LASF6:
+ 1672 033d 6C6F6E67 		.ascii	"long long int\000"
+ 1672      206C6F6E 
+ 1672      6720696E 
+ 1672      7400
+ 1673              	.LASF13:
+ 1674 034b 63686172 		.ascii	"char\000"
+ 1674      00
+ 1675              	.LASF2:
+ 1676 0350 73686F72 		.ascii	"short int\000"
+ 1676      7420696E 
+ 1676      7400
+ 1677              	.LASF22:
+ 1678 035a 7072696F 		.ascii	"priorityOffset\000"
+ 1678      72697479 
+ 1678      4F666673 
+ 1678      657400
+ 1679              	.LASF4:
+ 1680 0369 6C6F6E67 		.ascii	"long int\000"
+ 1680      20696E74 
+ 1680      00
+ 1681              	.LASF0:
+ 1682 0372 7369676E 		.ascii	"signed char\000"
+ 1682      65642063 
+ 1682      68617200 
+ 1683              	.LASF36:
+ 1684 037e 54696D65 		.ascii	"TimerInterrupt_GetPriority\000"
+ 1684      72496E74 
+ 1684      65727275 
+ 1684      70745F47 
+ 1684      65745072 
+ 1685              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccSS1wfj.s 			page 41
+
+

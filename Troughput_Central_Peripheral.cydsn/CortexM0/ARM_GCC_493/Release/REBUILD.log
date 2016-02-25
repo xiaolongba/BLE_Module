@@ -1,0 +1,113 @@
+--------------- Rebuild Started: 02/23/2016 15:11:16 Project: Troughput_Central_Peripheral, Configuration: ARM GCC 4.9-2015-q1-update Release ---------------
+Deleting file ".\CortexM0\ARM_GCC_493\Release\main.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\BLEApplication.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\BLEClient.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\WriteUserSFlash.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\cyfitter_cfg.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\cymetadata.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\BLE.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\BLE_gatt.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\BLE_eventHandler.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\BLE_HAL_INT.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\BLE_HAL_PVT.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\BLE_custom.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART_SPI_UART.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART_SPI_UART_INT.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART_UART.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART_BOOT.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART_UART_BOOT.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Status_LED.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Connected_LED.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\BLE_bless_isr.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART_SCB_IRQ.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Cm0Start.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\CyBootAsmGnu.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\CyFlash.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\CyLib.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\cyPm.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\cyutils.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\CyLFClk.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\TimerInterrupt.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\TimerClock.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Timer.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Timer_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART_SCBCLK.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART_tx.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\CTS.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART_rx_wake.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART_RX_WAKEUP_IRQ.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.hex"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.elf"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.map"
+Deleting file ".\Troughput_Central_Peripheral.cycdx"
+Deleting file ".\Troughput_Central_Peripheral.svd"
+Deleting file ".\Troughput_Central_Peripheral.rpt"
+Deleting file ".\Troughput_Central_Peripheral_timing.html"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\.deps\C_FILE.P"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\.deps\ARM_C_FILE.P"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\.deps\GNU_ARM_ASM_FILE.P"
+cydsfit.exe -.appdatapath "C:\Users\Helon\AppData\Local\Cypress Semiconductor\PSoC Creator\3.3" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p G:\Company\Jetronic\CYPRESS\CYPRESS_BLE_Study\Troughput\Troughpur_Central_Peripheral_V2.7\Troughput_Central_Peripheral.cydsn\Troughput_Central_Peripheral.cyprj -d CYBL10563-56LQXI -s G:\Company\Jetronic\CYPRESS\CYPRESS_BLE_Study\Troughput\Troughpur_Central_Peripheral_V2.7\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+HDL Generation ...
+Synthesis ...
+Place and Route ...
+Tech mapping ...
+Analog Placement ...
+Analog Routing ...
+Analog Code Generation ...
+Digital Placement ...
+Digital Routing ...
+Bitstream Generation ...
+Static timing analysis ...
+API Generation ...
+Dependency Generation ...
+Clean Temporary Files ...
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/main.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\main.c -o .\CortexM0\ARM_GCC_493\Release\main.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/BLEApplication.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\BLEApplication.c -o .\CortexM0\ARM_GCC_493\Release\BLEApplication.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/BLEClient.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\BLEClient.c -o .\CortexM0\ARM_GCC_493\Release\BLEClient.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/WriteUserSFlash.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\WriteUserSFlash.c -o .\CortexM0\ARM_GCC_493\Release\WriteUserSFlash.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/cyfitter_cfg.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\cyfitter_cfg.c -o .\CortexM0\ARM_GCC_493\Release\cyfitter_cfg.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/cymetadata.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\cymetadata.c -o .\CortexM0\ARM_GCC_493\Release\cymetadata.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/BLE.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\BLE.c -o .\CortexM0\ARM_GCC_493\Release\BLE.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/BLE_gatt.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\BLE_gatt.c -o .\CortexM0\ARM_GCC_493\Release\BLE_gatt.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/BLE_eventHandler.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\BLE_eventHandler.c -o .\CortexM0\ARM_GCC_493\Release\BLE_eventHandler.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/BLE_HAL_INT.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\BLE_HAL_INT.c -o .\CortexM0\ARM_GCC_493\Release\BLE_HAL_INT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/BLE_HAL_PVT.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\BLE_HAL_PVT.c -o .\CortexM0\ARM_GCC_493\Release\BLE_HAL_PVT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/BLE_custom.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\BLE_custom.c -o .\CortexM0\ARM_GCC_493\Release\BLE_custom.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART.c -o .\CortexM0\ARM_GCC_493\Release\UART.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART_SPI_UART.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_SPI_UART.c -o .\CortexM0\ARM_GCC_493\Release\UART_SPI_UART.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART_SPI_UART_INT.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_SPI_UART_INT.c -o .\CortexM0\ARM_GCC_493\Release\UART_SPI_UART_INT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART_PM.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_PM.c -o .\CortexM0\ARM_GCC_493\Release\UART_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART_UART.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_UART.c -o .\CortexM0\ARM_GCC_493\Release\UART_UART.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART_BOOT.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_BOOT.c -o .\CortexM0\ARM_GCC_493\Release\UART_BOOT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART_UART_BOOT.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_UART_BOOT.c -o .\CortexM0\ARM_GCC_493\Release\UART_UART_BOOT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Status_LED.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\Status_LED.c -o .\CortexM0\ARM_GCC_493\Release\Status_LED.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Connected_LED.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\Connected_LED.c -o .\CortexM0\ARM_GCC_493\Release\Connected_LED.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/BLE_bless_isr.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\BLE_bless_isr.c -o .\CortexM0\ARM_GCC_493\Release\BLE_bless_isr.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART_SCB_IRQ.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_SCB_IRQ.c -o .\CortexM0\ARM_GCC_493\Release\UART_SCB_IRQ.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Cm0Start.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\Cm0Start.c -o .\CortexM0\ARM_GCC_493\Release\Cm0Start.o
+arm-none-eabi-as.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -alh=.\CortexM0\ARM_GCC_493\Release/CyBootAsmGnu.lst -g -W -o .\CortexM0\ARM_GCC_493\Release\CyBootAsmGnu.o .\Generated_Source\PSoC4\CyBootAsmGnu.s
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/CyFlash.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\CyFlash.c -o .\CortexM0\ARM_GCC_493\Release\CyFlash.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/CyLib.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\CyLib.c -o .\CortexM0\ARM_GCC_493\Release\CyLib.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/cyPm.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\cyPm.c -o .\CortexM0\ARM_GCC_493\Release\cyPm.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/cyutils.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\cyutils.c -o .\CortexM0\ARM_GCC_493\Release\cyutils.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/CyLFClk.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\CyLFClk.c -o .\CortexM0\ARM_GCC_493\Release\CyLFClk.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/TimerInterrupt.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\TimerInterrupt.c -o .\CortexM0\ARM_GCC_493\Release\TimerInterrupt.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/TimerClock.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\TimerClock.c -o .\CortexM0\ARM_GCC_493\Release\TimerClock.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Timer.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\Timer.c -o .\CortexM0\ARM_GCC_493\Release\Timer.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Timer_PM.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\Timer_PM.c -o .\CortexM0\ARM_GCC_493\Release\Timer_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART_SCBCLK.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_SCBCLK.c -o .\CortexM0\ARM_GCC_493\Release\UART_SCBCLK.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART_tx.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_tx.c -o .\CortexM0\ARM_GCC_493\Release\UART_tx.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/CTS.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\CTS.c -o .\CortexM0\ARM_GCC_493\Release\CTS.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART_rx_wake.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_rx_wake.c -o .\CortexM0\ARM_GCC_493\Release\UART_rx_wake.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART_RX_WAKEUP_IRQ.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_RX_WAKEUP_IRQ.c -o .\CortexM0\ARM_GCC_493\Release\UART_RX_WAKEUP_IRQ.o
+arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.a .\CortexM0\ARM_GCC_493\Release\cyfitter_cfg.o .\CortexM0\ARM_GCC_493\Release\BLE.o .\CortexM0\ARM_GCC_493\Release\BLE_gatt.o .\CortexM0\ARM_GCC_493\Release\BLE_eventHandler.o .\CortexM0\ARM_GCC_493\Release\BLE_HAL_INT.o .\CortexM0\ARM_GCC_493\Release\BLE_HAL_PVT.o .\CortexM0\ARM_GCC_493\Release\BLE_custom.o .\CortexM0\ARM_GCC_493\Release\UART.o .\CortexM0\ARM_GCC_493\Release\UART_SPI_UART.o .\CortexM0\ARM_GCC_493\Release\UART_SPI_UART_INT.o .\CortexM0\ARM_GCC_493\Release\UART_PM.o .\CortexM0\ARM_GCC_493\Release\UART_UART.o .\CortexM0\ARM_GCC_493\Release\UART_BOOT.o .\CortexM0\ARM_GCC_493\Release\UART_UART_BOOT.o .\CortexM0\ARM_GCC_493\Release\Status_LED.o .\CortexM0\ARM_GCC_493\Release\Connected_LED.o .\CortexM0\ARM_GCC_493\Release\BLE_bless_isr.o .\CortexM0\ARM_GCC_493\Release\UART_SCB_IRQ.o .\CortexM0\ARM_GCC_493\Release\CyBootAsmGnu.o .\CortexM0\ARM_GCC_493\Release\CyFlash.o .\CortexM0\ARM_GCC_493\Release\CyLib.o .\CortexM0\ARM_GCC_493\Release\cyPm.o .\CortexM0\ARM_GCC_493\Release\cyutils.o .\CortexM0\ARM_GCC_493\Release\CyLFClk.o .\CortexM0\ARM_GCC_493\Release\TimerInterrupt.o .\CortexM0\ARM_GCC_493\Release\TimerClock.o .\CortexM0\ARM_GCC_493\Release\Timer.o .\CortexM0\ARM_GCC_493\Release\Timer_PM.o .\CortexM0\ARM_GCC_493\Release\UART_SCBCLK.o .\CortexM0\ARM_GCC_493\Release\UART_tx.o .\CortexM0\ARM_GCC_493\Release\CTS.o .\CortexM0\ARM_GCC_493\Release\UART_rx_wake.o .\CortexM0\ARM_GCC_493\Release\UART_RX_WAKEUP_IRQ.o
+arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.elf .\CortexM0\ARM_GCC_493\Release\main.o .\CortexM0\ARM_GCC_493\Release\BLEApplication.o .\CortexM0\ARM_GCC_493\Release\BLEClient.o .\CortexM0\ARM_GCC_493\Release\WriteUserSFlash.o .\CortexM0\ARM_GCC_493\Release\cymetadata.o .\CortexM0\ARM_GCC_493\Release\Cm0Start.o .\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.a "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\BLE_v2_30\Library\gccCyBLEStack_BLE_SOC_CENTRAL_PERIPHERAL.a" "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_493\Release\CyComponentLibrary.a" -mcpu=cortex-m0 -mthumb -g -ffunction-sections -Os -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_493\Release/Troughput_Central_Peripheral.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
+cyelftool.exe -C G:\Company\Jetronic\CYPRESS\CYPRESS_BLE_Study\Troughput\Troughpur_Central_Peripheral_V2.7\Troughput_Central_Peripheral.cydsn\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.elf --flash_row_size 128 --flash_size 131072
+cyelftool.exe -S G:\Company\Jetronic\CYPRESS\CYPRESS_BLE_Study\Troughput\Troughpur_Central_Peripheral_V2.7\Troughput_Central_Peripheral.cydsn\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.elf
+Flash used: 97792 of 131072 bytes (74.6%).
+SRAM used: 13724 of 16384 bytes (83.8%). Stack: 1024 bytes. Heap: 512 bytes.
+--------------- Rebuild Succeeded: 02/23/2016 15:11:42 ---------------

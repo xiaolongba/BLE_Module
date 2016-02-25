@@ -1,0 +1,1073 @@
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"TimerClock.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.TimerClock_StartEx,"ax",%progbits
+  18              		.align	1
+  19              		.global	TimerClock_StartEx
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	TimerClock_StartEx, %function
+  23              	TimerClock_StartEx:
+  24              	.LFB0:
+  25              		.file 1 ".\\Generated_Source\\PSoC4\\TimerClock.c"
+   1:.\Generated_Source\PSoC4/TimerClock.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/TimerClock.c **** * File Name: TimerClock.c
+   3:.\Generated_Source\PSoC4/TimerClock.c **** * Version 2.20
+   4:.\Generated_Source\PSoC4/TimerClock.c **** *
+   5:.\Generated_Source\PSoC4/TimerClock.c **** *  Description:
+   6:.\Generated_Source\PSoC4/TimerClock.c **** *   Provides system API for the clocking, interrupts and watchdog timer.
+   7:.\Generated_Source\PSoC4/TimerClock.c **** *
+   8:.\Generated_Source\PSoC4/TimerClock.c **** *  Note:
+   9:.\Generated_Source\PSoC4/TimerClock.c **** *   Documentation of the API's in this file is located in the
+  10:.\Generated_Source\PSoC4/TimerClock.c **** *   System Reference Guide provided with PSoC Creator.
+  11:.\Generated_Source\PSoC4/TimerClock.c **** *
+  12:.\Generated_Source\PSoC4/TimerClock.c **** ********************************************************************************
+  13:.\Generated_Source\PSoC4/TimerClock.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:.\Generated_Source\PSoC4/TimerClock.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:.\Generated_Source\PSoC4/TimerClock.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:.\Generated_Source\PSoC4/TimerClock.c **** * the software package with which this file was provided.
+  17:.\Generated_Source\PSoC4/TimerClock.c **** *******************************************************************************/
+  18:.\Generated_Source\PSoC4/TimerClock.c **** 
+  19:.\Generated_Source\PSoC4/TimerClock.c **** #include <cydevice_trm.h>
+  20:.\Generated_Source\PSoC4/TimerClock.c **** #include "TimerClock.h"
+  21:.\Generated_Source\PSoC4/TimerClock.c **** 
+  22:.\Generated_Source\PSoC4/TimerClock.c **** #if defined CYREG_PERI_DIV_CMD
+  23:.\Generated_Source\PSoC4/TimerClock.c **** 
+  24:.\Generated_Source\PSoC4/TimerClock.c **** /*******************************************************************************
+  25:.\Generated_Source\PSoC4/TimerClock.c **** * Function Name: TimerClock_StartEx
+  26:.\Generated_Source\PSoC4/TimerClock.c **** ********************************************************************************
+  27:.\Generated_Source\PSoC4/TimerClock.c **** *
+  28:.\Generated_Source\PSoC4/TimerClock.c **** * Summary:
+  29:.\Generated_Source\PSoC4/TimerClock.c **** *  Starts the clock, aligned to the specified running clock.
+  30:.\Generated_Source\PSoC4/TimerClock.c **** *
+  31:.\Generated_Source\PSoC4/TimerClock.c **** * Parameters:
+  32:.\Generated_Source\PSoC4/TimerClock.c **** *  alignClkDiv:  The divider to which phase alignment is performed when the
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 2
+
+
+  33:.\Generated_Source\PSoC4/TimerClock.c **** *    clock is started.
+  34:.\Generated_Source\PSoC4/TimerClock.c **** *
+  35:.\Generated_Source\PSoC4/TimerClock.c **** * Returns:
+  36:.\Generated_Source\PSoC4/TimerClock.c **** *  None
+  37:.\Generated_Source\PSoC4/TimerClock.c **** *
+  38:.\Generated_Source\PSoC4/TimerClock.c **** *******************************************************************************/
+  39:.\Generated_Source\PSoC4/TimerClock.c **** void TimerClock_StartEx(uint32 alignClkDiv)
+  40:.\Generated_Source\PSoC4/TimerClock.c **** {
+  26              		.loc 1 40 0
+  27              		.cfi_startproc
+  28              	.LVL0:
+  29              	.L2:
+  41:.\Generated_Source\PSoC4/TimerClock.c ****     /* Make sure any previous start command has finished. */
+  42:.\Generated_Source\PSoC4/TimerClock.c ****     while((TimerClock_CMD_REG & TimerClock_CMD_ENABLE_MASK) != 0u)
+  30              		.loc 1 42 0 discriminator 1
+  31 0000 044B     		ldr	r3, .L4
+  32 0002 1A68     		ldr	r2, [r3]
+  33 0004 002A     		cmp	r2, #0
+  34 0006 FBDB     		blt	.L2
+  43:.\Generated_Source\PSoC4/TimerClock.c ****     {
+  44:.\Generated_Source\PSoC4/TimerClock.c ****     }
+  45:.\Generated_Source\PSoC4/TimerClock.c ****     
+  46:.\Generated_Source\PSoC4/TimerClock.c ****     /* Specify the target divider and it's alignment divider, and enable. */
+  47:.\Generated_Source\PSoC4/TimerClock.c ****     TimerClock_CMD_REG =
+  48:.\Generated_Source\PSoC4/TimerClock.c ****         ((uint32)TimerClock__DIV_ID << TimerClock_CMD_DIV_SHIFT)|
+  49:.\Generated_Source\PSoC4/TimerClock.c ****         (alignClkDiv << TimerClock_CMD_PA_DIV_SHIFT) |
+  35              		.loc 1 49 0
+  36 0008 034A     		ldr	r2, .L4+4
+  37 000a 0002     		lsl	r0, r0, #8
+  38              	.LVL1:
+  39 000c 1043     		orr	r0, r2
+  47:.\Generated_Source\PSoC4/TimerClock.c ****         ((uint32)TimerClock__DIV_ID << TimerClock_CMD_DIV_SHIFT)|
+  40              		.loc 1 47 0
+  41 000e 1860     		str	r0, [r3]
+  50:.\Generated_Source\PSoC4/TimerClock.c ****         (uint32)TimerClock_CMD_ENABLE_MASK;
+  51:.\Generated_Source\PSoC4/TimerClock.c **** }
+  42              		.loc 1 51 0
+  43              		@ sp needed
+  44 0010 7047     		bx	lr
+  45              	.L5:
+  46 0012 C046     		.align	2
+  47              	.L4:
+  48 0014 00000140 		.word	1073807360
+  49 0018 41000080 		.word	-2147483583
+  50              		.cfi_endproc
+  51              	.LFE0:
+  52              		.size	TimerClock_StartEx, .-TimerClock_StartEx
+  53              		.section	.text.TimerClock_Stop,"ax",%progbits
+  54              		.align	1
+  55              		.global	TimerClock_Stop
+  56              		.code	16
+  57              		.thumb_func
+  58              		.type	TimerClock_Stop, %function
+  59              	TimerClock_Stop:
+  60              	.LFB1:
+  52:.\Generated_Source\PSoC4/TimerClock.c **** 
+  53:.\Generated_Source\PSoC4/TimerClock.c **** #else
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 3
+
+
+  54:.\Generated_Source\PSoC4/TimerClock.c **** 
+  55:.\Generated_Source\PSoC4/TimerClock.c **** /*******************************************************************************
+  56:.\Generated_Source\PSoC4/TimerClock.c **** * Function Name: TimerClock_Start
+  57:.\Generated_Source\PSoC4/TimerClock.c **** ********************************************************************************
+  58:.\Generated_Source\PSoC4/TimerClock.c **** *
+  59:.\Generated_Source\PSoC4/TimerClock.c **** * Summary:
+  60:.\Generated_Source\PSoC4/TimerClock.c **** *  Starts the clock.
+  61:.\Generated_Source\PSoC4/TimerClock.c **** *
+  62:.\Generated_Source\PSoC4/TimerClock.c **** * Parameters:
+  63:.\Generated_Source\PSoC4/TimerClock.c **** *  None
+  64:.\Generated_Source\PSoC4/TimerClock.c **** *
+  65:.\Generated_Source\PSoC4/TimerClock.c **** * Returns:
+  66:.\Generated_Source\PSoC4/TimerClock.c **** *  None
+  67:.\Generated_Source\PSoC4/TimerClock.c **** *
+  68:.\Generated_Source\PSoC4/TimerClock.c **** *******************************************************************************/
+  69:.\Generated_Source\PSoC4/TimerClock.c **** 
+  70:.\Generated_Source\PSoC4/TimerClock.c **** void TimerClock_Start(void)
+  71:.\Generated_Source\PSoC4/TimerClock.c **** {
+  72:.\Generated_Source\PSoC4/TimerClock.c ****     /* Set the bit to enable the clock. */
+  73:.\Generated_Source\PSoC4/TimerClock.c ****     TimerClock_ENABLE_REG |= TimerClock__ENABLE_MASK;
+  74:.\Generated_Source\PSoC4/TimerClock.c **** }
+  75:.\Generated_Source\PSoC4/TimerClock.c **** 
+  76:.\Generated_Source\PSoC4/TimerClock.c **** #endif /* CYREG_PERI_DIV_CMD */
+  77:.\Generated_Source\PSoC4/TimerClock.c **** 
+  78:.\Generated_Source\PSoC4/TimerClock.c **** 
+  79:.\Generated_Source\PSoC4/TimerClock.c **** /*******************************************************************************
+  80:.\Generated_Source\PSoC4/TimerClock.c **** * Function Name: TimerClock_Stop
+  81:.\Generated_Source\PSoC4/TimerClock.c **** ********************************************************************************
+  82:.\Generated_Source\PSoC4/TimerClock.c **** *
+  83:.\Generated_Source\PSoC4/TimerClock.c **** * Summary:
+  84:.\Generated_Source\PSoC4/TimerClock.c **** *  Stops the clock and returns immediately. This API does not require the
+  85:.\Generated_Source\PSoC4/TimerClock.c **** *  source clock to be running but may return before the hardware is actually
+  86:.\Generated_Source\PSoC4/TimerClock.c **** *  disabled.
+  87:.\Generated_Source\PSoC4/TimerClock.c **** *
+  88:.\Generated_Source\PSoC4/TimerClock.c **** * Parameters:
+  89:.\Generated_Source\PSoC4/TimerClock.c **** *  None
+  90:.\Generated_Source\PSoC4/TimerClock.c **** *
+  91:.\Generated_Source\PSoC4/TimerClock.c **** * Returns:
+  92:.\Generated_Source\PSoC4/TimerClock.c **** *  None
+  93:.\Generated_Source\PSoC4/TimerClock.c **** *
+  94:.\Generated_Source\PSoC4/TimerClock.c **** *******************************************************************************/
+  95:.\Generated_Source\PSoC4/TimerClock.c **** void TimerClock_Stop(void)
+  96:.\Generated_Source\PSoC4/TimerClock.c **** {
+  61              		.loc 1 96 0
+  62              		.cfi_startproc
+  63              	.L7:
+  97:.\Generated_Source\PSoC4/TimerClock.c **** #if defined CYREG_PERI_DIV_CMD
+  98:.\Generated_Source\PSoC4/TimerClock.c **** 
+  99:.\Generated_Source\PSoC4/TimerClock.c ****     /* Make sure any previous start command has finished. */
+ 100:.\Generated_Source\PSoC4/TimerClock.c ****     while((TimerClock_CMD_REG & TimerClock_CMD_ENABLE_MASK) != 0u)
+  64              		.loc 1 100 0 discriminator 1
+  65 0000 034B     		ldr	r3, .L8
+  66 0002 1A68     		ldr	r2, [r3]
+  67 0004 002A     		cmp	r2, #0
+  68 0006 FBDB     		blt	.L7
+ 101:.\Generated_Source\PSoC4/TimerClock.c ****     {
+ 102:.\Generated_Source\PSoC4/TimerClock.c ****     }
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 4
+
+
+ 103:.\Generated_Source\PSoC4/TimerClock.c ****     
+ 104:.\Generated_Source\PSoC4/TimerClock.c ****     /* Specify the target divider and it's alignment divider, and disable. */
+ 105:.\Generated_Source\PSoC4/TimerClock.c ****     TimerClock_CMD_REG =
+  69              		.loc 1 105 0
+  70 0008 024A     		ldr	r2, .L8+4
+ 106:.\Generated_Source\PSoC4/TimerClock.c ****         ((uint32)TimerClock__DIV_ID << TimerClock_CMD_DIV_SHIFT)|
+ 107:.\Generated_Source\PSoC4/TimerClock.c ****         ((uint32)TimerClock_CMD_DISABLE_MASK);
+ 108:.\Generated_Source\PSoC4/TimerClock.c **** 
+ 109:.\Generated_Source\PSoC4/TimerClock.c **** #else
+ 110:.\Generated_Source\PSoC4/TimerClock.c **** 
+ 111:.\Generated_Source\PSoC4/TimerClock.c ****     /* Clear the bit to disable the clock. */
+ 112:.\Generated_Source\PSoC4/TimerClock.c ****     TimerClock_ENABLE_REG &= (uint32)(~TimerClock__ENABLE_MASK);
+ 113:.\Generated_Source\PSoC4/TimerClock.c ****     
+ 114:.\Generated_Source\PSoC4/TimerClock.c **** #endif /* CYREG_PERI_DIV_CMD */
+ 115:.\Generated_Source\PSoC4/TimerClock.c **** }
+  71              		.loc 1 115 0
+  72              		@ sp needed
+ 105:.\Generated_Source\PSoC4/TimerClock.c ****         ((uint32)TimerClock__DIV_ID << TimerClock_CMD_DIV_SHIFT)|
+  73              		.loc 1 105 0
+  74 000a 1A60     		str	r2, [r3]
+  75              		.loc 1 115 0
+  76 000c 7047     		bx	lr
+  77              	.L9:
+  78 000e C046     		.align	2
+  79              	.L8:
+  80 0010 00000140 		.word	1073807360
+  81 0014 41000040 		.word	1073741889
+  82              		.cfi_endproc
+  83              	.LFE1:
+  84              		.size	TimerClock_Stop, .-TimerClock_Stop
+  85              		.section	.text.TimerClock_SetFractionalDividerRegister,"ax",%progbits
+  86              		.align	1
+  87              		.global	TimerClock_SetFractionalDividerRegister
+  88              		.code	16
+  89              		.thumb_func
+  90              		.type	TimerClock_SetFractionalDividerRegister, %function
+  91              	TimerClock_SetFractionalDividerRegister:
+  92              	.LFB2:
+ 116:.\Generated_Source\PSoC4/TimerClock.c **** 
+ 117:.\Generated_Source\PSoC4/TimerClock.c **** 
+ 118:.\Generated_Source\PSoC4/TimerClock.c **** /*******************************************************************************
+ 119:.\Generated_Source\PSoC4/TimerClock.c **** * Function Name: TimerClock_SetFractionalDividerRegister
+ 120:.\Generated_Source\PSoC4/TimerClock.c **** ********************************************************************************
+ 121:.\Generated_Source\PSoC4/TimerClock.c **** *
+ 122:.\Generated_Source\PSoC4/TimerClock.c **** * Summary:
+ 123:.\Generated_Source\PSoC4/TimerClock.c **** *  Modifies the clock divider and the fractional divider.
+ 124:.\Generated_Source\PSoC4/TimerClock.c **** *
+ 125:.\Generated_Source\PSoC4/TimerClock.c **** * Parameters:
+ 126:.\Generated_Source\PSoC4/TimerClock.c **** *  clkDivider:  Divider register value (0-65535). This value is NOT the
+ 127:.\Generated_Source\PSoC4/TimerClock.c **** *    divider; the clock hardware divides by clkDivider plus one. For example,
+ 128:.\Generated_Source\PSoC4/TimerClock.c **** *    to divide the clock by 2, this parameter should be set to 1.
+ 129:.\Generated_Source\PSoC4/TimerClock.c **** *  fracDivider:  Fractional Divider register value (0-31).
+ 130:.\Generated_Source\PSoC4/TimerClock.c **** * Returns:
+ 131:.\Generated_Source\PSoC4/TimerClock.c **** *  None
+ 132:.\Generated_Source\PSoC4/TimerClock.c **** *
+ 133:.\Generated_Source\PSoC4/TimerClock.c **** *******************************************************************************/
+ 134:.\Generated_Source\PSoC4/TimerClock.c **** void TimerClock_SetFractionalDividerRegister(uint16 clkDivider, uint8 clkFractional)
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 5
+
+
+ 135:.\Generated_Source\PSoC4/TimerClock.c **** {
+  93              		.loc 1 135 0
+  94              		.cfi_startproc
+  95              	.LVL2:
+ 136:.\Generated_Source\PSoC4/TimerClock.c ****     uint32 maskVal;
+ 137:.\Generated_Source\PSoC4/TimerClock.c ****     uint32 regVal;
+ 138:.\Generated_Source\PSoC4/TimerClock.c ****     
+ 139:.\Generated_Source\PSoC4/TimerClock.c **** #if defined (TimerClock__FRAC_MASK) || defined (CYREG_PERI_DIV_CMD)
+ 140:.\Generated_Source\PSoC4/TimerClock.c ****     
+ 141:.\Generated_Source\PSoC4/TimerClock.c **** 	/* get all but divider bits */
+ 142:.\Generated_Source\PSoC4/TimerClock.c ****     maskVal = TimerClock_DIV_REG & 
+ 143:.\Generated_Source\PSoC4/TimerClock.c ****                     (uint32)(~(uint32)(TimerClock_DIV_INT_MASK | TimerClock_DIV_FRAC_MASK)); 
+ 144:.\Generated_Source\PSoC4/TimerClock.c **** 	/* combine mask and new divider vals into 32-bit value */
+ 145:.\Generated_Source\PSoC4/TimerClock.c ****     regVal = maskVal |
+ 146:.\Generated_Source\PSoC4/TimerClock.c ****         ((uint32)((uint32)clkDivider <<  TimerClock_DIV_INT_SHIFT) & TimerClock_DIV_INT_MASK) |
+ 147:.\Generated_Source\PSoC4/TimerClock.c ****         ((uint32)((uint32)clkFractional << TimerClock_DIV_FRAC_SHIFT) & TimerClock_DIV_FRAC_MASK);
+  96              		.loc 1 147 0
+  97 0000 FF22     		mov	r2, #255
+ 142:.\Generated_Source\PSoC4/TimerClock.c ****                     (uint32)(~(uint32)(TimerClock_DIV_INT_MASK | TimerClock_DIV_FRAC_MASK)); 
+  98              		.loc 1 142 0
+  99 0002 0723     		mov	r3, #7
+ 135:.\Generated_Source\PSoC4/TimerClock.c ****     uint32 maskVal;
+ 100              		.loc 1 135 0
+ 101 0004 30B5     		push	{r4, r5, lr}
+ 102              		.cfi_def_cfa_offset 12
+ 103              		.cfi_offset 4, -12
+ 104              		.cfi_offset 5, -8
+ 105              		.cfi_offset 14, -4
+ 142:.\Generated_Source\PSoC4/TimerClock.c ****                     (uint32)(~(uint32)(TimerClock_DIV_INT_MASK | TimerClock_DIV_FRAC_MASK)); 
+ 106              		.loc 1 142 0
+ 107 0006 054C     		ldr	r4, .L11
+ 108              		.loc 1 147 0
+ 109 0008 C900     		lsl	r1, r1, #3
+ 110              	.LVL3:
+ 142:.\Generated_Source\PSoC4/TimerClock.c ****                     (uint32)(~(uint32)(TimerClock_DIV_INT_MASK | TimerClock_DIV_FRAC_MASK)); 
+ 111              		.loc 1 142 0
+ 112 000a 2568     		ldr	r5, [r4]
+ 113              	.LVL4:
+ 146:.\Generated_Source\PSoC4/TimerClock.c ****         ((uint32)((uint32)clkFractional << TimerClock_DIV_FRAC_SHIFT) & TimerClock_DIV_FRAC_MASK);
+ 114              		.loc 1 146 0
+ 115 000c 0002     		lsl	r0, r0, #8
+ 116              	.LVL5:
+ 117              		.loc 1 147 0
+ 118 000e 1140     		and	r1, r2
+ 142:.\Generated_Source\PSoC4/TimerClock.c ****                     (uint32)(~(uint32)(TimerClock_DIV_INT_MASK | TimerClock_DIV_FRAC_MASK)); 
+ 119              		.loc 1 142 0
+ 120 0010 2B40     		and	r3, r5
+ 121              	.LVL6:
+ 122 0012 0143     		orr	r1, r0
+ 145:.\Generated_Source\PSoC4/TimerClock.c ****         ((uint32)((uint32)clkDivider <<  TimerClock_DIV_INT_SHIFT) & TimerClock_DIV_INT_MASK) |
+ 123              		.loc 1 145 0
+ 124 0014 1943     		orr	r1, r3
+ 125              	.LVL7:
+ 148:.\Generated_Source\PSoC4/TimerClock.c ****     
+ 149:.\Generated_Source\PSoC4/TimerClock.c **** #else
+ 150:.\Generated_Source\PSoC4/TimerClock.c ****     /* get all but integer divider bits */
+ 151:.\Generated_Source\PSoC4/TimerClock.c ****     maskVal = TimerClock_DIV_REG & (uint32)(~(uint32)TimerClock__DIVIDER_MASK);
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 6
+
+
+ 152:.\Generated_Source\PSoC4/TimerClock.c ****     /* combine mask and new divider val into 32-bit value */
+ 153:.\Generated_Source\PSoC4/TimerClock.c ****     regVal = clkDivider | maskVal;
+ 154:.\Generated_Source\PSoC4/TimerClock.c ****     
+ 155:.\Generated_Source\PSoC4/TimerClock.c **** #endif /* TimerClock__FRAC_MASK || CYREG_PERI_DIV_CMD */
+ 156:.\Generated_Source\PSoC4/TimerClock.c **** 
+ 157:.\Generated_Source\PSoC4/TimerClock.c ****     TimerClock_DIV_REG = regVal;
+ 126              		.loc 1 157 0
+ 127 0016 2160     		str	r1, [r4]
+ 158:.\Generated_Source\PSoC4/TimerClock.c **** }
+ 128              		.loc 1 158 0
+ 129              		@ sp needed
+ 130 0018 30BD     		pop	{r4, r5, pc}
+ 131              	.L12:
+ 132 001a C046     		.align	2
+ 133              	.L11:
+ 134 001c 04030140 		.word	1073808132
+ 135              		.cfi_endproc
+ 136              	.LFE2:
+ 137              		.size	TimerClock_SetFractionalDividerRegister, .-TimerClock_SetFractionalDividerRegister
+ 138              		.section	.text.TimerClock_GetDividerRegister,"ax",%progbits
+ 139              		.align	1
+ 140              		.global	TimerClock_GetDividerRegister
+ 141              		.code	16
+ 142              		.thumb_func
+ 143              		.type	TimerClock_GetDividerRegister, %function
+ 144              	TimerClock_GetDividerRegister:
+ 145              	.LFB3:
+ 159:.\Generated_Source\PSoC4/TimerClock.c **** 
+ 160:.\Generated_Source\PSoC4/TimerClock.c **** 
+ 161:.\Generated_Source\PSoC4/TimerClock.c **** /*******************************************************************************
+ 162:.\Generated_Source\PSoC4/TimerClock.c **** * Function Name: TimerClock_GetDividerRegister
+ 163:.\Generated_Source\PSoC4/TimerClock.c **** ********************************************************************************
+ 164:.\Generated_Source\PSoC4/TimerClock.c **** *
+ 165:.\Generated_Source\PSoC4/TimerClock.c **** * Summary:
+ 166:.\Generated_Source\PSoC4/TimerClock.c **** *  Gets the clock divider register value.
+ 167:.\Generated_Source\PSoC4/TimerClock.c **** *
+ 168:.\Generated_Source\PSoC4/TimerClock.c **** * Parameters:
+ 169:.\Generated_Source\PSoC4/TimerClock.c **** *  None
+ 170:.\Generated_Source\PSoC4/TimerClock.c **** *
+ 171:.\Generated_Source\PSoC4/TimerClock.c **** * Returns:
+ 172:.\Generated_Source\PSoC4/TimerClock.c **** *  Divide value of the clock minus 1. For example, if the clock is set to
+ 173:.\Generated_Source\PSoC4/TimerClock.c **** *  divide by 2, the return value will be 1.
+ 174:.\Generated_Source\PSoC4/TimerClock.c **** *
+ 175:.\Generated_Source\PSoC4/TimerClock.c **** *******************************************************************************/
+ 176:.\Generated_Source\PSoC4/TimerClock.c **** uint16 TimerClock_GetDividerRegister(void)
+ 177:.\Generated_Source\PSoC4/TimerClock.c **** {
+ 146              		.loc 1 177 0
+ 147              		.cfi_startproc
+ 178:.\Generated_Source\PSoC4/TimerClock.c ****     return (uint16)((TimerClock_DIV_REG & TimerClock_DIV_INT_MASK)
+ 148              		.loc 1 178 0
+ 149 0000 024B     		ldr	r3, .L14
+ 179:.\Generated_Source\PSoC4/TimerClock.c ****         >> TimerClock_DIV_INT_SHIFT);
+ 180:.\Generated_Source\PSoC4/TimerClock.c **** }
+ 150              		.loc 1 180 0
+ 151              		@ sp needed
+ 178:.\Generated_Source\PSoC4/TimerClock.c ****     return (uint16)((TimerClock_DIV_REG & TimerClock_DIV_INT_MASK)
+ 152              		.loc 1 178 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 7
+
+
+ 153 0002 1868     		ldr	r0, [r3]
+ 179:.\Generated_Source\PSoC4/TimerClock.c ****         >> TimerClock_DIV_INT_SHIFT);
+ 154              		.loc 1 179 0
+ 155 0004 000A     		lsr	r0, r0, #8
+ 178:.\Generated_Source\PSoC4/TimerClock.c ****     return (uint16)((TimerClock_DIV_REG & TimerClock_DIV_INT_MASK)
+ 156              		.loc 1 178 0
+ 157 0006 80B2     		uxth	r0, r0
+ 158              		.loc 1 180 0
+ 159 0008 7047     		bx	lr
+ 160              	.L15:
+ 161 000a C046     		.align	2
+ 162              	.L14:
+ 163 000c 04030140 		.word	1073808132
+ 164              		.cfi_endproc
+ 165              	.LFE3:
+ 166              		.size	TimerClock_GetDividerRegister, .-TimerClock_GetDividerRegister
+ 167              		.section	.text.TimerClock_GetFractionalDividerRegister,"ax",%progbits
+ 168              		.align	1
+ 169              		.global	TimerClock_GetFractionalDividerRegister
+ 170              		.code	16
+ 171              		.thumb_func
+ 172              		.type	TimerClock_GetFractionalDividerRegister, %function
+ 173              	TimerClock_GetFractionalDividerRegister:
+ 174              	.LFB4:
+ 181:.\Generated_Source\PSoC4/TimerClock.c **** 
+ 182:.\Generated_Source\PSoC4/TimerClock.c **** 
+ 183:.\Generated_Source\PSoC4/TimerClock.c **** /*******************************************************************************
+ 184:.\Generated_Source\PSoC4/TimerClock.c **** * Function Name: TimerClock_GetFractionalDividerRegister
+ 185:.\Generated_Source\PSoC4/TimerClock.c **** ********************************************************************************
+ 186:.\Generated_Source\PSoC4/TimerClock.c **** *
+ 187:.\Generated_Source\PSoC4/TimerClock.c **** * Summary:
+ 188:.\Generated_Source\PSoC4/TimerClock.c **** *  Gets the clock fractional divider register value.
+ 189:.\Generated_Source\PSoC4/TimerClock.c **** *
+ 190:.\Generated_Source\PSoC4/TimerClock.c **** * Parameters:
+ 191:.\Generated_Source\PSoC4/TimerClock.c **** *  None
+ 192:.\Generated_Source\PSoC4/TimerClock.c **** *
+ 193:.\Generated_Source\PSoC4/TimerClock.c **** * Returns:
+ 194:.\Generated_Source\PSoC4/TimerClock.c **** *  Fractional Divide value of the clock
+ 195:.\Generated_Source\PSoC4/TimerClock.c **** *  0 if the fractional divider is not in use.
+ 196:.\Generated_Source\PSoC4/TimerClock.c **** *
+ 197:.\Generated_Source\PSoC4/TimerClock.c **** *******************************************************************************/
+ 198:.\Generated_Source\PSoC4/TimerClock.c **** uint8 TimerClock_GetFractionalDividerRegister(void)
+ 199:.\Generated_Source\PSoC4/TimerClock.c **** {
+ 175              		.loc 1 199 0
+ 176              		.cfi_startproc
+ 200:.\Generated_Source\PSoC4/TimerClock.c **** #if defined (TimerClock__FRAC_MASK)
+ 201:.\Generated_Source\PSoC4/TimerClock.c ****     /* return fractional divider bits */
+ 202:.\Generated_Source\PSoC4/TimerClock.c ****     return (uint8)((TimerClock_DIV_REG & TimerClock_DIV_FRAC_MASK)
+ 203:.\Generated_Source\PSoC4/TimerClock.c ****         >> TimerClock_DIV_FRAC_SHIFT);
+ 204:.\Generated_Source\PSoC4/TimerClock.c **** #else
+ 205:.\Generated_Source\PSoC4/TimerClock.c ****     return 0u;
+ 206:.\Generated_Source\PSoC4/TimerClock.c **** #endif /* TimerClock__FRAC_MASK */
+ 207:.\Generated_Source\PSoC4/TimerClock.c **** }
+ 177              		.loc 1 207 0
+ 178 0000 0020     		mov	r0, #0
+ 179              		@ sp needed
+ 180 0002 7047     		bx	lr
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 8
+
+
+ 181              		.cfi_endproc
+ 182              	.LFE4:
+ 183              		.size	TimerClock_GetFractionalDividerRegister, .-TimerClock_GetFractionalDividerRegister
+ 184              		.text
+ 185              	.Letext0:
+ 186              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 187              		.section	.debug_info,"",%progbits
+ 188              	.Ldebug_info0:
+ 189 0000 5F010000 		.4byte	0x15f
+ 190 0004 0400     		.2byte	0x4
+ 191 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 192 000a 04       		.byte	0x4
+ 193 000b 01       		.uleb128 0x1
+ 194 000c 06000000 		.4byte	.LASF25
+ 195 0010 01       		.byte	0x1
+ 196 0011 2B010000 		.4byte	.LASF26
+ 197 0015 DA010000 		.4byte	.LASF27
+ 198 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 199 001d 00000000 		.4byte	0
+ 200 0021 00000000 		.4byte	.Ldebug_line0
+ 201 0025 02       		.uleb128 0x2
+ 202 0026 01       		.byte	0x1
+ 203 0027 06       		.byte	0x6
+ 204 0028 9A020000 		.4byte	.LASF0
+ 205 002c 02       		.uleb128 0x2
+ 206 002d 01       		.byte	0x1
+ 207 002e 08       		.byte	0x8
+ 208 002f CA000000 		.4byte	.LASF1
+ 209 0033 02       		.uleb128 0x2
+ 210 0034 02       		.byte	0x2
+ 211 0035 05       		.byte	0x5
+ 212 0036 81020000 		.4byte	.LASF2
+ 213 003a 02       		.uleb128 0x2
+ 214 003b 02       		.byte	0x2
+ 215 003c 07       		.byte	0x7
+ 216 003d 18010000 		.4byte	.LASF3
+ 217 0041 02       		.uleb128 0x2
+ 218 0042 04       		.byte	0x4
+ 219 0043 05       		.byte	0x5
+ 220 0044 91020000 		.4byte	.LASF4
+ 221 0048 02       		.uleb128 0x2
+ 222 0049 04       		.byte	0x4
+ 223 004a 07       		.byte	0x7
+ 224 004b 06010000 		.4byte	.LASF5
+ 225 004f 02       		.uleb128 0x2
+ 226 0050 08       		.byte	0x8
+ 227 0051 05       		.byte	0x5
+ 228 0052 6E020000 		.4byte	.LASF6
+ 229 0056 02       		.uleb128 0x2
+ 230 0057 08       		.byte	0x8
+ 231 0058 07       		.byte	0x7
+ 232 0059 57020000 		.4byte	.LASF7
+ 233 005d 03       		.uleb128 0x3
+ 234 005e 04       		.byte	0x4
+ 235 005f 05       		.byte	0x5
+ 236 0060 696E7400 		.ascii	"int\000"
+ 237 0064 02       		.uleb128 0x2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 9
+
+
+ 238 0065 04       		.byte	0x4
+ 239 0066 07       		.byte	0x7
+ 240 0067 A5010000 		.4byte	.LASF8
+ 241 006b 04       		.uleb128 0x4
+ 242 006c 8B020000 		.4byte	.LASF9
+ 243 0070 02       		.byte	0x2
+ 244 0071 C2       		.byte	0xc2
+ 245 0072 2C000000 		.4byte	0x2c
+ 246 0076 04       		.uleb128 0x4
+ 247 0077 84010000 		.4byte	.LASF10
+ 248 007b 02       		.byte	0x2
+ 249 007c C3       		.byte	0xc3
+ 250 007d 3A000000 		.4byte	0x3a
+ 251 0081 04       		.uleb128 0x4
+ 252 0082 8B010000 		.4byte	.LASF11
+ 253 0086 02       		.byte	0x2
+ 254 0087 C4       		.byte	0xc4
+ 255 0088 48000000 		.4byte	0x48
+ 256 008c 02       		.uleb128 0x2
+ 257 008d 04       		.byte	0x4
+ 258 008e 04       		.byte	0x4
+ 259 008f 9C000000 		.4byte	.LASF12
+ 260 0093 02       		.uleb128 0x2
+ 261 0094 08       		.byte	0x8
+ 262 0095 04       		.byte	0x4
+ 263 0096 5C010000 		.4byte	.LASF13
+ 264 009a 02       		.uleb128 0x2
+ 265 009b 01       		.byte	0x1
+ 266 009c 08       		.byte	0x8
+ 267 009d 7C020000 		.4byte	.LASF14
+ 268 00a1 05       		.uleb128 0x5
+ 269 00a2 00000000 		.4byte	.LASF15
+ 270 00a6 02       		.byte	0x2
+ 271 00a7 6E01     		.2byte	0x16e
+ 272 00a9 AD000000 		.4byte	0xad
+ 273 00ad 06       		.uleb128 0x6
+ 274 00ae 81000000 		.4byte	0x81
+ 275 00b2 07       		.uleb128 0x7
+ 276 00b3 92010000 		.4byte	.LASF16
+ 277 00b7 01       		.byte	0x1
+ 278 00b8 27       		.byte	0x27
+ 279 00b9 00000000 		.4byte	.LFB0
+ 280 00bd 1C000000 		.4byte	.LFE0-.LFB0
+ 281 00c1 01       		.uleb128 0x1
+ 282 00c2 9C       		.byte	0x9c
+ 283 00c3 D7000000 		.4byte	0xd7
+ 284 00c7 08       		.uleb128 0x8
+ 285 00c8 6A010000 		.4byte	.LASF18
+ 286 00cc 01       		.byte	0x1
+ 287 00cd 27       		.byte	0x27
+ 288 00ce 81000000 		.4byte	0x81
+ 289 00d2 00000000 		.4byte	.LLST0
+ 290 00d6 00       		.byte	0
+ 291 00d7 09       		.uleb128 0x9
+ 292 00d8 D8000000 		.4byte	.LASF28
+ 293 00dc 01       		.byte	0x1
+ 294 00dd 5F       		.byte	0x5f
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 10
+
+
+ 295 00de 00000000 		.4byte	.LFB1
+ 296 00e2 18000000 		.4byte	.LFE1-.LFB1
+ 297 00e6 01       		.uleb128 0x1
+ 298 00e7 9C       		.byte	0x9c
+ 299 00e8 07       		.uleb128 0x7
+ 300 00e9 B2010000 		.4byte	.LASF17
+ 301 00ed 01       		.byte	0x1
+ 302 00ee 86       		.byte	0x86
+ 303 00ef 00000000 		.4byte	.LFB2
+ 304 00f3 20000000 		.4byte	.LFE2-.LFB2
+ 305 00f7 01       		.uleb128 0x1
+ 306 00f8 9C       		.byte	0x9c
+ 307 00f9 38010000 		.4byte	0x138
+ 308 00fd 08       		.uleb128 0x8
+ 309 00fe 51010000 		.4byte	.LASF19
+ 310 0102 01       		.byte	0x1
+ 311 0103 86       		.byte	0x86
+ 312 0104 76000000 		.4byte	0x76
+ 313 0108 21000000 		.4byte	.LLST1
+ 314 010c 08       		.uleb128 0x8
+ 315 010d 76010000 		.4byte	.LASF20
+ 316 0111 01       		.byte	0x1
+ 317 0112 86       		.byte	0x86
+ 318 0113 6B000000 		.4byte	0x6b
+ 319 0117 42000000 		.4byte	.LLST2
+ 320 011b 0A       		.uleb128 0xa
+ 321 011c 94000000 		.4byte	.LASF21
+ 322 0120 01       		.byte	0x1
+ 323 0121 88       		.byte	0x88
+ 324 0122 81000000 		.4byte	0x81
+ 325 0126 63000000 		.4byte	.LLST3
+ 326 012a 0B       		.uleb128 0xb
+ 327 012b 63010000 		.4byte	.LASF22
+ 328 012f 01       		.byte	0x1
+ 329 0130 89       		.byte	0x89
+ 330 0131 81000000 		.4byte	0x81
+ 331 0135 01       		.uleb128 0x1
+ 332 0136 51       		.byte	0x51
+ 333 0137 00       		.byte	0
+ 334 0138 0C       		.uleb128 0xc
+ 335 0139 E8000000 		.4byte	.LASF23
+ 336 013d 01       		.byte	0x1
+ 337 013e B0       		.byte	0xb0
+ 338 013f 76000000 		.4byte	0x76
+ 339 0143 00000000 		.4byte	.LFB3
+ 340 0147 10000000 		.4byte	.LFE3-.LFB3
+ 341 014b 01       		.uleb128 0x1
+ 342 014c 9C       		.byte	0x9c
+ 343 014d 0C       		.uleb128 0xc
+ 344 014e A2000000 		.4byte	.LASF24
+ 345 0152 01       		.byte	0x1
+ 346 0153 C6       		.byte	0xc6
+ 347 0154 6B000000 		.4byte	0x6b
+ 348 0158 00000000 		.4byte	.LFB4
+ 349 015c 04000000 		.4byte	.LFE4-.LFB4
+ 350 0160 01       		.uleb128 0x1
+ 351 0161 9C       		.byte	0x9c
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 11
+
+
+ 352 0162 00       		.byte	0
+ 353              		.section	.debug_abbrev,"",%progbits
+ 354              	.Ldebug_abbrev0:
+ 355 0000 01       		.uleb128 0x1
+ 356 0001 11       		.uleb128 0x11
+ 357 0002 01       		.byte	0x1
+ 358 0003 25       		.uleb128 0x25
+ 359 0004 0E       		.uleb128 0xe
+ 360 0005 13       		.uleb128 0x13
+ 361 0006 0B       		.uleb128 0xb
+ 362 0007 03       		.uleb128 0x3
+ 363 0008 0E       		.uleb128 0xe
+ 364 0009 1B       		.uleb128 0x1b
+ 365 000a 0E       		.uleb128 0xe
+ 366 000b 55       		.uleb128 0x55
+ 367 000c 17       		.uleb128 0x17
+ 368 000d 11       		.uleb128 0x11
+ 369 000e 01       		.uleb128 0x1
+ 370 000f 10       		.uleb128 0x10
+ 371 0010 17       		.uleb128 0x17
+ 372 0011 00       		.byte	0
+ 373 0012 00       		.byte	0
+ 374 0013 02       		.uleb128 0x2
+ 375 0014 24       		.uleb128 0x24
+ 376 0015 00       		.byte	0
+ 377 0016 0B       		.uleb128 0xb
+ 378 0017 0B       		.uleb128 0xb
+ 379 0018 3E       		.uleb128 0x3e
+ 380 0019 0B       		.uleb128 0xb
+ 381 001a 03       		.uleb128 0x3
+ 382 001b 0E       		.uleb128 0xe
+ 383 001c 00       		.byte	0
+ 384 001d 00       		.byte	0
+ 385 001e 03       		.uleb128 0x3
+ 386 001f 24       		.uleb128 0x24
+ 387 0020 00       		.byte	0
+ 388 0021 0B       		.uleb128 0xb
+ 389 0022 0B       		.uleb128 0xb
+ 390 0023 3E       		.uleb128 0x3e
+ 391 0024 0B       		.uleb128 0xb
+ 392 0025 03       		.uleb128 0x3
+ 393 0026 08       		.uleb128 0x8
+ 394 0027 00       		.byte	0
+ 395 0028 00       		.byte	0
+ 396 0029 04       		.uleb128 0x4
+ 397 002a 16       		.uleb128 0x16
+ 398 002b 00       		.byte	0
+ 399 002c 03       		.uleb128 0x3
+ 400 002d 0E       		.uleb128 0xe
+ 401 002e 3A       		.uleb128 0x3a
+ 402 002f 0B       		.uleb128 0xb
+ 403 0030 3B       		.uleb128 0x3b
+ 404 0031 0B       		.uleb128 0xb
+ 405 0032 49       		.uleb128 0x49
+ 406 0033 13       		.uleb128 0x13
+ 407 0034 00       		.byte	0
+ 408 0035 00       		.byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 12
+
+
+ 409 0036 05       		.uleb128 0x5
+ 410 0037 16       		.uleb128 0x16
+ 411 0038 00       		.byte	0
+ 412 0039 03       		.uleb128 0x3
+ 413 003a 0E       		.uleb128 0xe
+ 414 003b 3A       		.uleb128 0x3a
+ 415 003c 0B       		.uleb128 0xb
+ 416 003d 3B       		.uleb128 0x3b
+ 417 003e 05       		.uleb128 0x5
+ 418 003f 49       		.uleb128 0x49
+ 419 0040 13       		.uleb128 0x13
+ 420 0041 00       		.byte	0
+ 421 0042 00       		.byte	0
+ 422 0043 06       		.uleb128 0x6
+ 423 0044 35       		.uleb128 0x35
+ 424 0045 00       		.byte	0
+ 425 0046 49       		.uleb128 0x49
+ 426 0047 13       		.uleb128 0x13
+ 427 0048 00       		.byte	0
+ 428 0049 00       		.byte	0
+ 429 004a 07       		.uleb128 0x7
+ 430 004b 2E       		.uleb128 0x2e
+ 431 004c 01       		.byte	0x1
+ 432 004d 3F       		.uleb128 0x3f
+ 433 004e 19       		.uleb128 0x19
+ 434 004f 03       		.uleb128 0x3
+ 435 0050 0E       		.uleb128 0xe
+ 436 0051 3A       		.uleb128 0x3a
+ 437 0052 0B       		.uleb128 0xb
+ 438 0053 3B       		.uleb128 0x3b
+ 439 0054 0B       		.uleb128 0xb
+ 440 0055 27       		.uleb128 0x27
+ 441 0056 19       		.uleb128 0x19
+ 442 0057 11       		.uleb128 0x11
+ 443 0058 01       		.uleb128 0x1
+ 444 0059 12       		.uleb128 0x12
+ 445 005a 06       		.uleb128 0x6
+ 446 005b 40       		.uleb128 0x40
+ 447 005c 18       		.uleb128 0x18
+ 448 005d 9742     		.uleb128 0x2117
+ 449 005f 19       		.uleb128 0x19
+ 450 0060 01       		.uleb128 0x1
+ 451 0061 13       		.uleb128 0x13
+ 452 0062 00       		.byte	0
+ 453 0063 00       		.byte	0
+ 454 0064 08       		.uleb128 0x8
+ 455 0065 05       		.uleb128 0x5
+ 456 0066 00       		.byte	0
+ 457 0067 03       		.uleb128 0x3
+ 458 0068 0E       		.uleb128 0xe
+ 459 0069 3A       		.uleb128 0x3a
+ 460 006a 0B       		.uleb128 0xb
+ 461 006b 3B       		.uleb128 0x3b
+ 462 006c 0B       		.uleb128 0xb
+ 463 006d 49       		.uleb128 0x49
+ 464 006e 13       		.uleb128 0x13
+ 465 006f 02       		.uleb128 0x2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 13
+
+
+ 466 0070 17       		.uleb128 0x17
+ 467 0071 00       		.byte	0
+ 468 0072 00       		.byte	0
+ 469 0073 09       		.uleb128 0x9
+ 470 0074 2E       		.uleb128 0x2e
+ 471 0075 00       		.byte	0
+ 472 0076 3F       		.uleb128 0x3f
+ 473 0077 19       		.uleb128 0x19
+ 474 0078 03       		.uleb128 0x3
+ 475 0079 0E       		.uleb128 0xe
+ 476 007a 3A       		.uleb128 0x3a
+ 477 007b 0B       		.uleb128 0xb
+ 478 007c 3B       		.uleb128 0x3b
+ 479 007d 0B       		.uleb128 0xb
+ 480 007e 27       		.uleb128 0x27
+ 481 007f 19       		.uleb128 0x19
+ 482 0080 11       		.uleb128 0x11
+ 483 0081 01       		.uleb128 0x1
+ 484 0082 12       		.uleb128 0x12
+ 485 0083 06       		.uleb128 0x6
+ 486 0084 40       		.uleb128 0x40
+ 487 0085 18       		.uleb128 0x18
+ 488 0086 9742     		.uleb128 0x2117
+ 489 0088 19       		.uleb128 0x19
+ 490 0089 00       		.byte	0
+ 491 008a 00       		.byte	0
+ 492 008b 0A       		.uleb128 0xa
+ 493 008c 34       		.uleb128 0x34
+ 494 008d 00       		.byte	0
+ 495 008e 03       		.uleb128 0x3
+ 496 008f 0E       		.uleb128 0xe
+ 497 0090 3A       		.uleb128 0x3a
+ 498 0091 0B       		.uleb128 0xb
+ 499 0092 3B       		.uleb128 0x3b
+ 500 0093 0B       		.uleb128 0xb
+ 501 0094 49       		.uleb128 0x49
+ 502 0095 13       		.uleb128 0x13
+ 503 0096 02       		.uleb128 0x2
+ 504 0097 17       		.uleb128 0x17
+ 505 0098 00       		.byte	0
+ 506 0099 00       		.byte	0
+ 507 009a 0B       		.uleb128 0xb
+ 508 009b 34       		.uleb128 0x34
+ 509 009c 00       		.byte	0
+ 510 009d 03       		.uleb128 0x3
+ 511 009e 0E       		.uleb128 0xe
+ 512 009f 3A       		.uleb128 0x3a
+ 513 00a0 0B       		.uleb128 0xb
+ 514 00a1 3B       		.uleb128 0x3b
+ 515 00a2 0B       		.uleb128 0xb
+ 516 00a3 49       		.uleb128 0x49
+ 517 00a4 13       		.uleb128 0x13
+ 518 00a5 02       		.uleb128 0x2
+ 519 00a6 18       		.uleb128 0x18
+ 520 00a7 00       		.byte	0
+ 521 00a8 00       		.byte	0
+ 522 00a9 0C       		.uleb128 0xc
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 14
+
+
+ 523 00aa 2E       		.uleb128 0x2e
+ 524 00ab 00       		.byte	0
+ 525 00ac 3F       		.uleb128 0x3f
+ 526 00ad 19       		.uleb128 0x19
+ 527 00ae 03       		.uleb128 0x3
+ 528 00af 0E       		.uleb128 0xe
+ 529 00b0 3A       		.uleb128 0x3a
+ 530 00b1 0B       		.uleb128 0xb
+ 531 00b2 3B       		.uleb128 0x3b
+ 532 00b3 0B       		.uleb128 0xb
+ 533 00b4 27       		.uleb128 0x27
+ 534 00b5 19       		.uleb128 0x19
+ 535 00b6 49       		.uleb128 0x49
+ 536 00b7 13       		.uleb128 0x13
+ 537 00b8 11       		.uleb128 0x11
+ 538 00b9 01       		.uleb128 0x1
+ 539 00ba 12       		.uleb128 0x12
+ 540 00bb 06       		.uleb128 0x6
+ 541 00bc 40       		.uleb128 0x40
+ 542 00bd 18       		.uleb128 0x18
+ 543 00be 9742     		.uleb128 0x2117
+ 544 00c0 19       		.uleb128 0x19
+ 545 00c1 00       		.byte	0
+ 546 00c2 00       		.byte	0
+ 547 00c3 00       		.byte	0
+ 548              		.section	.debug_loc,"",%progbits
+ 549              	.Ldebug_loc0:
+ 550              	.LLST0:
+ 551 0000 00000000 		.4byte	.LVL0
+ 552 0004 0C000000 		.4byte	.LVL1
+ 553 0008 0100     		.2byte	0x1
+ 554 000a 50       		.byte	0x50
+ 555 000b 0C000000 		.4byte	.LVL1
+ 556 000f 1C000000 		.4byte	.LFE0
+ 557 0013 0400     		.2byte	0x4
+ 558 0015 F3       		.byte	0xf3
+ 559 0016 01       		.uleb128 0x1
+ 560 0017 50       		.byte	0x50
+ 561 0018 9F       		.byte	0x9f
+ 562 0019 00000000 		.4byte	0
+ 563 001d 00000000 		.4byte	0
+ 564              	.LLST1:
+ 565 0021 00000000 		.4byte	.LVL2
+ 566 0025 0E000000 		.4byte	.LVL5
+ 567 0029 0100     		.2byte	0x1
+ 568 002b 50       		.byte	0x50
+ 569 002c 0E000000 		.4byte	.LVL5
+ 570 0030 20000000 		.4byte	.LFE2
+ 571 0034 0400     		.2byte	0x4
+ 572 0036 F3       		.byte	0xf3
+ 573 0037 01       		.uleb128 0x1
+ 574 0038 50       		.byte	0x50
+ 575 0039 9F       		.byte	0x9f
+ 576 003a 00000000 		.4byte	0
+ 577 003e 00000000 		.4byte	0
+ 578              	.LLST2:
+ 579 0042 00000000 		.4byte	.LVL2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 15
+
+
+ 580 0046 0A000000 		.4byte	.LVL3
+ 581 004a 0100     		.2byte	0x1
+ 582 004c 51       		.byte	0x51
+ 583 004d 0A000000 		.4byte	.LVL3
+ 584 0051 20000000 		.4byte	.LFE2
+ 585 0055 0400     		.2byte	0x4
+ 586 0057 F3       		.byte	0xf3
+ 587 0058 01       		.uleb128 0x1
+ 588 0059 51       		.byte	0x51
+ 589 005a 9F       		.byte	0x9f
+ 590 005b 00000000 		.4byte	0
+ 591 005f 00000000 		.4byte	0
+ 592              	.LLST3:
+ 593 0063 0C000000 		.4byte	.LVL4
+ 594 0067 12000000 		.4byte	.LVL6
+ 595 006b 0500     		.2byte	0x5
+ 596 006d 75       		.byte	0x75
+ 597 006e 00       		.sleb128 0
+ 598 006f 37       		.byte	0x37
+ 599 0070 1A       		.byte	0x1a
+ 600 0071 9F       		.byte	0x9f
+ 601 0072 12000000 		.4byte	.LVL6
+ 602 0076 20000000 		.4byte	.LFE2
+ 603 007a 0100     		.2byte	0x1
+ 604 007c 53       		.byte	0x53
+ 605 007d 00000000 		.4byte	0
+ 606 0081 00000000 		.4byte	0
+ 607              		.section	.debug_aranges,"",%progbits
+ 608 0000 3C000000 		.4byte	0x3c
+ 609 0004 0200     		.2byte	0x2
+ 610 0006 00000000 		.4byte	.Ldebug_info0
+ 611 000a 04       		.byte	0x4
+ 612 000b 00       		.byte	0
+ 613 000c 0000     		.2byte	0
+ 614 000e 0000     		.2byte	0
+ 615 0010 00000000 		.4byte	.LFB0
+ 616 0014 1C000000 		.4byte	.LFE0-.LFB0
+ 617 0018 00000000 		.4byte	.LFB1
+ 618 001c 18000000 		.4byte	.LFE1-.LFB1
+ 619 0020 00000000 		.4byte	.LFB2
+ 620 0024 20000000 		.4byte	.LFE2-.LFB2
+ 621 0028 00000000 		.4byte	.LFB3
+ 622 002c 10000000 		.4byte	.LFE3-.LFB3
+ 623 0030 00000000 		.4byte	.LFB4
+ 624 0034 04000000 		.4byte	.LFE4-.LFB4
+ 625 0038 00000000 		.4byte	0
+ 626 003c 00000000 		.4byte	0
+ 627              		.section	.debug_ranges,"",%progbits
+ 628              	.Ldebug_ranges0:
+ 629 0000 00000000 		.4byte	.LFB0
+ 630 0004 1C000000 		.4byte	.LFE0
+ 631 0008 00000000 		.4byte	.LFB1
+ 632 000c 18000000 		.4byte	.LFE1
+ 633 0010 00000000 		.4byte	.LFB2
+ 634 0014 20000000 		.4byte	.LFE2
+ 635 0018 00000000 		.4byte	.LFB3
+ 636 001c 10000000 		.4byte	.LFE3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 16
+
+
+ 637 0020 00000000 		.4byte	.LFB4
+ 638 0024 04000000 		.4byte	.LFE4
+ 639 0028 00000000 		.4byte	0
+ 640 002c 00000000 		.4byte	0
+ 641              		.section	.debug_line,"",%progbits
+ 642              	.Ldebug_line0:
+ 643 0000 E5000000 		.section	.debug_str,"MS",%progbits,1
+ 643      02006000 
+ 643      00000201 
+ 643      FB0E0D00 
+ 643      01010101 
+ 644              	.LASF15:
+ 645 0000 72656733 		.ascii	"reg32\000"
+ 645      3200
+ 646              	.LASF25:
+ 647 0006 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 647      4320342E 
+ 647      392E3320 
+ 647      32303135 
+ 647      30333033 
+ 648 0039 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 648      20726576 
+ 648      6973696F 
+ 648      6E203232 
+ 648      31323230 
+ 649 006c 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
+ 649      66756E63 
+ 649      74696F6E 
+ 649      2D736563 
+ 649      74696F6E 
+ 650              	.LASF21:
+ 651 0094 6D61736B 		.ascii	"maskVal\000"
+ 651      56616C00 
+ 652              	.LASF12:
+ 653 009c 666C6F61 		.ascii	"float\000"
+ 653      7400
+ 654              	.LASF24:
+ 655 00a2 54696D65 		.ascii	"TimerClock_GetFractionalDividerRegister\000"
+ 655      72436C6F 
+ 655      636B5F47 
+ 655      65744672 
+ 655      61637469 
+ 656              	.LASF1:
+ 657 00ca 756E7369 		.ascii	"unsigned char\000"
+ 657      676E6564 
+ 657      20636861 
+ 657      7200
+ 658              	.LASF28:
+ 659 00d8 54696D65 		.ascii	"TimerClock_Stop\000"
+ 659      72436C6F 
+ 659      636B5F53 
+ 659      746F7000 
+ 660              	.LASF23:
+ 661 00e8 54696D65 		.ascii	"TimerClock_GetDividerRegister\000"
+ 661      72436C6F 
+ 661      636B5F47 
+ 661      65744469 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 17
+
+
+ 661      76696465 
+ 662              	.LASF5:
+ 663 0106 6C6F6E67 		.ascii	"long unsigned int\000"
+ 663      20756E73 
+ 663      69676E65 
+ 663      6420696E 
+ 663      7400
+ 664              	.LASF3:
+ 665 0118 73686F72 		.ascii	"short unsigned int\000"
+ 665      7420756E 
+ 665      7369676E 
+ 665      65642069 
+ 665      6E7400
+ 666              	.LASF26:
+ 667 012b 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\TimerClock.c\000"
+ 667      6E657261 
+ 667      7465645F 
+ 667      536F7572 
+ 667      63655C50 
+ 668              	.LASF19:
+ 669 0151 636C6B44 		.ascii	"clkDivider\000"
+ 669      69766964 
+ 669      657200
+ 670              	.LASF13:
+ 671 015c 646F7562 		.ascii	"double\000"
+ 671      6C6500
+ 672              	.LASF22:
+ 673 0163 72656756 		.ascii	"regVal\000"
+ 673      616C00
+ 674              	.LASF18:
+ 675 016a 616C6967 		.ascii	"alignClkDiv\000"
+ 675      6E436C6B 
+ 675      44697600 
+ 676              	.LASF20:
+ 677 0176 636C6B46 		.ascii	"clkFractional\000"
+ 677      72616374 
+ 677      696F6E61 
+ 677      6C00
+ 678              	.LASF10:
+ 679 0184 75696E74 		.ascii	"uint16\000"
+ 679      313600
+ 680              	.LASF11:
+ 681 018b 75696E74 		.ascii	"uint32\000"
+ 681      333200
+ 682              	.LASF16:
+ 683 0192 54696D65 		.ascii	"TimerClock_StartEx\000"
+ 683      72436C6F 
+ 683      636B5F53 
+ 683      74617274 
+ 683      457800
+ 684              	.LASF8:
+ 685 01a5 756E7369 		.ascii	"unsigned int\000"
+ 685      676E6564 
+ 685      20696E74 
+ 685      00
+ 686              	.LASF17:
+ 687 01b2 54696D65 		.ascii	"TimerClock_SetFractionalDividerRegister\000"
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cce4Iprv.s 			page 18
+
+
+ 687      72436C6F 
+ 687      636B5F53 
+ 687      65744672 
+ 687      61637469 
+ 688              	.LASF27:
+ 689 01da 473A5C43 		.ascii	"G:\\Company\\Jetronic\\CYPRESS\\CYPRESS_BLE_Study\\"
+ 689      6F6D7061 
+ 689      6E795C4A 
+ 689      6574726F 
+ 689      6E69635C 
+ 690 0208 54726F75 		.ascii	"Troughput\\Troughpur_Central_Peripheral_V2.7\\Troug"
+ 690      67687075 
+ 690      745C5472 
+ 690      6F756768 
+ 690      7075725F 
+ 691 0239 68707574 		.ascii	"hput_Central_Peripheral.cydsn\000"
+ 691      5F43656E 
+ 691      7472616C 
+ 691      5F506572 
+ 691      69706865 
+ 692              	.LASF7:
+ 693 0257 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 693      206C6F6E 
+ 693      6720756E 
+ 693      7369676E 
+ 693      65642069 
+ 694              	.LASF6:
+ 695 026e 6C6F6E67 		.ascii	"long long int\000"
+ 695      206C6F6E 
+ 695      6720696E 
+ 695      7400
+ 696              	.LASF14:
+ 697 027c 63686172 		.ascii	"char\000"
+ 697      00
+ 698              	.LASF2:
+ 699 0281 73686F72 		.ascii	"short int\000"
+ 699      7420696E 
+ 699      7400
+ 700              	.LASF9:
+ 701 028b 75696E74 		.ascii	"uint8\000"
+ 701      3800
+ 702              	.LASF4:
+ 703 0291 6C6F6E67 		.ascii	"long int\000"
+ 703      20696E74 
+ 703      00
+ 704              	.LASF0:
+ 705 029a 7369676E 		.ascii	"signed char\000"
+ 705      65642063 
+ 705      68617200 
+ 706              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

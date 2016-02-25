@@ -1,0 +1,4277 @@
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"UART_EZI2C.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.UART_EzI2CUpdateRxMatchReg,"ax",%progbits
+  18              		.align	2
+  19              		.code	16
+  20              		.thumb_func
+  21              		.type	UART_EzI2CUpdateRxMatchReg, %function
+  22              	UART_EzI2CUpdateRxMatchReg:
+  23              	.LFB9:
+  24              		.file 1 ".\\Generated_Source\\PSoC4\\UART_EZI2C.c"
+   1:.\Generated_Source\PSoC4/UART_EZI2C.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/UART_EZI2C.c **** * File Name: UART_EZI2C.c
+   3:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Version 3.0
+   4:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+   5:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Description:
+   6:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  This file provides the source code to the API for the SCB Component in
+   7:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  EZI2C mode.
+   8:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+   9:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Note:
+  10:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+  11:.\Generated_Source\PSoC4/UART_EZI2C.c **** *******************************************************************************
+  12:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:.\Generated_Source\PSoC4/UART_EZI2C.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:.\Generated_Source\PSoC4/UART_EZI2C.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:.\Generated_Source\PSoC4/UART_EZI2C.c **** * the software package with which this file was provided.
+  16:.\Generated_Source\PSoC4/UART_EZI2C.c **** *******************************************************************************/
+  17:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+  18:.\Generated_Source\PSoC4/UART_EZI2C.c **** #include "UART_PVT.h"
+  19:.\Generated_Source\PSoC4/UART_EZI2C.c **** #include "UART_EZI2C_PVT.h"
+  20:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+  21:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+  22:.\Generated_Source\PSoC4/UART_EZI2C.c **** /***************************************
+  23:.\Generated_Source\PSoC4/UART_EZI2C.c **** *      EZI2C Private Vars
+  24:.\Generated_Source\PSoC4/UART_EZI2C.c **** ***************************************/
+  25:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+  26:.\Generated_Source\PSoC4/UART_EZI2C.c **** volatile uint8 UART_curStatus; /* Status byte */
+  27:.\Generated_Source\PSoC4/UART_EZI2C.c **** uint8 UART_fsmState;           /* FSM state   */
+  28:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+  29:.\Generated_Source\PSoC4/UART_EZI2C.c **** /* Variables intended to be used with Buffer 1: Primary slave address */
+  30:.\Generated_Source\PSoC4/UART_EZI2C.c **** volatile uint8 * UART_dataBuffer1; /* Pointer to data buffer 1 */
+  31:.\Generated_Source\PSoC4/UART_EZI2C.c **** uint16 UART_bufSizeBuf1; /* Size of buffer 1 in bytes      */
+  32:.\Generated_Source\PSoC4/UART_EZI2C.c **** uint16 UART_protectBuf1; /* Start index of write protected area buffer 1 */
+  33:.\Generated_Source\PSoC4/UART_EZI2C.c **** uint16 UART_offsetBuf1; /* Current offset within buffer 1 */
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 2
+
+
+  34:.\Generated_Source\PSoC4/UART_EZI2C.c **** uint16 UART_indexBuf1;  /* Current index within buffer 1  */
+  35:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+  36:.\Generated_Source\PSoC4/UART_EZI2C.c **** #if(UART_SECONDARY_ADDRESS_ENABLE_CONST)
+  37:.\Generated_Source\PSoC4/UART_EZI2C.c ****     uint8 UART_addrBuf1; /* Primary slave address. Used for software comparison   */
+  38:.\Generated_Source\PSoC4/UART_EZI2C.c ****     uint8 UART_addrBuf2; /* Secondary slave address. Used for software comparison */
+  39:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+  40:.\Generated_Source\PSoC4/UART_EZI2C.c ****     /* Variables intended to be used with Buffer 2: Primary slave address */
+  41:.\Generated_Source\PSoC4/UART_EZI2C.c ****     volatile uint8 * UART_dataBuffer2; /* Pointer to data buffer 2 */
+  42:.\Generated_Source\PSoC4/UART_EZI2C.c ****     uint16 UART_bufSizeBuf2; /* Size of buffer 2 in bytes      */
+  43:.\Generated_Source\PSoC4/UART_EZI2C.c ****     uint16 UART_protectBuf2; /* Start index of write protected area buffer 2 */
+  44:.\Generated_Source\PSoC4/UART_EZI2C.c ****     uint16 UART_offsetBuf2; /* Current offset within buffer 2 */
+  45:.\Generated_Source\PSoC4/UART_EZI2C.c ****     uint16 UART_indexBuf2;  /* Current index within buffer 2  */
+  46:.\Generated_Source\PSoC4/UART_EZI2C.c **** #endif /* (UART_SECONDARY_ADDRESS_ENABLE_CONST) */
+  47:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+  48:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+  49:.\Generated_Source\PSoC4/UART_EZI2C.c **** /***************************************
+  50:.\Generated_Source\PSoC4/UART_EZI2C.c **** *      EZI2C Private Functions
+  51:.\Generated_Source\PSoC4/UART_EZI2C.c **** ***************************************/
+  52:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+  53:.\Generated_Source\PSoC4/UART_EZI2C.c **** #if(UART_SECONDARY_ADDRESS_ENABLE_CONST)
+  54:.\Generated_Source\PSoC4/UART_EZI2C.c ****     static uint32 UART_EzI2CUpdateRxMatchReg(uint32 addr1, uint32 addr2);
+  55:.\Generated_Source\PSoC4/UART_EZI2C.c **** #endif /* (UART_SECONDARY_ADDRESS_ENABLE_CONST) */
+  56:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+  57:.\Generated_Source\PSoC4/UART_EZI2C.c **** #if(UART_SCB_MODE_UNCONFIG_CONST_CFG)
+  58:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+  59:.\Generated_Source\PSoC4/UART_EZI2C.c ****     /***************************************
+  60:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  Configuration Structure Initialization
+  61:.\Generated_Source\PSoC4/UART_EZI2C.c ****     ***************************************/
+  62:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+  63:.\Generated_Source\PSoC4/UART_EZI2C.c ****     /* Constant configuration of EZI2C */
+  64:.\Generated_Source\PSoC4/UART_EZI2C.c ****     const UART_EZI2C_INIT_STRUCT UART_configEzI2C =
+  65:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+  66:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_EZI2C_CLOCK_STRETCHING,
+  67:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_EZI2C_MEDIAN_FILTER_ENABLE,
+  68:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_EZI2C_NUMBER_OF_ADDRESSES,
+  69:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_EZI2C_PRIMARY_SLAVE_ADDRESS,
+  70:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_EZI2C_SECONDARY_SLAVE_ADDRESS,
+  71:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_EZI2C_SUB_ADDRESS_SIZE,
+  72:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_EZI2C_WAKE_ENABLE,
+  73:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_EZI2C_BYTE_MODE_ENABLE
+  74:.\Generated_Source\PSoC4/UART_EZI2C.c ****     };
+  75:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+  76:.\Generated_Source\PSoC4/UART_EZI2C.c ****     /*******************************************************************************
+  77:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Function Name: UART_EzI2CInit
+  78:.\Generated_Source\PSoC4/UART_EZI2C.c ****     ********************************************************************************
+  79:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+  80:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Summary:
+  81:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  Configures the SCB for the EZI2C operation.
+  82:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+  83:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Parameters:
+  84:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  config:  Pointer to a structure that contains the following ordered list of
+  85:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *           fields. These fields match the selections available in the
+  86:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *           customizer.
+  87:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+  88:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Return:
+  89:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  None
+  90:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 3
+
+
+  91:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *******************************************************************************/
+  92:.\Generated_Source\PSoC4/UART_EZI2C.c ****     void UART_EzI2CInit(const UART_EZI2C_INIT_STRUCT *config)
+  93:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+  94:.\Generated_Source\PSoC4/UART_EZI2C.c ****         if(NULL == config)
+  95:.\Generated_Source\PSoC4/UART_EZI2C.c ****         {
+  96:.\Generated_Source\PSoC4/UART_EZI2C.c ****             CYASSERT(0u != 0u); /* Halt execution due to bad function parameter */
+  97:.\Generated_Source\PSoC4/UART_EZI2C.c ****         }
+  98:.\Generated_Source\PSoC4/UART_EZI2C.c ****         else
+  99:.\Generated_Source\PSoC4/UART_EZI2C.c ****         {
+ 100:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Configure pins */
+ 101:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_SetPins(UART_SCB_MODE_EZI2C, UART_DUMMY_PARAM,
+ 102:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                                       UART_DUMMY_PARAM);
+ 103:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 104:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Store internal configuration */
+ 105:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_scbMode       = (uint8) UART_SCB_MODE_EZI2C;
+ 106:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_scbEnableWake = (uint8) config->enableWake;
+ 107:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_scbEnableIntr = (uint8) UART_SCB_IRQ_INTERNAL;
+ 108:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 109:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_numberOfAddr  = (uint8) config->numberOfAddresses;
+ 110:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_subAddrSize   = (uint8) config->subAddrSize;
+ 111:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 112:.\Generated_Source\PSoC4/UART_EZI2C.c ****         #if (UART_CY_SCBIP_V0)
+ 113:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Adjust SDA filter settings. Ticket ID#150521 */
+ 114:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_SET_I2C_CFG_SDA_FILT_TRIM(UART_EC_AM_I2C_CFG_SDA_FILT_TRIM);
+ 115:.\Generated_Source\PSoC4/UART_EZI2C.c ****         #endif /* (UART_CY_SCBIP_V0) */
+ 116:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 117:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Adjust AF and DF filter settings, AF = 1, DF = 0. Ticket ID#176179 */
+ 118:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_I2C_CFG_ANALOG_FITER_ENABLE;
+ 119:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 120:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Configure I2C interface */
+ 121:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_CTRL_REG     = UART_GET_CTRL_BYTE_MODE  (config->enableByteMode)    |
+ 122:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                             UART_GET_CTRL_ADDR_ACCEPT(config->numberOfAddresses) |
+ 123:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                             UART_GET_CTRL_EC_AM_MODE (config->enableWake);
+ 124:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 125:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_I2C_CTRL_REG = UART_EZI2C_CTRL;
+ 126:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 127:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Configure RX direction */
+ 128:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_RX_CTRL_REG = UART_EZI2C_RX_CTRL |
+ 129:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                         UART_GET_RX_CTRL_MEDIAN(UART_DIGITAL_FILTER_DISABLE);
+ 130:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                 ;
+ 131:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_RX_FIFO_CTRL_REG = UART_CLEAR_REG;
+ 132:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 133:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Set default address and mask */
+ 134:.\Generated_Source\PSoC4/UART_EZI2C.c ****             if(UART_EZI2C_PRIMARY_ADDRESS == config->numberOfAddresses)
+ 135:.\Generated_Source\PSoC4/UART_EZI2C.c ****             {
+ 136:.\Generated_Source\PSoC4/UART_EZI2C.c ****                 UART_RX_MATCH_REG = UART_EzI2CUpdateRxMatchReg(config->primarySlaveAddr,
+ 137:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                                                        config->prim
+ 138:.\Generated_Source\PSoC4/UART_EZI2C.c ****             }
+ 139:.\Generated_Source\PSoC4/UART_EZI2C.c ****             else
+ 140:.\Generated_Source\PSoC4/UART_EZI2C.c ****             {
+ 141:.\Generated_Source\PSoC4/UART_EZI2C.c ****                 UART_RX_MATCH_REG = UART_EzI2CUpdateRxMatchReg(config->primarySlaveAddr,
+ 142:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                                                        config->seco
+ 143:.\Generated_Source\PSoC4/UART_EZI2C.c ****             }
+ 144:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 145:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Configure TX direction */
+ 146:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_TX_CTRL_REG      = UART_EZI2C_TX_CTRL;
+ 147:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_TX_FIFO_CTRL_REG = ((0u != (config->enableClockStretch)) ?
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 4
+
+
+ 148:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                  UART_CLEAR_REG : UART_EZI2C_TX_FIFO_CTRL);
+ 149:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 150:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Configure interrupt sources */
+ 151:.\Generated_Source\PSoC4/UART_EZI2C.c ****         #if (!UART_CY_SCBIP_V1)
+ 152:.\Generated_Source\PSoC4/UART_EZI2C.c ****            UART_INTR_SPI_EC_MASK_REG = UART_NO_INTR_SOURCES;
+ 153:.\Generated_Source\PSoC4/UART_EZI2C.c ****         #endif /* (!UART_CY_SCBIP_V1) */
+ 154:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 155:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_INTR_I2C_EC_MASK_REG = UART_NO_INTR_SOURCES;
+ 156:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_INTR_MASTER_MASK_REG = UART_NO_INTR_SOURCES;
+ 157:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_INTR_SLAVE_MASK_REG  = UART_EZI2C_INTR_SLAVE_MASK;
+ 158:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_INTR_TX_MASK_REG     = UART_NO_INTR_SOURCES;
+ 159:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 160:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Configure interrupt with EZI2C handler but do not enable it */
+ 161:.\Generated_Source\PSoC4/UART_EZI2C.c ****             CyIntDisable    (UART_ISR_NUMBER);
+ 162:.\Generated_Source\PSoC4/UART_EZI2C.c ****             CyIntSetPriority(UART_ISR_NUMBER, UART_ISR_PRIORITY);
+ 163:.\Generated_Source\PSoC4/UART_EZI2C.c ****             (void) CyIntSetVector(UART_ISR_NUMBER, (0u != (config->enableClockStretch)) ?
+ 164:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                                       (&UART_EZI2C_STRETCH_ISR) :
+ 165:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                                       (&UART_EZI2C_NO_STRETCH_ISR))
+ 166:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 167:.\Generated_Source\PSoC4/UART_EZI2C.c ****             if(0u != (config->enableClockStretch))
+ 168:.\Generated_Source\PSoC4/UART_EZI2C.c ****             {
+ 169:.\Generated_Source\PSoC4/UART_EZI2C.c ****                 /* Configure interrupt sources */
+ 170:.\Generated_Source\PSoC4/UART_EZI2C.c ****                 UART_INTR_SLAVE_MASK_REG |= UART_INTR_SLAVE_I2C_ADDR_MATCH;
+ 171:.\Generated_Source\PSoC4/UART_EZI2C.c ****                 UART_INTR_RX_MASK_REG     = UART_NO_INTR_SOURCES;
+ 172:.\Generated_Source\PSoC4/UART_EZI2C.c ****             }
+ 173:.\Generated_Source\PSoC4/UART_EZI2C.c ****             else
+ 174:.\Generated_Source\PSoC4/UART_EZI2C.c ****             {
+ 175:.\Generated_Source\PSoC4/UART_EZI2C.c ****                 /* Enable Auto ACK/NACK features */
+ 176:.\Generated_Source\PSoC4/UART_EZI2C.c ****                 UART_I2C_CTRL_REG |= UART_EZI2C_CTRL_AUTO;
+ 177:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 178:.\Generated_Source\PSoC4/UART_EZI2C.c ****                 /* Configure RX interrupt source */
+ 179:.\Generated_Source\PSoC4/UART_EZI2C.c ****                 UART_INTR_SLAVE_MASK_REG |= UART_INTR_SLAVE_I2C_START;
+ 180:.\Generated_Source\PSoC4/UART_EZI2C.c ****                 UART_INTR_RX_MASK_REG     = UART_INTR_RX_NOT_EMPTY;
+ 181:.\Generated_Source\PSoC4/UART_EZI2C.c ****             }
+ 182:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 183:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Configure global variables */
+ 184:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_fsmState = UART_EZI2C_FSM_IDLE;
+ 185:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 186:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_curStatus  = 0u;
+ 187:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_indexBuf1  = 0u;
+ 188:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_offsetBuf1 = 0u;
+ 189:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_indexBuf2  = 0u;
+ 190:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_offsetBuf2 = 0u;
+ 191:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 192:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_addrBuf1 = (uint8) config->primarySlaveAddr;
+ 193:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_addrBuf2 = (uint8) config->secondarySlaveAddr;
+ 194:.\Generated_Source\PSoC4/UART_EZI2C.c ****         }
+ 195:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 196:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 197:.\Generated_Source\PSoC4/UART_EZI2C.c **** #else
+ 198:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 199:.\Generated_Source\PSoC4/UART_EZI2C.c ****     /*******************************************************************************
+ 200:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Function Name: UART_EzI2CInit
+ 201:.\Generated_Source\PSoC4/UART_EZI2C.c ****     ********************************************************************************
+ 202:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 203:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Summary:
+ 204:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  Configures the SCB for the EZI2C operation.
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 5
+
+
+ 205:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 206:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Parameters:
+ 207:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  None
+ 208:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 209:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Return:
+ 210:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  None
+ 211:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 212:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *******************************************************************************/
+ 213:.\Generated_Source\PSoC4/UART_EZI2C.c ****     void UART_EzI2CInit(void)
+ 214:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ 215:.\Generated_Source\PSoC4/UART_EZI2C.c ****         /* Configure I2C interface */
+ 216:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_CTRL_REG     = UART_EZI2C_DEFAULT_CTRL;
+ 217:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_I2C_CTRL_REG = UART_EZI2C_DEFAULT_I2C_CTRL;
+ 218:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 219:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #if (UART_CY_SCBIP_V0)
+ 220:.\Generated_Source\PSoC4/UART_EZI2C.c ****         /* Adjust SDA filter settings. Ticket ID#150521 */
+ 221:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_SET_I2C_CFG_SDA_FILT_TRIM(UART_EC_AM_I2C_CFG_SDA_FILT_TRIM);
+ 222:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #endif /* (UART_CY_SCBIP_V0) */
+ 223:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 224:.\Generated_Source\PSoC4/UART_EZI2C.c ****         /* Configure RX direction */
+ 225:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_RX_CTRL_REG      = UART_EZI2C_DEFAULT_RX_CTRL;
+ 226:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_RX_FIFO_CTRL_REG = UART_EZI2C_DEFAULT_RX_FIFO_CTRL;
+ 227:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 228:.\Generated_Source\PSoC4/UART_EZI2C.c ****         /* Set default address and mask */
+ 229:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_RX_MATCH_REG     = UART_EZI2C_DEFAULT_RX_MATCH;
+ 230:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 231:.\Generated_Source\PSoC4/UART_EZI2C.c ****         /* Configure TX direction */
+ 232:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_TX_CTRL_REG      = UART_EZI2C_DEFAULT_TX_CTRL;
+ 233:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_TX_FIFO_CTRL_REG = UART_EZI2C_DEFAULT_TX_FIFO_CTRL;
+ 234:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 235:.\Generated_Source\PSoC4/UART_EZI2C.c ****         /* Configure interrupt with EZI2C handler but do not enable it */
+ 236:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #if !defined (CY_EXTERNAL_INTERRUPT_CONFIG)
+ 237:.\Generated_Source\PSoC4/UART_EZI2C.c ****         CyIntDisable    (UART_ISR_NUMBER);
+ 238:.\Generated_Source\PSoC4/UART_EZI2C.c ****         CyIntSetPriority(UART_ISR_NUMBER, UART_ISR_PRIORITY);
+ 239:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 240:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #if (UART_EZI2C_SCL_STRETCH_ENABLE_CONST)
+ 241:.\Generated_Source\PSoC4/UART_EZI2C.c ****         (void) CyIntSetVector(UART_ISR_NUMBER, &UART_EZI2C_STRETCH_ISR);
+ 242:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #else
+ 243:.\Generated_Source\PSoC4/UART_EZI2C.c ****         (void) CyIntSetVector(UART_ISR_NUMBER, &UART_EZI2C_NO_STRETCH_ISR);
+ 244:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #endif /* (UART_EZI2C_SCL_STRETCH_ENABLE_CONST) */
+ 245:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 246:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #endif /* !defined (CY_EXTERNAL_INTERRUPT_CONFIG) */
+ 247:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 248:.\Generated_Source\PSoC4/UART_EZI2C.c ****         /* Configure interrupt sources */
+ 249:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #if (!UART_CY_SCBIP_V1)
+ 250:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_INTR_SPI_EC_MASK_REG = UART_EZI2C_DEFAULT_INTR_SPI_EC_MASK;
+ 251:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #endif /* (!UART_CY_SCBIP_V1) */
+ 252:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 253:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_INTR_I2C_EC_MASK_REG = UART_EZI2C_DEFAULT_INTR_I2C_EC_MASK;
+ 254:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_INTR_SLAVE_MASK_REG  = UART_EZI2C_DEFAULT_INTR_SLAVE_MASK;
+ 255:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_INTR_MASTER_MASK_REG = UART_EZI2C_DEFAULT_INTR_MASTER_MASK;
+ 256:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_INTR_RX_MASK_REG     = UART_EZI2C_DEFAULT_INTR_RX_MASK;
+ 257:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_INTR_TX_MASK_REG     = UART_EZI2C_DEFAULT_INTR_TX_MASK;
+ 258:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 259:.\Generated_Source\PSoC4/UART_EZI2C.c ****         /* Configure global variables */
+ 260:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_fsmState = UART_EZI2C_FSM_IDLE;
+ 261:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 6
+
+
+ 262:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_curStatus  = 0u;
+ 263:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_indexBuf1  = 0u;
+ 264:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_offsetBuf1 = 0u;
+ 265:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 266:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #if(UART_SECONDARY_ADDRESS_ENABLE_CONST)
+ 267:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_indexBuf2  = 0u;
+ 268:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_offsetBuf2 = 0u;
+ 269:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 270:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_addrBuf1 = UART_EZI2C_PRIMARY_SLAVE_ADDRESS;
+ 271:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_addrBuf2 = UART_EZI2C_SECONDARY_SLAVE_ADDRESS;
+ 272:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #endif /* (UART_SECONDARY_ADDRESS_ENABLE_CONST) */
+ 273:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 274:.\Generated_Source\PSoC4/UART_EZI2C.c **** #endif /* (UART_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 275:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 276:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 277:.\Generated_Source\PSoC4/UART_EZI2C.c **** /*******************************************************************************
+ 278:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Function Name: UART_EzI2CStop
+ 279:.\Generated_Source\PSoC4/UART_EZI2C.c **** ********************************************************************************
+ 280:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 281:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Summary:
+ 282:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  Resets the EZI2C FSM into the default state.
+ 283:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 284:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Parameters:
+ 285:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  None
+ 286:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 287:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Return:
+ 288:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  None
+ 289:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 290:.\Generated_Source\PSoC4/UART_EZI2C.c **** *******************************************************************************/
+ 291:.\Generated_Source\PSoC4/UART_EZI2C.c **** void UART_EzI2CStop(void)
+ 292:.\Generated_Source\PSoC4/UART_EZI2C.c **** {
+ 293:.\Generated_Source\PSoC4/UART_EZI2C.c ****     UART_fsmState = UART_EZI2C_FSM_IDLE;
+ 294:.\Generated_Source\PSoC4/UART_EZI2C.c **** }
+ 295:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 296:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 297:.\Generated_Source\PSoC4/UART_EZI2C.c **** /*******************************************************************************
+ 298:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Function Name: UART_EzI2CGetActivity
+ 299:.\Generated_Source\PSoC4/UART_EZI2C.c **** ********************************************************************************
+ 300:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 301:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Summary:
+ 302:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  Returns the EZI2C slave status.
+ 303:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  The read, write and error status flags reset to zero after this function
+ 304:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  call. The busy status flag is cleared when the transaction intended for
+ 305:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  the EZI2C slave completes.
+ 306:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 307:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Parameters:
+ 308:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  None
+ 309:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 310:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Return:
+ 311:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  Returns the status of the EZI2C Slave activity.
+ 312:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 313:.\Generated_Source\PSoC4/UART_EZI2C.c **** *******************************************************************************/
+ 314:.\Generated_Source\PSoC4/UART_EZI2C.c **** uint32 UART_EzI2CGetActivity(void)
+ 315:.\Generated_Source\PSoC4/UART_EZI2C.c **** {
+ 316:.\Generated_Source\PSoC4/UART_EZI2C.c ****     uint32 status;
+ 317:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 318:.\Generated_Source\PSoC4/UART_EZI2C.c ****     UART_DisableInt();  /* Lock from interruption */
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 7
+
+
+ 319:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 320:.\Generated_Source\PSoC4/UART_EZI2C.c ****     status = UART_curStatus;
+ 321:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 322:.\Generated_Source\PSoC4/UART_EZI2C.c ****     /* Relay on address match event from HW as bus busy status */
+ 323:.\Generated_Source\PSoC4/UART_EZI2C.c ****     if(UART_EZI2C_SCL_STRETCH_DISABLE)
+ 324:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ 325:.\Generated_Source\PSoC4/UART_EZI2C.c ****         /* For UART_CY_SCBIP_V0 the wake is prohibited by customizer */
+ 326:.\Generated_Source\PSoC4/UART_EZI2C.c ****         if(UART_EZI2C_EC_AM_ENABLE)
+ 327:.\Generated_Source\PSoC4/UART_EZI2C.c ****         {
+ 328:.\Generated_Source\PSoC4/UART_EZI2C.c ****             status |= UART_CHECK_INTR_I2C_EC(UART_INTR_I2C_EC_WAKE_UP) ?
+ 329:.\Generated_Source\PSoC4/UART_EZI2C.c ****                         UART_EZI2C_STATUS_BUSY : 0u;
+ 330:.\Generated_Source\PSoC4/UART_EZI2C.c ****         }
+ 331:.\Generated_Source\PSoC4/UART_EZI2C.c ****         else
+ 332:.\Generated_Source\PSoC4/UART_EZI2C.c ****         {
+ 333:.\Generated_Source\PSoC4/UART_EZI2C.c ****             status |= UART_CHECK_INTR_SLAVE(UART_INTR_SLAVE_I2C_ADDR_MATCH) ?
+ 334:.\Generated_Source\PSoC4/UART_EZI2C.c ****                         UART_EZI2C_STATUS_BUSY : 0u;
+ 335:.\Generated_Source\PSoC4/UART_EZI2C.c ****         }
+ 336:.\Generated_Source\PSoC4/UART_EZI2C.c ****         
+ 337:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 338:.\Generated_Source\PSoC4/UART_EZI2C.c ****     
+ 339:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 340:.\Generated_Source\PSoC4/UART_EZI2C.c ****     UART_curStatus &= ((uint8) ~UART_EZI2C_CLEAR_STATUS);
+ 341:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 342:.\Generated_Source\PSoC4/UART_EZI2C.c ****     UART_EnableInt();   /* Release lock */
+ 343:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 344:.\Generated_Source\PSoC4/UART_EZI2C.c ****     return(status);
+ 345:.\Generated_Source\PSoC4/UART_EZI2C.c **** }
+ 346:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 347:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 348:.\Generated_Source\PSoC4/UART_EZI2C.c **** /*******************************************************************************
+ 349:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Function Name: UART_EzI2CSetAddress1
+ 350:.\Generated_Source\PSoC4/UART_EZI2C.c **** ********************************************************************************
+ 351:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 352:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Summary:
+ 353:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  Sets the primary I2C slave address.
+ 354:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 355:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Parameters:
+ 356:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  address: I2C slave address for the secondary device.
+ 357:.\Generated_Source\PSoC4/UART_EZI2C.c **** *           This address is the 7-bit right-justified slave address and does
+ 358:.\Generated_Source\PSoC4/UART_EZI2C.c **** *           not include the R/W bit.
+ 359:.\Generated_Source\PSoC4/UART_EZI2C.c **** *           This value may be any address between 0 and 127 (0x00 to 0x7F).
+ 360:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 361:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Return:
+ 362:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  None
+ 363:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 364:.\Generated_Source\PSoC4/UART_EZI2C.c **** *******************************************************************************/
+ 365:.\Generated_Source\PSoC4/UART_EZI2C.c **** void UART_EzI2CSetAddress1(uint32 address)
+ 366:.\Generated_Source\PSoC4/UART_EZI2C.c **** {
+ 367:.\Generated_Source\PSoC4/UART_EZI2C.c ****     if(UART_SECONDARY_ADDRESS_ENABLE)
+ 368:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ 369:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_addrBuf1 = (uint8) address;
+ 370:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 371:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_RX_MATCH_REG = UART_EzI2CUpdateRxMatchReg(address,
+ 372:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                                                (uint32) UART_addrBu
+ 373:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 374:.\Generated_Source\PSoC4/UART_EZI2C.c ****     else
+ 375:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 8
+
+
+ 376:.\Generated_Source\PSoC4/UART_EZI2C.c ****         uint32 matchReg;
+ 377:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 378:.\Generated_Source\PSoC4/UART_EZI2C.c ****         matchReg = UART_RX_MATCH_REG;
+ 379:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 380:.\Generated_Source\PSoC4/UART_EZI2C.c ****         matchReg &= ((uint32) ~UART_RX_MATCH_ADDR_MASK);            /* Clear address bits */
+ 381:.\Generated_Source\PSoC4/UART_EZI2C.c ****         matchReg |= ((uint32)  UART_GET_I2C_8BIT_ADDRESS(address)); /* Set mask */
+ 382:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 383:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_RX_MATCH_REG = matchReg;
+ 384:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 385:.\Generated_Source\PSoC4/UART_EZI2C.c ****     
+ 386:.\Generated_Source\PSoC4/UART_EZI2C.c **** }
+ 387:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 388:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 389:.\Generated_Source\PSoC4/UART_EZI2C.c **** /*******************************************************************************
+ 390:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Function Name: UART_EzI2CGetAddress1
+ 391:.\Generated_Source\PSoC4/UART_EZI2C.c **** ********************************************************************************
+ 392:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 393:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Summary:
+ 394:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  Gets the primary I2C slave 7-bit address.
+ 395:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 396:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Parameters:
+ 397:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  None
+ 398:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 399:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Return:
+ 400:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  Returns I2C slave address for the primary device.
+ 401:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  This address is the 7-bit right-justified slave address and does not
+ 402:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  include the R/W bit.
+ 403:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  This value may be any address between 0 and 127 (0x00 to 0x7F).
+ 404:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 405:.\Generated_Source\PSoC4/UART_EZI2C.c **** *******************************************************************************/
+ 406:.\Generated_Source\PSoC4/UART_EZI2C.c **** uint32 UART_EzI2CGetAddress1(void)
+ 407:.\Generated_Source\PSoC4/UART_EZI2C.c **** {
+ 408:.\Generated_Source\PSoC4/UART_EZI2C.c ****     uint32 address;
+ 409:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 410:.\Generated_Source\PSoC4/UART_EZI2C.c ****     if(UART_SECONDARY_ADDRESS_ENABLE)
+ 411:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ 412:.\Generated_Source\PSoC4/UART_EZI2C.c ****         address = (uint32) UART_addrBuf1;
+ 413:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 414:.\Generated_Source\PSoC4/UART_EZI2C.c ****     else
+ 415:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ 416:.\Generated_Source\PSoC4/UART_EZI2C.c ****         address = (UART_GET_RX_MATCH_ADDR(UART_RX_MATCH_REG) >>
+ 417:.\Generated_Source\PSoC4/UART_EZI2C.c ****                    UART_I2C_SLAVE_ADDR_POS);
+ 418:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 419:.\Generated_Source\PSoC4/UART_EZI2C.c ****     
+ 420:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 421:.\Generated_Source\PSoC4/UART_EZI2C.c ****     return(address);
+ 422:.\Generated_Source\PSoC4/UART_EZI2C.c **** }
+ 423:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 424:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 425:.\Generated_Source\PSoC4/UART_EZI2C.c **** /*******************************************************************************
+ 426:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Function Name: UART_EzI2CSetBuffer1
+ 427:.\Generated_Source\PSoC4/UART_EZI2C.c **** ********************************************************************************
+ 428:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 429:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Summary:
+ 430:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  Sets up the data buffer to be exposed to the I2C master on a primary slave
+ 431:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  address request.
+ 432:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 9
+
+
+ 433:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Parameters:
+ 434:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  bufSize: Size of the buffer in bytes.
+ 435:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  rwBoundary: Sets how many bytes are writeable in the beginning of the buffer.
+ 436:.\Generated_Source\PSoC4/UART_EZI2C.c **** *              This value must be less than or equal to the buffer size.
+ 437:.\Generated_Source\PSoC4/UART_EZI2C.c **** *              Data located at offset rwBoundry and greater are read only.
+ 438:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  buffer: Pointer to the data buffer.
+ 439:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 440:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Return:
+ 441:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  None
+ 442:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 443:.\Generated_Source\PSoC4/UART_EZI2C.c **** *******************************************************************************/
+ 444:.\Generated_Source\PSoC4/UART_EZI2C.c **** void UART_EzI2CSetBuffer1(uint32 bufSize, uint32 rwBoundary, volatile uint8 * buffer)
+ 445:.\Generated_Source\PSoC4/UART_EZI2C.c **** {
+ 446:.\Generated_Source\PSoC4/UART_EZI2C.c ****     if (NULL != buffer)
+ 447:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ 448:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_DisableInt();  /* Lock from interruption */
+ 449:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 450:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_dataBuffer1 =  buffer;
+ 451:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_bufSizeBuf1 = (uint16) bufSize;
+ 452:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_protectBuf1 = (uint16) rwBoundary;
+ 453:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 454:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_EnableInt();   /* Release lock */
+ 455:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 456:.\Generated_Source\PSoC4/UART_EZI2C.c **** }
+ 457:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 458:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 459:.\Generated_Source\PSoC4/UART_EZI2C.c **** /*******************************************************************************
+ 460:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Function Name: UART_EzI2CSetReadBoundaryBuffer1
+ 461:.\Generated_Source\PSoC4/UART_EZI2C.c **** ********************************************************************************
+ 462:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 463:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Summary:
+ 464:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  Sets the read only boundary in the data buffer to be exposed to the I2C
+ 465:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  master on a primary slave address request.
+ 466:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 467:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Parameters:
+ 468:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  rwBoundry: Sets how many bytes are writeable in the beginning of the buffer.
+ 469:.\Generated_Source\PSoC4/UART_EZI2C.c **** *             This value must be less than or equal to the buffer size.
+ 470:.\Generated_Source\PSoC4/UART_EZI2C.c **** *             Data located at offset rwBoundry and greater are read only.
+ 471:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 472:.\Generated_Source\PSoC4/UART_EZI2C.c **** * Return:
+ 473:.\Generated_Source\PSoC4/UART_EZI2C.c **** *  None
+ 474:.\Generated_Source\PSoC4/UART_EZI2C.c **** *
+ 475:.\Generated_Source\PSoC4/UART_EZI2C.c **** *******************************************************************************/
+ 476:.\Generated_Source\PSoC4/UART_EZI2C.c **** void UART_EzI2CSetReadBoundaryBuffer1(uint32 rwBoundary)
+ 477:.\Generated_Source\PSoC4/UART_EZI2C.c **** {
+ 478:.\Generated_Source\PSoC4/UART_EZI2C.c ****     UART_protectBuf1 = (uint16) rwBoundary;
+ 479:.\Generated_Source\PSoC4/UART_EZI2C.c **** }
+ 480:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 481:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 482:.\Generated_Source\PSoC4/UART_EZI2C.c **** #if(UART_SECONDARY_ADDRESS_ENABLE_CONST)
+ 483:.\Generated_Source\PSoC4/UART_EZI2C.c ****     /*******************************************************************************
+ 484:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Function Name: UART_EzI2CUpdateRxMatchReg
+ 485:.\Generated_Source\PSoC4/UART_EZI2C.c ****     ********************************************************************************
+ 486:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 487:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Summary:
+ 488:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  Returns the value of the RX MATCH register for addr1 and addr2. The addr1 is
+ 489:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  accepted as the primary address and it is written to RX_MATCH.ADDRESS
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 10
+
+
+ 490:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  (addr1 << 0x01).
+ 491:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  The RX_MATCH.MASK is set as follow: addr1 and addr2 equal bits set to 1
+ 492:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  otherwise 0.
+ 493:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 494:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Parameters:
+ 495:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  addr1: I2C slave address for the primary device.
+ 496:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  addr2: I2C slave address for the secondary device.
+ 497:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *         This address is the 7-bit right-justified slave address and does
+ 498:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *         not include the R/W bit.
+ 499:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *         This value may be any address between 0 and 127 (0x00 to 0x7F).
+ 500:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 501:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Return:
+ 502:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  Value of RX MATCH register.
+ 503:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 504:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *******************************************************************************/
+ 505:.\Generated_Source\PSoC4/UART_EZI2C.c ****     static uint32 UART_EzI2CUpdateRxMatchReg(uint32 addr1, uint32 addr2)
+ 506:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+  25              		.loc 1 506 0
+  26              		.cfi_startproc
+  27              	.LVL0:
+ 507:.\Generated_Source\PSoC4/UART_EZI2C.c ****         uint32 matchReg;
+ 508:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 509:.\Generated_Source\PSoC4/UART_EZI2C.c ****         matchReg  = ~(addr1 ^ addr2); /* If (addr1 and addr2) bit matches - mask bit equals 1, in o
+  28              		.loc 1 509 0
+  29 0000 4140     		eor	r1, r0
+  30              	.LVL1:
+  31 0002 C943     		mvn	r1, r1
+  32              	.LVL2:
+ 510:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 511:.\Generated_Source\PSoC4/UART_EZI2C.c ****         matchReg  = (uint32) (UART_GET_I2C_8BIT_ADDRESS(matchReg) << UART_RX_MATCH_MASK_POS);
+  33              		.loc 1 511 0
+  34 0004 4900     		lsl	r1, r1, #1
+  35              	.LVL3:
+  36 0006 FF23     		mov	r3, #255
+  37 0008 1940     		and	r1, r3
+  38 000a 0904     		lsl	r1, r1, #16
+  39              	.LVL4:
+ 512:.\Generated_Source\PSoC4/UART_EZI2C.c ****         matchReg |= UART_GET_I2C_8BIT_ADDRESS(addr1);
+  40              		.loc 1 512 0
+  41 000c 4000     		lsl	r0, r0, #1
+  42              	.LVL5:
+  43 000e 1840     		and	r0, r3
+  44 0010 0843     		orr	r0, r1
+  45              	.LVL6:
+ 513:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 514:.\Generated_Source\PSoC4/UART_EZI2C.c ****         return(matchReg);
+ 515:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+  46              		.loc 1 515 0
+  47              		@ sp needed
+  48 0012 7047     		bx	lr
+  49              		.cfi_endproc
+  50              	.LFE9:
+  51              		.size	UART_EzI2CUpdateRxMatchReg, .-UART_EzI2CUpdateRxMatchReg
+  52              		.section	.text.UART_EzI2CInit,"ax",%progbits
+  53              		.align	2
+  54              		.global	UART_EzI2CInit
+  55              		.code	16
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 11
+
+
+  56              		.thumb_func
+  57              		.type	UART_EzI2CInit, %function
+  58              	UART_EzI2CInit:
+  59              	.LFB2:
+  93:.\Generated_Source\PSoC4/UART_EZI2C.c ****         if(NULL == config)
+  60              		.loc 1 93 0
+  61              		.cfi_startproc
+  62              	.LVL7:
+  63 0000 10B5     		push	{r4, lr}
+  64              		.cfi_def_cfa_offset 8
+  65              		.cfi_offset 4, -8
+  66              		.cfi_offset 14, -4
+  67 0002 041E     		sub	r4, r0, #0
+  94:.\Generated_Source\PSoC4/UART_EZI2C.c ****         {
+  68              		.loc 1 94 0
+  69 0004 03D1     		bne	.L3
+  96:.\Generated_Source\PSoC4/UART_EZI2C.c ****         }
+  70              		.loc 1 96 0 discriminator 1
+  71 0006 0020     		mov	r0, #0
+  72              	.LVL8:
+  73 0008 FFF7FEFF 		bl	CyHalt
+  74              	.LVL9:
+  75 000c A0E0     		b	.L2
+  76              	.LVL10:
+  77              	.L3:
+ 101:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                                       UART_DUMMY_PARAM);
+  78              		.loc 1 101 0
+  79 000e 0820     		mov	r0, #8
+  80              	.LVL11:
+  81 0010 0021     		mov	r1, #0
+  82 0012 0022     		mov	r2, #0
+  83 0014 FFF7FEFF 		bl	UART_SetPins
+  84              	.LVL12:
+ 105:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_scbEnableWake = (uint8) config->enableWake;
+  85              		.loc 1 105 0
+  86 0018 0822     		mov	r2, #8
+  87 001a 4E4B     		ldr	r3, .L18
+  88 001c 1A70     		strb	r2, [r3]
+ 106:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_scbEnableIntr = (uint8) UART_SCB_IRQ_INTERNAL;
+  89              		.loc 1 106 0
+  90 001e 227E     		ldrb	r2, [r4, #24]
+  91 0020 4D4B     		ldr	r3, .L18+4
+  92 0022 1A70     		strb	r2, [r3]
+ 107:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+  93              		.loc 1 107 0
+  94 0024 0122     		mov	r2, #1
+  95 0026 4D4B     		ldr	r3, .L18+8
+  96 0028 1A70     		strb	r2, [r3]
+ 109:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_subAddrSize   = (uint8) config->subAddrSize;
+  97              		.loc 1 109 0
+  98 002a 227A     		ldrb	r2, [r4, #8]
+  99 002c 4C4B     		ldr	r3, .L18+12
+ 100 002e 1A70     		strb	r2, [r3]
+ 110:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 101              		.loc 1 110 0
+ 102 0030 227D     		ldrb	r2, [r4, #20]
+ 103 0032 4C4B     		ldr	r3, .L18+16
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 12
+
+
+ 104 0034 1A70     		strb	r2, [r3]
+ 118:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 105              		.loc 1 118 0
+ 106 0036 4C4A     		ldr	r2, .L18+20
+ 107 0038 1368     		ldr	r3, [r2]
+ 108 003a 4C49     		ldr	r1, .L18+24
+ 109 003c 0B43     		orr	r3, r1
+ 110 003e 1360     		str	r3, [r2]
+ 121:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                             UART_GET_CTRL_ADDR_ACCEPT(config->numberOfAddresses) |
+ 111              		.loc 1 121 0
+ 112 0040 237F     		ldrb	r3, [r4, #28]
+ 113 0042 002B     		cmp	r3, #0
+ 114 0044 02D0     		beq	.L15
+ 115 0046 8022     		mov	r2, #128
+ 116 0048 1201     		lsl	r2, r2, #4
+ 117 004a 00E0     		b	.L5
+ 118              	.L15:
+ 119 004c 0022     		mov	r2, #0
+ 120              	.L5:
+ 122:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                             UART_GET_CTRL_EC_AM_MODE (config->enableWake);
+ 121              		.loc 1 122 0
+ 122 004e A368     		ldr	r3, [r4, #8]
+ 123 0050 002B     		cmp	r3, #0
+ 124 0052 01D0     		beq	.L6
+ 125 0054 8023     		mov	r3, #128
+ 126 0056 5B02     		lsl	r3, r3, #9
+ 127              	.L6:
+ 121:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                             UART_GET_CTRL_ADDR_ACCEPT(config->numberOfAddresses) |
+ 128              		.loc 1 121 0
+ 129 0058 1A43     		orr	r2, r3
+ 123:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 130              		.loc 1 123 0
+ 131 005a A369     		ldr	r3, [r4, #24]
+ 132 005c 002B     		cmp	r3, #0
+ 133 005e 01D0     		beq	.L7
+ 134 0060 8023     		mov	r3, #128
+ 135 0062 5B00     		lsl	r3, r3, #1
+ 136              	.L7:
+ 122:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                             UART_GET_CTRL_EC_AM_MODE (config->enableWake);
+ 137              		.loc 1 122 0
+ 138 0064 1343     		orr	r3, r2
+ 121:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                             UART_GET_CTRL_ADDR_ACCEPT(config->numberOfAddresses) |
+ 139              		.loc 1 121 0
+ 140 0066 424A     		ldr	r2, .L18+28
+ 141 0068 1360     		str	r3, [r2]
+ 125:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 142              		.loc 1 125 0
+ 143 006a 424A     		ldr	r2, .L18+32
+ 144 006c 424B     		ldr	r3, .L18+36
+ 145 006e 1A60     		str	r2, [r3]
+ 128:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                         UART_GET_RX_CTRL_MEDIAN(UART_DIGITAL_FILTER_DISABLE);
+ 146              		.loc 1 128 0
+ 147 0070 424A     		ldr	r2, .L18+40
+ 148 0072 434B     		ldr	r3, .L18+44
+ 149 0074 1A60     		str	r2, [r3]
+ 131:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 150              		.loc 1 131 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 13
+
+
+ 151 0076 0022     		mov	r2, #0
+ 152 0078 424B     		ldr	r3, .L18+48
+ 153 007a 1A60     		str	r2, [r3]
+ 134:.\Generated_Source\PSoC4/UART_EZI2C.c ****             {
+ 154              		.loc 1 134 0
+ 155 007c A368     		ldr	r3, [r4, #8]
+ 156 007e 002B     		cmp	r3, #0
+ 157 0080 06D1     		bne	.L8
+ 136:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                                                        config->prim
+ 158              		.loc 1 136 0
+ 159 0082 E068     		ldr	r0, [r4, #12]
+ 160 0084 011C     		mov	r1, r0
+ 161 0086 FFF7FEFF 		bl	UART_EzI2CUpdateRxMatchReg
+ 162              	.LVL13:
+ 163 008a 3F4B     		ldr	r3, .L18+52
+ 164 008c 1860     		str	r0, [r3]
+ 165 008e 05E0     		b	.L9
+ 166              	.L8:
+ 141:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                                                        config->seco
+ 167              		.loc 1 141 0
+ 168 0090 E068     		ldr	r0, [r4, #12]
+ 169 0092 2169     		ldr	r1, [r4, #16]
+ 170 0094 FFF7FEFF 		bl	UART_EzI2CUpdateRxMatchReg
+ 171              	.LVL14:
+ 172 0098 3B4B     		ldr	r3, .L18+52
+ 173 009a 1860     		str	r0, [r3]
+ 174              	.L9:
+ 146:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_TX_FIFO_CTRL_REG = ((0u != (config->enableClockStretch)) ?
+ 175              		.loc 1 146 0
+ 176 009c 374A     		ldr	r2, .L18+40
+ 177 009e 3B4B     		ldr	r3, .L18+56
+ 178 00a0 1A60     		str	r2, [r3]
+ 148:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 179              		.loc 1 148 0
+ 180 00a2 2368     		ldr	r3, [r4]
+ 181 00a4 002B     		cmp	r3, #0
+ 182 00a6 01D0     		beq	.L16
+ 183 00a8 0022     		mov	r2, #0
+ 184 00aa 00E0     		b	.L10
+ 185              	.L16:
+ 186 00ac 0222     		mov	r2, #2
+ 187              	.L10:
+ 147:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                  UART_CLEAR_REG : UART_EZI2C_TX_FIFO_CTRL);
+ 188              		.loc 1 147 0
+ 189 00ae 384B     		ldr	r3, .L18+60
+ 190 00b0 1A60     		str	r2, [r3]
+ 152:.\Generated_Source\PSoC4/UART_EZI2C.c ****         #endif /* (!UART_CY_SCBIP_V1) */
+ 191              		.loc 1 152 0
+ 192 00b2 0023     		mov	r3, #0
+ 193 00b4 374A     		ldr	r2, .L18+64
+ 194 00b6 1360     		str	r3, [r2]
+ 155:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_INTR_MASTER_MASK_REG = UART_NO_INTR_SOURCES;
+ 195              		.loc 1 155 0
+ 196 00b8 374A     		ldr	r2, .L18+68
+ 197 00ba 1360     		str	r3, [r2]
+ 156:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_INTR_SLAVE_MASK_REG  = UART_EZI2C_INTR_SLAVE_MASK;
+ 198              		.loc 1 156 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 14
+
+
+ 199 00bc 374A     		ldr	r2, .L18+72
+ 200 00be 1360     		str	r3, [r2]
+ 157:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_INTR_TX_MASK_REG     = UART_NO_INTR_SOURCES;
+ 201              		.loc 1 157 0
+ 202 00c0 1221     		mov	r1, #18
+ 203 00c2 FF31     		add	r1, r1, #255
+ 204 00c4 364A     		ldr	r2, .L18+76
+ 205 00c6 1160     		str	r1, [r2]
+ 158:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 206              		.loc 1 158 0
+ 207 00c8 364A     		ldr	r2, .L18+80
+ 208 00ca 1360     		str	r3, [r2]
+ 161:.\Generated_Source\PSoC4/UART_EZI2C.c ****             CyIntSetPriority(UART_ISR_NUMBER, UART_ISR_PRIORITY);
+ 209              		.loc 1 161 0
+ 210 00cc 0920     		mov	r0, #9
+ 211 00ce FFF7FEFF 		bl	CyIntDisable
+ 212              	.LVL15:
+ 162:.\Generated_Source\PSoC4/UART_EZI2C.c ****             (void) CyIntSetVector(UART_ISR_NUMBER, (0u != (config->enableClockStretch)) ?
+ 213              		.loc 1 162 0
+ 214 00d2 0920     		mov	r0, #9
+ 215 00d4 0321     		mov	r1, #3
+ 216 00d6 FFF7FEFF 		bl	CyIntSetPriority
+ 217              	.LVL16:
+ 163:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                                       (&UART_EZI2C_STRETCH_ISR) :
+ 218              		.loc 1 163 0
+ 219 00da 2368     		ldr	r3, [r4]
+ 220 00dc 002B     		cmp	r3, #0
+ 221 00de 01D0     		beq	.L17
+ 222 00e0 3149     		ldr	r1, .L18+84
+ 223 00e2 00E0     		b	.L11
+ 224              	.L17:
+ 225 00e4 3149     		ldr	r1, .L18+88
+ 226              	.L11:
+ 163:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                                       (&UART_EZI2C_STRETCH_ISR) :
+ 227              		.loc 1 163 0 is_stmt 0 discriminator 4
+ 228 00e6 0920     		mov	r0, #9
+ 229 00e8 FFF7FEFF 		bl	CyIntSetVector
+ 230              	.LVL17:
+ 167:.\Generated_Source\PSoC4/UART_EZI2C.c ****             {
+ 231              		.loc 1 167 0 is_stmt 1 discriminator 4
+ 232 00ec 2368     		ldr	r3, [r4]
+ 233 00ee 002B     		cmp	r3, #0
+ 234 00f0 08D0     		beq	.L12
+ 170:.\Generated_Source\PSoC4/UART_EZI2C.c ****                 UART_INTR_RX_MASK_REG     = UART_NO_INTR_SOURCES;
+ 235              		.loc 1 170 0
+ 236 00f2 2B4A     		ldr	r2, .L18+76
+ 237 00f4 1168     		ldr	r1, [r2]
+ 238 00f6 4023     		mov	r3, #64
+ 239 00f8 0B43     		orr	r3, r1
+ 240 00fa 1360     		str	r3, [r2]
+ 171:.\Generated_Source\PSoC4/UART_EZI2C.c ****             }
+ 241              		.loc 1 171 0
+ 242 00fc 0022     		mov	r2, #0
+ 243 00fe 2C4B     		ldr	r3, .L18+92
+ 244 0100 1A60     		str	r2, [r3]
+ 245 0102 0DE0     		b	.L13
+ 246              	.L12:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 15
+
+
+ 176:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 247              		.loc 1 176 0
+ 248 0104 1C4A     		ldr	r2, .L18+36
+ 249 0106 1368     		ldr	r3, [r2]
+ 250 0108 F021     		mov	r1, #240
+ 251 010a 0902     		lsl	r1, r1, #8
+ 252 010c 0B43     		orr	r3, r1
+ 253 010e 1360     		str	r3, [r2]
+ 179:.\Generated_Source\PSoC4/UART_EZI2C.c ****                 UART_INTR_RX_MASK_REG     = UART_INTR_RX_NOT_EMPTY;
+ 254              		.loc 1 179 0
+ 255 0110 234A     		ldr	r2, .L18+76
+ 256 0112 1168     		ldr	r1, [r2]
+ 257 0114 2023     		mov	r3, #32
+ 258 0116 0B43     		orr	r3, r1
+ 259 0118 1360     		str	r3, [r2]
+ 180:.\Generated_Source\PSoC4/UART_EZI2C.c ****             }
+ 260              		.loc 1 180 0
+ 261 011a 0422     		mov	r2, #4
+ 262 011c 244B     		ldr	r3, .L18+92
+ 263 011e 1A60     		str	r2, [r3]
+ 264              	.L13:
+ 184:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 265              		.loc 1 184 0
+ 266 0120 104B     		ldr	r3, .L18+16
+ 267 0122 1B78     		ldrb	r3, [r3]
+ 268 0124 002B     		cmp	r3, #0
+ 269 0126 00D0     		beq	.L14
+ 270 0128 0223     		mov	r3, #2
+ 271              	.L14:
+ 184:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 272              		.loc 1 184 0 is_stmt 0 discriminator 4
+ 273 012a 224A     		ldr	r2, .L18+96
+ 274 012c 1370     		strb	r3, [r2]
+ 186:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_indexBuf1  = 0u;
+ 275              		.loc 1 186 0 is_stmt 1 discriminator 4
+ 276 012e 0023     		mov	r3, #0
+ 277 0130 214A     		ldr	r2, .L18+100
+ 278 0132 1370     		strb	r3, [r2]
+ 187:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_offsetBuf1 = 0u;
+ 279              		.loc 1 187 0 discriminator 4
+ 280 0134 214A     		ldr	r2, .L18+104
+ 281 0136 1380     		strh	r3, [r2]
+ 188:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_indexBuf2  = 0u;
+ 282              		.loc 1 188 0 discriminator 4
+ 283 0138 214A     		ldr	r2, .L18+108
+ 284 013a 1380     		strh	r3, [r2]
+ 189:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_offsetBuf2 = 0u;
+ 285              		.loc 1 189 0 discriminator 4
+ 286 013c 214A     		ldr	r2, .L18+112
+ 287 013e 1380     		strh	r3, [r2]
+ 190:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 288              		.loc 1 190 0 discriminator 4
+ 289 0140 214A     		ldr	r2, .L18+116
+ 290 0142 1380     		strh	r3, [r2]
+ 192:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_addrBuf2 = (uint8) config->secondarySlaveAddr;
+ 291              		.loc 1 192 0 discriminator 4
+ 292 0144 227B     		ldrb	r2, [r4, #12]
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 16
+
+
+ 293 0146 214B     		ldr	r3, .L18+120
+ 294 0148 1A70     		strb	r2, [r3]
+ 193:.\Generated_Source\PSoC4/UART_EZI2C.c ****         }
+ 295              		.loc 1 193 0 discriminator 4
+ 296 014a 227C     		ldrb	r2, [r4, #16]
+ 297 014c 204B     		ldr	r3, .L18+124
+ 298 014e 1A70     		strb	r2, [r3]
+ 299              	.L2:
+ 195:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 300              		.loc 1 195 0
+ 301              		@ sp needed
+ 302              	.LVL18:
+ 303 0150 10BD     		pop	{r4, pc}
+ 304              	.L19:
+ 305 0152 C046     		.align	2
+ 306              	.L18:
+ 307 0154 00000000 		.word	UART_scbMode
+ 308 0158 00000000 		.word	UART_scbEnableWake
+ 309 015c 00000000 		.word	UART_scbEnableIntr
+ 310 0160 00000000 		.word	UART_numberOfAddr
+ 311 0164 00000000 		.word	UART_subAddrSize
+ 312 0168 70002440 		.word	1076101232
+ 313 016c 10100000 		.word	4112
+ 314 0170 00002440 		.word	1076101120
+ 315 0174 00080040 		.word	1073743872
+ 316 0178 60002440 		.word	1076101216
+ 317 017c 07010080 		.word	-2147483385
+ 318 0180 00032440 		.word	1076101888
+ 319 0184 04032440 		.word	1076101892
+ 320 0188 10032440 		.word	1076101904
+ 321 018c 00022440 		.word	1076101632
+ 322 0190 04022440 		.word	1076101636
+ 323 0194 C80E2440 		.word	1076104904
+ 324 0198 880E2440 		.word	1076104840
+ 325 019c 080F2440 		.word	1076104968
+ 326 01a0 480F2440 		.word	1076105032
+ 327 01a4 880F2440 		.word	1076105096
+ 328 01a8 00000000 		.word	UART_EZI2C_STRETCH_ISR
+ 329 01ac 00000000 		.word	UART_EZI2C_NO_STRETCH_ISR
+ 330 01b0 C80F2440 		.word	1076105160
+ 331 01b4 00000000 		.word	UART_fsmState
+ 332 01b8 00000000 		.word	UART_curStatus
+ 333 01bc 00000000 		.word	UART_indexBuf1
+ 334 01c0 00000000 		.word	UART_offsetBuf1
+ 335 01c4 00000000 		.word	UART_indexBuf2
+ 336 01c8 00000000 		.word	UART_offsetBuf2
+ 337 01cc 00000000 		.word	UART_addrBuf1
+ 338 01d0 00000000 		.word	UART_addrBuf2
+ 339              		.cfi_endproc
+ 340              	.LFE2:
+ 341              		.size	UART_EzI2CInit, .-UART_EzI2CInit
+ 342              		.section	.text.UART_EzI2CStop,"ax",%progbits
+ 343              		.align	2
+ 344              		.global	UART_EzI2CStop
+ 345              		.code	16
+ 346              		.thumb_func
+ 347              		.type	UART_EzI2CStop, %function
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 17
+
+
+ 348              	UART_EzI2CStop:
+ 349              	.LFB3:
+ 292:.\Generated_Source\PSoC4/UART_EZI2C.c ****     UART_fsmState = UART_EZI2C_FSM_IDLE;
+ 350              		.loc 1 292 0
+ 351              		.cfi_startproc
+ 293:.\Generated_Source\PSoC4/UART_EZI2C.c **** }
+ 352              		.loc 1 293 0
+ 353 0000 034B     		ldr	r3, .L22
+ 354 0002 1B78     		ldrb	r3, [r3]
+ 355 0004 002B     		cmp	r3, #0
+ 356 0006 00D0     		beq	.L21
+ 357 0008 0223     		mov	r3, #2
+ 358              	.L21:
+ 293:.\Generated_Source\PSoC4/UART_EZI2C.c **** }
+ 359              		.loc 1 293 0 is_stmt 0 discriminator 4
+ 360 000a 024A     		ldr	r2, .L22+4
+ 361 000c 1370     		strb	r3, [r2]
+ 294:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 362              		.loc 1 294 0 is_stmt 1 discriminator 4
+ 363              		@ sp needed
+ 364 000e 7047     		bx	lr
+ 365              	.L23:
+ 366              		.align	2
+ 367              	.L22:
+ 368 0010 00000000 		.word	UART_subAddrSize
+ 369 0014 00000000 		.word	UART_fsmState
+ 370              		.cfi_endproc
+ 371              	.LFE3:
+ 372              		.size	UART_EzI2CStop, .-UART_EzI2CStop
+ 373              		.section	.text.UART_EzI2CGetActivity,"ax",%progbits
+ 374              		.align	2
+ 375              		.global	UART_EzI2CGetActivity
+ 376              		.code	16
+ 377              		.thumb_func
+ 378              		.type	UART_EzI2CGetActivity, %function
+ 379              	UART_EzI2CGetActivity:
+ 380              	.LFB4:
+ 315:.\Generated_Source\PSoC4/UART_EZI2C.c ****     uint32 status;
+ 381              		.loc 1 315 0
+ 382              		.cfi_startproc
+ 383 0000 10B5     		push	{r4, lr}
+ 384              		.cfi_def_cfa_offset 8
+ 385              		.cfi_offset 4, -8
+ 386              		.cfi_offset 14, -4
+ 318:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 387              		.loc 1 318 0
+ 388 0002 0920     		mov	r0, #9
+ 389 0004 FFF7FEFF 		bl	CyIntDisable
+ 390              	.LVL19:
+ 320:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 391              		.loc 1 320 0
+ 392 0008 114B     		ldr	r3, .L29
+ 393 000a 1C78     		ldrb	r4, [r3]
+ 394 000c E4B2     		uxtb	r4, r4
+ 395              	.LVL20:
+ 323:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ 396              		.loc 1 323 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 18
+
+
+ 397 000e 114B     		ldr	r3, .L29+4
+ 398 0010 1B68     		ldr	r3, [r3]
+ 399 0012 5B06     		lsl	r3, r3, #25
+ 400 0014 12D4     		bmi	.L25
+ 326:.\Generated_Source\PSoC4/UART_EZI2C.c ****         {
+ 401              		.loc 1 326 0
+ 402 0016 104B     		ldr	r3, .L29+8
+ 403 0018 1B68     		ldr	r3, [r3]
+ 404 001a DB05     		lsl	r3, r3, #23
+ 405 001c 07D5     		bpl	.L26
+ 328:.\Generated_Source\PSoC4/UART_EZI2C.c ****                         UART_EZI2C_STATUS_BUSY : 0u;
+ 406              		.loc 1 328 0
+ 407 001e 0F4B     		ldr	r3, .L29+12
+ 408 0020 1B68     		ldr	r3, [r3]
+ 409 0022 0122     		mov	r2, #1
+ 410 0024 1340     		and	r3, r2
+ 329:.\Generated_Source\PSoC4/UART_EZI2C.c ****         }
+ 411              		.loc 1 329 0
+ 412 0026 00D0     		beq	.L27
+ 413 0028 2023     		mov	r3, #32
+ 414              	.L27:
+ 328:.\Generated_Source\PSoC4/UART_EZI2C.c ****                         UART_EZI2C_STATUS_BUSY : 0u;
+ 415              		.loc 1 328 0 discriminator 4
+ 416 002a 1C43     		orr	r4, r3
+ 417              	.LVL21:
+ 418 002c 06E0     		b	.L25
+ 419              	.L26:
+ 333:.\Generated_Source\PSoC4/UART_EZI2C.c ****                         UART_EZI2C_STATUS_BUSY : 0u;
+ 420              		.loc 1 333 0
+ 421 002e 0C4B     		ldr	r3, .L29+16
+ 422 0030 1B68     		ldr	r3, [r3]
+ 423 0032 4022     		mov	r2, #64
+ 424 0034 1340     		and	r3, r2
+ 334:.\Generated_Source\PSoC4/UART_EZI2C.c ****         }
+ 425              		.loc 1 334 0
+ 426 0036 00D0     		beq	.L28
+ 427 0038 2023     		mov	r3, #32
+ 428              	.L28:
+ 333:.\Generated_Source\PSoC4/UART_EZI2C.c ****                         UART_EZI2C_STATUS_BUSY : 0u;
+ 429              		.loc 1 333 0 discriminator 4
+ 430 003a 1C43     		orr	r4, r3
+ 431              	.LVL22:
+ 432              	.L25:
+ 340:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 433              		.loc 1 340 0
+ 434 003c 044A     		ldr	r2, .L29
+ 435 003e 1378     		ldrb	r3, [r2]
+ 436 0040 1F21     		mov	r1, #31
+ 437 0042 8B43     		bic	r3, r1
+ 438 0044 1370     		strb	r3, [r2]
+ 342:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 439              		.loc 1 342 0
+ 440 0046 0920     		mov	r0, #9
+ 441 0048 FFF7FEFF 		bl	CyIntEnable
+ 442              	.LVL23:
+ 345:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 443              		.loc 1 345 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 19
+
+
+ 444 004c 201C     		mov	r0, r4
+ 445              		@ sp needed
+ 446              	.LVL24:
+ 447 004e 10BD     		pop	{r4, pc}
+ 448              	.L30:
+ 449              		.align	2
+ 450              	.L29:
+ 451 0050 00000000 		.word	UART_curStatus
+ 452 0054 480F2440 		.word	1076105032
+ 453 0058 00002440 		.word	1076101120
+ 454 005c 800E2440 		.word	1076104832
+ 455 0060 400F2440 		.word	1076105024
+ 456              		.cfi_endproc
+ 457              	.LFE4:
+ 458              		.size	UART_EzI2CGetActivity, .-UART_EzI2CGetActivity
+ 459              		.section	.text.UART_EzI2CSetAddress1,"ax",%progbits
+ 460              		.align	2
+ 461              		.global	UART_EzI2CSetAddress1
+ 462              		.code	16
+ 463              		.thumb_func
+ 464              		.type	UART_EzI2CSetAddress1, %function
+ 465              	UART_EzI2CSetAddress1:
+ 466              	.LFB5:
+ 366:.\Generated_Source\PSoC4/UART_EZI2C.c ****     if(UART_SECONDARY_ADDRESS_ENABLE)
+ 467              		.loc 1 366 0
+ 468              		.cfi_startproc
+ 469              	.LVL25:
+ 470 0000 08B5     		push	{r3, lr}
+ 471              		.cfi_def_cfa_offset 8
+ 472              		.cfi_offset 3, -8
+ 473              		.cfi_offset 14, -4
+ 367:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ 474              		.loc 1 367 0
+ 475 0002 0B4B     		ldr	r3, .L34
+ 476 0004 1B78     		ldrb	r3, [r3]
+ 477 0006 002B     		cmp	r3, #0
+ 478 0008 08D0     		beq	.L32
+ 369:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 479              		.loc 1 369 0
+ 480 000a 0A4B     		ldr	r3, .L34+4
+ 481 000c 1870     		strb	r0, [r3]
+ 371:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                                                (uint32) UART_addrBu
+ 482              		.loc 1 371 0
+ 483 000e 0A4B     		ldr	r3, .L34+8
+ 484 0010 1978     		ldrb	r1, [r3]
+ 485 0012 FFF7FEFF 		bl	UART_EzI2CUpdateRxMatchReg
+ 486              	.LVL26:
+ 487 0016 094B     		ldr	r3, .L34+12
+ 488 0018 1860     		str	r0, [r3]
+ 489 001a 07E0     		b	.L31
+ 490              	.LVL27:
+ 491              	.L32:
+ 492              	.LBB2:
+ 378:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 493              		.loc 1 378 0
+ 494 001c 074A     		ldr	r2, .L34+12
+ 495 001e 1368     		ldr	r3, [r2]
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 20
+
+
+ 496              	.LVL28:
+ 380:.\Generated_Source\PSoC4/UART_EZI2C.c ****         matchReg |= ((uint32)  UART_GET_I2C_8BIT_ADDRESS(address)); /* Set mask */
+ 497              		.loc 1 380 0
+ 498 0020 FF21     		mov	r1, #255
+ 499 0022 8B43     		bic	r3, r1
+ 500              	.LVL29:
+ 381:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 501              		.loc 1 381 0
+ 502 0024 4000     		lsl	r0, r0, #1
+ 503              	.LVL30:
+ 504 0026 0840     		and	r0, r1
+ 505 0028 1843     		orr	r0, r3
+ 506              	.LVL31:
+ 383:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 507              		.loc 1 383 0
+ 508 002a 1060     		str	r0, [r2]
+ 509              	.LVL32:
+ 510              	.L31:
+ 511              	.LBE2:
+ 386:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 512              		.loc 1 386 0
+ 513              		@ sp needed
+ 514 002c 08BD     		pop	{r3, pc}
+ 515              	.L35:
+ 516 002e C046     		.align	2
+ 517              	.L34:
+ 518 0030 00000000 		.word	UART_numberOfAddr
+ 519 0034 00000000 		.word	UART_addrBuf1
+ 520 0038 00000000 		.word	UART_addrBuf2
+ 521 003c 10032440 		.word	1076101904
+ 522              		.cfi_endproc
+ 523              	.LFE5:
+ 524              		.size	UART_EzI2CSetAddress1, .-UART_EzI2CSetAddress1
+ 525              		.section	.text.UART_EzI2CGetAddress1,"ax",%progbits
+ 526              		.align	2
+ 527              		.global	UART_EzI2CGetAddress1
+ 528              		.code	16
+ 529              		.thumb_func
+ 530              		.type	UART_EzI2CGetAddress1, %function
+ 531              	UART_EzI2CGetAddress1:
+ 532              	.LFB6:
+ 407:.\Generated_Source\PSoC4/UART_EZI2C.c ****     uint32 address;
+ 533              		.loc 1 407 0
+ 534              		.cfi_startproc
+ 410:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ 535              		.loc 1 410 0
+ 536 0000 054B     		ldr	r3, .L39
+ 537 0002 1B78     		ldrb	r3, [r3]
+ 538 0004 002B     		cmp	r3, #0
+ 539 0006 02D0     		beq	.L37
+ 412:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 540              		.loc 1 412 0
+ 541 0008 044B     		ldr	r3, .L39+4
+ 542 000a 1878     		ldrb	r0, [r3]
+ 543              	.LVL33:
+ 544 000c 03E0     		b	.L38
+ 545              	.LVL34:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 21
+
+
+ 546              	.L37:
+ 416:.\Generated_Source\PSoC4/UART_EZI2C.c ****                    UART_I2C_SLAVE_ADDR_POS);
+ 547              		.loc 1 416 0
+ 548 000e 044B     		ldr	r3, .L39+8
+ 549 0010 1868     		ldr	r0, [r3]
+ 550 0012 0006     		lsl	r0, r0, #24
+ 551 0014 400E     		lsr	r0, r0, #25
+ 552              	.LVL35:
+ 553              	.L38:
+ 422:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 554              		.loc 1 422 0
+ 555              		@ sp needed
+ 556 0016 7047     		bx	lr
+ 557              	.L40:
+ 558              		.align	2
+ 559              	.L39:
+ 560 0018 00000000 		.word	UART_numberOfAddr
+ 561 001c 00000000 		.word	UART_addrBuf1
+ 562 0020 10032440 		.word	1076101904
+ 563              		.cfi_endproc
+ 564              	.LFE6:
+ 565              		.size	UART_EzI2CGetAddress1, .-UART_EzI2CGetAddress1
+ 566              		.section	.text.UART_EzI2CSetBuffer1,"ax",%progbits
+ 567              		.align	2
+ 568              		.global	UART_EzI2CSetBuffer1
+ 569              		.code	16
+ 570              		.thumb_func
+ 571              		.type	UART_EzI2CSetBuffer1, %function
+ 572              	UART_EzI2CSetBuffer1:
+ 573              	.LFB7:
+ 445:.\Generated_Source\PSoC4/UART_EZI2C.c ****     if (NULL != buffer)
+ 574              		.loc 1 445 0
+ 575              		.cfi_startproc
+ 576              	.LVL36:
+ 577 0000 70B5     		push	{r4, r5, r6, lr}
+ 578              		.cfi_def_cfa_offset 16
+ 579              		.cfi_offset 4, -16
+ 580              		.cfi_offset 5, -12
+ 581              		.cfi_offset 6, -8
+ 582              		.cfi_offset 14, -4
+ 583 0002 061C     		mov	r6, r0
+ 584 0004 0D1C     		mov	r5, r1
+ 585 0006 141E     		sub	r4, r2, #0
+ 446:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ 586              		.loc 1 446 0
+ 587 0008 0BD0     		beq	.L41
+ 448:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 588              		.loc 1 448 0
+ 589 000a 0920     		mov	r0, #9
+ 590              	.LVL37:
+ 591 000c FFF7FEFF 		bl	CyIntDisable
+ 592              	.LVL38:
+ 450:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_bufSizeBuf1 = (uint16) bufSize;
+ 593              		.loc 1 450 0
+ 594 0010 044B     		ldr	r3, .L43
+ 595 0012 1C60     		str	r4, [r3]
+ 451:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_protectBuf1 = (uint16) rwBoundary;
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 22
+
+
+ 596              		.loc 1 451 0
+ 597 0014 044B     		ldr	r3, .L43+4
+ 598 0016 1E80     		strh	r6, [r3]
+ 452:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 599              		.loc 1 452 0
+ 600 0018 044B     		ldr	r3, .L43+8
+ 601 001a 1D80     		strh	r5, [r3]
+ 454:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 602              		.loc 1 454 0
+ 603 001c 0920     		mov	r0, #9
+ 604 001e FFF7FEFF 		bl	CyIntEnable
+ 605              	.LVL39:
+ 606              	.L41:
+ 456:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 607              		.loc 1 456 0
+ 608              		@ sp needed
+ 609              	.LVL40:
+ 610              	.LVL41:
+ 611              	.LVL42:
+ 612 0022 70BD     		pop	{r4, r5, r6, pc}
+ 613              	.L44:
+ 614              		.align	2
+ 615              	.L43:
+ 616 0024 00000000 		.word	UART_dataBuffer1
+ 617 0028 00000000 		.word	UART_bufSizeBuf1
+ 618 002c 00000000 		.word	UART_protectBuf1
+ 619              		.cfi_endproc
+ 620              	.LFE7:
+ 621              		.size	UART_EzI2CSetBuffer1, .-UART_EzI2CSetBuffer1
+ 622              		.section	.text.UART_EzI2CSetReadBoundaryBuffer1,"ax",%progbits
+ 623              		.align	2
+ 624              		.global	UART_EzI2CSetReadBoundaryBuffer1
+ 625              		.code	16
+ 626              		.thumb_func
+ 627              		.type	UART_EzI2CSetReadBoundaryBuffer1, %function
+ 628              	UART_EzI2CSetReadBoundaryBuffer1:
+ 629              	.LFB8:
+ 477:.\Generated_Source\PSoC4/UART_EZI2C.c ****     UART_protectBuf1 = (uint16) rwBoundary;
+ 630              		.loc 1 477 0
+ 631              		.cfi_startproc
+ 632              	.LVL43:
+ 478:.\Generated_Source\PSoC4/UART_EZI2C.c **** }
+ 633              		.loc 1 478 0
+ 634 0000 014B     		ldr	r3, .L46
+ 635 0002 1880     		strh	r0, [r3]
+ 479:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 636              		.loc 1 479 0
+ 637              		@ sp needed
+ 638 0004 7047     		bx	lr
+ 639              	.L47:
+ 640 0006 C046     		.align	2
+ 641              	.L46:
+ 642 0008 00000000 		.word	UART_protectBuf1
+ 643              		.cfi_endproc
+ 644              	.LFE8:
+ 645              		.size	UART_EzI2CSetReadBoundaryBuffer1, .-UART_EzI2CSetReadBoundaryBuffer1
+ 646              		.section	.text.UART_EzI2CSetAddress2,"ax",%progbits
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 23
+
+
+ 647              		.align	2
+ 648              		.global	UART_EzI2CSetAddress2
+ 649              		.code	16
+ 650              		.thumb_func
+ 651              		.type	UART_EzI2CSetAddress2, %function
+ 652              	UART_EzI2CSetAddress2:
+ 653              	.LFB10:
+ 516:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 517:.\Generated_Source\PSoC4/UART_EZI2C.c ****     /*******************************************************************************
+ 518:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Function Name: UART_EzI2CSetAddress2
+ 519:.\Generated_Source\PSoC4/UART_EZI2C.c ****     ********************************************************************************
+ 520:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 521:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Summary:
+ 522:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  Sets the secondary I2C slave address.
+ 523:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 524:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Parameters:
+ 525:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  address: I2C slave address for the secondary device.
+ 526:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *           This address is the 7-bit right-justified slave address and does
+ 527:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *           not include the R/W bit.
+ 528:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *           This value may be any address between 0 and 127 (0x00 to 0x7F).
+ 529:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 530:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Return:
+ 531:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  None
+ 532:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 533:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *******************************************************************************/
+ 534:.\Generated_Source\PSoC4/UART_EZI2C.c ****     void UART_EzI2CSetAddress2(uint32 address)
+ 535:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ 654              		.loc 1 535 0
+ 655              		.cfi_startproc
+ 656              	.LVL44:
+ 657 0000 08B5     		push	{r3, lr}
+ 658              		.cfi_def_cfa_offset 8
+ 659              		.cfi_offset 3, -8
+ 660              		.cfi_offset 14, -4
+ 661 0002 011C     		mov	r1, r0
+ 536:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_addrBuf2 = (uint8) address;
+ 662              		.loc 1 536 0
+ 663 0004 044B     		ldr	r3, .L49
+ 664 0006 1870     		strb	r0, [r3]
+ 537:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 538:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_RX_MATCH_REG = UART_EzI2CUpdateRxMatchReg((uint32) UART_addrBuf1,
+ 665              		.loc 1 538 0
+ 666 0008 044B     		ldr	r3, .L49+4
+ 667 000a 1878     		ldrb	r0, [r3]
+ 668              	.LVL45:
+ 669 000c FFF7FEFF 		bl	UART_EzI2CUpdateRxMatchReg
+ 670              	.LVL46:
+ 671 0010 034B     		ldr	r3, .L49+8
+ 672 0012 1860     		str	r0, [r3]
+ 539:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                                                address);
+ 540:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 673              		.loc 1 540 0
+ 674              		@ sp needed
+ 675 0014 08BD     		pop	{r3, pc}
+ 676              	.L50:
+ 677 0016 C046     		.align	2
+ 678              	.L49:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 24
+
+
+ 679 0018 00000000 		.word	UART_addrBuf2
+ 680 001c 00000000 		.word	UART_addrBuf1
+ 681 0020 10032440 		.word	1076101904
+ 682              		.cfi_endproc
+ 683              	.LFE10:
+ 684              		.size	UART_EzI2CSetAddress2, .-UART_EzI2CSetAddress2
+ 685              		.section	.text.UART_EzI2CGetAddress2,"ax",%progbits
+ 686              		.align	2
+ 687              		.global	UART_EzI2CGetAddress2
+ 688              		.code	16
+ 689              		.thumb_func
+ 690              		.type	UART_EzI2CGetAddress2, %function
+ 691              	UART_EzI2CGetAddress2:
+ 692              	.LFB11:
+ 541:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 542:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 543:.\Generated_Source\PSoC4/UART_EZI2C.c ****     /*******************************************************************************
+ 544:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Function Name: UART_EzI2CGetAddress2
+ 545:.\Generated_Source\PSoC4/UART_EZI2C.c ****     ********************************************************************************
+ 546:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 547:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Summary:
+ 548:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  Gets secondary the I2C slave 7-bit address.
+ 549:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 550:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Parameters:
+ 551:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  None
+ 552:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 553:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Return:
+ 554:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  Returns the I2C slave address for the secondary device.
+ 555:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  This address is a 7-bit right-justified slave address and does not
+ 556:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  include the R/W bit.
+ 557:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  This value may be any address between 0 and 127 (0x00 to 0x7F).
+ 558:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 559:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *******************************************************************************/
+ 560:.\Generated_Source\PSoC4/UART_EZI2C.c ****     uint32 UART_EzI2CGetAddress2(void)
+ 561:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ 693              		.loc 1 561 0
+ 694              		.cfi_startproc
+ 562:.\Generated_Source\PSoC4/UART_EZI2C.c ****         return((uint32) UART_addrBuf2);
+ 695              		.loc 1 562 0
+ 696 0000 014B     		ldr	r3, .L52
+ 697 0002 1878     		ldrb	r0, [r3]
+ 563:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 698              		.loc 1 563 0
+ 699              		@ sp needed
+ 700 0004 7047     		bx	lr
+ 701              	.L53:
+ 702 0006 C046     		.align	2
+ 703              	.L52:
+ 704 0008 00000000 		.word	UART_addrBuf2
+ 705              		.cfi_endproc
+ 706              	.LFE11:
+ 707              		.size	UART_EzI2CGetAddress2, .-UART_EzI2CGetAddress2
+ 708              		.section	.text.UART_EzI2CSetBuffer2,"ax",%progbits
+ 709              		.align	2
+ 710              		.global	UART_EzI2CSetBuffer2
+ 711              		.code	16
+ 712              		.thumb_func
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 25
+
+
+ 713              		.type	UART_EzI2CSetBuffer2, %function
+ 714              	UART_EzI2CSetBuffer2:
+ 715              	.LFB12:
+ 564:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 565:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 566:.\Generated_Source\PSoC4/UART_EZI2C.c ****     /*******************************************************************************
+ 567:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Function Name: UART_EzI2CSetBuffer2
+ 568:.\Generated_Source\PSoC4/UART_EZI2C.c ****     ********************************************************************************
+ 569:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 570:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Summary:
+ 571:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  Sets up the data buffer to be exposed to the I2C master on a secondary slave
+ 572:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  address request.
+ 573:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 574:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Parameters:
+ 575:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  bufSize: Size of the buffer in bytes.
+ 576:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  rwBoundary: Sets how many bytes are writeable in the beginning of the buffer.
+ 577:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *              This value must be less than or equal to the buffer size.
+ 578:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *              Data located at offset rwBoundry and greater are read only.
+ 579:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  buffer: Pointer to the data buffer.
+ 580:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 581:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Return:
+ 582:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  None
+ 583:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 584:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *******************************************************************************/
+ 585:.\Generated_Source\PSoC4/UART_EZI2C.c ****     void UART_EzI2CSetBuffer2(uint32 bufSize, uint32 rwBoundary, volatile uint8 * buffer)
+ 586:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ 716              		.loc 1 586 0
+ 717              		.cfi_startproc
+ 718              	.LVL47:
+ 719 0000 70B5     		push	{r4, r5, r6, lr}
+ 720              		.cfi_def_cfa_offset 16
+ 721              		.cfi_offset 4, -16
+ 722              		.cfi_offset 5, -12
+ 723              		.cfi_offset 6, -8
+ 724              		.cfi_offset 14, -4
+ 725 0002 061C     		mov	r6, r0
+ 726 0004 0D1C     		mov	r5, r1
+ 727 0006 141E     		sub	r4, r2, #0
+ 587:.\Generated_Source\PSoC4/UART_EZI2C.c ****         if (NULL != buffer)
+ 728              		.loc 1 587 0
+ 729 0008 0BD0     		beq	.L54
+ 588:.\Generated_Source\PSoC4/UART_EZI2C.c ****         {
+ 589:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_DisableInt();  /* Lock from interruption */
+ 730              		.loc 1 589 0
+ 731 000a 0920     		mov	r0, #9
+ 732              	.LVL48:
+ 733 000c FFF7FEFF 		bl	CyIntDisable
+ 734              	.LVL49:
+ 590:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 591:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_dataBuffer2 =  buffer;
+ 735              		.loc 1 591 0
+ 736 0010 044B     		ldr	r3, .L56
+ 737 0012 1C60     		str	r4, [r3]
+ 592:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_bufSizeBuf2 = (uint16) bufSize;
+ 738              		.loc 1 592 0
+ 739 0014 044B     		ldr	r3, .L56+4
+ 740 0016 1E80     		strh	r6, [r3]
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 26
+
+
+ 593:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_protectBuf2 = (uint16) rwBoundary;
+ 741              		.loc 1 593 0
+ 742 0018 044B     		ldr	r3, .L56+8
+ 743 001a 1D80     		strh	r5, [r3]
+ 594:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 595:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_EnableInt();   /* Release lock */
+ 744              		.loc 1 595 0
+ 745 001c 0920     		mov	r0, #9
+ 746 001e FFF7FEFF 		bl	CyIntEnable
+ 747              	.LVL50:
+ 748              	.L54:
+ 596:.\Generated_Source\PSoC4/UART_EZI2C.c ****         }
+ 597:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 749              		.loc 1 597 0
+ 750              		@ sp needed
+ 751              	.LVL51:
+ 752              	.LVL52:
+ 753              	.LVL53:
+ 754 0022 70BD     		pop	{r4, r5, r6, pc}
+ 755              	.L57:
+ 756              		.align	2
+ 757              	.L56:
+ 758 0024 00000000 		.word	UART_dataBuffer2
+ 759 0028 00000000 		.word	UART_bufSizeBuf2
+ 760 002c 00000000 		.word	UART_protectBuf2
+ 761              		.cfi_endproc
+ 762              	.LFE12:
+ 763              		.size	UART_EzI2CSetBuffer2, .-UART_EzI2CSetBuffer2
+ 764              		.section	.text.UART_EzI2CSetReadBoundaryBuffer2,"ax",%progbits
+ 765              		.align	2
+ 766              		.global	UART_EzI2CSetReadBoundaryBuffer2
+ 767              		.code	16
+ 768              		.thumb_func
+ 769              		.type	UART_EzI2CSetReadBoundaryBuffer2, %function
+ 770              	UART_EzI2CSetReadBoundaryBuffer2:
+ 771              	.LFB13:
+ 598:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 599:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 600:.\Generated_Source\PSoC4/UART_EZI2C.c ****     /*******************************************************************************
+ 601:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Function Name: UART_EzI2CSetReadBoundaryBuffer2
+ 602:.\Generated_Source\PSoC4/UART_EZI2C.c ****     ********************************************************************************
+ 603:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 604:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Summary:
+ 605:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  Sets the read only boundary in the data buffer to be exposed to the I2C
+ 606:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  master on a secondary address request.
+ 607:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 608:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Parameters:
+ 609:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  rwBoundary: Sets how many bytes are writeable at the beginning of the buffer.
+ 610:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *              This value must be less than or equal to the buffer size.
+ 611:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *              Data located at offset rwBoundry and greater are read only.
+ 612:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 613:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Return:
+ 614:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  None
+ 615:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 616:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *******************************************************************************/
+ 617:.\Generated_Source\PSoC4/UART_EZI2C.c ****     void UART_EzI2CSetReadBoundaryBuffer2(uint32 rwBoundary)
+ 618:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 27
+
+
+ 772              		.loc 1 618 0
+ 773              		.cfi_startproc
+ 774              	.LVL54:
+ 619:.\Generated_Source\PSoC4/UART_EZI2C.c ****         UART_protectBuf2 = (uint16) rwBoundary;
+ 775              		.loc 1 619 0
+ 776 0000 014B     		ldr	r3, .L59
+ 777 0002 1880     		strh	r0, [r3]
+ 620:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 778              		.loc 1 620 0
+ 779              		@ sp needed
+ 780 0004 7047     		bx	lr
+ 781              	.L60:
+ 782 0006 C046     		.align	2
+ 783              	.L59:
+ 784 0008 00000000 		.word	UART_protectBuf2
+ 785              		.cfi_endproc
+ 786              	.LFE13:
+ 787              		.size	UART_EzI2CSetReadBoundaryBuffer2, .-UART_EzI2CSetReadBoundaryBuffer2
+ 788              		.section	.text.UART_EzI2CSaveConfig,"ax",%progbits
+ 789              		.align	2
+ 790              		.global	UART_EzI2CSaveConfig
+ 791              		.code	16
+ 792              		.thumb_func
+ 793              		.type	UART_EzI2CSaveConfig, %function
+ 794              	UART_EzI2CSaveConfig:
+ 795              	.LFB14:
+ 621:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 622:.\Generated_Source\PSoC4/UART_EZI2C.c **** #endif /* (UART_SECONDARY_ADDRESS_ENABLE_CONST) */
+ 623:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 624:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 625:.\Generated_Source\PSoC4/UART_EZI2C.c **** #if(UART_EZI2C_WAKE_ENABLE_CONST)
+ 626:.\Generated_Source\PSoC4/UART_EZI2C.c ****     /*******************************************************************************
+ 627:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Function Name: UART_EzI2CSaveConfig
+ 628:.\Generated_Source\PSoC4/UART_EZI2C.c ****     ********************************************************************************
+ 629:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 630:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Summary:
+ 631:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  Clock stretching is  enabled: Enables INTR_I2C_EC.WAKE_UP interrupt source.
+ 632:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  It triggers on the slave address match.
+ 633:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  Clock stretching is disabled: Waits until the I2C slave becomes free and
+ 634:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  disables the block to perform reconfiguration from the active mode operation
+ 635:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  to deep sleep with wake up on the address match: enables INTR_I2C_EC.WAKE_UP
+ 636:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  interrupt source and disables the INTR_S and INTR_TX interrupt sources.
+ 637:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  The block is disabled before reconfiguration and enabled when
+ 638:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  it is completed.
+ 639:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 640:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Parameters:
+ 641:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  None
+ 642:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 643:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Return:
+ 644:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  None
+ 645:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 646:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *******************************************************************************/
+ 647:.\Generated_Source\PSoC4/UART_EZI2C.c ****     void UART_EzI2CSaveConfig(void)
+ 648:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ 796              		.loc 1 648 0
+ 797              		.cfi_startproc
+ 798 0000 38B5     		push	{r3, r4, r5, lr}
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 28
+
+
+ 799              		.cfi_def_cfa_offset 16
+ 800              		.cfi_offset 3, -16
+ 801              		.cfi_offset 4, -12
+ 802              		.cfi_offset 5, -8
+ 803              		.cfi_offset 14, -4
+ 804              	.LVL55:
+ 649:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #if(UART_CY_SCBIP_V0)
+ 650:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 651:.\Generated_Source\PSoC4/UART_EZI2C.c ****         if(UART_EZI2C_SCL_STRETCH_ENABLE)
+ 652:.\Generated_Source\PSoC4/UART_EZI2C.c ****         {
+ 653:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Enable wakeup interrupt source on address match */
+ 654:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_SetI2CExtClkInterruptMode(UART_INTR_I2C_EC_WAKE_UP);
+ 655:.\Generated_Source\PSoC4/UART_EZI2C.c ****         }
+ 656:.\Generated_Source\PSoC4/UART_EZI2C.c ****         
+ 657:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 658:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #else
+ 659:.\Generated_Source\PSoC4/UART_EZI2C.c ****         uint8 enableInt;
+ 660:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 661:.\Generated_Source\PSoC4/UART_EZI2C.c ****         enableInt = (uint8) UART_INTR_I2C_EC_WAKE_UP;
+ 662:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 663:.\Generated_Source\PSoC4/UART_EZI2C.c ****         if(UART_EZI2C_SCL_STRETCH_ENABLE)
+ 805              		.loc 1 663 0
+ 806 0002 234B     		ldr	r3, .L67
+ 807 0004 1B68     		ldr	r3, [r3]
+ 808 0006 5B06     		lsl	r3, r3, #25
+ 809 0008 03D5     		bpl	.L64
+ 664:.\Generated_Source\PSoC4/UART_EZI2C.c ****         {
+ 665:.\Generated_Source\PSoC4/UART_EZI2C.c ****         #if (UART_SCB_CLK_INTERNAL)
+ 666:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Disable clock to internal address match logic. Ticket ID #187931 */
+ 667:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_SCBCLK_Stop();
+ 668:.\Generated_Source\PSoC4/UART_EZI2C.c ****         #endif /* (UART_SCB_CLK_INTERNAL) */
+ 669:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 670:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Enable interrupt source to wakeup device */
+ 671:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_SetI2CExtClkInterruptMode(enableInt);
+ 810              		.loc 1 671 0
+ 811 000a 0122     		mov	r2, #1
+ 812 000c 214B     		ldr	r3, .L67+4
+ 813 000e 1A60     		str	r2, [r3]
+ 814 0010 3DE0     		b	.L61
+ 815              	.LVL56:
+ 816              	.L64:
+ 672:.\Generated_Source\PSoC4/UART_EZI2C.c ****         }
+ 673:.\Generated_Source\PSoC4/UART_EZI2C.c ****         else
+ 674:.\Generated_Source\PSoC4/UART_EZI2C.c ****         {
+ 675:.\Generated_Source\PSoC4/UART_EZI2C.c ****             for(;;) /* Wait for end of transaction intended to slave */
+ 676:.\Generated_Source\PSoC4/UART_EZI2C.c ****             {
+ 677:.\Generated_Source\PSoC4/UART_EZI2C.c ****                 if(0u == (UART_GetI2CExtClkInterruptSource() & UART_INTR_I2C_EC_WAKE_UP))
+ 817              		.loc 1 677 0
+ 818 0012 214B     		ldr	r3, .L67+8
+ 819 0014 1B68     		ldr	r3, [r3]
+ 820 0016 DB07     		lsl	r3, r3, #31
+ 821 0018 FBD4     		bmi	.L64
+ 678:.\Generated_Source\PSoC4/UART_EZI2C.c ****                 {
+ 679:.\Generated_Source\PSoC4/UART_EZI2C.c ****                     enableInt = CyEnterCriticalSection();
+ 822              		.loc 1 679 0
+ 823 001a FFF7FEFF 		bl	CyEnterCriticalSection
+ 824              	.LVL57:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 29
+
+
+ 825 001e 041C     		mov	r4, r0
+ 826              	.LVL58:
+ 680:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 681:.\Generated_Source\PSoC4/UART_EZI2C.c ****                     if(0u == (UART_GetI2CExtClkInterruptSource() & UART_INTR_I2C_EC_WAKE_UP))
+ 827              		.loc 1 681 0
+ 828 0020 1D4B     		ldr	r3, .L67+8
+ 829 0022 1B68     		ldr	r3, [r3]
+ 830 0024 DB07     		lsl	r3, r3, #31
+ 831 0026 2FD4     		bmi	.L65
+ 682:.\Generated_Source\PSoC4/UART_EZI2C.c ****                     {
+ 683:.\Generated_Source\PSoC4/UART_EZI2C.c ****                         /* Attempts to set NACK command before disable block */
+ 684:.\Generated_Source\PSoC4/UART_EZI2C.c ****                         UART_I2C_SLAVE_GENERATE_NACK;
+ 832              		.loc 1 684 0
+ 833 0028 0222     		mov	r2, #2
+ 834 002a 1C4B     		ldr	r3, .L67+12
+ 835 002c 1A60     		str	r2, [r3]
+ 685:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 686:.\Generated_Source\PSoC4/UART_EZI2C.c ****                         if(0u == (UART_GetI2CExtClkInterruptSource() & UART_INTR_I2C_EC_WAKE_UP))
+ 836              		.loc 1 686 0
+ 837 002e 1A4B     		ldr	r3, .L67+8
+ 838 0030 1B68     		ldr	r3, [r3]
+ 839 0032 DB07     		lsl	r3, r3, #31
+ 840 0034 25D4     		bmi	.L66
+ 687:.\Generated_Source\PSoC4/UART_EZI2C.c ****                         {
+ 688:.\Generated_Source\PSoC4/UART_EZI2C.c ****                             /* NACK command was set before. It is safe to disable block */
+ 689:.\Generated_Source\PSoC4/UART_EZI2C.c ****                             UART_CTRL_REG &= (uint32) ~UART_CTRL_ENABLED;
+ 841              		.loc 1 689 0
+ 842 0036 1A4D     		ldr	r5, .L67+16
+ 843 0038 2B68     		ldr	r3, [r5]
+ 844 003a 5B00     		lsl	r3, r3, #1
+ 845 003c 5B08     		lsr	r3, r3, #1
+ 846 003e 2B60     		str	r3, [r5]
+ 690:.\Generated_Source\PSoC4/UART_EZI2C.c ****                             UART_DisableInt();
+ 847              		.loc 1 690 0
+ 848 0040 0920     		mov	r0, #9
+ 849              	.LVL59:
+ 850 0042 FFF7FEFF 		bl	CyIntDisable
+ 851              	.LVL60:
+ 691:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 692:.\Generated_Source\PSoC4/UART_EZI2C.c ****                             CyExitCriticalSection(enableInt);
+ 852              		.loc 1 692 0
+ 853 0046 201C     		mov	r0, r4
+ 854 0048 FFF7FEFF 		bl	CyExitCriticalSection
+ 855              	.LVL61:
+ 693:.\Generated_Source\PSoC4/UART_EZI2C.c ****                             break;
+ 694:.\Generated_Source\PSoC4/UART_EZI2C.c ****                         }
+ 695:.\Generated_Source\PSoC4/UART_EZI2C.c ****                         else
+ 696:.\Generated_Source\PSoC4/UART_EZI2C.c ****                         {
+ 697:.\Generated_Source\PSoC4/UART_EZI2C.c ****                             /* Clear NACK command to prevent data NACK */
+ 698:.\Generated_Source\PSoC4/UART_EZI2C.c ****                             UART_I2C_SLAVE_CLEAR_NACK;
+ 699:.\Generated_Source\PSoC4/UART_EZI2C.c ****                         }
+ 700:.\Generated_Source\PSoC4/UART_EZI2C.c ****                     }
+ 701:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 702:.\Generated_Source\PSoC4/UART_EZI2C.c ****                     CyExitCriticalSection(enableInt);
+ 703:.\Generated_Source\PSoC4/UART_EZI2C.c ****                 }
+ 704:.\Generated_Source\PSoC4/UART_EZI2C.c ****             }
+ 705:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 30
+
+
+ 706:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Disable all active mode interrupt sources */
+ 707:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_SetTxInterruptMode(UART_NO_INTR_SOURCES);
+ 856              		.loc 1 707 0
+ 857 004c 0023     		mov	r3, #0
+ 858 004e 154A     		ldr	r2, .L67+20
+ 859 0050 1360     		str	r3, [r2]
+ 708:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_SetSlaveInterruptMode(UART_NO_INTR_SOURCES);
+ 860              		.loc 1 708 0
+ 861 0052 0F4A     		ldr	r2, .L67
+ 862 0054 1360     		str	r3, [r2]
+ 709:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_ClearPendingInt();
+ 863              		.loc 1 709 0
+ 864 0056 0920     		mov	r0, #9
+ 865 0058 FFF7FEFF 		bl	CyIntClearPending
+ 866              	.LVL62:
+ 710:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_EnableInt();
+ 867              		.loc 1 710 0
+ 868 005c 0920     		mov	r0, #9
+ 869 005e FFF7FEFF 		bl	CyIntEnable
+ 870              	.LVL63:
+ 711:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 712:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Enable wakeup interrupt on address match */
+ 713:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_SetI2CExtClkInterruptMode(UART_INTR_I2C_EC_WAKE_UP);
+ 871              		.loc 1 713 0
+ 872 0062 0122     		mov	r2, #1
+ 873 0064 0B4B     		ldr	r3, .L67+4
+ 874 0066 1A60     		str	r2, [r3]
+ 714:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 715:.\Generated_Source\PSoC4/UART_EZI2C.c ****             enableInt = CyEnterCriticalSection();
+ 875              		.loc 1 715 0
+ 876 0068 FFF7FEFF 		bl	CyEnterCriticalSection
+ 877              	.LVL64:
+ 716:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 717:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_CTRL_REG |= (uint32) UART_CTRL_ENABLED;
+ 878              		.loc 1 717 0
+ 879 006c 2B68     		ldr	r3, [r5]
+ 880 006e 8022     		mov	r2, #128
+ 881 0070 1206     		lsl	r2, r2, #24
+ 882 0072 1343     		orr	r3, r2
+ 883 0074 2B60     		str	r3, [r5]
+ 718:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_I2C_SLAVE_GENERATE_NACK;
+ 884              		.loc 1 718 0
+ 885 0076 0222     		mov	r2, #2
+ 886 0078 084B     		ldr	r3, .L67+12
+ 887 007a 1A60     		str	r2, [r3]
+ 719:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 720:.\Generated_Source\PSoC4/UART_EZI2C.c ****             CyExitCriticalSection(enableInt);
+ 888              		.loc 1 720 0
+ 889 007c FFF7FEFF 		bl	CyExitCriticalSection
+ 890              	.LVL65:
+ 891 0080 05E0     		b	.L61
+ 892              	.LVL66:
+ 893              	.L66:
+ 698:.\Generated_Source\PSoC4/UART_EZI2C.c ****                         }
+ 894              		.loc 1 698 0
+ 895 0082 0022     		mov	r2, #0
+ 896 0084 054B     		ldr	r3, .L67+12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 31
+
+
+ 897 0086 1A60     		str	r2, [r3]
+ 898              	.L65:
+ 702:.\Generated_Source\PSoC4/UART_EZI2C.c ****                 }
+ 899              		.loc 1 702 0
+ 900 0088 FFF7FEFF 		bl	CyExitCriticalSection
+ 901              	.LVL67:
+ 902 008c C1E7     		b	.L64
+ 903              	.L61:
+ 721:.\Generated_Source\PSoC4/UART_EZI2C.c ****         }
+ 722:.\Generated_Source\PSoC4/UART_EZI2C.c ****         
+ 723:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #endif /* (UART_CY_SCBIP_V0) */
+ 724:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 904              		.loc 1 724 0
+ 905              		@ sp needed
+ 906 008e 38BD     		pop	{r3, r4, r5, pc}
+ 907              	.L68:
+ 908              		.align	2
+ 909              	.L67:
+ 910 0090 480F2440 		.word	1076105032
+ 911 0094 880E2440 		.word	1076104840
+ 912 0098 800E2440 		.word	1076104832
+ 913 009c 6C002440 		.word	1076101228
+ 914 00a0 00002440 		.word	1076101120
+ 915 00a4 880F2440 		.word	1076105096
+ 916              		.cfi_endproc
+ 917              	.LFE14:
+ 918              		.size	UART_EzI2CSaveConfig, .-UART_EzI2CSaveConfig
+ 919              		.section	.text.UART_EzI2CRestoreConfig,"ax",%progbits
+ 920              		.align	2
+ 921              		.global	UART_EzI2CRestoreConfig
+ 922              		.code	16
+ 923              		.thumb_func
+ 924              		.type	UART_EzI2CRestoreConfig, %function
+ 925              	UART_EzI2CRestoreConfig:
+ 926              	.LFB15:
+ 725:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 726:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 727:.\Generated_Source\PSoC4/UART_EZI2C.c ****     /*******************************************************************************
+ 728:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Function Name: UART_EzI2CRestoreConfig
+ 729:.\Generated_Source\PSoC4/UART_EZI2C.c ****     ********************************************************************************
+ 730:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 731:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Summary:
+ 732:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  Clock stretching is  enabled: Disables the INTR_I2C_EC.WAKE_UP interrupt
+ 733:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  source.
+ 734:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  Clock stretching is disabled: Reconfigures the EZI2C component from
+ 735:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  Deep Sleep (wake up on the address match) to active operation: disables
+ 736:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  the INTR_I2C_EC.WAKE_UP interrupt source and restores the INTR_S
+ 737:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  interrupt sources to operate in the active mode.
+ 738:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  The block is disabled before reconfiguration and enabled when
+ 739:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  it is completed.
+ 740:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 741:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Parameters:
+ 742:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  None
+ 743:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ 744:.\Generated_Source\PSoC4/UART_EZI2C.c ****     * Return:
+ 745:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *  None
+ 746:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 32
+
+
+ 747:.\Generated_Source\PSoC4/UART_EZI2C.c ****     *******************************************************************************/
+ 748:.\Generated_Source\PSoC4/UART_EZI2C.c ****     void UART_EzI2CRestoreConfig(void)
+ 749:.\Generated_Source\PSoC4/UART_EZI2C.c ****     {
+ 927              		.loc 1 749 0
+ 928              		.cfi_startproc
+ 929 0000 10B5     		push	{r4, lr}
+ 930              		.cfi_def_cfa_offset 8
+ 931              		.cfi_offset 4, -8
+ 932              		.cfi_offset 14, -4
+ 750:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #if(UART_CY_SCBIP_V0)
+ 751:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 752:.\Generated_Source\PSoC4/UART_EZI2C.c ****         if(UART_EZI2C_SCL_STRETCH_ENABLE)
+ 753:.\Generated_Source\PSoC4/UART_EZI2C.c ****         {
+ 754:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Disable wakeup interrupt on address match */
+ 755:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_SetI2CExtClkInterruptMode(UART_NO_INTR_SOURCES);
+ 756:.\Generated_Source\PSoC4/UART_EZI2C.c ****         }
+ 757:.\Generated_Source\PSoC4/UART_EZI2C.c ****         
+ 758:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 759:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #else
+ 760:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 761:.\Generated_Source\PSoC4/UART_EZI2C.c ****         if(UART_EZI2C_SCL_STRETCH_ENABLE)
+ 933              		.loc 1 761 0
+ 934 0002 0E4B     		ldr	r3, .L72
+ 935 0004 1B68     		ldr	r3, [r3]
+ 936 0006 5B06     		lsl	r3, r3, #25
+ 937 0008 03D5     		bpl	.L70
+ 762:.\Generated_Source\PSoC4/UART_EZI2C.c ****         {
+ 763:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Disable wakeup interrupt source on address match */
+ 764:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_SetI2CExtClkInterruptMode(UART_NO_INTR_SOURCES);
+ 938              		.loc 1 764 0
+ 939 000a 0022     		mov	r2, #0
+ 940 000c 0C4B     		ldr	r3, .L72+4
+ 941 000e 1A60     		str	r2, [r3]
+ 942 0010 13E0     		b	.L69
+ 943              	.L70:
+ 765:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 766:.\Generated_Source\PSoC4/UART_EZI2C.c ****         #if (UART_SCB_CLK_INTERNAL)
+ 767:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Enable clock to internal address match logic. Ticket ID #187931 */
+ 768:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_SCBCLK_Start();
+ 769:.\Generated_Source\PSoC4/UART_EZI2C.c ****         #endif /* (UART_SCB_CLK_INTERNAL) */
+ 770:.\Generated_Source\PSoC4/UART_EZI2C.c ****         }
+ 771:.\Generated_Source\PSoC4/UART_EZI2C.c ****         else
+ 772:.\Generated_Source\PSoC4/UART_EZI2C.c ****         {
+ 773:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* NACK will be driven on the bus by wakeup or NACK command.
+ 774:.\Generated_Source\PSoC4/UART_EZI2C.c ****             * It is safe to disable block to restore active mode configuration.
+ 775:.\Generated_Source\PSoC4/UART_EZI2C.c ****             */
+ 776:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_CTRL_REG &= (uint32) ~UART_CTRL_ENABLED;
+ 944              		.loc 1 776 0
+ 945 0012 0C4C     		ldr	r4, .L72+8
+ 946 0014 2368     		ldr	r3, [r4]
+ 947 0016 5B00     		lsl	r3, r3, #1
+ 948 0018 5B08     		lsr	r3, r3, #1
+ 949 001a 2360     		str	r3, [r4]
+ 777:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 778:.\Generated_Source\PSoC4/UART_EZI2C.c ****             /* Restore active mode interrupt sources */
+ 779:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_SetI2CExtClkInterruptMode(UART_NO_INTR_SOURCES);
+ 950              		.loc 1 779 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 33
+
+
+ 951 001c 0022     		mov	r2, #0
+ 952 001e 084B     		ldr	r3, .L72+4
+ 953 0020 1A60     		str	r2, [r3]
+ 780:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_SetSlaveInterruptMode(UART_EZI2C_INTR_SLAVE_MASK |
+ 954              		.loc 1 780 0
+ 955 0022 3222     		mov	r2, #50
+ 956 0024 FF32     		add	r2, r2, #255
+ 957 0026 054B     		ldr	r3, .L72
+ 958 0028 1A60     		str	r2, [r3]
+ 781:.\Generated_Source\PSoC4/UART_EZI2C.c ****                                                    UART_INTR_SLAVE_I2C_START);
+ 782:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_ClearPendingInt();
+ 959              		.loc 1 782 0
+ 960 002a 0920     		mov	r0, #9
+ 961 002c FFF7FEFF 		bl	CyIntClearPending
+ 962              	.LVL68:
+ 783:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 784:.\Generated_Source\PSoC4/UART_EZI2C.c ****             UART_CTRL_REG |= (uint32) UART_CTRL_ENABLED;
+ 963              		.loc 1 784 0
+ 964 0030 2368     		ldr	r3, [r4]
+ 965 0032 8022     		mov	r2, #128
+ 966 0034 1206     		lsl	r2, r2, #24
+ 967 0036 1343     		orr	r3, r2
+ 968 0038 2360     		str	r3, [r4]
+ 969              	.L69:
+ 785:.\Generated_Source\PSoC4/UART_EZI2C.c ****         }
+ 786:.\Generated_Source\PSoC4/UART_EZI2C.c ****         
+ 787:.\Generated_Source\PSoC4/UART_EZI2C.c **** 
+ 788:.\Generated_Source\PSoC4/UART_EZI2C.c ****     #endif /* (UART_CY_SCBIP_V0) */
+ 789:.\Generated_Source\PSoC4/UART_EZI2C.c ****     }
+ 970              		.loc 1 789 0
+ 971              		@ sp needed
+ 972 003a 10BD     		pop	{r4, pc}
+ 973              	.L73:
+ 974              		.align	2
+ 975              	.L72:
+ 976 003c 480F2440 		.word	1076105032
+ 977 0040 880E2440 		.word	1076104840
+ 978 0044 00002440 		.word	1076101120
+ 979              		.cfi_endproc
+ 980              	.LFE15:
+ 981              		.size	UART_EzI2CRestoreConfig, .-UART_EzI2CRestoreConfig
+ 982              		.global	UART_configEzI2C
+ 983              		.comm	UART_indexBuf2,2,2
+ 984              		.comm	UART_offsetBuf2,2,2
+ 985              		.comm	UART_protectBuf2,2,2
+ 986              		.comm	UART_bufSizeBuf2,2,2
+ 987              		.comm	UART_dataBuffer2,4,4
+ 988              		.comm	UART_addrBuf2,1,1
+ 989              		.comm	UART_addrBuf1,1,1
+ 990              		.comm	UART_indexBuf1,2,2
+ 991              		.comm	UART_offsetBuf1,2,2
+ 992              		.comm	UART_protectBuf1,2,2
+ 993              		.comm	UART_bufSizeBuf1,2,2
+ 994              		.comm	UART_dataBuffer1,4,4
+ 995              		.comm	UART_fsmState,1,1
+ 996              		.comm	UART_curStatus,1,1
+ 997              		.section	.rodata
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 34
+
+
+ 998              		.align	2
+ 999              		.type	UART_configEzI2C, %object
+ 1000              		.size	UART_configEzI2C, 32
+ 1001              	UART_configEzI2C:
+ 1002 0000 01000000 		.word	1
+ 1003 0004 01000000 		.word	1
+ 1004 0008 00000000 		.word	0
+ 1005 000c 08000000 		.word	8
+ 1006 0010 09000000 		.word	9
+ 1007 0014 00000000 		.word	0
+ 1008 0018 00000000 		.word	0
+ 1009 001c 00       		.byte	0
+ 1010 001d 000000   		.space	3
+ 1011              		.text
+ 1012              	.Letext0:
+ 1013              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 1014              		.file 3 ".\\Generated_Source\\PSoC4\\UART_EZI2C.h"
+ 1015              		.file 4 ".\\Generated_Source\\PSoC4\\UART_PVT.h"
+ 1016              		.file 5 "Generated_Source\\PSoC4/CyLib.h"
+ 1017              		.section	.debug_info,"",%progbits
+ 1018              	.Ldebug_info0:
+ 1019 0000 24070000 		.4byte	0x724
+ 1020 0004 0400     		.2byte	0x4
+ 1021 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1022 000a 04       		.byte	0x4
+ 1023 000b 01       		.uleb128 0x1
+ 1024 000c 50030000 		.4byte	.LASF74
+ 1025 0010 01       		.byte	0x1
+ 1026 0011 A8010000 		.4byte	.LASF75
+ 1027 0015 AB020000 		.4byte	.LASF76
+ 1028 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1029 001d 00000000 		.4byte	0
+ 1030 0021 00000000 		.4byte	.Ldebug_line0
+ 1031 0025 02       		.uleb128 0x2
+ 1032 0026 01       		.byte	0x1
+ 1033 0027 06       		.byte	0x6
+ 1034 0028 B2000000 		.4byte	.LASF0
+ 1035 002c 02       		.uleb128 0x2
+ 1036 002d 01       		.byte	0x1
+ 1037 002e 08       		.byte	0x8
+ 1038 002f 4E040000 		.4byte	.LASF1
+ 1039 0033 02       		.uleb128 0x2
+ 1040 0034 02       		.byte	0x2
+ 1041 0035 05       		.byte	0x5
+ 1042 0036 78040000 		.4byte	.LASF2
+ 1043 003a 02       		.uleb128 0x2
+ 1044 003b 02       		.byte	0x2
+ 1045 003c 07       		.byte	0x7
+ 1046 003d 24020000 		.4byte	.LASF3
+ 1047 0041 02       		.uleb128 0x2
+ 1048 0042 04       		.byte	0x4
+ 1049 0043 05       		.byte	0x5
+ 1050 0044 EC000000 		.4byte	.LASF4
+ 1051 0048 02       		.uleb128 0x2
+ 1052 0049 04       		.byte	0x4
+ 1053 004a 07       		.byte	0x7
+ 1054 004b CE010000 		.4byte	.LASF5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 35
+
+
+ 1055 004f 02       		.uleb128 0x2
+ 1056 0050 08       		.byte	0x8
+ 1057 0051 05       		.byte	0x5
+ 1058 0052 A4000000 		.4byte	.LASF6
+ 1059 0056 02       		.uleb128 0x2
+ 1060 0057 08       		.byte	0x8
+ 1061 0058 07       		.byte	0x7
+ 1062 0059 55000000 		.4byte	.LASF7
+ 1063 005d 03       		.uleb128 0x3
+ 1064 005e 04       		.byte	0x4
+ 1065 005f 05       		.byte	0x5
+ 1066 0060 696E7400 		.ascii	"int\000"
+ 1067 0064 02       		.uleb128 0x2
+ 1068 0065 04       		.byte	0x4
+ 1069 0066 07       		.byte	0x7
+ 1070 0067 9B010000 		.4byte	.LASF8
+ 1071 006b 04       		.uleb128 0x4
+ 1072 006c 37010000 		.4byte	.LASF9
+ 1073 0070 02       		.byte	0x2
+ 1074 0071 C2       		.byte	0xc2
+ 1075 0072 2C000000 		.4byte	0x2c
+ 1076 0076 04       		.uleb128 0x4
+ 1077 0077 11000000 		.4byte	.LASF10
+ 1078 007b 02       		.byte	0x2
+ 1079 007c C3       		.byte	0xc3
+ 1080 007d 3A000000 		.4byte	0x3a
+ 1081 0081 04       		.uleb128 0x4
+ 1082 0082 5C010000 		.4byte	.LASF11
+ 1083 0086 02       		.byte	0x2
+ 1084 0087 C4       		.byte	0xc4
+ 1085 0088 48000000 		.4byte	0x48
+ 1086 008c 02       		.uleb128 0x2
+ 1087 008d 04       		.byte	0x4
+ 1088 008e 04       		.byte	0x4
+ 1089 008f 0F040000 		.4byte	.LASF12
+ 1090 0093 02       		.uleb128 0x2
+ 1091 0094 08       		.byte	0x8
+ 1092 0095 04       		.byte	0x4
+ 1093 0096 46010000 		.4byte	.LASF13
+ 1094 009a 02       		.uleb128 0x2
+ 1095 009b 01       		.byte	0x1
+ 1096 009c 08       		.byte	0x8
+ 1097 009d ED040000 		.4byte	.LASF14
+ 1098 00a1 05       		.uleb128 0x5
+ 1099 00a2 6B000000 		.4byte	0x6b
+ 1100 00a6 06       		.uleb128 0x6
+ 1101 00a7 7D020000 		.4byte	.LASF15
+ 1102 00ab 02       		.byte	0x2
+ 1103 00ac 6E01     		.2byte	0x16e
+ 1104 00ae B2000000 		.4byte	0xb2
+ 1105 00b2 05       		.uleb128 0x5
+ 1106 00b3 81000000 		.4byte	0x81
+ 1107 00b7 06       		.uleb128 0x6
+ 1108 00b8 F2040000 		.4byte	.LASF16
+ 1109 00bc 02       		.byte	0x2
+ 1110 00bd 7E01     		.2byte	0x17e
+ 1111 00bf C3000000 		.4byte	0xc3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 36
+
+
+ 1112 00c3 07       		.uleb128 0x7
+ 1113 00c4 04       		.byte	0x4
+ 1114 00c5 C9000000 		.4byte	0xc9
+ 1115 00c9 08       		.uleb128 0x8
+ 1116 00ca 02       		.uleb128 0x2
+ 1117 00cb 04       		.byte	0x4
+ 1118 00cc 07       		.byte	0x7
+ 1119 00cd 83020000 		.4byte	.LASF17
+ 1120 00d1 09       		.uleb128 0x9
+ 1121 00d2 20       		.byte	0x20
+ 1122 00d3 03       		.byte	0x3
+ 1123 00d4 63       		.byte	0x63
+ 1124 00d5 3A010000 		.4byte	0x13a
+ 1125 00d9 0A       		.uleb128 0xa
+ 1126 00da 63010000 		.4byte	.LASF18
+ 1127 00de 03       		.byte	0x3
+ 1128 00df 65       		.byte	0x65
+ 1129 00e0 81000000 		.4byte	0x81
+ 1130 00e4 00       		.byte	0
+ 1131 00e5 0A       		.uleb128 0xa
+ 1132 00e6 82040000 		.4byte	.LASF19
+ 1133 00ea 03       		.byte	0x3
+ 1134 00eb 66       		.byte	0x66
+ 1135 00ec 81000000 		.4byte	0x81
+ 1136 00f0 04       		.byte	0x4
+ 1137 00f1 0A       		.uleb128 0xa
+ 1138 00f2 76010000 		.4byte	.LASF20
+ 1139 00f6 03       		.byte	0x3
+ 1140 00f7 67       		.byte	0x67
+ 1141 00f8 81000000 		.4byte	0x81
+ 1142 00fc 08       		.byte	0x8
+ 1143 00fd 0A       		.uleb128 0xa
+ 1144 00fe FE030000 		.4byte	.LASF21
+ 1145 0102 03       		.byte	0x3
+ 1146 0103 68       		.byte	0x68
+ 1147 0104 81000000 		.4byte	0x81
+ 1148 0108 0C       		.byte	0xc
+ 1149 0109 0A       		.uleb128 0xa
+ 1150 010a 0D050000 		.4byte	.LASF22
+ 1151 010e 03       		.byte	0x3
+ 1152 010f 69       		.byte	0x69
+ 1153 0110 81000000 		.4byte	0x81
+ 1154 0114 10       		.byte	0x10
+ 1155 0115 0A       		.uleb128 0xa
+ 1156 0116 98000000 		.4byte	.LASF23
+ 1157 011a 03       		.byte	0x3
+ 1158 011b 6A       		.byte	0x6a
+ 1159 011c 81000000 		.4byte	0x81
+ 1160 0120 14       		.byte	0x14
+ 1161 0121 0A       		.uleb128 0xa
+ 1162 0122 02010000 		.4byte	.LASF24
+ 1163 0126 03       		.byte	0x3
+ 1164 0127 6B       		.byte	0x6b
+ 1165 0128 81000000 		.4byte	0x81
+ 1166 012c 18       		.byte	0x18
+ 1167 012d 0A       		.uleb128 0xa
+ 1168 012e 4D010000 		.4byte	.LASF25
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 37
+
+
+ 1169 0132 03       		.byte	0x3
+ 1170 0133 6C       		.byte	0x6c
+ 1171 0134 6B000000 		.4byte	0x6b
+ 1172 0138 1C       		.byte	0x1c
+ 1173 0139 00       		.byte	0
+ 1174 013a 04       		.uleb128 0x4
+ 1175 013b 20050000 		.4byte	.LASF26
+ 1176 013f 03       		.byte	0x3
+ 1177 0140 6D       		.byte	0x6d
+ 1178 0141 D1000000 		.4byte	0xd1
+ 1179 0145 0B       		.uleb128 0xb
+ 1180 0146 CA040000 		.4byte	.LASF77
+ 1181 014a 01       		.byte	0x1
+ 1182 014b F901     		.2byte	0x1f9
+ 1183 014d 81000000 		.4byte	0x81
+ 1184 0151 00000000 		.4byte	.LFB9
+ 1185 0155 14000000 		.4byte	.LFE9-.LFB9
+ 1186 0159 01       		.uleb128 0x1
+ 1187 015a 9C       		.byte	0x9c
+ 1188 015b 90010000 		.4byte	0x190
+ 1189 015f 0C       		.uleb128 0xc
+ 1190 0160 71020000 		.4byte	.LASF27
+ 1191 0164 01       		.byte	0x1
+ 1192 0165 F901     		.2byte	0x1f9
+ 1193 0167 81000000 		.4byte	0x81
+ 1194 016b 00000000 		.4byte	.LLST0
+ 1195 016f 0C       		.uleb128 0xc
+ 1196 0170 77020000 		.4byte	.LASF28
+ 1197 0174 01       		.byte	0x1
+ 1198 0175 F901     		.2byte	0x1f9
+ 1199 0177 81000000 		.4byte	0x81
+ 1200 017b 21000000 		.4byte	.LLST1
+ 1201 017f 0D       		.uleb128 0xd
+ 1202 0180 3D010000 		.4byte	.LASF30
+ 1203 0184 01       		.byte	0x1
+ 1204 0185 FB01     		.2byte	0x1fb
+ 1205 0187 81000000 		.4byte	0x81
+ 1206 018b 42000000 		.4byte	.LLST2
+ 1207 018f 00       		.byte	0
+ 1208 0190 0E       		.uleb128 0xe
+ 1209 0191 CF000000 		.4byte	.LASF32
+ 1210 0195 01       		.byte	0x1
+ 1211 0196 5C       		.byte	0x5c
+ 1212 0197 00000000 		.4byte	.LFB2
+ 1213 019b D4010000 		.4byte	.LFE2-.LFB2
+ 1214 019f 01       		.uleb128 0x1
+ 1215 01a0 9C       		.byte	0x9c
+ 1216 01a1 31020000 		.4byte	0x231
+ 1217 01a5 0F       		.uleb128 0xf
+ 1218 01a6 FF040000 		.4byte	.LASF29
+ 1219 01aa 01       		.byte	0x1
+ 1220 01ab 5C       		.byte	0x5c
+ 1221 01ac 31020000 		.4byte	0x231
+ 1222 01b0 7D000000 		.4byte	.LLST3
+ 1223 01b4 10       		.uleb128 0x10
+ 1224 01b5 0C000000 		.4byte	.LVL9
+ 1225 01b9 80060000 		.4byte	0x680
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 38
+
+
+ 1226 01bd C7010000 		.4byte	0x1c7
+ 1227 01c1 11       		.uleb128 0x11
+ 1228 01c2 01       		.uleb128 0x1
+ 1229 01c3 50       		.byte	0x50
+ 1230 01c4 01       		.uleb128 0x1
+ 1231 01c5 30       		.byte	0x30
+ 1232 01c6 00       		.byte	0
+ 1233 01c7 10       		.uleb128 0x10
+ 1234 01c8 18000000 		.4byte	.LVL12
+ 1235 01cc 91060000 		.4byte	0x691
+ 1236 01d0 E4010000 		.4byte	0x1e4
+ 1237 01d4 11       		.uleb128 0x11
+ 1238 01d5 01       		.uleb128 0x1
+ 1239 01d6 52       		.byte	0x52
+ 1240 01d7 01       		.uleb128 0x1
+ 1241 01d8 30       		.byte	0x30
+ 1242 01d9 11       		.uleb128 0x11
+ 1243 01da 01       		.uleb128 0x1
+ 1244 01db 51       		.byte	0x51
+ 1245 01dc 01       		.uleb128 0x1
+ 1246 01dd 30       		.byte	0x30
+ 1247 01de 11       		.uleb128 0x11
+ 1248 01df 01       		.uleb128 0x1
+ 1249 01e0 50       		.byte	0x50
+ 1250 01e1 01       		.uleb128 0x1
+ 1251 01e2 38       		.byte	0x38
+ 1252 01e3 00       		.byte	0
+ 1253 01e4 12       		.uleb128 0x12
+ 1254 01e5 8A000000 		.4byte	.LVL13
+ 1255 01e9 45010000 		.4byte	0x145
+ 1256 01ed 12       		.uleb128 0x12
+ 1257 01ee 98000000 		.4byte	.LVL14
+ 1258 01f2 45010000 		.4byte	0x145
+ 1259 01f6 10       		.uleb128 0x10
+ 1260 01f7 D2000000 		.4byte	.LVL15
+ 1261 01fb AC060000 		.4byte	0x6ac
+ 1262 01ff 09020000 		.4byte	0x209
+ 1263 0203 11       		.uleb128 0x11
+ 1264 0204 01       		.uleb128 0x1
+ 1265 0205 50       		.byte	0x50
+ 1266 0206 01       		.uleb128 0x1
+ 1267 0207 39       		.byte	0x39
+ 1268 0208 00       		.byte	0
+ 1269 0209 10       		.uleb128 0x10
+ 1270 020a DA000000 		.4byte	.LVL16
+ 1271 020e BD060000 		.4byte	0x6bd
+ 1272 0212 21020000 		.4byte	0x221
+ 1273 0216 11       		.uleb128 0x11
+ 1274 0217 01       		.uleb128 0x1
+ 1275 0218 51       		.byte	0x51
+ 1276 0219 01       		.uleb128 0x1
+ 1277 021a 33       		.byte	0x33
+ 1278 021b 11       		.uleb128 0x11
+ 1279 021c 01       		.uleb128 0x1
+ 1280 021d 50       		.byte	0x50
+ 1281 021e 01       		.uleb128 0x1
+ 1282 021f 39       		.byte	0x39
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 39
+
+
+ 1283 0220 00       		.byte	0
+ 1284 0221 13       		.uleb128 0x13
+ 1285 0222 EC000000 		.4byte	.LVL17
+ 1286 0226 D3060000 		.4byte	0x6d3
+ 1287 022a 11       		.uleb128 0x11
+ 1288 022b 01       		.uleb128 0x1
+ 1289 022c 50       		.byte	0x50
+ 1290 022d 01       		.uleb128 0x1
+ 1291 022e 39       		.byte	0x39
+ 1292 022f 00       		.byte	0
+ 1293 0230 00       		.byte	0
+ 1294 0231 07       		.uleb128 0x7
+ 1295 0232 04       		.byte	0x4
+ 1296 0233 37020000 		.4byte	0x237
+ 1297 0237 14       		.uleb128 0x14
+ 1298 0238 3A010000 		.4byte	0x13a
+ 1299 023c 15       		.uleb128 0x15
+ 1300 023d EF030000 		.4byte	.LASF78
+ 1301 0241 01       		.byte	0x1
+ 1302 0242 2301     		.2byte	0x123
+ 1303 0244 00000000 		.4byte	.LFB3
+ 1304 0248 18000000 		.4byte	.LFE3-.LFB3
+ 1305 024c 01       		.uleb128 0x1
+ 1306 024d 9C       		.byte	0x9c
+ 1307 024e 16       		.uleb128 0x16
+ 1308 024f 18000000 		.4byte	.LASF35
+ 1309 0253 01       		.byte	0x1
+ 1310 0254 3A01     		.2byte	0x13a
+ 1311 0256 81000000 		.4byte	0x81
+ 1312 025a 00000000 		.4byte	.LFB4
+ 1313 025e 64000000 		.4byte	.LFE4-.LFB4
+ 1314 0262 01       		.uleb128 0x1
+ 1315 0263 9C       		.byte	0x9c
+ 1316 0264 9B020000 		.4byte	0x29b
+ 1317 0268 0D       		.uleb128 0xd
+ 1318 0269 59050000 		.4byte	.LASF31
+ 1319 026d 01       		.byte	0x1
+ 1320 026e 3C01     		.2byte	0x13c
+ 1321 0270 81000000 		.4byte	0x81
+ 1322 0274 BF000000 		.4byte	.LLST4
+ 1323 0278 10       		.uleb128 0x10
+ 1324 0279 08000000 		.4byte	.LVL19
+ 1325 027d AC060000 		.4byte	0x6ac
+ 1326 0281 8B020000 		.4byte	0x28b
+ 1327 0285 11       		.uleb128 0x11
+ 1328 0286 01       		.uleb128 0x1
+ 1329 0287 50       		.byte	0x50
+ 1330 0288 01       		.uleb128 0x1
+ 1331 0289 39       		.byte	0x39
+ 1332 028a 00       		.byte	0
+ 1333 028b 13       		.uleb128 0x13
+ 1334 028c 4C000000 		.4byte	.LVL23
+ 1335 0290 ED060000 		.4byte	0x6ed
+ 1336 0294 11       		.uleb128 0x11
+ 1337 0295 01       		.uleb128 0x1
+ 1338 0296 50       		.byte	0x50
+ 1339 0297 01       		.uleb128 0x1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 40
+
+
+ 1340 0298 39       		.byte	0x39
+ 1341 0299 00       		.byte	0
+ 1342 029a 00       		.byte	0
+ 1343 029b 17       		.uleb128 0x17
+ 1344 029c 6C000000 		.4byte	.LASF33
+ 1345 02a0 01       		.byte	0x1
+ 1346 02a1 6D01     		.2byte	0x16d
+ 1347 02a3 00000000 		.4byte	.LFB5
+ 1348 02a7 40000000 		.4byte	.LFE5-.LFB5
+ 1349 02ab 01       		.uleb128 0x1
+ 1350 02ac 9C       		.byte	0x9c
+ 1351 02ad F1020000 		.4byte	0x2f1
+ 1352 02b1 0C       		.uleb128 0xc
+ 1353 02b2 23030000 		.4byte	.LASF34
+ 1354 02b6 01       		.byte	0x1
+ 1355 02b7 6D01     		.2byte	0x16d
+ 1356 02b9 81000000 		.4byte	0x81
+ 1357 02bd DD000000 		.4byte	.LLST5
+ 1358 02c1 18       		.uleb128 0x18
+ 1359 02c2 1C000000 		.4byte	.LBB2
+ 1360 02c6 10000000 		.4byte	.LBE2-.LBB2
+ 1361 02ca DF020000 		.4byte	0x2df
+ 1362 02ce 0D       		.uleb128 0xd
+ 1363 02cf 3D010000 		.4byte	.LASF30
+ 1364 02d3 01       		.byte	0x1
+ 1365 02d4 7801     		.2byte	0x178
+ 1366 02d6 81000000 		.4byte	0x81
+ 1367 02da 17010000 		.4byte	.LLST6
+ 1368 02de 00       		.byte	0
+ 1369 02df 13       		.uleb128 0x13
+ 1370 02e0 16000000 		.4byte	.LVL26
+ 1371 02e4 45010000 		.4byte	0x145
+ 1372 02e8 11       		.uleb128 0x11
+ 1373 02e9 01       		.uleb128 0x1
+ 1374 02ea 50       		.byte	0x50
+ 1375 02eb 03       		.uleb128 0x3
+ 1376 02ec F3       		.byte	0xf3
+ 1377 02ed 01       		.uleb128 0x1
+ 1378 02ee 50       		.byte	0x50
+ 1379 02ef 00       		.byte	0
+ 1380 02f0 00       		.byte	0
+ 1381 02f1 16       		.uleb128 0x16
+ 1382 02f2 B4040000 		.4byte	.LASF36
+ 1383 02f6 01       		.byte	0x1
+ 1384 02f7 9601     		.2byte	0x196
+ 1385 02f9 81000000 		.4byte	0x81
+ 1386 02fd 00000000 		.4byte	.LFB6
+ 1387 0301 24000000 		.4byte	.LFE6-.LFB6
+ 1388 0305 01       		.uleb128 0x1
+ 1389 0306 9C       		.byte	0x9c
+ 1390 0307 1C030000 		.4byte	0x31c
+ 1391 030b 0D       		.uleb128 0xd
+ 1392 030c 23030000 		.4byte	.LASF34
+ 1393 0310 01       		.byte	0x1
+ 1394 0311 9801     		.2byte	0x198
+ 1395 0313 81000000 		.4byte	0x81
+ 1396 0317 35010000 		.4byte	.LLST7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 41
+
+
+ 1397 031b 00       		.byte	0
+ 1398 031c 17       		.uleb128 0x17
+ 1399 031d 0D010000 		.4byte	.LASF37
+ 1400 0321 01       		.byte	0x1
+ 1401 0322 BC01     		.2byte	0x1bc
+ 1402 0324 00000000 		.4byte	.LFB7
+ 1403 0328 30000000 		.4byte	.LFE7-.LFB7
+ 1404 032c 01       		.uleb128 0x1
+ 1405 032d 9C       		.byte	0x9c
+ 1406 032e 85030000 		.4byte	0x385
+ 1407 0332 0C       		.uleb128 0xc
+ 1408 0333 E5040000 		.4byte	.LASF38
+ 1409 0337 01       		.byte	0x1
+ 1410 0338 BC01     		.2byte	0x1bc
+ 1411 033a 81000000 		.4byte	0x81
+ 1412 033e 53010000 		.4byte	.LLST8
+ 1413 0342 0C       		.uleb128 0xc
+ 1414 0343 5C040000 		.4byte	.LASF39
+ 1415 0347 01       		.byte	0x1
+ 1416 0348 BC01     		.2byte	0x1bc
+ 1417 034a 81000000 		.4byte	0x81
+ 1418 034e 7F010000 		.4byte	.LLST9
+ 1419 0352 0C       		.uleb128 0xc
+ 1420 0353 06050000 		.4byte	.LASF40
+ 1421 0357 01       		.byte	0x1
+ 1422 0358 BC01     		.2byte	0x1bc
+ 1423 035a 85030000 		.4byte	0x385
+ 1424 035e AB010000 		.4byte	.LLST10
+ 1425 0362 10       		.uleb128 0x10
+ 1426 0363 10000000 		.4byte	.LVL38
+ 1427 0367 AC060000 		.4byte	0x6ac
+ 1428 036b 75030000 		.4byte	0x375
+ 1429 036f 11       		.uleb128 0x11
+ 1430 0370 01       		.uleb128 0x1
+ 1431 0371 50       		.byte	0x50
+ 1432 0372 01       		.uleb128 0x1
+ 1433 0373 39       		.byte	0x39
+ 1434 0374 00       		.byte	0
+ 1435 0375 13       		.uleb128 0x13
+ 1436 0376 22000000 		.4byte	.LVL39
+ 1437 037a ED060000 		.4byte	0x6ed
+ 1438 037e 11       		.uleb128 0x11
+ 1439 037f 01       		.uleb128 0x1
+ 1440 0380 50       		.byte	0x50
+ 1441 0381 01       		.uleb128 0x1
+ 1442 0382 39       		.byte	0x39
+ 1443 0383 00       		.byte	0
+ 1444 0384 00       		.byte	0
+ 1445 0385 07       		.uleb128 0x7
+ 1446 0386 04       		.byte	0x4
+ 1447 0387 A1000000 		.4byte	0xa1
+ 1448 038b 17       		.uleb128 0x17
+ 1449 038c 93050000 		.4byte	.LASF41
+ 1450 0390 01       		.byte	0x1
+ 1451 0391 DC01     		.2byte	0x1dc
+ 1452 0393 00000000 		.4byte	.LFB8
+ 1453 0397 0C000000 		.4byte	.LFE8-.LFB8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 42
+
+
+ 1454 039b 01       		.uleb128 0x1
+ 1455 039c 9C       		.byte	0x9c
+ 1456 039d B0030000 		.4byte	0x3b0
+ 1457 03a1 19       		.uleb128 0x19
+ 1458 03a2 5C040000 		.4byte	.LASF39
+ 1459 03a6 01       		.byte	0x1
+ 1460 03a7 DC01     		.2byte	0x1dc
+ 1461 03a9 81000000 		.4byte	0x81
+ 1462 03ad 01       		.uleb128 0x1
+ 1463 03ae 50       		.byte	0x50
+ 1464 03af 00       		.byte	0
+ 1465 03b0 17       		.uleb128 0x17
+ 1466 03b1 82000000 		.4byte	.LASF42
+ 1467 03b5 01       		.byte	0x1
+ 1468 03b6 1602     		.2byte	0x216
+ 1469 03b8 00000000 		.4byte	.LFB10
+ 1470 03bc 24000000 		.4byte	.LFE10-.LFB10
+ 1471 03c0 01       		.uleb128 0x1
+ 1472 03c1 9C       		.byte	0x9c
+ 1473 03c2 E8030000 		.4byte	0x3e8
+ 1474 03c6 0C       		.uleb128 0xc
+ 1475 03c7 23030000 		.4byte	.LASF34
+ 1476 03cb 01       		.byte	0x1
+ 1477 03cc 1602     		.2byte	0x216
+ 1478 03ce 81000000 		.4byte	0x81
+ 1479 03d2 D7010000 		.4byte	.LLST11
+ 1480 03d6 13       		.uleb128 0x13
+ 1481 03d7 10000000 		.4byte	.LVL46
+ 1482 03db 45010000 		.4byte	0x145
+ 1483 03df 11       		.uleb128 0x11
+ 1484 03e0 01       		.uleb128 0x1
+ 1485 03e1 51       		.byte	0x51
+ 1486 03e2 03       		.uleb128 0x3
+ 1487 03e3 F3       		.byte	0xf3
+ 1488 03e4 01       		.uleb128 0x1
+ 1489 03e5 50       		.byte	0x50
+ 1490 03e6 00       		.byte	0
+ 1491 03e7 00       		.byte	0
+ 1492 03e8 1A       		.uleb128 0x1a
+ 1493 03e9 2B030000 		.4byte	.LASF79
+ 1494 03ed 01       		.byte	0x1
+ 1495 03ee 3002     		.2byte	0x230
+ 1496 03f0 81000000 		.4byte	0x81
+ 1497 03f4 00000000 		.4byte	.LFB11
+ 1498 03f8 0C000000 		.4byte	.LFE11-.LFB11
+ 1499 03fc 01       		.uleb128 0x1
+ 1500 03fd 9C       		.byte	0x9c
+ 1501 03fe 17       		.uleb128 0x17
+ 1502 03ff 22010000 		.4byte	.LASF43
+ 1503 0403 01       		.byte	0x1
+ 1504 0404 4902     		.2byte	0x249
+ 1505 0406 00000000 		.4byte	.LFB12
+ 1506 040a 30000000 		.4byte	.LFE12-.LFB12
+ 1507 040e 01       		.uleb128 0x1
+ 1508 040f 9C       		.byte	0x9c
+ 1509 0410 67040000 		.4byte	0x467
+ 1510 0414 0C       		.uleb128 0xc
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 43
+
+
+ 1511 0415 E5040000 		.4byte	.LASF38
+ 1512 0419 01       		.byte	0x1
+ 1513 041a 4902     		.2byte	0x249
+ 1514 041c 81000000 		.4byte	0x81
+ 1515 0420 03020000 		.4byte	.LLST12
+ 1516 0424 0C       		.uleb128 0xc
+ 1517 0425 5C040000 		.4byte	.LASF39
+ 1518 0429 01       		.byte	0x1
+ 1519 042a 4902     		.2byte	0x249
+ 1520 042c 81000000 		.4byte	0x81
+ 1521 0430 2F020000 		.4byte	.LLST13
+ 1522 0434 0C       		.uleb128 0xc
+ 1523 0435 06050000 		.4byte	.LASF40
+ 1524 0439 01       		.byte	0x1
+ 1525 043a 4902     		.2byte	0x249
+ 1526 043c 85030000 		.4byte	0x385
+ 1527 0440 5B020000 		.4byte	.LLST14
+ 1528 0444 10       		.uleb128 0x10
+ 1529 0445 10000000 		.4byte	.LVL49
+ 1530 0449 AC060000 		.4byte	0x6ac
+ 1531 044d 57040000 		.4byte	0x457
+ 1532 0451 11       		.uleb128 0x11
+ 1533 0452 01       		.uleb128 0x1
+ 1534 0453 50       		.byte	0x50
+ 1535 0454 01       		.uleb128 0x1
+ 1536 0455 39       		.byte	0x39
+ 1537 0456 00       		.byte	0
+ 1538 0457 13       		.uleb128 0x13
+ 1539 0458 22000000 		.4byte	.LVL50
+ 1540 045c ED060000 		.4byte	0x6ed
+ 1541 0460 11       		.uleb128 0x11
+ 1542 0461 01       		.uleb128 0x1
+ 1543 0462 50       		.byte	0x50
+ 1544 0463 01       		.uleb128 0x1
+ 1545 0464 39       		.byte	0x39
+ 1546 0465 00       		.byte	0
+ 1547 0466 00       		.byte	0
+ 1548 0467 17       		.uleb128 0x17
+ 1549 0468 B4050000 		.4byte	.LASF44
+ 1550 046c 01       		.byte	0x1
+ 1551 046d 6902     		.2byte	0x269
+ 1552 046f 00000000 		.4byte	.LFB13
+ 1553 0473 0C000000 		.4byte	.LFE13-.LFB13
+ 1554 0477 01       		.uleb128 0x1
+ 1555 0478 9C       		.byte	0x9c
+ 1556 0479 8C040000 		.4byte	0x48c
+ 1557 047d 19       		.uleb128 0x19
+ 1558 047e 5C040000 		.4byte	.LASF39
+ 1559 0482 01       		.byte	0x1
+ 1560 0483 6902     		.2byte	0x269
+ 1561 0485 81000000 		.4byte	0x81
+ 1562 0489 01       		.uleb128 0x1
+ 1563 048a 50       		.byte	0x50
+ 1564 048b 00       		.byte	0
+ 1565 048c 17       		.uleb128 0x17
+ 1566 048d D5050000 		.4byte	.LASF45
+ 1567 0491 01       		.byte	0x1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 44
+
+
+ 1568 0492 8702     		.2byte	0x287
+ 1569 0494 00000000 		.4byte	.LFB14
+ 1570 0498 A8000000 		.4byte	.LFE14-.LFB14
+ 1571 049c 01       		.uleb128 0x1
+ 1572 049d 9C       		.byte	0x9c
+ 1573 049e 24050000 		.4byte	0x524
+ 1574 04a2 0D       		.uleb128 0xd
+ 1575 04a3 60050000 		.4byte	.LASF46
+ 1576 04a7 01       		.byte	0x1
+ 1577 04a8 9302     		.2byte	0x293
+ 1578 04aa 6B000000 		.4byte	0x6b
+ 1579 04ae 87020000 		.4byte	.LLST15
+ 1580 04b2 12       		.uleb128 0x12
+ 1581 04b3 1E000000 		.4byte	.LVL57
+ 1582 04b7 FE060000 		.4byte	0x6fe
+ 1583 04bb 10       		.uleb128 0x10
+ 1584 04bc 46000000 		.4byte	.LVL60
+ 1585 04c0 AC060000 		.4byte	0x6ac
+ 1586 04c4 CE040000 		.4byte	0x4ce
+ 1587 04c8 11       		.uleb128 0x11
+ 1588 04c9 01       		.uleb128 0x1
+ 1589 04ca 50       		.byte	0x50
+ 1590 04cb 01       		.uleb128 0x1
+ 1591 04cc 39       		.byte	0x39
+ 1592 04cd 00       		.byte	0
+ 1593 04ce 10       		.uleb128 0x10
+ 1594 04cf 4C000000 		.4byte	.LVL61
+ 1595 04d3 09070000 		.4byte	0x709
+ 1596 04d7 E2040000 		.4byte	0x4e2
+ 1597 04db 11       		.uleb128 0x11
+ 1598 04dc 01       		.uleb128 0x1
+ 1599 04dd 50       		.byte	0x50
+ 1600 04de 02       		.uleb128 0x2
+ 1601 04df 74       		.byte	0x74
+ 1602 04e0 00       		.sleb128 0
+ 1603 04e1 00       		.byte	0
+ 1604 04e2 10       		.uleb128 0x10
+ 1605 04e3 5C000000 		.4byte	.LVL62
+ 1606 04e7 1A070000 		.4byte	0x71a
+ 1607 04eb F5040000 		.4byte	0x4f5
+ 1608 04ef 11       		.uleb128 0x11
+ 1609 04f0 01       		.uleb128 0x1
+ 1610 04f1 50       		.byte	0x50
+ 1611 04f2 01       		.uleb128 0x1
+ 1612 04f3 39       		.byte	0x39
+ 1613 04f4 00       		.byte	0
+ 1614 04f5 10       		.uleb128 0x10
+ 1615 04f6 62000000 		.4byte	.LVL63
+ 1616 04fa ED060000 		.4byte	0x6ed
+ 1617 04fe 08050000 		.4byte	0x508
+ 1618 0502 11       		.uleb128 0x11
+ 1619 0503 01       		.uleb128 0x1
+ 1620 0504 50       		.byte	0x50
+ 1621 0505 01       		.uleb128 0x1
+ 1622 0506 39       		.byte	0x39
+ 1623 0507 00       		.byte	0
+ 1624 0508 12       		.uleb128 0x12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 45
+
+
+ 1625 0509 6C000000 		.4byte	.LVL64
+ 1626 050d FE060000 		.4byte	0x6fe
+ 1627 0511 12       		.uleb128 0x12
+ 1628 0512 80000000 		.4byte	.LVL65
+ 1629 0516 09070000 		.4byte	0x709
+ 1630 051a 12       		.uleb128 0x12
+ 1631 051b 8C000000 		.4byte	.LVL67
+ 1632 051f 09070000 		.4byte	0x709
+ 1633 0523 00       		.byte	0
+ 1634 0524 17       		.uleb128 0x17
+ 1635 0525 7B050000 		.4byte	.LASF47
+ 1636 0529 01       		.byte	0x1
+ 1637 052a EC02     		.2byte	0x2ec
+ 1638 052c 00000000 		.4byte	.LFB15
+ 1639 0530 48000000 		.4byte	.LFE15-.LFB15
+ 1640 0534 01       		.uleb128 0x1
+ 1641 0535 9C       		.byte	0x9c
+ 1642 0536 4A050000 		.4byte	0x54a
+ 1643 053a 13       		.uleb128 0x13
+ 1644 053b 30000000 		.4byte	.LVL68
+ 1645 053f 1A070000 		.4byte	0x71a
+ 1646 0543 11       		.uleb128 0x11
+ 1647 0544 01       		.uleb128 0x1
+ 1648 0545 50       		.byte	0x50
+ 1649 0546 01       		.uleb128 0x1
+ 1650 0547 39       		.byte	0x39
+ 1651 0548 00       		.byte	0
+ 1652 0549 00       		.byte	0
+ 1653 054a 1B       		.uleb128 0x1b
+ 1654 054b 8C020000 		.4byte	.LASF48
+ 1655 054f 04       		.byte	0x4
+ 1656 0550 42       		.byte	0x42
+ 1657 0551 6B000000 		.4byte	0x6b
+ 1658 0555 1B       		.uleb128 0x1b
+ 1659 0556 88010000 		.4byte	.LASF49
+ 1660 055a 04       		.byte	0x4
+ 1661 055b 43       		.byte	0x43
+ 1662 055c 6B000000 		.4byte	0x6b
+ 1663 0560 1B       		.uleb128 0x1b
+ 1664 0561 A1040000 		.4byte	.LASF50
+ 1665 0565 04       		.byte	0x4
+ 1666 0566 44       		.byte	0x44
+ 1667 0567 6B000000 		.4byte	0x6b
+ 1668 056b 1B       		.uleb128 0x1b
+ 1669 056c 35040000 		.4byte	.LASF51
+ 1670 0570 04       		.byte	0x4
+ 1671 0571 54       		.byte	0x54
+ 1672 0572 6B000000 		.4byte	0x6b
+ 1673 0576 1B       		.uleb128 0x1b
+ 1674 0577 44000000 		.4byte	.LASF52
+ 1675 057b 04       		.byte	0x4
+ 1676 057c 55       		.byte	0x55
+ 1677 057d 6B000000 		.4byte	0x6b
+ 1678 0581 1C       		.uleb128 0x1c
+ 1679 0582 13020000 		.4byte	.LASF53
+ 1680 0586 01       		.byte	0x1
+ 1681 0587 40       		.byte	0x40
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 46
+
+
+ 1682 0588 37020000 		.4byte	0x237
+ 1683 058c 05       		.uleb128 0x5
+ 1684 058d 03       		.byte	0x3
+ 1685 058e 00000000 		.4byte	UART_configEzI2C
+ 1686 0592 1C       		.uleb128 0x1c
+ 1687 0593 41030000 		.4byte	.LASF54
+ 1688 0597 01       		.byte	0x1
+ 1689 0598 1A       		.byte	0x1a
+ 1690 0599 A1000000 		.4byte	0xa1
+ 1691 059d 05       		.uleb128 0x5
+ 1692 059e 03       		.byte	0x3
+ 1693 059f 00000000 		.4byte	UART_curStatus
+ 1694 05a3 1C       		.uleb128 0x1c
+ 1695 05a4 DE000000 		.4byte	.LASF55
+ 1696 05a8 01       		.byte	0x1
+ 1697 05a9 1B       		.byte	0x1b
+ 1698 05aa 6B000000 		.4byte	0x6b
+ 1699 05ae 05       		.uleb128 0x5
+ 1700 05af 03       		.byte	0x3
+ 1701 05b0 00000000 		.4byte	UART_fsmState
+ 1702 05b4 1C       		.uleb128 0x1c
+ 1703 05b5 6A050000 		.4byte	.LASF56
+ 1704 05b9 01       		.byte	0x1
+ 1705 05ba 1E       		.byte	0x1e
+ 1706 05bb 85030000 		.4byte	0x385
+ 1707 05bf 05       		.uleb128 0x5
+ 1708 05c0 03       		.byte	0x3
+ 1709 05c1 00000000 		.4byte	UART_dataBuffer1
+ 1710 05c5 1C       		.uleb128 0x1c
+ 1711 05c6 37050000 		.4byte	.LASF57
+ 1712 05ca 01       		.byte	0x1
+ 1713 05cb 1F       		.byte	0x1f
+ 1714 05cc 76000000 		.4byte	0x76
+ 1715 05d0 05       		.uleb128 0x5
+ 1716 05d1 03       		.byte	0x3
+ 1717 05d2 00000000 		.4byte	UART_bufSizeBuf1
+ 1718 05d6 1C       		.uleb128 0x1c
+ 1719 05d7 67040000 		.4byte	.LASF58
+ 1720 05db 01       		.byte	0x1
+ 1721 05dc 20       		.byte	0x20
+ 1722 05dd 76000000 		.4byte	0x76
+ 1723 05e1 05       		.uleb128 0x5
+ 1724 05e2 03       		.byte	0x3
+ 1725 05e3 00000000 		.4byte	UART_protectBuf1
+ 1726 05e7 1C       		.uleb128 0x1c
+ 1727 05e8 15040000 		.4byte	.LASF59
+ 1728 05ec 01       		.byte	0x1
+ 1729 05ed 21       		.byte	0x21
+ 1730 05ee 76000000 		.4byte	0x76
+ 1731 05f2 05       		.uleb128 0x5
+ 1732 05f3 03       		.byte	0x3
+ 1733 05f4 00000000 		.4byte	UART_offsetBuf1
+ 1734 05f8 1C       		.uleb128 0x1c
+ 1735 05f9 53020000 		.4byte	.LASF60
+ 1736 05fd 01       		.byte	0x1
+ 1737 05fe 22       		.byte	0x22
+ 1738 05ff 76000000 		.4byte	0x76
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 47
+
+
+ 1739 0603 05       		.uleb128 0x5
+ 1740 0604 03       		.byte	0x3
+ 1741 0605 00000000 		.4byte	UART_indexBuf1
+ 1742 0609 1C       		.uleb128 0x1c
+ 1743 060a F7010000 		.4byte	.LASF61
+ 1744 060e 01       		.byte	0x1
+ 1745 060f 25       		.byte	0x25
+ 1746 0610 6B000000 		.4byte	0x6b
+ 1747 0614 05       		.uleb128 0x5
+ 1748 0615 03       		.byte	0x3
+ 1749 0616 00000000 		.4byte	UART_addrBuf1
+ 1750 061a 1C       		.uleb128 0x1c
+ 1751 061b 05020000 		.4byte	.LASF62
+ 1752 061f 01       		.byte	0x1
+ 1753 0620 26       		.byte	0x26
+ 1754 0621 6B000000 		.4byte	0x6b
+ 1755 0625 05       		.uleb128 0x5
+ 1756 0626 03       		.byte	0x3
+ 1757 0627 00000000 		.4byte	UART_addrBuf2
+ 1758 062b 1C       		.uleb128 0x1c
+ 1759 062c 00000000 		.4byte	.LASF63
+ 1760 0630 01       		.byte	0x1
+ 1761 0631 29       		.byte	0x29
+ 1762 0632 85030000 		.4byte	0x385
+ 1763 0636 05       		.uleb128 0x5
+ 1764 0637 03       		.byte	0x3
+ 1765 0638 00000000 		.4byte	UART_dataBuffer2
+ 1766 063c 1C       		.uleb128 0x1c
+ 1767 063d 48050000 		.4byte	.LASF64
+ 1768 0641 01       		.byte	0x1
+ 1769 0642 2A       		.byte	0x2a
+ 1770 0643 76000000 		.4byte	0x76
+ 1771 0647 05       		.uleb128 0x5
+ 1772 0648 03       		.byte	0x3
+ 1773 0649 00000000 		.4byte	UART_bufSizeBuf2
+ 1774 064d 1C       		.uleb128 0x1c
+ 1775 064e BE000000 		.4byte	.LASF65
+ 1776 0652 01       		.byte	0x1
+ 1777 0653 2B       		.byte	0x2b
+ 1778 0654 76000000 		.4byte	0x76
+ 1779 0658 05       		.uleb128 0x5
+ 1780 0659 03       		.byte	0x3
+ 1781 065a 00000000 		.4byte	UART_protectBuf2
+ 1782 065e 1C       		.uleb128 0x1c
+ 1783 065f 25040000 		.4byte	.LASF66
+ 1784 0663 01       		.byte	0x1
+ 1785 0664 2C       		.byte	0x2c
+ 1786 0665 76000000 		.4byte	0x76
+ 1787 0669 05       		.uleb128 0x5
+ 1788 066a 03       		.byte	0x3
+ 1789 066b 00000000 		.4byte	UART_offsetBuf2
+ 1790 066f 1C       		.uleb128 0x1c
+ 1791 0670 62020000 		.4byte	.LASF67
+ 1792 0674 01       		.byte	0x1
+ 1793 0675 2D       		.byte	0x2d
+ 1794 0676 76000000 		.4byte	0x76
+ 1795 067a 05       		.uleb128 0x5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 48
+
+
+ 1796 067b 03       		.byte	0x3
+ 1797 067c 00000000 		.4byte	UART_indexBuf2
+ 1798 0680 1D       		.uleb128 0x1d
+ 1799 0681 47040000 		.4byte	.LASF68
+ 1800 0685 05       		.byte	0x5
+ 1801 0686 60       		.byte	0x60
+ 1802 0687 91060000 		.4byte	0x691
+ 1803 068b 1E       		.uleb128 0x1e
+ 1804 068c 6B000000 		.4byte	0x6b
+ 1805 0690 00       		.byte	0
+ 1806 0691 1D       		.uleb128 0x1d
+ 1807 0692 37020000 		.4byte	.LASF69
+ 1808 0696 04       		.byte	0x4
+ 1809 0697 30       		.byte	0x30
+ 1810 0698 AC060000 		.4byte	0x6ac
+ 1811 069c 1E       		.uleb128 0x1e
+ 1812 069d 81000000 		.4byte	0x81
+ 1813 06a1 1E       		.uleb128 0x1e
+ 1814 06a2 81000000 		.4byte	0x81
+ 1815 06a6 1E       		.uleb128 0x1e
+ 1816 06a7 81000000 		.4byte	0x81
+ 1817 06ab 00       		.byte	0
+ 1818 06ac 1D       		.uleb128 0x1d
+ 1819 06ad F5000000 		.4byte	.LASF70
+ 1820 06b1 05       		.byte	0x5
+ 1821 06b2 4E       		.byte	0x4e
+ 1822 06b3 BD060000 		.4byte	0x6bd
+ 1823 06b7 1E       		.uleb128 0x1e
+ 1824 06b8 6B000000 		.4byte	0x6b
+ 1825 06bc 00       		.byte	0
+ 1826 06bd 1D       		.uleb128 0x1d
+ 1827 06be DE030000 		.4byte	.LASF71
+ 1828 06c2 05       		.byte	0x5
+ 1829 06c3 49       		.byte	0x49
+ 1830 06c4 D3060000 		.4byte	0x6d3
+ 1831 06c8 1E       		.uleb128 0x1e
+ 1832 06c9 6B000000 		.4byte	0x6b
+ 1833 06cd 1E       		.uleb128 0x1e
+ 1834 06ce 6B000000 		.4byte	0x6b
+ 1835 06d2 00       		.byte	0
+ 1836 06d3 1F       		.uleb128 0x1f
+ 1837 06d4 44020000 		.4byte	.LASF80
+ 1838 06d8 05       		.byte	0x5
+ 1839 06d9 46       		.byte	0x46
+ 1840 06da B7000000 		.4byte	0xb7
+ 1841 06de ED060000 		.4byte	0x6ed
+ 1842 06e2 1E       		.uleb128 0x1e
+ 1843 06e3 6B000000 		.4byte	0x6b
+ 1844 06e7 1E       		.uleb128 0x1e
+ 1845 06e8 B7000000 		.4byte	0xb7
+ 1846 06ec 00       		.byte	0
+ 1847 06ed 1D       		.uleb128 0x1d
+ 1848 06ee 95040000 		.4byte	.LASF72
+ 1849 06f2 05       		.byte	0x5
+ 1850 06f3 4C       		.byte	0x4c
+ 1851 06f4 FE060000 		.4byte	0x6fe
+ 1852 06f8 1E       		.uleb128 0x1e
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 49
+
+
+ 1853 06f9 6B000000 		.4byte	0x6b
+ 1854 06fd 00       		.byte	0
+ 1855 06fe 20       		.uleb128 0x20
+ 1856 06ff E0010000 		.4byte	.LASF81
+ 1857 0703 05       		.byte	0x5
+ 1858 0704 5E       		.byte	0x5e
+ 1859 0705 6B000000 		.4byte	0x6b
+ 1860 0709 1D       		.uleb128 0x1d
+ 1861 070a 2E000000 		.4byte	.LASF73
+ 1862 070e 05       		.byte	0x5
+ 1863 070f 5F       		.byte	0x5f
+ 1864 0710 1A070000 		.4byte	0x71a
+ 1865 0714 1E       		.uleb128 0x1e
+ 1866 0715 6B000000 		.4byte	0x6b
+ 1867 0719 00       		.byte	0
+ 1868 071a 21       		.uleb128 0x21
+ 1869 071b 99020000 		.4byte	.LASF82
+ 1870 071f 05       		.byte	0x5
+ 1871 0720 51       		.byte	0x51
+ 1872 0721 1E       		.uleb128 0x1e
+ 1873 0722 6B000000 		.4byte	0x6b
+ 1874 0726 00       		.byte	0
+ 1875 0727 00       		.byte	0
+ 1876              		.section	.debug_abbrev,"",%progbits
+ 1877              	.Ldebug_abbrev0:
+ 1878 0000 01       		.uleb128 0x1
+ 1879 0001 11       		.uleb128 0x11
+ 1880 0002 01       		.byte	0x1
+ 1881 0003 25       		.uleb128 0x25
+ 1882 0004 0E       		.uleb128 0xe
+ 1883 0005 13       		.uleb128 0x13
+ 1884 0006 0B       		.uleb128 0xb
+ 1885 0007 03       		.uleb128 0x3
+ 1886 0008 0E       		.uleb128 0xe
+ 1887 0009 1B       		.uleb128 0x1b
+ 1888 000a 0E       		.uleb128 0xe
+ 1889 000b 55       		.uleb128 0x55
+ 1890 000c 17       		.uleb128 0x17
+ 1891 000d 11       		.uleb128 0x11
+ 1892 000e 01       		.uleb128 0x1
+ 1893 000f 10       		.uleb128 0x10
+ 1894 0010 17       		.uleb128 0x17
+ 1895 0011 00       		.byte	0
+ 1896 0012 00       		.byte	0
+ 1897 0013 02       		.uleb128 0x2
+ 1898 0014 24       		.uleb128 0x24
+ 1899 0015 00       		.byte	0
+ 1900 0016 0B       		.uleb128 0xb
+ 1901 0017 0B       		.uleb128 0xb
+ 1902 0018 3E       		.uleb128 0x3e
+ 1903 0019 0B       		.uleb128 0xb
+ 1904 001a 03       		.uleb128 0x3
+ 1905 001b 0E       		.uleb128 0xe
+ 1906 001c 00       		.byte	0
+ 1907 001d 00       		.byte	0
+ 1908 001e 03       		.uleb128 0x3
+ 1909 001f 24       		.uleb128 0x24
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 50
+
+
+ 1910 0020 00       		.byte	0
+ 1911 0021 0B       		.uleb128 0xb
+ 1912 0022 0B       		.uleb128 0xb
+ 1913 0023 3E       		.uleb128 0x3e
+ 1914 0024 0B       		.uleb128 0xb
+ 1915 0025 03       		.uleb128 0x3
+ 1916 0026 08       		.uleb128 0x8
+ 1917 0027 00       		.byte	0
+ 1918 0028 00       		.byte	0
+ 1919 0029 04       		.uleb128 0x4
+ 1920 002a 16       		.uleb128 0x16
+ 1921 002b 00       		.byte	0
+ 1922 002c 03       		.uleb128 0x3
+ 1923 002d 0E       		.uleb128 0xe
+ 1924 002e 3A       		.uleb128 0x3a
+ 1925 002f 0B       		.uleb128 0xb
+ 1926 0030 3B       		.uleb128 0x3b
+ 1927 0031 0B       		.uleb128 0xb
+ 1928 0032 49       		.uleb128 0x49
+ 1929 0033 13       		.uleb128 0x13
+ 1930 0034 00       		.byte	0
+ 1931 0035 00       		.byte	0
+ 1932 0036 05       		.uleb128 0x5
+ 1933 0037 35       		.uleb128 0x35
+ 1934 0038 00       		.byte	0
+ 1935 0039 49       		.uleb128 0x49
+ 1936 003a 13       		.uleb128 0x13
+ 1937 003b 00       		.byte	0
+ 1938 003c 00       		.byte	0
+ 1939 003d 06       		.uleb128 0x6
+ 1940 003e 16       		.uleb128 0x16
+ 1941 003f 00       		.byte	0
+ 1942 0040 03       		.uleb128 0x3
+ 1943 0041 0E       		.uleb128 0xe
+ 1944 0042 3A       		.uleb128 0x3a
+ 1945 0043 0B       		.uleb128 0xb
+ 1946 0044 3B       		.uleb128 0x3b
+ 1947 0045 05       		.uleb128 0x5
+ 1948 0046 49       		.uleb128 0x49
+ 1949 0047 13       		.uleb128 0x13
+ 1950 0048 00       		.byte	0
+ 1951 0049 00       		.byte	0
+ 1952 004a 07       		.uleb128 0x7
+ 1953 004b 0F       		.uleb128 0xf
+ 1954 004c 00       		.byte	0
+ 1955 004d 0B       		.uleb128 0xb
+ 1956 004e 0B       		.uleb128 0xb
+ 1957 004f 49       		.uleb128 0x49
+ 1958 0050 13       		.uleb128 0x13
+ 1959 0051 00       		.byte	0
+ 1960 0052 00       		.byte	0
+ 1961 0053 08       		.uleb128 0x8
+ 1962 0054 15       		.uleb128 0x15
+ 1963 0055 00       		.byte	0
+ 1964 0056 27       		.uleb128 0x27
+ 1965 0057 19       		.uleb128 0x19
+ 1966 0058 00       		.byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 51
+
+
+ 1967 0059 00       		.byte	0
+ 1968 005a 09       		.uleb128 0x9
+ 1969 005b 13       		.uleb128 0x13
+ 1970 005c 01       		.byte	0x1
+ 1971 005d 0B       		.uleb128 0xb
+ 1972 005e 0B       		.uleb128 0xb
+ 1973 005f 3A       		.uleb128 0x3a
+ 1974 0060 0B       		.uleb128 0xb
+ 1975 0061 3B       		.uleb128 0x3b
+ 1976 0062 0B       		.uleb128 0xb
+ 1977 0063 01       		.uleb128 0x1
+ 1978 0064 13       		.uleb128 0x13
+ 1979 0065 00       		.byte	0
+ 1980 0066 00       		.byte	0
+ 1981 0067 0A       		.uleb128 0xa
+ 1982 0068 0D       		.uleb128 0xd
+ 1983 0069 00       		.byte	0
+ 1984 006a 03       		.uleb128 0x3
+ 1985 006b 0E       		.uleb128 0xe
+ 1986 006c 3A       		.uleb128 0x3a
+ 1987 006d 0B       		.uleb128 0xb
+ 1988 006e 3B       		.uleb128 0x3b
+ 1989 006f 0B       		.uleb128 0xb
+ 1990 0070 49       		.uleb128 0x49
+ 1991 0071 13       		.uleb128 0x13
+ 1992 0072 38       		.uleb128 0x38
+ 1993 0073 0B       		.uleb128 0xb
+ 1994 0074 00       		.byte	0
+ 1995 0075 00       		.byte	0
+ 1996 0076 0B       		.uleb128 0xb
+ 1997 0077 2E       		.uleb128 0x2e
+ 1998 0078 01       		.byte	0x1
+ 1999 0079 03       		.uleb128 0x3
+ 2000 007a 0E       		.uleb128 0xe
+ 2001 007b 3A       		.uleb128 0x3a
+ 2002 007c 0B       		.uleb128 0xb
+ 2003 007d 3B       		.uleb128 0x3b
+ 2004 007e 05       		.uleb128 0x5
+ 2005 007f 27       		.uleb128 0x27
+ 2006 0080 19       		.uleb128 0x19
+ 2007 0081 49       		.uleb128 0x49
+ 2008 0082 13       		.uleb128 0x13
+ 2009 0083 11       		.uleb128 0x11
+ 2010 0084 01       		.uleb128 0x1
+ 2011 0085 12       		.uleb128 0x12
+ 2012 0086 06       		.uleb128 0x6
+ 2013 0087 40       		.uleb128 0x40
+ 2014 0088 18       		.uleb128 0x18
+ 2015 0089 9742     		.uleb128 0x2117
+ 2016 008b 19       		.uleb128 0x19
+ 2017 008c 01       		.uleb128 0x1
+ 2018 008d 13       		.uleb128 0x13
+ 2019 008e 00       		.byte	0
+ 2020 008f 00       		.byte	0
+ 2021 0090 0C       		.uleb128 0xc
+ 2022 0091 05       		.uleb128 0x5
+ 2023 0092 00       		.byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 52
+
+
+ 2024 0093 03       		.uleb128 0x3
+ 2025 0094 0E       		.uleb128 0xe
+ 2026 0095 3A       		.uleb128 0x3a
+ 2027 0096 0B       		.uleb128 0xb
+ 2028 0097 3B       		.uleb128 0x3b
+ 2029 0098 05       		.uleb128 0x5
+ 2030 0099 49       		.uleb128 0x49
+ 2031 009a 13       		.uleb128 0x13
+ 2032 009b 02       		.uleb128 0x2
+ 2033 009c 17       		.uleb128 0x17
+ 2034 009d 00       		.byte	0
+ 2035 009e 00       		.byte	0
+ 2036 009f 0D       		.uleb128 0xd
+ 2037 00a0 34       		.uleb128 0x34
+ 2038 00a1 00       		.byte	0
+ 2039 00a2 03       		.uleb128 0x3
+ 2040 00a3 0E       		.uleb128 0xe
+ 2041 00a4 3A       		.uleb128 0x3a
+ 2042 00a5 0B       		.uleb128 0xb
+ 2043 00a6 3B       		.uleb128 0x3b
+ 2044 00a7 05       		.uleb128 0x5
+ 2045 00a8 49       		.uleb128 0x49
+ 2046 00a9 13       		.uleb128 0x13
+ 2047 00aa 02       		.uleb128 0x2
+ 2048 00ab 17       		.uleb128 0x17
+ 2049 00ac 00       		.byte	0
+ 2050 00ad 00       		.byte	0
+ 2051 00ae 0E       		.uleb128 0xe
+ 2052 00af 2E       		.uleb128 0x2e
+ 2053 00b0 01       		.byte	0x1
+ 2054 00b1 3F       		.uleb128 0x3f
+ 2055 00b2 19       		.uleb128 0x19
+ 2056 00b3 03       		.uleb128 0x3
+ 2057 00b4 0E       		.uleb128 0xe
+ 2058 00b5 3A       		.uleb128 0x3a
+ 2059 00b6 0B       		.uleb128 0xb
+ 2060 00b7 3B       		.uleb128 0x3b
+ 2061 00b8 0B       		.uleb128 0xb
+ 2062 00b9 27       		.uleb128 0x27
+ 2063 00ba 19       		.uleb128 0x19
+ 2064 00bb 11       		.uleb128 0x11
+ 2065 00bc 01       		.uleb128 0x1
+ 2066 00bd 12       		.uleb128 0x12
+ 2067 00be 06       		.uleb128 0x6
+ 2068 00bf 40       		.uleb128 0x40
+ 2069 00c0 18       		.uleb128 0x18
+ 2070 00c1 9742     		.uleb128 0x2117
+ 2071 00c3 19       		.uleb128 0x19
+ 2072 00c4 01       		.uleb128 0x1
+ 2073 00c5 13       		.uleb128 0x13
+ 2074 00c6 00       		.byte	0
+ 2075 00c7 00       		.byte	0
+ 2076 00c8 0F       		.uleb128 0xf
+ 2077 00c9 05       		.uleb128 0x5
+ 2078 00ca 00       		.byte	0
+ 2079 00cb 03       		.uleb128 0x3
+ 2080 00cc 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 53
+
+
+ 2081 00cd 3A       		.uleb128 0x3a
+ 2082 00ce 0B       		.uleb128 0xb
+ 2083 00cf 3B       		.uleb128 0x3b
+ 2084 00d0 0B       		.uleb128 0xb
+ 2085 00d1 49       		.uleb128 0x49
+ 2086 00d2 13       		.uleb128 0x13
+ 2087 00d3 02       		.uleb128 0x2
+ 2088 00d4 17       		.uleb128 0x17
+ 2089 00d5 00       		.byte	0
+ 2090 00d6 00       		.byte	0
+ 2091 00d7 10       		.uleb128 0x10
+ 2092 00d8 898201   		.uleb128 0x4109
+ 2093 00db 01       		.byte	0x1
+ 2094 00dc 11       		.uleb128 0x11
+ 2095 00dd 01       		.uleb128 0x1
+ 2096 00de 31       		.uleb128 0x31
+ 2097 00df 13       		.uleb128 0x13
+ 2098 00e0 01       		.uleb128 0x1
+ 2099 00e1 13       		.uleb128 0x13
+ 2100 00e2 00       		.byte	0
+ 2101 00e3 00       		.byte	0
+ 2102 00e4 11       		.uleb128 0x11
+ 2103 00e5 8A8201   		.uleb128 0x410a
+ 2104 00e8 00       		.byte	0
+ 2105 00e9 02       		.uleb128 0x2
+ 2106 00ea 18       		.uleb128 0x18
+ 2107 00eb 9142     		.uleb128 0x2111
+ 2108 00ed 18       		.uleb128 0x18
+ 2109 00ee 00       		.byte	0
+ 2110 00ef 00       		.byte	0
+ 2111 00f0 12       		.uleb128 0x12
+ 2112 00f1 898201   		.uleb128 0x4109
+ 2113 00f4 00       		.byte	0
+ 2114 00f5 11       		.uleb128 0x11
+ 2115 00f6 01       		.uleb128 0x1
+ 2116 00f7 31       		.uleb128 0x31
+ 2117 00f8 13       		.uleb128 0x13
+ 2118 00f9 00       		.byte	0
+ 2119 00fa 00       		.byte	0
+ 2120 00fb 13       		.uleb128 0x13
+ 2121 00fc 898201   		.uleb128 0x4109
+ 2122 00ff 01       		.byte	0x1
+ 2123 0100 11       		.uleb128 0x11
+ 2124 0101 01       		.uleb128 0x1
+ 2125 0102 31       		.uleb128 0x31
+ 2126 0103 13       		.uleb128 0x13
+ 2127 0104 00       		.byte	0
+ 2128 0105 00       		.byte	0
+ 2129 0106 14       		.uleb128 0x14
+ 2130 0107 26       		.uleb128 0x26
+ 2131 0108 00       		.byte	0
+ 2132 0109 49       		.uleb128 0x49
+ 2133 010a 13       		.uleb128 0x13
+ 2134 010b 00       		.byte	0
+ 2135 010c 00       		.byte	0
+ 2136 010d 15       		.uleb128 0x15
+ 2137 010e 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 54
+
+
+ 2138 010f 00       		.byte	0
+ 2139 0110 3F       		.uleb128 0x3f
+ 2140 0111 19       		.uleb128 0x19
+ 2141 0112 03       		.uleb128 0x3
+ 2142 0113 0E       		.uleb128 0xe
+ 2143 0114 3A       		.uleb128 0x3a
+ 2144 0115 0B       		.uleb128 0xb
+ 2145 0116 3B       		.uleb128 0x3b
+ 2146 0117 05       		.uleb128 0x5
+ 2147 0118 27       		.uleb128 0x27
+ 2148 0119 19       		.uleb128 0x19
+ 2149 011a 11       		.uleb128 0x11
+ 2150 011b 01       		.uleb128 0x1
+ 2151 011c 12       		.uleb128 0x12
+ 2152 011d 06       		.uleb128 0x6
+ 2153 011e 40       		.uleb128 0x40
+ 2154 011f 18       		.uleb128 0x18
+ 2155 0120 9742     		.uleb128 0x2117
+ 2156 0122 19       		.uleb128 0x19
+ 2157 0123 00       		.byte	0
+ 2158 0124 00       		.byte	0
+ 2159 0125 16       		.uleb128 0x16
+ 2160 0126 2E       		.uleb128 0x2e
+ 2161 0127 01       		.byte	0x1
+ 2162 0128 3F       		.uleb128 0x3f
+ 2163 0129 19       		.uleb128 0x19
+ 2164 012a 03       		.uleb128 0x3
+ 2165 012b 0E       		.uleb128 0xe
+ 2166 012c 3A       		.uleb128 0x3a
+ 2167 012d 0B       		.uleb128 0xb
+ 2168 012e 3B       		.uleb128 0x3b
+ 2169 012f 05       		.uleb128 0x5
+ 2170 0130 27       		.uleb128 0x27
+ 2171 0131 19       		.uleb128 0x19
+ 2172 0132 49       		.uleb128 0x49
+ 2173 0133 13       		.uleb128 0x13
+ 2174 0134 11       		.uleb128 0x11
+ 2175 0135 01       		.uleb128 0x1
+ 2176 0136 12       		.uleb128 0x12
+ 2177 0137 06       		.uleb128 0x6
+ 2178 0138 40       		.uleb128 0x40
+ 2179 0139 18       		.uleb128 0x18
+ 2180 013a 9742     		.uleb128 0x2117
+ 2181 013c 19       		.uleb128 0x19
+ 2182 013d 01       		.uleb128 0x1
+ 2183 013e 13       		.uleb128 0x13
+ 2184 013f 00       		.byte	0
+ 2185 0140 00       		.byte	0
+ 2186 0141 17       		.uleb128 0x17
+ 2187 0142 2E       		.uleb128 0x2e
+ 2188 0143 01       		.byte	0x1
+ 2189 0144 3F       		.uleb128 0x3f
+ 2190 0145 19       		.uleb128 0x19
+ 2191 0146 03       		.uleb128 0x3
+ 2192 0147 0E       		.uleb128 0xe
+ 2193 0148 3A       		.uleb128 0x3a
+ 2194 0149 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 55
+
+
+ 2195 014a 3B       		.uleb128 0x3b
+ 2196 014b 05       		.uleb128 0x5
+ 2197 014c 27       		.uleb128 0x27
+ 2198 014d 19       		.uleb128 0x19
+ 2199 014e 11       		.uleb128 0x11
+ 2200 014f 01       		.uleb128 0x1
+ 2201 0150 12       		.uleb128 0x12
+ 2202 0151 06       		.uleb128 0x6
+ 2203 0152 40       		.uleb128 0x40
+ 2204 0153 18       		.uleb128 0x18
+ 2205 0154 9742     		.uleb128 0x2117
+ 2206 0156 19       		.uleb128 0x19
+ 2207 0157 01       		.uleb128 0x1
+ 2208 0158 13       		.uleb128 0x13
+ 2209 0159 00       		.byte	0
+ 2210 015a 00       		.byte	0
+ 2211 015b 18       		.uleb128 0x18
+ 2212 015c 0B       		.uleb128 0xb
+ 2213 015d 01       		.byte	0x1
+ 2214 015e 11       		.uleb128 0x11
+ 2215 015f 01       		.uleb128 0x1
+ 2216 0160 12       		.uleb128 0x12
+ 2217 0161 06       		.uleb128 0x6
+ 2218 0162 01       		.uleb128 0x1
+ 2219 0163 13       		.uleb128 0x13
+ 2220 0164 00       		.byte	0
+ 2221 0165 00       		.byte	0
+ 2222 0166 19       		.uleb128 0x19
+ 2223 0167 05       		.uleb128 0x5
+ 2224 0168 00       		.byte	0
+ 2225 0169 03       		.uleb128 0x3
+ 2226 016a 0E       		.uleb128 0xe
+ 2227 016b 3A       		.uleb128 0x3a
+ 2228 016c 0B       		.uleb128 0xb
+ 2229 016d 3B       		.uleb128 0x3b
+ 2230 016e 05       		.uleb128 0x5
+ 2231 016f 49       		.uleb128 0x49
+ 2232 0170 13       		.uleb128 0x13
+ 2233 0171 02       		.uleb128 0x2
+ 2234 0172 18       		.uleb128 0x18
+ 2235 0173 00       		.byte	0
+ 2236 0174 00       		.byte	0
+ 2237 0175 1A       		.uleb128 0x1a
+ 2238 0176 2E       		.uleb128 0x2e
+ 2239 0177 00       		.byte	0
+ 2240 0178 3F       		.uleb128 0x3f
+ 2241 0179 19       		.uleb128 0x19
+ 2242 017a 03       		.uleb128 0x3
+ 2243 017b 0E       		.uleb128 0xe
+ 2244 017c 3A       		.uleb128 0x3a
+ 2245 017d 0B       		.uleb128 0xb
+ 2246 017e 3B       		.uleb128 0x3b
+ 2247 017f 05       		.uleb128 0x5
+ 2248 0180 27       		.uleb128 0x27
+ 2249 0181 19       		.uleb128 0x19
+ 2250 0182 49       		.uleb128 0x49
+ 2251 0183 13       		.uleb128 0x13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 56
+
+
+ 2252 0184 11       		.uleb128 0x11
+ 2253 0185 01       		.uleb128 0x1
+ 2254 0186 12       		.uleb128 0x12
+ 2255 0187 06       		.uleb128 0x6
+ 2256 0188 40       		.uleb128 0x40
+ 2257 0189 18       		.uleb128 0x18
+ 2258 018a 9742     		.uleb128 0x2117
+ 2259 018c 19       		.uleb128 0x19
+ 2260 018d 00       		.byte	0
+ 2261 018e 00       		.byte	0
+ 2262 018f 1B       		.uleb128 0x1b
+ 2263 0190 34       		.uleb128 0x34
+ 2264 0191 00       		.byte	0
+ 2265 0192 03       		.uleb128 0x3
+ 2266 0193 0E       		.uleb128 0xe
+ 2267 0194 3A       		.uleb128 0x3a
+ 2268 0195 0B       		.uleb128 0xb
+ 2269 0196 3B       		.uleb128 0x3b
+ 2270 0197 0B       		.uleb128 0xb
+ 2271 0198 49       		.uleb128 0x49
+ 2272 0199 13       		.uleb128 0x13
+ 2273 019a 3F       		.uleb128 0x3f
+ 2274 019b 19       		.uleb128 0x19
+ 2275 019c 3C       		.uleb128 0x3c
+ 2276 019d 19       		.uleb128 0x19
+ 2277 019e 00       		.byte	0
+ 2278 019f 00       		.byte	0
+ 2279 01a0 1C       		.uleb128 0x1c
+ 2280 01a1 34       		.uleb128 0x34
+ 2281 01a2 00       		.byte	0
+ 2282 01a3 03       		.uleb128 0x3
+ 2283 01a4 0E       		.uleb128 0xe
+ 2284 01a5 3A       		.uleb128 0x3a
+ 2285 01a6 0B       		.uleb128 0xb
+ 2286 01a7 3B       		.uleb128 0x3b
+ 2287 01a8 0B       		.uleb128 0xb
+ 2288 01a9 49       		.uleb128 0x49
+ 2289 01aa 13       		.uleb128 0x13
+ 2290 01ab 3F       		.uleb128 0x3f
+ 2291 01ac 19       		.uleb128 0x19
+ 2292 01ad 02       		.uleb128 0x2
+ 2293 01ae 18       		.uleb128 0x18
+ 2294 01af 00       		.byte	0
+ 2295 01b0 00       		.byte	0
+ 2296 01b1 1D       		.uleb128 0x1d
+ 2297 01b2 2E       		.uleb128 0x2e
+ 2298 01b3 01       		.byte	0x1
+ 2299 01b4 3F       		.uleb128 0x3f
+ 2300 01b5 19       		.uleb128 0x19
+ 2301 01b6 03       		.uleb128 0x3
+ 2302 01b7 0E       		.uleb128 0xe
+ 2303 01b8 3A       		.uleb128 0x3a
+ 2304 01b9 0B       		.uleb128 0xb
+ 2305 01ba 3B       		.uleb128 0x3b
+ 2306 01bb 0B       		.uleb128 0xb
+ 2307 01bc 27       		.uleb128 0x27
+ 2308 01bd 19       		.uleb128 0x19
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 57
+
+
+ 2309 01be 3C       		.uleb128 0x3c
+ 2310 01bf 19       		.uleb128 0x19
+ 2311 01c0 01       		.uleb128 0x1
+ 2312 01c1 13       		.uleb128 0x13
+ 2313 01c2 00       		.byte	0
+ 2314 01c3 00       		.byte	0
+ 2315 01c4 1E       		.uleb128 0x1e
+ 2316 01c5 05       		.uleb128 0x5
+ 2317 01c6 00       		.byte	0
+ 2318 01c7 49       		.uleb128 0x49
+ 2319 01c8 13       		.uleb128 0x13
+ 2320 01c9 00       		.byte	0
+ 2321 01ca 00       		.byte	0
+ 2322 01cb 1F       		.uleb128 0x1f
+ 2323 01cc 2E       		.uleb128 0x2e
+ 2324 01cd 01       		.byte	0x1
+ 2325 01ce 3F       		.uleb128 0x3f
+ 2326 01cf 19       		.uleb128 0x19
+ 2327 01d0 03       		.uleb128 0x3
+ 2328 01d1 0E       		.uleb128 0xe
+ 2329 01d2 3A       		.uleb128 0x3a
+ 2330 01d3 0B       		.uleb128 0xb
+ 2331 01d4 3B       		.uleb128 0x3b
+ 2332 01d5 0B       		.uleb128 0xb
+ 2333 01d6 27       		.uleb128 0x27
+ 2334 01d7 19       		.uleb128 0x19
+ 2335 01d8 49       		.uleb128 0x49
+ 2336 01d9 13       		.uleb128 0x13
+ 2337 01da 3C       		.uleb128 0x3c
+ 2338 01db 19       		.uleb128 0x19
+ 2339 01dc 01       		.uleb128 0x1
+ 2340 01dd 13       		.uleb128 0x13
+ 2341 01de 00       		.byte	0
+ 2342 01df 00       		.byte	0
+ 2343 01e0 20       		.uleb128 0x20
+ 2344 01e1 2E       		.uleb128 0x2e
+ 2345 01e2 00       		.byte	0
+ 2346 01e3 3F       		.uleb128 0x3f
+ 2347 01e4 19       		.uleb128 0x19
+ 2348 01e5 03       		.uleb128 0x3
+ 2349 01e6 0E       		.uleb128 0xe
+ 2350 01e7 3A       		.uleb128 0x3a
+ 2351 01e8 0B       		.uleb128 0xb
+ 2352 01e9 3B       		.uleb128 0x3b
+ 2353 01ea 0B       		.uleb128 0xb
+ 2354 01eb 27       		.uleb128 0x27
+ 2355 01ec 19       		.uleb128 0x19
+ 2356 01ed 49       		.uleb128 0x49
+ 2357 01ee 13       		.uleb128 0x13
+ 2358 01ef 3C       		.uleb128 0x3c
+ 2359 01f0 19       		.uleb128 0x19
+ 2360 01f1 00       		.byte	0
+ 2361 01f2 00       		.byte	0
+ 2362 01f3 21       		.uleb128 0x21
+ 2363 01f4 2E       		.uleb128 0x2e
+ 2364 01f5 01       		.byte	0x1
+ 2365 01f6 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 58
+
+
+ 2366 01f7 19       		.uleb128 0x19
+ 2367 01f8 03       		.uleb128 0x3
+ 2368 01f9 0E       		.uleb128 0xe
+ 2369 01fa 3A       		.uleb128 0x3a
+ 2370 01fb 0B       		.uleb128 0xb
+ 2371 01fc 3B       		.uleb128 0x3b
+ 2372 01fd 0B       		.uleb128 0xb
+ 2373 01fe 27       		.uleb128 0x27
+ 2374 01ff 19       		.uleb128 0x19
+ 2375 0200 3C       		.uleb128 0x3c
+ 2376 0201 19       		.uleb128 0x19
+ 2377 0202 00       		.byte	0
+ 2378 0203 00       		.byte	0
+ 2379 0204 00       		.byte	0
+ 2380              		.section	.debug_loc,"",%progbits
+ 2381              	.Ldebug_loc0:
+ 2382              	.LLST0:
+ 2383 0000 00000000 		.4byte	.LVL0
+ 2384 0004 0E000000 		.4byte	.LVL5
+ 2385 0008 0100     		.2byte	0x1
+ 2386 000a 50       		.byte	0x50
+ 2387 000b 0E000000 		.4byte	.LVL5
+ 2388 000f 14000000 		.4byte	.LFE9
+ 2389 0013 0400     		.2byte	0x4
+ 2390 0015 F3       		.byte	0xf3
+ 2391 0016 01       		.uleb128 0x1
+ 2392 0017 50       		.byte	0x50
+ 2393 0018 9F       		.byte	0x9f
+ 2394 0019 00000000 		.4byte	0
+ 2395 001d 00000000 		.4byte	0
+ 2396              	.LLST1:
+ 2397 0021 00000000 		.4byte	.LVL0
+ 2398 0025 02000000 		.4byte	.LVL1
+ 2399 0029 0100     		.2byte	0x1
+ 2400 002b 51       		.byte	0x51
+ 2401 002c 02000000 		.4byte	.LVL1
+ 2402 0030 14000000 		.4byte	.LFE9
+ 2403 0034 0400     		.2byte	0x4
+ 2404 0036 F3       		.byte	0xf3
+ 2405 0037 01       		.uleb128 0x1
+ 2406 0038 51       		.byte	0x51
+ 2407 0039 9F       		.byte	0x9f
+ 2408 003a 00000000 		.4byte	0
+ 2409 003e 00000000 		.4byte	0
+ 2410              	.LLST2:
+ 2411 0042 04000000 		.4byte	.LVL2
+ 2412 0046 06000000 		.4byte	.LVL3
+ 2413 004a 0100     		.2byte	0x1
+ 2414 004c 51       		.byte	0x51
+ 2415 004d 06000000 		.4byte	.LVL3
+ 2416 0051 0C000000 		.4byte	.LVL4
+ 2417 0055 0800     		.2byte	0x8
+ 2418 0057 F3       		.byte	0xf3
+ 2419 0058 01       		.uleb128 0x1
+ 2420 0059 51       		.byte	0x51
+ 2421 005a 70       		.byte	0x70
+ 2422 005b 00       		.sleb128 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 59
+
+
+ 2423 005c 27       		.byte	0x27
+ 2424 005d 20       		.byte	0x20
+ 2425 005e 9F       		.byte	0x9f
+ 2426 005f 0C000000 		.4byte	.LVL4
+ 2427 0063 12000000 		.4byte	.LVL6
+ 2428 0067 0100     		.2byte	0x1
+ 2429 0069 51       		.byte	0x51
+ 2430 006a 12000000 		.4byte	.LVL6
+ 2431 006e 14000000 		.4byte	.LFE9
+ 2432 0072 0100     		.2byte	0x1
+ 2433 0074 50       		.byte	0x50
+ 2434 0075 00000000 		.4byte	0
+ 2435 0079 00000000 		.4byte	0
+ 2436              	.LLST3:
+ 2437 007d 00000000 		.4byte	.LVL7
+ 2438 0081 08000000 		.4byte	.LVL8
+ 2439 0085 0100     		.2byte	0x1
+ 2440 0087 50       		.byte	0x50
+ 2441 0088 08000000 		.4byte	.LVL8
+ 2442 008c 0E000000 		.4byte	.LVL10
+ 2443 0090 0100     		.2byte	0x1
+ 2444 0092 54       		.byte	0x54
+ 2445 0093 0E000000 		.4byte	.LVL10
+ 2446 0097 10000000 		.4byte	.LVL11
+ 2447 009b 0100     		.2byte	0x1
+ 2448 009d 50       		.byte	0x50
+ 2449 009e 10000000 		.4byte	.LVL11
+ 2450 00a2 50010000 		.4byte	.LVL18
+ 2451 00a6 0100     		.2byte	0x1
+ 2452 00a8 54       		.byte	0x54
+ 2453 00a9 50010000 		.4byte	.LVL18
+ 2454 00ad D4010000 		.4byte	.LFE2
+ 2455 00b1 0400     		.2byte	0x4
+ 2456 00b3 F3       		.byte	0xf3
+ 2457 00b4 01       		.uleb128 0x1
+ 2458 00b5 50       		.byte	0x50
+ 2459 00b6 9F       		.byte	0x9f
+ 2460 00b7 00000000 		.4byte	0
+ 2461 00bb 00000000 		.4byte	0
+ 2462              	.LLST4:
+ 2463 00bf 0E000000 		.4byte	.LVL20
+ 2464 00c3 4E000000 		.4byte	.LVL24
+ 2465 00c7 0100     		.2byte	0x1
+ 2466 00c9 54       		.byte	0x54
+ 2467 00ca 4E000000 		.4byte	.LVL24
+ 2468 00ce 64000000 		.4byte	.LFE4
+ 2469 00d2 0100     		.2byte	0x1
+ 2470 00d4 50       		.byte	0x50
+ 2471 00d5 00000000 		.4byte	0
+ 2472 00d9 00000000 		.4byte	0
+ 2473              	.LLST5:
+ 2474 00dd 00000000 		.4byte	.LVL25
+ 2475 00e1 15000000 		.4byte	.LVL26-1
+ 2476 00e5 0100     		.2byte	0x1
+ 2477 00e7 50       		.byte	0x50
+ 2478 00e8 15000000 		.4byte	.LVL26-1
+ 2479 00ec 1C000000 		.4byte	.LVL27
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 60
+
+
+ 2480 00f0 0400     		.2byte	0x4
+ 2481 00f2 F3       		.byte	0xf3
+ 2482 00f3 01       		.uleb128 0x1
+ 2483 00f4 50       		.byte	0x50
+ 2484 00f5 9F       		.byte	0x9f
+ 2485 00f6 1C000000 		.4byte	.LVL27
+ 2486 00fa 26000000 		.4byte	.LVL30
+ 2487 00fe 0100     		.2byte	0x1
+ 2488 0100 50       		.byte	0x50
+ 2489 0101 26000000 		.4byte	.LVL30
+ 2490 0105 40000000 		.4byte	.LFE5
+ 2491 0109 0400     		.2byte	0x4
+ 2492 010b F3       		.byte	0xf3
+ 2493 010c 01       		.uleb128 0x1
+ 2494 010d 50       		.byte	0x50
+ 2495 010e 9F       		.byte	0x9f
+ 2496 010f 00000000 		.4byte	0
+ 2497 0113 00000000 		.4byte	0
+ 2498              	.LLST6:
+ 2499 0117 20000000 		.4byte	.LVL28
+ 2500 011b 2A000000 		.4byte	.LVL31
+ 2501 011f 0100     		.2byte	0x1
+ 2502 0121 53       		.byte	0x53
+ 2503 0122 2A000000 		.4byte	.LVL31
+ 2504 0126 2C000000 		.4byte	.LVL32
+ 2505 012a 0100     		.2byte	0x1
+ 2506 012c 50       		.byte	0x50
+ 2507 012d 00000000 		.4byte	0
+ 2508 0131 00000000 		.4byte	0
+ 2509              	.LLST7:
+ 2510 0135 0C000000 		.4byte	.LVL33
+ 2511 0139 0E000000 		.4byte	.LVL34
+ 2512 013d 0100     		.2byte	0x1
+ 2513 013f 50       		.byte	0x50
+ 2514 0140 16000000 		.4byte	.LVL35
+ 2515 0144 24000000 		.4byte	.LFE6
+ 2516 0148 0100     		.2byte	0x1
+ 2517 014a 50       		.byte	0x50
+ 2518 014b 00000000 		.4byte	0
+ 2519 014f 00000000 		.4byte	0
+ 2520              	.LLST8:
+ 2521 0153 00000000 		.4byte	.LVL36
+ 2522 0157 0C000000 		.4byte	.LVL37
+ 2523 015b 0100     		.2byte	0x1
+ 2524 015d 50       		.byte	0x50
+ 2525 015e 0C000000 		.4byte	.LVL37
+ 2526 0162 22000000 		.4byte	.LVL42
+ 2527 0166 0100     		.2byte	0x1
+ 2528 0168 56       		.byte	0x56
+ 2529 0169 22000000 		.4byte	.LVL42
+ 2530 016d 30000000 		.4byte	.LFE7
+ 2531 0171 0400     		.2byte	0x4
+ 2532 0173 F3       		.byte	0xf3
+ 2533 0174 01       		.uleb128 0x1
+ 2534 0175 50       		.byte	0x50
+ 2535 0176 9F       		.byte	0x9f
+ 2536 0177 00000000 		.4byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 61
+
+
+ 2537 017b 00000000 		.4byte	0
+ 2538              	.LLST9:
+ 2539 017f 00000000 		.4byte	.LVL36
+ 2540 0183 0F000000 		.4byte	.LVL38-1
+ 2541 0187 0100     		.2byte	0x1
+ 2542 0189 51       		.byte	0x51
+ 2543 018a 0F000000 		.4byte	.LVL38-1
+ 2544 018e 22000000 		.4byte	.LVL41
+ 2545 0192 0100     		.2byte	0x1
+ 2546 0194 55       		.byte	0x55
+ 2547 0195 22000000 		.4byte	.LVL41
+ 2548 0199 30000000 		.4byte	.LFE7
+ 2549 019d 0400     		.2byte	0x4
+ 2550 019f F3       		.byte	0xf3
+ 2551 01a0 01       		.uleb128 0x1
+ 2552 01a1 51       		.byte	0x51
+ 2553 01a2 9F       		.byte	0x9f
+ 2554 01a3 00000000 		.4byte	0
+ 2555 01a7 00000000 		.4byte	0
+ 2556              	.LLST10:
+ 2557 01ab 00000000 		.4byte	.LVL36
+ 2558 01af 0F000000 		.4byte	.LVL38-1
+ 2559 01b3 0100     		.2byte	0x1
+ 2560 01b5 52       		.byte	0x52
+ 2561 01b6 0F000000 		.4byte	.LVL38-1
+ 2562 01ba 22000000 		.4byte	.LVL40
+ 2563 01be 0100     		.2byte	0x1
+ 2564 01c0 54       		.byte	0x54
+ 2565 01c1 22000000 		.4byte	.LVL40
+ 2566 01c5 30000000 		.4byte	.LFE7
+ 2567 01c9 0400     		.2byte	0x4
+ 2568 01cb F3       		.byte	0xf3
+ 2569 01cc 01       		.uleb128 0x1
+ 2570 01cd 52       		.byte	0x52
+ 2571 01ce 9F       		.byte	0x9f
+ 2572 01cf 00000000 		.4byte	0
+ 2573 01d3 00000000 		.4byte	0
+ 2574              	.LLST11:
+ 2575 01d7 00000000 		.4byte	.LVL44
+ 2576 01db 0C000000 		.4byte	.LVL45
+ 2577 01df 0100     		.2byte	0x1
+ 2578 01e1 50       		.byte	0x50
+ 2579 01e2 0C000000 		.4byte	.LVL45
+ 2580 01e6 0F000000 		.4byte	.LVL46-1
+ 2581 01ea 0100     		.2byte	0x1
+ 2582 01ec 51       		.byte	0x51
+ 2583 01ed 0F000000 		.4byte	.LVL46-1
+ 2584 01f1 24000000 		.4byte	.LFE10
+ 2585 01f5 0400     		.2byte	0x4
+ 2586 01f7 F3       		.byte	0xf3
+ 2587 01f8 01       		.uleb128 0x1
+ 2588 01f9 50       		.byte	0x50
+ 2589 01fa 9F       		.byte	0x9f
+ 2590 01fb 00000000 		.4byte	0
+ 2591 01ff 00000000 		.4byte	0
+ 2592              	.LLST12:
+ 2593 0203 00000000 		.4byte	.LVL47
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 62
+
+
+ 2594 0207 0C000000 		.4byte	.LVL48
+ 2595 020b 0100     		.2byte	0x1
+ 2596 020d 50       		.byte	0x50
+ 2597 020e 0C000000 		.4byte	.LVL48
+ 2598 0212 22000000 		.4byte	.LVL53
+ 2599 0216 0100     		.2byte	0x1
+ 2600 0218 56       		.byte	0x56
+ 2601 0219 22000000 		.4byte	.LVL53
+ 2602 021d 30000000 		.4byte	.LFE12
+ 2603 0221 0400     		.2byte	0x4
+ 2604 0223 F3       		.byte	0xf3
+ 2605 0224 01       		.uleb128 0x1
+ 2606 0225 50       		.byte	0x50
+ 2607 0226 9F       		.byte	0x9f
+ 2608 0227 00000000 		.4byte	0
+ 2609 022b 00000000 		.4byte	0
+ 2610              	.LLST13:
+ 2611 022f 00000000 		.4byte	.LVL47
+ 2612 0233 0F000000 		.4byte	.LVL49-1
+ 2613 0237 0100     		.2byte	0x1
+ 2614 0239 51       		.byte	0x51
+ 2615 023a 0F000000 		.4byte	.LVL49-1
+ 2616 023e 22000000 		.4byte	.LVL52
+ 2617 0242 0100     		.2byte	0x1
+ 2618 0244 55       		.byte	0x55
+ 2619 0245 22000000 		.4byte	.LVL52
+ 2620 0249 30000000 		.4byte	.LFE12
+ 2621 024d 0400     		.2byte	0x4
+ 2622 024f F3       		.byte	0xf3
+ 2623 0250 01       		.uleb128 0x1
+ 2624 0251 51       		.byte	0x51
+ 2625 0252 9F       		.byte	0x9f
+ 2626 0253 00000000 		.4byte	0
+ 2627 0257 00000000 		.4byte	0
+ 2628              	.LLST14:
+ 2629 025b 00000000 		.4byte	.LVL47
+ 2630 025f 0F000000 		.4byte	.LVL49-1
+ 2631 0263 0100     		.2byte	0x1
+ 2632 0265 52       		.byte	0x52
+ 2633 0266 0F000000 		.4byte	.LVL49-1
+ 2634 026a 22000000 		.4byte	.LVL51
+ 2635 026e 0100     		.2byte	0x1
+ 2636 0270 54       		.byte	0x54
+ 2637 0271 22000000 		.4byte	.LVL51
+ 2638 0275 30000000 		.4byte	.LFE12
+ 2639 0279 0400     		.2byte	0x4
+ 2640 027b F3       		.byte	0xf3
+ 2641 027c 01       		.uleb128 0x1
+ 2642 027d 52       		.byte	0x52
+ 2643 027e 9F       		.byte	0x9f
+ 2644 027f 00000000 		.4byte	0
+ 2645 0283 00000000 		.4byte	0
+ 2646              	.LLST15:
+ 2647 0287 02000000 		.4byte	.LVL55
+ 2648 028b 12000000 		.4byte	.LVL56
+ 2649 028f 0200     		.2byte	0x2
+ 2650 0291 31       		.byte	0x31
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 63
+
+
+ 2651 0292 9F       		.byte	0x9f
+ 2652 0293 20000000 		.4byte	.LVL58
+ 2653 0297 42000000 		.4byte	.LVL59
+ 2654 029b 0100     		.2byte	0x1
+ 2655 029d 50       		.byte	0x50
+ 2656 029e 6C000000 		.4byte	.LVL64
+ 2657 02a2 7F000000 		.4byte	.LVL65-1
+ 2658 02a6 0100     		.2byte	0x1
+ 2659 02a8 50       		.byte	0x50
+ 2660 02a9 82000000 		.4byte	.LVL66
+ 2661 02ad 8B000000 		.4byte	.LVL67-1
+ 2662 02b1 0100     		.2byte	0x1
+ 2663 02b3 50       		.byte	0x50
+ 2664 02b4 00000000 		.4byte	0
+ 2665 02b8 00000000 		.4byte	0
+ 2666              		.section	.debug_aranges,"",%progbits
+ 2667 0000 84000000 		.4byte	0x84
+ 2668 0004 0200     		.2byte	0x2
+ 2669 0006 00000000 		.4byte	.Ldebug_info0
+ 2670 000a 04       		.byte	0x4
+ 2671 000b 00       		.byte	0
+ 2672 000c 0000     		.2byte	0
+ 2673 000e 0000     		.2byte	0
+ 2674 0010 00000000 		.4byte	.LFB9
+ 2675 0014 14000000 		.4byte	.LFE9-.LFB9
+ 2676 0018 00000000 		.4byte	.LFB2
+ 2677 001c D4010000 		.4byte	.LFE2-.LFB2
+ 2678 0020 00000000 		.4byte	.LFB3
+ 2679 0024 18000000 		.4byte	.LFE3-.LFB3
+ 2680 0028 00000000 		.4byte	.LFB4
+ 2681 002c 64000000 		.4byte	.LFE4-.LFB4
+ 2682 0030 00000000 		.4byte	.LFB5
+ 2683 0034 40000000 		.4byte	.LFE5-.LFB5
+ 2684 0038 00000000 		.4byte	.LFB6
+ 2685 003c 24000000 		.4byte	.LFE6-.LFB6
+ 2686 0040 00000000 		.4byte	.LFB7
+ 2687 0044 30000000 		.4byte	.LFE7-.LFB7
+ 2688 0048 00000000 		.4byte	.LFB8
+ 2689 004c 0C000000 		.4byte	.LFE8-.LFB8
+ 2690 0050 00000000 		.4byte	.LFB10
+ 2691 0054 24000000 		.4byte	.LFE10-.LFB10
+ 2692 0058 00000000 		.4byte	.LFB11
+ 2693 005c 0C000000 		.4byte	.LFE11-.LFB11
+ 2694 0060 00000000 		.4byte	.LFB12
+ 2695 0064 30000000 		.4byte	.LFE12-.LFB12
+ 2696 0068 00000000 		.4byte	.LFB13
+ 2697 006c 0C000000 		.4byte	.LFE13-.LFB13
+ 2698 0070 00000000 		.4byte	.LFB14
+ 2699 0074 A8000000 		.4byte	.LFE14-.LFB14
+ 2700 0078 00000000 		.4byte	.LFB15
+ 2701 007c 48000000 		.4byte	.LFE15-.LFB15
+ 2702 0080 00000000 		.4byte	0
+ 2703 0084 00000000 		.4byte	0
+ 2704              		.section	.debug_ranges,"",%progbits
+ 2705              	.Ldebug_ranges0:
+ 2706 0000 00000000 		.4byte	.LFB9
+ 2707 0004 14000000 		.4byte	.LFE9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 64
+
+
+ 2708 0008 00000000 		.4byte	.LFB2
+ 2709 000c D4010000 		.4byte	.LFE2
+ 2710 0010 00000000 		.4byte	.LFB3
+ 2711 0014 18000000 		.4byte	.LFE3
+ 2712 0018 00000000 		.4byte	.LFB4
+ 2713 001c 64000000 		.4byte	.LFE4
+ 2714 0020 00000000 		.4byte	.LFB5
+ 2715 0024 40000000 		.4byte	.LFE5
+ 2716 0028 00000000 		.4byte	.LFB6
+ 2717 002c 24000000 		.4byte	.LFE6
+ 2718 0030 00000000 		.4byte	.LFB7
+ 2719 0034 30000000 		.4byte	.LFE7
+ 2720 0038 00000000 		.4byte	.LFB8
+ 2721 003c 0C000000 		.4byte	.LFE8
+ 2722 0040 00000000 		.4byte	.LFB10
+ 2723 0044 24000000 		.4byte	.LFE10
+ 2724 0048 00000000 		.4byte	.LFB11
+ 2725 004c 0C000000 		.4byte	.LFE11
+ 2726 0050 00000000 		.4byte	.LFB12
+ 2727 0054 30000000 		.4byte	.LFE12
+ 2728 0058 00000000 		.4byte	.LFB13
+ 2729 005c 0C000000 		.4byte	.LFE13
+ 2730 0060 00000000 		.4byte	.LFB14
+ 2731 0064 A8000000 		.4byte	.LFE14
+ 2732 0068 00000000 		.4byte	.LFB15
+ 2733 006c 48000000 		.4byte	.LFE15
+ 2734 0070 00000000 		.4byte	0
+ 2735 0074 00000000 		.4byte	0
+ 2736              		.section	.debug_line,"",%progbits
+ 2737              	.Ldebug_line0:
+ 2738 0000 43020000 		.section	.debug_str,"MS",%progbits,1
+ 2738      02008900 
+ 2738      00000201 
+ 2738      FB0E0D00 
+ 2738      01010101 
+ 2739              	.LASF63:
+ 2740 0000 55415254 		.ascii	"UART_dataBuffer2\000"
+ 2740      5F646174 
+ 2740      61427566 
+ 2740      66657232 
+ 2740      00
+ 2741              	.LASF10:
+ 2742 0011 75696E74 		.ascii	"uint16\000"
+ 2742      313600
+ 2743              	.LASF35:
+ 2744 0018 55415254 		.ascii	"UART_EzI2CGetActivity\000"
+ 2744      5F457A49 
+ 2744      32434765 
+ 2744      74416374 
+ 2744      69766974 
+ 2745              	.LASF73:
+ 2746 002e 43794578 		.ascii	"CyExitCriticalSection\000"
+ 2746      69744372 
+ 2746      69746963 
+ 2746      616C5365 
+ 2746      6374696F 
+ 2747              	.LASF52:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 65
+
+
+ 2748 0044 55415254 		.ascii	"UART_subAddrSize\000"
+ 2748      5F737562 
+ 2748      41646472 
+ 2748      53697A65 
+ 2748      00
+ 2749              	.LASF7:
+ 2750 0055 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2750      206C6F6E 
+ 2750      6720756E 
+ 2750      7369676E 
+ 2750      65642069 
+ 2751              	.LASF33:
+ 2752 006c 55415254 		.ascii	"UART_EzI2CSetAddress1\000"
+ 2752      5F457A49 
+ 2752      32435365 
+ 2752      74416464 
+ 2752      72657373 
+ 2753              	.LASF42:
+ 2754 0082 55415254 		.ascii	"UART_EzI2CSetAddress2\000"
+ 2754      5F457A49 
+ 2754      32435365 
+ 2754      74416464 
+ 2754      72657373 
+ 2755              	.LASF23:
+ 2756 0098 73756241 		.ascii	"subAddrSize\000"
+ 2756      64647253 
+ 2756      697A6500 
+ 2757              	.LASF6:
+ 2758 00a4 6C6F6E67 		.ascii	"long long int\000"
+ 2758      206C6F6E 
+ 2758      6720696E 
+ 2758      7400
+ 2759              	.LASF0:
+ 2760 00b2 7369676E 		.ascii	"signed char\000"
+ 2760      65642063 
+ 2760      68617200 
+ 2761              	.LASF65:
+ 2762 00be 55415254 		.ascii	"UART_protectBuf2\000"
+ 2762      5F70726F 
+ 2762      74656374 
+ 2762      42756632 
+ 2762      00
+ 2763              	.LASF32:
+ 2764 00cf 55415254 		.ascii	"UART_EzI2CInit\000"
+ 2764      5F457A49 
+ 2764      3243496E 
+ 2764      697400
+ 2765              	.LASF55:
+ 2766 00de 55415254 		.ascii	"UART_fsmState\000"
+ 2766      5F66736D 
+ 2766      53746174 
+ 2766      6500
+ 2767              	.LASF4:
+ 2768 00ec 6C6F6E67 		.ascii	"long int\000"
+ 2768      20696E74 
+ 2768      00
+ 2769              	.LASF70:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 66
+
+
+ 2770 00f5 4379496E 		.ascii	"CyIntDisable\000"
+ 2770      74446973 
+ 2770      61626C65 
+ 2770      00
+ 2771              	.LASF24:
+ 2772 0102 656E6162 		.ascii	"enableWake\000"
+ 2772      6C655761 
+ 2772      6B6500
+ 2773              	.LASF37:
+ 2774 010d 55415254 		.ascii	"UART_EzI2CSetBuffer1\000"
+ 2774      5F457A49 
+ 2774      32435365 
+ 2774      74427566 
+ 2774      66657231 
+ 2775              	.LASF43:
+ 2776 0122 55415254 		.ascii	"UART_EzI2CSetBuffer2\000"
+ 2776      5F457A49 
+ 2776      32435365 
+ 2776      74427566 
+ 2776      66657232 
+ 2777              	.LASF9:
+ 2778 0137 75696E74 		.ascii	"uint8\000"
+ 2778      3800
+ 2779              	.LASF30:
+ 2780 013d 6D617463 		.ascii	"matchReg\000"
+ 2780      68526567 
+ 2780      00
+ 2781              	.LASF13:
+ 2782 0146 646F7562 		.ascii	"double\000"
+ 2782      6C6500
+ 2783              	.LASF25:
+ 2784 014d 656E6162 		.ascii	"enableByteMode\000"
+ 2784      6C654279 
+ 2784      74654D6F 
+ 2784      646500
+ 2785              	.LASF11:
+ 2786 015c 75696E74 		.ascii	"uint32\000"
+ 2786      333200
+ 2787              	.LASF18:
+ 2788 0163 656E6162 		.ascii	"enableClockStretch\000"
+ 2788      6C65436C 
+ 2788      6F636B53 
+ 2788      74726574 
+ 2788      636800
+ 2789              	.LASF20:
+ 2790 0176 6E756D62 		.ascii	"numberOfAddresses\000"
+ 2790      65724F66 
+ 2790      41646472 
+ 2790      65737365 
+ 2790      7300
+ 2791              	.LASF49:
+ 2792 0188 55415254 		.ascii	"UART_scbEnableWake\000"
+ 2792      5F736362 
+ 2792      456E6162 
+ 2792      6C655761 
+ 2792      6B6500
+ 2793              	.LASF8:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 67
+
+
+ 2794 019b 756E7369 		.ascii	"unsigned int\000"
+ 2794      676E6564 
+ 2794      20696E74 
+ 2794      00
+ 2795              	.LASF75:
+ 2796 01a8 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\UART_EZI2C.c\000"
+ 2796      6E657261 
+ 2796      7465645F 
+ 2796      536F7572 
+ 2796      63655C50 
+ 2797              	.LASF5:
+ 2798 01ce 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2798      20756E73 
+ 2798      69676E65 
+ 2798      6420696E 
+ 2798      7400
+ 2799              	.LASF81:
+ 2800 01e0 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 2800      74657243 
+ 2800      72697469 
+ 2800      63616C53 
+ 2800      65637469 
+ 2801              	.LASF61:
+ 2802 01f7 55415254 		.ascii	"UART_addrBuf1\000"
+ 2802      5F616464 
+ 2802      72427566 
+ 2802      3100
+ 2803              	.LASF62:
+ 2804 0205 55415254 		.ascii	"UART_addrBuf2\000"
+ 2804      5F616464 
+ 2804      72427566 
+ 2804      3200
+ 2805              	.LASF53:
+ 2806 0213 55415254 		.ascii	"UART_configEzI2C\000"
+ 2806      5F636F6E 
+ 2806      66696745 
+ 2806      7A493243 
+ 2806      00
+ 2807              	.LASF3:
+ 2808 0224 73686F72 		.ascii	"short unsigned int\000"
+ 2808      7420756E 
+ 2808      7369676E 
+ 2808      65642069 
+ 2808      6E7400
+ 2809              	.LASF69:
+ 2810 0237 55415254 		.ascii	"UART_SetPins\000"
+ 2810      5F536574 
+ 2810      50696E73 
+ 2810      00
+ 2811              	.LASF80:
+ 2812 0244 4379496E 		.ascii	"CyIntSetVector\000"
+ 2812      74536574 
+ 2812      56656374 
+ 2812      6F7200
+ 2813              	.LASF60:
+ 2814 0253 55415254 		.ascii	"UART_indexBuf1\000"
+ 2814      5F696E64 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 68
+
+
+ 2814      65784275 
+ 2814      663100
+ 2815              	.LASF67:
+ 2816 0262 55415254 		.ascii	"UART_indexBuf2\000"
+ 2816      5F696E64 
+ 2816      65784275 
+ 2816      663200
+ 2817              	.LASF27:
+ 2818 0271 61646472 		.ascii	"addr1\000"
+ 2818      3100
+ 2819              	.LASF28:
+ 2820 0277 61646472 		.ascii	"addr2\000"
+ 2820      3200
+ 2821              	.LASF15:
+ 2822 027d 72656733 		.ascii	"reg32\000"
+ 2822      3200
+ 2823              	.LASF17:
+ 2824 0283 73697A65 		.ascii	"sizetype\000"
+ 2824      74797065 
+ 2824      00
+ 2825              	.LASF48:
+ 2826 028c 55415254 		.ascii	"UART_scbMode\000"
+ 2826      5F736362 
+ 2826      4D6F6465 
+ 2826      00
+ 2827              	.LASF82:
+ 2828 0299 4379496E 		.ascii	"CyIntClearPending\000"
+ 2828      74436C65 
+ 2828      61725065 
+ 2828      6E64696E 
+ 2828      6700
+ 2829              	.LASF76:
+ 2830 02ab 473A5C43 		.ascii	"G:\\Company\\Jetronic\\CYPRESS\\CYPRESS_BLE_Study\\"
+ 2830      6F6D7061 
+ 2830      6E795C4A 
+ 2830      6574726F 
+ 2830      6E69635C 
+ 2831 02d9 54726F75 		.ascii	"Troughput\\Troughpur_Central_Peripheral\\Troughput_"
+ 2831      67687075 
+ 2831      745C5472 
+ 2831      6F756768 
+ 2831      7075725F 
+ 2832 030a 43656E74 		.ascii	"Central_Peripheral.cydsn\000"
+ 2832      72616C5F 
+ 2832      50657269 
+ 2832      70686572 
+ 2832      616C2E63 
+ 2833              	.LASF34:
+ 2834 0323 61646472 		.ascii	"address\000"
+ 2834      65737300 
+ 2835              	.LASF79:
+ 2836 032b 55415254 		.ascii	"UART_EzI2CGetAddress2\000"
+ 2836      5F457A49 
+ 2836      32434765 
+ 2836      74416464 
+ 2836      72657373 
+ 2837              	.LASF54:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 69
+
+
+ 2838 0341 55415254 		.ascii	"UART_curStatus\000"
+ 2838      5F637572 
+ 2838      53746174 
+ 2838      757300
+ 2839              	.LASF74:
+ 2840 0350 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2840      4320342E 
+ 2840      392E3320 
+ 2840      32303135 
+ 2840      30333033 
+ 2841 0383 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 2841      20726576 
+ 2841      6973696F 
+ 2841      6E203232 
+ 2841      31323230 
+ 2842 03b6 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2842      66756E63 
+ 2842      74696F6E 
+ 2842      2D736563 
+ 2842      74696F6E 
+ 2843              	.LASF71:
+ 2844 03de 4379496E 		.ascii	"CyIntSetPriority\000"
+ 2844      74536574 
+ 2844      5072696F 
+ 2844      72697479 
+ 2844      00
+ 2845              	.LASF78:
+ 2846 03ef 55415254 		.ascii	"UART_EzI2CStop\000"
+ 2846      5F457A49 
+ 2846      32435374 
+ 2846      6F7000
+ 2847              	.LASF21:
+ 2848 03fe 7072696D 		.ascii	"primarySlaveAddr\000"
+ 2848      61727953 
+ 2848      6C617665 
+ 2848      41646472 
+ 2848      00
+ 2849              	.LASF12:
+ 2850 040f 666C6F61 		.ascii	"float\000"
+ 2850      7400
+ 2851              	.LASF59:
+ 2852 0415 55415254 		.ascii	"UART_offsetBuf1\000"
+ 2852      5F6F6666 
+ 2852      73657442 
+ 2852      75663100 
+ 2853              	.LASF66:
+ 2854 0425 55415254 		.ascii	"UART_offsetBuf2\000"
+ 2854      5F6F6666 
+ 2854      73657442 
+ 2854      75663200 
+ 2855              	.LASF51:
+ 2856 0435 55415254 		.ascii	"UART_numberOfAddr\000"
+ 2856      5F6E756D 
+ 2856      6265724F 
+ 2856      66416464 
+ 2856      7200
+ 2857              	.LASF68:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 70
+
+
+ 2858 0447 43794861 		.ascii	"CyHalt\000"
+ 2858      6C7400
+ 2859              	.LASF1:
+ 2860 044e 756E7369 		.ascii	"unsigned char\000"
+ 2860      676E6564 
+ 2860      20636861 
+ 2860      7200
+ 2861              	.LASF39:
+ 2862 045c 7277426F 		.ascii	"rwBoundary\000"
+ 2862      756E6461 
+ 2862      727900
+ 2863              	.LASF58:
+ 2864 0467 55415254 		.ascii	"UART_protectBuf1\000"
+ 2864      5F70726F 
+ 2864      74656374 
+ 2864      42756631 
+ 2864      00
+ 2865              	.LASF2:
+ 2866 0478 73686F72 		.ascii	"short int\000"
+ 2866      7420696E 
+ 2866      7400
+ 2867              	.LASF19:
+ 2868 0482 656E6162 		.ascii	"enableMedianFilter\000"
+ 2868      6C654D65 
+ 2868      6469616E 
+ 2868      46696C74 
+ 2868      657200
+ 2869              	.LASF72:
+ 2870 0495 4379496E 		.ascii	"CyIntEnable\000"
+ 2870      74456E61 
+ 2870      626C6500 
+ 2871              	.LASF50:
+ 2872 04a1 55415254 		.ascii	"UART_scbEnableIntr\000"
+ 2872      5F736362 
+ 2872      456E6162 
+ 2872      6C65496E 
+ 2872      747200
+ 2873              	.LASF36:
+ 2874 04b4 55415254 		.ascii	"UART_EzI2CGetAddress1\000"
+ 2874      5F457A49 
+ 2874      32434765 
+ 2874      74416464 
+ 2874      72657373 
+ 2875              	.LASF77:
+ 2876 04ca 55415254 		.ascii	"UART_EzI2CUpdateRxMatchReg\000"
+ 2876      5F457A49 
+ 2876      32435570 
+ 2876      64617465 
+ 2876      52784D61 
+ 2877              	.LASF38:
+ 2878 04e5 62756653 		.ascii	"bufSize\000"
+ 2878      697A6500 
+ 2879              	.LASF14:
+ 2880 04ed 63686172 		.ascii	"char\000"
+ 2880      00
+ 2881              	.LASF16:
+ 2882 04f2 63796973 		.ascii	"cyisraddress\000"
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 71
+
+
+ 2882      72616464 
+ 2882      72657373 
+ 2882      00
+ 2883              	.LASF29:
+ 2884 04ff 636F6E66 		.ascii	"config\000"
+ 2884      696700
+ 2885              	.LASF40:
+ 2886 0506 62756666 		.ascii	"buffer\000"
+ 2886      657200
+ 2887              	.LASF22:
+ 2888 050d 7365636F 		.ascii	"secondarySlaveAddr\000"
+ 2888      6E646172 
+ 2888      79536C61 
+ 2888      76654164 
+ 2888      647200
+ 2889              	.LASF26:
+ 2890 0520 55415254 		.ascii	"UART_EZI2C_INIT_STRUCT\000"
+ 2890      5F455A49 
+ 2890      32435F49 
+ 2890      4E49545F 
+ 2890      53545255 
+ 2891              	.LASF57:
+ 2892 0537 55415254 		.ascii	"UART_bufSizeBuf1\000"
+ 2892      5F627566 
+ 2892      53697A65 
+ 2892      42756631 
+ 2892      00
+ 2893              	.LASF64:
+ 2894 0548 55415254 		.ascii	"UART_bufSizeBuf2\000"
+ 2894      5F627566 
+ 2894      53697A65 
+ 2894      42756632 
+ 2894      00
+ 2895              	.LASF31:
+ 2896 0559 73746174 		.ascii	"status\000"
+ 2896      757300
+ 2897              	.LASF46:
+ 2898 0560 656E6162 		.ascii	"enableInt\000"
+ 2898      6C65496E 
+ 2898      7400
+ 2899              	.LASF56:
+ 2900 056a 55415254 		.ascii	"UART_dataBuffer1\000"
+ 2900      5F646174 
+ 2900      61427566 
+ 2900      66657231 
+ 2900      00
+ 2901              	.LASF47:
+ 2902 057b 55415254 		.ascii	"UART_EzI2CRestoreConfig\000"
+ 2902      5F457A49 
+ 2902      32435265 
+ 2902      73746F72 
+ 2902      65436F6E 
+ 2903              	.LASF41:
+ 2904 0593 55415254 		.ascii	"UART_EzI2CSetReadBoundaryBuffer1\000"
+ 2904      5F457A49 
+ 2904      32435365 
+ 2904      74526561 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccieO5Yt.s 			page 72
+
+
+ 2904      64426F75 
+ 2905              	.LASF44:
+ 2906 05b4 55415254 		.ascii	"UART_EzI2CSetReadBoundaryBuffer2\000"
+ 2906      5F457A49 
+ 2906      32435365 
+ 2906      74526561 
+ 2906      64426F75 
+ 2907              	.LASF45:
+ 2908 05d5 55415254 		.ascii	"UART_EzI2CSaveConfig\000"
+ 2908      5F457A49 
+ 2908      32435361 
+ 2908      7665436F 
+ 2908      6E666967 
+ 2909              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

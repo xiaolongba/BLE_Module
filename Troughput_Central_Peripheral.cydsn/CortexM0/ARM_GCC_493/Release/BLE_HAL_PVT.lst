@@ -1,0 +1,2977 @@
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"BLE_HAL_PVT.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.CyBLE_Nvram_Write,"ax",%progbits
+  18              		.align	1
+  19              		.global	CyBLE_Nvram_Write
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	CyBLE_Nvram_Write, %function
+  23              	CyBLE_Nvram_Write:
+  24              	.LFB2:
+  25              		.file 1 ".\\Generated_Source\\PSoC4\\BLE_HAL_PVT.c"
+   1:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** /***************************************************************************//**
+   2:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * \file CYBLE_HAL_PVT.c
+   3:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * \version 2.30
+   4:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+   5:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * \brief
+   6:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  This file contains the source code for the HAL section of the BLE component
+   7:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+   8:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** ********************************************************************************
+   9:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * \copyright
+  10:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  11:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * You may use this file only in accordance with the license, terms, conditions,
+  12:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  13:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * the software package with which this file was provided.
+  14:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *******************************************************************************/
+  15:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+  16:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** #include "BLE_HAL_PVT.h"
+  17:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+  18:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+  19:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** #if(CYBLE_MODE == CYBLE_HCI)
+  20:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+  21:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+  22:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** /*******************************************************************************
+  23:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * Function Name: CyBLE_Uart_Start
+  24:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** ****************************************************************************//**
+  25:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+  26:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  Enables the platform UART Tx and RX interrupts and then enables the UART
+  27:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  component.
+  28:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+  29:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * \return
+  30:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  None
+  31:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+  32:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *******************************************************************************/
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 2
+
+
+  33:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** void CyBLE_Uart_Start (void)
+  34:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** {
+  35:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     /* Setup ISR */
+  36:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     BLE_uart_isr_StartEx(&CyBLE_Uart_Interrupt);
+  37:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+  38:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     BLE_HAL_Uart_Start();
+  39:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** }
+  40:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+  41:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+  42:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** /*******************************************************************************
+  43:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * Function Name: CyBLE_Uart_Stop
+  44:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** ****************************************************************************//**
+  45:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+  46:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  Disables the UART, clears all pending interrupts and disables the UART Tx
+  47:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  and RX interrupts. This will also empty out the FIFOs.
+  48:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+  49:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * \return
+  50:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  None
+  51:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+  52:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *******************************************************************************/
+  53:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** void CyBLE_Uart_Stop (void)
+  54:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** {
+  55:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     /* Stop interrupt and UART */
+  56:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     BLE_uart_isr_Stop();
+  57:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+  58:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     BLE_HAL_Uart_Stop();
+  59:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** }
+  60:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+  61:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+  62:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** /*******************************************************************************
+  63:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * Function Name: CyBLE_Uart_Transmit
+  64:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** ****************************************************************************//**
+  65:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+  66:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  Sends the data to Uart Tx FIFO. The API handles data length up to the 
+  67:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  supported Tx FIFO length of the uart hardware module.
+  68:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+  69:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  \param data: Pointer to the data to send through the UART
+  70:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  \param length: the length of data to transmit in bytes
+  71:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+  72:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * \return
+  73:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  None
+  74:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+  75:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *******************************************************************************/
+  76:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** void CyBLE_Uart_Transmit (const uint8 *dataBuf, uint8 length)
+  77:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** {
+  78:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     BLE_HAL_Uart_SpiUartPutArray(dataBuf, (uint32)length);
+  79:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** }
+  80:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+  81:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** #endif /* (CYBLE_MODE == CYBLE_HCI) */
+  82:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+  83:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+  84:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** /*******************************************************************************
+  85:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * Function Name: CyBLE_Nvram_Write
+  86:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** ****************************************************************************//**
+  87:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+  88:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  This API writes the data to the NVRAM store. It will check the appropriate
+  89:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  alignment of a start address and also perform an address range check based
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 3
+
+
+  90:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  on the length before performing the write operation.
+  91:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  This function performs memory compare and writes only row where there are new
+  92:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  data to write.
+  93:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+  94:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  \param buffer:   Pointer to the buffer containing the data to be stored.
+  95:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  \param varFlash: Pointer to the array or variable in the flash.
+  96:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  \param length:    The length of the data in bytes.
+  97:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+  98:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * \return
+  99:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  CYRET_SUCCESS    a successful write
+ 100:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  CYRET_BAD_PARAM  A request to write outside the flash boundary.
+ 101:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  CYRET_UNKNOWN    Other errors in writing the flash
+ 102:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 103:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * \sideeffect
+ 104:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  For BLE devices with 128K of Flash memory this API will automatically 
+ 105:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  modify the clock settings for the device.
+ 106:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  Writing to flash requires changes to be done to the IMO (set to 48 MHz)
+ 107:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  and HFCLK (source set to IMO) settings. The configuration is restored before
+ 108:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  returning. This will impact the operation of most of the hardware in the
+ 109:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  device.
+ 110:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 111:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *******************************************************************************/
+ 112:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** cystatus CyBLE_Nvram_Write (const uint8 buffer[], const uint8 varFlash[], uint16 length)
+ 113:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** {
+  26              		.loc 1 113 0
+  27              		.cfi_startproc
+  28              	.LVL0:
+  29 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  30              		.cfi_def_cfa_offset 20
+  31              		.cfi_offset 4, -20
+  32              		.cfi_offset 5, -16
+  33              		.cfi_offset 6, -12
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+ 114:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     uint8 writeBuffer[CY_FLASH_SIZEOF_ROW];
+ 115:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     uint32 rowId;
+ 116:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     uint32 dstIndex;
+ 117:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     uint32 srcIndex = 0u;
+ 118:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     cystatus rc = CYRET_SUCCESS;
+ 119:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     uint32 eeOffset;
+ 120:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     uint32 byteOffset;
+ 121:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     uint32 rowsNotEqual;
+ 122:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 123:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     eeOffset = (uint32)varFlash;
+ 124:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 125:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     /* Make sure, that varFlash[] points to Flash */
+ 126:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     if ((eeOffset + length) < CYBLE_HAL_FLASH_END_ADDR)
+  36              		.loc 1 126 0
+  37 0002 1F4C     		ldr	r4, .L19
+  38 0004 8D18     		add	r5, r1, r2
+ 113:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     uint8 writeBuffer[CY_FLASH_SIZEOF_ROW];
+  39              		.loc 1 113 0
+  40 0006 031C     		mov	r3, r0
+  41 0008 A5B0     		sub	sp, sp, #148
+  42              		.cfi_def_cfa_offset 168
+ 127:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     {
+ 128:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         rowId = eeOffset / CY_FLASH_SIZEOF_ROW;
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 4
+
+
+ 129:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         byteOffset = CY_FLASH_SIZEOF_ROW * rowId;
+ 130:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 131:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         while ((srcIndex < length) && (CYRET_SUCCESS == rc))
+ 132:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         {
+ 133:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             rowsNotEqual = 0u;
+ 134:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             /* Copy data to the write buffer either from the source buffer or from the flash */
+ 135:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             for (dstIndex = 0u; dstIndex < CY_FLASH_SIZEOF_ROW; dstIndex++)
+ 136:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             {
+ 137:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                 if ((byteOffset >= eeOffset) && (srcIndex < length))
+ 138:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                 {
+ 139:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                     /* Detect that row programming is required */
+ 140:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                     if(writeBuffer[dstIndex] != buffer[srcIndex])
+ 141:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                     {
+ 142:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                         writeBuffer[dstIndex] = buffer[srcIndex];
+ 143:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                         rowsNotEqual = 1u;  
+ 144:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                     }
+ 145:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                     srcIndex++;
+ 146:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                 }
+ 147:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                 else
+ 148:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                 {
+ 149:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                     writeBuffer[dstIndex] = CY_GET_XTND_REG8(CYDEV_FLASH_BASE + byteOffset);
+ 150:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                 }
+ 151:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                 byteOffset++;
+ 152:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             }
+ 153:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 154:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             if(rowsNotEqual != 0u)
+ 155:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             {
+ 156:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                 /* Write flash row */
+ 157:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                 rc = CySysFlashWriteRow(rowId, writeBuffer);
+ 158:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             }
+ 159:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 160:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             /* Go to the next row */
+ 161:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             rowId++;
+ 162:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         }
+ 163:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     }
+ 164:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     else
+ 165:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     {
+ 166:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         rc = CYRET_BAD_PARAM;
+  43              		.loc 1 166 0
+  44 000a 0120     		mov	r0, #1
+  45              	.LVL1:
+ 126:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     {
+  46              		.loc 1 126 0
+  47 000c A542     		cmp	r5, r4
+  48 000e 35D8     		bhi	.L10
+ 118:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     uint32 eeOffset;
+  49              		.loc 1 118 0
+  50 0010 0020     		mov	r0, #0
+  51 0012 161C     		mov	r6, r2
+ 117:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     cystatus rc = CYRET_SUCCESS;
+  52              		.loc 1 117 0
+  53 0014 051C     		mov	r5, r0
+ 128:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         byteOffset = CY_FLASH_SIZEOF_ROW * rowId;
+  54              		.loc 1 128 0
+  55 0016 CF09     		lsr	r7, r1, #7
+  56              	.LVL2:
+  57 0018 0393     		str	r3, [sp, #12]
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 5
+
+
+  58 001a 04AC     		add	r4, sp, #16
+ 129:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+  59              		.loc 1 129 0
+  60 001c FB01     		lsl	r3, r7, #7
+  61              	.LVL3:
+  62 001e 0291     		str	r1, [sp, #8]
+  63 0020 E41A     		sub	r4, r4, r3
+  64              	.LVL4:
+  65              	.L3:
+ 131:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         {
+  66              		.loc 1 131 0
+  67 0022 B542     		cmp	r5, r6
+  68 0024 04D3     		bcc	.L9
+  69              	.L11:
+ 167:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     }
+ 168:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 169:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     /* Mask return codes from flash, if they are not supported */
+ 170:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     if ((CYRET_SUCCESS != rc) && (CYRET_BAD_PARAM != rc))
+  70              		.loc 1 170 0
+  71 0026 0128     		cmp	r0, #1
+  72 0028 28D9     		bls	.L10
+ 171:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     {
+ 172:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         rc = CYRET_UNKNOWN;
+  73              		.loc 1 172 0
+  74 002a 0120     		mov	r0, #1
+  75              	.LVL5:
+  76 002c 4042     		neg	r0, r0
+  77 002e 25E0     		b	.L10
+  78              	.LVL6:
+  79              	.L9:
+ 131:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         {
+  80              		.loc 1 131 0 discriminator 1
+  81 0030 0028     		cmp	r0, #0
+  82 0032 F8D1     		bne	.L11
+  83 0034 1A1C     		mov	r2, r3
+  84 0036 8032     		add	r2, r2, #128
+  85 0038 0192     		str	r2, [sp, #4]
+ 131:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         {
+  86              		.loc 1 131 0 is_stmt 0
+  87 003a 0090     		str	r0, [sp]
+  88              	.L7:
+  89              	.LVL7:
+ 137:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                 {
+  90              		.loc 1 137 0 is_stmt 1
+  91 003c 0299     		ldr	r1, [sp, #8]
+  92 003e 9942     		cmp	r1, r3
+  93 0040 0BD8     		bhi	.L4
+ 137:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                 {
+  94              		.loc 1 137 0 is_stmt 0 discriminator 1
+  95 0042 B542     		cmp	r5, r6
+  96 0044 09D2     		bcs	.L4
+ 140:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                     {
+  97              		.loc 1 140 0 is_stmt 1
+  98 0046 0399     		ldr	r1, [sp, #12]
+  99 0048 E25C     		ldrb	r2, [r4, r3]
+ 100 004a 495D     		ldrb	r1, [r1, r5]
+ 101 004c 8A42     		cmp	r2, r1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 6
+
+
+ 102 004e 02D0     		beq	.L5
+ 143:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                     }
+ 103              		.loc 1 143 0
+ 104 0050 0122     		mov	r2, #1
+ 142:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                         rowsNotEqual = 1u;  
+ 105              		.loc 1 142 0
+ 106 0052 E154     		strb	r1, [r4, r3]
+ 107              	.LVL8:
+ 143:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                     }
+ 108              		.loc 1 143 0
+ 109 0054 0092     		str	r2, [sp]
+ 110              	.LVL9:
+ 111              	.L5:
+ 145:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                 }
+ 112              		.loc 1 145 0
+ 113 0056 0135     		add	r5, r5, #1
+ 114              	.LVL10:
+ 115 0058 01E0     		b	.L6
+ 116              	.L4:
+ 149:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****                 }
+ 117              		.loc 1 149 0
+ 118 005a 1978     		ldrb	r1, [r3]
+ 119 005c E154     		strb	r1, [r4, r3]
+ 120              	.L6:
+ 135:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             {
+ 121              		.loc 1 135 0 discriminator 2
+ 122 005e 019A     		ldr	r2, [sp, #4]
+ 151:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             }
+ 123              		.loc 1 151 0 discriminator 2
+ 124 0060 0133     		add	r3, r3, #1
+ 125              	.LVL11:
+ 135:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             {
+ 126              		.loc 1 135 0 discriminator 2
+ 127 0062 9342     		cmp	r3, r2
+ 128 0064 EAD1     		bne	.L7
+ 154:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             {
+ 129              		.loc 1 154 0
+ 130 0066 009B     		ldr	r3, [sp]
+ 131              	.LVL12:
+ 132 0068 002B     		cmp	r3, #0
+ 133 006a 03D0     		beq	.L8
+ 157:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             }
+ 134              		.loc 1 157 0
+ 135 006c 381C     		mov	r0, r7
+ 136              	.LVL13:
+ 137 006e 04A9     		add	r1, sp, #16
+ 138 0070 FFF7FEFF 		bl	CySysFlashWriteRow
+ 139              	.LVL14:
+ 140              	.L8:
+ 161:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         }
+ 141              		.loc 1 161 0
+ 142 0074 0137     		add	r7, r7, #1
+ 143              	.LVL15:
+ 144 0076 803C     		sub	r4, r4, #128
+ 145 0078 019B     		ldr	r3, [sp, #4]
+ 146 007a D2E7     		b	.L3
+ 147              	.LVL16:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 7
+
+
+ 148              	.L10:
+ 173:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     }
+ 174:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     
+ 175:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     return (rc);
+ 176:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** }
+ 149              		.loc 1 176 0
+ 150 007c 25B0     		add	sp, sp, #148
+ 151              		@ sp needed
+ 152 007e F0BD     		pop	{r4, r5, r6, r7, pc}
+ 153              	.L20:
+ 154              		.align	2
+ 155              	.L19:
+ 156 0080 FFFF0100 		.word	131071
+ 157              		.cfi_endproc
+ 158              	.LFE2:
+ 159              		.size	CyBLE_Nvram_Write, .-CyBLE_Nvram_Write
+ 160              		.section	.text.CyBLE_Nvram_Erase,"ax",%progbits
+ 161              		.align	1
+ 162              		.global	CyBLE_Nvram_Erase
+ 163              		.code	16
+ 164              		.thumb_func
+ 165              		.type	CyBLE_Nvram_Erase, %function
+ 166              	CyBLE_Nvram_Erase:
+ 167              	.LFB3:
+ 177:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 178:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** /*******************************************************************************
+ 179:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * Function Name: CyBLE_Nvram_Erase
+ 180:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** ****************************************************************************//**
+ 181:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 182:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  This API erases the data from the NVRAM store. This API will perform an 
+ 183:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  address range check based on the length before performing erase operation.
+ 184:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 185:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  \param varFlash: the pointer to the array or variable in the flash.
+ 186:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  \param length:    the length of the data in bytes.
+ 187:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 188:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * \return
+ 189:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  CYRET_SUCCESS    a successful write
+ 190:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  CYRET_BAD_PARAM  A request to write outside the flash boundary.
+ 191:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  CYRET_UNKNOWN    Other errors in writing the flash
+ 192:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 193:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *******************************************************************************/
+ 194:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** cystatus CyBLE_Nvram_Erase (const uint8 *varFlash, uint16 length)
+ 195:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** {
+ 168              		.loc 1 195 0
+ 169              		.cfi_startproc
+ 170              	.LVL17:
+ 171 0000 70B5     		push	{r4, r5, r6, lr}
+ 172              		.cfi_def_cfa_offset 16
+ 173              		.cfi_offset 4, -16
+ 174              		.cfi_offset 5, -12
+ 175              		.cfi_offset 6, -8
+ 176              		.cfi_offset 14, -4
+ 177 0002 A0B0     		sub	sp, sp, #128
+ 178              		.cfi_def_cfa_offset 144
+ 179              		.loc 1 195 0
+ 180 0004 051C     		mov	r5, r0
+ 181 0006 0C1C     		mov	r4, r1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 8
+
+
+ 196:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     const uint8 *tempFlash;
+ 197:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     uint8 flashBuffer[CY_FLASH_SIZEOF_ROW] = {0u};
+ 182              		.loc 1 197 0
+ 183 0008 6846     		mov	r0, sp
+ 184              	.LVL18:
+ 185 000a 0021     		mov	r1, #0
+ 186              	.LVL19:
+ 187 000c 8022     		mov	r2, #128
+ 188 000e FFF7FEFF 		bl	memset
+ 189              	.LVL20:
+ 198:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     uint16 lengthFlash;
+ 199:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     uint16 lengthRemaining;
+ 200:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     cystatus rc = CYRET_UNKNOWN;
+ 190              		.loc 1 200 0
+ 191 0012 0120     		mov	r0, #1
+ 192 0014 4042     		neg	r0, r0
+ 193              	.LVL21:
+ 194              	.L22:
+ 201:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 202:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     tempFlash = varFlash;
+ 203:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     lengthRemaining = length;
+ 204:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 205:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     while(lengthRemaining > 0u)
+ 195              		.loc 1 205 0
+ 196 0016 002C     		cmp	r4, #0
+ 197 0018 0ED0     		beq	.L24
+ 206:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     {
+ 207:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         if(lengthRemaining < CY_FLASH_SIZEOF_ROW)
+ 208:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         {
+ 209:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             lengthFlash = lengthRemaining;
+ 210:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         }
+ 211:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         else
+ 212:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         {
+ 213:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             lengthFlash = CY_FLASH_SIZEOF_ROW;
+ 198              		.loc 1 213 0
+ 199 001a 8026     		mov	r6, #128
+ 207:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         {
+ 200              		.loc 1 207 0
+ 201 001c 7F2C     		cmp	r4, #127
+ 202 001e 00D8     		bhi	.L23
+ 203 0020 261C     		mov	r6, r4
+ 204              	.L23:
+ 205              	.LVL22:
+ 214:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         }
+ 215:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         rc = CyBLE_Nvram_Write(flashBuffer, tempFlash, lengthFlash);
+ 206              		.loc 1 215 0
+ 207 0022 6846     		mov	r0, sp
+ 208              	.LVL23:
+ 209 0024 291C     		mov	r1, r5
+ 210 0026 321C     		mov	r2, r6
+ 211 0028 FFF7FEFF 		bl	CyBLE_Nvram_Write
+ 212              	.LVL24:
+ 216:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         if(rc != CYRET_SUCCESS)
+ 213              		.loc 1 216 0
+ 214 002c 0028     		cmp	r0, #0
+ 215 002e 03D1     		bne	.L24
+ 217:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         {
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 9
+
+
+ 218:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****             break;
+ 219:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         }
+ 220:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         tempFlash += CY_FLASH_SIZEOF_ROW;
+ 221:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         lengthRemaining -= lengthFlash;
+ 216              		.loc 1 221 0
+ 217 0030 A41B     		sub	r4, r4, r6
+ 218              	.LVL25:
+ 220:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         lengthRemaining -= lengthFlash;
+ 219              		.loc 1 220 0
+ 220 0032 8035     		add	r5, r5, #128
+ 221              	.LVL26:
+ 222              		.loc 1 221 0
+ 223 0034 A4B2     		uxth	r4, r4
+ 224              	.LVL27:
+ 225 0036 EEE7     		b	.L22
+ 226              	.LVL28:
+ 227              	.L24:
+ 222:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     }
+ 223:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 224:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     return rc;
+ 225:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** }
+ 228              		.loc 1 225 0
+ 229 0038 20B0     		add	sp, sp, #128
+ 230              		@ sp needed
+ 231              	.LVL29:
+ 232              	.LVL30:
+ 233 003a 70BD     		pop	{r4, r5, r6, pc}
+ 234              		.cfi_endproc
+ 235              	.LFE3:
+ 236              		.size	CyBLE_Nvram_Erase, .-CyBLE_Nvram_Erase
+ 237              		.section	.text.CyBLE_Bless_LlRegRead,"ax",%progbits
+ 238              		.align	1
+ 239              		.global	CyBLE_Bless_LlRegRead
+ 240              		.code	16
+ 241              		.thumb_func
+ 242              		.type	CyBLE_Bless_LlRegRead, %function
+ 243              	CyBLE_Bless_LlRegRead:
+ 244              	.LFB4:
+ 226:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 227:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 228:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** /*******************************************************************************
+ 229:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * Function Name: CyBLE_Bless_LlRegRead
+ 230:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** ****************************************************************************//**
+ 231:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 232:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  This API reads the content of the BLESS Link Layer register from the stack.
+ 233:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 234:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  \param blessAddr: the pointer to the BLESS link layer address.
+ 235:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  \param regValue: the pointer to the buffer space to copy the read value.
+ 236:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 237:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * \return
+ 238:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  None
+ 239:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 240:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *******************************************************************************/
+ 241:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** void CyBLE_Bless_LlRegRead (const reg32 *blessAddr, uint16 *regValue)
+ 242:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** {
+ 245              		.loc 1 242 0
+ 246              		.cfi_startproc
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 10
+
+
+ 247              	.LVL31:
+ 243:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     *regValue = (uint16)CY_GET_REG32(blessAddr);
+ 248              		.loc 1 243 0
+ 249 0000 0368     		ldr	r3, [r0]
+ 244:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** }
+ 250              		.loc 1 244 0
+ 251              		@ sp needed
+ 243:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     *regValue = (uint16)CY_GET_REG32(blessAddr);
+ 252              		.loc 1 243 0
+ 253 0002 0B80     		strh	r3, [r1]
+ 254              		.loc 1 244 0
+ 255 0004 7047     		bx	lr
+ 256              		.cfi_endproc
+ 257              	.LFE4:
+ 258              		.size	CyBLE_Bless_LlRegRead, .-CyBLE_Bless_LlRegRead
+ 259              		.section	.text.CyBLE_Bless_LlRegWrite,"ax",%progbits
+ 260              		.align	1
+ 261              		.global	CyBLE_Bless_LlRegWrite
+ 262              		.code	16
+ 263              		.thumb_func
+ 264              		.type	CyBLE_Bless_LlRegWrite, %function
+ 265              	CyBLE_Bless_LlRegWrite:
+ 266              	.LFB5:
+ 245:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 246:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 247:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** /*******************************************************************************
+ 248:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * Function Name: CyBLE_Bless_LlRegWrite
+ 249:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** ****************************************************************************//**
+ 250:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 251:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  This API writes to the BLESS Link Layer register from the stack.
+ 252:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 253:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  \param blessAddr: the pointer to the BLESS link layer address.
+ 254:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  \param regValue: the pointer to the value to be written to the BLESS LL reg.
+ 255:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 256:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * \return
+ 257:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  None
+ 258:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 259:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *******************************************************************************/
+ 260:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** void CyBLE_Bless_LlRegWrite (reg32 *blessAddr, const uint16 regValue)
+ 261:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** {
+ 267              		.loc 1 261 0
+ 268              		.cfi_startproc
+ 269              	.LVL32:
+ 262:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     CY_SET_REG32(blessAddr, regValue);
+ 270              		.loc 1 262 0
+ 271 0000 0160     		str	r1, [r0]
+ 263:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** }
+ 272              		.loc 1 263 0
+ 273              		@ sp needed
+ 274 0002 7047     		bx	lr
+ 275              		.cfi_endproc
+ 276              	.LFE5:
+ 277              		.size	CyBLE_Bless_LlRegWrite, .-CyBLE_Bless_LlRegWrite
+ 278              		.section	.text.CyBLE_Bless_RfRegRead,"ax",%progbits
+ 279              		.align	1
+ 280              		.global	CyBLE_Bless_RfRegRead
+ 281              		.code	16
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 11
+
+
+ 282              		.thumb_func
+ 283              		.type	CyBLE_Bless_RfRegRead, %function
+ 284              	CyBLE_Bless_RfRegRead:
+ 285              	.LFB6:
+ 264:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 265:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 266:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** /*******************************************************************************
+ 267:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * Function Name: CyBLE_Bless_RfRegRead
+ 268:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** ****************************************************************************//**
+ 269:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 270:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  This API reads the content of the BLESS RF register from the stack.
+ 271:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 272:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  \param blessAddr: the pointer to BLESS RF register address.
+ 273:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  \param regValue: the pointer to the buffer space to copy the read value.
+ 274:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 275:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * \return
+ 276:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  None
+ 277:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 278:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *******************************************************************************/
+ 279:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** void CyBLE_Bless_RfRegRead (const reg32 *blessAddr, uint16 *regValue)
+ 280:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** {
+ 286              		.loc 1 280 0
+ 287              		.cfi_startproc
+ 288              	.LVL33:
+ 281:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     *regValue = (uint16)CY_GET_REG32(blessAddr);
+ 289              		.loc 1 281 0
+ 290 0000 0368     		ldr	r3, [r0]
+ 282:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** }
+ 291              		.loc 1 282 0
+ 292              		@ sp needed
+ 281:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     *regValue = (uint16)CY_GET_REG32(blessAddr);
+ 293              		.loc 1 281 0
+ 294 0002 0B80     		strh	r3, [r1]
+ 295              		.loc 1 282 0
+ 296 0004 7047     		bx	lr
+ 297              		.cfi_endproc
+ 298              	.LFE6:
+ 299              		.size	CyBLE_Bless_RfRegRead, .-CyBLE_Bless_RfRegRead
+ 300              		.section	.text.CyBLE_Bless_RfRegWrite,"ax",%progbits
+ 301              		.align	1
+ 302              		.global	CyBLE_Bless_RfRegWrite
+ 303              		.code	16
+ 304              		.thumb_func
+ 305              		.type	CyBLE_Bless_RfRegWrite, %function
+ 306              	CyBLE_Bless_RfRegWrite:
+ 307              	.LFB7:
+ 283:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 284:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 285:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** /*******************************************************************************
+ 286:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * Function Name: CyBLE_Bless_RfRegWrite
+ 287:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** ****************************************************************************//**
+ 288:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 289:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  This API writes to the BLESS RF register from the stack.
+ 290:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 291:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  \param blessAddr: the pointer to the BLESS RF address.
+ 292:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  \param regValue: the pointer to the value to be written to the BLESS RF reg.
+ 293:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 12
+
+
+ 294:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** * \return
+ 295:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *  None
+ 296:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *
+ 297:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** *******************************************************************************/
+ 298:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** void CyBLE_Bless_RfRegWrite (reg32 *blessAddr, const uint16 regValue)
+ 299:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** {
+ 308              		.loc 1 299 0
+ 309              		.cfi_startproc
+ 310              	.LVL34:
+ 300:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****      CY_SET_REG32(blessAddr, regValue);
+ 311              		.loc 1 300 0
+ 312 0000 0160     		str	r1, [r0]
+ 301:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** }
+ 313              		.loc 1 301 0
+ 314              		@ sp needed
+ 315 0002 7047     		bx	lr
+ 316              		.cfi_endproc
+ 317              	.LFE7:
+ 318              		.size	CyBLE_Bless_RfRegWrite, .-CyBLE_Bless_RfRegWrite
+ 319              		.section	.text.CyBLE_BlessDeviceConfig,"ax",%progbits
+ 320              		.align	1
+ 321              		.global	CyBLE_BlessDeviceConfig
+ 322              		.code	16
+ 323              		.thumb_func
+ 324              		.type	CyBLE_BlessDeviceConfig, %function
+ 325              	CyBLE_BlessDeviceConfig:
+ 326              	.LFB8:
+ 302:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 303:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 304:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** void CyBLE_BlessDeviceConfig(void)
+ 305:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** {
+ 327              		.loc 1 305 0
+ 328              		.cfi_startproc
+ 306:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     uint32 trimRegValue;
+ 307:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     uint32 ldo;
+ 308:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 309:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     trimRegValue = ((uint32)CYBLE_SFLASH_BLESS_BB_BUMP2_HIGH_REG << 8u) | CYBLE_SFLASH_BLESS_BB_BUM
+ 329              		.loc 1 309 0
+ 330 0000 1E4B     		ldr	r3, .L38
+ 310:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     ldo = ((uint32)CYBLE_SFLASH_BLESS_LDO_HIGH_REG << 8u) | CYBLE_SFLASH_BLESS_LDO_LOW_REG;
+ 331              		.loc 1 310 0
+ 332 0002 1F4A     		ldr	r2, .L38+4
+ 309:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     ldo = ((uint32)CYBLE_SFLASH_BLESS_LDO_HIGH_REG << 8u) | CYBLE_SFLASH_BLESS_LDO_LOW_REG;
+ 333              		.loc 1 309 0
+ 334 0004 1978     		ldrb	r1, [r3]
+ 335 0006 1F4B     		ldr	r3, .L38+8
+ 336 0008 0902     		lsl	r1, r1, #8
+ 337 000a 1B78     		ldrb	r3, [r3]
+ 338 000c 1943     		orr	r1, r3
+ 339              	.LVL35:
+ 340              		.loc 1 310 0
+ 341 000e 1E4B     		ldr	r3, .L38+12
+ 342 0010 1B78     		ldrb	r3, [r3]
+ 343 0012 1278     		ldrb	r2, [r2]
+ 344 0014 1B02     		lsl	r3, r3, #8
+ 345 0016 1343     		orr	r3, r2
+ 346              	.LVL36:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 13
+
+
+ 311:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 312:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     if ((ldo == CYBLE_SFLASH_BLERD_LDO_REG_VAL1) && (trimRegValue == CYBLE_SFLASH_BLERD_BB_BUMP2_RE
+ 347              		.loc 1 312 0
+ 348 0018 1C4A     		ldr	r2, .L38+16
+ 349 001a 9342     		cmp	r3, r2
+ 350 001c 04D1     		bne	.L32
+ 351              		.loc 1 312 0 is_stmt 0 discriminator 1
+ 352 001e 0729     		cmp	r1, #7
+ 353 0020 09D1     		bne	.L33
+ 313:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     {
+ 314:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         ldo = CYBLE_BLERD_LDO_REG_VAL_FINAL;
+ 354              		.loc 1 314 0 is_stmt 1
+ 355 0022 1B4B     		ldr	r3, .L38+20
+ 356              	.LVL37:
+ 315:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         trimRegValue = CYBLE_BLERD_BB_BUMP2_REG_VAL_FINAL;
+ 357              		.loc 1 315 0
+ 358 0024 0339     		sub	r1, r1, #3
+ 359              	.LVL38:
+ 360 0026 06E0     		b	.L33
+ 361              	.LVL39:
+ 362              	.L32:
+ 316:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     }
+ 317:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     else if ((ldo == CYBLE_SFLASH_BLERD_LDO_REG_VAL2) && (trimRegValue == CYBLE_BLERD_BB_BUMP2_REG_
+ 363              		.loc 1 317 0
+ 364 0028 D422     		mov	r2, #212
+ 365 002a 1201     		lsl	r2, r2, #4
+ 366 002c 9342     		cmp	r3, r2
+ 367 002e 02D1     		bne	.L33
+ 368              		.loc 1 317 0 is_stmt 0 discriminator 1
+ 369 0030 0429     		cmp	r1, #4
+ 370 0032 00D1     		bne	.L33
+ 318:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     {
+ 319:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         ldo = CYBLE_BLERD_LDO_REG_VAL_FINAL;
+ 371              		.loc 1 319 0 is_stmt 1
+ 372 0034 164B     		ldr	r3, .L38+20
+ 373              	.LVL40:
+ 374              	.L33:
+ 320:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     }
+ 321:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     else
+ 322:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     {
+ 323:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     }
+ 324:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 325:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     CYBLE_BLE_BLERD_LDO_REG = ldo;
+ 375              		.loc 1 325 0
+ 376 0036 174A     		ldr	r2, .L38+24
+ 377 0038 1360     		str	r3, [r2]
+ 326:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     CYBLE_BLE_BLERD_BB_BUMP2_REG = trimRegValue;
+ 378              		.loc 1 326 0
+ 379 003a 174B     		ldr	r3, .L38+28
+ 380              	.LVL41:
+ 327:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 328:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     /* Edit only XTAL fast charge bit */
+ 329:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     trimRegValue = ((uint32)CYBLE_SFLASH_BLESS_BB_XO_HIGH_REG << 8u) | CYBLE_SFLASH_BLESS_BB_XO_LOW
+ 381              		.loc 1 329 0
+ 382 003c 174A     		ldr	r2, .L38+32
+ 383              	.LVL42:
+ 326:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     CYBLE_BLE_BLERD_BB_BUMP2_REG = trimRegValue;
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 14
+
+
+ 384              		.loc 1 326 0
+ 385 003e 1960     		str	r1, [r3]
+ 386              	.LVL43:
+ 387              		.loc 1 329 0
+ 388 0040 174B     		ldr	r3, .L38+36
+ 389 0042 1B78     		ldrb	r3, [r3]
+ 390 0044 1278     		ldrb	r2, [r2]
+ 391 0046 1B02     		lsl	r3, r3, #8
+ 392 0048 1343     		orr	r3, r2
+ 393              	.LVL44:
+ 330:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 331:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     if ((trimRegValue == CYBLE_SFLASH_BLERD_BB_XO_REG_VAL1) || (trimRegValue == CYBLE_SFLASH_BLERD_
+ 394              		.loc 1 331 0
+ 395 004a 164A     		ldr	r2, .L38+40
+ 396 004c 1342     		tst	r3, r2
+ 397 004e 00D1     		bne	.L34
+ 332:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     {
+ 333:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         trimRegValue = CYBLE_BLERD_BB_XO_REG_VAL_FINAL;
+ 398              		.loc 1 333 0
+ 399 0050 154B     		ldr	r3, .L38+44
+ 400              	.LVL45:
+ 401              	.L34:
+ 334:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     }
+ 335:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     
+ 336:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     CYBLE_BLE_BLERD_BB_XO_REG = trimRegValue;
+ 402              		.loc 1 336 0
+ 403 0052 164A     		ldr	r2, .L38+48
+ 404 0054 1360     		str	r3, [r2]
+ 337:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     
+ 338:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     trimRegValue = ((uint32)CYBLE_SFLASH_BLESS_SY_BUMP1_HIGH_REG << 8u) | CYBLE_SFLASH_BLESS_SY_BUM
+ 405              		.loc 1 338 0
+ 406 0056 164B     		ldr	r3, .L38+52
+ 407              	.LVL46:
+ 408 0058 164A     		ldr	r2, .L38+56
+ 409              	.LVL47:
+ 410 005a 1B78     		ldrb	r3, [r3]
+ 411 005c 1278     		ldrb	r2, [r2]
+ 412 005e 1B02     		lsl	r3, r3, #8
+ 413 0060 1343     		orr	r3, r2
+ 414              	.LVL48:
+ 339:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 340:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     if ((trimRegValue == CYBLE_SFLASH_BLERD_SY_BUMP1_REG_VAL1) || 
+ 415              		.loc 1 340 0
+ 416 0062 154A     		ldr	r2, .L38+60
+ 417 0064 9342     		cmp	r3, r2
+ 418 0066 04D0     		beq	.L37
+ 419              		.loc 1 340 0 is_stmt 0 discriminator 1
+ 420 0068 144A     		ldr	r2, .L38+64
+ 421 006a 9342     		cmp	r3, r2
+ 422 006c 01D0     		beq	.L37
+ 341:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         (trimRegValue == CYBLE_SFLASH_BLERD_SY_BUMP1_REG_VAL2) ||  
+ 423              		.loc 1 341 0 is_stmt 1
+ 424 006e 052B     		cmp	r3, #5
+ 425 0070 00D1     		bne	.L35
+ 426              	.L37:
+ 342:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         (trimRegValue == CYBLE_SFLASH_BLERD_SY_BUMP1_REG_VAL3))
+ 343:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     {
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 15
+
+
+ 344:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****         trimRegValue = CYBLE_BLERD_SY_BUMP1_REG_VAL_FINAL;
+ 427              		.loc 1 344 0
+ 428 0072 134B     		ldr	r3, .L38+68
+ 429              	.LVL49:
+ 430              	.L35:
+ 345:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     }
+ 346:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     CYBLE_BLE_BLERD_SY_BUMP1_REG = trimRegValue;
+ 431              		.loc 1 346 0
+ 432 0074 134A     		ldr	r2, .L38+72
+ 347:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****       
+ 348:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** }
+ 433              		.loc 1 348 0
+ 434              		@ sp needed
+ 346:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****       
+ 435              		.loc 1 346 0
+ 436 0076 1360     		str	r3, [r2]
+ 437              		.loc 1 348 0
+ 438 0078 7047     		bx	lr
+ 439              	.L39:
+ 440 007a C046     		.align	2
+ 441              	.L38:
+ 442 007c D9F0FF0F 		.word	268431577
+ 443 0080 DEF0FF0F 		.word	268431582
+ 444 0084 D8F0FF0F 		.word	268431576
+ 445 0088 DFF0FF0F 		.word	268431583
+ 446 008c 580B0000 		.word	2904
+ 447 0090 580D0000 		.word	3416
+ 448 0094 6C002E40 		.word	1076756588
+ 449 0098 74002E40 		.word	1076756596
+ 450 009c DAF0FF0F 		.word	268431578
+ 451 00a0 DBF0FF0F 		.word	268431579
+ 452 00a4 FFDFFFFF 		.word	-8193
+ 453 00a8 02200000 		.word	8194
+ 454 00ac 78002E40 		.word	1076756600
+ 455 00b0 DDF0FF0F 		.word	268431581
+ 456 00b4 DCF0FF0F 		.word	268431580
+ 457 00b8 0F0F0000 		.word	3855
+ 458 00bc 05050000 		.word	1285
+ 459 00c0 050F0000 		.word	3845
+ 460 00c4 80002E40 		.word	1076756608
+ 461              		.cfi_endproc
+ 462              	.LFE8:
+ 463              		.size	CyBLE_BlessDeviceConfig, .-CyBLE_BlessDeviceConfig
+ 464              		.section	.text.CyBleHal_DelayUs,"ax",%progbits
+ 465              		.align	1
+ 466              		.global	CyBleHal_DelayUs
+ 467              		.code	16
+ 468              		.thumb_func
+ 469              		.type	CyBleHal_DelayUs, %function
+ 470              	CyBleHal_DelayUs:
+ 471              	.LFB9:
+ 349:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 350:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 351:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** void CyBleHal_DelayUs(uint16 delayVal)
+ 352:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** {
+ 472              		.loc 1 352 0
+ 473              		.cfi_startproc
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 16
+
+
+ 474              	.LVL50:
+ 475 0000 08B5     		push	{r3, lr}
+ 476              		.cfi_def_cfa_offset 8
+ 477              		.cfi_offset 3, -8
+ 478              		.cfi_offset 14, -4
+ 353:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     CyDelayUs(delayVal);
+ 479              		.loc 1 353 0
+ 480 0002 FFF7FEFF 		bl	CyDelayUs
+ 481              	.LVL51:
+ 354:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** }
+ 482              		.loc 1 354 0
+ 483              		@ sp needed
+ 484 0006 08BD     		pop	{r3, pc}
+ 485              		.cfi_endproc
+ 486              	.LFE9:
+ 487              		.size	CyBleHal_DelayUs, .-CyBleHal_DelayUs
+ 488              		.section	.text.CyBleHal_DelayMs,"ax",%progbits
+ 489              		.align	1
+ 490              		.global	CyBleHal_DelayMs
+ 491              		.code	16
+ 492              		.thumb_func
+ 493              		.type	CyBleHal_DelayMs, %function
+ 494              	CyBleHal_DelayMs:
+ 495              	.LFB10:
+ 355:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 356:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** void CyBleHal_DelayMs(uint32 delayVal)
+ 357:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** {
+ 496              		.loc 1 357 0
+ 497              		.cfi_startproc
+ 498              	.LVL52:
+ 499 0000 08B5     		push	{r3, lr}
+ 500              		.cfi_def_cfa_offset 8
+ 501              		.cfi_offset 3, -8
+ 502              		.cfi_offset 14, -4
+ 358:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     CyDelay(delayVal);
+ 503              		.loc 1 358 0
+ 504 0002 FFF7FEFF 		bl	CyDelay
+ 505              	.LVL53:
+ 359:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** }
+ 506              		.loc 1 359 0
+ 507              		@ sp needed
+ 508 0006 08BD     		pop	{r3, pc}
+ 509              		.cfi_endproc
+ 510              	.LFE10:
+ 511              		.size	CyBleHal_DelayMs, .-CyBleHal_DelayMs
+ 512              		.section	.text.CyBleHal_EnableGlobalInterrupts,"ax",%progbits
+ 513              		.align	1
+ 514              		.global	CyBleHal_EnableGlobalInterrupts
+ 515              		.code	16
+ 516              		.thumb_func
+ 517              		.type	CyBleHal_EnableGlobalInterrupts, %function
+ 518              	CyBleHal_EnableGlobalInterrupts:
+ 519              	.LFB11:
+ 360:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 361:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** void CyBleHal_EnableGlobalInterrupts(void)
+ 362:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** {
+ 520              		.loc 1 362 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 17
+
+
+ 521              		.cfi_startproc
+ 522 0000 08B5     		push	{r3, lr}
+ 523              		.cfi_def_cfa_offset 8
+ 524              		.cfi_offset 3, -8
+ 525              		.cfi_offset 14, -4
+ 363:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     BLE_bless_isr_Enable();
+ 526              		.loc 1 363 0
+ 527 0002 FFF7FEFF 		bl	BLE_bless_isr_Enable
+ 528              	.LVL54:
+ 364:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** }
+ 529              		.loc 1 364 0
+ 530              		@ sp needed
+ 531 0006 08BD     		pop	{r3, pc}
+ 532              		.cfi_endproc
+ 533              	.LFE11:
+ 534              		.size	CyBleHal_EnableGlobalInterrupts, .-CyBleHal_EnableGlobalInterrupts
+ 535              		.section	.text.CyBleHal_DisableGlobalInterrupts,"ax",%progbits
+ 536              		.align	1
+ 537              		.global	CyBleHal_DisableGlobalInterrupts
+ 538              		.code	16
+ 539              		.thumb_func
+ 540              		.type	CyBleHal_DisableGlobalInterrupts, %function
+ 541              	CyBleHal_DisableGlobalInterrupts:
+ 542              	.LFB12:
+ 365:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 366:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** void CyBleHal_DisableGlobalInterrupts(void)
+ 367:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** {
+ 543              		.loc 1 367 0
+ 544              		.cfi_startproc
+ 545 0000 08B5     		push	{r3, lr}
+ 546              		.cfi_def_cfa_offset 8
+ 547              		.cfi_offset 3, -8
+ 548              		.cfi_offset 14, -4
+ 368:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     BLE_bless_isr_Disable();
+ 549              		.loc 1 368 0
+ 550 0002 FFF7FEFF 		bl	BLE_bless_isr_Disable
+ 551              	.LVL55:
+ 369:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** }
+ 552              		.loc 1 369 0
+ 553              		@ sp needed
+ 554 0006 08BD     		pop	{r3, pc}
+ 555              		.cfi_endproc
+ 556              	.LFE12:
+ 557              		.size	CyBleHal_DisableGlobalInterrupts, .-CyBleHal_DisableGlobalInterrupts
+ 558              		.section	.text.CyBle_HalInit,"ax",%progbits
+ 559              		.align	1
+ 560              		.global	CyBle_HalInit
+ 561              		.code	16
+ 562              		.thumb_func
+ 563              		.type	CyBle_HalInit, %function
+ 564              	CyBle_HalInit:
+ 565              	.LFB13:
+ 370:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 371:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** void CyBle_HalInit(void)
+ 372:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** {
+ 566              		.loc 1 372 0
+ 567              		.cfi_startproc
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 18
+
+
+ 568 0000 08B5     		push	{r3, lr}
+ 569              		.cfi_def_cfa_offset 8
+ 570              		.cfi_offset 3, -8
+ 571              		.cfi_offset 14, -4
+ 373:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     /* For all we know the interrupt is active. */
+ 374:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     BLE_bless_isr_Disable();
+ 572              		.loc 1 374 0
+ 573 0002 FFF7FEFF 		bl	BLE_bless_isr_Disable
+ 574              	.LVL56:
+ 375:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 376:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     /* Set the ISR to point to the BLE_bless_isr Interrupt. */
+ 377:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     BLE_bless_isr_SetVector(&CyBLE_Bless_Interrupt);
+ 575              		.loc 1 377 0
+ 576 0006 0348     		ldr	r0, .L45
+ 577 0008 FFF7FEFF 		bl	BLE_bless_isr_SetVector
+ 578              	.LVL57:
+ 378:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 379:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     /* Set the priority. */
+ 380:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     BLE_bless_isr_SetPriority((uint8)BLE_bless_isr_INTC_PRIOR_NUMBER);
+ 579              		.loc 1 380 0
+ 580 000c 0320     		mov	r0, #3
+ 581 000e FFF7FEFF 		bl	BLE_bless_isr_SetPriority
+ 582              	.LVL58:
+ 381:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** }
+ 583              		.loc 1 381 0
+ 584              		@ sp needed
+ 585 0012 08BD     		pop	{r3, pc}
+ 586              	.L46:
+ 587              		.align	2
+ 588              	.L45:
+ 589 0014 00000000 		.word	CyBLE_Bless_Interrupt
+ 590              		.cfi_endproc
+ 591              	.LFE13:
+ 592              		.size	CyBle_HalInit, .-CyBle_HalInit
+ 593              		.section	.text.CYBLE_BlessStart,"ax",%progbits
+ 594              		.align	1
+ 595              		.global	CYBLE_BlessStart
+ 596              		.code	16
+ 597              		.thumb_func
+ 598              		.type	CYBLE_BlessStart, %function
+ 599              	CYBLE_BlessStart:
+ 600              	.LFB14:
+ 382:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** 
+ 383:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** /* Start Interrupt Controller API. */
+ 384:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** void CYBLE_BlessStart(void)
+ 385:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** {
+ 601              		.loc 1 385 0
+ 602              		.cfi_startproc
+ 603 0000 08B5     		push	{r3, lr}
+ 604              		.cfi_def_cfa_offset 8
+ 605              		.cfi_offset 3, -8
+ 606              		.cfi_offset 14, -4
+ 386:.\Generated_Source\PSoC4/BLE_HAL_PVT.c ****     BLE_bless_isr_StartEx(&CyBLE_Bless_Interrupt);
+ 607              		.loc 1 386 0
+ 608 0002 0248     		ldr	r0, .L48
+ 609 0004 FFF7FEFF 		bl	BLE_bless_isr_StartEx
+ 610              	.LVL59:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 19
+
+
+ 387:.\Generated_Source\PSoC4/BLE_HAL_PVT.c **** }
+ 611              		.loc 1 387 0
+ 612              		@ sp needed
+ 613 0008 08BD     		pop	{r3, pc}
+ 614              	.L49:
+ 615 000a C046     		.align	2
+ 616              	.L48:
+ 617 000c 00000000 		.word	CyBLE_Bless_Interrupt
+ 618              		.cfi_endproc
+ 619              	.LFE14:
+ 620              		.size	CYBLE_BlessStart, .-CYBLE_BlessStart
+ 621              		.text
+ 622              	.Letext0:
+ 623              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
+ 624              		.file 3 ".\\Generated_Source\\PSoC4\\CyLib.h"
+ 625              		.file 4 ".\\Generated_Source\\PSoC4\\BLE_bless_isr.h"
+ 626              		.file 5 ".\\Generated_Source\\PSoC4\\CyFlash.h"
+ 627              		.section	.debug_info,"",%progbits
+ 628              	.Ldebug_info0:
+ 629 0000 47050000 		.4byte	0x547
+ 630 0004 0400     		.2byte	0x4
+ 631 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 632 000a 04       		.byte	0x4
+ 633 000b 01       		.uleb128 0x1
+ 634 000c CF000000 		.4byte	.LASF58
+ 635 0010 01       		.byte	0x1
+ 636 0011 3C040000 		.4byte	.LASF59
+ 637 0015 48000000 		.4byte	.LASF60
+ 638 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 639 001d 00000000 		.4byte	0
+ 640 0021 00000000 		.4byte	.Ldebug_line0
+ 641 0025 02       		.uleb128 0x2
+ 642 0026 01       		.byte	0x1
+ 643 0027 06       		.byte	0x6
+ 644 0028 88020000 		.4byte	.LASF0
+ 645 002c 02       		.uleb128 0x2
+ 646 002d 01       		.byte	0x1
+ 647 002e 08       		.byte	0x8
+ 648 002f 6E020000 		.4byte	.LASF1
+ 649 0033 02       		.uleb128 0x2
+ 650 0034 02       		.byte	0x2
+ 651 0035 05       		.byte	0x5
+ 652 0036 C5000000 		.4byte	.LASF2
+ 653 003a 02       		.uleb128 0x2
+ 654 003b 02       		.byte	0x2
+ 655 003c 07       		.byte	0x7
+ 656 003d 07030000 		.4byte	.LASF3
+ 657 0041 02       		.uleb128 0x2
+ 658 0042 04       		.byte	0x4
+ 659 0043 05       		.byte	0x5
+ 660 0044 08020000 		.4byte	.LASF4
+ 661 0048 02       		.uleb128 0x2
+ 662 0049 04       		.byte	0x4
+ 663 004a 07       		.byte	0x7
+ 664 004b 74030000 		.4byte	.LASF5
+ 665 004f 02       		.uleb128 0x2
+ 666 0050 08       		.byte	0x8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 20
+
+
+ 667 0051 05       		.byte	0x5
+ 668 0052 DD010000 		.4byte	.LASF6
+ 669 0056 02       		.uleb128 0x2
+ 670 0057 08       		.byte	0x8
+ 671 0058 07       		.byte	0x7
+ 672 0059 94020000 		.4byte	.LASF7
+ 673 005d 03       		.uleb128 0x3
+ 674 005e 04       		.byte	0x4
+ 675 005f 05       		.byte	0x5
+ 676 0060 696E7400 		.ascii	"int\000"
+ 677 0064 02       		.uleb128 0x2
+ 678 0065 04       		.byte	0x4
+ 679 0066 07       		.byte	0x7
+ 680 0067 BC020000 		.4byte	.LASF8
+ 681 006b 04       		.uleb128 0x4
+ 682 006c A4010000 		.4byte	.LASF9
+ 683 0070 02       		.byte	0x2
+ 684 0071 C2       		.byte	0xc2
+ 685 0072 2C000000 		.4byte	0x2c
+ 686 0076 04       		.uleb128 0x4
+ 687 0077 5A030000 		.4byte	.LASF10
+ 688 007b 02       		.byte	0x2
+ 689 007c C3       		.byte	0xc3
+ 690 007d 3A000000 		.4byte	0x3a
+ 691 0081 04       		.uleb128 0x4
+ 692 0082 68030000 		.4byte	.LASF11
+ 693 0086 02       		.byte	0x2
+ 694 0087 C4       		.byte	0xc4
+ 695 0088 48000000 		.4byte	0x48
+ 696 008c 02       		.uleb128 0x2
+ 697 008d 04       		.byte	0x4
+ 698 008e 04       		.byte	0x4
+ 699 008f BD010000 		.4byte	.LASF12
+ 700 0093 02       		.uleb128 0x2
+ 701 0094 08       		.byte	0x8
+ 702 0095 04       		.byte	0x4
+ 703 0096 86030000 		.4byte	.LASF13
+ 704 009a 02       		.uleb128 0x2
+ 705 009b 01       		.byte	0x1
+ 706 009c 08       		.byte	0x8
+ 707 009d 2A030000 		.4byte	.LASF14
+ 708 00a1 05       		.uleb128 0x5
+ 709 00a2 3C030000 		.4byte	.LASF15
+ 710 00a6 02       		.byte	0x2
+ 711 00a7 6401     		.2byte	0x164
+ 712 00a9 48000000 		.4byte	0x48
+ 713 00ad 05       		.uleb128 0x5
+ 714 00ae 6F030000 		.4byte	.LASF16
+ 715 00b2 02       		.byte	0x2
+ 716 00b3 6C01     		.2byte	0x16c
+ 717 00b5 B9000000 		.4byte	0xb9
+ 718 00b9 06       		.uleb128 0x6
+ 719 00ba 6B000000 		.4byte	0x6b
+ 720 00be 05       		.uleb128 0x5
+ 721 00bf 01030000 		.4byte	.LASF17
+ 722 00c3 02       		.byte	0x2
+ 723 00c4 6E01     		.2byte	0x16e
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 21
+
+
+ 724 00c6 CA000000 		.4byte	0xca
+ 725 00ca 06       		.uleb128 0x6
+ 726 00cb 81000000 		.4byte	0x81
+ 727 00cf 05       		.uleb128 0x5
+ 728 00d0 EB010000 		.4byte	.LASF18
+ 729 00d4 02       		.byte	0x2
+ 730 00d5 7E01     		.2byte	0x17e
+ 731 00d7 DB000000 		.4byte	0xdb
+ 732 00db 07       		.uleb128 0x7
+ 733 00dc 04       		.byte	0x4
+ 734 00dd E1000000 		.4byte	0xe1
+ 735 00e1 08       		.uleb128 0x8
+ 736 00e2 02       		.uleb128 0x2
+ 737 00e3 04       		.byte	0x4
+ 738 00e4 07       		.byte	0x7
+ 739 00e5 5D010000 		.4byte	.LASF19
+ 740 00e9 09       		.uleb128 0x9
+ 741 00ea 04       		.byte	0x4
+ 742 00eb 07       		.uleb128 0x7
+ 743 00ec 04       		.byte	0x4
+ 744 00ed 76000000 		.4byte	0x76
+ 745 00f1 0A       		.uleb128 0xa
+ 746 00f2 4B020000 		.4byte	.LASF30
+ 747 00f6 01       		.byte	0x1
+ 748 00f7 70       		.byte	0x70
+ 749 00f8 A1000000 		.4byte	0xa1
+ 750 00fc 00000000 		.4byte	.LFB2
+ 751 0100 84000000 		.4byte	.LFE2-.LFB2
+ 752 0104 01       		.uleb128 0x1
+ 753 0105 9C       		.byte	0x9c
+ 754 0106 C6010000 		.4byte	0x1c6
+ 755 010a 0B       		.uleb128 0xb
+ 756 010b 61030000 		.4byte	.LASF20
+ 757 010f 01       		.byte	0x1
+ 758 0110 70       		.byte	0x70
+ 759 0111 C6010000 		.4byte	0x1c6
+ 760 0115 00000000 		.4byte	.LLST0
+ 761 0119 0B       		.uleb128 0xb
+ 762 011a 00000000 		.4byte	.LASF21
+ 763 011e 01       		.byte	0x1
+ 764 011f 70       		.byte	0x70
+ 765 0120 C6010000 		.4byte	0x1c6
+ 766 0124 39000000 		.4byte	.LLST1
+ 767 0128 0B       		.uleb128 0xb
+ 768 0129 5D020000 		.4byte	.LASF22
+ 769 012d 01       		.byte	0x1
+ 770 012e 70       		.byte	0x70
+ 771 012f 76000000 		.4byte	0x76
+ 772 0133 67000000 		.4byte	.LLST2
+ 773 0137 0C       		.uleb128 0xc
+ 774 0138 7C020000 		.4byte	.LASF23
+ 775 013c 01       		.byte	0x1
+ 776 013d 72       		.byte	0x72
+ 777 013e D1010000 		.4byte	0x1d1
+ 778 0142 03       		.uleb128 0x3
+ 779 0143 91       		.byte	0x91
+ 780 0144 E87E     		.sleb128 -152
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 22
+
+
+ 781 0146 0D       		.uleb128 0xd
+ 782 0147 2F020000 		.4byte	.LASF24
+ 783 014b 01       		.byte	0x1
+ 784 014c 73       		.byte	0x73
+ 785 014d 81000000 		.4byte	0x81
+ 786 0151 88000000 		.4byte	.LLST3
+ 787 0155 0D       		.uleb128 0xd
+ 788 0156 66010000 		.4byte	.LASF25
+ 789 015a 01       		.byte	0x1
+ 790 015b 74       		.byte	0x74
+ 791 015c 81000000 		.4byte	0x81
+ 792 0160 9B000000 		.4byte	.LLST4
+ 793 0164 0D       		.uleb128 0xd
+ 794 0165 F8010000 		.4byte	.LASF26
+ 795 0169 01       		.byte	0x1
+ 796 016a 75       		.byte	0x75
+ 797 016b 81000000 		.4byte	0x81
+ 798 016f AF000000 		.4byte	.LLST5
+ 799 0173 0E       		.uleb128 0xe
+ 800 0174 726300   		.ascii	"rc\000"
+ 801 0177 01       		.byte	0x1
+ 802 0178 76       		.byte	0x76
+ 803 0179 A1000000 		.4byte	0xa1
+ 804 017d CE000000 		.4byte	.LLST6
+ 805 0181 0D       		.uleb128 0xd
+ 806 0182 6B040000 		.4byte	.LASF27
+ 807 0186 01       		.byte	0x1
+ 808 0187 77       		.byte	0x77
+ 809 0188 81000000 		.4byte	0x81
+ 810 018c 39000000 		.4byte	.LLST1
+ 811 0190 0D       		.uleb128 0xd
+ 812 0191 0C040000 		.4byte	.LASF28
+ 813 0195 01       		.byte	0x1
+ 814 0196 78       		.byte	0x78
+ 815 0197 81000000 		.4byte	0x81
+ 816 019b 03010000 		.4byte	.LLST8
+ 817 019f 0D       		.uleb128 0xd
+ 818 01a0 11020000 		.4byte	.LASF29
+ 819 01a4 01       		.byte	0x1
+ 820 01a5 79       		.byte	0x79
+ 821 01a6 81000000 		.4byte	0x81
+ 822 01aa 16010000 		.4byte	.LLST9
+ 823 01ae 0F       		.uleb128 0xf
+ 824 01af 74000000 		.4byte	.LVL14
+ 825 01b3 B4040000 		.4byte	0x4b4
+ 826 01b7 10       		.uleb128 0x10
+ 827 01b8 01       		.uleb128 0x1
+ 828 01b9 51       		.byte	0x51
+ 829 01ba 03       		.uleb128 0x3
+ 830 01bb 91       		.byte	0x91
+ 831 01bc E87E     		.sleb128 -152
+ 832 01be 10       		.uleb128 0x10
+ 833 01bf 01       		.uleb128 0x1
+ 834 01c0 50       		.byte	0x50
+ 835 01c1 02       		.uleb128 0x2
+ 836 01c2 77       		.byte	0x77
+ 837 01c3 00       		.sleb128 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 23
+
+
+ 838 01c4 00       		.byte	0
+ 839 01c5 00       		.byte	0
+ 840 01c6 07       		.uleb128 0x7
+ 841 01c7 04       		.byte	0x4
+ 842 01c8 CC010000 		.4byte	0x1cc
+ 843 01cc 11       		.uleb128 0x11
+ 844 01cd 6B000000 		.4byte	0x6b
+ 845 01d1 12       		.uleb128 0x12
+ 846 01d2 6B000000 		.4byte	0x6b
+ 847 01d6 E1010000 		.4byte	0x1e1
+ 848 01da 13       		.uleb128 0x13
+ 849 01db E2000000 		.4byte	0xe2
+ 850 01df 7F       		.byte	0x7f
+ 851 01e0 00       		.byte	0
+ 852 01e1 0A       		.uleb128 0xa
+ 853 01e2 A3030000 		.4byte	.LASF31
+ 854 01e6 01       		.byte	0x1
+ 855 01e7 C2       		.byte	0xc2
+ 856 01e8 A1000000 		.4byte	0xa1
+ 857 01ec 00000000 		.4byte	.LFB3
+ 858 01f0 3C000000 		.4byte	.LFE3-.LFB3
+ 859 01f4 01       		.uleb128 0x1
+ 860 01f5 9C       		.byte	0x9c
+ 861 01f6 9E020000 		.4byte	0x29e
+ 862 01fa 0B       		.uleb128 0xb
+ 863 01fb 00000000 		.4byte	.LASF21
+ 864 01ff 01       		.byte	0x1
+ 865 0200 C2       		.byte	0xc2
+ 866 0201 C6010000 		.4byte	0x1c6
+ 867 0205 42010000 		.4byte	.LLST10
+ 868 0209 0B       		.uleb128 0xb
+ 869 020a 5D020000 		.4byte	.LASF22
+ 870 020e 01       		.byte	0x1
+ 871 020f C2       		.byte	0xc2
+ 872 0210 76000000 		.4byte	0x76
+ 873 0214 6E010000 		.4byte	.LLST11
+ 874 0218 0D       		.uleb128 0xd
+ 875 0219 99030000 		.4byte	.LASF32
+ 876 021d 01       		.byte	0x1
+ 877 021e C4       		.byte	0xc4
+ 878 021f C6010000 		.4byte	0x1c6
+ 879 0223 8F010000 		.4byte	.LLST12
+ 880 0227 0C       		.uleb128 0xc
+ 881 0228 87010000 		.4byte	.LASF33
+ 882 022c 01       		.byte	0x1
+ 883 022d C5       		.byte	0xc5
+ 884 022e D1010000 		.4byte	0x1d1
+ 885 0232 03       		.uleb128 0x3
+ 886 0233 91       		.byte	0x91
+ 887 0234 F07E     		.sleb128 -144
+ 888 0236 0D       		.uleb128 0xd
+ 889 0237 8D030000 		.4byte	.LASF34
+ 890 023b 01       		.byte	0x1
+ 891 023c C6       		.byte	0xc6
+ 892 023d 76000000 		.4byte	0x76
+ 893 0241 A2010000 		.4byte	.LLST13
+ 894 0245 0D       		.uleb128 0xd
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 24
+
+
+ 895 0246 1A030000 		.4byte	.LASF35
+ 896 024a 01       		.byte	0x1
+ 897 024b C7       		.byte	0xc7
+ 898 024c 76000000 		.4byte	0x76
+ 899 0250 B5010000 		.4byte	.LLST14
+ 900 0254 0E       		.uleb128 0xe
+ 901 0255 726300   		.ascii	"rc\000"
+ 902 0258 01       		.byte	0x1
+ 903 0259 C8       		.byte	0xc8
+ 904 025a A1000000 		.4byte	0xa1
+ 905 025e D3010000 		.4byte	.LLST15
+ 906 0262 14       		.uleb128 0x14
+ 907 0263 12000000 		.4byte	.LVL20
+ 908 0267 CE040000 		.4byte	0x4ce
+ 909 026b 81020000 		.4byte	0x281
+ 910 026f 10       		.uleb128 0x10
+ 911 0270 01       		.uleb128 0x1
+ 912 0271 52       		.byte	0x52
+ 913 0272 02       		.uleb128 0x2
+ 914 0273 08       		.byte	0x8
+ 915 0274 80       		.byte	0x80
+ 916 0275 10       		.uleb128 0x10
+ 917 0276 01       		.uleb128 0x1
+ 918 0277 51       		.byte	0x51
+ 919 0278 01       		.uleb128 0x1
+ 920 0279 30       		.byte	0x30
+ 921 027a 10       		.uleb128 0x10
+ 922 027b 01       		.uleb128 0x1
+ 923 027c 50       		.byte	0x50
+ 924 027d 02       		.uleb128 0x2
+ 925 027e 7D       		.byte	0x7d
+ 926 027f 00       		.sleb128 0
+ 927 0280 00       		.byte	0
+ 928 0281 0F       		.uleb128 0xf
+ 929 0282 2C000000 		.4byte	.LVL24
+ 930 0286 F1000000 		.4byte	0xf1
+ 931 028a 10       		.uleb128 0x10
+ 932 028b 01       		.uleb128 0x1
+ 933 028c 52       		.byte	0x52
+ 934 028d 02       		.uleb128 0x2
+ 935 028e 76       		.byte	0x76
+ 936 028f 00       		.sleb128 0
+ 937 0290 10       		.uleb128 0x10
+ 938 0291 01       		.uleb128 0x1
+ 939 0292 51       		.byte	0x51
+ 940 0293 02       		.uleb128 0x2
+ 941 0294 75       		.byte	0x75
+ 942 0295 00       		.sleb128 0
+ 943 0296 10       		.uleb128 0x10
+ 944 0297 01       		.uleb128 0x1
+ 945 0298 50       		.byte	0x50
+ 946 0299 02       		.uleb128 0x2
+ 947 029a 7D       		.byte	0x7d
+ 948 029b 00       		.sleb128 0
+ 949 029c 00       		.byte	0
+ 950 029d 00       		.byte	0
+ 951 029e 15       		.uleb128 0x15
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 25
+
+
+ 952 029f 35020000 		.4byte	.LASF38
+ 953 02a3 01       		.byte	0x1
+ 954 02a4 F1       		.byte	0xf1
+ 955 02a5 00000000 		.4byte	.LFB4
+ 956 02a9 06000000 		.4byte	.LFE4-.LFB4
+ 957 02ad 01       		.uleb128 0x1
+ 958 02ae 9C       		.byte	0x9c
+ 959 02af CE020000 		.4byte	0x2ce
+ 960 02b3 16       		.uleb128 0x16
+ 961 02b4 1F000000 		.4byte	.LASF36
+ 962 02b8 01       		.byte	0x1
+ 963 02b9 F1       		.byte	0xf1
+ 964 02ba CE020000 		.4byte	0x2ce
+ 965 02be 01       		.uleb128 0x1
+ 966 02bf 50       		.byte	0x50
+ 967 02c0 16       		.uleb128 0x16
+ 968 02c1 3F000000 		.4byte	.LASF37
+ 969 02c5 01       		.byte	0x1
+ 970 02c6 F1       		.byte	0xf1
+ 971 02c7 EB000000 		.4byte	0xeb
+ 972 02cb 01       		.uleb128 0x1
+ 973 02cc 51       		.byte	0x51
+ 974 02cd 00       		.byte	0
+ 975 02ce 07       		.uleb128 0x7
+ 976 02cf 04       		.byte	0x4
+ 977 02d0 D4020000 		.4byte	0x2d4
+ 978 02d4 11       		.uleb128 0x11
+ 979 02d5 BE000000 		.4byte	0xbe
+ 980 02d9 17       		.uleb128 0x17
+ 981 02da 17040000 		.4byte	.LASF39
+ 982 02de 01       		.byte	0x1
+ 983 02df 0401     		.2byte	0x104
+ 984 02e1 00000000 		.4byte	.LFB5
+ 985 02e5 04000000 		.4byte	.LFE5-.LFB5
+ 986 02e9 01       		.uleb128 0x1
+ 987 02ea 9C       		.byte	0x9c
+ 988 02eb 0C030000 		.4byte	0x30c
+ 989 02ef 18       		.uleb128 0x18
+ 990 02f0 1F000000 		.4byte	.LASF36
+ 991 02f4 01       		.byte	0x1
+ 992 02f5 0401     		.2byte	0x104
+ 993 02f7 0C030000 		.4byte	0x30c
+ 994 02fb 01       		.uleb128 0x1
+ 995 02fc 50       		.byte	0x50
+ 996 02fd 18       		.uleb128 0x18
+ 997 02fe 3F000000 		.4byte	.LASF37
+ 998 0302 01       		.byte	0x1
+ 999 0303 0401     		.2byte	0x104
+ 1000 0305 12030000 		.4byte	0x312
+ 1001 0309 01       		.uleb128 0x1
+ 1002 030a 51       		.byte	0x51
+ 1003 030b 00       		.byte	0
+ 1004 030c 07       		.uleb128 0x7
+ 1005 030d 04       		.byte	0x4
+ 1006 030e BE000000 		.4byte	0xbe
+ 1007 0312 11       		.uleb128 0x11
+ 1008 0313 76000000 		.4byte	0x76
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 26
+
+
+ 1009 0317 17       		.uleb128 0x17
+ 1010 0318 29000000 		.4byte	.LASF40
+ 1011 031c 01       		.byte	0x1
+ 1012 031d 1701     		.2byte	0x117
+ 1013 031f 00000000 		.4byte	.LFB6
+ 1014 0323 06000000 		.4byte	.LFE6-.LFB6
+ 1015 0327 01       		.uleb128 0x1
+ 1016 0328 9C       		.byte	0x9c
+ 1017 0329 4A030000 		.4byte	0x34a
+ 1018 032d 18       		.uleb128 0x18
+ 1019 032e 1F000000 		.4byte	.LASF36
+ 1020 0332 01       		.byte	0x1
+ 1021 0333 1701     		.2byte	0x117
+ 1022 0335 CE020000 		.4byte	0x2ce
+ 1023 0339 01       		.uleb128 0x1
+ 1024 033a 50       		.byte	0x50
+ 1025 033b 18       		.uleb128 0x18
+ 1026 033c 3F000000 		.4byte	.LASF37
+ 1027 0340 01       		.byte	0x1
+ 1028 0341 1701     		.2byte	0x117
+ 1029 0343 EB000000 		.4byte	0xeb
+ 1030 0347 01       		.uleb128 0x1
+ 1031 0348 51       		.byte	0x51
+ 1032 0349 00       		.byte	0
+ 1033 034a 17       		.uleb128 0x17
+ 1034 034b EA020000 		.4byte	.LASF41
+ 1035 034f 01       		.byte	0x1
+ 1036 0350 2A01     		.2byte	0x12a
+ 1037 0352 00000000 		.4byte	.LFB7
+ 1038 0356 04000000 		.4byte	.LFE7-.LFB7
+ 1039 035a 01       		.uleb128 0x1
+ 1040 035b 9C       		.byte	0x9c
+ 1041 035c 7D030000 		.4byte	0x37d
+ 1042 0360 18       		.uleb128 0x18
+ 1043 0361 1F000000 		.4byte	.LASF36
+ 1044 0365 01       		.byte	0x1
+ 1045 0366 2A01     		.2byte	0x12a
+ 1046 0368 0C030000 		.4byte	0x30c
+ 1047 036c 01       		.uleb128 0x1
+ 1048 036d 50       		.byte	0x50
+ 1049 036e 18       		.uleb128 0x18
+ 1050 036f 3F000000 		.4byte	.LASF37
+ 1051 0373 01       		.byte	0x1
+ 1052 0374 2A01     		.2byte	0x12a
+ 1053 0376 12030000 		.4byte	0x312
+ 1054 037a 01       		.uleb128 0x1
+ 1055 037b 51       		.byte	0x51
+ 1056 037c 00       		.byte	0
+ 1057 037d 17       		.uleb128 0x17
+ 1058 037e F4030000 		.4byte	.LASF42
+ 1059 0382 01       		.byte	0x1
+ 1060 0383 3001     		.2byte	0x130
+ 1061 0385 00000000 		.4byte	.LFB8
+ 1062 0389 C8000000 		.4byte	.LFE8-.LFB8
+ 1063 038d 01       		.uleb128 0x1
+ 1064 038e 9C       		.byte	0x9c
+ 1065 038f B4030000 		.4byte	0x3b4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 27
+
+
+ 1066 0393 19       		.uleb128 0x19
+ 1067 0394 2F030000 		.4byte	.LASF43
+ 1068 0398 01       		.byte	0x1
+ 1069 0399 3201     		.2byte	0x132
+ 1070 039b 81000000 		.4byte	0x81
+ 1071 039f FE010000 		.4byte	.LLST16
+ 1072 03a3 1A       		.uleb128 0x1a
+ 1073 03a4 6C646F00 		.ascii	"ldo\000"
+ 1074 03a8 01       		.byte	0x1
+ 1075 03a9 3301     		.2byte	0x133
+ 1076 03ab 81000000 		.4byte	0x81
+ 1077 03af 5A020000 		.4byte	.LLST17
+ 1078 03b3 00       		.byte	0
+ 1079 03b4 17       		.uleb128 0x17
+ 1080 03b5 AB020000 		.4byte	.LASF44
+ 1081 03b9 01       		.byte	0x1
+ 1082 03ba 5F01     		.2byte	0x15f
+ 1083 03bc 00000000 		.4byte	.LFB9
+ 1084 03c0 08000000 		.4byte	.LFE9-.LFB9
+ 1085 03c4 01       		.uleb128 0x1
+ 1086 03c5 9C       		.byte	0x9c
+ 1087 03c6 E4030000 		.4byte	0x3e4
+ 1088 03ca 1B       		.uleb128 0x1b
+ 1089 03cb CB030000 		.4byte	.LASF45
+ 1090 03cf 01       		.byte	0x1
+ 1091 03d0 5F01     		.2byte	0x15f
+ 1092 03d2 76000000 		.4byte	0x76
+ 1093 03d6 93020000 		.4byte	.LLST18
+ 1094 03da 1C       		.uleb128 0x1c
+ 1095 03db 06000000 		.4byte	.LVL51
+ 1096 03df EB040000 		.4byte	0x4eb
+ 1097 03e3 00       		.byte	0
+ 1098 03e4 17       		.uleb128 0x17
+ 1099 03e5 1E020000 		.4byte	.LASF46
+ 1100 03e9 01       		.byte	0x1
+ 1101 03ea 6401     		.2byte	0x164
+ 1102 03ec 00000000 		.4byte	.LFB10
+ 1103 03f0 08000000 		.4byte	.LFE10-.LFB10
+ 1104 03f4 01       		.uleb128 0x1
+ 1105 03f5 9C       		.byte	0x9c
+ 1106 03f6 1C040000 		.4byte	0x41c
+ 1107 03fa 1B       		.uleb128 0x1b
+ 1108 03fb CB030000 		.4byte	.LASF45
+ 1109 03ff 01       		.byte	0x1
+ 1110 0400 6401     		.2byte	0x164
+ 1111 0402 81000000 		.4byte	0x81
+ 1112 0406 B4020000 		.4byte	.LLST19
+ 1113 040a 0F       		.uleb128 0xf
+ 1114 040b 06000000 		.4byte	.LVL53
+ 1115 040f FC040000 		.4byte	0x4fc
+ 1116 0413 10       		.uleb128 0x10
+ 1117 0414 01       		.uleb128 0x1
+ 1118 0415 50       		.byte	0x50
+ 1119 0416 03       		.uleb128 0x3
+ 1120 0417 F3       		.byte	0xf3
+ 1121 0418 01       		.uleb128 0x1
+ 1122 0419 50       		.byte	0x50
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 28
+
+
+ 1123 041a 00       		.byte	0
+ 1124 041b 00       		.byte	0
+ 1125 041c 17       		.uleb128 0x17
+ 1126 041d D4030000 		.4byte	.LASF47
+ 1127 0421 01       		.byte	0x1
+ 1128 0422 6901     		.2byte	0x169
+ 1129 0424 00000000 		.4byte	.LFB11
+ 1130 0428 08000000 		.4byte	.LFE11-.LFB11
+ 1131 042c 01       		.uleb128 0x1
+ 1132 042d 9C       		.byte	0x9c
+ 1133 042e 3C040000 		.4byte	0x43c
+ 1134 0432 1C       		.uleb128 0x1c
+ 1135 0433 06000000 		.4byte	.LVL54
+ 1136 0437 0D050000 		.4byte	0x50d
+ 1137 043b 00       		.byte	0
+ 1138 043c 17       		.uleb128 0x17
+ 1139 043d C9020000 		.4byte	.LASF48
+ 1140 0441 01       		.byte	0x1
+ 1141 0442 6E01     		.2byte	0x16e
+ 1142 0444 00000000 		.4byte	.LFB12
+ 1143 0448 08000000 		.4byte	.LFE12-.LFB12
+ 1144 044c 01       		.uleb128 0x1
+ 1145 044d 9C       		.byte	0x9c
+ 1146 044e 5C040000 		.4byte	0x45c
+ 1147 0452 1C       		.uleb128 0x1c
+ 1148 0453 06000000 		.4byte	.LVL55
+ 1149 0457 14050000 		.4byte	0x514
+ 1150 045b 00       		.byte	0
+ 1151 045c 17       		.uleb128 0x17
+ 1152 045d 2E040000 		.4byte	.LASF49
+ 1153 0461 01       		.byte	0x1
+ 1154 0462 7301     		.2byte	0x173
+ 1155 0464 00000000 		.4byte	.LFB13
+ 1156 0468 18000000 		.4byte	.LFE13-.LFB13
+ 1157 046c 01       		.uleb128 0x1
+ 1158 046d 9C       		.byte	0x9c
+ 1159 046e 94040000 		.4byte	0x494
+ 1160 0472 1C       		.uleb128 0x1c
+ 1161 0473 06000000 		.4byte	.LVL56
+ 1162 0477 14050000 		.4byte	0x514
+ 1163 047b 1C       		.uleb128 0x1c
+ 1164 047c 0C000000 		.4byte	.LVL57
+ 1165 0480 1B050000 		.4byte	0x51b
+ 1166 0484 0F       		.uleb128 0xf
+ 1167 0485 12000000 		.4byte	.LVL58
+ 1168 0489 2C050000 		.4byte	0x52c
+ 1169 048d 10       		.uleb128 0x10
+ 1170 048e 01       		.uleb128 0x1
+ 1171 048f 50       		.byte	0x50
+ 1172 0490 01       		.uleb128 0x1
+ 1173 0491 33       		.byte	0x33
+ 1174 0492 00       		.byte	0
+ 1175 0493 00       		.byte	0
+ 1176 0494 17       		.uleb128 0x17
+ 1177 0495 93010000 		.4byte	.LASF50
+ 1178 0499 01       		.byte	0x1
+ 1179 049a 8001     		.2byte	0x180
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 29
+
+
+ 1180 049c 00000000 		.4byte	.LFB14
+ 1181 04a0 10000000 		.4byte	.LFE14-.LFB14
+ 1182 04a4 01       		.uleb128 0x1
+ 1183 04a5 9C       		.byte	0x9c
+ 1184 04a6 B4040000 		.4byte	0x4b4
+ 1185 04aa 1C       		.uleb128 0x1c
+ 1186 04ab 08000000 		.4byte	.LVL59
+ 1187 04af 3D050000 		.4byte	0x53d
+ 1188 04b3 00       		.byte	0
+ 1189 04b4 1D       		.uleb128 0x1d
+ 1190 04b5 AA010000 		.4byte	.LASF61
+ 1191 04b9 05       		.byte	0x5
+ 1192 04ba 1C       		.byte	0x1c
+ 1193 04bb 81000000 		.4byte	0x81
+ 1194 04bf CE040000 		.4byte	0x4ce
+ 1195 04c3 1E       		.uleb128 0x1e
+ 1196 04c4 81000000 		.4byte	0x81
+ 1197 04c8 1E       		.uleb128 0x1e
+ 1198 04c9 C6010000 		.4byte	0x1c6
+ 1199 04cd 00       		.byte	0
+ 1200 04ce 1F       		.uleb128 0x1f
+ 1201 04cf 01020000 		.4byte	.LASF51
+ 1202 04d3 E9000000 		.4byte	0xe9
+ 1203 04d7 EB040000 		.4byte	0x4eb
+ 1204 04db 1E       		.uleb128 0x1e
+ 1205 04dc E9000000 		.4byte	0xe9
+ 1206 04e0 1E       		.uleb128 0x1e
+ 1207 04e1 5D000000 		.4byte	0x5d
+ 1208 04e5 1E       		.uleb128 0x1e
+ 1209 04e6 E2000000 		.4byte	0xe2
+ 1210 04ea 00       		.byte	0
+ 1211 04eb 20       		.uleb128 0x20
+ 1212 04ec 64020000 		.4byte	.LASF52
+ 1213 04f0 03       		.byte	0x3
+ 1214 04f1 58       		.byte	0x58
+ 1215 04f2 FC040000 		.4byte	0x4fc
+ 1216 04f6 1E       		.uleb128 0x1e
+ 1217 04f7 76000000 		.4byte	0x76
+ 1218 04fb 00       		.byte	0
+ 1219 04fc 20       		.uleb128 0x20
+ 1220 04fd 63040000 		.4byte	.LASF53
+ 1221 0501 03       		.byte	0x3
+ 1222 0502 57       		.byte	0x57
+ 1223 0503 0D050000 		.4byte	0x50d
+ 1224 0507 1E       		.uleb128 0x1e
+ 1225 0508 81000000 		.4byte	0x81
+ 1226 050c 00       		.byte	0
+ 1227 050d 21       		.uleb128 0x21
+ 1228 050e 45030000 		.4byte	.LASF54
+ 1229 0512 04       		.byte	0x4
+ 1230 0513 23       		.byte	0x23
+ 1231 0514 21       		.uleb128 0x21
+ 1232 0515 B5030000 		.4byte	.LASF55
+ 1233 0519 04       		.byte	0x4
+ 1234 051a 25       		.byte	0x25
+ 1235 051b 20       		.uleb128 0x20
+ 1236 051c 6F010000 		.4byte	.LASF56
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 30
+
+
+ 1237 0520 04       		.byte	0x4
+ 1238 0521 1D       		.byte	0x1d
+ 1239 0522 2C050000 		.4byte	0x52c
+ 1240 0526 1E       		.uleb128 0x1e
+ 1241 0527 CF000000 		.4byte	0xcf
+ 1242 052b 00       		.byte	0
+ 1243 052c 20       		.uleb128 0x20
+ 1244 052d C3010000 		.4byte	.LASF57
+ 1245 0531 04       		.byte	0x4
+ 1246 0532 20       		.byte	0x20
+ 1247 0533 3D050000 		.4byte	0x53d
+ 1248 0537 1E       		.uleb128 0x1e
+ 1249 0538 6B000000 		.4byte	0x6b
+ 1250 053c 00       		.byte	0
+ 1251 053d 22       		.uleb128 0x22
+ 1252 053e 09000000 		.4byte	.LASF62
+ 1253 0542 04       		.byte	0x4
+ 1254 0543 18       		.byte	0x18
+ 1255 0544 1E       		.uleb128 0x1e
+ 1256 0545 CF000000 		.4byte	0xcf
+ 1257 0549 00       		.byte	0
+ 1258 054a 00       		.byte	0
+ 1259              		.section	.debug_abbrev,"",%progbits
+ 1260              	.Ldebug_abbrev0:
+ 1261 0000 01       		.uleb128 0x1
+ 1262 0001 11       		.uleb128 0x11
+ 1263 0002 01       		.byte	0x1
+ 1264 0003 25       		.uleb128 0x25
+ 1265 0004 0E       		.uleb128 0xe
+ 1266 0005 13       		.uleb128 0x13
+ 1267 0006 0B       		.uleb128 0xb
+ 1268 0007 03       		.uleb128 0x3
+ 1269 0008 0E       		.uleb128 0xe
+ 1270 0009 1B       		.uleb128 0x1b
+ 1271 000a 0E       		.uleb128 0xe
+ 1272 000b 55       		.uleb128 0x55
+ 1273 000c 17       		.uleb128 0x17
+ 1274 000d 11       		.uleb128 0x11
+ 1275 000e 01       		.uleb128 0x1
+ 1276 000f 10       		.uleb128 0x10
+ 1277 0010 17       		.uleb128 0x17
+ 1278 0011 00       		.byte	0
+ 1279 0012 00       		.byte	0
+ 1280 0013 02       		.uleb128 0x2
+ 1281 0014 24       		.uleb128 0x24
+ 1282 0015 00       		.byte	0
+ 1283 0016 0B       		.uleb128 0xb
+ 1284 0017 0B       		.uleb128 0xb
+ 1285 0018 3E       		.uleb128 0x3e
+ 1286 0019 0B       		.uleb128 0xb
+ 1287 001a 03       		.uleb128 0x3
+ 1288 001b 0E       		.uleb128 0xe
+ 1289 001c 00       		.byte	0
+ 1290 001d 00       		.byte	0
+ 1291 001e 03       		.uleb128 0x3
+ 1292 001f 24       		.uleb128 0x24
+ 1293 0020 00       		.byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 31
+
+
+ 1294 0021 0B       		.uleb128 0xb
+ 1295 0022 0B       		.uleb128 0xb
+ 1296 0023 3E       		.uleb128 0x3e
+ 1297 0024 0B       		.uleb128 0xb
+ 1298 0025 03       		.uleb128 0x3
+ 1299 0026 08       		.uleb128 0x8
+ 1300 0027 00       		.byte	0
+ 1301 0028 00       		.byte	0
+ 1302 0029 04       		.uleb128 0x4
+ 1303 002a 16       		.uleb128 0x16
+ 1304 002b 00       		.byte	0
+ 1305 002c 03       		.uleb128 0x3
+ 1306 002d 0E       		.uleb128 0xe
+ 1307 002e 3A       		.uleb128 0x3a
+ 1308 002f 0B       		.uleb128 0xb
+ 1309 0030 3B       		.uleb128 0x3b
+ 1310 0031 0B       		.uleb128 0xb
+ 1311 0032 49       		.uleb128 0x49
+ 1312 0033 13       		.uleb128 0x13
+ 1313 0034 00       		.byte	0
+ 1314 0035 00       		.byte	0
+ 1315 0036 05       		.uleb128 0x5
+ 1316 0037 16       		.uleb128 0x16
+ 1317 0038 00       		.byte	0
+ 1318 0039 03       		.uleb128 0x3
+ 1319 003a 0E       		.uleb128 0xe
+ 1320 003b 3A       		.uleb128 0x3a
+ 1321 003c 0B       		.uleb128 0xb
+ 1322 003d 3B       		.uleb128 0x3b
+ 1323 003e 05       		.uleb128 0x5
+ 1324 003f 49       		.uleb128 0x49
+ 1325 0040 13       		.uleb128 0x13
+ 1326 0041 00       		.byte	0
+ 1327 0042 00       		.byte	0
+ 1328 0043 06       		.uleb128 0x6
+ 1329 0044 35       		.uleb128 0x35
+ 1330 0045 00       		.byte	0
+ 1331 0046 49       		.uleb128 0x49
+ 1332 0047 13       		.uleb128 0x13
+ 1333 0048 00       		.byte	0
+ 1334 0049 00       		.byte	0
+ 1335 004a 07       		.uleb128 0x7
+ 1336 004b 0F       		.uleb128 0xf
+ 1337 004c 00       		.byte	0
+ 1338 004d 0B       		.uleb128 0xb
+ 1339 004e 0B       		.uleb128 0xb
+ 1340 004f 49       		.uleb128 0x49
+ 1341 0050 13       		.uleb128 0x13
+ 1342 0051 00       		.byte	0
+ 1343 0052 00       		.byte	0
+ 1344 0053 08       		.uleb128 0x8
+ 1345 0054 15       		.uleb128 0x15
+ 1346 0055 00       		.byte	0
+ 1347 0056 27       		.uleb128 0x27
+ 1348 0057 19       		.uleb128 0x19
+ 1349 0058 00       		.byte	0
+ 1350 0059 00       		.byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 32
+
+
+ 1351 005a 09       		.uleb128 0x9
+ 1352 005b 0F       		.uleb128 0xf
+ 1353 005c 00       		.byte	0
+ 1354 005d 0B       		.uleb128 0xb
+ 1355 005e 0B       		.uleb128 0xb
+ 1356 005f 00       		.byte	0
+ 1357 0060 00       		.byte	0
+ 1358 0061 0A       		.uleb128 0xa
+ 1359 0062 2E       		.uleb128 0x2e
+ 1360 0063 01       		.byte	0x1
+ 1361 0064 3F       		.uleb128 0x3f
+ 1362 0065 19       		.uleb128 0x19
+ 1363 0066 03       		.uleb128 0x3
+ 1364 0067 0E       		.uleb128 0xe
+ 1365 0068 3A       		.uleb128 0x3a
+ 1366 0069 0B       		.uleb128 0xb
+ 1367 006a 3B       		.uleb128 0x3b
+ 1368 006b 0B       		.uleb128 0xb
+ 1369 006c 27       		.uleb128 0x27
+ 1370 006d 19       		.uleb128 0x19
+ 1371 006e 49       		.uleb128 0x49
+ 1372 006f 13       		.uleb128 0x13
+ 1373 0070 11       		.uleb128 0x11
+ 1374 0071 01       		.uleb128 0x1
+ 1375 0072 12       		.uleb128 0x12
+ 1376 0073 06       		.uleb128 0x6
+ 1377 0074 40       		.uleb128 0x40
+ 1378 0075 18       		.uleb128 0x18
+ 1379 0076 9742     		.uleb128 0x2117
+ 1380 0078 19       		.uleb128 0x19
+ 1381 0079 01       		.uleb128 0x1
+ 1382 007a 13       		.uleb128 0x13
+ 1383 007b 00       		.byte	0
+ 1384 007c 00       		.byte	0
+ 1385 007d 0B       		.uleb128 0xb
+ 1386 007e 05       		.uleb128 0x5
+ 1387 007f 00       		.byte	0
+ 1388 0080 03       		.uleb128 0x3
+ 1389 0081 0E       		.uleb128 0xe
+ 1390 0082 3A       		.uleb128 0x3a
+ 1391 0083 0B       		.uleb128 0xb
+ 1392 0084 3B       		.uleb128 0x3b
+ 1393 0085 0B       		.uleb128 0xb
+ 1394 0086 49       		.uleb128 0x49
+ 1395 0087 13       		.uleb128 0x13
+ 1396 0088 02       		.uleb128 0x2
+ 1397 0089 17       		.uleb128 0x17
+ 1398 008a 00       		.byte	0
+ 1399 008b 00       		.byte	0
+ 1400 008c 0C       		.uleb128 0xc
+ 1401 008d 34       		.uleb128 0x34
+ 1402 008e 00       		.byte	0
+ 1403 008f 03       		.uleb128 0x3
+ 1404 0090 0E       		.uleb128 0xe
+ 1405 0091 3A       		.uleb128 0x3a
+ 1406 0092 0B       		.uleb128 0xb
+ 1407 0093 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 33
+
+
+ 1408 0094 0B       		.uleb128 0xb
+ 1409 0095 49       		.uleb128 0x49
+ 1410 0096 13       		.uleb128 0x13
+ 1411 0097 02       		.uleb128 0x2
+ 1412 0098 18       		.uleb128 0x18
+ 1413 0099 00       		.byte	0
+ 1414 009a 00       		.byte	0
+ 1415 009b 0D       		.uleb128 0xd
+ 1416 009c 34       		.uleb128 0x34
+ 1417 009d 00       		.byte	0
+ 1418 009e 03       		.uleb128 0x3
+ 1419 009f 0E       		.uleb128 0xe
+ 1420 00a0 3A       		.uleb128 0x3a
+ 1421 00a1 0B       		.uleb128 0xb
+ 1422 00a2 3B       		.uleb128 0x3b
+ 1423 00a3 0B       		.uleb128 0xb
+ 1424 00a4 49       		.uleb128 0x49
+ 1425 00a5 13       		.uleb128 0x13
+ 1426 00a6 02       		.uleb128 0x2
+ 1427 00a7 17       		.uleb128 0x17
+ 1428 00a8 00       		.byte	0
+ 1429 00a9 00       		.byte	0
+ 1430 00aa 0E       		.uleb128 0xe
+ 1431 00ab 34       		.uleb128 0x34
+ 1432 00ac 00       		.byte	0
+ 1433 00ad 03       		.uleb128 0x3
+ 1434 00ae 08       		.uleb128 0x8
+ 1435 00af 3A       		.uleb128 0x3a
+ 1436 00b0 0B       		.uleb128 0xb
+ 1437 00b1 3B       		.uleb128 0x3b
+ 1438 00b2 0B       		.uleb128 0xb
+ 1439 00b3 49       		.uleb128 0x49
+ 1440 00b4 13       		.uleb128 0x13
+ 1441 00b5 02       		.uleb128 0x2
+ 1442 00b6 17       		.uleb128 0x17
+ 1443 00b7 00       		.byte	0
+ 1444 00b8 00       		.byte	0
+ 1445 00b9 0F       		.uleb128 0xf
+ 1446 00ba 898201   		.uleb128 0x4109
+ 1447 00bd 01       		.byte	0x1
+ 1448 00be 11       		.uleb128 0x11
+ 1449 00bf 01       		.uleb128 0x1
+ 1450 00c0 31       		.uleb128 0x31
+ 1451 00c1 13       		.uleb128 0x13
+ 1452 00c2 00       		.byte	0
+ 1453 00c3 00       		.byte	0
+ 1454 00c4 10       		.uleb128 0x10
+ 1455 00c5 8A8201   		.uleb128 0x410a
+ 1456 00c8 00       		.byte	0
+ 1457 00c9 02       		.uleb128 0x2
+ 1458 00ca 18       		.uleb128 0x18
+ 1459 00cb 9142     		.uleb128 0x2111
+ 1460 00cd 18       		.uleb128 0x18
+ 1461 00ce 00       		.byte	0
+ 1462 00cf 00       		.byte	0
+ 1463 00d0 11       		.uleb128 0x11
+ 1464 00d1 26       		.uleb128 0x26
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 34
+
+
+ 1465 00d2 00       		.byte	0
+ 1466 00d3 49       		.uleb128 0x49
+ 1467 00d4 13       		.uleb128 0x13
+ 1468 00d5 00       		.byte	0
+ 1469 00d6 00       		.byte	0
+ 1470 00d7 12       		.uleb128 0x12
+ 1471 00d8 01       		.uleb128 0x1
+ 1472 00d9 01       		.byte	0x1
+ 1473 00da 49       		.uleb128 0x49
+ 1474 00db 13       		.uleb128 0x13
+ 1475 00dc 01       		.uleb128 0x1
+ 1476 00dd 13       		.uleb128 0x13
+ 1477 00de 00       		.byte	0
+ 1478 00df 00       		.byte	0
+ 1479 00e0 13       		.uleb128 0x13
+ 1480 00e1 21       		.uleb128 0x21
+ 1481 00e2 00       		.byte	0
+ 1482 00e3 49       		.uleb128 0x49
+ 1483 00e4 13       		.uleb128 0x13
+ 1484 00e5 2F       		.uleb128 0x2f
+ 1485 00e6 0B       		.uleb128 0xb
+ 1486 00e7 00       		.byte	0
+ 1487 00e8 00       		.byte	0
+ 1488 00e9 14       		.uleb128 0x14
+ 1489 00ea 898201   		.uleb128 0x4109
+ 1490 00ed 01       		.byte	0x1
+ 1491 00ee 11       		.uleb128 0x11
+ 1492 00ef 01       		.uleb128 0x1
+ 1493 00f0 31       		.uleb128 0x31
+ 1494 00f1 13       		.uleb128 0x13
+ 1495 00f2 01       		.uleb128 0x1
+ 1496 00f3 13       		.uleb128 0x13
+ 1497 00f4 00       		.byte	0
+ 1498 00f5 00       		.byte	0
+ 1499 00f6 15       		.uleb128 0x15
+ 1500 00f7 2E       		.uleb128 0x2e
+ 1501 00f8 01       		.byte	0x1
+ 1502 00f9 3F       		.uleb128 0x3f
+ 1503 00fa 19       		.uleb128 0x19
+ 1504 00fb 03       		.uleb128 0x3
+ 1505 00fc 0E       		.uleb128 0xe
+ 1506 00fd 3A       		.uleb128 0x3a
+ 1507 00fe 0B       		.uleb128 0xb
+ 1508 00ff 3B       		.uleb128 0x3b
+ 1509 0100 0B       		.uleb128 0xb
+ 1510 0101 27       		.uleb128 0x27
+ 1511 0102 19       		.uleb128 0x19
+ 1512 0103 11       		.uleb128 0x11
+ 1513 0104 01       		.uleb128 0x1
+ 1514 0105 12       		.uleb128 0x12
+ 1515 0106 06       		.uleb128 0x6
+ 1516 0107 40       		.uleb128 0x40
+ 1517 0108 18       		.uleb128 0x18
+ 1518 0109 9742     		.uleb128 0x2117
+ 1519 010b 19       		.uleb128 0x19
+ 1520 010c 01       		.uleb128 0x1
+ 1521 010d 13       		.uleb128 0x13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 35
+
+
+ 1522 010e 00       		.byte	0
+ 1523 010f 00       		.byte	0
+ 1524 0110 16       		.uleb128 0x16
+ 1525 0111 05       		.uleb128 0x5
+ 1526 0112 00       		.byte	0
+ 1527 0113 03       		.uleb128 0x3
+ 1528 0114 0E       		.uleb128 0xe
+ 1529 0115 3A       		.uleb128 0x3a
+ 1530 0116 0B       		.uleb128 0xb
+ 1531 0117 3B       		.uleb128 0x3b
+ 1532 0118 0B       		.uleb128 0xb
+ 1533 0119 49       		.uleb128 0x49
+ 1534 011a 13       		.uleb128 0x13
+ 1535 011b 02       		.uleb128 0x2
+ 1536 011c 18       		.uleb128 0x18
+ 1537 011d 00       		.byte	0
+ 1538 011e 00       		.byte	0
+ 1539 011f 17       		.uleb128 0x17
+ 1540 0120 2E       		.uleb128 0x2e
+ 1541 0121 01       		.byte	0x1
+ 1542 0122 3F       		.uleb128 0x3f
+ 1543 0123 19       		.uleb128 0x19
+ 1544 0124 03       		.uleb128 0x3
+ 1545 0125 0E       		.uleb128 0xe
+ 1546 0126 3A       		.uleb128 0x3a
+ 1547 0127 0B       		.uleb128 0xb
+ 1548 0128 3B       		.uleb128 0x3b
+ 1549 0129 05       		.uleb128 0x5
+ 1550 012a 27       		.uleb128 0x27
+ 1551 012b 19       		.uleb128 0x19
+ 1552 012c 11       		.uleb128 0x11
+ 1553 012d 01       		.uleb128 0x1
+ 1554 012e 12       		.uleb128 0x12
+ 1555 012f 06       		.uleb128 0x6
+ 1556 0130 40       		.uleb128 0x40
+ 1557 0131 18       		.uleb128 0x18
+ 1558 0132 9742     		.uleb128 0x2117
+ 1559 0134 19       		.uleb128 0x19
+ 1560 0135 01       		.uleb128 0x1
+ 1561 0136 13       		.uleb128 0x13
+ 1562 0137 00       		.byte	0
+ 1563 0138 00       		.byte	0
+ 1564 0139 18       		.uleb128 0x18
+ 1565 013a 05       		.uleb128 0x5
+ 1566 013b 00       		.byte	0
+ 1567 013c 03       		.uleb128 0x3
+ 1568 013d 0E       		.uleb128 0xe
+ 1569 013e 3A       		.uleb128 0x3a
+ 1570 013f 0B       		.uleb128 0xb
+ 1571 0140 3B       		.uleb128 0x3b
+ 1572 0141 05       		.uleb128 0x5
+ 1573 0142 49       		.uleb128 0x49
+ 1574 0143 13       		.uleb128 0x13
+ 1575 0144 02       		.uleb128 0x2
+ 1576 0145 18       		.uleb128 0x18
+ 1577 0146 00       		.byte	0
+ 1578 0147 00       		.byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 36
+
+
+ 1579 0148 19       		.uleb128 0x19
+ 1580 0149 34       		.uleb128 0x34
+ 1581 014a 00       		.byte	0
+ 1582 014b 03       		.uleb128 0x3
+ 1583 014c 0E       		.uleb128 0xe
+ 1584 014d 3A       		.uleb128 0x3a
+ 1585 014e 0B       		.uleb128 0xb
+ 1586 014f 3B       		.uleb128 0x3b
+ 1587 0150 05       		.uleb128 0x5
+ 1588 0151 49       		.uleb128 0x49
+ 1589 0152 13       		.uleb128 0x13
+ 1590 0153 02       		.uleb128 0x2
+ 1591 0154 17       		.uleb128 0x17
+ 1592 0155 00       		.byte	0
+ 1593 0156 00       		.byte	0
+ 1594 0157 1A       		.uleb128 0x1a
+ 1595 0158 34       		.uleb128 0x34
+ 1596 0159 00       		.byte	0
+ 1597 015a 03       		.uleb128 0x3
+ 1598 015b 08       		.uleb128 0x8
+ 1599 015c 3A       		.uleb128 0x3a
+ 1600 015d 0B       		.uleb128 0xb
+ 1601 015e 3B       		.uleb128 0x3b
+ 1602 015f 05       		.uleb128 0x5
+ 1603 0160 49       		.uleb128 0x49
+ 1604 0161 13       		.uleb128 0x13
+ 1605 0162 02       		.uleb128 0x2
+ 1606 0163 17       		.uleb128 0x17
+ 1607 0164 00       		.byte	0
+ 1608 0165 00       		.byte	0
+ 1609 0166 1B       		.uleb128 0x1b
+ 1610 0167 05       		.uleb128 0x5
+ 1611 0168 00       		.byte	0
+ 1612 0169 03       		.uleb128 0x3
+ 1613 016a 0E       		.uleb128 0xe
+ 1614 016b 3A       		.uleb128 0x3a
+ 1615 016c 0B       		.uleb128 0xb
+ 1616 016d 3B       		.uleb128 0x3b
+ 1617 016e 05       		.uleb128 0x5
+ 1618 016f 49       		.uleb128 0x49
+ 1619 0170 13       		.uleb128 0x13
+ 1620 0171 02       		.uleb128 0x2
+ 1621 0172 17       		.uleb128 0x17
+ 1622 0173 00       		.byte	0
+ 1623 0174 00       		.byte	0
+ 1624 0175 1C       		.uleb128 0x1c
+ 1625 0176 898201   		.uleb128 0x4109
+ 1626 0179 00       		.byte	0
+ 1627 017a 11       		.uleb128 0x11
+ 1628 017b 01       		.uleb128 0x1
+ 1629 017c 31       		.uleb128 0x31
+ 1630 017d 13       		.uleb128 0x13
+ 1631 017e 00       		.byte	0
+ 1632 017f 00       		.byte	0
+ 1633 0180 1D       		.uleb128 0x1d
+ 1634 0181 2E       		.uleb128 0x2e
+ 1635 0182 01       		.byte	0x1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 37
+
+
+ 1636 0183 3F       		.uleb128 0x3f
+ 1637 0184 19       		.uleb128 0x19
+ 1638 0185 03       		.uleb128 0x3
+ 1639 0186 0E       		.uleb128 0xe
+ 1640 0187 3A       		.uleb128 0x3a
+ 1641 0188 0B       		.uleb128 0xb
+ 1642 0189 3B       		.uleb128 0x3b
+ 1643 018a 0B       		.uleb128 0xb
+ 1644 018b 27       		.uleb128 0x27
+ 1645 018c 19       		.uleb128 0x19
+ 1646 018d 49       		.uleb128 0x49
+ 1647 018e 13       		.uleb128 0x13
+ 1648 018f 3C       		.uleb128 0x3c
+ 1649 0190 19       		.uleb128 0x19
+ 1650 0191 01       		.uleb128 0x1
+ 1651 0192 13       		.uleb128 0x13
+ 1652 0193 00       		.byte	0
+ 1653 0194 00       		.byte	0
+ 1654 0195 1E       		.uleb128 0x1e
+ 1655 0196 05       		.uleb128 0x5
+ 1656 0197 00       		.byte	0
+ 1657 0198 49       		.uleb128 0x49
+ 1658 0199 13       		.uleb128 0x13
+ 1659 019a 00       		.byte	0
+ 1660 019b 00       		.byte	0
+ 1661 019c 1F       		.uleb128 0x1f
+ 1662 019d 2E       		.uleb128 0x2e
+ 1663 019e 01       		.byte	0x1
+ 1664 019f 3F       		.uleb128 0x3f
+ 1665 01a0 19       		.uleb128 0x19
+ 1666 01a1 03       		.uleb128 0x3
+ 1667 01a2 0E       		.uleb128 0xe
+ 1668 01a3 27       		.uleb128 0x27
+ 1669 01a4 19       		.uleb128 0x19
+ 1670 01a5 49       		.uleb128 0x49
+ 1671 01a6 13       		.uleb128 0x13
+ 1672 01a7 34       		.uleb128 0x34
+ 1673 01a8 19       		.uleb128 0x19
+ 1674 01a9 3C       		.uleb128 0x3c
+ 1675 01aa 19       		.uleb128 0x19
+ 1676 01ab 01       		.uleb128 0x1
+ 1677 01ac 13       		.uleb128 0x13
+ 1678 01ad 00       		.byte	0
+ 1679 01ae 00       		.byte	0
+ 1680 01af 20       		.uleb128 0x20
+ 1681 01b0 2E       		.uleb128 0x2e
+ 1682 01b1 01       		.byte	0x1
+ 1683 01b2 3F       		.uleb128 0x3f
+ 1684 01b3 19       		.uleb128 0x19
+ 1685 01b4 03       		.uleb128 0x3
+ 1686 01b5 0E       		.uleb128 0xe
+ 1687 01b6 3A       		.uleb128 0x3a
+ 1688 01b7 0B       		.uleb128 0xb
+ 1689 01b8 3B       		.uleb128 0x3b
+ 1690 01b9 0B       		.uleb128 0xb
+ 1691 01ba 27       		.uleb128 0x27
+ 1692 01bb 19       		.uleb128 0x19
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 38
+
+
+ 1693 01bc 3C       		.uleb128 0x3c
+ 1694 01bd 19       		.uleb128 0x19
+ 1695 01be 01       		.uleb128 0x1
+ 1696 01bf 13       		.uleb128 0x13
+ 1697 01c0 00       		.byte	0
+ 1698 01c1 00       		.byte	0
+ 1699 01c2 21       		.uleb128 0x21
+ 1700 01c3 2E       		.uleb128 0x2e
+ 1701 01c4 00       		.byte	0
+ 1702 01c5 3F       		.uleb128 0x3f
+ 1703 01c6 19       		.uleb128 0x19
+ 1704 01c7 03       		.uleb128 0x3
+ 1705 01c8 0E       		.uleb128 0xe
+ 1706 01c9 3A       		.uleb128 0x3a
+ 1707 01ca 0B       		.uleb128 0xb
+ 1708 01cb 3B       		.uleb128 0x3b
+ 1709 01cc 0B       		.uleb128 0xb
+ 1710 01cd 27       		.uleb128 0x27
+ 1711 01ce 19       		.uleb128 0x19
+ 1712 01cf 3C       		.uleb128 0x3c
+ 1713 01d0 19       		.uleb128 0x19
+ 1714 01d1 00       		.byte	0
+ 1715 01d2 00       		.byte	0
+ 1716 01d3 22       		.uleb128 0x22
+ 1717 01d4 2E       		.uleb128 0x2e
+ 1718 01d5 01       		.byte	0x1
+ 1719 01d6 3F       		.uleb128 0x3f
+ 1720 01d7 19       		.uleb128 0x19
+ 1721 01d8 03       		.uleb128 0x3
+ 1722 01d9 0E       		.uleb128 0xe
+ 1723 01da 3A       		.uleb128 0x3a
+ 1724 01db 0B       		.uleb128 0xb
+ 1725 01dc 3B       		.uleb128 0x3b
+ 1726 01dd 0B       		.uleb128 0xb
+ 1727 01de 27       		.uleb128 0x27
+ 1728 01df 19       		.uleb128 0x19
+ 1729 01e0 3C       		.uleb128 0x3c
+ 1730 01e1 19       		.uleb128 0x19
+ 1731 01e2 00       		.byte	0
+ 1732 01e3 00       		.byte	0
+ 1733 01e4 00       		.byte	0
+ 1734              		.section	.debug_loc,"",%progbits
+ 1735              	.Ldebug_loc0:
+ 1736              	.LLST0:
+ 1737 0000 00000000 		.4byte	.LVL0
+ 1738 0004 0C000000 		.4byte	.LVL1
+ 1739 0008 0100     		.2byte	0x1
+ 1740 000a 50       		.byte	0x50
+ 1741 000b 0C000000 		.4byte	.LVL1
+ 1742 000f 1E000000 		.4byte	.LVL3
+ 1743 0013 0100     		.2byte	0x1
+ 1744 0015 53       		.byte	0x53
+ 1745 0016 1E000000 		.4byte	.LVL3
+ 1746 001a 7C000000 		.4byte	.LVL16
+ 1747 001e 0300     		.2byte	0x3
+ 1748 0020 91       		.byte	0x91
+ 1749 0021 E47E     		.sleb128 -156
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 39
+
+
+ 1750 0023 7C000000 		.4byte	.LVL16
+ 1751 0027 84000000 		.4byte	.LFE2
+ 1752 002b 0400     		.2byte	0x4
+ 1753 002d F3       		.byte	0xf3
+ 1754 002e 01       		.uleb128 0x1
+ 1755 002f 50       		.byte	0x50
+ 1756 0030 9F       		.byte	0x9f
+ 1757 0031 00000000 		.4byte	0
+ 1758 0035 00000000 		.4byte	0
+ 1759              	.LLST1:
+ 1760 0039 00000000 		.4byte	.LVL0
+ 1761 003d 22000000 		.4byte	.LVL4
+ 1762 0041 0100     		.2byte	0x1
+ 1763 0043 51       		.byte	0x51
+ 1764 0044 22000000 		.4byte	.LVL4
+ 1765 0048 7C000000 		.4byte	.LVL16
+ 1766 004c 0300     		.2byte	0x3
+ 1767 004e 91       		.byte	0x91
+ 1768 004f E07E     		.sleb128 -160
+ 1769 0051 7C000000 		.4byte	.LVL16
+ 1770 0055 84000000 		.4byte	.LFE2
+ 1771 0059 0400     		.2byte	0x4
+ 1772 005b F3       		.byte	0xf3
+ 1773 005c 01       		.uleb128 0x1
+ 1774 005d 51       		.byte	0x51
+ 1775 005e 9F       		.byte	0x9f
+ 1776 005f 00000000 		.4byte	0
+ 1777 0063 00000000 		.4byte	0
+ 1778              	.LLST2:
+ 1779 0067 00000000 		.4byte	.LVL0
+ 1780 006b 22000000 		.4byte	.LVL4
+ 1781 006f 0100     		.2byte	0x1
+ 1782 0071 52       		.byte	0x52
+ 1783 0072 22000000 		.4byte	.LVL4
+ 1784 0076 84000000 		.4byte	.LFE2
+ 1785 007a 0400     		.2byte	0x4
+ 1786 007c F3       		.byte	0xf3
+ 1787 007d 01       		.uleb128 0x1
+ 1788 007e 52       		.byte	0x52
+ 1789 007f 9F       		.byte	0x9f
+ 1790 0080 00000000 		.4byte	0
+ 1791 0084 00000000 		.4byte	0
+ 1792              	.LLST3:
+ 1793 0088 18000000 		.4byte	.LVL2
+ 1794 008c 7C000000 		.4byte	.LVL16
+ 1795 0090 0100     		.2byte	0x1
+ 1796 0092 57       		.byte	0x57
+ 1797 0093 00000000 		.4byte	0
+ 1798 0097 00000000 		.4byte	0
+ 1799              	.LLST4:
+ 1800 009b 3C000000 		.4byte	.LVL7
+ 1801 009f 7C000000 		.4byte	.LVL16
+ 1802 00a3 0200     		.2byte	0x2
+ 1803 00a5 30       		.byte	0x30
+ 1804 00a6 9F       		.byte	0x9f
+ 1805 00a7 00000000 		.4byte	0
+ 1806 00ab 00000000 		.4byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 40
+
+
+ 1807              	.LLST5:
+ 1808 00af 00000000 		.4byte	.LVL0
+ 1809 00b3 22000000 		.4byte	.LVL4
+ 1810 00b7 0200     		.2byte	0x2
+ 1811 00b9 30       		.byte	0x30
+ 1812 00ba 9F       		.byte	0x9f
+ 1813 00bb 22000000 		.4byte	.LVL4
+ 1814 00bf 7C000000 		.4byte	.LVL16
+ 1815 00c3 0100     		.2byte	0x1
+ 1816 00c5 55       		.byte	0x55
+ 1817 00c6 00000000 		.4byte	0
+ 1818 00ca 00000000 		.4byte	0
+ 1819              	.LLST6:
+ 1820 00ce 00000000 		.4byte	.LVL0
+ 1821 00d2 22000000 		.4byte	.LVL4
+ 1822 00d6 0200     		.2byte	0x2
+ 1823 00d8 30       		.byte	0x30
+ 1824 00d9 9F       		.byte	0x9f
+ 1825 00da 22000000 		.4byte	.LVL4
+ 1826 00de 2C000000 		.4byte	.LVL5
+ 1827 00e2 0100     		.2byte	0x1
+ 1828 00e4 50       		.byte	0x50
+ 1829 00e5 30000000 		.4byte	.LVL6
+ 1830 00e9 6E000000 		.4byte	.LVL13
+ 1831 00ed 0100     		.2byte	0x1
+ 1832 00ef 50       		.byte	0x50
+ 1833 00f0 74000000 		.4byte	.LVL14
+ 1834 00f4 84000000 		.4byte	.LFE2
+ 1835 00f8 0100     		.2byte	0x1
+ 1836 00fa 50       		.byte	0x50
+ 1837 00fb 00000000 		.4byte	0
+ 1838 00ff 00000000 		.4byte	0
+ 1839              	.LLST8:
+ 1840 0103 1E000000 		.4byte	.LVL3
+ 1841 0107 68000000 		.4byte	.LVL12
+ 1842 010b 0100     		.2byte	0x1
+ 1843 010d 53       		.byte	0x53
+ 1844 010e 00000000 		.4byte	0
+ 1845 0112 00000000 		.4byte	0
+ 1846              	.LLST9:
+ 1847 0116 3C000000 		.4byte	.LVL7
+ 1848 011a 54000000 		.4byte	.LVL8
+ 1849 011e 0200     		.2byte	0x2
+ 1850 0120 7D       		.byte	0x7d
+ 1851 0121 00       		.sleb128 0
+ 1852 0122 54000000 		.4byte	.LVL8
+ 1853 0126 56000000 		.4byte	.LVL9
+ 1854 012a 0200     		.2byte	0x2
+ 1855 012c 31       		.byte	0x31
+ 1856 012d 9F       		.byte	0x9f
+ 1857 012e 56000000 		.4byte	.LVL9
+ 1858 0132 7C000000 		.4byte	.LVL16
+ 1859 0136 0200     		.2byte	0x2
+ 1860 0138 7D       		.byte	0x7d
+ 1861 0139 00       		.sleb128 0
+ 1862 013a 00000000 		.4byte	0
+ 1863 013e 00000000 		.4byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 41
+
+
+ 1864              	.LLST10:
+ 1865 0142 00000000 		.4byte	.LVL17
+ 1866 0146 0A000000 		.4byte	.LVL18
+ 1867 014a 0100     		.2byte	0x1
+ 1868 014c 50       		.byte	0x50
+ 1869 014d 0A000000 		.4byte	.LVL18
+ 1870 0151 16000000 		.4byte	.LVL21
+ 1871 0155 0100     		.2byte	0x1
+ 1872 0157 55       		.byte	0x55
+ 1873 0158 16000000 		.4byte	.LVL21
+ 1874 015c 3C000000 		.4byte	.LFE3
+ 1875 0160 0400     		.2byte	0x4
+ 1876 0162 F3       		.byte	0xf3
+ 1877 0163 01       		.uleb128 0x1
+ 1878 0164 50       		.byte	0x50
+ 1879 0165 9F       		.byte	0x9f
+ 1880 0166 00000000 		.4byte	0
+ 1881 016a 00000000 		.4byte	0
+ 1882              	.LLST11:
+ 1883 016e 00000000 		.4byte	.LVL17
+ 1884 0172 0C000000 		.4byte	.LVL19
+ 1885 0176 0100     		.2byte	0x1
+ 1886 0178 51       		.byte	0x51
+ 1887 0179 0C000000 		.4byte	.LVL19
+ 1888 017d 3C000000 		.4byte	.LFE3
+ 1889 0181 0400     		.2byte	0x4
+ 1890 0183 F3       		.byte	0xf3
+ 1891 0184 01       		.uleb128 0x1
+ 1892 0185 51       		.byte	0x51
+ 1893 0186 9F       		.byte	0x9f
+ 1894 0187 00000000 		.4byte	0
+ 1895 018b 00000000 		.4byte	0
+ 1896              	.LLST12:
+ 1897 018f 12000000 		.4byte	.LVL20
+ 1898 0193 3A000000 		.4byte	.LVL30
+ 1899 0197 0100     		.2byte	0x1
+ 1900 0199 55       		.byte	0x55
+ 1901 019a 00000000 		.4byte	0
+ 1902 019e 00000000 		.4byte	0
+ 1903              	.LLST13:
+ 1904 01a2 22000000 		.4byte	.LVL22
+ 1905 01a6 38000000 		.4byte	.LVL28
+ 1906 01aa 0100     		.2byte	0x1
+ 1907 01ac 56       		.byte	0x56
+ 1908 01ad 00000000 		.4byte	0
+ 1909 01b1 00000000 		.4byte	0
+ 1910              	.LLST14:
+ 1911 01b5 12000000 		.4byte	.LVL20
+ 1912 01b9 32000000 		.4byte	.LVL25
+ 1913 01bd 0100     		.2byte	0x1
+ 1914 01bf 54       		.byte	0x54
+ 1915 01c0 36000000 		.4byte	.LVL27
+ 1916 01c4 3A000000 		.4byte	.LVL29
+ 1917 01c8 0100     		.2byte	0x1
+ 1918 01ca 54       		.byte	0x54
+ 1919 01cb 00000000 		.4byte	0
+ 1920 01cf 00000000 		.4byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 42
+
+
+ 1921              	.LLST15:
+ 1922 01d3 12000000 		.4byte	.LVL20
+ 1923 01d7 16000000 		.4byte	.LVL21
+ 1924 01db 0300     		.2byte	0x3
+ 1925 01dd 09       		.byte	0x9
+ 1926 01de FF       		.byte	0xff
+ 1927 01df 9F       		.byte	0x9f
+ 1928 01e0 16000000 		.4byte	.LVL21
+ 1929 01e4 24000000 		.4byte	.LVL23
+ 1930 01e8 0100     		.2byte	0x1
+ 1931 01ea 50       		.byte	0x50
+ 1932 01eb 2C000000 		.4byte	.LVL24
+ 1933 01ef 3C000000 		.4byte	.LFE3
+ 1934 01f3 0100     		.2byte	0x1
+ 1935 01f5 50       		.byte	0x50
+ 1936 01f6 00000000 		.4byte	0
+ 1937 01fa 00000000 		.4byte	0
+ 1938              	.LLST16:
+ 1939 01fe 0E000000 		.4byte	.LVL35
+ 1940 0202 26000000 		.4byte	.LVL38
+ 1941 0206 0100     		.2byte	0x1
+ 1942 0208 51       		.byte	0x51
+ 1943 0209 26000000 		.4byte	.LVL38
+ 1944 020d 28000000 		.4byte	.LVL39
+ 1945 0211 0300     		.2byte	0x3
+ 1946 0213 71       		.byte	0x71
+ 1947 0214 03       		.sleb128 3
+ 1948 0215 9F       		.byte	0x9f
+ 1949 0216 28000000 		.4byte	.LVL39
+ 1950 021a 4A000000 		.4byte	.LVL44
+ 1951 021e 0100     		.2byte	0x1
+ 1952 0220 51       		.byte	0x51
+ 1953 0221 4A000000 		.4byte	.LVL44
+ 1954 0225 58000000 		.4byte	.LVL46
+ 1955 0229 0100     		.2byte	0x1
+ 1956 022b 53       		.byte	0x53
+ 1957 022c 58000000 		.4byte	.LVL46
+ 1958 0230 5A000000 		.4byte	.LVL47
+ 1959 0234 0200     		.2byte	0x2
+ 1960 0236 72       		.byte	0x72
+ 1961 0237 00       		.sleb128 0
+ 1962 0238 5A000000 		.4byte	.LVL47
+ 1963 023c 62000000 		.4byte	.LVL48
+ 1964 0240 0500     		.2byte	0x5
+ 1965 0242 0C       		.byte	0xc
+ 1966 0243 78002E40 		.4byte	0x402e0078
+ 1967 0247 62000000 		.4byte	.LVL48
+ 1968 024b C8000000 		.4byte	.LFE8
+ 1969 024f 0100     		.2byte	0x1
+ 1970 0251 53       		.byte	0x53
+ 1971 0252 00000000 		.4byte	0
+ 1972 0256 00000000 		.4byte	0
+ 1973              	.LLST17:
+ 1974 025a 18000000 		.4byte	.LVL36
+ 1975 025e 24000000 		.4byte	.LVL37
+ 1976 0262 0100     		.2byte	0x1
+ 1977 0264 53       		.byte	0x53
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 43
+
+
+ 1978 0265 28000000 		.4byte	.LVL39
+ 1979 0269 3C000000 		.4byte	.LVL41
+ 1980 026d 0100     		.2byte	0x1
+ 1981 026f 53       		.byte	0x53
+ 1982 0270 3C000000 		.4byte	.LVL41
+ 1983 0274 3E000000 		.4byte	.LVL42
+ 1984 0278 0200     		.2byte	0x2
+ 1985 027a 72       		.byte	0x72
+ 1986 027b 00       		.sleb128 0
+ 1987 027c 3E000000 		.4byte	.LVL42
+ 1988 0280 40000000 		.4byte	.LVL43
+ 1989 0284 0500     		.2byte	0x5
+ 1990 0286 0C       		.byte	0xc
+ 1991 0287 6C002E40 		.4byte	0x402e006c
+ 1992 028b 00000000 		.4byte	0
+ 1993 028f 00000000 		.4byte	0
+ 1994              	.LLST18:
+ 1995 0293 00000000 		.4byte	.LVL50
+ 1996 0297 05000000 		.4byte	.LVL51-1
+ 1997 029b 0100     		.2byte	0x1
+ 1998 029d 50       		.byte	0x50
+ 1999 029e 05000000 		.4byte	.LVL51-1
+ 2000 02a2 08000000 		.4byte	.LFE9
+ 2001 02a6 0400     		.2byte	0x4
+ 2002 02a8 F3       		.byte	0xf3
+ 2003 02a9 01       		.uleb128 0x1
+ 2004 02aa 50       		.byte	0x50
+ 2005 02ab 9F       		.byte	0x9f
+ 2006 02ac 00000000 		.4byte	0
+ 2007 02b0 00000000 		.4byte	0
+ 2008              	.LLST19:
+ 2009 02b4 00000000 		.4byte	.LVL52
+ 2010 02b8 05000000 		.4byte	.LVL53-1
+ 2011 02bc 0100     		.2byte	0x1
+ 2012 02be 50       		.byte	0x50
+ 2013 02bf 05000000 		.4byte	.LVL53-1
+ 2014 02c3 08000000 		.4byte	.LFE10
+ 2015 02c7 0400     		.2byte	0x4
+ 2016 02c9 F3       		.byte	0xf3
+ 2017 02ca 01       		.uleb128 0x1
+ 2018 02cb 50       		.byte	0x50
+ 2019 02cc 9F       		.byte	0x9f
+ 2020 02cd 00000000 		.4byte	0
+ 2021 02d1 00000000 		.4byte	0
+ 2022              		.section	.debug_aranges,"",%progbits
+ 2023 0000 7C000000 		.4byte	0x7c
+ 2024 0004 0200     		.2byte	0x2
+ 2025 0006 00000000 		.4byte	.Ldebug_info0
+ 2026 000a 04       		.byte	0x4
+ 2027 000b 00       		.byte	0
+ 2028 000c 0000     		.2byte	0
+ 2029 000e 0000     		.2byte	0
+ 2030 0010 00000000 		.4byte	.LFB2
+ 2031 0014 84000000 		.4byte	.LFE2-.LFB2
+ 2032 0018 00000000 		.4byte	.LFB3
+ 2033 001c 3C000000 		.4byte	.LFE3-.LFB3
+ 2034 0020 00000000 		.4byte	.LFB4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 44
+
+
+ 2035 0024 06000000 		.4byte	.LFE4-.LFB4
+ 2036 0028 00000000 		.4byte	.LFB5
+ 2037 002c 04000000 		.4byte	.LFE5-.LFB5
+ 2038 0030 00000000 		.4byte	.LFB6
+ 2039 0034 06000000 		.4byte	.LFE6-.LFB6
+ 2040 0038 00000000 		.4byte	.LFB7
+ 2041 003c 04000000 		.4byte	.LFE7-.LFB7
+ 2042 0040 00000000 		.4byte	.LFB8
+ 2043 0044 C8000000 		.4byte	.LFE8-.LFB8
+ 2044 0048 00000000 		.4byte	.LFB9
+ 2045 004c 08000000 		.4byte	.LFE9-.LFB9
+ 2046 0050 00000000 		.4byte	.LFB10
+ 2047 0054 08000000 		.4byte	.LFE10-.LFB10
+ 2048 0058 00000000 		.4byte	.LFB11
+ 2049 005c 08000000 		.4byte	.LFE11-.LFB11
+ 2050 0060 00000000 		.4byte	.LFB12
+ 2051 0064 08000000 		.4byte	.LFE12-.LFB12
+ 2052 0068 00000000 		.4byte	.LFB13
+ 2053 006c 18000000 		.4byte	.LFE13-.LFB13
+ 2054 0070 00000000 		.4byte	.LFB14
+ 2055 0074 10000000 		.4byte	.LFE14-.LFB14
+ 2056 0078 00000000 		.4byte	0
+ 2057 007c 00000000 		.4byte	0
+ 2058              		.section	.debug_ranges,"",%progbits
+ 2059              	.Ldebug_ranges0:
+ 2060 0000 00000000 		.4byte	.LFB2
+ 2061 0004 84000000 		.4byte	.LFE2
+ 2062 0008 00000000 		.4byte	.LFB3
+ 2063 000c 3C000000 		.4byte	.LFE3
+ 2064 0010 00000000 		.4byte	.LFB4
+ 2065 0014 06000000 		.4byte	.LFE4
+ 2066 0018 00000000 		.4byte	.LFB5
+ 2067 001c 04000000 		.4byte	.LFE5
+ 2068 0020 00000000 		.4byte	.LFB6
+ 2069 0024 06000000 		.4byte	.LFE6
+ 2070 0028 00000000 		.4byte	.LFB7
+ 2071 002c 04000000 		.4byte	.LFE7
+ 2072 0030 00000000 		.4byte	.LFB8
+ 2073 0034 C8000000 		.4byte	.LFE8
+ 2074 0038 00000000 		.4byte	.LFB9
+ 2075 003c 08000000 		.4byte	.LFE9
+ 2076 0040 00000000 		.4byte	.LFB10
+ 2077 0044 08000000 		.4byte	.LFE10
+ 2078 0048 00000000 		.4byte	.LFB11
+ 2079 004c 08000000 		.4byte	.LFE11
+ 2080 0050 00000000 		.4byte	.LFB12
+ 2081 0054 08000000 		.4byte	.LFE12
+ 2082 0058 00000000 		.4byte	.LFB13
+ 2083 005c 18000000 		.4byte	.LFE13
+ 2084 0060 00000000 		.4byte	.LFB14
+ 2085 0064 10000000 		.4byte	.LFE14
+ 2086 0068 00000000 		.4byte	0
+ 2087 006c 00000000 		.4byte	0
+ 2088              		.section	.debug_line,"",%progbits
+ 2089              	.Ldebug_line0:
+ 2090 0000 EF010000 		.section	.debug_str,"MS",%progbits,1
+ 2090      02007500 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 45
+
+
+ 2090      00000201 
+ 2090      FB0E0D00 
+ 2090      01010101 
+ 2091              	.LASF21:
+ 2092 0000 76617246 		.ascii	"varFlash\000"
+ 2092      6C617368 
+ 2092      00
+ 2093              	.LASF62:
+ 2094 0009 424C455F 		.ascii	"BLE_bless_isr_StartEx\000"
+ 2094      626C6573 
+ 2094      735F6973 
+ 2094      725F5374 
+ 2094      61727445 
+ 2095              	.LASF36:
+ 2096 001f 626C6573 		.ascii	"blessAddr\000"
+ 2096      73416464 
+ 2096      7200
+ 2097              	.LASF40:
+ 2098 0029 4379424C 		.ascii	"CyBLE_Bless_RfRegRead\000"
+ 2098      455F426C 
+ 2098      6573735F 
+ 2098      52665265 
+ 2098      67526561 
+ 2099              	.LASF37:
+ 2100 003f 72656756 		.ascii	"regValue\000"
+ 2100      616C7565 
+ 2100      00
+ 2101              	.LASF60:
+ 2102 0048 473A5C43 		.ascii	"G:\\Company\\Jetronic\\CYPRESS\\CYPRESS_BLE_Study\\"
+ 2102      6F6D7061 
+ 2102      6E795C4A 
+ 2102      6574726F 
+ 2102      6E69635C 
+ 2103 0076 54726F75 		.ascii	"Troughput\\Troughpur_Central_Peripheral_V2.7\\Troug"
+ 2103      67687075 
+ 2103      745C5472 
+ 2103      6F756768 
+ 2103      7075725F 
+ 2104 00a7 68707574 		.ascii	"hput_Central_Peripheral.cydsn\000"
+ 2104      5F43656E 
+ 2104      7472616C 
+ 2104      5F506572 
+ 2104      69706865 
+ 2105              	.LASF2:
+ 2106 00c5 73686F72 		.ascii	"short int\000"
+ 2106      7420696E 
+ 2106      7400
+ 2107              	.LASF58:
+ 2108 00cf 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2108      4320342E 
+ 2108      392E3320 
+ 2108      32303135 
+ 2108      30333033 
+ 2109 0102 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 2109      20726576 
+ 2109      6973696F 
+ 2109      6E203232 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 46
+
+
+ 2109      31323230 
+ 2110 0135 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
+ 2110      66756E63 
+ 2110      74696F6E 
+ 2110      2D736563 
+ 2110      74696F6E 
+ 2111              	.LASF19:
+ 2112 015d 73697A65 		.ascii	"sizetype\000"
+ 2112      74797065 
+ 2112      00
+ 2113              	.LASF25:
+ 2114 0166 64737449 		.ascii	"dstIndex\000"
+ 2114      6E646578 
+ 2114      00
+ 2115              	.LASF56:
+ 2116 016f 424C455F 		.ascii	"BLE_bless_isr_SetVector\000"
+ 2116      626C6573 
+ 2116      735F6973 
+ 2116      725F5365 
+ 2116      74566563 
+ 2117              	.LASF33:
+ 2118 0187 666C6173 		.ascii	"flashBuffer\000"
+ 2118      68427566 
+ 2118      66657200 
+ 2119              	.LASF50:
+ 2120 0193 4359424C 		.ascii	"CYBLE_BlessStart\000"
+ 2120      455F426C 
+ 2120      65737353 
+ 2120      74617274 
+ 2120      00
+ 2121              	.LASF9:
+ 2122 01a4 75696E74 		.ascii	"uint8\000"
+ 2122      3800
+ 2123              	.LASF61:
+ 2124 01aa 43795379 		.ascii	"CySysFlashWriteRow\000"
+ 2124      73466C61 
+ 2124      73685772 
+ 2124      69746552 
+ 2124      6F7700
+ 2125              	.LASF12:
+ 2126 01bd 666C6F61 		.ascii	"float\000"
+ 2126      7400
+ 2127              	.LASF57:
+ 2128 01c3 424C455F 		.ascii	"BLE_bless_isr_SetPriority\000"
+ 2128      626C6573 
+ 2128      735F6973 
+ 2128      725F5365 
+ 2128      74507269 
+ 2129              	.LASF6:
+ 2130 01dd 6C6F6E67 		.ascii	"long long int\000"
+ 2130      206C6F6E 
+ 2130      6720696E 
+ 2130      7400
+ 2131              	.LASF18:
+ 2132 01eb 63796973 		.ascii	"cyisraddress\000"
+ 2132      72616464 
+ 2132      72657373 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 47
+
+
+ 2132      00
+ 2133              	.LASF26:
+ 2134 01f8 73726349 		.ascii	"srcIndex\000"
+ 2134      6E646578 
+ 2134      00
+ 2135              	.LASF51:
+ 2136 0201 6D656D73 		.ascii	"memset\000"
+ 2136      657400
+ 2137              	.LASF4:
+ 2138 0208 6C6F6E67 		.ascii	"long int\000"
+ 2138      20696E74 
+ 2138      00
+ 2139              	.LASF29:
+ 2140 0211 726F7773 		.ascii	"rowsNotEqual\000"
+ 2140      4E6F7445 
+ 2140      7175616C 
+ 2140      00
+ 2141              	.LASF46:
+ 2142 021e 4379426C 		.ascii	"CyBleHal_DelayMs\000"
+ 2142      6548616C 
+ 2142      5F44656C 
+ 2142      61794D73 
+ 2142      00
+ 2143              	.LASF24:
+ 2144 022f 726F7749 		.ascii	"rowId\000"
+ 2144      6400
+ 2145              	.LASF38:
+ 2146 0235 4379424C 		.ascii	"CyBLE_Bless_LlRegRead\000"
+ 2146      455F426C 
+ 2146      6573735F 
+ 2146      4C6C5265 
+ 2146      67526561 
+ 2147              	.LASF30:
+ 2148 024b 4379424C 		.ascii	"CyBLE_Nvram_Write\000"
+ 2148      455F4E76 
+ 2148      72616D5F 
+ 2148      57726974 
+ 2148      6500
+ 2149              	.LASF22:
+ 2150 025d 6C656E67 		.ascii	"length\000"
+ 2150      746800
+ 2151              	.LASF52:
+ 2152 0264 43794465 		.ascii	"CyDelayUs\000"
+ 2152      6C617955 
+ 2152      7300
+ 2153              	.LASF1:
+ 2154 026e 756E7369 		.ascii	"unsigned char\000"
+ 2154      676E6564 
+ 2154      20636861 
+ 2154      7200
+ 2155              	.LASF23:
+ 2156 027c 77726974 		.ascii	"writeBuffer\000"
+ 2156      65427566 
+ 2156      66657200 
+ 2157              	.LASF0:
+ 2158 0288 7369676E 		.ascii	"signed char\000"
+ 2158      65642063 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 48
+
+
+ 2158      68617200 
+ 2159              	.LASF7:
+ 2160 0294 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2160      206C6F6E 
+ 2160      6720756E 
+ 2160      7369676E 
+ 2160      65642069 
+ 2161              	.LASF44:
+ 2162 02ab 4379426C 		.ascii	"CyBleHal_DelayUs\000"
+ 2162      6548616C 
+ 2162      5F44656C 
+ 2162      61795573 
+ 2162      00
+ 2163              	.LASF8:
+ 2164 02bc 756E7369 		.ascii	"unsigned int\000"
+ 2164      676E6564 
+ 2164      20696E74 
+ 2164      00
+ 2165              	.LASF48:
+ 2166 02c9 4379426C 		.ascii	"CyBleHal_DisableGlobalInterrupts\000"
+ 2166      6548616C 
+ 2166      5F446973 
+ 2166      61626C65 
+ 2166      476C6F62 
+ 2167              	.LASF41:
+ 2168 02ea 4379424C 		.ascii	"CyBLE_Bless_RfRegWrite\000"
+ 2168      455F426C 
+ 2168      6573735F 
+ 2168      52665265 
+ 2168      67577269 
+ 2169              	.LASF17:
+ 2170 0301 72656733 		.ascii	"reg32\000"
+ 2170      3200
+ 2171              	.LASF3:
+ 2172 0307 73686F72 		.ascii	"short unsigned int\000"
+ 2172      7420756E 
+ 2172      7369676E 
+ 2172      65642069 
+ 2172      6E7400
+ 2173              	.LASF35:
+ 2174 031a 6C656E67 		.ascii	"lengthRemaining\000"
+ 2174      74685265 
+ 2174      6D61696E 
+ 2174      696E6700 
+ 2175              	.LASF14:
+ 2176 032a 63686172 		.ascii	"char\000"
+ 2176      00
+ 2177              	.LASF43:
+ 2178 032f 7472696D 		.ascii	"trimRegValue\000"
+ 2178      52656756 
+ 2178      616C7565 
+ 2178      00
+ 2179              	.LASF15:
+ 2180 033c 63797374 		.ascii	"cystatus\000"
+ 2180      61747573 
+ 2180      00
+ 2181              	.LASF54:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 49
+
+
+ 2182 0345 424C455F 		.ascii	"BLE_bless_isr_Enable\000"
+ 2182      626C6573 
+ 2182      735F6973 
+ 2182      725F456E 
+ 2182      61626C65 
+ 2183              	.LASF10:
+ 2184 035a 75696E74 		.ascii	"uint16\000"
+ 2184      313600
+ 2185              	.LASF20:
+ 2186 0361 62756666 		.ascii	"buffer\000"
+ 2186      657200
+ 2187              	.LASF11:
+ 2188 0368 75696E74 		.ascii	"uint32\000"
+ 2188      333200
+ 2189              	.LASF16:
+ 2190 036f 72656738 		.ascii	"reg8\000"
+ 2190      00
+ 2191              	.LASF5:
+ 2192 0374 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2192      20756E73 
+ 2192      69676E65 
+ 2192      6420696E 
+ 2192      7400
+ 2193              	.LASF13:
+ 2194 0386 646F7562 		.ascii	"double\000"
+ 2194      6C6500
+ 2195              	.LASF34:
+ 2196 038d 6C656E67 		.ascii	"lengthFlash\000"
+ 2196      7468466C 
+ 2196      61736800 
+ 2197              	.LASF32:
+ 2198 0399 74656D70 		.ascii	"tempFlash\000"
+ 2198      466C6173 
+ 2198      6800
+ 2199              	.LASF31:
+ 2200 03a3 4379424C 		.ascii	"CyBLE_Nvram_Erase\000"
+ 2200      455F4E76 
+ 2200      72616D5F 
+ 2200      45726173 
+ 2200      6500
+ 2201              	.LASF55:
+ 2202 03b5 424C455F 		.ascii	"BLE_bless_isr_Disable\000"
+ 2202      626C6573 
+ 2202      735F6973 
+ 2202      725F4469 
+ 2202      7361626C 
+ 2203              	.LASF45:
+ 2204 03cb 64656C61 		.ascii	"delayVal\000"
+ 2204      7956616C 
+ 2204      00
+ 2205              	.LASF47:
+ 2206 03d4 4379426C 		.ascii	"CyBleHal_EnableGlobalInterrupts\000"
+ 2206      6548616C 
+ 2206      5F456E61 
+ 2206      626C6547 
+ 2206      6C6F6261 
+ 2207              	.LASF42:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchwNppr.s 			page 50
+
+
+ 2208 03f4 4379424C 		.ascii	"CyBLE_BlessDeviceConfig\000"
+ 2208      455F426C 
+ 2208      65737344 
+ 2208      65766963 
+ 2208      65436F6E 
+ 2209              	.LASF28:
+ 2210 040c 62797465 		.ascii	"byteOffset\000"
+ 2210      4F666673 
+ 2210      657400
+ 2211              	.LASF39:
+ 2212 0417 4379424C 		.ascii	"CyBLE_Bless_LlRegWrite\000"
+ 2212      455F426C 
+ 2212      6573735F 
+ 2212      4C6C5265 
+ 2212      67577269 
+ 2213              	.LASF49:
+ 2214 042e 4379426C 		.ascii	"CyBle_HalInit\000"
+ 2214      655F4861 
+ 2214      6C496E69 
+ 2214      7400
+ 2215              	.LASF59:
+ 2216 043c 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\BLE_HAL_PVT.c\000"
+ 2216      6E657261 
+ 2216      7465645F 
+ 2216      536F7572 
+ 2216      63655C50 
+ 2217              	.LASF53:
+ 2218 0463 43794465 		.ascii	"CyDelay\000"
+ 2218      6C617900 
+ 2219              	.LASF27:
+ 2220 046b 65654F66 		.ascii	"eeOffset\000"
+ 2220      66736574 
+ 2220      00
+ 2221              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

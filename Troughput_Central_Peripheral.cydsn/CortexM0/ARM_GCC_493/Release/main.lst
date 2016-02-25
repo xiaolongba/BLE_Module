@@ -1,0 +1,751 @@
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccDP1fyv.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.startup.main,"ax",%progbits
+  18              		.align	1
+  19              		.global	main
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	main, %function
+  23              	main:
+  24              	.LFB35:
+  25              		.file 1 ".\\main.c"
+   1:.\main.c      **** /* ========================================
+   2:.\main.c      ****  *
+   3:.\main.c      ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\main.c      ****  * All Rights Reserved
+   5:.\main.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\main.c      ****  *
+   7:.\main.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\main.c      ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\main.c      ****  *
+  10:.\main.c      ****  * ========================================
+  11:.\main.c      **** */
+  12:.\main.c      **** #include <project.h>
+  13:.\main.c      **** #include "BLEApplication.h"
+  14:.\main.c      **** #include "BLEClient.h"
+  15:.\main.c      **** #include<stdio.h>
+  16:.\main.c      **** #include<string.h>
+  17:.\main.c      **** #include "WriteUserSFlash.h"
+  18:.\main.c      **** /***************************************
+  19:.\main.c      **** * 外部全局变量声明
+  20:.\main.c      **** ***************************************/
+  21:.\main.c      **** //extern uint8_t  StartScan;
+  22:.\main.c      **** //extern uint8_t DeviceList[DeviceListCount];
+  23:.\main.c      **** //extern AdvDataInfo DeviceInfo;
+  24:.\main.c      **** extern uint8_t DeviceCount;
+  25:.\main.c      **** extern uint8_t LowPower_EN;
+  26:.\main.c      **** //extern char* StringArry[];
+  27:.\main.c      **** extern uint8_t rx_isover;
+  28:.\main.c      **** extern uint8_t RX_BUFFER[BUFFER_LENGHTH];
+  29:.\main.c      **** extern uint8_t Buffer_Length;
+  30:.\main.c      **** extern uint8_t charNotificationEnabled;
+  31:.\main.c      **** extern uint8_t _10sIsOver;
+  32:.\main.c      **** extern CYBLE_GATTC_WRITE_REQ_T writeRequestData;
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccDP1fyv.s 			page 2
+
+
+  33:.\main.c      **** extern uint8_t Role;
+  34:.\main.c      **** extern uint8_t TroughtTest_Flag;
+  35:.\main.c      **** extern uint8_t CommandMode;
+  36:.\main.c      **** extern uint8 buffer[20];
+  37:.\main.c      **** extern uint16 negotiatedMtu;
+  38:.\main.c      **** //extern CYBLE_CONN_HANDLE_T	connHandle;
+  39:.\main.c      **** int main()
+  40:.\main.c      **** {
+  26              		.loc 1 40 0
+  27              		.cfi_startproc
+  28 0000 10B5     		push	{r4, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 4, -8
+  31              		.cfi_offset 14, -4
+  41:.\main.c      ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  32              		.loc 1 41 0
+  33              	@ 41 ".\main.c" 1
+  34 0002 62B6     		CPSIE   i
+  35              	@ 0 "" 2
+  42:.\main.c      ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  43:.\main.c      **** //    uint8_t test[20]={0};
+  44:.\main.c      ****     if(Central==ReadDataFromSFlash())//每次复位均要从SFlash中读取模式标志位来判断
+  36              		.loc 1 44 0
+  37              		.code	16
+  38 0004 FFF7FEFF 		bl	ReadDataFromSFlash
+  39              	.LVL0:
+  40 0008 0B4C     		ldr	r4, .L10
+  41 000a 0128     		cmp	r0, #1
+  42 000c 01D1     		bne	.L2
+  45:.\main.c      ****     {
+  46:.\main.c      ****         Role=Central;
+  43              		.loc 1 46 0
+  44 000e 2070     		strb	r0, [r4]
+  45 0010 01E0     		b	.L3
+  46              	.L2:
+  47:.\main.c      ****     }
+  48:.\main.c      ****     else
+  49:.\main.c      ****     {
+  50:.\main.c      ****         Role=Peripheral;
+  47              		.loc 1 50 0
+  48 0012 0023     		mov	r3, #0
+  49 0014 2370     		strb	r3, [r4]
+  50              	.L3:
+  51:.\main.c      ****     }
+  52:.\main.c      ****     SystemInitialization();  
+  51              		.loc 1 52 0
+  52 0016 FFF7FEFF 		bl	SystemInitialization
+  53              	.LVL1:
+  54              	.L5:
+  53:.\main.c      ****     for(;;)
+  54:.\main.c      ****     {
+  55:.\main.c      ****         
+  56:.\main.c      ****         /* Place your application code here. */ 
+  57:.\main.c      **** //        CyDelay(10);
+  58:.\main.c      **** //        if(rx_isover)
+  59:.\main.c      **** //        {
+  60:.\main.c      **** //            rx_isover=FALSE;
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccDP1fyv.s 			page 3
+
+
+  61:.\main.c      **** //            while(0!=UART_SpiUartGetRxBufferSize())
+  62:.\main.c      **** //            {                
+  63:.\main.c      **** //                RX_BUFFER[Buffer_Length]=UART_UartGetByte();//读取串口接收缓冲区的数�
+  64:.\main.c      **** //                Buffer_Length++;
+  65:.\main.c      **** ////                UART_UartPutChar(UART_UartGetByte());
+  66:.\main.c      **** //            }
+  67:.\main.c      **** //            //串口接收的数据长度清零,以便下一条命令过来时还是存放在数�
+  68:.\main.c      **** //            Buffer_Length=0;
+  69:.\main.c      **** //            Parser_UartData((char*)RX_BUFFER);
+  70:.\main.c      **** //            memset(RX_BUFFER,0,sizeof(RX_BUFFER));
+  71:.\main.c      **** //        }
+  72:.\main.c      **** //        if(UART_GetRxInterruptSourceMasked()&UART_INTR_RX_NOT_EMPTY)
+  73:.\main.c      **** //        {
+  74:.\main.c      **** //            
+  75:.\main.c      **** //        }
+  76:.\main.c      ****         Master_Slave_UartHandler(Role);
+  55              		.loc 1 76 0
+  56 001a 2078     		ldrb	r0, [r4]
+  57 001c FFF7FEFF 		bl	Master_Slave_UartHandler
+  58              	.LVL2:
+  77:.\main.c      ****         //主机处理10s定时器,10秒内给从机发送的数据，测试透传速率使用
+  78:.\main.c      **** //        if(_10sIsOver)
+  79:.\main.c      **** //        {
+  80:.\main.c      **** //            _10sIsOver=FALSE;
+  81:.\main.c      **** //            memcpy(test,buffer,20);
+  82:.\main.c      **** //            writeRequestData.value.val=test;
+  83:.\main.c      **** //            writeRequestData.value.len=20;
+  84:.\main.c      **** //            writeRequestData.attrHandle=CYBLE_TROUGHPUT_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE
+  85:.\main.c      **** //            CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &writeRequestData);
+  86:.\main.c      **** ////            writeRequestData.value.val[0]=0x00;
+  87:.\main.c      **** ////            writeRequestData.attrHandle=CYBLE_TROUGHPUT_SERVICE_SPEEDTEST_CHAR_HANDLE;
+  88:.\main.c      **** ////            CyBle_GattcWriteCharacteristicValue(cyBle_connHandle, &writeRequestData);   
+  89:.\main.c      **** //            CyBle_ProcessEvents(); 
+  90:.\main.c      **** //        }
+  91:.\main.c      ****         //        测试透传速率用
+  92:.\main.c      **** //        if((TroughtTest_Flag == TURE)&&(Role == Peripheral))
+  93:.\main.c      **** //        {
+  94:.\main.c      **** //            /* Send new data only when the previous data has gone out, 
+  95:.\main.c      **** //             * which is indicated by Stack being Free.
+  96:.\main.c      **** //             */
+  97:.\main.c      **** ////            printf("SendNotification\r\n");
+  98:.\main.c      **** //            if(CyBle_GattGetBusStatus() == CYBLE_STACK_STATE_FREE)
+  99:.\main.c      **** //            {
+ 100:.\main.c      **** //                SendNotification(buffer,negotiatedMtu);                
+ 101:.\main.c      **** //            }
+ 102:.\main.c      **** //        }
+ 103:.\main.c      ****         if(LowPower_EN)
+  59              		.loc 1 103 0
+  60 0020 064B     		ldr	r3, .L10+4
+  61 0022 1B78     		ldrb	r3, [r3]
+  62 0024 002B     		cmp	r3, #0
+  63 0026 03D0     		beq	.L4
+ 104:.\main.c      ****         {
+ 105:.\main.c      ****             CyBle_ProcessEvents();            
+  64              		.loc 1 105 0
+  65 0028 FFF7FEFF 		bl	CyBle_ProcessEvents
+  66              	.LVL3:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccDP1fyv.s 			page 4
+
+
+ 106:.\main.c      ****             LowPowerManagement();
+  67              		.loc 1 106 0
+  68 002c FFF7FEFF 		bl	LowPowerManagement
+  69              	.LVL4:
+  70              	.L4:
+ 107:.\main.c      ****         }
+ 108:.\main.c      ****         
+ 109:.\main.c      ****         #ifdef LOW_POWER_EN
+ 110:.\main.c      ****         /* Call CyBle_ProcessEvents to process all events before going to sleep. */
+ 111:.\main.c      **** 		CyBle_ProcessEvents();            
+ 112:.\main.c      ****         LowPowerManagement();
+ 113:.\main.c      ****         #endif    
+ 114:.\main.c      ****         CyBle_ProcessEvents();
+  71              		.loc 1 114 0
+  72 0030 FFF7FEFF 		bl	CyBle_ProcessEvents
+  73              	.LVL5:
+ 115:.\main.c      ****     }
+  74              		.loc 1 115 0
+  75 0034 F1E7     		b	.L5
+  76              	.L11:
+  77 0036 C046     		.align	2
+  78              	.L10:
+  79 0038 00000000 		.word	Role
+  80 003c 00000000 		.word	LowPower_EN
+  81              		.cfi_endproc
+  82              	.LFE35:
+  83              		.size	main, .-main
+  84              		.text
+  85              	.Letext0:
+  86              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+  87              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+  88              		.file 4 ".\\WriteUserSFlash.h"
+  89              		.file 5 ".\\BLEApplication.h"
+  90              		.file 6 "Generated_Source\\PSoC4/BLE_Stack.h"
+  91              		.section	.debug_info,"",%progbits
+  92              	.Ldebug_info0:
+  93 0000 38010000 		.4byte	0x138
+  94 0004 0400     		.2byte	0x4
+  95 0006 00000000 		.4byte	.Ldebug_abbrev0
+  96 000a 04       		.byte	0x4
+  97 000b 01       		.uleb128 0x1
+  98 000c B9000000 		.4byte	.LASF22
+  99 0010 01       		.byte	0x1
+ 100 0011 CF010000 		.4byte	.LASF23
+ 101 0015 3C000000 		.4byte	.LASF24
+ 102 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 103 001d 00000000 		.4byte	0
+ 104 0021 00000000 		.4byte	.Ldebug_line0
+ 105 0025 02       		.uleb128 0x2
+ 106 0026 01       		.byte	0x1
+ 107 0027 06       		.byte	0x6
+ 108 0028 05020000 		.4byte	.LASF0
+ 109 002c 03       		.uleb128 0x3
+ 110 002d 5E010000 		.4byte	.LASF9
+ 111 0031 02       		.byte	0x2
+ 112 0032 1D       		.byte	0x1d
+ 113 0033 37000000 		.4byte	0x37
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccDP1fyv.s 			page 5
+
+
+ 114 0037 02       		.uleb128 0x2
+ 115 0038 01       		.byte	0x1
+ 116 0039 08       		.byte	0x8
+ 117 003a 9F010000 		.4byte	.LASF1
+ 118 003e 02       		.uleb128 0x2
+ 119 003f 02       		.byte	0x2
+ 120 0040 05       		.byte	0x5
+ 121 0041 17020000 		.4byte	.LASF2
+ 122 0045 02       		.uleb128 0x2
+ 123 0046 02       		.byte	0x2
+ 124 0047 07       		.byte	0x7
+ 125 0048 F2010000 		.4byte	.LASF3
+ 126 004c 02       		.uleb128 0x2
+ 127 004d 04       		.byte	0x4
+ 128 004e 05       		.byte	0x5
+ 129 004f C6010000 		.4byte	.LASF4
+ 130 0053 02       		.uleb128 0x2
+ 131 0054 04       		.byte	0x4
+ 132 0055 07       		.byte	0x7
+ 133 0056 47010000 		.4byte	.LASF5
+ 134 005a 02       		.uleb128 0x2
+ 135 005b 08       		.byte	0x8
+ 136 005c 05       		.byte	0x5
+ 137 005d 00000000 		.4byte	.LASF6
+ 138 0061 02       		.uleb128 0x2
+ 139 0062 08       		.byte	0x8
+ 140 0063 07       		.byte	0x7
+ 141 0064 80010000 		.4byte	.LASF7
+ 142 0068 04       		.uleb128 0x4
+ 143 0069 04       		.byte	0x4
+ 144 006a 05       		.byte	0x5
+ 145 006b 696E7400 		.ascii	"int\000"
+ 146 006f 02       		.uleb128 0x2
+ 147 0070 04       		.byte	0x4
+ 148 0071 07       		.byte	0x7
+ 149 0072 1A000000 		.4byte	.LASF8
+ 150 0076 03       		.uleb128 0x3
+ 151 0077 97010000 		.4byte	.LASF10
+ 152 007b 03       		.byte	0x3
+ 153 007c 15       		.byte	0x15
+ 154 007d 2C000000 		.4byte	0x2c
+ 155 0081 02       		.uleb128 0x2
+ 156 0082 04       		.byte	0x4
+ 157 0083 04       		.byte	0x4
+ 158 0084 11020000 		.4byte	.LASF11
+ 159 0088 02       		.uleb128 0x2
+ 160 0089 08       		.byte	0x8
+ 161 008a 04       		.byte	0x4
+ 162 008b EB010000 		.4byte	.LASF12
+ 163 008f 02       		.uleb128 0x2
+ 164 0090 01       		.byte	0x1
+ 165 0091 08       		.byte	0x8
+ 166 0092 7B010000 		.4byte	.LASF13
+ 167 0096 02       		.uleb128 0x2
+ 168 0097 04       		.byte	0x4
+ 169 0098 07       		.byte	0x7
+ 170 0099 21020000 		.4byte	.LASF14
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccDP1fyv.s 			page 6
+
+
+ 171 009d 05       		.uleb128 0x5
+ 172 009e C1010000 		.4byte	.LASF25
+ 173 00a2 01       		.byte	0x1
+ 174 00a3 27       		.byte	0x27
+ 175 00a4 68000000 		.4byte	0x68
+ 176 00a8 00000000 		.4byte	.LFB35
+ 177 00ac 40000000 		.4byte	.LFE35-.LFB35
+ 178 00b0 01       		.uleb128 0x1
+ 179 00b1 9C       		.byte	0x9c
+ 180 00b2 ED000000 		.4byte	0xed
+ 181 00b6 06       		.uleb128 0x6
+ 182 00b7 08000000 		.4byte	.LVL0
+ 183 00bb 03010000 		.4byte	0x103
+ 184 00bf 06       		.uleb128 0x6
+ 185 00c0 1A000000 		.4byte	.LVL1
+ 186 00c4 14010000 		.4byte	0x114
+ 187 00c8 06       		.uleb128 0x6
+ 188 00c9 20000000 		.4byte	.LVL2
+ 189 00cd 1B010000 		.4byte	0x11b
+ 190 00d1 06       		.uleb128 0x6
+ 191 00d2 2C000000 		.4byte	.LVL3
+ 192 00d6 2C010000 		.4byte	0x12c
+ 193 00da 06       		.uleb128 0x6
+ 194 00db 30000000 		.4byte	.LVL4
+ 195 00df 34010000 		.4byte	0x134
+ 196 00e3 06       		.uleb128 0x6
+ 197 00e4 34000000 		.4byte	.LVL5
+ 198 00e8 2C010000 		.4byte	0x12c
+ 199 00ec 00       		.byte	0
+ 200 00ed 07       		.uleb128 0x7
+ 201 00ee 0E000000 		.4byte	.LASF15
+ 202 00f2 01       		.byte	0x1
+ 203 00f3 19       		.byte	0x19
+ 204 00f4 76000000 		.4byte	0x76
+ 205 00f8 07       		.uleb128 0x7
+ 206 00f9 59010000 		.4byte	.LASF16
+ 207 00fd 01       		.byte	0x1
+ 208 00fe 21       		.byte	0x21
+ 209 00ff 76000000 		.4byte	0x76
+ 210 0103 08       		.uleb128 0x8
+ 211 0104 68010000 		.4byte	.LASF17
+ 212 0108 04       		.byte	0x4
+ 213 0109 33       		.byte	0x33
+ 214 010a 76000000 		.4byte	0x76
+ 215 010e 14010000 		.4byte	0x114
+ 216 0112 09       		.uleb128 0x9
+ 217 0113 00       		.byte	0
+ 218 0114 0A       		.uleb128 0xa
+ 219 0115 27000000 		.4byte	.LASF19
+ 220 0119 05       		.byte	0x5
+ 221 011a 16       		.byte	0x16
+ 222 011b 0B       		.uleb128 0xb
+ 223 011c 2A020000 		.4byte	.LASF18
+ 224 0120 05       		.byte	0x5
+ 225 0121 20       		.byte	0x20
+ 226 0122 2C010000 		.4byte	0x12c
+ 227 0126 0C       		.uleb128 0xc
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccDP1fyv.s 			page 7
+
+
+ 228 0127 76000000 		.4byte	0x76
+ 229 012b 00       		.byte	0
+ 230 012c 0D       		.uleb128 0xd
+ 231 012d AD010000 		.4byte	.LASF20
+ 232 0131 06       		.byte	0x6
+ 233 0132 A304     		.2byte	0x4a3
+ 234 0134 0A       		.uleb128 0xa
+ 235 0135 D8010000 		.4byte	.LASF21
+ 236 0139 05       		.byte	0x5
+ 237 013a 13       		.byte	0x13
+ 238 013b 00       		.byte	0
+ 239              		.section	.debug_abbrev,"",%progbits
+ 240              	.Ldebug_abbrev0:
+ 241 0000 01       		.uleb128 0x1
+ 242 0001 11       		.uleb128 0x11
+ 243 0002 01       		.byte	0x1
+ 244 0003 25       		.uleb128 0x25
+ 245 0004 0E       		.uleb128 0xe
+ 246 0005 13       		.uleb128 0x13
+ 247 0006 0B       		.uleb128 0xb
+ 248 0007 03       		.uleb128 0x3
+ 249 0008 0E       		.uleb128 0xe
+ 250 0009 1B       		.uleb128 0x1b
+ 251 000a 0E       		.uleb128 0xe
+ 252 000b 55       		.uleb128 0x55
+ 253 000c 17       		.uleb128 0x17
+ 254 000d 11       		.uleb128 0x11
+ 255 000e 01       		.uleb128 0x1
+ 256 000f 10       		.uleb128 0x10
+ 257 0010 17       		.uleb128 0x17
+ 258 0011 00       		.byte	0
+ 259 0012 00       		.byte	0
+ 260 0013 02       		.uleb128 0x2
+ 261 0014 24       		.uleb128 0x24
+ 262 0015 00       		.byte	0
+ 263 0016 0B       		.uleb128 0xb
+ 264 0017 0B       		.uleb128 0xb
+ 265 0018 3E       		.uleb128 0x3e
+ 266 0019 0B       		.uleb128 0xb
+ 267 001a 03       		.uleb128 0x3
+ 268 001b 0E       		.uleb128 0xe
+ 269 001c 00       		.byte	0
+ 270 001d 00       		.byte	0
+ 271 001e 03       		.uleb128 0x3
+ 272 001f 16       		.uleb128 0x16
+ 273 0020 00       		.byte	0
+ 274 0021 03       		.uleb128 0x3
+ 275 0022 0E       		.uleb128 0xe
+ 276 0023 3A       		.uleb128 0x3a
+ 277 0024 0B       		.uleb128 0xb
+ 278 0025 3B       		.uleb128 0x3b
+ 279 0026 0B       		.uleb128 0xb
+ 280 0027 49       		.uleb128 0x49
+ 281 0028 13       		.uleb128 0x13
+ 282 0029 00       		.byte	0
+ 283 002a 00       		.byte	0
+ 284 002b 04       		.uleb128 0x4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccDP1fyv.s 			page 8
+
+
+ 285 002c 24       		.uleb128 0x24
+ 286 002d 00       		.byte	0
+ 287 002e 0B       		.uleb128 0xb
+ 288 002f 0B       		.uleb128 0xb
+ 289 0030 3E       		.uleb128 0x3e
+ 290 0031 0B       		.uleb128 0xb
+ 291 0032 03       		.uleb128 0x3
+ 292 0033 08       		.uleb128 0x8
+ 293 0034 00       		.byte	0
+ 294 0035 00       		.byte	0
+ 295 0036 05       		.uleb128 0x5
+ 296 0037 2E       		.uleb128 0x2e
+ 297 0038 01       		.byte	0x1
+ 298 0039 3F       		.uleb128 0x3f
+ 299 003a 19       		.uleb128 0x19
+ 300 003b 03       		.uleb128 0x3
+ 301 003c 0E       		.uleb128 0xe
+ 302 003d 3A       		.uleb128 0x3a
+ 303 003e 0B       		.uleb128 0xb
+ 304 003f 3B       		.uleb128 0x3b
+ 305 0040 0B       		.uleb128 0xb
+ 306 0041 49       		.uleb128 0x49
+ 307 0042 13       		.uleb128 0x13
+ 308 0043 11       		.uleb128 0x11
+ 309 0044 01       		.uleb128 0x1
+ 310 0045 12       		.uleb128 0x12
+ 311 0046 06       		.uleb128 0x6
+ 312 0047 40       		.uleb128 0x40
+ 313 0048 18       		.uleb128 0x18
+ 314 0049 9742     		.uleb128 0x2117
+ 315 004b 19       		.uleb128 0x19
+ 316 004c 01       		.uleb128 0x1
+ 317 004d 13       		.uleb128 0x13
+ 318 004e 00       		.byte	0
+ 319 004f 00       		.byte	0
+ 320 0050 06       		.uleb128 0x6
+ 321 0051 898201   		.uleb128 0x4109
+ 322 0054 00       		.byte	0
+ 323 0055 11       		.uleb128 0x11
+ 324 0056 01       		.uleb128 0x1
+ 325 0057 31       		.uleb128 0x31
+ 326 0058 13       		.uleb128 0x13
+ 327 0059 00       		.byte	0
+ 328 005a 00       		.byte	0
+ 329 005b 07       		.uleb128 0x7
+ 330 005c 34       		.uleb128 0x34
+ 331 005d 00       		.byte	0
+ 332 005e 03       		.uleb128 0x3
+ 333 005f 0E       		.uleb128 0xe
+ 334 0060 3A       		.uleb128 0x3a
+ 335 0061 0B       		.uleb128 0xb
+ 336 0062 3B       		.uleb128 0x3b
+ 337 0063 0B       		.uleb128 0xb
+ 338 0064 49       		.uleb128 0x49
+ 339 0065 13       		.uleb128 0x13
+ 340 0066 3F       		.uleb128 0x3f
+ 341 0067 19       		.uleb128 0x19
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccDP1fyv.s 			page 9
+
+
+ 342 0068 3C       		.uleb128 0x3c
+ 343 0069 19       		.uleb128 0x19
+ 344 006a 00       		.byte	0
+ 345 006b 00       		.byte	0
+ 346 006c 08       		.uleb128 0x8
+ 347 006d 2E       		.uleb128 0x2e
+ 348 006e 01       		.byte	0x1
+ 349 006f 3F       		.uleb128 0x3f
+ 350 0070 19       		.uleb128 0x19
+ 351 0071 03       		.uleb128 0x3
+ 352 0072 0E       		.uleb128 0xe
+ 353 0073 3A       		.uleb128 0x3a
+ 354 0074 0B       		.uleb128 0xb
+ 355 0075 3B       		.uleb128 0x3b
+ 356 0076 0B       		.uleb128 0xb
+ 357 0077 49       		.uleb128 0x49
+ 358 0078 13       		.uleb128 0x13
+ 359 0079 3C       		.uleb128 0x3c
+ 360 007a 19       		.uleb128 0x19
+ 361 007b 01       		.uleb128 0x1
+ 362 007c 13       		.uleb128 0x13
+ 363 007d 00       		.byte	0
+ 364 007e 00       		.byte	0
+ 365 007f 09       		.uleb128 0x9
+ 366 0080 18       		.uleb128 0x18
+ 367 0081 00       		.byte	0
+ 368 0082 00       		.byte	0
+ 369 0083 00       		.byte	0
+ 370 0084 0A       		.uleb128 0xa
+ 371 0085 2E       		.uleb128 0x2e
+ 372 0086 00       		.byte	0
+ 373 0087 3F       		.uleb128 0x3f
+ 374 0088 19       		.uleb128 0x19
+ 375 0089 03       		.uleb128 0x3
+ 376 008a 0E       		.uleb128 0xe
+ 377 008b 3A       		.uleb128 0x3a
+ 378 008c 0B       		.uleb128 0xb
+ 379 008d 3B       		.uleb128 0x3b
+ 380 008e 0B       		.uleb128 0xb
+ 381 008f 27       		.uleb128 0x27
+ 382 0090 19       		.uleb128 0x19
+ 383 0091 3C       		.uleb128 0x3c
+ 384 0092 19       		.uleb128 0x19
+ 385 0093 00       		.byte	0
+ 386 0094 00       		.byte	0
+ 387 0095 0B       		.uleb128 0xb
+ 388 0096 2E       		.uleb128 0x2e
+ 389 0097 01       		.byte	0x1
+ 390 0098 3F       		.uleb128 0x3f
+ 391 0099 19       		.uleb128 0x19
+ 392 009a 03       		.uleb128 0x3
+ 393 009b 0E       		.uleb128 0xe
+ 394 009c 3A       		.uleb128 0x3a
+ 395 009d 0B       		.uleb128 0xb
+ 396 009e 3B       		.uleb128 0x3b
+ 397 009f 0B       		.uleb128 0xb
+ 398 00a0 27       		.uleb128 0x27
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccDP1fyv.s 			page 10
+
+
+ 399 00a1 19       		.uleb128 0x19
+ 400 00a2 3C       		.uleb128 0x3c
+ 401 00a3 19       		.uleb128 0x19
+ 402 00a4 01       		.uleb128 0x1
+ 403 00a5 13       		.uleb128 0x13
+ 404 00a6 00       		.byte	0
+ 405 00a7 00       		.byte	0
+ 406 00a8 0C       		.uleb128 0xc
+ 407 00a9 05       		.uleb128 0x5
+ 408 00aa 00       		.byte	0
+ 409 00ab 49       		.uleb128 0x49
+ 410 00ac 13       		.uleb128 0x13
+ 411 00ad 00       		.byte	0
+ 412 00ae 00       		.byte	0
+ 413 00af 0D       		.uleb128 0xd
+ 414 00b0 2E       		.uleb128 0x2e
+ 415 00b1 00       		.byte	0
+ 416 00b2 3F       		.uleb128 0x3f
+ 417 00b3 19       		.uleb128 0x19
+ 418 00b4 03       		.uleb128 0x3
+ 419 00b5 0E       		.uleb128 0xe
+ 420 00b6 3A       		.uleb128 0x3a
+ 421 00b7 0B       		.uleb128 0xb
+ 422 00b8 3B       		.uleb128 0x3b
+ 423 00b9 05       		.uleb128 0x5
+ 424 00ba 27       		.uleb128 0x27
+ 425 00bb 19       		.uleb128 0x19
+ 426 00bc 3C       		.uleb128 0x3c
+ 427 00bd 19       		.uleb128 0x19
+ 428 00be 00       		.byte	0
+ 429 00bf 00       		.byte	0
+ 430 00c0 00       		.byte	0
+ 431              		.section	.debug_aranges,"",%progbits
+ 432 0000 1C000000 		.4byte	0x1c
+ 433 0004 0200     		.2byte	0x2
+ 434 0006 00000000 		.4byte	.Ldebug_info0
+ 435 000a 04       		.byte	0x4
+ 436 000b 00       		.byte	0
+ 437 000c 0000     		.2byte	0
+ 438 000e 0000     		.2byte	0
+ 439 0010 00000000 		.4byte	.LFB35
+ 440 0014 40000000 		.4byte	.LFE35-.LFB35
+ 441 0018 00000000 		.4byte	0
+ 442 001c 00000000 		.4byte	0
+ 443              		.section	.debug_ranges,"",%progbits
+ 444              	.Ldebug_ranges0:
+ 445 0000 00000000 		.4byte	.LFB35
+ 446 0004 40000000 		.4byte	.LFE35
+ 447 0008 00000000 		.4byte	0
+ 448 000c 00000000 		.4byte	0
+ 449              		.section	.debug_line,"",%progbits
+ 450              	.Ldebug_line0:
+ 451 0000 8E010000 		.section	.debug_str,"MS",%progbits,1
+ 451      02006A01 
+ 451      00000201 
+ 451      FB0E0D00 
+ 451      01010101 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccDP1fyv.s 			page 11
+
+
+ 452              	.LASF6:
+ 453 0000 6C6F6E67 		.ascii	"long long int\000"
+ 453      206C6F6E 
+ 453      6720696E 
+ 453      7400
+ 454              	.LASF15:
+ 455 000e 4C6F7750 		.ascii	"LowPower_EN\000"
+ 455      6F776572 
+ 455      5F454E00 
+ 456              	.LASF8:
+ 457 001a 756E7369 		.ascii	"unsigned int\000"
+ 457      676E6564 
+ 457      20696E74 
+ 457      00
+ 458              	.LASF19:
+ 459 0027 53797374 		.ascii	"SystemInitialization\000"
+ 459      656D496E 
+ 459      69746961 
+ 459      6C697A61 
+ 459      74696F6E 
+ 460              	.LASF24:
+ 461 003c 473A5C43 		.ascii	"G:\\Company\\Jetronic\\CYPRESS\\CYPRESS_BLE_Study\\"
+ 461      6F6D7061 
+ 461      6E795C4A 
+ 461      6574726F 
+ 461      6E69635C 
+ 462 006a 54726F75 		.ascii	"Troughput\\Troughpur_Central_Peripheral_V2.7\\Troug"
+ 462      67687075 
+ 462      745C5472 
+ 462      6F756768 
+ 462      7075725F 
+ 463 009b 68707574 		.ascii	"hput_Central_Peripheral.cydsn\000"
+ 463      5F43656E 
+ 463      7472616C 
+ 463      5F506572 
+ 463      69706865 
+ 464              	.LASF22:
+ 465 00b9 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 465      4320342E 
+ 465      392E3320 
+ 465      32303135 
+ 465      30333033 
+ 466 00ec 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 466      20726576 
+ 466      6973696F 
+ 466      6E203232 
+ 466      31323230 
+ 467 011f 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
+ 467      66756E63 
+ 467      74696F6E 
+ 467      2D736563 
+ 467      74696F6E 
+ 468              	.LASF5:
+ 469 0147 6C6F6E67 		.ascii	"long unsigned int\000"
+ 469      20756E73 
+ 469      69676E65 
+ 469      6420696E 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccDP1fyv.s 			page 12
+
+
+ 469      7400
+ 470              	.LASF16:
+ 471 0159 526F6C65 		.ascii	"Role\000"
+ 471      00
+ 472              	.LASF9:
+ 473 015e 5F5F7569 		.ascii	"__uint8_t\000"
+ 473      6E74385F 
+ 473      7400
+ 474              	.LASF17:
+ 475 0168 52656164 		.ascii	"ReadDataFromSFlash\000"
+ 475      44617461 
+ 475      46726F6D 
+ 475      53466C61 
+ 475      736800
+ 476              	.LASF13:
+ 477 017b 63686172 		.ascii	"char\000"
+ 477      00
+ 478              	.LASF7:
+ 479 0180 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 479      206C6F6E 
+ 479      6720756E 
+ 479      7369676E 
+ 479      65642069 
+ 480              	.LASF10:
+ 481 0197 75696E74 		.ascii	"uint8_t\000"
+ 481      385F7400 
+ 482              	.LASF1:
+ 483 019f 756E7369 		.ascii	"unsigned char\000"
+ 483      676E6564 
+ 483      20636861 
+ 483      7200
+ 484              	.LASF20:
+ 485 01ad 4379426C 		.ascii	"CyBle_ProcessEvents\000"
+ 485      655F5072 
+ 485      6F636573 
+ 485      73457665 
+ 485      6E747300 
+ 486              	.LASF25:
+ 487 01c1 6D61696E 		.ascii	"main\000"
+ 487      00
+ 488              	.LASF4:
+ 489 01c6 6C6F6E67 		.ascii	"long int\000"
+ 489      20696E74 
+ 489      00
+ 490              	.LASF23:
+ 491 01cf 2E5C6D61 		.ascii	".\\main.c\000"
+ 491      696E2E63 
+ 491      00
+ 492              	.LASF21:
+ 493 01d8 4C6F7750 		.ascii	"LowPowerManagement\000"
+ 493      6F776572 
+ 493      4D616E61 
+ 493      67656D65 
+ 493      6E7400
+ 494              	.LASF12:
+ 495 01eb 646F7562 		.ascii	"double\000"
+ 495      6C6500
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccDP1fyv.s 			page 13
+
+
+ 496              	.LASF3:
+ 497 01f2 73686F72 		.ascii	"short unsigned int\000"
+ 497      7420756E 
+ 497      7369676E 
+ 497      65642069 
+ 497      6E7400
+ 498              	.LASF0:
+ 499 0205 7369676E 		.ascii	"signed char\000"
+ 499      65642063 
+ 499      68617200 
+ 500              	.LASF11:
+ 501 0211 666C6F61 		.ascii	"float\000"
+ 501      7400
+ 502              	.LASF2:
+ 503 0217 73686F72 		.ascii	"short int\000"
+ 503      7420696E 
+ 503      7400
+ 504              	.LASF14:
+ 505 0221 73697A65 		.ascii	"sizetype\000"
+ 505      74797065 
+ 505      00
+ 506              	.LASF18:
+ 507 022a 4D617374 		.ascii	"Master_Slave_UartHandler\000"
+ 507      65725F53 
+ 507      6C617665 
+ 507      5F556172 
+ 507      7448616E 
+ 508              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

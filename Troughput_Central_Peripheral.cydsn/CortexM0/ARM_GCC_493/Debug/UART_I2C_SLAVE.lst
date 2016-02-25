@@ -1,0 +1,2317 @@
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"UART_I2C_SLAVE.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.UART_SetI2cAddressCustomInterruptHandler,"ax",%progbits
+  18              		.align	2
+  19              		.global	UART_SetI2cAddressCustomInterruptHandler
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	UART_SetI2cAddressCustomInterruptHandler, %function
+  23              	UART_SetI2cAddressCustomInterruptHandler:
+  24              	.LFB2:
+  25              		.file 1 ".\\Generated_Source\\PSoC4\\UART_I2C_SLAVE.c"
+   1:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * File Name: UART_I2C_SLAVE.c
+   3:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Version 3.0
+   4:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+   5:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Description:
+   6:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  This file provides the source code to the API for the SCB Component in
+   7:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  I2C Slave mode.
+   8:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+   9:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Note:
+  10:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+  11:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *******************************************************************************
+  12:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * the software package with which this file was provided.
+  16:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *******************************************************************************/
+  17:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+  18:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** #include "UART_I2C_PVT.h"
+  19:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+  20:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** #if(UART_I2C_SLAVE_CONST)
+  21:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+  22:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** /***************************************
+  23:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *      I2C Slave Private Vars
+  24:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** ***************************************/
+  25:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+  26:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** volatile uint8 UART_slStatus;          /* Slave Status */
+  27:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+  28:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** /* Receive buffer variables */
+  29:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** volatile uint8 * UART_slWrBufPtr;      /* Pointer to Receive buffer  */
+  30:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** volatile uint32  UART_slWrBufSize;     /* Slave Receive buffer size  */
+  31:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** volatile uint32  UART_slWrBufIndex;    /* Slave Receive buffer Index */
+  32:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 2
+
+
+  33:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** /* Transmit buffer variables */
+  34:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** volatile uint8 * UART_slRdBufPtr;      /* Pointer to Transmit buffer  */
+  35:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** volatile uint32  UART_slRdBufSize;     /* Slave Transmit buffer size  */
+  36:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** volatile uint32  UART_slRdBufIndex;    /* Slave Transmit buffer Index */
+  37:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** volatile uint32  UART_slRdBufIndexTmp; /* Slave Transmit buffer Index Tmp */
+  38:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** volatile uint8   UART_slOverFlowCount; /* Slave Transmit Overflow counter */
+  39:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+  40:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** #if (UART_I2C_CUSTOM_ADDRESS_HANDLER_CONST)
+  41:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+  42:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     uint32 (*UART_customAddressHandler)(void) = NULL;
+  43:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+  44:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+  45:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     /*******************************************************************************
+  46:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     * Function Name: UART_SetI2cAddressCustomInterruptHandler
+  47:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     ********************************************************************************
+  48:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     *
+  49:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     * Summary:
+  50:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     *  Registers a function to be called by the I2C slave interrupt handler during
+  51:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     *  the I2C interrupt address processing. This function should be used when
+  52:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     *  multiple I2C addresses need to be decoded or general call address supported.
+  53:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     *  The registered function must return decision whether to ACK or NACK address.
+  54:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     *  Only one I2C address handler is supported, which is the function provided
+  55:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     *  by the most recent call.
+  56:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     *  At initialization time no I2C address handler is registered.
+  57:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     *
+  58:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     * Parameters:
+  59:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     *  func: Pointer to the function to register.
+  60:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     *        The value NULL indicates to remove the current custom interrupt
+  61:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     *        handler.
+  62:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     *
+  63:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     * Return:
+  64:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     *  None
+  65:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     *
+  66:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     *******************************************************************************/
+  67:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     void UART_SetI2cAddressCustomInterruptHandler(uint32 (*func) (void))
+  68:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     {
+  26              		.loc 1 68 0
+  27              		.cfi_startproc
+  28              	.LVL0:
+  69:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****         /* Register custom address handler */
+  70:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****         UART_customAddressHandler = func;
+  29              		.loc 1 70 0
+  30 0000 014B     		ldr	r3, .L2
+  31 0002 1860     		str	r0, [r3]
+  71:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     }
+  32              		.loc 1 71 0
+  33              		@ sp needed
+  34 0004 7047     		bx	lr
+  35              	.L3:
+  36 0006 C046     		.align	2
+  37              	.L2:
+  38 0008 00000000 		.word	.LANCHOR0
+  39              		.cfi_endproc
+  40              	.LFE2:
+  41              		.size	UART_SetI2cAddressCustomInterruptHandler, .-UART_SetI2cAddressCustomInterruptHandler
+  42              		.section	.text.UART_I2CSlaveStatus,"ax",%progbits
+  43              		.align	2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 3
+
+
+  44              		.global	UART_I2CSlaveStatus
+  45              		.code	16
+  46              		.thumb_func
+  47              		.type	UART_I2CSlaveStatus, %function
+  48              	UART_I2CSlaveStatus:
+  49              	.LFB3:
+  72:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** #endif /* (UART_I2C_CUSTOM_ADDRESS_HANDLER_CONST) */
+  73:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+  74:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+  75:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** /*******************************************************************************
+  76:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Function Name: UART_I2CSlaveStatus
+  77:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** ********************************************************************************
+  78:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+  79:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Summary:
+  80:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  Returns the I2C slave's communication status.
+  81:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+  82:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Parameters:
+  83:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  None
+  84:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+  85:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Return:
+  86:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  Current status of I2C slave.
+  87:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+  88:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Global variables:
+  89:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  UART_slStatus - used to store current status of I2C slave.
+  90:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+  91:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *******************************************************************************/
+  92:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** uint32 UART_I2CSlaveStatus(void)
+  93:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** {
+  50              		.loc 1 93 0
+  51              		.cfi_startproc
+  94:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     return((uint32) UART_slStatus);
+  52              		.loc 1 94 0
+  53 0000 014B     		ldr	r3, .L5
+  54 0002 1878     		ldrb	r0, [r3]
+  55 0004 C0B2     		uxtb	r0, r0
+  95:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** }
+  56              		.loc 1 95 0
+  57              		@ sp needed
+  58 0006 7047     		bx	lr
+  59              	.L6:
+  60              		.align	2
+  61              	.L5:
+  62 0008 00000000 		.word	UART_slStatus
+  63              		.cfi_endproc
+  64              	.LFE3:
+  65              		.size	UART_I2CSlaveStatus, .-UART_I2CSlaveStatus
+  66              		.section	.text.UART_I2CSlaveClearReadStatus,"ax",%progbits
+  67              		.align	2
+  68              		.global	UART_I2CSlaveClearReadStatus
+  69              		.code	16
+  70              		.thumb_func
+  71              		.type	UART_I2CSlaveClearReadStatus, %function
+  72              	UART_I2CSlaveClearReadStatus:
+  73              	.LFB4:
+  96:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+  97:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+  98:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** /*******************************************************************************
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 4
+
+
+  99:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Function Name: UART_I2CSlaveClearReadStatus
+ 100:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** ********************************************************************************
+ 101:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 102:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Summary:
+ 103:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  Clears the read status flags and returns their values. No other status flags
+ 104:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  are affected.
+ 105:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 106:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Parameters:
+ 107:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  None
+ 108:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 109:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Return:
+ 110:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  Current read status of I2C slave.
+ 111:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 112:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Global variables:
+ 113:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  UART_slStatus  - used to store current status of I2C slave.
+ 114:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 115:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *******************************************************************************/
+ 116:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** uint32 UART_I2CSlaveClearReadStatus(void)
+ 117:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** {
+  74              		.loc 1 117 0
+  75              		.cfi_startproc
+  76 0000 10B5     		push	{r4, lr}
+  77              		.cfi_def_cfa_offset 8
+  78              		.cfi_offset 4, -8
+  79              		.cfi_offset 14, -4
+ 118:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     uint32 status;
+ 119:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 120:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     UART_DisableInt();  /* Lock from interruption */
+  80              		.loc 1 120 0
+  81 0002 0920     		mov	r0, #9
+  82 0004 FFF7FEFF 		bl	CyIntDisable
+  83              	.LVL1:
+ 121:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 122:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     /* Mask of transfer complete flag and error status */
+ 123:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     status = ((uint32) UART_slStatus & UART_I2C_SSTAT_RD_MASK);
+  84              		.loc 1 123 0
+  85 0008 064A     		ldr	r2, .L8
+  86 000a 1478     		ldrb	r4, [r2]
+  87 000c 0F23     		mov	r3, #15
+  88 000e 1C40     		and	r4, r3
+  89              	.LVL2:
+ 124:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     UART_slStatus &= (uint8) ~UART_I2C_SSTAT_RD_CLEAR;
+  90              		.loc 1 124 0
+  91 0010 1378     		ldrb	r3, [r2]
+  92 0012 0D21     		mov	r1, #13
+  93 0014 8B43     		bic	r3, r1
+  94 0016 1370     		strb	r3, [r2]
+ 125:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 126:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     UART_EnableInt();   /* Release lock */
+  95              		.loc 1 126 0
+  96 0018 0920     		mov	r0, #9
+  97 001a FFF7FEFF 		bl	CyIntEnable
+  98              	.LVL3:
+ 127:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 128:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     return(status);
+ 129:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** }
+  99              		.loc 1 129 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 5
+
+
+ 100 001e 201C     		mov	r0, r4
+ 101              		@ sp needed
+ 102              	.LVL4:
+ 103 0020 10BD     		pop	{r4, pc}
+ 104              	.L9:
+ 105 0022 C046     		.align	2
+ 106              	.L8:
+ 107 0024 00000000 		.word	UART_slStatus
+ 108              		.cfi_endproc
+ 109              	.LFE4:
+ 110              		.size	UART_I2CSlaveClearReadStatus, .-UART_I2CSlaveClearReadStatus
+ 111              		.section	.text.UART_I2CSlaveClearWriteStatus,"ax",%progbits
+ 112              		.align	2
+ 113              		.global	UART_I2CSlaveClearWriteStatus
+ 114              		.code	16
+ 115              		.thumb_func
+ 116              		.type	UART_I2CSlaveClearWriteStatus, %function
+ 117              	UART_I2CSlaveClearWriteStatus:
+ 118              	.LFB5:
+ 130:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 131:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 132:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** /*******************************************************************************
+ 133:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Function Name: UART_I2CSlaveClearWriteStatus
+ 134:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** ********************************************************************************
+ 135:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 136:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Summary:
+ 137:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  Clears the write status flags and returns their values. No other status flags
+ 138:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  are affected.
+ 139:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 140:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Parameters:
+ 141:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  None
+ 142:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 143:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Return:
+ 144:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  Current write status of I2C slave.
+ 145:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 146:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Global variables:
+ 147:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  UART_slStatus  - used to store current status of I2C slave.
+ 148:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 149:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *******************************************************************************/
+ 150:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** uint32 UART_I2CSlaveClearWriteStatus(void)
+ 151:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** {
+ 119              		.loc 1 151 0
+ 120              		.cfi_startproc
+ 121 0000 10B5     		push	{r4, lr}
+ 122              		.cfi_def_cfa_offset 8
+ 123              		.cfi_offset 4, -8
+ 124              		.cfi_offset 14, -4
+ 152:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     uint32 status;
+ 153:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 154:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     UART_DisableInt();  /* Lock from interruption */
+ 125              		.loc 1 154 0
+ 126 0002 0920     		mov	r0, #9
+ 127 0004 FFF7FEFF 		bl	CyIntDisable
+ 128              	.LVL5:
+ 155:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 156:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     /* Mask of transfer complete flag and Error status */
+ 157:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     status = ((uint32) UART_slStatus & UART_I2C_SSTAT_WR_MASK);
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 6
+
+
+ 129              		.loc 1 157 0
+ 130 0008 064B     		ldr	r3, .L11
+ 131 000a 1C78     		ldrb	r4, [r3]
+ 132 000c 0F22     		mov	r2, #15
+ 133 000e 9443     		bic	r4, r2
+ 134              	.LVL6:
+ 158:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     UART_slStatus &= (uint8) ~UART_I2C_SSTAT_WR_CLEAR;
+ 135              		.loc 1 158 0
+ 136 0010 1978     		ldrb	r1, [r3]
+ 137 0012 2032     		add	r2, r2, #32
+ 138 0014 0A40     		and	r2, r1
+ 139 0016 1A70     		strb	r2, [r3]
+ 159:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 160:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     UART_EnableInt();   /* Release lock */
+ 140              		.loc 1 160 0
+ 141 0018 0920     		mov	r0, #9
+ 142 001a FFF7FEFF 		bl	CyIntEnable
+ 143              	.LVL7:
+ 161:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 162:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     return(status);
+ 163:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** }
+ 144              		.loc 1 163 0
+ 145 001e 201C     		mov	r0, r4
+ 146              		@ sp needed
+ 147              	.LVL8:
+ 148 0020 10BD     		pop	{r4, pc}
+ 149              	.L12:
+ 150 0022 C046     		.align	2
+ 151              	.L11:
+ 152 0024 00000000 		.word	UART_slStatus
+ 153              		.cfi_endproc
+ 154              	.LFE5:
+ 155              		.size	UART_I2CSlaveClearWriteStatus, .-UART_I2CSlaveClearWriteStatus
+ 156              		.section	.text.UART_I2CSlaveSetAddress,"ax",%progbits
+ 157              		.align	2
+ 158              		.global	UART_I2CSlaveSetAddress
+ 159              		.code	16
+ 160              		.thumb_func
+ 161              		.type	UART_I2CSlaveSetAddress, %function
+ 162              	UART_I2CSlaveSetAddress:
+ 163              	.LFB6:
+ 164:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 165:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 166:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** /*******************************************************************************
+ 167:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Function Name: UART_I2CSlaveSetAddress
+ 168:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** ********************************************************************************
+ 169:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 170:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Summary:
+ 171:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  Sets the I2C slave address.
+ 172:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 173:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Parameters:
+ 174:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  address: I2C slave address for the primary device. This value may be any
+ 175:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  address between 0 and 127.
+ 176:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 177:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Return:
+ 178:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  None
+ 179:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 7
+
+
+ 180:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *******************************************************************************/
+ 181:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** void UART_I2CSlaveSetAddress(uint32 address)
+ 182:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** {
+ 164              		.loc 1 182 0
+ 165              		.cfi_startproc
+ 166              	.LVL9:
+ 183:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     uint32 matchReg;
+ 184:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 185:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     matchReg = UART_RX_MATCH_REG;
+ 167              		.loc 1 185 0
+ 168 0000 044A     		ldr	r2, .L14
+ 169 0002 1368     		ldr	r3, [r2]
+ 170              	.LVL10:
+ 186:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 187:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     matchReg &= ((uint32) ~UART_RX_MATCH_ADDR_MASK); /* Clear address bits */
+ 171              		.loc 1 187 0
+ 172 0004 FF21     		mov	r1, #255
+ 173 0006 8B43     		bic	r3, r1
+ 174              	.LVL11:
+ 188:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     matchReg |= ((uint32)  UART_GET_I2C_8BIT_ADDRESS(address));
+ 175              		.loc 1 188 0
+ 176 0008 4000     		lsl	r0, r0, #1
+ 177              	.LVL12:
+ 178 000a 0840     		and	r0, r1
+ 179 000c 1843     		orr	r0, r3
+ 180              	.LVL13:
+ 189:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 190:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     UART_RX_MATCH_REG = matchReg;
+ 181              		.loc 1 190 0
+ 182 000e 1060     		str	r0, [r2]
+ 191:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** }
+ 183              		.loc 1 191 0
+ 184              		@ sp needed
+ 185 0010 7047     		bx	lr
+ 186              	.L15:
+ 187 0012 C046     		.align	2
+ 188              	.L14:
+ 189 0014 10032440 		.word	1076101904
+ 190              		.cfi_endproc
+ 191              	.LFE6:
+ 192              		.size	UART_I2CSlaveSetAddress, .-UART_I2CSlaveSetAddress
+ 193              		.section	.text.UART_I2CSlaveSetAddressMask,"ax",%progbits
+ 194              		.align	2
+ 195              		.global	UART_I2CSlaveSetAddressMask
+ 196              		.code	16
+ 197              		.thumb_func
+ 198              		.type	UART_I2CSlaveSetAddressMask, %function
+ 199              	UART_I2CSlaveSetAddressMask:
+ 200              	.LFB7:
+ 192:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 193:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 194:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** /*******************************************************************************
+ 195:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Function Name: UART_I2CSlaveSetAddressMask
+ 196:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** ********************************************************************************
+ 197:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 198:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Summary:
+ 199:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  Sets the I2C slave address mask.
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 8
+
+
+ 200:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 201:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Parameters:
+ 202:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  addressMask: Address mask.
+ 203:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *   0 - address bit does not care while comparison.
+ 204:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *   1 - address bit is significant while comparison.
+ 205:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 206:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Return:
+ 207:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  None
+ 208:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 209:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *******************************************************************************/
+ 210:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** void UART_I2CSlaveSetAddressMask(uint32 addressMask)
+ 211:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** {
+ 201              		.loc 1 211 0
+ 202              		.cfi_startproc
+ 203              	.LVL14:
+ 212:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     uint32 matchReg;
+ 213:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 214:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     matchReg = UART_RX_MATCH_REG;
+ 204              		.loc 1 214 0
+ 205 0000 034A     		ldr	r2, .L17
+ 206 0002 1168     		ldr	r1, [r2]
+ 207              	.LVL15:
+ 215:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 216:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     matchReg &= ((uint32) ~UART_RX_MATCH_MASK_MASK); /* Clear address mask bits */
+ 208              		.loc 1 216 0
+ 209 0004 034B     		ldr	r3, .L17+4
+ 210 0006 0B40     		and	r3, r1
+ 211              	.LVL16:
+ 217:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     matchReg |= ((uint32) (addressMask << UART_RX_MATCH_MASK_POS));
+ 212              		.loc 1 217 0
+ 213 0008 0004     		lsl	r0, r0, #16
+ 214              	.LVL17:
+ 215 000a 1843     		orr	r0, r3
+ 216              	.LVL18:
+ 218:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 219:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     UART_RX_MATCH_REG = matchReg;
+ 217              		.loc 1 219 0
+ 218 000c 1060     		str	r0, [r2]
+ 220:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** }
+ 219              		.loc 1 220 0
+ 220              		@ sp needed
+ 221 000e 7047     		bx	lr
+ 222              	.L18:
+ 223              		.align	2
+ 224              	.L17:
+ 225 0010 10032440 		.word	1076101904
+ 226 0014 FFFF00FF 		.word	-16711681
+ 227              		.cfi_endproc
+ 228              	.LFE7:
+ 229              		.size	UART_I2CSlaveSetAddressMask, .-UART_I2CSlaveSetAddressMask
+ 230              		.section	.text.UART_I2CSlaveInitReadBuf,"ax",%progbits
+ 231              		.align	2
+ 232              		.global	UART_I2CSlaveInitReadBuf
+ 233              		.code	16
+ 234              		.thumb_func
+ 235              		.type	UART_I2CSlaveInitReadBuf, %function
+ 236              	UART_I2CSlaveInitReadBuf:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 9
+
+
+ 237              	.LFB8:
+ 221:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 222:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 223:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** /*******************************************************************************
+ 224:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Function Name: UART_I2CSlaveInitReadBuf
+ 225:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** ********************************************************************************
+ 226:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 227:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Summary:
+ 228:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  Sets the buffer pointer and size of the read buffer. This function also
+ 229:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  resets the transfer count returned with the I2C_SlaveGetReadBufSize function.
+ 230:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 231:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Parameters:
+ 232:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  readBuf:  Pointer to the data buffer to be read by the master.
+ 233:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  bufSize:  Size of the read buffer exposed to the I2C master.
+ 234:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 235:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Return:
+ 236:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  None
+ 237:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 238:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Global variables:
+ 239:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  UART_slRdBufPtr   - used to store pointer to slave read buffer.
+ 240:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  UART_slRdBufSize  - used to store salve read buffer size.
+ 241:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  UART_slRdBufIndex - used to store current index within slave
+ 242:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  read buffer.
+ 243:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 244:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Side Effects:
+ 245:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  If this function is called during a bus transaction, data from the previous
+ 246:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  buffer location and the beginning of current buffer may be transmitted.
+ 247:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 248:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *******************************************************************************/
+ 249:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** void UART_I2CSlaveInitReadBuf(uint8 * rdBuf, uint32 bufSize)
+ 250:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** {
+ 238              		.loc 1 250 0
+ 239              		.cfi_startproc
+ 240              	.LVL19:
+ 241 0000 38B5     		push	{r3, r4, r5, lr}
+ 242              		.cfi_def_cfa_offset 16
+ 243              		.cfi_offset 3, -16
+ 244              		.cfi_offset 4, -12
+ 245              		.cfi_offset 5, -8
+ 246              		.cfi_offset 14, -4
+ 251:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     /* Check for proper buffer */
+ 252:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     if(NULL != rdBuf)
+ 247              		.loc 1 252 0
+ 248 0002 0028     		cmp	r0, #0
+ 249 0004 10D0     		beq	.L19
+ 250 0006 0D1C     		mov	r5, r1
+ 251 0008 041C     		mov	r4, r0
+ 253:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     {
+ 254:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****         UART_DisableInt();  /* Lock from interruption */
+ 252              		.loc 1 254 0
+ 253 000a 0920     		mov	r0, #9
+ 254              	.LVL20:
+ 255 000c FFF7FEFF 		bl	CyIntDisable
+ 256              	.LVL21:
+ 255:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 256:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****         UART_slRdBufPtr      = (volatile uint8 *) rdBuf; /* Set buffer pointer  */
+ 257              		.loc 1 256 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 10
+
+
+ 258 0010 064B     		ldr	r3, .L21
+ 259 0012 1C60     		str	r4, [r3]
+ 257:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****         UART_slRdBufSize     = bufSize;                  /* Set buffer size     */
+ 260              		.loc 1 257 0
+ 261 0014 064B     		ldr	r3, .L21+4
+ 262 0016 1D60     		str	r5, [r3]
+ 258:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****         UART_slRdBufIndex    = 0u;                       /* Clear buffer index  */
+ 263              		.loc 1 258 0
+ 264 0018 0023     		mov	r3, #0
+ 265 001a 064A     		ldr	r2, .L21+8
+ 266 001c 1360     		str	r3, [r2]
+ 259:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****         UART_slRdBufIndexTmp = 0u;                       /* Clear buffer index  */
+ 267              		.loc 1 259 0
+ 268 001e 064A     		ldr	r2, .L21+12
+ 269 0020 1360     		str	r3, [r2]
+ 260:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 261:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****         UART_EnableInt();   /* Release lock */
+ 270              		.loc 1 261 0
+ 271 0022 0920     		mov	r0, #9
+ 272 0024 FFF7FEFF 		bl	CyIntEnable
+ 273              	.LVL22:
+ 274              	.L19:
+ 262:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     }
+ 263:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** }
+ 275              		.loc 1 263 0
+ 276              		@ sp needed
+ 277 0028 38BD     		pop	{r3, r4, r5, pc}
+ 278              	.L22:
+ 279 002a C046     		.align	2
+ 280              	.L21:
+ 281 002c 00000000 		.word	UART_slRdBufPtr
+ 282 0030 00000000 		.word	UART_slRdBufSize
+ 283 0034 00000000 		.word	UART_slRdBufIndex
+ 284 0038 00000000 		.word	UART_slRdBufIndexTmp
+ 285              		.cfi_endproc
+ 286              	.LFE8:
+ 287              		.size	UART_I2CSlaveInitReadBuf, .-UART_I2CSlaveInitReadBuf
+ 288              		.section	.text.UART_I2CSlaveInitWriteBuf,"ax",%progbits
+ 289              		.align	2
+ 290              		.global	UART_I2CSlaveInitWriteBuf
+ 291              		.code	16
+ 292              		.thumb_func
+ 293              		.type	UART_I2CSlaveInitWriteBuf, %function
+ 294              	UART_I2CSlaveInitWriteBuf:
+ 295              	.LFB9:
+ 264:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 265:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 266:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** /*******************************************************************************
+ 267:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Function Name: UART_I2CSlaveInitWriteBuf
+ 268:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** ********************************************************************************
+ 269:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 270:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Summary:
+ 271:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  Sets the buffer pointer and size of the read buffer. This function also
+ 272:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  resets the transfer count returned with the I2C_SlaveGetReadBufSize function.
+ 273:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 274:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Parameters:
+ 275:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  writeBuf:  Pointer to the data buffer to be read by the master.
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 11
+
+
+ 276:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  bufSize:  Size of the buffer exposed to the I2C master.
+ 277:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 278:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Return:
+ 279:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  None
+ 280:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 281:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Global variables:
+ 282:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  UART_slWrBufPtr   - used to store pointer to slave write buffer.
+ 283:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  UART_slWrBufSize  - used to store salve write buffer size.
+ 284:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  UART_slWrBufIndex - used to store current index within slave
+ 285:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  write buffer.
+ 286:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 287:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Side Effects:
+ 288:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  If this function is called during a bus transaction, data from the previous
+ 289:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  buffer location and the beginning of current buffer may be transmitted.
+ 290:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 291:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *******************************************************************************/
+ 292:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** void UART_I2CSlaveInitWriteBuf(uint8 * wrBuf, uint32 bufSize)
+ 293:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** {
+ 296              		.loc 1 293 0
+ 297              		.cfi_startproc
+ 298              	.LVL23:
+ 299 0000 38B5     		push	{r3, r4, r5, lr}
+ 300              		.cfi_def_cfa_offset 16
+ 301              		.cfi_offset 3, -16
+ 302              		.cfi_offset 4, -12
+ 303              		.cfi_offset 5, -8
+ 304              		.cfi_offset 14, -4
+ 294:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     /* Check buffer pointer */
+ 295:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     if(NULL != wrBuf)
+ 305              		.loc 1 295 0
+ 306 0002 0028     		cmp	r0, #0
+ 307 0004 0ED0     		beq	.L23
+ 308 0006 0D1C     		mov	r5, r1
+ 309 0008 041C     		mov	r4, r0
+ 296:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     {
+ 297:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****         UART_DisableInt();  /* Lock from interruption */
+ 310              		.loc 1 297 0
+ 311 000a 0920     		mov	r0, #9
+ 312              	.LVL24:
+ 313 000c FFF7FEFF 		bl	CyIntDisable
+ 314              	.LVL25:
+ 298:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 299:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****         UART_slWrBufPtr   = (volatile uint8 *) wrBuf; /* Set buffer pointer  */
+ 315              		.loc 1 299 0
+ 316 0010 054B     		ldr	r3, .L25
+ 317 0012 1C60     		str	r4, [r3]
+ 300:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****         UART_slWrBufSize  = bufSize;                  /* Set buffer size     */
+ 318              		.loc 1 300 0
+ 319 0014 054B     		ldr	r3, .L25+4
+ 320 0016 1D60     		str	r5, [r3]
+ 301:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****         UART_slWrBufIndex = 0u;                       /* Clear buffer index  */
+ 321              		.loc 1 301 0
+ 322 0018 0022     		mov	r2, #0
+ 323 001a 054B     		ldr	r3, .L25+8
+ 324 001c 1A60     		str	r2, [r3]
+ 302:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 303:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****         UART_EnableInt();   /* Release lock */
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 12
+
+
+ 325              		.loc 1 303 0
+ 326 001e 0920     		mov	r0, #9
+ 327 0020 FFF7FEFF 		bl	CyIntEnable
+ 328              	.LVL26:
+ 329              	.L23:
+ 304:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     }
+ 305:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** }
+ 330              		.loc 1 305 0
+ 331              		@ sp needed
+ 332 0024 38BD     		pop	{r3, r4, r5, pc}
+ 333              	.L26:
+ 334 0026 C046     		.align	2
+ 335              	.L25:
+ 336 0028 00000000 		.word	UART_slWrBufPtr
+ 337 002c 00000000 		.word	UART_slWrBufSize
+ 338 0030 00000000 		.word	UART_slWrBufIndex
+ 339              		.cfi_endproc
+ 340              	.LFE9:
+ 341              		.size	UART_I2CSlaveInitWriteBuf, .-UART_I2CSlaveInitWriteBuf
+ 342              		.section	.text.UART_I2CSlaveGetReadBufSize,"ax",%progbits
+ 343              		.align	2
+ 344              		.global	UART_I2CSlaveGetReadBufSize
+ 345              		.code	16
+ 346              		.thumb_func
+ 347              		.type	UART_I2CSlaveGetReadBufSize, %function
+ 348              	UART_I2CSlaveGetReadBufSize:
+ 349              	.LFB10:
+ 306:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 307:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 308:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** /*******************************************************************************
+ 309:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Function Name: UART_I2CSlaveGetReadBufSize
+ 310:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** ********************************************************************************
+ 311:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 312:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Summary:
+ 313:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  Returns the number of bytes read by the I2C master since an
+ 314:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  I2C_SlaveInitReadBuf or I2C_SlaveClearReadBuf function was executed.
+ 315:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  The maximum return value will be the size of the read buffer.
+ 316:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 317:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Parameters:
+ 318:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  None
+ 319:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 320:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Return:
+ 321:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  Bytes read by master.
+ 322:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 323:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Global variables:
+ 324:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  UART_slRdBufIndex - used to store current index within slave
+ 325:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  read buffer.
+ 326:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 327:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *******************************************************************************/
+ 328:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** uint32 UART_I2CSlaveGetReadBufSize(void)
+ 329:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** {
+ 350              		.loc 1 329 0
+ 351              		.cfi_startproc
+ 330:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     return(UART_slRdBufIndex);
+ 352              		.loc 1 330 0
+ 353 0000 014B     		ldr	r3, .L28
+ 354 0002 1868     		ldr	r0, [r3]
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 13
+
+
+ 331:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** }
+ 355              		.loc 1 331 0
+ 356              		@ sp needed
+ 357 0004 7047     		bx	lr
+ 358              	.L29:
+ 359 0006 C046     		.align	2
+ 360              	.L28:
+ 361 0008 00000000 		.word	UART_slRdBufIndex
+ 362              		.cfi_endproc
+ 363              	.LFE10:
+ 364              		.size	UART_I2CSlaveGetReadBufSize, .-UART_I2CSlaveGetReadBufSize
+ 365              		.section	.text.UART_I2CSlaveGetWriteBufSize,"ax",%progbits
+ 366              		.align	2
+ 367              		.global	UART_I2CSlaveGetWriteBufSize
+ 368              		.code	16
+ 369              		.thumb_func
+ 370              		.type	UART_I2CSlaveGetWriteBufSize, %function
+ 371              	UART_I2CSlaveGetWriteBufSize:
+ 372              	.LFB11:
+ 332:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 333:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 334:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** /*******************************************************************************
+ 335:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Function Name: UART_I2CSlaveGetWriteBufSize
+ 336:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** ********************************************************************************
+ 337:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 338:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Summary:
+ 339:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  Returns the number of bytes written by the I2C master since an
+ 340:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  I2C_SlaveInitWriteBuf or I2C_SlaveClearWriteBuf function was executed.
+ 341:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  The maximum return value will be the size of the write buffer.
+ 342:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 343:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Parameters:
+ 344:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  None
+ 345:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 346:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Return:
+ 347:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  Bytes written by master.
+ 348:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 349:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Global variables:
+ 350:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  UART_slWrBufIndex - used to store current index within slave
+ 351:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  write buffer.
+ 352:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 353:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *******************************************************************************/
+ 354:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** uint32 UART_I2CSlaveGetWriteBufSize(void)
+ 355:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** {
+ 373              		.loc 1 355 0
+ 374              		.cfi_startproc
+ 356:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     return(UART_slWrBufIndex);
+ 375              		.loc 1 356 0
+ 376 0000 014B     		ldr	r3, .L31
+ 377 0002 1868     		ldr	r0, [r3]
+ 357:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** }
+ 378              		.loc 1 357 0
+ 379              		@ sp needed
+ 380 0004 7047     		bx	lr
+ 381              	.L32:
+ 382 0006 C046     		.align	2
+ 383              	.L31:
+ 384 0008 00000000 		.word	UART_slWrBufIndex
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 14
+
+
+ 385              		.cfi_endproc
+ 386              	.LFE11:
+ 387              		.size	UART_I2CSlaveGetWriteBufSize, .-UART_I2CSlaveGetWriteBufSize
+ 388              		.section	.text.UART_I2CSlaveClearReadBuf,"ax",%progbits
+ 389              		.align	2
+ 390              		.global	UART_I2CSlaveClearReadBuf
+ 391              		.code	16
+ 392              		.thumb_func
+ 393              		.type	UART_I2CSlaveClearReadBuf, %function
+ 394              	UART_I2CSlaveClearReadBuf:
+ 395              	.LFB12:
+ 358:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 359:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 360:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** /*******************************************************************************
+ 361:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Function Name: UART_I2CSlaveClearReadBuf
+ 362:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** ********************************************************************************
+ 363:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 364:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Summary:
+ 365:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  Resets the read pointer to the first byte in the read buffer. The next byte
+ 366:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  read by the master will be the first byte in the read buffer.
+ 367:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 368:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Parameters:
+ 369:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  None
+ 370:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 371:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Return:
+ 372:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  None
+ 373:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 374:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Global variables:
+ 375:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  UART_slRdBufIndex - used to store current index within slave
+ 376:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  read buffer.
+ 377:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 378:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *******************************************************************************/
+ 379:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** void UART_I2CSlaveClearReadBuf(void)
+ 380:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** {
+ 396              		.loc 1 380 0
+ 397              		.cfi_startproc
+ 381:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     UART_slRdBufIndex = 0u;
+ 398              		.loc 1 381 0
+ 399 0000 0022     		mov	r2, #0
+ 400 0002 014B     		ldr	r3, .L34
+ 401 0004 1A60     		str	r2, [r3]
+ 382:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** }
+ 402              		.loc 1 382 0
+ 403              		@ sp needed
+ 404 0006 7047     		bx	lr
+ 405              	.L35:
+ 406              		.align	2
+ 407              	.L34:
+ 408 0008 00000000 		.word	UART_slRdBufIndex
+ 409              		.cfi_endproc
+ 410              	.LFE12:
+ 411              		.size	UART_I2CSlaveClearReadBuf, .-UART_I2CSlaveClearReadBuf
+ 412              		.section	.text.UART_I2CSlaveClearWriteBuf,"ax",%progbits
+ 413              		.align	2
+ 414              		.global	UART_I2CSlaveClearWriteBuf
+ 415              		.code	16
+ 416              		.thumb_func
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 15
+
+
+ 417              		.type	UART_I2CSlaveClearWriteBuf, %function
+ 418              	UART_I2CSlaveClearWriteBuf:
+ 419              	.LFB13:
+ 383:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 384:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** 
+ 385:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** /*******************************************************************************
+ 386:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Function Name: UART_I2CSlaveClearWriteBuf
+ 387:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** ********************************************************************************
+ 388:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 389:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Summary:
+ 390:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  Resets the write pointer to the first byte in the write buffer. The next byte
+ 391:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  written by the master will be the first byte in the write buffer.
+ 392:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 393:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Parameters:
+ 394:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  None
+ 395:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 396:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Return:
+ 397:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  None
+ 398:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 399:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** * Global variables:
+ 400:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  UART_slWrBufIndex - used to store current index within slave
+ 401:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *  write buffer.
+ 402:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *
+ 403:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** *******************************************************************************/
+ 404:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** void UART_I2CSlaveClearWriteBuf(void)
+ 405:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** {
+ 420              		.loc 1 405 0
+ 421              		.cfi_startproc
+ 406:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c ****     UART_slWrBufIndex = 0u;
+ 422              		.loc 1 406 0
+ 423 0000 0022     		mov	r2, #0
+ 424 0002 014B     		ldr	r3, .L37
+ 425 0004 1A60     		str	r2, [r3]
+ 407:.\Generated_Source\PSoC4/UART_I2C_SLAVE.c **** }
+ 426              		.loc 1 407 0
+ 427              		@ sp needed
+ 428 0006 7047     		bx	lr
+ 429              	.L38:
+ 430              		.align	2
+ 431              	.L37:
+ 432 0008 00000000 		.word	UART_slWrBufIndex
+ 433              		.cfi_endproc
+ 434              	.LFE13:
+ 435              		.size	UART_I2CSlaveClearWriteBuf, .-UART_I2CSlaveClearWriteBuf
+ 436              		.global	UART_customAddressHandler
+ 437              		.comm	UART_slOverFlowCount,1,1
+ 438              		.comm	UART_slRdBufIndexTmp,4,4
+ 439              		.comm	UART_slRdBufIndex,4,4
+ 440              		.comm	UART_slRdBufSize,4,4
+ 441              		.comm	UART_slRdBufPtr,4,4
+ 442              		.comm	UART_slWrBufIndex,4,4
+ 443              		.comm	UART_slWrBufSize,4,4
+ 444              		.comm	UART_slWrBufPtr,4,4
+ 445              		.comm	UART_slStatus,1,1
+ 446              		.bss
+ 447              		.align	2
+ 448              		.set	.LANCHOR0,. + 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 16
+
+
+ 449              		.type	UART_customAddressHandler, %object
+ 450              		.size	UART_customAddressHandler, 4
+ 451              	UART_customAddressHandler:
+ 452 0000 00000000 		.space	4
+ 453              		.text
+ 454              	.Letext0:
+ 455              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 456              		.file 3 "Generated_Source\\PSoC4/CyLib.h"
+ 457              		.section	.debug_info,"",%progbits
+ 458              	.Ldebug_info0:
+ 459 0000 C4030000 		.4byte	0x3c4
+ 460 0004 0400     		.2byte	0x4
+ 461 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 462 000a 04       		.byte	0x4
+ 463 000b 01       		.uleb128 0x1
+ 464 000c F3020000 		.4byte	.LASF46
+ 465 0010 01       		.byte	0x1
+ 466 0011 93010000 		.4byte	.LASF47
+ 467 0015 84000000 		.4byte	.LASF48
+ 468 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 469 001d 00000000 		.4byte	0
+ 470 0021 00000000 		.4byte	.Ldebug_line0
+ 471 0025 02       		.uleb128 0x2
+ 472 0026 01       		.byte	0x1
+ 473 0027 06       		.byte	0x6
+ 474 0028 FA030000 		.4byte	.LASF0
+ 475 002c 02       		.uleb128 0x2
+ 476 002d 01       		.byte	0x1
+ 477 002e 08       		.byte	0x8
+ 478 002f BD010000 		.4byte	.LASF1
+ 479 0033 02       		.uleb128 0x2
+ 480 0034 02       		.byte	0x2
+ 481 0035 05       		.byte	0x5
+ 482 0036 8E030000 		.4byte	.LASF2
+ 483 003a 02       		.uleb128 0x2
+ 484 003b 02       		.byte	0x2
+ 485 003c 07       		.byte	0x7
+ 486 003d 71000000 		.4byte	.LASF3
+ 487 0041 02       		.uleb128 0x2
+ 488 0042 04       		.byte	0x4
+ 489 0043 05       		.byte	0x5
+ 490 0044 D7030000 		.4byte	.LASF4
+ 491 0048 02       		.uleb128 0x2
+ 492 0049 04       		.byte	0x4
+ 493 004a 07       		.byte	0x7
+ 494 004b CB010000 		.4byte	.LASF5
+ 495 004f 02       		.uleb128 0x2
+ 496 0050 08       		.byte	0x8
+ 497 0051 05       		.byte	0x5
+ 498 0052 CB020000 		.4byte	.LASF6
+ 499 0056 02       		.uleb128 0x2
+ 500 0057 08       		.byte	0x8
+ 501 0058 07       		.byte	0x7
+ 502 0059 6F020000 		.4byte	.LASF7
+ 503 005d 03       		.uleb128 0x3
+ 504 005e 04       		.byte	0x4
+ 505 005f 05       		.byte	0x5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 17
+
+
+ 506 0060 696E7400 		.ascii	"int\000"
+ 507 0064 02       		.uleb128 0x2
+ 508 0065 04       		.byte	0x4
+ 509 0066 07       		.byte	0x7
+ 510 0067 5A020000 		.4byte	.LASF8
+ 511 006b 04       		.uleb128 0x4
+ 512 006c F2010000 		.4byte	.LASF9
+ 513 0070 02       		.byte	0x2
+ 514 0071 C2       		.byte	0xc2
+ 515 0072 2C000000 		.4byte	0x2c
+ 516 0076 04       		.uleb128 0x4
+ 517 0077 53020000 		.4byte	.LASF10
+ 518 007b 02       		.byte	0x2
+ 519 007c C4       		.byte	0xc4
+ 520 007d 48000000 		.4byte	0x48
+ 521 0081 02       		.uleb128 0x2
+ 522 0082 04       		.byte	0x4
+ 523 0083 04       		.byte	0x4
+ 524 0084 3B000000 		.4byte	.LASF11
+ 525 0088 02       		.uleb128 0x2
+ 526 0089 08       		.byte	0x8
+ 527 008a 04       		.byte	0x4
+ 528 008b 10020000 		.4byte	.LASF12
+ 529 008f 02       		.uleb128 0x2
+ 530 0090 01       		.byte	0x1
+ 531 0091 08       		.byte	0x8
+ 532 0092 D9020000 		.4byte	.LASF13
+ 533 0096 05       		.uleb128 0x5
+ 534 0097 6B000000 		.4byte	0x6b
+ 535 009b 06       		.uleb128 0x6
+ 536 009c 1B000000 		.4byte	.LASF14
+ 537 00a0 02       		.byte	0x2
+ 538 00a1 6E01     		.2byte	0x16e
+ 539 00a3 A7000000 		.4byte	0xa7
+ 540 00a7 05       		.uleb128 0x5
+ 541 00a8 76000000 		.4byte	0x76
+ 542 00ac 02       		.uleb128 0x2
+ 543 00ad 04       		.byte	0x4
+ 544 00ae 07       		.byte	0x7
+ 545 00af C2020000 		.4byte	.LASF15
+ 546 00b3 07       		.uleb128 0x7
+ 547 00b4 6A010000 		.4byte	.LASF19
+ 548 00b8 01       		.byte	0x1
+ 549 00b9 43       		.byte	0x43
+ 550 00ba 00000000 		.4byte	.LFB2
+ 551 00be 0C000000 		.4byte	.LFE2-.LFB2
+ 552 00c2 01       		.uleb128 0x1
+ 553 00c3 9C       		.byte	0x9c
+ 554 00c4 D6000000 		.4byte	0xd6
+ 555 00c8 08       		.uleb128 0x8
+ 556 00c9 31020000 		.4byte	.LASF21
+ 557 00cd 01       		.byte	0x1
+ 558 00ce 43       		.byte	0x43
+ 559 00cf DB000000 		.4byte	0xdb
+ 560 00d3 01       		.uleb128 0x1
+ 561 00d4 50       		.byte	0x50
+ 562 00d5 00       		.byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 18
+
+
+ 563 00d6 09       		.uleb128 0x9
+ 564 00d7 76000000 		.4byte	0x76
+ 565 00db 0A       		.uleb128 0xa
+ 566 00dc 04       		.byte	0x4
+ 567 00dd D6000000 		.4byte	0xd6
+ 568 00e1 0B       		.uleb128 0xb
+ 569 00e2 5D000000 		.4byte	.LASF31
+ 570 00e6 01       		.byte	0x1
+ 571 00e7 5C       		.byte	0x5c
+ 572 00e8 76000000 		.4byte	0x76
+ 573 00ec 00000000 		.4byte	.LFB3
+ 574 00f0 0C000000 		.4byte	.LFE3-.LFB3
+ 575 00f4 01       		.uleb128 0x1
+ 576 00f5 9C       		.byte	0x9c
+ 577 00f6 0C       		.uleb128 0xc
+ 578 00f7 BA030000 		.4byte	.LASF16
+ 579 00fb 01       		.byte	0x1
+ 580 00fc 74       		.byte	0x74
+ 581 00fd 76000000 		.4byte	0x76
+ 582 0101 00000000 		.4byte	.LFB4
+ 583 0105 28000000 		.4byte	.LFE4-.LFB4
+ 584 0109 01       		.uleb128 0x1
+ 585 010a 9C       		.byte	0x9c
+ 586 010b 41010000 		.4byte	0x141
+ 587 010f 0D       		.uleb128 0xd
+ 588 0110 31010000 		.4byte	.LASF18
+ 589 0114 01       		.byte	0x1
+ 590 0115 76       		.byte	0x76
+ 591 0116 76000000 		.4byte	0x76
+ 592 011a 00000000 		.4byte	.LLST0
+ 593 011e 0E       		.uleb128 0xe
+ 594 011f 08000000 		.4byte	.LVL1
+ 595 0123 A9030000 		.4byte	0x3a9
+ 596 0127 31010000 		.4byte	0x131
+ 597 012b 0F       		.uleb128 0xf
+ 598 012c 01       		.uleb128 0x1
+ 599 012d 50       		.byte	0x50
+ 600 012e 01       		.uleb128 0x1
+ 601 012f 39       		.byte	0x39
+ 602 0130 00       		.byte	0
+ 603 0131 10       		.uleb128 0x10
+ 604 0132 1E000000 		.4byte	.LVL3
+ 605 0136 BA030000 		.4byte	0x3ba
+ 606 013a 0F       		.uleb128 0xf
+ 607 013b 01       		.uleb128 0x1
+ 608 013c 50       		.byte	0x50
+ 609 013d 01       		.uleb128 0x1
+ 610 013e 39       		.byte	0x39
+ 611 013f 00       		.byte	0
+ 612 0140 00       		.byte	0
+ 613 0141 0C       		.uleb128 0xc
+ 614 0142 A4020000 		.4byte	.LASF17
+ 615 0146 01       		.byte	0x1
+ 616 0147 96       		.byte	0x96
+ 617 0148 76000000 		.4byte	0x76
+ 618 014c 00000000 		.4byte	.LFB5
+ 619 0150 28000000 		.4byte	.LFE5-.LFB5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 19
+
+
+ 620 0154 01       		.uleb128 0x1
+ 621 0155 9C       		.byte	0x9c
+ 622 0156 8C010000 		.4byte	0x18c
+ 623 015a 0D       		.uleb128 0xd
+ 624 015b 31010000 		.4byte	.LASF18
+ 625 015f 01       		.byte	0x1
+ 626 0160 98       		.byte	0x98
+ 627 0161 76000000 		.4byte	0x76
+ 628 0165 1E000000 		.4byte	.LLST1
+ 629 0169 0E       		.uleb128 0xe
+ 630 016a 08000000 		.4byte	.LVL5
+ 631 016e A9030000 		.4byte	0x3a9
+ 632 0172 7C010000 		.4byte	0x17c
+ 633 0176 0F       		.uleb128 0xf
+ 634 0177 01       		.uleb128 0x1
+ 635 0178 50       		.byte	0x50
+ 636 0179 01       		.uleb128 0x1
+ 637 017a 39       		.byte	0x39
+ 638 017b 00       		.byte	0
+ 639 017c 10       		.uleb128 0x10
+ 640 017d 1E000000 		.4byte	.LVL7
+ 641 0181 BA030000 		.4byte	0x3ba
+ 642 0185 0F       		.uleb128 0xf
+ 643 0186 01       		.uleb128 0x1
+ 644 0187 50       		.byte	0x50
+ 645 0188 01       		.uleb128 0x1
+ 646 0189 39       		.byte	0x39
+ 647 018a 00       		.byte	0
+ 648 018b 00       		.byte	0
+ 649 018c 07       		.uleb128 0x7
+ 650 018d FC000000 		.4byte	.LASF20
+ 651 0191 01       		.byte	0x1
+ 652 0192 B5       		.byte	0xb5
+ 653 0193 00000000 		.4byte	.LFB6
+ 654 0197 18000000 		.4byte	.LFE6-.LFB6
+ 655 019b 01       		.uleb128 0x1
+ 656 019c 9C       		.byte	0x9c
+ 657 019d C0010000 		.4byte	0x1c0
+ 658 01a1 11       		.uleb128 0x11
+ 659 01a2 67020000 		.4byte	.LASF22
+ 660 01a6 01       		.byte	0x1
+ 661 01a7 B5       		.byte	0xb5
+ 662 01a8 76000000 		.4byte	0x76
+ 663 01ac 3C000000 		.4byte	.LLST2
+ 664 01b0 0D       		.uleb128 0xd
+ 665 01b1 E0030000 		.4byte	.LASF23
+ 666 01b5 01       		.byte	0x1
+ 667 01b6 B7       		.byte	0xb7
+ 668 01b7 76000000 		.4byte	0x76
+ 669 01bb 5D000000 		.4byte	.LLST3
+ 670 01bf 00       		.byte	0
+ 671 01c0 07       		.uleb128 0x7
+ 672 01c1 4E010000 		.4byte	.LASF24
+ 673 01c5 01       		.byte	0x1
+ 674 01c6 D2       		.byte	0xd2
+ 675 01c7 00000000 		.4byte	.LFB7
+ 676 01cb 18000000 		.4byte	.LFE7-.LFB7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 20
+
+
+ 677 01cf 01       		.uleb128 0x1
+ 678 01d0 9C       		.byte	0x9c
+ 679 01d1 F4010000 		.4byte	0x1f4
+ 680 01d5 11       		.uleb128 0x11
+ 681 01d6 86020000 		.4byte	.LASF25
+ 682 01da 01       		.byte	0x1
+ 683 01db D2       		.byte	0xd2
+ 684 01dc 76000000 		.4byte	0x76
+ 685 01e0 7B000000 		.4byte	.LLST4
+ 686 01e4 0D       		.uleb128 0xd
+ 687 01e5 E0030000 		.4byte	.LASF23
+ 688 01e9 01       		.byte	0x1
+ 689 01ea D4       		.byte	0xd4
+ 690 01eb 76000000 		.4byte	0x76
+ 691 01ef 9C000000 		.4byte	.LLST5
+ 692 01f3 00       		.byte	0
+ 693 01f4 07       		.uleb128 0x7
+ 694 01f5 14040000 		.4byte	.LASF26
+ 695 01f9 01       		.byte	0x1
+ 696 01fa F9       		.byte	0xf9
+ 697 01fb 00000000 		.4byte	.LFB8
+ 698 01ff 3C000000 		.4byte	.LFE8-.LFB8
+ 699 0203 01       		.uleb128 0x1
+ 700 0204 9C       		.byte	0x9c
+ 701 0205 4A020000 		.4byte	0x24a
+ 702 0209 11       		.uleb128 0x11
+ 703 020a 38010000 		.4byte	.LASF27
+ 704 020e 01       		.byte	0x1
+ 705 020f F9       		.byte	0xf9
+ 706 0210 4A020000 		.4byte	0x24a
+ 707 0214 C5000000 		.4byte	.LLST6
+ 708 0218 11       		.uleb128 0x11
+ 709 0219 98030000 		.4byte	.LASF28
+ 710 021d 01       		.byte	0x1
+ 711 021e F9       		.byte	0xf9
+ 712 021f 76000000 		.4byte	0x76
+ 713 0223 F1000000 		.4byte	.LLST7
+ 714 0227 0E       		.uleb128 0xe
+ 715 0228 10000000 		.4byte	.LVL21
+ 716 022c A9030000 		.4byte	0x3a9
+ 717 0230 3A020000 		.4byte	0x23a
+ 718 0234 0F       		.uleb128 0xf
+ 719 0235 01       		.uleb128 0x1
+ 720 0236 50       		.byte	0x50
+ 721 0237 01       		.uleb128 0x1
+ 722 0238 39       		.byte	0x39
+ 723 0239 00       		.byte	0
+ 724 023a 10       		.uleb128 0x10
+ 725 023b 28000000 		.4byte	.LVL22
+ 726 023f BA030000 		.4byte	0x3ba
+ 727 0243 0F       		.uleb128 0xf
+ 728 0244 01       		.uleb128 0x1
+ 729 0245 50       		.byte	0x50
+ 730 0246 01       		.uleb128 0x1
+ 731 0247 39       		.byte	0x39
+ 732 0248 00       		.byte	0
+ 733 0249 00       		.byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 21
+
+
+ 734 024a 0A       		.uleb128 0xa
+ 735 024b 04       		.byte	0x4
+ 736 024c 6B000000 		.4byte	0x6b
+ 737 0250 12       		.uleb128 0x12
+ 738 0251 A0030000 		.4byte	.LASF29
+ 739 0255 01       		.byte	0x1
+ 740 0256 2401     		.2byte	0x124
+ 741 0258 00000000 		.4byte	.LFB9
+ 742 025c 34000000 		.4byte	.LFE9-.LFB9
+ 743 0260 01       		.uleb128 0x1
+ 744 0261 9C       		.byte	0x9c
+ 745 0262 A9020000 		.4byte	0x2a9
+ 746 0266 13       		.uleb128 0x13
+ 747 0267 0A020000 		.4byte	.LASF30
+ 748 026b 01       		.byte	0x1
+ 749 026c 2401     		.2byte	0x124
+ 750 026e 4A020000 		.4byte	0x24a
+ 751 0272 1D010000 		.4byte	.LLST8
+ 752 0276 13       		.uleb128 0x13
+ 753 0277 98030000 		.4byte	.LASF28
+ 754 027b 01       		.byte	0x1
+ 755 027c 2401     		.2byte	0x124
+ 756 027e 76000000 		.4byte	0x76
+ 757 0282 49010000 		.4byte	.LLST9
+ 758 0286 0E       		.uleb128 0xe
+ 759 0287 10000000 		.4byte	.LVL25
+ 760 028b A9030000 		.4byte	0x3a9
+ 761 028f 99020000 		.4byte	0x299
+ 762 0293 0F       		.uleb128 0xf
+ 763 0294 01       		.uleb128 0x1
+ 764 0295 50       		.byte	0x50
+ 765 0296 01       		.uleb128 0x1
+ 766 0297 39       		.byte	0x39
+ 767 0298 00       		.byte	0
+ 768 0299 10       		.uleb128 0x10
+ 769 029a 24000000 		.4byte	.LVL26
+ 770 029e BA030000 		.4byte	0x3ba
+ 771 02a2 0F       		.uleb128 0xf
+ 772 02a3 01       		.uleb128 0x1
+ 773 02a4 50       		.byte	0x50
+ 774 02a5 01       		.uleb128 0x1
+ 775 02a6 39       		.byte	0x39
+ 776 02a7 00       		.byte	0
+ 777 02a8 00       		.byte	0
+ 778 02a9 14       		.uleb128 0x14
+ 779 02aa 41000000 		.4byte	.LASF32
+ 780 02ae 01       		.byte	0x1
+ 781 02af 4801     		.2byte	0x148
+ 782 02b1 76000000 		.4byte	0x76
+ 783 02b5 00000000 		.4byte	.LFB10
+ 784 02b9 0C000000 		.4byte	.LFE10-.LFB10
+ 785 02bd 01       		.uleb128 0x1
+ 786 02be 9C       		.byte	0x9c
+ 787 02bf 14       		.uleb128 0x14
+ 788 02c0 14010000 		.4byte	.LASF33
+ 789 02c4 01       		.byte	0x1
+ 790 02c5 6201     		.2byte	0x162
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 22
+
+
+ 791 02c7 76000000 		.4byte	0x76
+ 792 02cb 00000000 		.4byte	.LFB11
+ 793 02cf 0C000000 		.4byte	.LFE11-.LFB11
+ 794 02d3 01       		.uleb128 0x1
+ 795 02d4 9C       		.byte	0x9c
+ 796 02d5 15       		.uleb128 0x15
+ 797 02d6 21000000 		.4byte	.LASF34
+ 798 02da 01       		.byte	0x1
+ 799 02db 7B01     		.2byte	0x17b
+ 800 02dd 00000000 		.4byte	.LFB12
+ 801 02e1 0C000000 		.4byte	.LFE12-.LFB12
+ 802 02e5 01       		.uleb128 0x1
+ 803 02e6 9C       		.byte	0x9c
+ 804 02e7 15       		.uleb128 0x15
+ 805 02e8 00000000 		.4byte	.LASF35
+ 806 02ec 01       		.byte	0x1
+ 807 02ed 9401     		.2byte	0x194
+ 808 02ef 00000000 		.4byte	.LFB13
+ 809 02f3 0C000000 		.4byte	.LFE13-.LFB13
+ 810 02f7 01       		.uleb128 0x1
+ 811 02f8 9C       		.byte	0x9c
+ 812 02f9 16       		.uleb128 0x16
+ 813 02fa 06040000 		.4byte	.LASF36
+ 814 02fe 01       		.byte	0x1
+ 815 02ff 1A       		.byte	0x1a
+ 816 0300 96000000 		.4byte	0x96
+ 817 0304 05       		.uleb128 0x5
+ 818 0305 03       		.byte	0x3
+ 819 0306 00000000 		.4byte	UART_slStatus
+ 820 030a 16       		.uleb128 0x16
+ 821 030b 2D040000 		.4byte	.LASF37
+ 822 030f 01       		.byte	0x1
+ 823 0310 1D       		.byte	0x1d
+ 824 0311 1B030000 		.4byte	0x31b
+ 825 0315 05       		.uleb128 0x5
+ 826 0316 03       		.byte	0x3
+ 827 0317 00000000 		.4byte	UART_slWrBufPtr
+ 828 031b 0A       		.uleb128 0xa
+ 829 031c 04       		.byte	0x4
+ 830 031d 96000000 		.4byte	0x96
+ 831 0321 16       		.uleb128 0x16
+ 832 0322 E9030000 		.4byte	.LASF38
+ 833 0326 01       		.byte	0x1
+ 834 0327 1E       		.byte	0x1e
+ 835 0328 A7000000 		.4byte	0xa7
+ 836 032c 05       		.uleb128 0x5
+ 837 032d 03       		.byte	0x3
+ 838 032e 00000000 		.4byte	UART_slWrBufSize
+ 839 0332 16       		.uleb128 0x16
+ 840 0333 F8010000 		.4byte	.LASF39
+ 841 0337 01       		.byte	0x1
+ 842 0338 1F       		.byte	0x1f
+ 843 0339 A7000000 		.4byte	0xa7
+ 844 033d 05       		.uleb128 0x5
+ 845 033e 03       		.byte	0x3
+ 846 033f 00000000 		.4byte	UART_slWrBufIndex
+ 847 0343 16       		.uleb128 0x16
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 23
+
+
+ 848 0344 3E010000 		.4byte	.LASF40
+ 849 0348 01       		.byte	0x1
+ 850 0349 22       		.byte	0x22
+ 851 034a 1B030000 		.4byte	0x31b
+ 852 034e 05       		.uleb128 0x5
+ 853 034f 03       		.byte	0x3
+ 854 0350 00000000 		.4byte	UART_slRdBufPtr
+ 855 0354 16       		.uleb128 0x16
+ 856 0355 42020000 		.4byte	.LASF41
+ 857 0359 01       		.byte	0x1
+ 858 035a 23       		.byte	0x23
+ 859 035b A7000000 		.4byte	0xa7
+ 860 035f 05       		.uleb128 0x5
+ 861 0360 03       		.byte	0x3
+ 862 0361 00000000 		.4byte	UART_slRdBufSize
+ 863 0365 16       		.uleb128 0x16
+ 864 0366 92020000 		.4byte	.LASF42
+ 865 036a 01       		.byte	0x1
+ 866 036b 24       		.byte	0x24
+ 867 036c A7000000 		.4byte	0xa7
+ 868 0370 05       		.uleb128 0x5
+ 869 0371 03       		.byte	0x3
+ 870 0372 00000000 		.4byte	UART_slRdBufIndex
+ 871 0376 16       		.uleb128 0x16
+ 872 0377 DE020000 		.4byte	.LASF43
+ 873 037b 01       		.byte	0x1
+ 874 037c 25       		.byte	0x25
+ 875 037d A7000000 		.4byte	0xa7
+ 876 0381 05       		.uleb128 0x5
+ 877 0382 03       		.byte	0x3
+ 878 0383 00000000 		.4byte	UART_slRdBufIndexTmp
+ 879 0387 16       		.uleb128 0x16
+ 880 0388 DD010000 		.4byte	.LASF44
+ 881 038c 01       		.byte	0x1
+ 882 038d 26       		.byte	0x26
+ 883 038e 96000000 		.4byte	0x96
+ 884 0392 05       		.uleb128 0x5
+ 885 0393 03       		.byte	0x3
+ 886 0394 00000000 		.4byte	UART_slOverFlowCount
+ 887 0398 16       		.uleb128 0x16
+ 888 0399 17020000 		.4byte	.LASF45
+ 889 039d 01       		.byte	0x1
+ 890 039e 2A       		.byte	0x2a
+ 891 039f DB000000 		.4byte	0xdb
+ 892 03a3 05       		.uleb128 0x5
+ 893 03a4 03       		.byte	0x3
+ 894 03a5 00000000 		.4byte	UART_customAddressHandler
+ 895 03a9 17       		.uleb128 0x17
+ 896 03aa 81030000 		.4byte	.LASF49
+ 897 03ae 03       		.byte	0x3
+ 898 03af 4E       		.byte	0x4e
+ 899 03b0 BA030000 		.4byte	0x3ba
+ 900 03b4 18       		.uleb128 0x18
+ 901 03b5 6B000000 		.4byte	0x6b
+ 902 03b9 00       		.byte	0
+ 903 03ba 19       		.uleb128 0x19
+ 904 03bb 36020000 		.4byte	.LASF50
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 24
+
+
+ 905 03bf 03       		.byte	0x3
+ 906 03c0 4C       		.byte	0x4c
+ 907 03c1 18       		.uleb128 0x18
+ 908 03c2 6B000000 		.4byte	0x6b
+ 909 03c6 00       		.byte	0
+ 910 03c7 00       		.byte	0
+ 911              		.section	.debug_abbrev,"",%progbits
+ 912              	.Ldebug_abbrev0:
+ 913 0000 01       		.uleb128 0x1
+ 914 0001 11       		.uleb128 0x11
+ 915 0002 01       		.byte	0x1
+ 916 0003 25       		.uleb128 0x25
+ 917 0004 0E       		.uleb128 0xe
+ 918 0005 13       		.uleb128 0x13
+ 919 0006 0B       		.uleb128 0xb
+ 920 0007 03       		.uleb128 0x3
+ 921 0008 0E       		.uleb128 0xe
+ 922 0009 1B       		.uleb128 0x1b
+ 923 000a 0E       		.uleb128 0xe
+ 924 000b 55       		.uleb128 0x55
+ 925 000c 17       		.uleb128 0x17
+ 926 000d 11       		.uleb128 0x11
+ 927 000e 01       		.uleb128 0x1
+ 928 000f 10       		.uleb128 0x10
+ 929 0010 17       		.uleb128 0x17
+ 930 0011 00       		.byte	0
+ 931 0012 00       		.byte	0
+ 932 0013 02       		.uleb128 0x2
+ 933 0014 24       		.uleb128 0x24
+ 934 0015 00       		.byte	0
+ 935 0016 0B       		.uleb128 0xb
+ 936 0017 0B       		.uleb128 0xb
+ 937 0018 3E       		.uleb128 0x3e
+ 938 0019 0B       		.uleb128 0xb
+ 939 001a 03       		.uleb128 0x3
+ 940 001b 0E       		.uleb128 0xe
+ 941 001c 00       		.byte	0
+ 942 001d 00       		.byte	0
+ 943 001e 03       		.uleb128 0x3
+ 944 001f 24       		.uleb128 0x24
+ 945 0020 00       		.byte	0
+ 946 0021 0B       		.uleb128 0xb
+ 947 0022 0B       		.uleb128 0xb
+ 948 0023 3E       		.uleb128 0x3e
+ 949 0024 0B       		.uleb128 0xb
+ 950 0025 03       		.uleb128 0x3
+ 951 0026 08       		.uleb128 0x8
+ 952 0027 00       		.byte	0
+ 953 0028 00       		.byte	0
+ 954 0029 04       		.uleb128 0x4
+ 955 002a 16       		.uleb128 0x16
+ 956 002b 00       		.byte	0
+ 957 002c 03       		.uleb128 0x3
+ 958 002d 0E       		.uleb128 0xe
+ 959 002e 3A       		.uleb128 0x3a
+ 960 002f 0B       		.uleb128 0xb
+ 961 0030 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 25
+
+
+ 962 0031 0B       		.uleb128 0xb
+ 963 0032 49       		.uleb128 0x49
+ 964 0033 13       		.uleb128 0x13
+ 965 0034 00       		.byte	0
+ 966 0035 00       		.byte	0
+ 967 0036 05       		.uleb128 0x5
+ 968 0037 35       		.uleb128 0x35
+ 969 0038 00       		.byte	0
+ 970 0039 49       		.uleb128 0x49
+ 971 003a 13       		.uleb128 0x13
+ 972 003b 00       		.byte	0
+ 973 003c 00       		.byte	0
+ 974 003d 06       		.uleb128 0x6
+ 975 003e 16       		.uleb128 0x16
+ 976 003f 00       		.byte	0
+ 977 0040 03       		.uleb128 0x3
+ 978 0041 0E       		.uleb128 0xe
+ 979 0042 3A       		.uleb128 0x3a
+ 980 0043 0B       		.uleb128 0xb
+ 981 0044 3B       		.uleb128 0x3b
+ 982 0045 05       		.uleb128 0x5
+ 983 0046 49       		.uleb128 0x49
+ 984 0047 13       		.uleb128 0x13
+ 985 0048 00       		.byte	0
+ 986 0049 00       		.byte	0
+ 987 004a 07       		.uleb128 0x7
+ 988 004b 2E       		.uleb128 0x2e
+ 989 004c 01       		.byte	0x1
+ 990 004d 3F       		.uleb128 0x3f
+ 991 004e 19       		.uleb128 0x19
+ 992 004f 03       		.uleb128 0x3
+ 993 0050 0E       		.uleb128 0xe
+ 994 0051 3A       		.uleb128 0x3a
+ 995 0052 0B       		.uleb128 0xb
+ 996 0053 3B       		.uleb128 0x3b
+ 997 0054 0B       		.uleb128 0xb
+ 998 0055 27       		.uleb128 0x27
+ 999 0056 19       		.uleb128 0x19
+ 1000 0057 11       		.uleb128 0x11
+ 1001 0058 01       		.uleb128 0x1
+ 1002 0059 12       		.uleb128 0x12
+ 1003 005a 06       		.uleb128 0x6
+ 1004 005b 40       		.uleb128 0x40
+ 1005 005c 18       		.uleb128 0x18
+ 1006 005d 9742     		.uleb128 0x2117
+ 1007 005f 19       		.uleb128 0x19
+ 1008 0060 01       		.uleb128 0x1
+ 1009 0061 13       		.uleb128 0x13
+ 1010 0062 00       		.byte	0
+ 1011 0063 00       		.byte	0
+ 1012 0064 08       		.uleb128 0x8
+ 1013 0065 05       		.uleb128 0x5
+ 1014 0066 00       		.byte	0
+ 1015 0067 03       		.uleb128 0x3
+ 1016 0068 0E       		.uleb128 0xe
+ 1017 0069 3A       		.uleb128 0x3a
+ 1018 006a 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 26
+
+
+ 1019 006b 3B       		.uleb128 0x3b
+ 1020 006c 0B       		.uleb128 0xb
+ 1021 006d 49       		.uleb128 0x49
+ 1022 006e 13       		.uleb128 0x13
+ 1023 006f 02       		.uleb128 0x2
+ 1024 0070 18       		.uleb128 0x18
+ 1025 0071 00       		.byte	0
+ 1026 0072 00       		.byte	0
+ 1027 0073 09       		.uleb128 0x9
+ 1028 0074 15       		.uleb128 0x15
+ 1029 0075 00       		.byte	0
+ 1030 0076 27       		.uleb128 0x27
+ 1031 0077 19       		.uleb128 0x19
+ 1032 0078 49       		.uleb128 0x49
+ 1033 0079 13       		.uleb128 0x13
+ 1034 007a 00       		.byte	0
+ 1035 007b 00       		.byte	0
+ 1036 007c 0A       		.uleb128 0xa
+ 1037 007d 0F       		.uleb128 0xf
+ 1038 007e 00       		.byte	0
+ 1039 007f 0B       		.uleb128 0xb
+ 1040 0080 0B       		.uleb128 0xb
+ 1041 0081 49       		.uleb128 0x49
+ 1042 0082 13       		.uleb128 0x13
+ 1043 0083 00       		.byte	0
+ 1044 0084 00       		.byte	0
+ 1045 0085 0B       		.uleb128 0xb
+ 1046 0086 2E       		.uleb128 0x2e
+ 1047 0087 00       		.byte	0
+ 1048 0088 3F       		.uleb128 0x3f
+ 1049 0089 19       		.uleb128 0x19
+ 1050 008a 03       		.uleb128 0x3
+ 1051 008b 0E       		.uleb128 0xe
+ 1052 008c 3A       		.uleb128 0x3a
+ 1053 008d 0B       		.uleb128 0xb
+ 1054 008e 3B       		.uleb128 0x3b
+ 1055 008f 0B       		.uleb128 0xb
+ 1056 0090 27       		.uleb128 0x27
+ 1057 0091 19       		.uleb128 0x19
+ 1058 0092 49       		.uleb128 0x49
+ 1059 0093 13       		.uleb128 0x13
+ 1060 0094 11       		.uleb128 0x11
+ 1061 0095 01       		.uleb128 0x1
+ 1062 0096 12       		.uleb128 0x12
+ 1063 0097 06       		.uleb128 0x6
+ 1064 0098 40       		.uleb128 0x40
+ 1065 0099 18       		.uleb128 0x18
+ 1066 009a 9742     		.uleb128 0x2117
+ 1067 009c 19       		.uleb128 0x19
+ 1068 009d 00       		.byte	0
+ 1069 009e 00       		.byte	0
+ 1070 009f 0C       		.uleb128 0xc
+ 1071 00a0 2E       		.uleb128 0x2e
+ 1072 00a1 01       		.byte	0x1
+ 1073 00a2 3F       		.uleb128 0x3f
+ 1074 00a3 19       		.uleb128 0x19
+ 1075 00a4 03       		.uleb128 0x3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 27
+
+
+ 1076 00a5 0E       		.uleb128 0xe
+ 1077 00a6 3A       		.uleb128 0x3a
+ 1078 00a7 0B       		.uleb128 0xb
+ 1079 00a8 3B       		.uleb128 0x3b
+ 1080 00a9 0B       		.uleb128 0xb
+ 1081 00aa 27       		.uleb128 0x27
+ 1082 00ab 19       		.uleb128 0x19
+ 1083 00ac 49       		.uleb128 0x49
+ 1084 00ad 13       		.uleb128 0x13
+ 1085 00ae 11       		.uleb128 0x11
+ 1086 00af 01       		.uleb128 0x1
+ 1087 00b0 12       		.uleb128 0x12
+ 1088 00b1 06       		.uleb128 0x6
+ 1089 00b2 40       		.uleb128 0x40
+ 1090 00b3 18       		.uleb128 0x18
+ 1091 00b4 9742     		.uleb128 0x2117
+ 1092 00b6 19       		.uleb128 0x19
+ 1093 00b7 01       		.uleb128 0x1
+ 1094 00b8 13       		.uleb128 0x13
+ 1095 00b9 00       		.byte	0
+ 1096 00ba 00       		.byte	0
+ 1097 00bb 0D       		.uleb128 0xd
+ 1098 00bc 34       		.uleb128 0x34
+ 1099 00bd 00       		.byte	0
+ 1100 00be 03       		.uleb128 0x3
+ 1101 00bf 0E       		.uleb128 0xe
+ 1102 00c0 3A       		.uleb128 0x3a
+ 1103 00c1 0B       		.uleb128 0xb
+ 1104 00c2 3B       		.uleb128 0x3b
+ 1105 00c3 0B       		.uleb128 0xb
+ 1106 00c4 49       		.uleb128 0x49
+ 1107 00c5 13       		.uleb128 0x13
+ 1108 00c6 02       		.uleb128 0x2
+ 1109 00c7 17       		.uleb128 0x17
+ 1110 00c8 00       		.byte	0
+ 1111 00c9 00       		.byte	0
+ 1112 00ca 0E       		.uleb128 0xe
+ 1113 00cb 898201   		.uleb128 0x4109
+ 1114 00ce 01       		.byte	0x1
+ 1115 00cf 11       		.uleb128 0x11
+ 1116 00d0 01       		.uleb128 0x1
+ 1117 00d1 31       		.uleb128 0x31
+ 1118 00d2 13       		.uleb128 0x13
+ 1119 00d3 01       		.uleb128 0x1
+ 1120 00d4 13       		.uleb128 0x13
+ 1121 00d5 00       		.byte	0
+ 1122 00d6 00       		.byte	0
+ 1123 00d7 0F       		.uleb128 0xf
+ 1124 00d8 8A8201   		.uleb128 0x410a
+ 1125 00db 00       		.byte	0
+ 1126 00dc 02       		.uleb128 0x2
+ 1127 00dd 18       		.uleb128 0x18
+ 1128 00de 9142     		.uleb128 0x2111
+ 1129 00e0 18       		.uleb128 0x18
+ 1130 00e1 00       		.byte	0
+ 1131 00e2 00       		.byte	0
+ 1132 00e3 10       		.uleb128 0x10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 28
+
+
+ 1133 00e4 898201   		.uleb128 0x4109
+ 1134 00e7 01       		.byte	0x1
+ 1135 00e8 11       		.uleb128 0x11
+ 1136 00e9 01       		.uleb128 0x1
+ 1137 00ea 31       		.uleb128 0x31
+ 1138 00eb 13       		.uleb128 0x13
+ 1139 00ec 00       		.byte	0
+ 1140 00ed 00       		.byte	0
+ 1141 00ee 11       		.uleb128 0x11
+ 1142 00ef 05       		.uleb128 0x5
+ 1143 00f0 00       		.byte	0
+ 1144 00f1 03       		.uleb128 0x3
+ 1145 00f2 0E       		.uleb128 0xe
+ 1146 00f3 3A       		.uleb128 0x3a
+ 1147 00f4 0B       		.uleb128 0xb
+ 1148 00f5 3B       		.uleb128 0x3b
+ 1149 00f6 0B       		.uleb128 0xb
+ 1150 00f7 49       		.uleb128 0x49
+ 1151 00f8 13       		.uleb128 0x13
+ 1152 00f9 02       		.uleb128 0x2
+ 1153 00fa 17       		.uleb128 0x17
+ 1154 00fb 00       		.byte	0
+ 1155 00fc 00       		.byte	0
+ 1156 00fd 12       		.uleb128 0x12
+ 1157 00fe 2E       		.uleb128 0x2e
+ 1158 00ff 01       		.byte	0x1
+ 1159 0100 3F       		.uleb128 0x3f
+ 1160 0101 19       		.uleb128 0x19
+ 1161 0102 03       		.uleb128 0x3
+ 1162 0103 0E       		.uleb128 0xe
+ 1163 0104 3A       		.uleb128 0x3a
+ 1164 0105 0B       		.uleb128 0xb
+ 1165 0106 3B       		.uleb128 0x3b
+ 1166 0107 05       		.uleb128 0x5
+ 1167 0108 27       		.uleb128 0x27
+ 1168 0109 19       		.uleb128 0x19
+ 1169 010a 11       		.uleb128 0x11
+ 1170 010b 01       		.uleb128 0x1
+ 1171 010c 12       		.uleb128 0x12
+ 1172 010d 06       		.uleb128 0x6
+ 1173 010e 40       		.uleb128 0x40
+ 1174 010f 18       		.uleb128 0x18
+ 1175 0110 9742     		.uleb128 0x2117
+ 1176 0112 19       		.uleb128 0x19
+ 1177 0113 01       		.uleb128 0x1
+ 1178 0114 13       		.uleb128 0x13
+ 1179 0115 00       		.byte	0
+ 1180 0116 00       		.byte	0
+ 1181 0117 13       		.uleb128 0x13
+ 1182 0118 05       		.uleb128 0x5
+ 1183 0119 00       		.byte	0
+ 1184 011a 03       		.uleb128 0x3
+ 1185 011b 0E       		.uleb128 0xe
+ 1186 011c 3A       		.uleb128 0x3a
+ 1187 011d 0B       		.uleb128 0xb
+ 1188 011e 3B       		.uleb128 0x3b
+ 1189 011f 05       		.uleb128 0x5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 29
+
+
+ 1190 0120 49       		.uleb128 0x49
+ 1191 0121 13       		.uleb128 0x13
+ 1192 0122 02       		.uleb128 0x2
+ 1193 0123 17       		.uleb128 0x17
+ 1194 0124 00       		.byte	0
+ 1195 0125 00       		.byte	0
+ 1196 0126 14       		.uleb128 0x14
+ 1197 0127 2E       		.uleb128 0x2e
+ 1198 0128 00       		.byte	0
+ 1199 0129 3F       		.uleb128 0x3f
+ 1200 012a 19       		.uleb128 0x19
+ 1201 012b 03       		.uleb128 0x3
+ 1202 012c 0E       		.uleb128 0xe
+ 1203 012d 3A       		.uleb128 0x3a
+ 1204 012e 0B       		.uleb128 0xb
+ 1205 012f 3B       		.uleb128 0x3b
+ 1206 0130 05       		.uleb128 0x5
+ 1207 0131 27       		.uleb128 0x27
+ 1208 0132 19       		.uleb128 0x19
+ 1209 0133 49       		.uleb128 0x49
+ 1210 0134 13       		.uleb128 0x13
+ 1211 0135 11       		.uleb128 0x11
+ 1212 0136 01       		.uleb128 0x1
+ 1213 0137 12       		.uleb128 0x12
+ 1214 0138 06       		.uleb128 0x6
+ 1215 0139 40       		.uleb128 0x40
+ 1216 013a 18       		.uleb128 0x18
+ 1217 013b 9742     		.uleb128 0x2117
+ 1218 013d 19       		.uleb128 0x19
+ 1219 013e 00       		.byte	0
+ 1220 013f 00       		.byte	0
+ 1221 0140 15       		.uleb128 0x15
+ 1222 0141 2E       		.uleb128 0x2e
+ 1223 0142 00       		.byte	0
+ 1224 0143 3F       		.uleb128 0x3f
+ 1225 0144 19       		.uleb128 0x19
+ 1226 0145 03       		.uleb128 0x3
+ 1227 0146 0E       		.uleb128 0xe
+ 1228 0147 3A       		.uleb128 0x3a
+ 1229 0148 0B       		.uleb128 0xb
+ 1230 0149 3B       		.uleb128 0x3b
+ 1231 014a 05       		.uleb128 0x5
+ 1232 014b 27       		.uleb128 0x27
+ 1233 014c 19       		.uleb128 0x19
+ 1234 014d 11       		.uleb128 0x11
+ 1235 014e 01       		.uleb128 0x1
+ 1236 014f 12       		.uleb128 0x12
+ 1237 0150 06       		.uleb128 0x6
+ 1238 0151 40       		.uleb128 0x40
+ 1239 0152 18       		.uleb128 0x18
+ 1240 0153 9742     		.uleb128 0x2117
+ 1241 0155 19       		.uleb128 0x19
+ 1242 0156 00       		.byte	0
+ 1243 0157 00       		.byte	0
+ 1244 0158 16       		.uleb128 0x16
+ 1245 0159 34       		.uleb128 0x34
+ 1246 015a 00       		.byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 30
+
+
+ 1247 015b 03       		.uleb128 0x3
+ 1248 015c 0E       		.uleb128 0xe
+ 1249 015d 3A       		.uleb128 0x3a
+ 1250 015e 0B       		.uleb128 0xb
+ 1251 015f 3B       		.uleb128 0x3b
+ 1252 0160 0B       		.uleb128 0xb
+ 1253 0161 49       		.uleb128 0x49
+ 1254 0162 13       		.uleb128 0x13
+ 1255 0163 3F       		.uleb128 0x3f
+ 1256 0164 19       		.uleb128 0x19
+ 1257 0165 02       		.uleb128 0x2
+ 1258 0166 18       		.uleb128 0x18
+ 1259 0167 00       		.byte	0
+ 1260 0168 00       		.byte	0
+ 1261 0169 17       		.uleb128 0x17
+ 1262 016a 2E       		.uleb128 0x2e
+ 1263 016b 01       		.byte	0x1
+ 1264 016c 3F       		.uleb128 0x3f
+ 1265 016d 19       		.uleb128 0x19
+ 1266 016e 03       		.uleb128 0x3
+ 1267 016f 0E       		.uleb128 0xe
+ 1268 0170 3A       		.uleb128 0x3a
+ 1269 0171 0B       		.uleb128 0xb
+ 1270 0172 3B       		.uleb128 0x3b
+ 1271 0173 0B       		.uleb128 0xb
+ 1272 0174 27       		.uleb128 0x27
+ 1273 0175 19       		.uleb128 0x19
+ 1274 0176 3C       		.uleb128 0x3c
+ 1275 0177 19       		.uleb128 0x19
+ 1276 0178 01       		.uleb128 0x1
+ 1277 0179 13       		.uleb128 0x13
+ 1278 017a 00       		.byte	0
+ 1279 017b 00       		.byte	0
+ 1280 017c 18       		.uleb128 0x18
+ 1281 017d 05       		.uleb128 0x5
+ 1282 017e 00       		.byte	0
+ 1283 017f 49       		.uleb128 0x49
+ 1284 0180 13       		.uleb128 0x13
+ 1285 0181 00       		.byte	0
+ 1286 0182 00       		.byte	0
+ 1287 0183 19       		.uleb128 0x19
+ 1288 0184 2E       		.uleb128 0x2e
+ 1289 0185 01       		.byte	0x1
+ 1290 0186 3F       		.uleb128 0x3f
+ 1291 0187 19       		.uleb128 0x19
+ 1292 0188 03       		.uleb128 0x3
+ 1293 0189 0E       		.uleb128 0xe
+ 1294 018a 3A       		.uleb128 0x3a
+ 1295 018b 0B       		.uleb128 0xb
+ 1296 018c 3B       		.uleb128 0x3b
+ 1297 018d 0B       		.uleb128 0xb
+ 1298 018e 27       		.uleb128 0x27
+ 1299 018f 19       		.uleb128 0x19
+ 1300 0190 3C       		.uleb128 0x3c
+ 1301 0191 19       		.uleb128 0x19
+ 1302 0192 00       		.byte	0
+ 1303 0193 00       		.byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 31
+
+
+ 1304 0194 00       		.byte	0
+ 1305              		.section	.debug_loc,"",%progbits
+ 1306              	.Ldebug_loc0:
+ 1307              	.LLST0:
+ 1308 0000 10000000 		.4byte	.LVL2
+ 1309 0004 20000000 		.4byte	.LVL4
+ 1310 0008 0100     		.2byte	0x1
+ 1311 000a 54       		.byte	0x54
+ 1312 000b 20000000 		.4byte	.LVL4
+ 1313 000f 28000000 		.4byte	.LFE4
+ 1314 0013 0100     		.2byte	0x1
+ 1315 0015 50       		.byte	0x50
+ 1316 0016 00000000 		.4byte	0
+ 1317 001a 00000000 		.4byte	0
+ 1318              	.LLST1:
+ 1319 001e 10000000 		.4byte	.LVL6
+ 1320 0022 20000000 		.4byte	.LVL8
+ 1321 0026 0100     		.2byte	0x1
+ 1322 0028 54       		.byte	0x54
+ 1323 0029 20000000 		.4byte	.LVL8
+ 1324 002d 28000000 		.4byte	.LFE5
+ 1325 0031 0100     		.2byte	0x1
+ 1326 0033 50       		.byte	0x50
+ 1327 0034 00000000 		.4byte	0
+ 1328 0038 00000000 		.4byte	0
+ 1329              	.LLST2:
+ 1330 003c 00000000 		.4byte	.LVL9
+ 1331 0040 0A000000 		.4byte	.LVL12
+ 1332 0044 0100     		.2byte	0x1
+ 1333 0046 50       		.byte	0x50
+ 1334 0047 0A000000 		.4byte	.LVL12
+ 1335 004b 18000000 		.4byte	.LFE6
+ 1336 004f 0400     		.2byte	0x4
+ 1337 0051 F3       		.byte	0xf3
+ 1338 0052 01       		.uleb128 0x1
+ 1339 0053 50       		.byte	0x50
+ 1340 0054 9F       		.byte	0x9f
+ 1341 0055 00000000 		.4byte	0
+ 1342 0059 00000000 		.4byte	0
+ 1343              	.LLST3:
+ 1344 005d 04000000 		.4byte	.LVL10
+ 1345 0061 0E000000 		.4byte	.LVL13
+ 1346 0065 0100     		.2byte	0x1
+ 1347 0067 53       		.byte	0x53
+ 1348 0068 0E000000 		.4byte	.LVL13
+ 1349 006c 18000000 		.4byte	.LFE6
+ 1350 0070 0100     		.2byte	0x1
+ 1351 0072 50       		.byte	0x50
+ 1352 0073 00000000 		.4byte	0
+ 1353 0077 00000000 		.4byte	0
+ 1354              	.LLST4:
+ 1355 007b 00000000 		.4byte	.LVL14
+ 1356 007f 0A000000 		.4byte	.LVL17
+ 1357 0083 0100     		.2byte	0x1
+ 1358 0085 50       		.byte	0x50
+ 1359 0086 0A000000 		.4byte	.LVL17
+ 1360 008a 18000000 		.4byte	.LFE7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 32
+
+
+ 1361 008e 0400     		.2byte	0x4
+ 1362 0090 F3       		.byte	0xf3
+ 1363 0091 01       		.uleb128 0x1
+ 1364 0092 50       		.byte	0x50
+ 1365 0093 9F       		.byte	0x9f
+ 1366 0094 00000000 		.4byte	0
+ 1367 0098 00000000 		.4byte	0
+ 1368              	.LLST5:
+ 1369 009c 04000000 		.4byte	.LVL15
+ 1370 00a0 08000000 		.4byte	.LVL16
+ 1371 00a4 0100     		.2byte	0x1
+ 1372 00a6 51       		.byte	0x51
+ 1373 00a7 08000000 		.4byte	.LVL16
+ 1374 00ab 0C000000 		.4byte	.LVL18
+ 1375 00af 0100     		.2byte	0x1
+ 1376 00b1 53       		.byte	0x53
+ 1377 00b2 0C000000 		.4byte	.LVL18
+ 1378 00b6 18000000 		.4byte	.LFE7
+ 1379 00ba 0100     		.2byte	0x1
+ 1380 00bc 50       		.byte	0x50
+ 1381 00bd 00000000 		.4byte	0
+ 1382 00c1 00000000 		.4byte	0
+ 1383              	.LLST6:
+ 1384 00c5 00000000 		.4byte	.LVL19
+ 1385 00c9 0C000000 		.4byte	.LVL20
+ 1386 00cd 0100     		.2byte	0x1
+ 1387 00cf 50       		.byte	0x50
+ 1388 00d0 0C000000 		.4byte	.LVL20
+ 1389 00d4 28000000 		.4byte	.LVL22
+ 1390 00d8 0100     		.2byte	0x1
+ 1391 00da 54       		.byte	0x54
+ 1392 00db 28000000 		.4byte	.LVL22
+ 1393 00df 3C000000 		.4byte	.LFE8
+ 1394 00e3 0400     		.2byte	0x4
+ 1395 00e5 F3       		.byte	0xf3
+ 1396 00e6 01       		.uleb128 0x1
+ 1397 00e7 50       		.byte	0x50
+ 1398 00e8 9F       		.byte	0x9f
+ 1399 00e9 00000000 		.4byte	0
+ 1400 00ed 00000000 		.4byte	0
+ 1401              	.LLST7:
+ 1402 00f1 00000000 		.4byte	.LVL19
+ 1403 00f5 0F000000 		.4byte	.LVL21-1
+ 1404 00f9 0100     		.2byte	0x1
+ 1405 00fb 51       		.byte	0x51
+ 1406 00fc 0F000000 		.4byte	.LVL21-1
+ 1407 0100 28000000 		.4byte	.LVL22
+ 1408 0104 0100     		.2byte	0x1
+ 1409 0106 55       		.byte	0x55
+ 1410 0107 28000000 		.4byte	.LVL22
+ 1411 010b 3C000000 		.4byte	.LFE8
+ 1412 010f 0400     		.2byte	0x4
+ 1413 0111 F3       		.byte	0xf3
+ 1414 0112 01       		.uleb128 0x1
+ 1415 0113 51       		.byte	0x51
+ 1416 0114 9F       		.byte	0x9f
+ 1417 0115 00000000 		.4byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 33
+
+
+ 1418 0119 00000000 		.4byte	0
+ 1419              	.LLST8:
+ 1420 011d 00000000 		.4byte	.LVL23
+ 1421 0121 0C000000 		.4byte	.LVL24
+ 1422 0125 0100     		.2byte	0x1
+ 1423 0127 50       		.byte	0x50
+ 1424 0128 0C000000 		.4byte	.LVL24
+ 1425 012c 24000000 		.4byte	.LVL26
+ 1426 0130 0100     		.2byte	0x1
+ 1427 0132 54       		.byte	0x54
+ 1428 0133 24000000 		.4byte	.LVL26
+ 1429 0137 34000000 		.4byte	.LFE9
+ 1430 013b 0400     		.2byte	0x4
+ 1431 013d F3       		.byte	0xf3
+ 1432 013e 01       		.uleb128 0x1
+ 1433 013f 50       		.byte	0x50
+ 1434 0140 9F       		.byte	0x9f
+ 1435 0141 00000000 		.4byte	0
+ 1436 0145 00000000 		.4byte	0
+ 1437              	.LLST9:
+ 1438 0149 00000000 		.4byte	.LVL23
+ 1439 014d 0F000000 		.4byte	.LVL25-1
+ 1440 0151 0100     		.2byte	0x1
+ 1441 0153 51       		.byte	0x51
+ 1442 0154 0F000000 		.4byte	.LVL25-1
+ 1443 0158 24000000 		.4byte	.LVL26
+ 1444 015c 0100     		.2byte	0x1
+ 1445 015e 55       		.byte	0x55
+ 1446 015f 24000000 		.4byte	.LVL26
+ 1447 0163 34000000 		.4byte	.LFE9
+ 1448 0167 0400     		.2byte	0x4
+ 1449 0169 F3       		.byte	0xf3
+ 1450 016a 01       		.uleb128 0x1
+ 1451 016b 51       		.byte	0x51
+ 1452 016c 9F       		.byte	0x9f
+ 1453 016d 00000000 		.4byte	0
+ 1454 0171 00000000 		.4byte	0
+ 1455              		.section	.debug_aranges,"",%progbits
+ 1456 0000 74000000 		.4byte	0x74
+ 1457 0004 0200     		.2byte	0x2
+ 1458 0006 00000000 		.4byte	.Ldebug_info0
+ 1459 000a 04       		.byte	0x4
+ 1460 000b 00       		.byte	0
+ 1461 000c 0000     		.2byte	0
+ 1462 000e 0000     		.2byte	0
+ 1463 0010 00000000 		.4byte	.LFB2
+ 1464 0014 0C000000 		.4byte	.LFE2-.LFB2
+ 1465 0018 00000000 		.4byte	.LFB3
+ 1466 001c 0C000000 		.4byte	.LFE3-.LFB3
+ 1467 0020 00000000 		.4byte	.LFB4
+ 1468 0024 28000000 		.4byte	.LFE4-.LFB4
+ 1469 0028 00000000 		.4byte	.LFB5
+ 1470 002c 28000000 		.4byte	.LFE5-.LFB5
+ 1471 0030 00000000 		.4byte	.LFB6
+ 1472 0034 18000000 		.4byte	.LFE6-.LFB6
+ 1473 0038 00000000 		.4byte	.LFB7
+ 1474 003c 18000000 		.4byte	.LFE7-.LFB7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 34
+
+
+ 1475 0040 00000000 		.4byte	.LFB8
+ 1476 0044 3C000000 		.4byte	.LFE8-.LFB8
+ 1477 0048 00000000 		.4byte	.LFB9
+ 1478 004c 34000000 		.4byte	.LFE9-.LFB9
+ 1479 0050 00000000 		.4byte	.LFB10
+ 1480 0054 0C000000 		.4byte	.LFE10-.LFB10
+ 1481 0058 00000000 		.4byte	.LFB11
+ 1482 005c 0C000000 		.4byte	.LFE11-.LFB11
+ 1483 0060 00000000 		.4byte	.LFB12
+ 1484 0064 0C000000 		.4byte	.LFE12-.LFB12
+ 1485 0068 00000000 		.4byte	.LFB13
+ 1486 006c 0C000000 		.4byte	.LFE13-.LFB13
+ 1487 0070 00000000 		.4byte	0
+ 1488 0074 00000000 		.4byte	0
+ 1489              		.section	.debug_ranges,"",%progbits
+ 1490              	.Ldebug_ranges0:
+ 1491 0000 00000000 		.4byte	.LFB2
+ 1492 0004 0C000000 		.4byte	.LFE2
+ 1493 0008 00000000 		.4byte	.LFB3
+ 1494 000c 0C000000 		.4byte	.LFE3
+ 1495 0010 00000000 		.4byte	.LFB4
+ 1496 0014 28000000 		.4byte	.LFE4
+ 1497 0018 00000000 		.4byte	.LFB5
+ 1498 001c 28000000 		.4byte	.LFE5
+ 1499 0020 00000000 		.4byte	.LFB6
+ 1500 0024 18000000 		.4byte	.LFE6
+ 1501 0028 00000000 		.4byte	.LFB7
+ 1502 002c 18000000 		.4byte	.LFE7
+ 1503 0030 00000000 		.4byte	.LFB8
+ 1504 0034 3C000000 		.4byte	.LFE8
+ 1505 0038 00000000 		.4byte	.LFB9
+ 1506 003c 34000000 		.4byte	.LFE9
+ 1507 0040 00000000 		.4byte	.LFB10
+ 1508 0044 0C000000 		.4byte	.LFE10
+ 1509 0048 00000000 		.4byte	.LFB11
+ 1510 004c 0C000000 		.4byte	.LFE11
+ 1511 0050 00000000 		.4byte	.LFB12
+ 1512 0054 0C000000 		.4byte	.LFE12
+ 1513 0058 00000000 		.4byte	.LFB13
+ 1514 005c 0C000000 		.4byte	.LFE13
+ 1515 0060 00000000 		.4byte	0
+ 1516 0064 00000000 		.4byte	0
+ 1517              		.section	.debug_line,"",%progbits
+ 1518              	.Ldebug_line0:
+ 1519 0000 64010000 		.section	.debug_str,"MS",%progbits,1
+ 1519      02006F00 
+ 1519      00000201 
+ 1519      FB0E0D00 
+ 1519      01010101 
+ 1520              	.LASF35:
+ 1521 0000 55415254 		.ascii	"UART_I2CSlaveClearWriteBuf\000"
+ 1521      5F493243 
+ 1521      536C6176 
+ 1521      65436C65 
+ 1521      61725772 
+ 1522              	.LASF14:
+ 1523 001b 72656733 		.ascii	"reg32\000"
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 35
+
+
+ 1523      3200
+ 1524              	.LASF34:
+ 1525 0021 55415254 		.ascii	"UART_I2CSlaveClearReadBuf\000"
+ 1525      5F493243 
+ 1525      536C6176 
+ 1525      65436C65 
+ 1525      61725265 
+ 1526              	.LASF11:
+ 1527 003b 666C6F61 		.ascii	"float\000"
+ 1527      7400
+ 1528              	.LASF32:
+ 1529 0041 55415254 		.ascii	"UART_I2CSlaveGetReadBufSize\000"
+ 1529      5F493243 
+ 1529      536C6176 
+ 1529      65476574 
+ 1529      52656164 
+ 1530              	.LASF31:
+ 1531 005d 55415254 		.ascii	"UART_I2CSlaveStatus\000"
+ 1531      5F493243 
+ 1531      536C6176 
+ 1531      65537461 
+ 1531      74757300 
+ 1532              	.LASF3:
+ 1533 0071 73686F72 		.ascii	"short unsigned int\000"
+ 1533      7420756E 
+ 1533      7369676E 
+ 1533      65642069 
+ 1533      6E7400
+ 1534              	.LASF48:
+ 1535 0084 473A5C43 		.ascii	"G:\\Company\\Jetronic\\CYPRESS\\CYPRESS_BLE_Study\\"
+ 1535      6F6D7061 
+ 1535      6E795C4A 
+ 1535      6574726F 
+ 1535      6E69635C 
+ 1536 00b2 54726F75 		.ascii	"Troughput\\Troughpur_Central_Peripheral\\Troughput_"
+ 1536      67687075 
+ 1536      745C5472 
+ 1536      6F756768 
+ 1536      7075725F 
+ 1537 00e3 43656E74 		.ascii	"Central_Peripheral.cydsn\000"
+ 1537      72616C5F 
+ 1537      50657269 
+ 1537      70686572 
+ 1537      616C2E63 
+ 1538              	.LASF20:
+ 1539 00fc 55415254 		.ascii	"UART_I2CSlaveSetAddress\000"
+ 1539      5F493243 
+ 1539      536C6176 
+ 1539      65536574 
+ 1539      41646472 
+ 1540              	.LASF33:
+ 1541 0114 55415254 		.ascii	"UART_I2CSlaveGetWriteBufSize\000"
+ 1541      5F493243 
+ 1541      536C6176 
+ 1541      65476574 
+ 1541      57726974 
+ 1542              	.LASF18:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 36
+
+
+ 1543 0131 73746174 		.ascii	"status\000"
+ 1543      757300
+ 1544              	.LASF27:
+ 1545 0138 72644275 		.ascii	"rdBuf\000"
+ 1545      6600
+ 1546              	.LASF40:
+ 1547 013e 55415254 		.ascii	"UART_slRdBufPtr\000"
+ 1547      5F736C52 
+ 1547      64427566 
+ 1547      50747200 
+ 1548              	.LASF24:
+ 1549 014e 55415254 		.ascii	"UART_I2CSlaveSetAddressMask\000"
+ 1549      5F493243 
+ 1549      536C6176 
+ 1549      65536574 
+ 1549      41646472 
+ 1550              	.LASF19:
+ 1551 016a 55415254 		.ascii	"UART_SetI2cAddressCustomInterruptHandler\000"
+ 1551      5F536574 
+ 1551      49326341 
+ 1551      64647265 
+ 1551      73734375 
+ 1552              	.LASF47:
+ 1553 0193 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\UART_I2C_SLAVE.c\000"
+ 1553      6E657261 
+ 1553      7465645F 
+ 1553      536F7572 
+ 1553      63655C50 
+ 1554              	.LASF1:
+ 1555 01bd 756E7369 		.ascii	"unsigned char\000"
+ 1555      676E6564 
+ 1555      20636861 
+ 1555      7200
+ 1556              	.LASF5:
+ 1557 01cb 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1557      20756E73 
+ 1557      69676E65 
+ 1557      6420696E 
+ 1557      7400
+ 1558              	.LASF44:
+ 1559 01dd 55415254 		.ascii	"UART_slOverFlowCount\000"
+ 1559      5F736C4F 
+ 1559      76657246 
+ 1559      6C6F7743 
+ 1559      6F756E74 
+ 1560              	.LASF9:
+ 1561 01f2 75696E74 		.ascii	"uint8\000"
+ 1561      3800
+ 1562              	.LASF39:
+ 1563 01f8 55415254 		.ascii	"UART_slWrBufIndex\000"
+ 1563      5F736C57 
+ 1563      72427566 
+ 1563      496E6465 
+ 1563      7800
+ 1564              	.LASF30:
+ 1565 020a 77724275 		.ascii	"wrBuf\000"
+ 1565      6600
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 37
+
+
+ 1566              	.LASF12:
+ 1567 0210 646F7562 		.ascii	"double\000"
+ 1567      6C6500
+ 1568              	.LASF45:
+ 1569 0217 55415254 		.ascii	"UART_customAddressHandler\000"
+ 1569      5F637573 
+ 1569      746F6D41 
+ 1569      64647265 
+ 1569      73734861 
+ 1570              	.LASF21:
+ 1571 0231 66756E63 		.ascii	"func\000"
+ 1571      00
+ 1572              	.LASF50:
+ 1573 0236 4379496E 		.ascii	"CyIntEnable\000"
+ 1573      74456E61 
+ 1573      626C6500 
+ 1574              	.LASF41:
+ 1575 0242 55415254 		.ascii	"UART_slRdBufSize\000"
+ 1575      5F736C52 
+ 1575      64427566 
+ 1575      53697A65 
+ 1575      00
+ 1576              	.LASF10:
+ 1577 0253 75696E74 		.ascii	"uint32\000"
+ 1577      333200
+ 1578              	.LASF8:
+ 1579 025a 756E7369 		.ascii	"unsigned int\000"
+ 1579      676E6564 
+ 1579      20696E74 
+ 1579      00
+ 1580              	.LASF22:
+ 1581 0267 61646472 		.ascii	"address\000"
+ 1581      65737300 
+ 1582              	.LASF7:
+ 1583 026f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1583      206C6F6E 
+ 1583      6720756E 
+ 1583      7369676E 
+ 1583      65642069 
+ 1584              	.LASF25:
+ 1585 0286 61646472 		.ascii	"addressMask\000"
+ 1585      6573734D 
+ 1585      61736B00 
+ 1586              	.LASF42:
+ 1587 0292 55415254 		.ascii	"UART_slRdBufIndex\000"
+ 1587      5F736C52 
+ 1587      64427566 
+ 1587      496E6465 
+ 1587      7800
+ 1588              	.LASF17:
+ 1589 02a4 55415254 		.ascii	"UART_I2CSlaveClearWriteStatus\000"
+ 1589      5F493243 
+ 1589      536C6176 
+ 1589      65436C65 
+ 1589      61725772 
+ 1590              	.LASF15:
+ 1591 02c2 73697A65 		.ascii	"sizetype\000"
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 38
+
+
+ 1591      74797065 
+ 1591      00
+ 1592              	.LASF6:
+ 1593 02cb 6C6F6E67 		.ascii	"long long int\000"
+ 1593      206C6F6E 
+ 1593      6720696E 
+ 1593      7400
+ 1594              	.LASF13:
+ 1595 02d9 63686172 		.ascii	"char\000"
+ 1595      00
+ 1596              	.LASF43:
+ 1597 02de 55415254 		.ascii	"UART_slRdBufIndexTmp\000"
+ 1597      5F736C52 
+ 1597      64427566 
+ 1597      496E6465 
+ 1597      78546D70 
+ 1598              	.LASF46:
+ 1599 02f3 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1599      4320342E 
+ 1599      392E3320 
+ 1599      32303135 
+ 1599      30333033 
+ 1600 0326 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 1600      20726576 
+ 1600      6973696F 
+ 1600      6E203232 
+ 1600      31323230 
+ 1601 0359 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1601      66756E63 
+ 1601      74696F6E 
+ 1601      2D736563 
+ 1601      74696F6E 
+ 1602              	.LASF49:
+ 1603 0381 4379496E 		.ascii	"CyIntDisable\000"
+ 1603      74446973 
+ 1603      61626C65 
+ 1603      00
+ 1604              	.LASF2:
+ 1605 038e 73686F72 		.ascii	"short int\000"
+ 1605      7420696E 
+ 1605      7400
+ 1606              	.LASF28:
+ 1607 0398 62756653 		.ascii	"bufSize\000"
+ 1607      697A6500 
+ 1608              	.LASF29:
+ 1609 03a0 55415254 		.ascii	"UART_I2CSlaveInitWriteBuf\000"
+ 1609      5F493243 
+ 1609      536C6176 
+ 1609      65496E69 
+ 1609      74577269 
+ 1610              	.LASF16:
+ 1611 03ba 55415254 		.ascii	"UART_I2CSlaveClearReadStatus\000"
+ 1611      5F493243 
+ 1611      536C6176 
+ 1611      65436C65 
+ 1611      61725265 
+ 1612              	.LASF4:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc4vFAx4.s 			page 39
+
+
+ 1613 03d7 6C6F6E67 		.ascii	"long int\000"
+ 1613      20696E74 
+ 1613      00
+ 1614              	.LASF23:
+ 1615 03e0 6D617463 		.ascii	"matchReg\000"
+ 1615      68526567 
+ 1615      00
+ 1616              	.LASF38:
+ 1617 03e9 55415254 		.ascii	"UART_slWrBufSize\000"
+ 1617      5F736C57 
+ 1617      72427566 
+ 1617      53697A65 
+ 1617      00
+ 1618              	.LASF0:
+ 1619 03fa 7369676E 		.ascii	"signed char\000"
+ 1619      65642063 
+ 1619      68617200 
+ 1620              	.LASF36:
+ 1621 0406 55415254 		.ascii	"UART_slStatus\000"
+ 1621      5F736C53 
+ 1621      74617475 
+ 1621      7300
+ 1622              	.LASF26:
+ 1623 0414 55415254 		.ascii	"UART_I2CSlaveInitReadBuf\000"
+ 1623      5F493243 
+ 1623      536C6176 
+ 1623      65496E69 
+ 1623      74526561 
+ 1624              	.LASF37:
+ 1625 042d 55415254 		.ascii	"UART_slWrBufPtr\000"
+ 1625      5F736C57 
+ 1625      72427566 
+ 1625      50747200 
+ 1626              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
