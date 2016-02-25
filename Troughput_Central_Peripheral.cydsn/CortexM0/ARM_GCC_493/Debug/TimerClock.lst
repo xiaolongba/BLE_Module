@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
   30:.\Generated_Source\PSoC4/TimerClock.c **** *
   31:.\Generated_Source\PSoC4/TimerClock.c **** * Parameters:
   32:.\Generated_Source\PSoC4/TimerClock.c **** *  alignClkDiv:  The divider to which phase alignment is performed when the
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/TimerClock.c **** *    clock is started.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
   60              	TimerClock_Stop:
   61              	.LFB1:
   52:.\Generated_Source\PSoC4/TimerClock.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 3
 
 
   53:.\Generated_Source\PSoC4/TimerClock.c **** #else
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
   68 0004 002B     		cmp	r3, #0
   69 0006 FBDB     		blt	.L6
  101:.\Generated_Source\PSoC4/TimerClock.c ****     {
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 4
 
 
  102:.\Generated_Source\PSoC4/TimerClock.c ****     }
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  133:.\Generated_Source\PSoC4/TimerClock.c **** *******************************************************************************/
  134:.\Generated_Source\PSoC4/TimerClock.c **** void TimerClock_SetFractionalDividerRegister(uint16 clkDivider, uint8 clkFractional)
  135:.\Generated_Source\PSoC4/TimerClock.c **** {
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 5
 
 
   93              		.loc 1 135 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  122              		.loc 1 158 0
  123              		@ sp needed
  124 0018 10BD     		pop	{r4, pc}
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 6
 
 
  125              	.L11:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  156              		.cfi_endproc
  157              	.LFE3:
  158              		.size	TimerClock_GetDividerRegister, .-TimerClock_GetDividerRegister
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 7
 
 
  159              		.section	.text.TimerClock_GetFractionalDividerRegister,"ax",%progbits
@@ -415,48 +415,48 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  183 0006 00000000 		.4byte	.Ldebug_abbrev0
  184 000a 04       		.byte	0x4
  185 000b 01       		.uleb128 0x1
- 186 000c F3010000 		.4byte	.LASF25
+ 186 000c E0010000 		.4byte	.LASF25
  187 0010 01       		.byte	0x1
- 188 0011 1A010000 		.4byte	.LASF26
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 8
+ 188 0011 9D000000 		.4byte	.LASF26
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 8
 
 
- 189 0015 9D000000 		.4byte	.LASF27
+ 189 0015 63010000 		.4byte	.LASF27
  190 0019 00000000 		.4byte	.Ldebug_ranges0+0
  191 001d 00000000 		.4byte	0
  192 0021 00000000 		.4byte	.Ldebug_line0
  193 0025 02       		.uleb128 0x2
  194 0026 01       		.byte	0x1
  195 0027 06       		.byte	0x6
- 196 0028 9A020000 		.4byte	.LASF0
+ 196 0028 87020000 		.4byte	.LASF0
  197 002c 02       		.uleb128 0x2
  198 002d 01       		.byte	0x1
  199 002e 08       		.byte	0x8
- 200 002f 4F000000 		.4byte	.LASF1
+ 200 002f 3C000000 		.4byte	.LASF1
  201 0033 02       		.uleb128 0x2
  202 0034 02       		.byte	0x2
  203 0035 05       		.byte	0x5
- 204 0036 81020000 		.4byte	.LASF2
+ 204 0036 6E020000 		.4byte	.LASF2
  205 003a 02       		.uleb128 0x2
  206 003b 02       		.byte	0x2
  207 003c 07       		.byte	0x7
- 208 003d 0E000000 		.4byte	.LASF3
+ 208 003d 8A000000 		.4byte	.LASF3
  209 0041 02       		.uleb128 0x2
  210 0042 04       		.byte	0x4
  211 0043 05       		.byte	0x5
- 212 0044 91020000 		.4byte	.LASF4
+ 212 0044 7E020000 		.4byte	.LASF4
  213 0048 02       		.uleb128 0x2
  214 0049 04       		.byte	0x4
  215 004a 07       		.byte	0x7
- 216 004b 8B000000 		.4byte	.LASF5
+ 216 004b 78000000 		.4byte	.LASF5
  217 004f 02       		.uleb128 0x2
  218 0050 08       		.byte	0x8
  219 0051 05       		.byte	0x5
- 220 0052 E0010000 		.4byte	.LASF6
+ 220 0052 CD010000 		.4byte	.LASF6
  221 0056 02       		.uleb128 0x2
  222 0057 08       		.byte	0x8
  223 0058 07       		.byte	0x7
- 224 0059 C9010000 		.4byte	.LASF7
+ 224 0059 4C010000 		.4byte	.LASF7
  225 005d 03       		.uleb128 0x3
  226 005e 04       		.byte	0x4
  227 005f 05       		.byte	0x5
@@ -464,21 +464,21 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  229 0064 02       		.uleb128 0x2
  230 0065 04       		.byte	0x4
  231 0066 07       		.byte	0x7
- 232 0067 94010000 		.4byte	.LASF8
+ 232 0067 17010000 		.4byte	.LASF8
  233 006b 04       		.uleb128 0x4
- 234 006c 8B020000 		.4byte	.LASF9
+ 234 006c 78020000 		.4byte	.LASF9
  235 0070 02       		.byte	0x2
  236 0071 C2       		.byte	0xc2
  237 0072 2C000000 		.4byte	0x2c
  238 0076 04       		.uleb128 0x4
- 239 0077 73010000 		.4byte	.LASF10
+ 239 0077 F6000000 		.4byte	.LASF10
  240 007b 02       		.byte	0x2
  241 007c C3       		.byte	0xc3
  242 007d 3A000000 		.4byte	0x3a
  243 0081 04       		.uleb128 0x4
- 244 0082 7A010000 		.4byte	.LASF11
+ 244 0082 FD000000 		.4byte	.LASF11
  245 0086 02       		.byte	0x2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 9
 
 
  246 0087 C4       		.byte	0xc4
@@ -486,15 +486,15 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  248 008c 02       		.uleb128 0x2
  249 008d 04       		.byte	0x4
  250 008e 04       		.byte	0x4
- 251 008f 21000000 		.4byte	.LASF12
+ 251 008f 0E000000 		.4byte	.LASF12
  252 0093 02       		.uleb128 0x2
  253 0094 08       		.byte	0x8
  254 0095 04       		.byte	0x4
- 255 0096 4B010000 		.4byte	.LASF13
+ 255 0096 CE000000 		.4byte	.LASF13
  256 009a 02       		.uleb128 0x2
  257 009b 01       		.byte	0x1
  258 009c 08       		.byte	0x8
- 259 009d EE010000 		.4byte	.LASF14
+ 259 009d DB010000 		.4byte	.LASF14
  260 00a1 05       		.uleb128 0x5
  261 00a2 00000000 		.4byte	.LASF15
  262 00a6 02       		.byte	0x2
@@ -503,7 +503,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  265 00ad 06       		.uleb128 0x6
  266 00ae 81000000 		.4byte	0x81
  267 00b2 07       		.uleb128 0x7
- 268 00b3 81010000 		.4byte	.LASF16
+ 268 00b3 04010000 		.4byte	.LASF16
  269 00b7 01       		.byte	0x1
  270 00b8 27       		.byte	0x27
  271 00b9 00000000 		.4byte	.LFB0
@@ -512,14 +512,14 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  274 00c2 9C       		.byte	0x9c
  275 00c3 D7000000 		.4byte	0xd7
  276 00c7 08       		.uleb128 0x8
- 277 00c8 59010000 		.4byte	.LASF18
+ 277 00c8 DC000000 		.4byte	.LASF18
  278 00cc 01       		.byte	0x1
  279 00cd 27       		.byte	0x27
  280 00ce 81000000 		.4byte	0x81
  281 00d2 00000000 		.4byte	.LLST0
  282 00d6 00       		.byte	0
  283 00d7 09       		.uleb128 0x9
- 284 00d8 5D000000 		.4byte	.LASF28
+ 284 00d8 4A000000 		.4byte	.LASF28
  285 00dc 01       		.byte	0x1
  286 00dd 5F       		.byte	0x5f
  287 00de 00000000 		.4byte	.LFB1
@@ -527,7 +527,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  289 00e6 01       		.uleb128 0x1
  290 00e7 9C       		.byte	0x9c
  291 00e8 07       		.uleb128 0x7
- 292 00e9 A1010000 		.4byte	.LASF17
+ 292 00e9 24010000 		.4byte	.LASF17
  293 00ed 01       		.byte	0x1
  294 00ee 86       		.byte	0x86
  295 00ef 00000000 		.4byte	.LFB2
@@ -536,16 +536,16 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  298 00f8 9C       		.byte	0x9c
  299 00f9 38010000 		.4byte	0x138
  300 00fd 08       		.uleb128 0x8
- 301 00fe 40010000 		.4byte	.LASF19
+ 301 00fe C3000000 		.4byte	.LASF19
  302 0102 01       		.byte	0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 10
 
 
  303 0103 86       		.byte	0x86
  304 0104 76000000 		.4byte	0x76
  305 0108 21000000 		.4byte	.LLST1
  306 010c 08       		.uleb128 0x8
- 307 010d 65010000 		.4byte	.LASF20
+ 307 010d E8000000 		.4byte	.LASF20
  308 0111 01       		.byte	0x1
  309 0112 86       		.byte	0x86
  310 0113 6B000000 		.4byte	0x6b
@@ -557,7 +557,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  316 0122 81000000 		.4byte	0x81
  317 0126 63000000 		.4byte	.LLST3
  318 012a 0B       		.uleb128 0xb
- 319 012b 52010000 		.4byte	.LASF22
+ 319 012b D5000000 		.4byte	.LASF22
  320 012f 01       		.byte	0x1
  321 0130 89       		.byte	0x89
  322 0131 81000000 		.4byte	0x81
@@ -565,7 +565,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  324 0136 51       		.byte	0x51
  325 0137 00       		.byte	0
  326 0138 0C       		.uleb128 0xc
- 327 0139 6D000000 		.4byte	.LASF23
+ 327 0139 5A000000 		.4byte	.LASF23
  328 013d 01       		.byte	0x1
  329 013e B0       		.byte	0xb0
  330 013f 76000000 		.4byte	0x76
@@ -574,7 +574,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  333 014b 01       		.uleb128 0x1
  334 014c 9C       		.byte	0x9c
  335 014d 0C       		.uleb128 0xc
- 336 014e 27000000 		.4byte	.LASF24
+ 336 014e 14000000 		.4byte	.LASF24
  337 0152 01       		.byte	0x1
  338 0153 C6       		.byte	0xc6
  339 0154 6B000000 		.4byte	0x6b
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  357 000a 0E       		.uleb128 0xe
  358 000b 55       		.uleb128 0x55
  359 000c 17       		.uleb128 0x17
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 11
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 11
 
 
  360 000d 11       		.uleb128 0x11
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  414 0043 06       		.uleb128 0x6
  415 0044 35       		.uleb128 0x35
  416 0045 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 12
 
 
  417 0046 49       		.uleb128 0x49
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  471 007d 0B       		.uleb128 0xb
  472 007e 27       		.uleb128 0x27
  473 007f 19       		.uleb128 0x19
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 13
 
 
  474 0080 11       		.uleb128 0x11
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  528 00b7 13       		.uleb128 0x13
  529 00b8 11       		.uleb128 0x11
  530 00b9 01       		.uleb128 0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 14
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 14
 
 
  531 00ba 12       		.uleb128 0x12
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  585 0063 0A000000 		.4byte	.LVL3
  586 0067 10000000 		.4byte	.LVL5
  587 006b 0100     		.2byte	0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 15
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 15
 
 
  588 006d 53       		.byte	0x53
@@ -891,159 +891,157 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 1
  630              	.LASF21:
  631 0006 6D61736B 		.ascii	"maskVal\000"
  631      56616C00 
- 632              	.LASF3:
- 633 000e 73686F72 		.ascii	"short unsigned int\000"
- 633      7420756E 
- 633      7369676E 
- 633      65642069 
- 633      6E7400
- 634              	.LASF12:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 16
+ 632              	.LASF12:
+ 633 000e 666C6F61 		.ascii	"float\000"
+ 633      7400
+ 634              	.LASF24:
+ 635 0014 54696D65 		.ascii	"TimerClock_GetFractionalDividerRegister\000"
+ 635      72436C6F 
+ 635      636B5F47 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 16
 
 
- 635 0021 666C6F61 		.ascii	"float\000"
- 635      7400
- 636              	.LASF24:
- 637 0027 54696D65 		.ascii	"TimerClock_GetFractionalDividerRegister\000"
- 637      72436C6F 
- 637      636B5F47 
- 637      65744672 
- 637      61637469 
- 638              	.LASF1:
- 639 004f 756E7369 		.ascii	"unsigned char\000"
- 639      676E6564 
- 639      20636861 
- 639      7200
- 640              	.LASF28:
- 641 005d 54696D65 		.ascii	"TimerClock_Stop\000"
+ 635      65744672 
+ 635      61637469 
+ 636              	.LASF1:
+ 637 003c 756E7369 		.ascii	"unsigned char\000"
+ 637      676E6564 
+ 637      20636861 
+ 637      7200
+ 638              	.LASF28:
+ 639 004a 54696D65 		.ascii	"TimerClock_Stop\000"
+ 639      72436C6F 
+ 639      636B5F53 
+ 639      746F7000 
+ 640              	.LASF23:
+ 641 005a 54696D65 		.ascii	"TimerClock_GetDividerRegister\000"
  641      72436C6F 
- 641      636B5F53 
- 641      746F7000 
- 642              	.LASF23:
- 643 006d 54696D65 		.ascii	"TimerClock_GetDividerRegister\000"
- 643      72436C6F 
- 643      636B5F47 
- 643      65744469 
- 643      76696465 
- 644              	.LASF5:
- 645 008b 6C6F6E67 		.ascii	"long unsigned int\000"
- 645      20756E73 
- 645      69676E65 
- 645      6420696E 
- 645      7400
- 646              	.LASF27:
- 647 009d 473A5C43 		.ascii	"G:\\Company\\Jetronic\\CYPRESS\\CYPRESS_BLE_Study\\"
- 647      6F6D7061 
- 647      6E795C4A 
- 647      6574726F 
- 647      6E69635C 
- 648 00cb 54726F75 		.ascii	"Troughput\\Troughpur_Central_Peripheral_V2.0\\Troug"
- 648      67687075 
- 648      745C5472 
- 648      6F756768 
- 648      7075725F 
- 649 00fc 68707574 		.ascii	"hput_Central_Peripheral.cydsn\000"
- 649      5F43656E 
- 649      7472616C 
- 649      5F506572 
- 649      69706865 
- 650              	.LASF26:
- 651 011a 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\TimerClock.c\000"
- 651      6E657261 
- 651      7465645F 
- 651      536F7572 
- 651      63655C50 
- 652              	.LASF19:
- 653 0140 636C6B44 		.ascii	"clkDivider\000"
- 653      69766964 
- 653      657200
- 654              	.LASF13:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 17
+ 641      636B5F47 
+ 641      65744469 
+ 641      76696465 
+ 642              	.LASF5:
+ 643 0078 6C6F6E67 		.ascii	"long unsigned int\000"
+ 643      20756E73 
+ 643      69676E65 
+ 643      6420696E 
+ 643      7400
+ 644              	.LASF3:
+ 645 008a 73686F72 		.ascii	"short unsigned int\000"
+ 645      7420756E 
+ 645      7369676E 
+ 645      65642069 
+ 645      6E7400
+ 646              	.LASF26:
+ 647 009d 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\TimerClock.c\000"
+ 647      6E657261 
+ 647      7465645F 
+ 647      536F7572 
+ 647      63655C50 
+ 648              	.LASF19:
+ 649 00c3 636C6B44 		.ascii	"clkDivider\000"
+ 649      69766964 
+ 649      657200
+ 650              	.LASF13:
+ 651 00ce 646F7562 		.ascii	"double\000"
+ 651      6C6500
+ 652              	.LASF22:
+ 653 00d5 72656756 		.ascii	"regVal\000"
+ 653      616C00
+ 654              	.LASF18:
+ 655 00dc 616C6967 		.ascii	"alignClkDiv\000"
+ 655      6E436C6B 
+ 655      44697600 
+ 656              	.LASF20:
+ 657 00e8 636C6B46 		.ascii	"clkFractional\000"
+ 657      72616374 
+ 657      696F6E61 
+ 657      6C00
+ 658              	.LASF10:
+ 659 00f6 75696E74 		.ascii	"uint16\000"
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 17
 
 
- 655 014b 646F7562 		.ascii	"double\000"
- 655      6C6500
- 656              	.LASF22:
- 657 0152 72656756 		.ascii	"regVal\000"
- 657      616C00
- 658              	.LASF18:
- 659 0159 616C6967 		.ascii	"alignClkDiv\000"
- 659      6E436C6B 
- 659      44697600 
- 660              	.LASF20:
- 661 0165 636C6B46 		.ascii	"clkFractional\000"
- 661      72616374 
- 661      696F6E61 
- 661      6C00
- 662              	.LASF10:
- 663 0173 75696E74 		.ascii	"uint16\000"
- 663      313600
- 664              	.LASF11:
- 665 017a 75696E74 		.ascii	"uint32\000"
- 665      333200
- 666              	.LASF16:
- 667 0181 54696D65 		.ascii	"TimerClock_StartEx\000"
+ 659      313600
+ 660              	.LASF11:
+ 661 00fd 75696E74 		.ascii	"uint32\000"
+ 661      333200
+ 662              	.LASF16:
+ 663 0104 54696D65 		.ascii	"TimerClock_StartEx\000"
+ 663      72436C6F 
+ 663      636B5F53 
+ 663      74617274 
+ 663      457800
+ 664              	.LASF8:
+ 665 0117 756E7369 		.ascii	"unsigned int\000"
+ 665      676E6564 
+ 665      20696E74 
+ 665      00
+ 666              	.LASF17:
+ 667 0124 54696D65 		.ascii	"TimerClock_SetFractionalDividerRegister\000"
  667      72436C6F 
  667      636B5F53 
- 667      74617274 
- 667      457800
- 668              	.LASF8:
- 669 0194 756E7369 		.ascii	"unsigned int\000"
- 669      676E6564 
- 669      20696E74 
- 669      00
- 670              	.LASF17:
- 671 01a1 54696D65 		.ascii	"TimerClock_SetFractionalDividerRegister\000"
- 671      72436C6F 
- 671      636B5F53 
- 671      65744672 
- 671      61637469 
- 672              	.LASF7:
- 673 01c9 6C6F6E67 		.ascii	"long long unsigned int\000"
- 673      206C6F6E 
- 673      6720756E 
- 673      7369676E 
- 673      65642069 
+ 667      65744672 
+ 667      61637469 
+ 668              	.LASF7:
+ 669 014c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 669      206C6F6E 
+ 669      6720756E 
+ 669      7369676E 
+ 669      65642069 
+ 670              	.LASF27:
+ 671 0163 473A5C43 		.ascii	"G:\\Company\\Jetronic\\CYPRESS\\Customer\\Troughpur"
+ 671      6F6D7061 
+ 671      6E795C4A 
+ 671      6574726F 
+ 671      6E69635C 
+ 672 0191 5F43656E 		.ascii	"_Central_Peripheral_V2.9\\Troughput_Central_Periphe"
+ 672      7472616C 
+ 672      5F506572 
+ 672      69706865 
+ 672      72616C5F 
+ 673 01c3 72616C2E 		.ascii	"ral.cydsn\000"
+ 673      63796473 
+ 673      6E00
  674              	.LASF6:
- 675 01e0 6C6F6E67 		.ascii	"long long int\000"
+ 675 01cd 6C6F6E67 		.ascii	"long long int\000"
  675      206C6F6E 
  675      6720696E 
  675      7400
  676              	.LASF14:
- 677 01ee 63686172 		.ascii	"char\000"
+ 677 01db 63686172 		.ascii	"char\000"
  677      00
  678              	.LASF25:
- 679 01f3 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 679 01e0 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  679      4320342E 
  679      392E3320 
  679      32303135 
  679      30333033 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccHy530q.s 			page 18
-
-
- 680 0226 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 680 0213 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
  680      20726576 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUZklh7.s 			page 18
+
+
  680      6973696F 
  680      6E203232 
  680      31323230 
- 681 0259 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 681 0246 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  681      66756E63 
  681      74696F6E 
  681      2D736563 
  681      74696F6E 
  682              	.LASF2:
- 683 0281 73686F72 		.ascii	"short int\000"
+ 683 026e 73686F72 		.ascii	"short int\000"
  683      7420696E 
  683      7400
  684              	.LASF9:
- 685 028b 75696E74 		.ascii	"uint8\000"
+ 685 0278 75696E74 		.ascii	"uint8\000"
  685      3800
  686              	.LASF4:
- 687 0291 6C6F6E67 		.ascii	"long int\000"
+ 687 027e 6C6F6E67 		.ascii	"long int\000"
  687      20696E74 
  687      00
  688              	.LASF0:
- 689 029a 7369676E 		.ascii	"signed char\000"
+ 689 0287 7369676E 		.ascii	"signed char\000"
  689      65642063 
  689      68617200 
  690              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
   30:.\Generated_Source\PSoC4/BLE_custom.c ****         0x000Cu, /* Handle of the Troughput Service service */ 
   31:.\Generated_Source\PSoC4/BLE_custom.c ****         {
   32:.\Generated_Source\PSoC4/BLE_custom.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/BLE_custom.c ****             /* Custom Characteristic characteristic */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
   85:.\Generated_Source\PSoC4/BLE_custom.c ****     uint16 locDescIndex;
   86:.\Generated_Source\PSoC4/BLE_custom.c ****     
   87:.\Generated_Source\PSoC4/BLE_custom.c ****     for(locServIndex = 0u; locServIndex < CYBLE_CUSTOMC_SERVICE_COUNT; locServIndex++)
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 3
 
 
   88:.\Generated_Source\PSoC4/BLE_custom.c ****     {
@@ -169,16 +169,16 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
   55 0006 00000000 		.4byte	.Ldebug_abbrev0
   56 000a 04       		.byte	0x4
   57 000b 01       		.uleb128 0x1
-  58 000c 46080000 		.4byte	.LASF78
+  58 000c 33080000 		.4byte	.LASF78
   59 0010 01       		.byte	0x1
   60 0011 A5010000 		.4byte	.LASF79
-  61 0015 48070000 		.4byte	.LASF80
+  61 0015 E5040000 		.4byte	.LASF80
   62 0019 00000000 		.4byte	.Ldebug_ranges0+0
   63 001d 00000000 		.4byte	0
   64 0021 00000000 		.4byte	.Ldebug_line0
   65 0025 02       		.uleb128 0x2
   66 0026 01       		.byte	0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 4
 
 
   67 0027 06       		.byte	0x6
@@ -194,7 +194,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
   77 003a 02       		.uleb128 0x2
   78 003b 02       		.byte	0x2
   79 003c 07       		.byte	0x7
-  80 003d 53050000 		.4byte	.LASF3
+  80 003d BD050000 		.4byte	.LASF3
   81 0041 02       		.uleb128 0x2
   82 0042 04       		.byte	0x4
   83 0043 05       		.byte	0x5
@@ -231,14 +231,14 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  114 007d 02       		.uleb128 0x2
  115 007e 08       		.byte	0x8
  116 007f 04       		.byte	0x4
- 117 0080 03060000 		.4byte	.LASF10
+ 117 0080 6D060000 		.4byte	.LASF10
  118 0084 02       		.uleb128 0x2
  119 0085 01       		.byte	0x1
  120 0086 08       		.byte	0x8
- 121 0087 32050000 		.4byte	.LASF11
+ 121 0087 9C050000 		.4byte	.LASF11
  122 008b 02       		.uleb128 0x2
  123 008c 04       		.byte	0x4
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 5
 
 
  124 008d 07       		.byte	0x7
@@ -255,10 +255,10 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  135 00a1 C4000000 		.4byte	.LASF14
  136 00a5 01       		.sleb128 1
  137 00a6 06       		.uleb128 0x6
- 138 00a7 E9070000 		.4byte	.LASF15
+ 138 00a7 D6070000 		.4byte	.LASF15
  139 00ab 02       		.sleb128 2
  140 00ac 06       		.uleb128 0x6
- 141 00ad 42060000 		.4byte	.LASF16
+ 141 00ad AC060000 		.4byte	.LASF16
  142 00b1 03       		.sleb128 3
  143 00b2 06       		.uleb128 0x6
  144 00b3 9E000000 		.4byte	.LASF17
@@ -267,7 +267,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  147 00b9 D0020000 		.4byte	.LASF18
  148 00bd 05       		.sleb128 5
  149 00be 06       		.uleb128 0x6
- 150 00bf A0060000 		.4byte	.LASF19
+ 150 00bf 0A070000 		.4byte	.LASF19
  151 00c3 20       		.sleb128 32
  152 00c4 06       		.uleb128 0x6
  153 00c5 90040000 		.4byte	.LASF20
@@ -297,16 +297,16 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  177 00f5 C8040000 		.4byte	.LASF28
  178 00f9 29       		.sleb128 41
  179 00fa 06       		.uleb128 0x6
- 180 00fb 09050000 		.4byte	.LASF29
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 6
+ 180 00fb 73050000 		.4byte	.LASF29
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 6
 
 
  181 00ff 2A       		.sleb128 42
  182 0100 06       		.uleb128 0x6
- 183 0101 A3050000 		.4byte	.LASF30
+ 183 0101 0D060000 		.4byte	.LASF30
  184 0105 2B       		.sleb128 43
  185 0106 06       		.uleb128 0x6
- 186 0107 E5040000 		.4byte	.LASF31
+ 186 0107 4F050000 		.4byte	.LASF31
  187 010b 2C       		.sleb128 44
  188 010c 06       		.uleb128 0x6
  189 010d 73000000 		.4byte	.LASF32
@@ -315,19 +315,19 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  192 0114 63040000 		.4byte	.LASF33
  193 0118 C100     		.sleb128 65
  194 011a 06       		.uleb128 0x6
- 195 011b 41090000 		.4byte	.LASF34
+ 195 011b 2E090000 		.4byte	.LASF34
  196 011f C200     		.sleb128 66
  197 0121 06       		.uleb128 0x6
  198 0122 D7000000 		.4byte	.LASF35
  199 0126 C300     		.sleb128 67
  200 0128 06       		.uleb128 0x6
- 201 0129 2A070000 		.4byte	.LASF36
+ 201 0129 94070000 		.4byte	.LASF36
  202 012d C400     		.sleb128 68
  203 012f 06       		.uleb128 0x6
- 204 0130 C4060000 		.4byte	.LASF37
+ 204 0130 2E070000 		.4byte	.LASF37
  205 0134 C500     		.sleb128 69
  206 0136 06       		.uleb128 0x6
- 207 0137 09070000 		.4byte	.LASF38
+ 207 0137 73070000 		.4byte	.LASF38
  208 013b C600     		.sleb128 70
  209 013d 06       		.uleb128 0x6
  210 013e CF030000 		.4byte	.LASF39
@@ -339,7 +339,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  216 014c D1010000 		.4byte	.LASF41
  217 0150 C900     		.sleb128 73
  218 0152 06       		.uleb128 0x6
- 219 0153 66050000 		.4byte	.LASF42
+ 219 0153 D0050000 		.4byte	.LASF42
  220 0157 CA00     		.sleb128 74
  221 0159 06       		.uleb128 0x6
  222 015a 0F010000 		.4byte	.LASF43
@@ -351,19 +351,19 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  228 0168 EA010000 		.4byte	.LASF45
  229 016c CD00     		.sleb128 77
  230 016e 06       		.uleb128 0x6
- 231 016f EB060000 		.4byte	.LASF46
+ 231 016f 55070000 		.4byte	.LASF46
  232 0173 CE00     		.sleb128 78
  233 0175 06       		.uleb128 0x6
  234 0176 91030000 		.4byte	.LASF47
  235 017a CF00     		.sleb128 79
  236 017c 06       		.uleb128 0x6
- 237 017d D4080000 		.4byte	.LASF48
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 7
+ 237 017d C1080000 		.4byte	.LASF48
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 7
 
 
  238 0181 D000     		.sleb128 80
  239 0183 06       		.uleb128 0x6
- 240 0184 84050000 		.4byte	.LASF49
+ 240 0184 EE050000 		.4byte	.LASF49
  241 0188 D100     		.sleb128 81
  242 018a 06       		.uleb128 0x6
  243 018b AF020000 		.4byte	.LASF50
@@ -375,22 +375,22 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  249 0199 2E010000 		.4byte	.LASF52
  250 019d D400     		.sleb128 84
  251 019f 06       		.uleb128 0x6
- 252 01a0 1D090000 		.4byte	.LASF53
+ 252 01a0 0A090000 		.4byte	.LASF53
  253 01a4 D500     		.sleb128 85
  254 01a6 06       		.uleb128 0x6
- 255 01a7 24080000 		.4byte	.LASF54
+ 255 01a7 11080000 		.4byte	.LASF54
  256 01ab D600     		.sleb128 86
  257 01ad 06       		.uleb128 0x6
- 258 01ae FB070000 		.4byte	.LASF55
+ 258 01ae E8070000 		.4byte	.LASF55
  259 01b2 D700     		.sleb128 87
  260 01b4 06       		.uleb128 0x6
  261 01b5 4E030000 		.4byte	.LASF56
  262 01b9 F000     		.sleb128 112
  263 01bb 06       		.uleb128 0x6
- 264 01bc 7A060000 		.4byte	.LASF57
+ 264 01bc E4060000 		.4byte	.LASF57
  265 01c0 F100     		.sleb128 113
  266 01c2 06       		.uleb128 0x6
- 267 01c3 37050000 		.4byte	.LASF58
+ 267 01c3 A1050000 		.4byte	.LASF58
  268 01c7 F200     		.sleb128 114
  269 01c9 06       		.uleb128 0x6
  270 01ca 66010000 		.4byte	.LASF59
@@ -405,20 +405,20 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  279 01df 84010000 		.4byte	.LASF62
  280 01e3 F600     		.sleb128 118
  281 01e5 06       		.uleb128 0x6
- 282 01e6 5B060000 		.4byte	.LASF63
+ 282 01e6 C5060000 		.4byte	.LASF63
  283 01ea F700     		.sleb128 119
  284 01ec 06       		.uleb128 0x6
- 285 01ed E0050000 		.4byte	.LASF64
+ 285 01ed 4A060000 		.4byte	.LASF64
  286 01f1 F800     		.sleb128 120
  287 01f3 06       		.uleb128 0x6
- 288 01f4 0A060000 		.4byte	.LASF65
+ 288 01f4 74060000 		.4byte	.LASF65
  289 01f8 F900     		.sleb128 121
  290 01fa 06       		.uleb128 0x6
- 291 01fb C5070000 		.4byte	.LASF66
+ 291 01fb B2070000 		.4byte	.LASF66
  292 01ff FA00     		.sleb128 122
  293 0201 06       		.uleb128 0x6
- 294 0202 C2050000 		.4byte	.LASF67
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 8
+ 294 0202 2C060000 		.4byte	.LASF67
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 8
 
 
  295 0206 FA01     		.sleb128 250
@@ -430,7 +430,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  301 0214 FF01     		.sleb128 255
  302 0216 00       		.byte	0
  303 0217 07       		.uleb128 0x7
- 304 0218 F3080000 		.4byte	.LASF71
+ 304 0218 E0080000 		.4byte	.LASF71
  305 021c 03       		.byte	0x3
  306 021d 8801     		.2byte	0x188
  307 021f 6B000000 		.4byte	0x6b
@@ -440,7 +440,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  311 0226 42       		.byte	0x42
  312 0227 44020000 		.4byte	0x244
  313 022b 09       		.uleb128 0x9
- 314 022c 2D060000 		.4byte	.LASF72
+ 314 022c 97060000 		.4byte	.LASF72
  315 0230 04       		.byte	0x4
  316 0231 45       		.byte	0x45
  317 0232 17020000 		.4byte	0x217
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  349 0273 09       		.uleb128 0x9
  350 0274 82030000 		.4byte	.LASF76
  351 0278 04       		.byte	0x4
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 9
 
 
  352 0279 52       		.byte	0x52
@@ -513,7 +513,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  381 02ba 00       		.byte	0
  382 02bb 00       		.byte	0
  383 02bc 0D       		.uleb128 0xd
- 384 02bd 0F090000 		.4byte	.LASF82
+ 384 02bd FC080000 		.4byte	.LASF82
  385 02c1 01       		.byte	0x1
  386 02c2 1A       		.byte	0x1a
  387 02c3 CD020000 		.4byte	0x2cd
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  406 000a 0E       		.uleb128 0xe
  407 000b 55       		.uleb128 0x55
  408 000c 17       		.uleb128 0x17
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 10
 
 
  409 000d 11       		.uleb128 0x11
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  463 0043 06       		.uleb128 0x6
  464 0044 28       		.uleb128 0x28
  465 0045 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 11
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 11
 
 
  466 0046 03       		.uleb128 0x3
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  520 007c 00       		.byte	0
  521 007d 00       		.byte	0
  522 007e 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 12
 
 
  523 007f 21       		.uleb128 0x21
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  577 00b6 00       		.byte	0
  578 00b7 00       		.byte	0
  579              		.section	.debug_aranges,"",%progbits
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 13
 
 
  580 0000 1C000000 		.4byte	0x1c
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  611      5454435F 
  611      4552524F 
  612              	.LASF75:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 14
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 14
 
 
  613 008d 63757374 		.ascii	"customServHandle\000"
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  631      53545F49 
  631      4E56414C 
  632              	.LASF59:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 15
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 15
 
 
  633 0166 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_IND\000"
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  653 0247 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_IND\000"
  653      455F4556 
  653      545F4741 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 16
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 16
 
 
  653      5454435F 
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  672              	.LASF1:
  673 0374 756E7369 		.ascii	"unsigned char\000"
  673      676E6564 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 17
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 17
 
 
  673      20636861 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  693      455F4556 
  693      545F4741 
  693      54545F43 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 18
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 18
 
 
  693      4F4E4E45 
@@ -1046,221 +1046,219 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 1
  701      545F4741 
  701      505F454E 
  701      43525950 
- 702              	.LASF31:
- 703 04e5 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT\000"
- 703      455F4556 
- 703      545F4741 
- 703      505F4B45 
- 703      59494E46 
- 704              	.LASF29:
- 705 0509 4359424C 		.ascii	"CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE\000"
- 705      455F4556 
- 705      545F4741 
- 705      505F434F 
- 705      4E4E4543 
- 706              	.LASF11:
- 707 0532 63686172 		.ascii	"char\000"
- 707      00
- 708              	.LASF58:
- 709 0537 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
+ 702              	.LASF80:
+ 703 04e5 473A5C43 		.ascii	"G:\\Company\\Jetronic\\CYPRESS\\Customer\\Troughpur"
+ 703      6F6D7061 
+ 703      6E795C4A 
+ 703      6574726F 
+ 703      6E69635C 
+ 704 0513 5F43656E 		.ascii	"_Central_Peripheral_V2.9\\Troughput_Central_Periphe"
+ 704      7472616C 
+ 704      5F506572 
+ 704      69706865 
+ 704      72616C5F 
+ 705 0545 72616C2E 		.ascii	"ral.cydsn\000"
+ 705      63796473 
+ 705      6E00
+ 706              	.LASF31:
+ 707 054f 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT\000"
+ 707      455F4556 
+ 707      545F4741 
+ 707      505F4B45 
+ 707      59494E46 
+ 708              	.LASF29:
+ 709 0573 4359424C 		.ascii	"CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE\000"
  709      455F4556 
- 709      545F4C32 
- 709      4341505F 
- 709      434F4D4D 
- 710              	.LASF3:
- 711 0553 73686F72 		.ascii	"short unsigned int\000"
- 711      7420756E 
- 711      7369676E 
- 711      65642069 
- 711      6E7400
- 712              	.LASF42:
- 713 0566 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BLOB_RSP\000"
+ 709      545F4741 
+ 709      505F434F 
+ 709      4E4E4543 
+ 710              	.LASF11:
+ 711 059c 63686172 		.ascii	"char\000"
+ 711      00
+ 712              	.LASF58:
+ 713 05a1 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
  713      455F4556 
- 713      545F4741 
- 713      5454435F 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 19
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 19
 
 
- 713      52454144 
- 714              	.LASF49:
- 715 0584 4359424C 		.ascii	"CYBLE_EVT_GATTC_EXEC_WRITE_RSP\000"
- 715      455F4556 
- 715      545F4741 
- 715      5454435F 
- 715      45584543 
- 716              	.LASF30:
- 717 05a3 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
+ 713      545F4C32 
+ 713      4341505F 
+ 713      434F4D4D 
+ 714              	.LASF3:
+ 715 05bd 73686F72 		.ascii	"short unsigned int\000"
+ 715      7420756E 
+ 715      7369676E 
+ 715      65642069 
+ 715      6E7400
+ 716              	.LASF42:
+ 717 05d0 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BLOB_RSP\000"
  717      455F4556 
  717      545F4741 
- 717      50435F53 
- 717      43414E5F 
- 718              	.LASF67:
- 719 05c2 4359424C 		.ascii	"CYBLE_EVT_PENDING_FLASH_WRITE\000"
+ 717      5454435F 
+ 717      52454144 
+ 718              	.LASF49:
+ 719 05ee 4359424C 		.ascii	"CYBLE_EVT_GATTC_EXEC_WRITE_RSP\000"
  719      455F4556 
- 719      545F5045 
- 719      4E44494E 
- 719      475F464C 
- 720              	.LASF64:
- 721 05e0 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_RX_CREDIT_IND\000"
+ 719      545F4741 
+ 719      5454435F 
+ 719      45584543 
+ 720              	.LASF30:
+ 721 060d 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
  721      455F4556 
- 721      545F4C32 
- 721      4341505F 
- 721      43424643 
- 722              	.LASF10:
- 723 0603 646F7562 		.ascii	"double\000"
- 723      6C6500
- 724              	.LASF65:
- 725 060a 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
+ 721      545F4741 
+ 721      50435F53 
+ 721      43414E5F 
+ 722              	.LASF67:
+ 723 062c 4359424C 		.ascii	"CYBLE_EVT_PENDING_FLASH_WRITE\000"
+ 723      455F4556 
+ 723      545F5045 
+ 723      4E44494E 
+ 723      475F464C 
+ 724              	.LASF64:
+ 725 064a 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_RX_CREDIT_IND\000"
  725      455F4556 
  725      545F4C32 
  725      4341505F 
  725      43424643 
- 726              	.LASF72:
- 727 062d 63757374 		.ascii	"customServCharHandle\000"
- 727      6F6D5365 
- 727      72764368 
- 727      61724861 
- 727      6E646C65 
- 728              	.LASF16:
- 729 0642 4359424C 		.ascii	"CYBLE_EVT_HARDWARE_ERROR\000"
+ 726              	.LASF10:
+ 727 066d 646F7562 		.ascii	"double\000"
+ 727      6C6500
+ 728              	.LASF65:
+ 729 0674 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
  729      455F4556 
- 729      545F4841 
- 729      52445741 
- 729      52455F45 
- 730              	.LASF63:
- 731 065b 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_READ\000"
- 731      455F4556 
- 731      545F4C32 
- 731      4341505F 
- 731      43424643 
- 732              	.LASF57:
- 733 067a 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP\000"
+ 729      545F4C32 
+ 729      4341505F 
+ 729      43424643 
+ 730              	.LASF72:
+ 731 0697 63757374 		.ascii	"customServCharHandle\000"
+ 731      6F6D5365 
+ 731      72764368 
+ 731      61724861 
+ 731      6E646C65 
+ 732              	.LASF16:
+ 733 06ac 4359424C 		.ascii	"CYBLE_EVT_HARDWARE_ERROR\000"
  733      455F4556 
- 733      545F4C32 
- 733      4341505F 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 20
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 20
 
 
- 733      434F4E4E 
- 734              	.LASF19:
- 735 06a0 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
+ 733      545F4841 
+ 733      52445741 
+ 733      52455F45 
+ 734              	.LASF63:
+ 735 06c5 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_READ\000"
  735      455F4556 
- 735      545F4741 
- 735      50435F53 
- 735      43414E5F 
- 736              	.LASF37:
- 737 06c4 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
+ 735      545F4C32 
+ 735      4341505F 
+ 735      43424643 
+ 736              	.LASF57:
+ 737 06e4 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP\000"
  737      455F4556 
- 737      545F4741 
- 737      5454435F 
- 737      52454144 
- 738              	.LASF46:
- 739 06eb 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_CMD_REQ\000"
+ 737      545F4C32 
+ 737      4341505F 
+ 737      434F4E4E 
+ 738              	.LASF19:
+ 739 070a 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
  739      455F4556 
  739      545F4741 
- 739      5454535F 
- 739      57524954 
- 740              	.LASF38:
- 741 0709 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_TYPE_RSP\000"
+ 739      50435F53 
+ 739      43414E5F 
+ 740              	.LASF37:
+ 741 072e 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
  741      455F4556 
  741      545F4741 
  741      5454435F 
  741      52454144 
- 742              	.LASF36:
- 743 072a 4359424C 		.ascii	"CYBLE_EVT_GATTC_XCHNG_MTU_RSP\000"
+ 742              	.LASF46:
+ 743 0755 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_CMD_REQ\000"
  743      455F4556 
  743      545F4741 
- 743      5454435F 
- 743      5843484E 
- 744              	.LASF80:
- 745 0748 473A5C43 		.ascii	"G:\\Company\\Jetronic\\CYPRESS\\CYPRESS_BLE_Study\\"
- 745      6F6D7061 
- 745      6E795C4A 
- 745      6574726F 
- 745      6E69635C 
- 746 0776 54726F75 		.ascii	"Troughput\\Troughpur_Central_Peripheral_V2.0\\Troug"
- 746      67687075 
- 746      745C5472 
- 746      6F756768 
- 746      7075725F 
- 747 07a7 68707574 		.ascii	"hput_Central_Peripheral.cydsn\000"
- 747      5F43656E 
- 747      7472616C 
- 747      5F506572 
- 747      69706865 
+ 743      5454535F 
+ 743      57524954 
+ 744              	.LASF38:
+ 745 0773 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_TYPE_RSP\000"
+ 745      455F4556 
+ 745      545F4741 
+ 745      5454435F 
+ 745      52454144 
+ 746              	.LASF36:
+ 747 0794 4359424C 		.ascii	"CYBLE_EVT_GATTC_XCHNG_MTU_RSP\000"
+ 747      455F4556 
+ 747      545F4741 
+ 747      5454435F 
+ 747      5843484E 
  748              	.LASF66:
- 749 07c5 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
+ 749 07b2 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
  749      455F4556 
  749      545F4C32 
  749      4341505F 
  749      43424643 
  750              	.LASF15:
- 751 07e9 4359424C 		.ascii	"CYBLE_EVT_TIMEOUT\000"
+ 751 07d6 4359424C 		.ascii	"CYBLE_EVT_TIMEOUT\000"
  751      455F4556 
  751      545F5449 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 21
-
-
  751      4D454F55 
  751      5400
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 21
+
+
  752              	.LASF55:
- 753 07fb 4359424C 		.ascii	"CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ\000"
+ 753 07e8 4359424C 		.ascii	"CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ\000"
  753      455F4556 
  753      545F4741 
  753      5454535F 
  753      52454144 
  754              	.LASF54:
- 755 0824 4359424C 		.ascii	"CYBLE_EVT_GATTC_STOP_CMD_COMPLETE\000"
+ 755 0811 4359424C 		.ascii	"CYBLE_EVT_GATTC_STOP_CMD_COMPLETE\000"
  755      455F4556 
  755      545F4741 
  755      5454435F 
  755      53544F50 
  756              	.LASF78:
- 757 0846 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 757 0833 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  757      4320342E 
  757      392E3320 
  757      32303135 
  757      30333033 
- 758 0879 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 758 0866 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
  758      20726576 
  758      6973696F 
  758      6E203232 
  758      31323230 
- 759 08ac 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 759 0899 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  759      66756E63 
  759      74696F6E 
  759      2D736563 
  759      74696F6E 
  760              	.LASF48:
- 761 08d4 4359424C 		.ascii	"CYBLE_EVT_GATTS_EXEC_WRITE_REQ\000"
+ 761 08c1 4359424C 		.ascii	"CYBLE_EVT_GATTS_EXEC_WRITE_REQ\000"
  761      455F4556 
  761      545F4741 
  761      5454535F 
  761      45584543 
  762              	.LASF71:
- 763 08f3 4359424C 		.ascii	"CYBLE_GATT_DB_ATTR_HANDLE_T\000"
+ 763 08e0 4359424C 		.ascii	"CYBLE_GATT_DB_ATTR_HANDLE_T\000"
  763      455F4741 
  763      54545F44 
  763      425F4154 
  763      54525F48 
  764              	.LASF82:
- 765 090f 6379426C 		.ascii	"cyBle_customs\000"
+ 765 08fc 6379426C 		.ascii	"cyBle_customs\000"
  765      655F6375 
  765      73746F6D 
  765      7300
  766              	.LASF53:
- 767 091d 4359424C 		.ascii	"CYBLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
+ 767 090a 4359424C 		.ascii	"CYBLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
  767      455F4556 
  767      545F4741 
  767      5454535F 
  767      44415441 
  768              	.LASF34:
- 769 0941 4359424C 		.ascii	"CYBLE_EVT_GATT_DISCONNECT_IND\000"
+ 769 092e 4359424C 		.ascii	"CYBLE_EVT_GATT_DISCONNECT_IND\000"
  769      455F4556 
  769      545F4741 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdICLZM.s 			page 22
-
-
  769      54545F44 
  769      4953434F 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccg1koos.s 			page 22
+
+
  770              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

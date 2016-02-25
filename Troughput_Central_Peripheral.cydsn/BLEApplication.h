@@ -61,6 +61,8 @@ void StrToHex(char *pbDest, char *pbSrc, int nLen);
 #define UART_RX_INTR_MASK     0x00000004
 #define UART_RX_INT_ENABLE()  UART_INTR_RX_MASK_REG |= UART_RX_INTR_MASK
 #define UART_RX_INT_DISABLE() UART_INTR_RX_MASK_REG &= ~UART_RX_INTR_MASK
+#define START               (1u)
+#define OVER                (0u)
 /***************************************
 * 串口波特率设置
 * Div SCBCLK=48MHz/BAUD_RATE*OVERSAMPLE-1

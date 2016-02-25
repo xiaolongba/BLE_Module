@@ -1,5 +1,5 @@
 -- Project:   Troughput_Central_Peripheral
--- Generated: 02/23/2016 15:11:22
+-- Generated: 02/25/2016 12:21:03
 -- PSoC Creator  3.3 SP1
 
 ENTITY Troughput_Central_Peripheral IS

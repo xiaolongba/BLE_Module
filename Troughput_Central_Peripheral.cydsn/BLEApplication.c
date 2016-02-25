@@ -30,6 +30,7 @@ uint8_t LowPower_EN=TURE;
 uint8_t RX_BUFFER[BUFFER_LENGHTH]={0};
 uint8_t Buffer_Length=0;
 uint8_t rx_isover=FALSE;
+uint8_t RxFlag=OVER;
 CYBLE_CONN_OR_DISCONN_INFO Conn_Or_Disconn_Info;
 uint8_t Conn_or_Disconn_Idx=0;
 //uint8 bufferRx[UART_RX_BUFFER + 1u];     /* RX software buffer requires one extra entry for correct operation in UART mode */ 
@@ -697,6 +698,7 @@ void Parser_UartData(const char* SerialData)
     char AdvParamArray[2]={0};
     char AdvParam=0;
     uint32 WriteDataToFlash=0;
+    volatile uint8_t test=0;
 //    double connintv=0;
 //    uint16 supervisionTO=0;
     CYBLE_API_RESULT_T API_RESULT=0;
@@ -715,20 +717,31 @@ void Parser_UartData(const char* SerialData)
         break;
 //        软复位----主从有效
         case RESET:
-            printf("AT+OK\r\n");
-//            printf("AT+RESET=1\r\n");
-//            printf("OK\r\n");
-            while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成
-            CySoftwareReset();
+            if(SerialData[9]=='1')
+            {
+                printf("AT+OK\r\n");
+                while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成
+                CySoftwareReset();
+            }
+            else
+            {
+                printf("AT+ERR=5\r\n");//表示没有该AT命令     
+            }
         break;
         case REFAC:
         break;
 //         当前固件版本的查询
         case VERSION:
-            printf("+VERSION=Ver1.4\r\n");
+            if(SerialData[11]=='?')
+                printf("+VERSION=Ver1.5\r\n");
+            else
+            {
+                printf("AT+ERR=5\r\n");//表示没有该AT命令     
+            }
         break;
 //            暂时无效，固定为9600的波特率
         case BAUD:
+            printf("AT+ERR=5\r\n");//表示没有该AT命令 
 //            idx=SerialData[8];             
 //            UartBuadRate_Handler(idx);
         break;
@@ -736,6 +749,7 @@ void Parser_UartData(const char* SerialData)
         case LADDR:
             idx=SerialData[9]; 
             if('?'==idx)
+            {
                 CyBle_GetDeviceAddress(&DeviceAddr);
                 printf("+LADDR:<0x%02X%02X%02X%02X%02X%02X>\r\n",                  
                     DeviceAddr.bdAddr[5],
@@ -745,6 +759,11 @@ void Parser_UartData(const char* SerialData)
                     DeviceAddr.bdAddr[1],
                     DeviceAddr.bdAddr[0]                             
                   );
+            }
+            else
+            {
+                printf("AT+ERR=5\r\n");//表示没有该AT命令 
+            }
         break;
 //                设备名查询及修改---从机有效
         case NAME:
@@ -758,7 +777,12 @@ void Parser_UartData(const char* SerialData)
                         printf("+NAME=<%s>\r\n",Name);
 //                        free(Name);
                     break;
-                    case '<':                        
+                    case '<':
+                        if((strchr((char*)(SerialData+9),'>')-(SerialData+9))>23)
+                        {
+                            printf("AT+ERR=6\r\n");//表示设置的设备名字过长
+                            return;
+                        }
                         if((CYBLE_STATE_CONNECTED!=CyBle_GetState()))
                         {
                             CyBle_GappStopAdvertisement();
@@ -783,6 +807,9 @@ void Parser_UartData(const char* SerialData)
                                 printf("AT+ERR=3\r\n");//表示当前状态不支持该命令
 //                            printf("+NAME=<INVALID>\r\n"); 
                         }
+                    break;
+                    default:
+                        printf("AT+ERR=5\r\n");//表示没有该AT命令 
                     break;
                 }                   
              }
@@ -811,11 +838,11 @@ void Parser_UartData(const char* SerialData)
             idx=SerialData[8];
             if(Peripheral==Role)
             {
-                if(CYBLE_STATE_ADVERTISING==CyBle_GetState())
+                switch(idx)
                 {
-                    switch(idx)
-                    {
-                        case '<':                        
+                    case '<':
+                        if(CYBLE_STATE_ADVERTISING!=CyBle_GetState())
+                        {
                             memset(advDiscData.advData,0,CYBLE_GAP_MAX_ADV_DATA_LEN);
                             memcpy(StrAdvDataLength,SerialData+9,2);
                             StrToHex(&AdvDataLength,StrAdvDataLength,1);
@@ -835,21 +862,32 @@ void Parser_UartData(const char* SerialData)
                             {
                                 printf("AT+ERR=2\r\n");//表示命令设置失败
                             }
-                        break;
-                        case '?':
+                        }
+                        else
+                        {
+                            printf("AT+ERR=3\r\n");//表示当前状态不支持该命令
+                        }
+                    break;                        
+                    case '?':
+                        if(CYBLE_STATE_ADVERTISING==CyBle_GetState())
+                        {
                             printf("+ADVD=<0x");
                             for(i=0;i<cyBle_discoveryModeInfo.advData->advDataLen;i++)
                             {
                                 printf("%02X",cyBle_discoveryModeInfo.advData->advData[i]);
                             }
                             printf(">\r\n");
-                        break;
-                    }
-                }
-                else
-                {
-                    printf("AT+ERR=3\r\n");//表示当前状态不支持该命令
-                }
+                        }
+                        else
+                        {
+                            printf("AT+ERR=3\r\n");//表示当前状态不支持该命令
+                        }
+                        
+                    break;
+                    default:
+                        printf("AT+ERR=5\r\n");//表示没有该AT命令 
+                    break;
+                }                
             }                
             else
             {
@@ -901,6 +939,9 @@ void Parser_UartData(const char* SerialData)
 //                             printf("+ADVI=<INVALID>\r\n");
                             printf("AT+ERR=3\r\n");//表示当前状态不支持该命令
                         }
+                        break;
+                        default:
+                            printf("AT+ERR=5\r\n");//表示没有该AT命令 
                         break;
                     }  
                 }
@@ -1510,6 +1551,7 @@ void Parser_UartData(const char* SerialData)
             }
         break;
         default:
+            printf("AT+ERR=5\r\n");//表示没有该AT命令
         break;
     }
         
@@ -1538,6 +1580,10 @@ uint8_t Command_Identify(const char* SerialData)
     }
     //获取AT命令等号的位置，如“AT+RESET=1”中“=”号的位置是8.
     location=strchr((char*)SerialData,'=')-SerialData;
+    if(location>11)
+    {
+        return 0xff;
+    }
 //    动态分配堆空间
     char* String=malloc(sizeof(char)*location);
     //保存AT命令等号前的数据.
@@ -1808,6 +1854,7 @@ void Master_Slave_UartHandler(uint8_t Role)
     }
     else if(0!=uartTxDataLength)
     {   
+        RxFlag=START;
         if(KEYBOARD)
         {
            KEYBOARD=FALSE;
@@ -1867,10 +1914,12 @@ void Master_Slave_UartHandler(uint8_t Role)
     //            {
                     RX_BUFFER[Buffer_Length]=Uart_Char;//读取串口接收缓冲区的数据
                     Buffer_Length++;
-    //            }                
+    //            }                      
             }
             else
             {
+                uartIdleCount=UART_IDLE_TIMEOUT;
+                RxFlag=OVER;
             //串口接收的数据长度清零,以便下一条命令过来时还是存放在数组首地址
                 RX_BUFFER[Buffer_Length]=Uart_Char;//读取串口接收缓冲区的数据                
                 Parser_UartData((char*)RX_BUFFER);
@@ -1892,8 +1941,22 @@ void Master_Slave_UartHandler(uint8_t Role)
     //                
     //            }
             }
+        }    
+    }
+    else
+    {
+        if(RxFlag)//如果串口100ms内没有接收到回车换行符时，则认为该AT命令无效
+        {
+            if(--uartIdleCount == 0)
+            {
+                RxFlag=OVER;
+                uartIdleCount=UART_IDLE_TIMEOUT;
+                Buffer_Length=0;
+                memset(RX_BUFFER,0,sizeof(RX_BUFFER));
+                printf("AT+ERR=7\r\n");//AT命令没有回车换行
+                /*uartTxDataLength remains unchanged */;
+            }
         }
-        
     }
 }
 
@@ -2212,6 +2275,7 @@ void TxPower_Handler(uint8_t idx)
     }
     else//如何不是广播或者连接状态则无效
     {
+        printf("AT+ERR=8\r\n");//表示当前状态不是连接状态也不是广播状态，无法查询或修改发射功率 
         return;
     }
     switch(idx)
@@ -2327,6 +2391,9 @@ void TxPower_Handler(uint8_t idx)
 //                printf("AT+TXP=<3dBm>\r\n");
 //                printf("OK\r\n");
             }           
+        break;
+        default:
+            printf("AT+ERR=5\r\n");//表示没有该AT命令 
         break;
     }    
 }
