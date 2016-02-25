@@ -106,11 +106,11 @@ int main()
             LowPowerManagement();
         }
         
-        #ifdef LOW_POWER_EN
-        /* Call CyBle_ProcessEvents to process all events before going to sleep. */
-		CyBle_ProcessEvents();            
-        LowPowerManagement();
-        #endif    
+//        #ifdef LOW_POWER_EN
+//        /* Call CyBle_ProcessEvents to process all events before going to sleep. */
+//		CyBle_ProcessEvents();            
+//        LowPowerManagement();
+//        #endif    
         CyBle_ProcessEvents();
     }
 }

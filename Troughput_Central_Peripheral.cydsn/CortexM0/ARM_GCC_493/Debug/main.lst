@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cclGjjdP.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 1
   30:.\main.c      **** extern uint8_t charNotificationEnabled;
   31:.\main.c      **** extern uint8_t _10sIsOver;
   32:.\main.c      **** extern CYBLE_GATTC_WRITE_REQ_T writeRequestData;
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cclGjjdP.s 			page 2
 
 
   33:.\main.c      **** extern uint8_t Role;
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 1
   56:.\main.c      ****         /* Place your application code here. */ 
   57:.\main.c      **** //        CyDelay(10);
   58:.\main.c      **** //        if(rx_isover)
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cclGjjdP.s 			page 3
 
 
   59:.\main.c      **** //        {
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 1
   66 002c 03D0     		beq	.L4
  104:.\main.c      ****         {
  105:.\main.c      ****             CyBle_ProcessEvents();            
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cclGjjdP.s 			page 4
 
 
   67              		.loc 1 105 0
@@ -191,11 +191,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 1
   73              	.L4:
  107:.\main.c      ****         }
  108:.\main.c      ****         
- 109:.\main.c      ****         #ifdef LOW_POWER_EN
- 110:.\main.c      ****         /* Call CyBle_ProcessEvents to process all events before going to sleep. */
- 111:.\main.c      **** 		CyBle_ProcessEvents();            
- 112:.\main.c      ****         LowPowerManagement();
- 113:.\main.c      ****         #endif    
+ 109:.\main.c      **** //        #ifdef LOW_POWER_EN
+ 110:.\main.c      **** //        /* Call CyBle_ProcessEvents to process all events before going to sleep. */
+ 111:.\main.c      **** //		CyBle_ProcessEvents();            
+ 112:.\main.c      **** //        LowPowerManagement();
+ 113:.\main.c      **** //        #endif    
  114:.\main.c      ****         CyBle_ProcessEvents();
   74              		.loc 1 114 0
   75 0036 FFF7FEFF 		bl	CyBle_ProcessEvents
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 1
  111 0028 6A010000 		.4byte	.LASF0
  112 002c 03       		.uleb128 0x3
  113 002d BD000000 		.4byte	.LASF9
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cclGjjdP.s 			page 5
 
 
  114 0031 02       		.byte	0x2
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 1
  168 0091 08       		.byte	0x8
  169 0092 E0000000 		.4byte	.LASF13
  170 0096 02       		.uleb128 0x2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cclGjjdP.s 			page 6
 
 
  171 0097 04       		.byte	0x4
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 1
  225 011b 0B       		.uleb128 0xb
  226 011c 17020000 		.4byte	.LASF18
  227 0120 05       		.byte	0x5
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cclGjjdP.s 			page 7
 
 
  228 0121 20       		.byte	0x20
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 1
  282 0026 0B       		.uleb128 0xb
  283 0027 49       		.uleb128 0x49
  284 0028 13       		.uleb128 0x13
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cclGjjdP.s 			page 8
 
 
  285 0029 00       		.byte	0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 1
  339 0062 3B       		.uleb128 0x3b
  340 0063 0B       		.uleb128 0xb
  341 0064 49       		.uleb128 0x49
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cclGjjdP.s 			page 9
 
 
  342 0065 13       		.uleb128 0x13
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 1
  396 009b 0E       		.uleb128 0xe
  397 009c 3A       		.uleb128 0x3a
  398 009d 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cclGjjdP.s 			page 10
 
 
  399 009e 3B       		.uleb128 0x3b
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 1
  453              	.Ldebug_line0:
  454 0000 8E010000 		.section	.debug_str,"MS",%progbits,1
  454      02006A01 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 11
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cclGjjdP.s 			page 11
 
 
  454      00000201 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 1
  476 00cd 52656164 		.ascii	"ReadDataFromSFlash\000"
  476      44617461 
  476      46726F6D 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cclGjjdP.s 			page 12
 
 
  476      53466C61 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 1
  500      68617200 
  501              	.LASF22:
  502 0176 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccatD3PP.s 			page 13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cclGjjdP.s 			page 13
 
 
  502      4320342E 

@@ -31,6 +31,7 @@ uint8_t RX_BUFFER[BUFFER_LENGHTH]={0};
 uint8_t Buffer_Length=0;
 uint8_t rx_isover=FALSE;
 uint8_t RxFlag=OVER;
+//uint8_t SleepMode=TURE;
 CYBLE_CONN_OR_DISCONN_INFO Conn_Or_Disconn_Info;
 uint8_t Conn_or_Disconn_Idx=0;
 //uint8 bufferRx[UART_RX_BUFFER + 1u];     /* RX software buffer requires one extra entry for correct operation in UART mode */ 
@@ -79,7 +80,7 @@ char * StringArry[]={
                      AT_RESET,AT_REFAC,AT_VERSION,AT_BAUD,AT_LADDR,AT_NAME,
                      AT_CPIN,AT_TXP,AT_ADVD,AT_ADVI,AT_CONNI,AT_ROLE,AT_SCAN,
                      AT_CONNT,AT_DISCONN,AT_LOGIN,AT_TX,AT_RSSI,AT_DISALLCHAR,
-                     AT,AT_SPEED,AT_NOTIFY,AT_STAUS,AT_ADVS,AT_AUTH,AT_IOCAP
+                     AT,AT_SPEED,AT_NOTIFY,AT_STAUS,AT_ADVS,AT_AUTH,AT_IOCAP,AT_SLEEP
                     };
 uint8_t STOP_SCAN_FLAG=FALSE;
 uint8_t Baud_rate_idx='7';//默认是115200
@@ -159,7 +160,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
 //                与从机连接成功后，主机发起连接间隔更新请求
                 CyBle_GapcConnectionParamUpdateRequest(cyBle_connHandle.bdHandle,&connParam);
                                 /* Initiate an MTU exchange request CYBLE_GATT_MTU*/
-                CyBle_GattcExchangeMtuReq(cyBle_connHandle,MAX_MTU_SIZE);
+                CyBle_GattcExchangeMtuReq(cyBle_connHandle,CYBLE_GATT_MTU);
             }
 //            //主机发送的MTU exchange request
 //            if(MTU_REQ_FLAG)
@@ -172,14 +173,14 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
         case CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE: 
 //            获取连接参数信息
             ConnParam=*(CYBLE_GAP_CONN_PARAM_UPDATED_IN_CONTROLLER_T *)eventParam;
-            printf("+UPDATECONN_EVT=OK\r\n");
+//            printf("+UPDATECONN_EVT=OK\r\n");
 //            if(Role==Central)
 //                Timer_Enable();
         break;
 //            主机接收从机的MTU交换响应
         case CYBLE_EVT_GATTC_XCHNG_MTU_RSP:            
             negotiatedMtu=((CYBLE_GATT_XCHG_MTU_PARAM_T *)eventParam)->mtu;
-            printf("mtu is %d\r\n",negotiatedMtu);
+//            printf("mtu is %d\r\n",negotiatedMtu);
             /* Enable notifications on the characteristic to get data from the 
              * Server.
              */
@@ -196,11 +197,11 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             break;
         /* GATT MTU exchange request - Update the negotiated MTU value */
 //            做为从机时接收主机发送过来的MTU交换请求
-        case CYBLE_EVT_GATTS_XCNHG_MTU_REQ:
-            CyBle_GattsExchangeMtuRsp(cyBle_connHandle,MAX_MTU_SIZE);
+        case CYBLE_EVT_GATTS_XCNHG_MTU_REQ:            
             negotiatedMtu = (((CYBLE_GATT_XCHG_MTU_PARAM_T *)eventParam)->mtu < CYBLE_GATT_MTU) ?
                             ((CYBLE_GATT_XCHG_MTU_PARAM_T *)eventParam)->mtu : CYBLE_GATT_MTU;
-                            printf("mtu is %d\r\n",negotiatedMtu);
+            CyBle_GattsExchangeMtuRsp(cyBle_connHandle,negotiatedMtu);                            
+//                            printf("mtu is %d\r\n",negotiatedMtu);
 //            printf("'MTU Exchange Request' received from GATT client device\r\n");
         break;
         case CYBLE_EVT_GAP_DEVICE_DISCONNECTED:   
@@ -210,14 +211,18 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             if(Role==Peripheral)
             {
                printf("+DISCONN_EVT=<0x%02X>\r\n",*(uint8_t*)eventParam);
+               if(!LowPower_EN)
+               {
+                   CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_SLOW);
+               }
             }
             else
             {
                printf("+DISCONN_EVT=<%d,0x%02X>\r\n",Conn_or_Disconn_Idx,*(uint8_t*)eventParam);
             }
             while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据                
-            LowPower_EN=TURE;
-            AUTHFLAG=FALSE;
+//            LowPower_EN=TURE;
+            AUTHFLAG=FALSE;            
         break;
 //            从机接收主机的写请求，并且从机不需要写响应
         case CYBLE_EVT_GATTS_WRITE_CMD_REQ:
@@ -226,14 +231,17 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             if(writeParam.handleValPair.attrHandle == 
                CYBLE_TROUGHPUT_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE)
             {
-                testCount+=writeParam.handleValPair.value.len;    
+                if(CommandMode==THROUGHT_MODE)
+                {
+                    testCount+=writeParam.handleValPair.value.len;    
 //                printf("0x");
 //                UART_UartPutString("0x");
-                for(i=0;i<writeParam.handleValPair.value.len;i++)
-                {                    
-//                    printf("%02X",writeParam.handleValPair.value.val[i]);
-                    UART_UartPutChar(writeParam.handleValPair.value.val[i]);
-                }   
+                    for(i=0;i<writeParam.handleValPair.value.len;i++)
+                    {                    
+    //                    printf("%02X",writeParam.handleValPair.value.val[i]);
+                        UART_UartPutChar(writeParam.handleValPair.value.val[i]);
+                    }  
+                }
 //                UART_UartPutString("\r\n");
 //                printf("\r\n");
 //                UART_SpiUartWriteTxData(testCount);
@@ -698,7 +706,7 @@ void Parser_UartData(const char* SerialData)
     char AdvParamArray[2]={0};
     char AdvParam=0;
     uint32 WriteDataToFlash=0;
-    volatile uint8_t test=0;
+//    volatile uint8_t test=0;
 //    double connintv=0;
 //    uint16 supervisionTO=0;
     CYBLE_API_RESULT_T API_RESULT=0;
@@ -813,11 +821,11 @@ void Parser_UartData(const char* SerialData)
                     break;
                 }                   
              }
-            else
-            {
+             else
+             {
 //                printf("+NAME=<INVALID>\r\n"); 
                 printf("AT+ERR=4\r\n");//表示当前角色不支持该命令 
-            }
+             }
                 
         break;
         case CPIN:
@@ -915,7 +923,7 @@ void Parser_UartData(const char* SerialData)
     //                    只有停止广播了修改才有效
                         if(CYBLE_STATE_ADVERTISING!=CyBle_GetState())
                         {
-                         //              获取AdvMin值
+             //              获取AdvMin值
                             AdvParamArray[0]=SerialData[9];
                             AdvParamArray[1]=SerialData[10];
                             StrToHex(&AdvParam,AdvParamArray,1);
@@ -981,36 +989,47 @@ void Parser_UartData(const char* SerialData)
 //                只有主机可以更改连接参数
                 if(Role==Central)
                 {
-//                    获取最小连接间隔
-                    AdvParamArray[0]=SerialData[10];
-                    AdvParamArray[1]=SerialData[11];
-                    StrToHex(&AdvParam,AdvParamArray,1);
-                    connParam.connIntvMin=AdvParam;
-//                    获取最大连接间隔                    
-                    AdvParamArray[0]=SerialData[13];
-                    AdvParamArray[1]=SerialData[14];
-                    StrToHex(&AdvParam,AdvParamArray,1);
-                    connParam.connIntvMax=AdvParam;
-//                    发起连接间隔更新请求
-                    API_RESULT=CyBle_GapcConnectionParamUpdateRequest(cyBle_connHandle.bdHandle,&connParam);  
-                    if(CYBLE_ERROR_OK==API_RESULT)
+                    if(CYBLE_STATE_CONNECTED==CyBle_GetState())
                     {
-                        printf("AT+OK\r\n");
-//                        printf("%s",SerialData);
-//                        printf("OK\r\n");
+                        //                    获取最小连接间隔
+                        AdvParamArray[0]=SerialData[10];
+                        AdvParamArray[1]=SerialData[11];
+                        StrToHex(&AdvParam,AdvParamArray,1);
+                        connParam.connIntvMin=AdvParam;
+    //                    获取最大连接间隔                    
+                        AdvParamArray[0]=SerialData[13];
+                        AdvParamArray[1]=SerialData[14];
+                        StrToHex(&AdvParam,AdvParamArray,1);
+                        connParam.connIntvMax=AdvParam;
+    //                    发起连接间隔更新请求
+                        API_RESULT=CyBle_GapcConnectionParamUpdateRequest(cyBle_connHandle.bdHandle,&connParam);  
+                        if(CYBLE_ERROR_OK==API_RESULT)
+                        {
+                            printf("AT+OK\r\n");
+    //                        printf("%s",SerialData);
+    //                        printf("OK\r\n");
+                        }
+                        else
+                        {
+    //                        printf("+CONNI=<FAIL>\r\n");
+                            printf("AT+ERR=2\r\n");//表示命令设置失败
+                        }
+                        
                     }
                     else
                     {
-//                        printf("+CONNI=<FAIL>\r\n");
-                        printf("AT+ERR=2\r\n");//表示命令设置失败
+                        printf("AT+ERR=3\r\n");//表示当前状态不支持该命令
                     }
-                    
+
                 }
                 else
                 {
 //                    printf("+CONNI=<INVALID>\r\n");
                     printf("AT+ERR=4\r\n");//表示当前角色不支持该命令
                 }
+                break;
+                default:
+                    printf("AT+ERR=5\r\n");//表示没有该AT命令 
                 break;
             }
             
@@ -1077,6 +1096,9 @@ void Parser_UartData(const char* SerialData)
                     }
                     
                 break;
+                default:
+                    printf("AT+ERR=5\r\n");//表示没有该AT命令 
+                break;                    
             }
         break;
 ////            查询所有的特征描述符----主机有效
@@ -1147,6 +1169,10 @@ void Parser_UartData(const char* SerialData)
     //                  while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据                
                     }
                 }
+                else
+                {
+                    printf("AT+ERR=5\r\n");//表示没有该AT命令 
+                }
             }
             else
             {
@@ -1172,38 +1198,125 @@ void Parser_UartData(const char* SerialData)
             if(CYBLE_STATE_CONNECTED==CyBle_GetState())
             {
                 idx=SerialData[11];
-                switch(idx)
+                if(Role==Central)
                 {
-                    case '1':
+                    switch(idx)
+                    {
+                        case '1':
+                            API_RESULT=CyBle_GapDisconnect(cyBle_connHandle.bdHandle);
+                            if(CYBLE_ERROR_OK!=API_RESULT)  
+                            {
+                                printf("AT+ERR=<%d,0x%02X>\r\n",idx-0x30,API_RESULT);                    
+                            }
+                            else
+                            {
+                                //断开连接后，应该清空连接列表对应的内容
+                                for(i=0;i<Conn_Or_Disconn_Info.Connected_Count;i++)
+                                {
+                                    if(1==Conn_Or_Disconn_Info.Connect_Idx[i])
+                                    {
+                                        Conn_Or_Disconn_Info.Connected_Count--;
+                                        memset(Conn_Or_Disconn_Info.DeviceAddr[i].bdAddr,0,6);
+                                        Conn_Or_Disconn_Info.Connect_Idx[i]=0;
+                                        Conn_Or_Disconn_Info.Disconn_Idx[0]=idx-0x30;
+                                        Conn_or_Disconn_Idx=idx-0x30;
+                                        break;
+                                    }
+                                }
+                                printf("AT+OK\r\n");
+                            }
+                        break;
+                        case '2':
+                            API_RESULT=CyBle_GapDisconnect(cyBle_connHandle.bdHandle);
+                            if(CYBLE_ERROR_OK!=API_RESULT)  
+                            {
+                                printf("AT+ERR=<%d,0x%02X>\r\n",idx-0x30,API_RESULT);                    
+                            }
+                            else
+                            {
+                                //断开连接后，应该清空连接列表对应的内容
+                                for(i=0;i<Conn_Or_Disconn_Info.Connected_Count;i++)
+                                {
+                                    if(1==Conn_Or_Disconn_Info.Connect_Idx[i])
+                                    {
+                                        Conn_Or_Disconn_Info.Connected_Count--;
+                                        memset(Conn_Or_Disconn_Info.DeviceAddr[i].bdAddr,0,6);
+                                        Conn_Or_Disconn_Info.Connect_Idx[i]=0;
+                                        Conn_Or_Disconn_Info.Disconn_Idx[0]=idx-0x30;
+                                        Conn_or_Disconn_Idx=idx-0x30;
+                                        break;
+                                    }
+                                }
+                                printf("AT+OK\r\n");
+                            }
+                        break;
+                        case '3':
+                            API_RESULT=CyBle_GapDisconnect(cyBle_connHandle.bdHandle);
+                            if(CYBLE_ERROR_OK!=API_RESULT)  
+                            {
+                                printf("AT+ERR=<%d,0x%02X>\r\n",idx-0x30,API_RESULT);                    
+                            }
+                            else
+                            {
+                                //断开连接后，应该清空连接列表对应的内容
+                                for(i=0;i<Conn_Or_Disconn_Info.Connected_Count;i++)
+                                {
+                                    if(1==Conn_Or_Disconn_Info.Connect_Idx[i])
+                                    {
+                                        Conn_Or_Disconn_Info.Connected_Count--;
+                                        memset(Conn_Or_Disconn_Info.DeviceAddr[i].bdAddr,0,6);
+                                        Conn_Or_Disconn_Info.Connect_Idx[i]=0;
+                                        Conn_Or_Disconn_Info.Disconn_Idx[0]=idx-0x30;
+                                        Conn_or_Disconn_Idx=idx-0x30;
+                                        break;
+                                    }
+                                }
+                                printf("AT+OK\r\n");
+                            }
+                        break;
+                        case '4':
+                            API_RESULT=CyBle_GapDisconnect(cyBle_connHandle.bdHandle);
+                            if(CYBLE_ERROR_OK!=API_RESULT)  
+                            {
+                                printf("AT+ERR=<%d,0x%02X>\r\n",idx-0x30,API_RESULT);                    
+                            }
+                            else
+                            {
+                                //断开连接后，应该清空连接列表对应的内容
+                                for(i=0;i<Conn_Or_Disconn_Info.Connected_Count;i++)
+                                {
+                                    if(1==Conn_Or_Disconn_Info.Connect_Idx[i])
+                                    {
+                                        Conn_Or_Disconn_Info.Connected_Count--;
+                                        memset(Conn_Or_Disconn_Info.DeviceAddr[i].bdAddr,0,6);
+                                        Conn_Or_Disconn_Info.Connect_Idx[i]=0;
+                                        Conn_Or_Disconn_Info.Disconn_Idx[0]=idx-0x30;
+                                        Conn_or_Disconn_Idx=idx-0x30;
+                                        break;
+                                    }
+                                }
+                                printf("AT+OK\r\n");
+                            }
+                        break;  
+                        default:
+                            printf("AT+ERR=5\r\n");//表示没有该AT命令 
+                        break;
+                    }
+                }
+                else
+                {
+                    if(idx=='1')
+                    {                        
                         API_RESULT=CyBle_GapDisconnect(cyBle_connHandle.bdHandle);
                         if(CYBLE_ERROR_OK!=API_RESULT)  
                         {
-                            printf("AT+ERR=<%d,0x%02X>\r\n",idx-0x30,API_RESULT);                    
+                            printf("AT+ERR=<0x%02X>\r\n",API_RESULT);                    
                         }
-                        else
-                        {
-                            //断开连接后，应该清空连接列表对应的内容
-                            for(i=0;i<Conn_Or_Disconn_Info.Connected_Count;i++)
-                            {
-                                if(1==Conn_Or_Disconn_Info.Connect_Idx[i])
-                                {
-                                    Conn_Or_Disconn_Info.Connected_Count--;
-                                    memset(Conn_Or_Disconn_Info.DeviceAddr[i].bdAddr,0,6);
-                                    Conn_Or_Disconn_Info.Connect_Idx[i]=0;
-                                    Conn_Or_Disconn_Info.Disconn_Idx[0]=idx-0x30;
-                                    Conn_or_Disconn_Idx=idx-0x30;
-                                    break;
-                                }
-                            }
-                            printf("AT+OK\r\n");
-                        }
-                    break;
-                    case '2':
-                    break;
-                    case '3':
-                    break;
-                    case '4':
-                    break;                    
+                    }
+                    else
+                    {
+                        printf("AT+ERR=5\r\n");//表示没有该AT命令
+                    }
                 }
             }
             else
@@ -1223,6 +1336,10 @@ void Parser_UartData(const char* SerialData)
                 idx=SerialData[8];
                 if(idx=='?')
                     printf("+RSSI:<%ddBm>\r\n",CyBle_GetRssi());
+                else
+                {
+                    printf("AT+ERR=5\r\n");//表示没有该AT命令
+                }
             }
             else
             {
@@ -1236,6 +1353,10 @@ void Parser_UartData(const char* SerialData)
             {
                 printf("%ld\r\n",testCount);
                 testCount=0;
+            }
+            else
+            {
+               printf("AT+ERR=5\r\n");//表示没有该AT命令 
             }
 //            if(CYBLE_STATE_CONNECTED==CyBle_GetState()&&(Central==Role))//当且仅当是连接状态且是主机状态才有效
 //            {
@@ -1281,21 +1402,21 @@ void Parser_UartData(const char* SerialData)
         case NOTIFY:
             idx=SerialData[10];
             if((CYBLE_STATE_CONNECTED==CyBle_GetState())&&(Central==Role))//主机模式下且是AT命令下才能处理NOTIFY的命令
-            {                  
+             {                  
                 switch(idx)
                 {
 //                    //关闭透传通道,在透传模式下不会进来这里
-//                    case '0':
+                    case '0':
 //                        writeRequestData.value.val[0]=0x00;
 //                        writeRequestData.attrHandle=CYBLE_TROUGHPUT_SERVICE_CUSTOM_CHARACTERISTIC_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE;                        
 //                        API_RESULT=CyBle_GattcWriteCharacteristicValue(cyBle_connHandle, &writeRequestData);
 //                        if(CYBLE_ERROR_OK==API_RESULT)
 //                        {
-//                            CommandMode=AT_COMMAND_MODE;
-//                            printf("+MODE=<AT_COMMAND_MODE>\r\n");
+                        CommandMode=AT_COMMAND_MODE;
+                        printf("+MODE=<AT_COMMAND_MODE>\r\n");
 //                        }
 ////                        printf("CyBle_GattcWriteCharacteristicValue is %d\r\n",API_RESULT);
-//                    break;
+                    break;
 //                    打开透传通道
                     case '1':
                         writeRequestData.value.val[0]=0x01;
@@ -1311,6 +1432,9 @@ void Parser_UartData(const char* SerialData)
                     case '?'://主机模式下，能接收到该命令则一定是AT命令模式
                         printf("+MODE=<AT_COMMAND_MODE>\r\n");                       
                     break;
+                    default:
+                        printf("AT+ERR=5\r\n");//表示没有该AT命令
+                    break;
 //                        API_RESULT=CyBle_GattcReadCharacteristicValue(cyBle_connHandle,readRequestData);
 //                        printf("CyBle_GattcReadCharacteristicDescriptors is %d\r\n",API_RESULT);                        
                         
@@ -1321,6 +1445,10 @@ void Parser_UartData(const char* SerialData)
             {
                 switch(idx)
                 {
+                    case '0':
+                        CommandMode=AT_COMMAND_MODE;
+                        printf("+MODE=<AT_COMMAND_MODE>\r\n");
+                    break;
                     case '1'://从机模式且AT命令模式下，打开从机给主机的透传通道
                         CommandMode=THROUGHT_MODE;
                         printf("+MODE=<THROUGHT_MODE>\r\n");
@@ -1328,6 +1456,10 @@ void Parser_UartData(const char* SerialData)
                     case '?'://从机模式下，能接收到该命令则一定是AT命令模式
                         printf("+MODE=<AT_COMMAND_MODE>\r\n");                       
                     break;
+                    default:
+                        printf("AT+ERR=5\r\n");//表示没有该AT命令
+                    break;
+
                 }
 //                printf("+NOTIFY=<INVALID>\r\n");
             }
@@ -1370,52 +1502,68 @@ void Parser_UartData(const char* SerialData)
                     break;
                 }
             }
+            else
+            {
+                printf("AT+ERR=5\r\n");//表示没有该AT命令
+            }
         break;
 //            广播的打开与关闭-----从机有效
         case ADVS:            
             idx=SerialData[8];            
-            if(CYBLE_STATE_CONNECTED!=CyBle_GetState())
+            if(Role==Peripheral)
             {
-                if(idx=='1')//开始广播
+                if(CYBLE_STATE_CONNECTED!=CyBle_GetState())
                 {
-                    if(CYBLE_STATE_ADVERTISING!=CyBle_GetState())
+                    if(idx=='1')//开始广播
                     {
-                        API_RESULT=CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
-                        if(CYBLE_ERROR_OK==API_RESULT)
+                        if(CYBLE_STATE_ADVERTISING!=CyBle_GetState())
                         {
-//                           printf("+ADV=<ENABLE>\r\n");
-                            printf("AT+OK\r\n");
+                            API_RESULT=CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
+                            if(CYBLE_ERROR_OK==API_RESULT)
+                            {
+    //                           printf("+ADV=<ENABLE>\r\n");
+                                printf("AT+OK\r\n");
+                            }
+                            else
+                            {
+                                printf("AT+ERR=2\r\n");//表示命令设置失败
+                            }
                         }
                         else
                         {
-                            printf("AT+ERR=2\r\n");//表示命令设置失败
+    //                        printf("+ADV=<ENABLE>\r\n");
+                            printf("AT+ERR=3\r\n");//表示当前状态不支持该命令
+                        }
+                    }
+                    else if(idx=='0')//关闭广播
+                    {
+                        if(CYBLE_STATE_ADVERTISING==CyBle_GetState())
+                        {
+                            CyBle_GappStopAdvertisement();
+                            printf("AT+OK\r\n");
+    //                        printf("+ADV=<DISABLE>\r\n");                        
+                        }
+                        else
+                        {
+    //                        printf("+ADV=<DISABLE>\r\n");  
+                            printf("AT+ERR=3\r\n");//表示当前状态不支持该命令
                         }
                     }
                     else
                     {
-//                        printf("+ADV=<ENABLE>\r\n");
-                        printf("AT+ERR=3\r\n");//表示当前状态不支持该命令
+                        printf("AT+ERR=5\r\n");//表示没有该AT命令
                     }
                 }
-                else if(idx=='0')//关闭广播
+                else
                 {
-                    if(CYBLE_STATE_ADVERTISING==CyBle_GetState())
-                    {
-                        CyBle_GappStopAdvertisement();
-                        printf("AT+OK\r\n");
-//                        printf("+ADV=<DISABLE>\r\n");                        
-                    }
-                    else
-                    {
-//                        printf("+ADV=<DISABLE>\r\n");  
-                        printf("AT+ERR=3\r\n");//表示当前状态不支持该命令
-                    }
+    //                printf("+ADV=<INVALID>\r\n"); 
+                    printf("AT+ERR=3\r\n");//表示当前状态不支持该命令
                 }
             }
             else
             {
-//                printf("+ADV=<INVALID>\r\n"); 
-                printf("AT+ERR=3\r\n");//表示当前状态不支持该命令
+//                printf("+CONNT=<INVALID>\r\n");
+                printf("AT+ERR=4\r\n");//表示当前角色不支持该命令
             }
         break;
 //            设置设备IO的能力-----主从有效
@@ -1510,6 +1658,9 @@ void Parser_UartData(const char* SerialData)
                             break;
                         }
                     break;
+                    default:
+                        printf("AT+ERR=5\r\n");//表示没有该AT命令
+                    break;
                 }   
             }            
             else
@@ -1518,6 +1669,7 @@ void Parser_UartData(const char* SerialData)
                 printf("AT+ERR=3\r\n");//表示当前状态不支持该命令
             }
         break;
+//            发起配对请求-----主从有效            
         case AUTH:
             idx=SerialData[8];
             if(idx=='?')
@@ -1548,6 +1700,34 @@ void Parser_UartData(const char* SerialData)
                 }
                     
 //                    printf("+AUTH=<INVALID>\r\n");
+            }
+            else
+            {
+                printf("AT+ERR=5\r\n");//表示没有该AT命令
+            }
+        break;
+//            设置低功耗能力-----主从有效            
+        case SLEEP:
+            idx=SerialData[9];
+            switch(idx)
+            {
+                case '0':
+                    LowPower_EN=FALSE;
+                    printf("AT+OK\r\n");
+                break;
+                case '1':
+                    LowPower_EN=TURE;
+                    printf("AT+OK\r\n");
+                break;
+                case '?':
+                    if(LowPower_EN)
+                        printf("+SLEEPMODE=<ENABLE>\r\n");
+                    else
+                        printf("+SLEEPMODE=<DISABLE>\r\n");
+                break;
+                default:
+                    printf("AT+ERR=5\r\n");//表示没有该AT命令
+                break;
             }
         break;
         default:
