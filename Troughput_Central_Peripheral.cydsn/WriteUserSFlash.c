@@ -26,7 +26,10 @@
 #include <Project.h>
 #include <WriteUserSFlash.h>
 
-
+/***************************************
+* 全局变量
+***************************************/
+char SetDeviceName[23]={0};
 /*******************************************************************************
 * Function Name: WriteUserSFlashRow
 ********************************************************************************
@@ -46,12 +49,17 @@
 #if defined (__GNUC__)
 #pragma GCC optimize ("O0")
 #endif /* End of #if defined (__GNUC__) */
-uint32 WriteUserSFlashRow(uint8 userRowNUmber, uint32 *dataPointer)
-{
-//    uint8 localCount;
+uint32 WriteUserSFlashRow(uint8 userRowNUmber, uint32 *dataPointer,uint8_t datalength,uint8_t address)
+{    
+    if(userRowNUmber==0)
+    {
+        if(address<6)
+            return USER_SFLASH_WRITE_FAIL;
+    }
+    uint8 localCount;
 	volatile uint32 retValue=0;
 //	volatile uint32 cmdDataBuffer[(CY_FLASH_SIZEOF_ROW/4) + 2];
-    volatile uint32 cmdDataBuffer[3];
+    volatile uint32 cmdDataBuffer[datalength+2];
 	volatile uint32 reg1,reg2,reg3,reg4,reg5,reg6;
 	
 	/* Store the clock settings temporarily */
@@ -68,22 +76,21 @@ uint32 WriteUserSFlashRow(uint8 userRowNUmber, uint32 *dataPointer)
 	
 	/******* Initialize SRAM parameters for the LOAD FLASH command ******/
 	/* byte 3 (i.e. 00) is the Macro_select */
-	/* byte 2 (i.e. 00) is the Start addr of page latch 这里的前6个字节是存MAC地址不能修改*/
+	/* byte 2 (i.e. 00) is the Start addr of page latch 
+       如果是第0行，前6个字节不能修改，否则MAC地址会丢失*/
 	/* byte 1 (i.e. d7) is the key 2  */
 	/* byte 0 (i.e. b6) is the key 1  */
-  	cmdDataBuffer[0]=0x0006d7b6;
-	
+  	cmdDataBuffer[0]=0x0000d7b6|(address<<16);
 	/****** Initialize SRAM parameters for the LOAD FLASH command ******/
 	/* byte 3,2 and 1 are null */
 	/* byte 0 (i.e. 7F) is the number of bytes to be written */
-	cmdDataBuffer[1]=0x00000001;//这里只写一个字节的数据，最多一次可写128个字节的数据
-    
+	cmdDataBuffer[1]=(0x00000000|datalength)-1;	     
 	/* Initialize the SRAM buffer with data bytes */
-    cmdDataBuffer[2] = *dataPointer;
-//    for(localCount = 0; localCount < (CY_FLASH_SIZEOF_ROW/4); localCount++)    
-//	{
-//		cmdDataBuffer[localCount + 2] = dataPointer[localCount]; 
-//	}
+//    cmdDataBuffer[2] = *dataPointer;
+    for(localCount = 0; localCount < datalength; localCount++)    
+	{
+		cmdDataBuffer[localCount + 2] = dataPointer[localCount]; 
+	}
 	
 	/* Write the following to registers to execute a LOAD FLASH bytes */
 	CY_SET_REG32(CYREG_CPUSS_SYSARG, &cmdDataBuffer[0]);
@@ -138,11 +145,38 @@ uint32 WriteUserSFlashRow(uint8 userRowNUmber, uint32 *dataPointer)
 ******************************************************************************/
 uint8_t ReadDataFromSFlash()
 {
+    
     uint8_t FlashData=0;
     uint8_t *sflashPtr=(uint8_t *)USER_SFLASH_BASE_ADDRESS;//SFlash的首地址
     sflashPtr=sflashPtr+6;
     FlashData=*sflashPtr;
-    return FlashData;
+    return FlashData;    
+}
+
+/*******************************************************************************
+* Function Name: ReadDeviceNameFromSFlash
+********************************************************************************
+*
+*
+* 
+*  读取存放在SFlash中的设备名
+* \param  none
+* \return
+*  None
+*       SFlash中有506Bytes字节的用户可配置的空间
+******************************************************************************/
+uint8_t ReadDeviceNameFromSFlash()
+{
+    uint8_t FlashData=0;
+    uint8_t *sflashPtr=(uint8_t *)USER_SFLASH_BASE_ADDRESS;//SFlash的首地址
+    FlashData=*(sflashPtr+128);//取得存放在SFlash的设备名的长度
+    if(FlashData==0)
+        return 0;
+    else
+    {
+        memcpy(SetDeviceName,sflashPtr+128*2,FlashData); 
+        return 1;
+    }
 }
 
 /* [] END OF FILE */

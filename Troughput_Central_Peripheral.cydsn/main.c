@@ -35,6 +35,7 @@ extern uint8_t TroughtTest_Flag;
 extern uint8_t CommandMode;
 extern uint8 buffer[20];
 extern uint16 negotiatedMtu;
+extern char SetDeviceName[23];
 //extern CYBLE_CONN_HANDLE_T	connHandle;
 int main()
 {
@@ -48,6 +49,10 @@ int main()
     else
     {
         Role=Peripheral;
+    }
+    if(ReadDeviceNameFromSFlash())
+    {
+        CyBle_GapSetLocalName(SetDeviceName);
     }
     SystemInitialization();  
     for(;;)

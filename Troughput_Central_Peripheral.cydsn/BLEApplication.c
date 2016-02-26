@@ -360,11 +360,14 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
     //                    totalByteCounter += handleValueNotification->handleValPair.value.len;
     //                    printf("%ld\r\n",totalByteCounter);
 //                        printf("+RX=<0x");
-                        for(i=0;i<handleValueNotification->handleValPair.value.len;i++)
-                        {
-//                            printf("%02X",handleValueNotification->handleValPair.value.val[i]);
-                            UART_UartPutChar(handleValueNotification->handleValPair.value.val[i]);
-                        }
+                          if(CommandMode==THROUGHT_MODE)
+                          {
+                            for(i=0;i<handleValueNotification->handleValPair.value.len;i++)
+                            {
+    //                            printf("%02X",handleValueNotification->handleValPair.value.val[i]);
+                                UART_UartPutChar(handleValueNotification->handleValPair.value.val[i]);
+                            }
+                          }
 //                        printf("\r\n");
                     }
                 }
@@ -705,6 +708,7 @@ void Parser_UartData(const char* SerialData)
     char AdvDataLength=0;
     char AdvParamArray[2]={0};
     char AdvParam=0;
+    uint8 DeviceNameLen[1]={0};
     uint32 WriteDataToFlash=0;
 //    volatile uint8_t test=0;
 //    double connintv=0;
@@ -795,7 +799,10 @@ void Parser_UartData(const char* SerialData)
                         {
                             CyBle_GappStopAdvertisement();
                             memset(Name,0,sizeof(char8)*27);
-                            memcpy(Name,RX_BUFFER+9,Buffer_Length-11);
+                            DeviceNameLen[0]=Buffer_Length-11;
+                            memcpy(Name,RX_BUFFER+9,DeviceNameLen[0]);
+                            WriteUserSFlashRow(1,DeviceNameLen,1,0x00);//将设备名字长度写入SFlash中，掉电有效
+                            WriteUserSFlashRow(2,Name,DeviceNameLen[0],0x00);//将设备名写入SFlash中，掉电有效
                             API_RESULT=CyBle_GapSetLocalName(Name);                            
                             if(API_RESULT==CYBLE_ERROR_OK)
                             {
@@ -1054,7 +1061,7 @@ void Parser_UartData(const char* SerialData)
                     if(CYBLE_STATE_CONNECTED!=CyBle_GetState())
                     {
                         WriteDataToFlash=Peripheral;//把当前的值写入Flash中,用于复位时判断是主还是从模式
-                        if(USER_SFLASH_WRITE_SUCCESSFUL==WriteUserSFlashRow(0,&WriteDataToFlash))
+                        if(USER_SFLASH_WRITE_SUCCESSFUL==WriteUserSFlashRow(0,&WriteDataToFlash,1,0x06))
                         {
                             //停止扫描
                             CyBle_GapcStopScan();
@@ -1077,7 +1084,7 @@ void Parser_UartData(const char* SerialData)
                     if(CYBLE_STATE_CONNECTED!=CyBle_GetState())
                     {
                         WriteDataToFlash=Central;
-                        if(USER_SFLASH_WRITE_SUCCESSFUL==WriteUserSFlashRow(0,&WriteDataToFlash))
+                        if(USER_SFLASH_WRITE_SUCCESSFUL==WriteUserSFlashRow(0,&WriteDataToFlash,1,0x06))
                         {
 //                        停止广播
                             CyBle_GappStopAdvertisement();
