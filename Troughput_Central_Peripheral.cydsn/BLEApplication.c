@@ -49,6 +49,7 @@ uint8_t iocapability=CYBLE_GAP_IOCAP_DISPLAY_ONLY;
 CYBLE_GAP_CONN_PARAM_UPDATED_IN_CONTROLLER_T ConnParam;
 uint8_t KEYBOARD=FALSE;
 uint8_t AUTHFLAG=FALSE;
+uint8_t SleepMode=TURE;
 //CYBLE_GAPP_DISC_MODE_INFO_T updateadvparam;
 //uint8_t ExitThrought[]={
 //    0x11,0x24,0xFB,0x1E,0x1F,0x24,0x19,0x16,0x29};
@@ -211,14 +212,26 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             if(Role==Peripheral)
             {
                printf("+DISCONN_EVT=<0x%02X>\r\n",*(uint8_t*)eventParam);
-               if(!LowPower_EN)
+               if(!SleepMode)
                {
                    CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_SLOW);
+               }
+               else
+               {
+                   LowPower_EN=TURE;
                }
             }
             else
             {
                printf("+DISCONN_EVT=<%d,0x%02X>\r\n",Conn_or_Disconn_Idx,*(uint8_t*)eventParam);
+               if(!SleepMode)
+               {
+                   CyBle_GapcStartScan(CYBLE_SCANNING_SLOW);
+               }
+               else
+               {
+                   LowPower_EN=TURE;
+               }
             }
             while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据                
 //            LowPower_EN=TURE;
@@ -858,6 +871,11 @@ void Parser_UartData(const char* SerialData)
                     case '<':
                         if(CYBLE_STATE_ADVERTISING!=CyBle_GetState())
                         {
+                            if((strchr((char*)(SerialData+9),'>')-(SerialData+9))>31)
+                            {
+                                printf("AT+ERR=9\r\n");//表示设置的广播数据长度过长
+                                return;
+                            }
                             memset(advDiscData.advData,0,CYBLE_GAP_MAX_ADV_DATA_LEN);
                             memcpy(StrAdvDataLength,SerialData+9,2);
                             StrToHex(&AdvDataLength,StrAdvDataLength,1);
@@ -1719,15 +1737,17 @@ void Parser_UartData(const char* SerialData)
             switch(idx)
             {
                 case '0':
-                    LowPower_EN=FALSE;
+//                    LowPower_EN=FALSE;
+                    SleepMode=FALSE;
                     printf("AT+OK\r\n");
                 break;
                 case '1':
-                    LowPower_EN=TURE;
+//                    LowPower_EN=TURE;
+                    SleepMode=TURE;
                     printf("AT+OK\r\n");
                 break;
                 case '?':
-                    if(LowPower_EN)
+                    if(SleepMode)
                         printf("+SLEEPMODE=<ENABLE>\r\n");
                     else
                         printf("+SLEEPMODE=<DISABLE>\r\n");
