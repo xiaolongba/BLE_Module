@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
   30:.\Generated_Source\PSoC4/Timer.c **** *
   31:.\Generated_Source\PSoC4/Timer.c **** * Parameters:
   32:.\Generated_Source\PSoC4/Timer.c **** *  None
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/Timer.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
   78:.\Generated_Source\PSoC4/Timer.c ****         /* Initialize counter value */
   79:.\Generated_Source\PSoC4/Timer.c ****         #if (Timer_CY_TCPWM_V2 && Timer_TIMER_UPDOWN_CNT_USED && !Timer_CY_TCPWM_4000)
   80:.\Generated_Source\PSoC4/Timer.c ****             Timer_WriteCounter(1u);
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 3
 
 
   81:.\Generated_Source\PSoC4/Timer.c ****         #elif(Timer__COUNT_DOWN == Timer_TC_COUNTER_MODE)
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  135:.\Generated_Source\PSoC4/Timer.c **** 
  136:.\Generated_Source\PSoC4/Timer.c ****             #if (Timer__CENTER == Timer_PWM_ALIGN)
  137:.\Generated_Source\PSoC4/Timer.c ****                 Timer_TRIG_CONTROL2_REG = Timer_PWM_MODE_CENTER;
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 4
 
 
  138:.\Generated_Source\PSoC4/Timer.c ****             #endif  /* ( Timer_PWM_CENTER == Timer_PWM_ALIGN) */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  180:.\Generated_Source\PSoC4/Timer.c **** 
  181:.\Generated_Source\PSoC4/Timer.c ****     enableInterrupts = CyEnterCriticalSection();
  182:.\Generated_Source\PSoC4/Timer.c ****     Timer_BLOCK_CONTROL_REG |= Timer_MASK;
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 5
 
 
  183:.\Generated_Source\PSoC4/Timer.c ****     CyExitCriticalSection(enableInterrupts);
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  237:.\Generated_Source\PSoC4/Timer.c **** * Function Name: Timer_Stop
  238:.\Generated_Source\PSoC4/Timer.c **** ********************************************************************************
  239:.\Generated_Source\PSoC4/Timer.c **** *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 6
 
 
  240:.\Generated_Source\PSoC4/Timer.c **** * Summary:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  294:.\Generated_Source\PSoC4/Timer.c ****     Timer_CONTROL_REG |= mode;
  295:.\Generated_Source\PSoC4/Timer.c **** 
  296:.\Generated_Source\PSoC4/Timer.c ****     CyExitCriticalSection(enableInterrupts);
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 7
 
 
  297:.\Generated_Source\PSoC4/Timer.c **** }
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  351:.\Generated_Source\PSoC4/Timer.c **** *         - Timer_PRESCALE_DIVBY128  - Divide by 128
  352:.\Generated_Source\PSoC4/Timer.c **** *
  353:.\Generated_Source\PSoC4/Timer.c **** * Return:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 8
 
 
  354:.\Generated_Source\PSoC4/Timer.c **** *  None
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  408:.\Generated_Source\PSoC4/Timer.c **** *  Writes the control register that determines what mode of operation the PWM
  409:.\Generated_Source\PSoC4/Timer.c **** *  output lines are driven in.  There is a setting for what to do on a
  410:.\Generated_Source\PSoC4/Timer.c **** *  comparison match (CC_MATCH), on an overflow (OVERFLOW) and on an underflow
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 9
 
 
  411:.\Generated_Source\PSoC4/Timer.c **** *  (UNDERFLOW).  The value for each of the three must be ORed together to form
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  465:.\Generated_Source\PSoC4/Timer.c **** *  when the kill signal (stop input) is configured in the pass through mode
  466:.\Generated_Source\PSoC4/Timer.c **** *  (Level sensitive signal).
  467:.\Generated_Source\PSoC4/Timer.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 10
 
 
  468:.\Generated_Source\PSoC4/Timer.c **** *
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  522:.\Generated_Source\PSoC4/Timer.c **** 
  523:.\Generated_Source\PSoC4/Timer.c ****     CyExitCriticalSection(enableInterrupts);
  524:.\Generated_Source\PSoC4/Timer.c **** }
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 11
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 11
 
 
  525:.\Generated_Source\PSoC4/Timer.c **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  579:.\Generated_Source\PSoC4/Timer.c **** void Timer_SetPWMInvert(uint32 mask)
  580:.\Generated_Source\PSoC4/Timer.c **** {
  581:.\Generated_Source\PSoC4/Timer.c ****     uint8 enableInterrupts;
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 12
 
 
  582:.\Generated_Source\PSoC4/Timer.c **** 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  636:.\Generated_Source\PSoC4/Timer.c **** * Function Name: Timer_SetCounterMode
  637:.\Generated_Source\PSoC4/Timer.c **** ********************************************************************************
  638:.\Generated_Source\PSoC4/Timer.c **** *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 13
 
 
  639:.\Generated_Source\PSoC4/Timer.c **** * Summary:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  693:.\Generated_Source\PSoC4/Timer.c **** /*******************************************************************************
  694:.\Generated_Source\PSoC4/Timer.c **** * Function Name: Timer_ReadPeriod
  695:.\Generated_Source\PSoC4/Timer.c **** ********************************************************************************
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 14
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 14
 
 
  696:.\Generated_Source\PSoC4/Timer.c **** *
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  750:.\Generated_Source\PSoC4/Timer.c **** * Summary:
  751:.\Generated_Source\PSoC4/Timer.c **** *  Writes the 16 bit period buf register with the new period value.
  752:.\Generated_Source\PSoC4/Timer.c **** *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 15
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 15
 
 
  753:.\Generated_Source\PSoC4/Timer.c **** * Parameters:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  807:.\Generated_Source\PSoC4/Timer.c **** {
  808:.\Generated_Source\PSoC4/Timer.c ****     uint8 enableInterrupts;
  809:.\Generated_Source\PSoC4/Timer.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 16
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 16
 
 
  810:.\Generated_Source\PSoC4/Timer.c ****     enableInterrupts = CyEnterCriticalSection();
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  864:.\Generated_Source\PSoC4/Timer.c **** * Function Name: Timer_ReadCompare
  865:.\Generated_Source\PSoC4/Timer.c **** ********************************************************************************
  866:.\Generated_Source\PSoC4/Timer.c **** *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 17
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 17
 
 
  867:.\Generated_Source\PSoC4/Timer.c **** * Summary:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  921:.\Generated_Source\PSoC4/Timer.c **** *  None
  922:.\Generated_Source\PSoC4/Timer.c **** *
  923:.\Generated_Source\PSoC4/Timer.c **** *******************************************************************************/
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 18
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 18
 
 
  924:.\Generated_Source\PSoC4/Timer.c **** void Timer_WriteCompareBuf(uint32 compareBuf)
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  978:.\Generated_Source\PSoC4/Timer.c ****         {
  979:.\Generated_Source\PSoC4/Timer.c ****             regVal--;
  980:.\Generated_Source\PSoC4/Timer.c ****         }
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 19
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 19
 
 
  981:.\Generated_Source\PSoC4/Timer.c ****         else if (((uint32)Timer__COUNT_UP == currentMode) && (0xFFFFu != regVal))
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
 1035:.\Generated_Source\PSoC4/Timer.c **** }
 1036:.\Generated_Source\PSoC4/Timer.c **** 
 1037:.\Generated_Source\PSoC4/Timer.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 20
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 20
 
 
 1038:.\Generated_Source\PSoC4/Timer.c **** /*******************************************************************************
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
 1092:.\Generated_Source\PSoC4/Timer.c **** void Timer_SetReloadMode(uint32 triggerMode)
 1093:.\Generated_Source\PSoC4/Timer.c **** {
 1094:.\Generated_Source\PSoC4/Timer.c ****     uint8 enableInterrupts;
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 21
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 21
 
 
 1095:.\Generated_Source\PSoC4/Timer.c **** 
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
 1149:.\Generated_Source\PSoC4/Timer.c **** *     - Timer_TRIG_RISING    - Rising edge
 1150:.\Generated_Source\PSoC4/Timer.c **** *     - Timer_TRIG_FALLING   - Falling edge
 1151:.\Generated_Source\PSoC4/Timer.c **** *     - Timer_TRIG_BOTH      - Both rising and falling edge
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 22
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 22
 
 
 1152:.\Generated_Source\PSoC4/Timer.c **** *
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
 1206:.\Generated_Source\PSoC4/Timer.c **** *
 1207:.\Generated_Source\PSoC4/Timer.c **** * Summary:
 1208:.\Generated_Source\PSoC4/Timer.c **** *  Triggers the designated command to occur on the designated TCPWM instances.
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 23
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 23
 
 
 1209:.\Generated_Source\PSoC4/Timer.c **** *  The mask can be used to apply this command simultaneously to more than one
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
 1263:.\Generated_Source\PSoC4/Timer.c **** }
 1264:.\Generated_Source\PSoC4/Timer.c **** 
 1265:.\Generated_Source\PSoC4/Timer.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 24
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 24
 
 
 1266:.\Generated_Source\PSoC4/Timer.c **** /*******************************************************************************
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
   74              	.LBE16:
  160:.\Generated_Source\PSoC4/Timer.c **** 
   75              		.loc 1 160 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 25
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 25
 
 
   76 0020 7047     		bx	lr
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  123 0018 00002040 		.word	1075838976
  124              		.cfi_endproc
  125              	.LFE5:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 26
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 26
 
 
  126              		.size	Timer_Stop, .-Timer_Stop
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  171              		.cfi_endproc
  172              	.LFE6:
  173              		.size	Timer_SetMode, .-Timer_SetMode
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 27
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 27
 
 
  174              		.section	.text.Timer_SetQDMode,"ax",%progbits
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  219              	.LFE7:
  220              		.size	Timer_SetQDMode, .-Timer_SetQDMode
  221              		.section	.text.Timer_SetPrescaler,"ax",%progbits
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 28
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 28
 
 
  222              		.align	1
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  267              		.size	Timer_SetPrescaler, .-Timer_SetPrescaler
  268              		.section	.text.Timer_SetOneShot,"ax",%progbits
  269              		.align	1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 29
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 29
 
 
  270              		.global	Timer_SetOneShot
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  315              		.cfi_endproc
  316              	.LFE9:
  317              		.size	Timer_SetOneShot, .-Timer_SetOneShot
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 30
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 30
 
 
  318              		.section	.text.Timer_SetPWMMode,"ax",%progbits
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  364              		.loc 1 483 0
  365 0004 FFF7FEFF 		bl	CyEnterCriticalSection
  366              	.LVL25:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 31
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 31
 
 
  485:.\Generated_Source\PSoC4/Timer.c ****     Timer_CONTROL_REG |= ((uint32)((syncKillEnable & Timer_1BIT_MASK)  <<
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  517:.\Generated_Source\PSoC4/Timer.c **** 
  413              		.loc 1 517 0
  414 0004 FFF7FEFF 		bl	CyEnterCriticalSection
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 32
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 32
 
 
  415              	.LVL29:
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  461 0002 041C     		mov	r4, r0
  550:.\Generated_Source\PSoC4/Timer.c **** 
  462              		.loc 1 550 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 33
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 33
 
 
  463 0004 FFF7FEFF 		bl	CyEnterCriticalSection
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  509              		.loc 1 580 0
  510 0002 041C     		mov	r4, r0
  583:.\Generated_Source\PSoC4/Timer.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 34
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 34
 
 
  511              		.loc 1 583 0
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  612:.\Generated_Source\PSoC4/Timer.c **** 
  557              		.loc 1 612 0
  558              		@ sp needed
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 35
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 35
 
 
  559 0006 7047     		bx	lr
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  607              		.cfi_offset 14, -4
  659:.\Generated_Source\PSoC4/Timer.c ****     uint8 enableInterrupts;
  608              		.loc 1 659 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 36
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 36
 
 
  609 0002 041C     		mov	r4, r0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  654              	.LVL47:
  655 0004 1860     		str	r0, [r3]
  690:.\Generated_Source\PSoC4/Timer.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 37
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 37
 
 
  656              		.loc 1 690 0
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  704              		.cfi_def_cfa_offset 8
  705              		.cfi_offset 4, -8
  706              		.cfi_offset 14, -4
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 38
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 38
 
 
  734:.\Generated_Source\PSoC4/Timer.c ****     uint8 enableInterrupts;
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  751 0000 014B     		ldr	r3, .L53
  752 0002 80B2     		uxth	r0, r0
  753              	.LVL53:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 39
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 39
 
 
  754 0004 1860     		str	r0, [r3]
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  801              	.LVL54:
  802 0000 10B5     		push	{r4, lr}
  803              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 40
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 40
 
 
  804              		.cfi_offset 4, -8
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  849              		.cfi_startproc
  850              	.LVL58:
  859:.\Generated_Source\PSoC4/Timer.c **** }
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 41
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 41
 
 
  851              		.loc 1 859 0
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  899              	.LFB26:
  925:.\Generated_Source\PSoC4/Timer.c ****     #if (Timer_CY_TCPWM_4000)
  900              		.loc 1 925 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 42
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 42
 
 
  901              		.cfi_startproc
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  948              		.thumb_func
  949              		.type	Timer_ReadCapture, %function
  950              	Timer_ReadCapture:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 43
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 43
 
 
  951              	.LFB28:
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  995              		.size	Timer_ReadCaptureBuf, .-Timer_ReadCaptureBuf
  996              		.section	.text.Timer_SetCaptureMode,"ax",%progbits
  997              		.align	1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 44
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 44
 
 
  998              		.global	Timer_SetCaptureMode
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1043              		.align	1
  1044              		.global	Timer_SetReloadMode
  1045              		.code	16
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 45
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 45
 
 
  1046              		.thumb_func
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1091              		.global	Timer_SetStartMode
  1092              		.code	16
  1093              		.thumb_func
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 46
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 46
 
 
  1094              		.type	Timer_SetStartMode, %function
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1139              		.global	Timer_SetStopMode
  1140              		.code	16
  1141              		.thumb_func
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 47
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 47
 
 
  1142              		.type	Timer_SetStopMode, %function
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1187              		.code	16
  1188              		.thumb_func
  1189              		.type	Timer_SetCountMode, %function
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 48
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 48
 
 
  1190              	Timer_SetCountMode:
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1235              		.thumb_func
  1236              		.type	Timer_TriggerCommand, %function
  1237              	Timer_TriggerCommand:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 49
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 49
 
 
  1238              	.LFB35:
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  178:.\Generated_Source\PSoC4/Timer.c ****     uint8 enableInterrupts;
  1283              		.loc 1 178 0
  1284              		.cfi_startproc
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 50
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 50
 
 
  1285 0000 10B5     		push	{r4, lr}
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1330              		.cfi_def_cfa_offset 8
  1331              		.cfi_offset 4, -8
  1332              		.cfi_offset 14, -4
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 51
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 51
 
 
  226:.\Generated_Source\PSoC4/Timer.c ****     {
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
 1261:.\Generated_Source\PSoC4/Timer.c ****             (Timer_STATUS_REG & Timer_STATUS_DOWN));
  1377              		.loc 1 1261 0
  1378 0008 9B0F     		lsr	r3, r3, #30
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 52
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 52
 
 
 1262:.\Generated_Source\PSoC4/Timer.c **** }
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
 1289:.\Generated_Source\PSoC4/Timer.c **** 
 1290:.\Generated_Source\PSoC4/Timer.c **** /*******************************************************************************
 1291:.\Generated_Source\PSoC4/Timer.c **** * Function Name: Timer_GetInterruptSourceMasked
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 53
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 53
 
 
 1292:.\Generated_Source\PSoC4/Timer.c **** ********************************************************************************
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
 1320:.\Generated_Source\PSoC4/Timer.c **** * Parameters:
 1321:.\Generated_Source\PSoC4/Timer.c **** *  None
 1322:.\Generated_Source\PSoC4/Timer.c **** *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 54
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 54
 
 
 1323:.\Generated_Source\PSoC4/Timer.c **** * Return:
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
 1351:.\Generated_Source\PSoC4/Timer.c **** *
 1352:.\Generated_Source\PSoC4/Timer.c **** *******************************************************************************/
 1353:.\Generated_Source\PSoC4/Timer.c **** void Timer_ClearInterrupt(uint32 interruptMask)
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 55
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 55
 
 
 1354:.\Generated_Source\PSoC4/Timer.c **** {
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
 1378:.\Generated_Source\PSoC4/Timer.c ****     Timer_INTERRUPT_SET_REG = interruptMask;
  1505              		.loc 1 1378 0
  1506 0000 014B     		ldr	r3, .L121
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 56
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 56
 
 
 1379:.\Generated_Source\PSoC4/Timer.c **** }
@@ -3336,42 +3336,42 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1537 000b 01       		.uleb128 0x1
  1538 000c 1D000000 		.4byte	.LASF76
  1539 0010 01       		.byte	0x1
- 1540 0011 D4020000 		.4byte	.LASF77
- 1541 0015 6A010000 		.4byte	.LASF78
+ 1540 0011 57020000 		.4byte	.LASF77
+ 1541 0015 35050000 		.4byte	.LASF78
  1542 0019 00000000 		.4byte	.Ldebug_ranges0+0
  1543 001d 00000000 		.4byte	0
  1544 0021 00000000 		.4byte	.Ldebug_line0
  1545 0025 02       		.uleb128 0x2
  1546 0026 01       		.byte	0x1
  1547 0027 06       		.byte	0x6
- 1548 0028 F5010000 		.4byte	.LASF0
+ 1548 0028 78010000 		.4byte	.LASF0
  1549 002c 02       		.uleb128 0x2
  1550 002d 01       		.byte	0x1
  1551 002e 08       		.byte	0x8
- 1552 002f AB040000 		.4byte	.LASF1
+ 1552 002f 2E040000 		.4byte	.LASF1
  1553 0033 02       		.uleb128 0x2
  1554 0034 02       		.byte	0x2
  1555 0035 05       		.byte	0x5
- 1556 0036 CA040000 		.4byte	.LASF2
+ 1556 0036 4D040000 		.4byte	.LASF2
  1557 003a 02       		.uleb128 0x2
  1558 003b 02       		.byte	0x2
  1559 003c 07       		.byte	0x7
- 1560 003d 55030000 		.4byte	.LASF3
+ 1560 003d D8020000 		.4byte	.LASF3
  1561 0041 02       		.uleb128 0x2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 57
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 57
 
 
  1562 0042 04       		.byte	0x4
  1563 0043 05       		.byte	0x5
- 1564 0044 24020000 		.4byte	.LASF4
+ 1564 0044 A7010000 		.4byte	.LASF4
  1565 0048 02       		.uleb128 0x2
  1566 0049 04       		.byte	0x4
  1567 004a 07       		.byte	0x7
- 1568 004b 16030000 		.4byte	.LASF5
+ 1568 004b 99020000 		.4byte	.LASF5
  1569 004f 02       		.uleb128 0x2
  1570 0050 08       		.byte	0x8
  1571 0051 05       		.byte	0x5
- 1572 0052 E7010000 		.4byte	.LASF6
+ 1572 0052 6A010000 		.4byte	.LASF6
  1573 0056 02       		.uleb128 0x2
  1574 0057 08       		.byte	0x8
  1575 0058 07       		.byte	0x7
@@ -3383,31 +3383,31 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1581 0064 02       		.uleb128 0x2
  1582 0065 04       		.byte	0x4
  1583 0066 07       		.byte	0x7
- 1584 0067 F5020000 		.4byte	.LASF8
+ 1584 0067 78020000 		.4byte	.LASF8
  1585 006b 04       		.uleb128 0x4
- 1586 006c 54020000 		.4byte	.LASF9
+ 1586 006c D7010000 		.4byte	.LASF9
  1587 0070 02       		.byte	0x2
  1588 0071 C2       		.byte	0xc2
  1589 0072 2C000000 		.4byte	0x2c
  1590 0076 04       		.uleb128 0x4
- 1591 0077 78020000 		.4byte	.LASF10
+ 1591 0077 FB010000 		.4byte	.LASF10
  1592 007b 02       		.byte	0x2
  1593 007c C4       		.byte	0xc4
  1594 007d 48000000 		.4byte	0x48
  1595 0081 02       		.uleb128 0x2
  1596 0082 04       		.byte	0x4
  1597 0083 04       		.byte	0x4
- 1598 0084 4F040000 		.4byte	.LASF11
+ 1598 0084 D2030000 		.4byte	.LASF11
  1599 0088 02       		.uleb128 0x2
  1600 0089 08       		.byte	0x8
  1601 008a 04       		.byte	0x4
- 1602 008b 5A020000 		.4byte	.LASF12
+ 1602 008b DD010000 		.4byte	.LASF12
  1603 008f 02       		.uleb128 0x2
  1604 0090 01       		.byte	0x1
  1605 0091 08       		.byte	0x8
- 1606 0092 15050000 		.4byte	.LASF13
+ 1606 0092 98040000 		.4byte	.LASF13
  1607 0096 05       		.uleb128 0x5
- 1608 0097 C5030000 		.4byte	.LASF14
+ 1608 0097 48030000 		.4byte	.LASF14
  1609 009b 02       		.byte	0x2
  1610 009c 6E01     		.2byte	0x16e
  1611 009e A2000000 		.4byte	0xa2
@@ -3416,18 +3416,18 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1614 00a7 02       		.uleb128 0x2
  1615 00a8 04       		.byte	0x4
  1616 00a9 07       		.byte	0x7
- 1617 00aa F4030000 		.4byte	.LASF15
+ 1617 00aa 77030000 		.4byte	.LASF15
  1618 00ae 07       		.uleb128 0x7
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 58
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 58
 
 
- 1619 00af 61020000 		.4byte	.LASF16
+ 1619 00af E4010000 		.4byte	.LASF16
  1620 00b3 01       		.byte	0x1
  1621 00b4 0405     		.2byte	0x504
  1622 00b6 01       		.byte	0x1
  1623 00b7 C8000000 		.4byte	0xc8
  1624 00bb 08       		.uleb128 0x8
- 1625 00bc D4040000 		.4byte	.LASF18
+ 1625 00bc 57040000 		.4byte	.LASF18
  1626 00c0 01       		.byte	0x1
  1627 00c1 0405     		.2byte	0x504
  1628 00c3 76000000 		.4byte	0x76
@@ -3445,19 +3445,19 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1640 00dd 76000000 		.4byte	0x76
  1641 00e1 00       		.byte	0
  1642 00e2 07       		.uleb128 0x7
- 1643 00e3 7F020000 		.4byte	.LASF20
+ 1643 00e3 02020000 		.4byte	.LASF20
  1644 00e7 01       		.byte	0x1
  1645 00e8 4303     		.2byte	0x343
  1646 00ea 01       		.byte	0x1
  1647 00eb FC000000 		.4byte	0xfc
  1648 00ef 08       		.uleb128 0x8
- 1649 00f0 34040000 		.4byte	.LASF21
+ 1649 00f0 B7030000 		.4byte	.LASF21
  1650 00f4 01       		.byte	0x1
  1651 00f5 4303     		.2byte	0x343
  1652 00f7 76000000 		.4byte	0x76
  1653 00fb 00       		.byte	0
  1654 00fc 07       		.uleb128 0x7
- 1655 00fd 68030000 		.4byte	.LASF22
+ 1655 00fd EB020000 		.4byte	.LASF22
  1656 0101 01       		.byte	0x1
  1657 0102 6102     		.2byte	0x261
  1658 0104 01       		.byte	0x1
@@ -3469,7 +3469,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1664 0111 76000000 		.4byte	0x76
  1665 0115 00       		.byte	0
  1666 0116 09       		.uleb128 0x9
- 1667 0117 F5040000 		.4byte	.LASF24
+ 1667 0117 78040000 		.4byte	.LASF24
  1668 011b 01       		.byte	0x1
  1669 011c 26       		.byte	0x26
  1670 011d 00000000 		.4byte	.LFB2
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1673 0126 9C       		.byte	0x9c
  1674 0127 90010000 		.4byte	0x190
  1675 012b 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 59
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 59
 
 
  1676 012c AE000000 		.4byte	0xae
@@ -3525,7 +3525,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1717 018e 00       		.byte	0
  1718 018f 00       		.byte	0
  1719 0190 09       		.uleb128 0x9
- 1720 0191 8D030000 		.4byte	.LASF25
+ 1720 0191 10030000 		.4byte	.LASF25
  1721 0195 01       		.byte	0x1
  1722 0196 FA       		.byte	0xfa
  1723 0197 00000000 		.4byte	.LFB5
@@ -3534,11 +3534,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1726 01a0 9C       		.byte	0x9c
  1727 01a1 C7010000 		.4byte	0x1c7
  1728 01a5 0D       		.uleb128 0xd
- 1729 01a6 5B050000 		.4byte	.LASF27
+ 1729 01a6 DE040000 		.4byte	.LASF27
  1730 01aa 01       		.byte	0x1
  1731 01ab FC       		.byte	0xfc
  1732 01ac 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 60
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 60
 
 
  1733 01b0 00000000 		.4byte	.LLST0
@@ -3559,13 +3559,13 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1748 01d8 9C       		.byte	0x9c
  1749 01d9 10020000 		.4byte	0x210
  1750 01dd 10       		.uleb128 0x10
- 1751 01de 1A050000 		.4byte	.LASF29
+ 1751 01de 9D040000 		.4byte	.LASF29
  1752 01e2 01       		.byte	0x1
  1753 01e3 1F01     		.2byte	0x11f
  1754 01e5 76000000 		.4byte	0x76
  1755 01e9 13000000 		.4byte	.LLST1
  1756 01ed 11       		.uleb128 0x11
- 1757 01ee 5B050000 		.4byte	.LASF27
+ 1757 01ee DE040000 		.4byte	.LASF27
  1758 01f2 01       		.byte	0x1
  1759 01f3 2101     		.2byte	0x121
  1760 01f5 6B000000 		.4byte	0x6b
@@ -3578,7 +3578,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1767 020b 4D090000 		.4byte	0x94d
  1768 020f 00       		.byte	0
  1769 0210 0F       		.uleb128 0xf
- 1770 0211 01020000 		.4byte	.LASF28
+ 1770 0211 84010000 		.4byte	.LASF28
  1771 0215 01       		.byte	0x1
  1772 0216 4001     		.2byte	0x140
  1773 0218 00000000 		.4byte	.LFB7
@@ -3593,12 +3593,12 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1782 022e 76000000 		.4byte	0x76
  1783 0232 52000000 		.4byte	.LLST3
  1784 0236 11       		.uleb128 0x11
- 1785 0237 5B050000 		.4byte	.LASF27
+ 1785 0237 DE040000 		.4byte	.LASF27
  1786 023b 01       		.byte	0x1
  1787 023c 4201     		.2byte	0x142
  1788 023e 6B000000 		.4byte	0x6b
  1789 0242 7E000000 		.4byte	.LLST4
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 61
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 61
 
 
  1790 0246 0E       		.uleb128 0xe
@@ -3609,7 +3609,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1795 0254 4D090000 		.4byte	0x94d
  1796 0258 00       		.byte	0
  1797 0259 0F       		.uleb128 0xf
- 1798 025a E2040000 		.4byte	.LASF31
+ 1798 025a 65040000 		.4byte	.LASF31
  1799 025e 01       		.byte	0x1
  1800 025f 6501     		.2byte	0x165
  1801 0261 00000000 		.4byte	.LFB8
@@ -3618,13 +3618,13 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1804 026a 9C       		.byte	0x9c
  1805 026b A2020000 		.4byte	0x2a2
  1806 026f 10       		.uleb128 0x10
- 1807 0270 55040000 		.4byte	.LASF32
+ 1807 0270 D8030000 		.4byte	.LASF32
  1808 0274 01       		.byte	0x1
  1809 0275 6501     		.2byte	0x165
  1810 0277 76000000 		.4byte	0x76
  1811 027b 91000000 		.4byte	.LLST5
  1812 027f 11       		.uleb128 0x11
- 1813 0280 5B050000 		.4byte	.LASF27
+ 1813 0280 DE040000 		.4byte	.LASF27
  1814 0284 01       		.byte	0x1
  1815 0285 6701     		.2byte	0x167
  1816 0287 6B000000 		.4byte	0x6b
@@ -3637,7 +3637,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1823 029d 4D090000 		.4byte	0x94d
  1824 02a1 00       		.byte	0
  1825 02a2 0F       		.uleb128 0xf
- 1826 02a3 81050000 		.4byte	.LASF33
+ 1826 02a3 04050000 		.4byte	.LASF33
  1827 02a7 01       		.byte	0x1
  1828 02a8 8501     		.2byte	0x185
  1829 02aa 00000000 		.4byte	.LFB9
@@ -3646,19 +3646,19 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1832 02b3 9C       		.byte	0x9c
  1833 02b4 EB020000 		.4byte	0x2eb
  1834 02b8 10       		.uleb128 0x10
- 1835 02b9 98030000 		.4byte	.LASF34
+ 1835 02b9 1B030000 		.4byte	.LASF34
  1836 02bd 01       		.byte	0x1
  1837 02be 8501     		.2byte	0x185
  1838 02c0 76000000 		.4byte	0x76
  1839 02c4 D0000000 		.4byte	.LLST7
  1840 02c8 11       		.uleb128 0x11
- 1841 02c9 5B050000 		.4byte	.LASF27
+ 1841 02c9 DE040000 		.4byte	.LASF27
  1842 02cd 01       		.byte	0x1
  1843 02ce 8701     		.2byte	0x187
  1844 02d0 6B000000 		.4byte	0x6b
  1845 02d4 FC000000 		.4byte	.LLST8
  1846 02d8 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 62
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 62
 
 
  1847 02d9 08000000 		.4byte	.LVL19
@@ -3668,7 +3668,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1851 02e6 4D090000 		.4byte	0x94d
  1852 02ea 00       		.byte	0
  1853 02eb 0F       		.uleb128 0xf
- 1854 02ec BC050000 		.4byte	.LASF35
+ 1854 02ec A9050000 		.4byte	.LASF35
  1855 02f0 01       		.byte	0x1
  1856 02f1 BB01     		.2byte	0x1bb
  1857 02f3 00000000 		.4byte	.LFB10
@@ -3677,7 +3677,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1860 02fc 9C       		.byte	0x9c
  1861 02fd 12030000 		.4byte	0x312
  1862 0301 10       		.uleb128 0x10
- 1863 0302 28030000 		.4byte	.LASF36
+ 1863 0302 AB020000 		.4byte	.LASF36
  1864 0306 01       		.byte	0x1
  1865 0307 BB01     		.2byte	0x1bb
  1866 0309 76000000 		.4byte	0x76
@@ -3693,13 +3693,13 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1876 0323 9C       		.byte	0x9c
  1877 0324 5B030000 		.4byte	0x35b
  1878 0328 10       		.uleb128 0x10
- 1879 0329 12040000 		.4byte	.LASF38
+ 1879 0329 95030000 		.4byte	.LASF38
  1880 032d 01       		.byte	0x1
  1881 032e DF01     		.2byte	0x1df
  1882 0330 76000000 		.4byte	0x76
  1883 0334 30010000 		.4byte	.LLST10
  1884 0338 11       		.uleb128 0x11
- 1885 0339 5B050000 		.4byte	.LASF27
+ 1885 0339 DE040000 		.4byte	.LASF27
  1886 033d 01       		.byte	0x1
  1887 033e E101     		.2byte	0x1e1
  1888 0340 6B000000 		.4byte	0x6b
@@ -3718,19 +3718,19 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1901 0363 00000000 		.4byte	.LFB12
  1902 0367 28000000 		.4byte	.LFE12-.LFB12
  1903 036b 01       		.uleb128 0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 63
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 63
 
 
  1904 036c 9C       		.byte	0x9c
  1905 036d A4030000 		.4byte	0x3a4
  1906 0371 10       		.uleb128 0x10
- 1907 0372 B9040000 		.4byte	.LASF40
+ 1907 0372 3C040000 		.4byte	.LASF40
  1908 0376 01       		.byte	0x1
  1909 0377 0102     		.2byte	0x201
  1910 0379 76000000 		.4byte	0x76
  1911 037d 6F010000 		.4byte	.LLST12
  1912 0381 11       		.uleb128 0x11
- 1913 0382 5B050000 		.4byte	.LASF27
+ 1913 0382 DE040000 		.4byte	.LASF27
  1914 0386 01       		.byte	0x1
  1915 0387 0302     		.2byte	0x203
  1916 0389 6B000000 		.4byte	0x6b
@@ -3752,13 +3752,13 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1932 03b5 9C       		.byte	0x9c
  1933 03b6 ED030000 		.4byte	0x3ed
  1934 03ba 10       		.uleb128 0x10
- 1935 03bb B5020000 		.4byte	.LASF42
+ 1935 03bb 38020000 		.4byte	.LASF42
  1936 03bf 01       		.byte	0x1
  1937 03c0 2202     		.2byte	0x222
  1938 03c2 76000000 		.4byte	0x76
  1939 03c6 AE010000 		.4byte	.LLST14
  1940 03ca 11       		.uleb128 0x11
- 1941 03cb 5B050000 		.4byte	.LASF27
+ 1941 03cb DE040000 		.4byte	.LASF27
  1942 03cf 01       		.byte	0x1
  1943 03d0 2402     		.2byte	0x224
  1944 03d2 6B000000 		.4byte	0x6b
@@ -3771,25 +3771,25 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1951 03e8 4D090000 		.4byte	0x94d
  1952 03ec 00       		.byte	0
  1953 03ed 0F       		.uleb128 0xf
- 1954 03ee 21040000 		.4byte	.LASF43
+ 1954 03ee A4030000 		.4byte	.LASF43
  1955 03f2 01       		.byte	0x1
  1956 03f3 4302     		.2byte	0x243
  1957 03f5 00000000 		.4byte	.LFB14
  1958 03f9 28000000 		.4byte	.LFE14-.LFB14
  1959 03fd 01       		.uleb128 0x1
  1960 03fe 9C       		.byte	0x9c
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 64
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 64
 
 
  1961 03ff 36040000 		.4byte	0x436
  1962 0403 10       		.uleb128 0x10
- 1963 0404 9E020000 		.4byte	.LASF44
+ 1963 0404 21020000 		.4byte	.LASF44
  1964 0408 01       		.byte	0x1
  1965 0409 4302     		.2byte	0x243
  1966 040b 76000000 		.4byte	0x76
  1967 040f ED010000 		.4byte	.LLST16
  1968 0413 11       		.uleb128 0x11
- 1969 0414 5B050000 		.4byte	.LASF27
+ 1969 0414 DE040000 		.4byte	.LASF27
  1970 0418 01       		.byte	0x1
  1971 0419 4502     		.2byte	0x245
  1972 041b 6B000000 		.4byte	0x6b
@@ -3813,7 +3813,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1990 044e 2C020000 		.4byte	.LLST18
  1991 0452 00       		.byte	0
  1992 0453 14       		.uleb128 0x14
- 1993 0454 7B030000 		.4byte	.LASF47
+ 1993 0454 FE020000 		.4byte	.LASF47
  1994 0458 01       		.byte	0x1
  1995 0459 7502     		.2byte	0x275
  1996 045b 76000000 		.4byte	0x76
@@ -3822,7 +3822,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  1999 0467 01       		.uleb128 0x1
  2000 0468 9C       		.byte	0x9c
  2001 0469 0F       		.uleb128 0xf
- 2002 046a 00050000 		.4byte	.LASF45
+ 2002 046a 83040000 		.4byte	.LASF45
  2003 046e 01       		.byte	0x1
  2004 046f 9202     		.2byte	0x292
  2005 0471 00000000 		.4byte	.LFB17
@@ -3831,14 +3831,14 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2008 047a 9C       		.byte	0x9c
  2009 047b B2040000 		.4byte	0x4b2
  2010 047f 10       		.uleb128 0x10
- 2011 0480 33050000 		.4byte	.LASF46
+ 2011 0480 B6040000 		.4byte	.LASF46
  2012 0484 01       		.byte	0x1
  2013 0485 9202     		.2byte	0x292
  2014 0487 76000000 		.4byte	0x76
  2015 048b 4D020000 		.4byte	.LLST19
  2016 048f 11       		.uleb128 0x11
- 2017 0490 5B050000 		.4byte	.LASF27
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 65
+ 2017 0490 DE040000 		.4byte	.LASF27
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 65
 
 
  2018 0494 01       		.byte	0x1
@@ -3864,7 +3864,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2038 04ca 8C020000 		.4byte	.LLST21
  2039 04ce 00       		.byte	0
  2040 04cf 14       		.uleb128 0x14
- 2041 04d0 3F050000 		.4byte	.LASF48
+ 2041 04d0 C2040000 		.4byte	.LASF48
  2042 04d4 01       		.byte	0x1
  2043 04d5 C302     		.2byte	0x2c3
  2044 04d7 76000000 		.4byte	0x76
@@ -3873,7 +3873,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2047 04e3 01       		.uleb128 0x1
  2048 04e4 9C       		.byte	0x9c
  2049 04e5 0F       		.uleb128 0xf
- 2050 04e6 DF030000 		.4byte	.LASF49
+ 2050 04e6 62030000 		.4byte	.LASF49
  2051 04ea 01       		.byte	0x1
  2052 04eb DD02     		.2byte	0x2dd
  2053 04ed 00000000 		.4byte	.LFB20
@@ -3882,13 +3882,13 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2056 04f6 9C       		.byte	0x9c
  2057 04f7 2E050000 		.4byte	0x52e
  2058 04fb 10       		.uleb128 0x10
- 2059 04fc A7050000 		.4byte	.LASF50
+ 2059 04fc 2A050000 		.4byte	.LASF50
  2060 0500 01       		.byte	0x1
  2061 0501 DD02     		.2byte	0x2dd
  2062 0503 76000000 		.4byte	0x76
  2063 0507 AD020000 		.4byte	.LLST22
  2064 050b 11       		.uleb128 0x11
- 2065 050c 5B050000 		.4byte	.LASF27
+ 2065 050c DE040000 		.4byte	.LASF27
  2066 0510 01       		.byte	0x1
  2067 0511 DF02     		.2byte	0x2df
  2068 0513 6B000000 		.4byte	0x6b
@@ -3898,13 +3898,13 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2072 0520 42090000 		.4byte	0x942
  2073 0524 0E       		.uleb128 0xe
  2074 0525 1E000000 		.4byte	.LVL50
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 66
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 66
 
 
  2075 0529 4D090000 		.4byte	0x94d
  2076 052d 00       		.byte	0
  2077 052e 0F       		.uleb128 0xf
- 2078 052f FD030000 		.4byte	.LASF51
+ 2078 052f 80030000 		.4byte	.LASF51
  2079 0533 01       		.byte	0x1
  2080 0534 F802     		.2byte	0x2f8
  2081 0536 00000000 		.4byte	.LFB21
@@ -3913,14 +3913,14 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2084 053f 9C       		.byte	0x9c
  2085 0540 55050000 		.4byte	0x555
  2086 0544 10       		.uleb128 0x10
- 2087 0545 B2050000 		.4byte	.LASF52
+ 2087 0545 9F050000 		.4byte	.LASF52
  2088 0549 01       		.byte	0x1
  2089 054a F802     		.2byte	0x2f8
  2090 054c 76000000 		.4byte	0x76
  2091 0550 EC020000 		.4byte	.LLST24
  2092 0554 00       		.byte	0
  2093 0555 14       		.uleb128 0x14
- 2094 0556 CB030000 		.4byte	.LASF53
+ 2094 0556 4E030000 		.4byte	.LASF53
  2095 055a 01       		.byte	0x1
  2096 055b 0C03     		.2byte	0x30c
  2097 055d 76000000 		.4byte	0x76
@@ -3929,7 +3929,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2100 0569 01       		.uleb128 0x1
  2101 056a 9C       		.byte	0x9c
  2102 056b 0F       		.uleb128 0xf
- 2103 056c 71040000 		.4byte	.LASF54
+ 2103 056c F4030000 		.4byte	.LASF54
  2104 0570 01       		.byte	0x1
  2105 0571 2603     		.2byte	0x326
  2106 0573 00000000 		.4byte	.LFB23
@@ -3938,13 +3938,13 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2109 057c 9C       		.byte	0x9c
  2110 057d B4050000 		.4byte	0x5b4
  2111 0581 10       		.uleb128 0x10
- 2112 0582 A7050000 		.4byte	.LASF50
+ 2112 0582 2A050000 		.4byte	.LASF50
  2113 0586 01       		.byte	0x1
  2114 0587 2603     		.2byte	0x326
  2115 0589 76000000 		.4byte	0x76
  2116 058d 0D030000 		.4byte	.LLST25
  2117 0591 11       		.uleb128 0x11
- 2118 0592 5B050000 		.4byte	.LASF27
+ 2118 0592 DE040000 		.4byte	.LASF27
  2119 0596 01       		.byte	0x1
  2120 0597 2803     		.2byte	0x328
  2121 0599 6B000000 		.4byte	0x6b
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2129 05b3 00       		.byte	0
  2130 05b4 12       		.uleb128 0x12
  2131 05b5 E2000000 		.4byte	0xe2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 67
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 67
 
 
  2132 05b9 00000000 		.4byte	.LFB24
@@ -3971,7 +3971,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2139 05cc 4C030000 		.4byte	.LLST27
  2140 05d0 00       		.byte	0
  2141 05d1 14       		.uleb128 0x14
- 2142 05d2 A3020000 		.4byte	.LASF55
+ 2142 05d2 26020000 		.4byte	.LASF55
  2143 05d6 01       		.byte	0x1
  2144 05d7 6E03     		.2byte	0x36e
  2145 05d9 76000000 		.4byte	0x76
@@ -3980,7 +3980,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2148 05e5 01       		.uleb128 0x1
  2149 05e6 9C       		.byte	0x9c
  2150 05e7 0F       		.uleb128 0xf
- 2151 05e8 BE020000 		.4byte	.LASF56
+ 2151 05e8 41020000 		.4byte	.LASF56
  2152 05ec 01       		.byte	0x1
  2153 05ed 9C03     		.2byte	0x39c
  2154 05ef 00000000 		.4byte	.LFB26
@@ -3989,14 +3989,14 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2157 05f8 9C       		.byte	0x9c
  2158 05f9 0E060000 		.4byte	0x60e
  2159 05fd 10       		.uleb128 0x10
- 2160 05fe 50050000 		.4byte	.LASF57
+ 2160 05fe D3040000 		.4byte	.LASF57
  2161 0602 01       		.byte	0x1
  2162 0603 9C03     		.2byte	0x39c
  2163 0605 76000000 		.4byte	0x76
  2164 0609 6D030000 		.4byte	.LLST28
  2165 060d 00       		.byte	0
  2166 060e 14       		.uleb128 0x14
- 2167 060f CD050000 		.4byte	.LASF58
+ 2167 060f BA050000 		.4byte	.LASF58
  2168 0613 01       		.byte	0x1
  2169 0614 C503     		.2byte	0x3c5
  2170 0616 76000000 		.4byte	0x76
@@ -4005,7 +4005,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2173 0622 01       		.uleb128 0x1
  2174 0623 9C       		.byte	0x9c
  2175 0624 14       		.uleb128 0x14
- 2176 0625 2D020000 		.4byte	.LASF59
+ 2176 0625 B0010000 		.4byte	.LASF59
  2177 0629 01       		.byte	0x1
  2178 062a F303     		.2byte	0x3f3
  2179 062c 76000000 		.4byte	0x76
@@ -4014,11 +4014,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2182 0638 01       		.uleb128 0x1
  2183 0639 9C       		.byte	0x9c
  2184 063a 14       		.uleb128 0x14
- 2185 063b 85040000 		.4byte	.LASF60
+ 2185 063b 08040000 		.4byte	.LASF60
  2186 063f 01       		.byte	0x1
  2187 0640 0804     		.2byte	0x408
  2188 0642 76000000 		.4byte	0x76
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 68
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 68
 
 
  2189 0646 00000000 		.4byte	.LFB29
@@ -4026,7 +4026,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2191 064e 01       		.uleb128 0x1
  2192 064f 9C       		.byte	0x9c
  2193 0650 0F       		.uleb128 0xf
- 2194 0651 6C050000 		.4byte	.LASF61
+ 2194 0651 EF040000 		.4byte	.LASF61
  2195 0655 01       		.byte	0x1
  2196 0656 2304     		.2byte	0x423
  2197 0658 00000000 		.4byte	.LFB30
@@ -4035,13 +4035,13 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2200 0661 9C       		.byte	0x9c
  2201 0662 99060000 		.4byte	0x699
  2202 0666 10       		.uleb128 0x10
- 2203 0667 92020000 		.4byte	.LASF62
+ 2203 0667 15020000 		.4byte	.LASF62
  2204 066b 01       		.byte	0x1
  2205 066c 2304     		.2byte	0x423
  2206 066e 76000000 		.4byte	0x76
  2207 0672 8E030000 		.4byte	.LLST29
  2208 0676 11       		.uleb128 0x11
- 2209 0677 5B050000 		.4byte	.LASF27
+ 2209 0677 DE040000 		.4byte	.LASF27
  2210 067b 01       		.byte	0x1
  2211 067c 2504     		.2byte	0x425
  2212 067e 6B000000 		.4byte	0x6b
@@ -4054,7 +4054,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2219 0694 4D090000 		.4byte	0x94d
  2220 0698 00       		.byte	0
  2221 0699 0F       		.uleb128 0xf
- 2222 069a 1F050000 		.4byte	.LASF63
+ 2222 069a A2040000 		.4byte	.LASF63
  2223 069e 01       		.byte	0x1
  2224 069f 4404     		.2byte	0x444
  2225 06a1 00000000 		.4byte	.LFB31
@@ -4063,13 +4063,13 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2228 06aa 9C       		.byte	0x9c
  2229 06ab E2060000 		.4byte	0x6e2
  2230 06af 10       		.uleb128 0x10
- 2231 06b0 92020000 		.4byte	.LASF62
+ 2231 06b0 15020000 		.4byte	.LASF62
  2232 06b4 01       		.byte	0x1
  2233 06b5 4404     		.2byte	0x444
  2234 06b7 76000000 		.4byte	0x76
  2235 06bb CD030000 		.4byte	.LLST31
  2236 06bf 11       		.uleb128 0x11
- 2237 06c0 5B050000 		.4byte	.LASF27
+ 2237 06c0 DE040000 		.4byte	.LASF27
  2238 06c4 01       		.byte	0x1
  2239 06c5 4604     		.2byte	0x446
  2240 06c7 6B000000 		.4byte	0x6b
@@ -4078,14 +4078,14 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2243 06d0 08000000 		.4byte	.LVL67
  2244 06d4 42090000 		.4byte	0x942
  2245 06d8 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 69
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 69
 
 
  2246 06d9 1E000000 		.4byte	.LVL68
  2247 06dd 4D090000 		.4byte	0x94d
  2248 06e1 00       		.byte	0
  2249 06e2 0F       		.uleb128 0xf
- 2250 06e3 3C040000 		.4byte	.LASF64
+ 2250 06e3 BF030000 		.4byte	.LASF64
  2251 06e7 01       		.byte	0x1
  2252 06e8 6504     		.2byte	0x465
  2253 06ea 00000000 		.4byte	.LFB32
@@ -4094,13 +4094,13 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2256 06f3 9C       		.byte	0x9c
  2257 06f4 2B070000 		.4byte	0x72b
  2258 06f8 10       		.uleb128 0x10
- 2259 06f9 92020000 		.4byte	.LASF62
+ 2259 06f9 15020000 		.4byte	.LASF62
  2260 06fd 01       		.byte	0x1
  2261 06fe 6504     		.2byte	0x465
  2262 0700 76000000 		.4byte	0x76
  2263 0704 0C040000 		.4byte	.LLST33
  2264 0708 11       		.uleb128 0x11
- 2265 0709 5B050000 		.4byte	.LASF27
+ 2265 0709 DE040000 		.4byte	.LASF27
  2266 070d 01       		.byte	0x1
  2267 070e 6704     		.2byte	0x467
  2268 0710 6B000000 		.4byte	0x6b
@@ -4113,7 +4113,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2275 0726 4D090000 		.4byte	0x94d
  2276 072a 00       		.byte	0
  2277 072b 0F       		.uleb128 0xf
- 2278 072c 5F040000 		.4byte	.LASF65
+ 2278 072c E2030000 		.4byte	.LASF65
  2279 0730 01       		.byte	0x1
  2280 0731 8504     		.2byte	0x485
  2281 0733 00000000 		.4byte	.LFB33
@@ -4122,13 +4122,13 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2284 073c 9C       		.byte	0x9c
  2285 073d 74070000 		.4byte	0x774
  2286 0741 10       		.uleb128 0x10
- 2287 0742 92020000 		.4byte	.LASF62
+ 2287 0742 15020000 		.4byte	.LASF62
  2288 0746 01       		.byte	0x1
  2289 0747 8504     		.2byte	0x485
  2290 0749 76000000 		.4byte	0x76
  2291 074d 4B040000 		.4byte	.LLST35
  2292 0751 11       		.uleb128 0x11
- 2293 0752 5B050000 		.4byte	.LASF27
+ 2293 0752 DE040000 		.4byte	.LASF27
  2294 0756 01       		.byte	0x1
  2295 0757 8704     		.2byte	0x487
  2296 0759 6B000000 		.4byte	0x6b
@@ -4138,13 +4138,13 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2300 0766 42090000 		.4byte	0x942
  2301 076a 0E       		.uleb128 0xe
  2302 076b 1E000000 		.4byte	.LVL76
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 70
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 70
 
 
  2303 076f 4D090000 		.4byte	0x94d
  2304 0773 00       		.byte	0
  2305 0774 0F       		.uleb128 0xf
- 2306 0775 11020000 		.4byte	.LASF66
+ 2306 0775 94010000 		.4byte	.LASF66
  2307 0779 01       		.byte	0x1
  2308 077a A604     		.2byte	0x4a6
  2309 077c 00000000 		.4byte	.LFB34
@@ -4153,13 +4153,13 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2312 0785 9C       		.byte	0x9c
  2313 0786 BD070000 		.4byte	0x7bd
  2314 078a 10       		.uleb128 0x10
- 2315 078b 92020000 		.4byte	.LASF62
+ 2315 078b 15020000 		.4byte	.LASF62
  2316 078f 01       		.byte	0x1
  2317 0790 A604     		.2byte	0x4a6
  2318 0792 76000000 		.4byte	0x76
  2319 0796 8A040000 		.4byte	.LLST37
  2320 079a 11       		.uleb128 0x11
- 2321 079b 5B050000 		.4byte	.LASF27
+ 2321 079b DE040000 		.4byte	.LASF27
  2322 079f 01       		.byte	0x1
  2323 07a0 A804     		.2byte	0x4a8
  2324 07a2 6B000000 		.4byte	0x6b
@@ -4172,7 +4172,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2331 07b8 4D090000 		.4byte	0x94d
  2332 07bc 00       		.byte	0
  2333 07bd 0F       		.uleb128 0xf
- 2334 07be 3F020000 		.4byte	.LASF67
+ 2334 07be C2010000 		.4byte	.LASF67
  2335 07c2 01       		.byte	0x1
  2336 07c3 CE04     		.2byte	0x4ce
  2337 07c5 00000000 		.4byte	.LFB35
@@ -4181,24 +4181,24 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2340 07ce 9C       		.byte	0x9c
  2341 07cf 16080000 		.4byte	0x816
  2342 07d3 10       		.uleb128 0x10
- 2343 07d4 9E020000 		.4byte	.LASF44
+ 2343 07d4 21020000 		.4byte	.LASF44
  2344 07d8 01       		.byte	0x1
  2345 07d9 CE04     		.2byte	0x4ce
  2346 07db 76000000 		.4byte	0x76
  2347 07df C9040000 		.4byte	.LLST39
  2348 07e3 10       		.uleb128 0x10
- 2349 07e4 0E030000 		.4byte	.LASF68
+ 2349 07e4 91020000 		.4byte	.LASF68
  2350 07e8 01       		.byte	0x1
  2351 07e9 CE04     		.2byte	0x4ce
  2352 07eb 76000000 		.4byte	0x76
  2353 07ef EA040000 		.4byte	.LLST40
  2354 07f3 11       		.uleb128 0x11
- 2355 07f4 5B050000 		.4byte	.LASF27
+ 2355 07f4 DE040000 		.4byte	.LASF27
  2356 07f8 01       		.byte	0x1
  2357 07f9 D004     		.2byte	0x4d0
  2358 07fb 6B000000 		.4byte	0x6b
  2359 07ff 16050000 		.4byte	.LLST41
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 71
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 71
 
 
  2360 0803 0E       		.uleb128 0xe
@@ -4209,7 +4209,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2365 0811 4D090000 		.4byte	0x94d
  2366 0815 00       		.byte	0
  2367 0816 09       		.uleb128 0x9
- 2368 0817 31030000 		.4byte	.LASF69
+ 2368 0817 B4020000 		.4byte	.LASF69
  2369 081b 01       		.byte	0x1
  2370 081c B1       		.byte	0xb1
  2371 081d 00000000 		.4byte	.LFB3
@@ -4218,7 +4218,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2374 0826 9C       		.byte	0x9c
  2375 0827 62080000 		.4byte	0x862
  2376 082b 0D       		.uleb128 0xd
- 2377 082c 5B050000 		.4byte	.LASF27
+ 2377 082c DE040000 		.4byte	.LASF27
  2378 0830 01       		.byte	0x1
  2379 0831 B3       		.byte	0xb3
  2380 0832 6B000000 		.4byte	0x6b
@@ -4246,7 +4246,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2402 0860 00       		.byte	0
  2403 0861 00       		.byte	0
  2404 0862 09       		.uleb128 0x9
- 2405 0863 02030000 		.4byte	.LASF70
+ 2405 0863 85020000 		.4byte	.LASF70
  2406 0867 01       		.byte	0x1
  2407 0868 E0       		.byte	0xe0
  2408 0869 00000000 		.4byte	.LFB4
@@ -4258,14 +4258,14 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2414 0878 0E000000 		.4byte	.LVL89
  2415 087c 16010000 		.4byte	0x116
  2416 0880 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 72
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 72
 
 
  2417 0881 16000000 		.4byte	.LVL90
  2418 0885 16080000 		.4byte	0x816
  2419 0889 00       		.byte	0
  2420 088a 14       		.uleb128 0x14
- 2421 088b 9A040000 		.4byte	.LASF71
+ 2421 088b 1D040000 		.4byte	.LASF71
  2422 088f 01       		.byte	0x1
  2423 0890 EB04     		.2byte	0x4eb
  2424 0892 76000000 		.4byte	0x76
@@ -4286,7 +4286,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2439 08b9 50       		.byte	0x50
  2440 08ba 00       		.byte	0
  2441 08bb 14       		.uleb128 0x14
- 2442 08bc A6030000 		.4byte	.LASF72
+ 2442 08bc 29030000 		.4byte	.LASF72
  2443 08c0 01       		.byte	0x1
  2444 08c1 1B05     		.2byte	0x51b
  2445 08c3 76000000 		.4byte	0x76
@@ -4304,7 +4304,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2457 08e5 01       		.uleb128 0x1
  2458 08e6 9C       		.byte	0x9c
  2459 08e7 0F       		.uleb128 0xf
- 2460 08e8 92050000 		.4byte	.LASF74
+ 2460 08e8 15050000 		.4byte	.LASF74
  2461 08ec 01       		.byte	0x1
  2462 08ed 4905     		.2byte	0x549
  2463 08ef 00000000 		.4byte	.LFB40
@@ -4313,12 +4313,12 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2466 08f8 9C       		.byte	0x9c
  2467 08f9 0C090000 		.4byte	0x90c
  2468 08fd 18       		.uleb128 0x18
- 2469 08fe D4040000 		.4byte	.LASF18
+ 2469 08fe 57040000 		.4byte	.LASF18
  2470 0902 01       		.byte	0x1
  2471 0903 4905     		.2byte	0x549
  2472 0905 76000000 		.4byte	0x76
  2473 0909 01       		.uleb128 0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 73
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 73
 
 
  2474 090a 50       		.byte	0x50
@@ -4333,7 +4333,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2483 091d 9C       		.byte	0x9c
  2484 091e 31090000 		.4byte	0x931
  2485 0922 18       		.uleb128 0x18
- 2486 0923 D4040000 		.4byte	.LASF18
+ 2486 0923 57040000 		.4byte	.LASF18
  2487 0927 01       		.byte	0x1
  2488 0928 6005     		.2byte	0x560
  2489 092a 76000000 		.4byte	0x76
@@ -4349,7 +4349,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2499 093d 03       		.byte	0x3
  2500 093e 00000000 		.4byte	Timer_initVar
  2501 0942 1A       		.uleb128 0x1a
- 2502 0943 3E030000 		.4byte	.LASF80
+ 2502 0943 C1020000 		.4byte	.LASF80
  2503 0947 03       		.byte	0x3
  2504 0948 5E       		.byte	0x5e
  2505 0949 6B000000 		.4byte	0x6b
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2528 000c 17       		.uleb128 0x17
  2529 000d 11       		.uleb128 0x11
  2530 000e 01       		.uleb128 0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 74
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 74
 
 
  2531 000f 10       		.uleb128 0x10
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2585 0045 00       		.byte	0
  2586 0046 49       		.uleb128 0x49
  2587 0047 13       		.uleb128 0x13
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 75
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 75
 
 
  2588 0048 00       		.byte	0
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2642 007f 19       		.uleb128 0x19
  2643 0080 01       		.uleb128 0x1
  2644 0081 13       		.uleb128 0x13
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 76
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 76
 
 
  2645 0082 00       		.byte	0
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2699 00b8 02       		.uleb128 0x2
  2700 00b9 17       		.uleb128 0x17
  2701 00ba 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 77
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 77
 
 
  2702 00bb 00       		.byte	0
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2756 00f4 0E       		.uleb128 0xe
  2757 00f5 3A       		.uleb128 0x3a
  2758 00f6 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 78
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 78
 
 
  2759 00f7 3B       		.uleb128 0x3b
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2813 012e 18       		.uleb128 0x18
  2814 012f 9742     		.uleb128 0x2117
  2815 0131 19       		.uleb128 0x19
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 79
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 79
 
 
  2816 0132 00       		.byte	0
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2870 016d 13       		.uleb128 0x13
  2871 016e 3F       		.uleb128 0x3f
  2872 016f 19       		.uleb128 0x19
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 80
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 80
 
 
  2873 0170 02       		.uleb128 0x2
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2927 000a 50       		.byte	0x50
  2928 000b 00000000 		.4byte	0
  2929 000f 00000000 		.4byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 81
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 81
 
 
  2930              	.LLST1:
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  2984 009b 50       		.byte	0x50
  2985 009c 07000000 		.4byte	.LVL15-1
  2986 00a0 1C000000 		.4byte	.LVL17
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 82
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 82
 
 
  2987 00a4 0100     		.2byte	0x1
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  3041 0127 9F       		.byte	0x9f
  3042 0128 00000000 		.4byte	0
  3043 012c 00000000 		.4byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 83
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 83
 
 
  3044              	.LLST10:
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  3098 01b8 50       		.byte	0x50
  3099 01b9 07000000 		.4byte	.LVL33-1
  3100 01bd 10000000 		.4byte	.LVL34
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 84
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 84
 
 
  3101 01c1 0100     		.2byte	0x1
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  3155 0244 9F       		.byte	0x9f
  3156 0245 00000000 		.4byte	0
  3157 0249 00000000 		.4byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 85
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 85
 
 
  3158              	.LLST19:
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  3212 02d0 9F       		.byte	0x9f
  3213 02d1 00000000 		.4byte	0
  3214 02d5 00000000 		.4byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 86
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 86
 
 
  3215              	.LLST23:
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  3269 0361 F3       		.byte	0xf3
  3270 0362 01       		.uleb128 0x1
  3271 0363 50       		.byte	0x50
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 87
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 87
 
 
  3272 0364 9F       		.byte	0x9f
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  3326 03ed F3       		.byte	0xf3
  3327 03ee 01       		.uleb128 0x1
  3328 03ef 50       		.byte	0x50
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 88
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 88
 
 
  3329 03f0 9F       		.byte	0x9f
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  3383 0477 08000000 		.4byte	.LVL75
  3384 047b 1D000000 		.4byte	.LVL76-1
  3385 047f 0100     		.2byte	0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 89
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 89
 
 
  3386 0481 50       		.byte	0x50
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  3440 050a F3       		.byte	0xf3
  3441 050b 01       		.uleb128 0x1
  3442 050c 51       		.byte	0x51
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 90
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 90
 
 
  3443 050d 9F       		.byte	0x9f
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  3497 0084 0C000000 		.4byte	.LFE18-.LFB18
  3498 0088 00000000 		.4byte	.LFB19
  3499 008c 0C000000 		.4byte	.LFE19-.LFB19
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 91
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 91
 
 
  3500 0090 00000000 		.4byte	.LFB20
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  3554 0008 00000000 		.4byte	.LFB5
  3555 000c 1C000000 		.4byte	.LFE5
  3556 0010 00000000 		.4byte	.LFB6
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 92
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 92
 
 
  3557 0014 28000000 		.4byte	.LFE6
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  3611 00ec 24000000 		.4byte	.LFE33
  3612 00f0 00000000 		.4byte	.LFB34
  3613 00f4 24000000 		.4byte	.LFE34
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 93
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 93
 
 
  3614 00f8 00000000 		.4byte	.LFB35
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  3646      725F4765 
  3646      74496E74 
  3646      65727275 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 94
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 94
 
 
  3646      7074536F 
@@ -5634,375 +5634,373 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 1
  3665              	.LASF30:
  3666 0163 71644D6F 		.ascii	"qdMode\000"
  3666      646500
- 3667              	.LASF78:
- 3668 016a 473A5C43 		.ascii	"G:\\Company\\Jetronic\\CYPRESS\\CYPRESS_BLE_Study\\"
- 3668      6F6D7061 
- 3668      6E795C4A 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 95
+ 3667              	.LASF6:
+ 3668 016a 6C6F6E67 		.ascii	"long long int\000"
+ 3668      206C6F6E 
+ 3668      6720696E 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 95
 
 
- 3668      6574726F 
- 3668      6E69635C 
- 3669 0198 54726F75 		.ascii	"Troughput\\Troughpur_Central_Peripheral_V2.7\\Troug"
- 3669      67687075 
- 3669      745C5472 
- 3669      6F756768 
- 3669      7075725F 
- 3670 01c9 68707574 		.ascii	"hput_Central_Peripheral.cydsn\000"
- 3670      5F43656E 
- 3670      7472616C 
- 3670      5F506572 
- 3670      69706865 
- 3671              	.LASF6:
- 3672 01e7 6C6F6E67 		.ascii	"long long int\000"
- 3672      206C6F6E 
- 3672      6720696E 
- 3672      7400
- 3673              	.LASF0:
- 3674 01f5 7369676E 		.ascii	"signed char\000"
- 3674      65642063 
- 3674      68617200 
- 3675              	.LASF28:
- 3676 0201 54696D65 		.ascii	"Timer_SetQDMode\000"
- 3676      725F5365 
- 3676      7451444D 
- 3676      6F646500 
- 3677              	.LASF66:
- 3678 0211 54696D65 		.ascii	"Timer_SetCountMode\000"
- 3678      725F5365 
- 3678      74436F75 
- 3678      6E744D6F 
- 3678      646500
- 3679              	.LASF4:
- 3680 0224 6C6F6E67 		.ascii	"long int\000"
- 3680      20696E74 
- 3680      00
- 3681              	.LASF59:
- 3682 022d 54696D65 		.ascii	"Timer_ReadCapture\000"
- 3682      725F5265 
- 3682      61644361 
- 3682      70747572 
- 3682      6500
- 3683              	.LASF67:
- 3684 023f 54696D65 		.ascii	"Timer_TriggerCommand\000"
- 3684      725F5472 
- 3684      69676765 
- 3684      72436F6D 
- 3684      6D616E64 
- 3685              	.LASF9:
- 3686 0254 75696E74 		.ascii	"uint8\000"
- 3686      3800
- 3687              	.LASF12:
- 3688 025a 646F7562 		.ascii	"double\000"
- 3688      6C6500
- 3689              	.LASF16:
- 3690 0261 54696D65 		.ascii	"Timer_SetInterruptMode\000"
- 3690      725F5365 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 96
+ 3668      7400
+ 3669              	.LASF0:
+ 3670 0178 7369676E 		.ascii	"signed char\000"
+ 3670      65642063 
+ 3670      68617200 
+ 3671              	.LASF28:
+ 3672 0184 54696D65 		.ascii	"Timer_SetQDMode\000"
+ 3672      725F5365 
+ 3672      7451444D 
+ 3672      6F646500 
+ 3673              	.LASF66:
+ 3674 0194 54696D65 		.ascii	"Timer_SetCountMode\000"
+ 3674      725F5365 
+ 3674      74436F75 
+ 3674      6E744D6F 
+ 3674      646500
+ 3675              	.LASF4:
+ 3676 01a7 6C6F6E67 		.ascii	"long int\000"
+ 3676      20696E74 
+ 3676      00
+ 3677              	.LASF59:
+ 3678 01b0 54696D65 		.ascii	"Timer_ReadCapture\000"
+ 3678      725F5265 
+ 3678      61644361 
+ 3678      70747572 
+ 3678      6500
+ 3679              	.LASF67:
+ 3680 01c2 54696D65 		.ascii	"Timer_TriggerCommand\000"
+ 3680      725F5472 
+ 3680      69676765 
+ 3680      72436F6D 
+ 3680      6D616E64 
+ 3681              	.LASF9:
+ 3682 01d7 75696E74 		.ascii	"uint8\000"
+ 3682      3800
+ 3683              	.LASF12:
+ 3684 01dd 646F7562 		.ascii	"double\000"
+ 3684      6C6500
+ 3685              	.LASF16:
+ 3686 01e4 54696D65 		.ascii	"Timer_SetInterruptMode\000"
+ 3686      725F5365 
+ 3686      74496E74 
+ 3686      65727275 
+ 3686      70744D6F 
+ 3687              	.LASF10:
+ 3688 01fb 75696E74 		.ascii	"uint32\000"
+ 3688      333200
+ 3689              	.LASF20:
+ 3690 0202 54696D65 		.ascii	"Timer_WriteCompare\000"
+ 3690      725F5772 
+ 3690      69746543 
+ 3690      6F6D7061 
+ 3690      726500
+ 3691              	.LASF62:
+ 3692 0215 74726967 		.ascii	"triggerMode\000"
+ 3692      6765724D 
+ 3692      6F646500 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 96
 
 
- 3690      74496E74 
- 3690      65727275 
- 3690      70744D6F 
- 3691              	.LASF10:
- 3692 0278 75696E74 		.ascii	"uint32\000"
- 3692      333200
- 3693              	.LASF20:
- 3694 027f 54696D65 		.ascii	"Timer_WriteCompare\000"
- 3694      725F5772 
- 3694      69746543 
- 3694      6F6D7061 
- 3694      726500
- 3695              	.LASF62:
- 3696 0292 74726967 		.ascii	"triggerMode\000"
- 3696      6765724D 
- 3696      6F646500 
- 3697              	.LASF44:
- 3698 029e 6D61736B 		.ascii	"mask\000"
+ 3693              	.LASF44:
+ 3694 0221 6D61736B 		.ascii	"mask\000"
+ 3694      00
+ 3695              	.LASF55:
+ 3696 0226 54696D65 		.ascii	"Timer_ReadCompare\000"
+ 3696      725F5265 
+ 3696      6164436F 
+ 3696      6D706172 
+ 3696      6500
+ 3697              	.LASF42:
+ 3698 0238 64656164 		.ascii	"deadTime\000"
+ 3698      54696D65 
  3698      00
- 3699              	.LASF55:
- 3700 02a3 54696D65 		.ascii	"Timer_ReadCompare\000"
- 3700      725F5265 
- 3700      6164436F 
- 3700      6D706172 
- 3700      6500
- 3701              	.LASF42:
- 3702 02b5 64656164 		.ascii	"deadTime\000"
- 3702      54696D65 
- 3702      00
- 3703              	.LASF56:
- 3704 02be 54696D65 		.ascii	"Timer_WriteCompareBuf\000"
- 3704      725F5772 
- 3704      69746543 
- 3704      6F6D7061 
- 3704      72654275 
- 3705              	.LASF77:
- 3706 02d4 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\Timer.c\000"
- 3706      6E657261 
- 3706      7465645F 
- 3706      536F7572 
- 3706      63655C50 
- 3707              	.LASF8:
- 3708 02f5 756E7369 		.ascii	"unsigned int\000"
- 3708      676E6564 
- 3708      20696E74 
- 3708      00
- 3709              	.LASF70:
- 3710 0302 54696D65 		.ascii	"Timer_Start\000"
- 3710      725F5374 
- 3710      61727400 
- 3711              	.LASF68:
- 3712 030e 636F6D6D 		.ascii	"command\000"
- 3712      616E6400 
- 3713              	.LASF5:
- 3714 0316 6C6F6E67 		.ascii	"long unsigned int\000"
- 3714      20756E73 
- 3714      69676E65 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 97
+ 3699              	.LASF56:
+ 3700 0241 54696D65 		.ascii	"Timer_WriteCompareBuf\000"
+ 3700      725F5772 
+ 3700      69746543 
+ 3700      6F6D7061 
+ 3700      72654275 
+ 3701              	.LASF77:
+ 3702 0257 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\Timer.c\000"
+ 3702      6E657261 
+ 3702      7465645F 
+ 3702      536F7572 
+ 3702      63655C50 
+ 3703              	.LASF8:
+ 3704 0278 756E7369 		.ascii	"unsigned int\000"
+ 3704      676E6564 
+ 3704      20696E74 
+ 3704      00
+ 3705              	.LASF70:
+ 3706 0285 54696D65 		.ascii	"Timer_Start\000"
+ 3706      725F5374 
+ 3706      61727400 
+ 3707              	.LASF68:
+ 3708 0291 636F6D6D 		.ascii	"command\000"
+ 3708      616E6400 
+ 3709              	.LASF5:
+ 3710 0299 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3710      20756E73 
+ 3710      69676E65 
+ 3710      6420696E 
+ 3710      7400
+ 3711              	.LASF36:
+ 3712 02ab 6D6F6465 		.ascii	"modeMask\000"
+ 3712      4D61736B 
+ 3712      00
+ 3713              	.LASF69:
+ 3714 02b4 54696D65 		.ascii	"Timer_Enable\000"
+ 3714      725F456E 
+ 3714      61626C65 
+ 3714      00
+ 3715              	.LASF80:
+ 3716 02c1 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 3716      74657243 
+ 3716      72697469 
+ 3716      63616C53 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 97
 
 
- 3714      6420696E 
- 3714      7400
- 3715              	.LASF36:
- 3716 0328 6D6F6465 		.ascii	"modeMask\000"
- 3716      4D61736B 
- 3716      00
- 3717              	.LASF69:
- 3718 0331 54696D65 		.ascii	"Timer_Enable\000"
- 3718      725F456E 
- 3718      61626C65 
- 3718      00
- 3719              	.LASF80:
- 3720 033e 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 3720      74657243 
- 3720      72697469 
- 3720      63616C53 
- 3720      65637469 
- 3721              	.LASF3:
- 3722 0355 73686F72 		.ascii	"short unsigned int\000"
- 3722      7420756E 
- 3722      7369676E 
- 3722      65642069 
- 3722      6E7400
- 3723              	.LASF22:
- 3724 0368 54696D65 		.ascii	"Timer_WriteCounter\000"
- 3724      725F5772 
- 3724      69746543 
- 3724      6F756E74 
- 3724      657200
- 3725              	.LASF47:
- 3726 037b 54696D65 		.ascii	"Timer_ReadCounter\000"
- 3726      725F5265 
- 3726      6164436F 
- 3726      756E7465 
- 3726      7200
- 3727              	.LASF25:
- 3728 038d 54696D65 		.ascii	"Timer_Stop\000"
- 3728      725F5374 
- 3728      6F7000
- 3729              	.LASF34:
- 3730 0398 6F6E6553 		.ascii	"oneShotEnable\000"
- 3730      686F7445 
- 3730      6E61626C 
- 3730      6500
- 3731              	.LASF72:
- 3732 03a6 54696D65 		.ascii	"Timer_GetInterruptSourceMasked\000"
- 3732      725F4765 
- 3732      74496E74 
- 3732      65727275 
- 3732      7074536F 
- 3733              	.LASF14:
- 3734 03c5 72656733 		.ascii	"reg32\000"
- 3734      3200
- 3735              	.LASF53:
- 3736 03cb 54696D65 		.ascii	"Timer_ReadPeriodBuf\000"
- 3736      725F5265 
- 3736      61645065 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 98
+ 3716      65637469 
+ 3717              	.LASF3:
+ 3718 02d8 73686F72 		.ascii	"short unsigned int\000"
+ 3718      7420756E 
+ 3718      7369676E 
+ 3718      65642069 
+ 3718      6E7400
+ 3719              	.LASF22:
+ 3720 02eb 54696D65 		.ascii	"Timer_WriteCounter\000"
+ 3720      725F5772 
+ 3720      69746543 
+ 3720      6F756E74 
+ 3720      657200
+ 3721              	.LASF47:
+ 3722 02fe 54696D65 		.ascii	"Timer_ReadCounter\000"
+ 3722      725F5265 
+ 3722      6164436F 
+ 3722      756E7465 
+ 3722      7200
+ 3723              	.LASF25:
+ 3724 0310 54696D65 		.ascii	"Timer_Stop\000"
+ 3724      725F5374 
+ 3724      6F7000
+ 3725              	.LASF34:
+ 3726 031b 6F6E6553 		.ascii	"oneShotEnable\000"
+ 3726      686F7445 
+ 3726      6E61626C 
+ 3726      6500
+ 3727              	.LASF72:
+ 3728 0329 54696D65 		.ascii	"Timer_GetInterruptSourceMasked\000"
+ 3728      725F4765 
+ 3728      74496E74 
+ 3728      65727275 
+ 3728      7074536F 
+ 3729              	.LASF14:
+ 3730 0348 72656733 		.ascii	"reg32\000"
+ 3730      3200
+ 3731              	.LASF53:
+ 3732 034e 54696D65 		.ascii	"Timer_ReadPeriodBuf\000"
+ 3732      725F5265 
+ 3732      61645065 
+ 3732      72696F64 
+ 3732      42756600 
+ 3733              	.LASF49:
+ 3734 0362 54696D65 		.ascii	"Timer_SetCompareSwap\000"
+ 3734      725F5365 
+ 3734      74436F6D 
+ 3734      70617265 
+ 3734      53776170 
+ 3735              	.LASF15:
+ 3736 0377 73697A65 		.ascii	"sizetype\000"
+ 3736      74797065 
+ 3736      00
+ 3737              	.LASF51:
+ 3738 0380 54696D65 		.ascii	"Timer_WritePeriodBuf\000"
+ 3738      725F5772 
+ 3738      69746550 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 98
 
 
- 3736      72696F64 
- 3736      42756600 
- 3737              	.LASF49:
- 3738 03df 54696D65 		.ascii	"Timer_SetCompareSwap\000"
- 3738      725F5365 
- 3738      74436F6D 
- 3738      70617265 
- 3738      53776170 
- 3739              	.LASF15:
- 3740 03f4 73697A65 		.ascii	"sizetype\000"
- 3740      74797065 
- 3740      00
- 3741              	.LASF51:
- 3742 03fd 54696D65 		.ascii	"Timer_WritePeriodBuf\000"
- 3742      725F5772 
- 3742      69746550 
- 3742      6572696F 
- 3742      64427566 
- 3743              	.LASF38:
- 3744 0412 73796E63 		.ascii	"syncKillEnable\000"
- 3744      4B696C6C 
- 3744      456E6162 
- 3744      6C6500
- 3745              	.LASF43:
- 3746 0421 54696D65 		.ascii	"Timer_SetPWMInvert\000"
+ 3738      6572696F 
+ 3738      64427566 
+ 3739              	.LASF38:
+ 3740 0395 73796E63 		.ascii	"syncKillEnable\000"
+ 3740      4B696C6C 
+ 3740      456E6162 
+ 3740      6C6500
+ 3741              	.LASF43:
+ 3742 03a4 54696D65 		.ascii	"Timer_SetPWMInvert\000"
+ 3742      725F5365 
+ 3742      7450574D 
+ 3742      496E7665 
+ 3742      727400
+ 3743              	.LASF21:
+ 3744 03b7 636F6D70 		.ascii	"compare\000"
+ 3744      61726500 
+ 3745              	.LASF64:
+ 3746 03bf 54696D65 		.ascii	"Timer_SetStartMode\000"
  3746      725F5365 
- 3746      7450574D 
- 3746      496E7665 
- 3746      727400
- 3747              	.LASF21:
- 3748 0434 636F6D70 		.ascii	"compare\000"
- 3748      61726500 
- 3749              	.LASF64:
- 3750 043c 54696D65 		.ascii	"Timer_SetStartMode\000"
- 3750      725F5365 
- 3750      74537461 
- 3750      72744D6F 
- 3750      646500
- 3751              	.LASF11:
- 3752 044f 666C6F61 		.ascii	"float\000"
- 3752      7400
- 3753              	.LASF32:
- 3754 0455 70726573 		.ascii	"prescaler\000"
- 3754      63616C65 
- 3754      7200
- 3755              	.LASF65:
- 3756 045f 54696D65 		.ascii	"Timer_SetStopMode\000"
- 3756      725F5365 
- 3756      7453746F 
- 3756      704D6F64 
- 3756      6500
- 3757              	.LASF54:
- 3758 0471 54696D65 		.ascii	"Timer_SetPeriodSwap\000"
- 3758      725F5365 
- 3758      74506572 
- 3758      696F6453 
- 3758      77617000 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 99
+ 3746      74537461 
+ 3746      72744D6F 
+ 3746      646500
+ 3747              	.LASF11:
+ 3748 03d2 666C6F61 		.ascii	"float\000"
+ 3748      7400
+ 3749              	.LASF32:
+ 3750 03d8 70726573 		.ascii	"prescaler\000"
+ 3750      63616C65 
+ 3750      7200
+ 3751              	.LASF65:
+ 3752 03e2 54696D65 		.ascii	"Timer_SetStopMode\000"
+ 3752      725F5365 
+ 3752      7453746F 
+ 3752      704D6F64 
+ 3752      6500
+ 3753              	.LASF54:
+ 3754 03f4 54696D65 		.ascii	"Timer_SetPeriodSwap\000"
+ 3754      725F5365 
+ 3754      74506572 
+ 3754      696F6453 
+ 3754      77617000 
+ 3755              	.LASF60:
+ 3756 0408 54696D65 		.ascii	"Timer_ReadCaptureBuf\000"
+ 3756      725F5265 
+ 3756      61644361 
+ 3756      70747572 
+ 3756      65427566 
+ 3757              	.LASF71:
+ 3758 041d 54696D65 		.ascii	"Timer_ReadStatus\000"
+ 3758      725F5265 
+ 3758      61645374 
+ 3758      61747573 
+ 3758      00
+ 3759              	.LASF1:
+ 3760 042e 756E7369 		.ascii	"unsigned char\000"
+ 3760      676E6564 
+ 3760      20636861 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 99
 
 
- 3759              	.LASF60:
- 3760 0485 54696D65 		.ascii	"Timer_ReadCaptureBuf\000"
- 3760      725F5265 
- 3760      61644361 
- 3760      70747572 
- 3760      65427566 
- 3761              	.LASF71:
- 3762 049a 54696D65 		.ascii	"Timer_ReadStatus\000"
- 3762      725F5265 
- 3762      61645374 
- 3762      61747573 
+ 3760      7200
+ 3761              	.LASF40:
+ 3762 043c 73746F70 		.ascii	"stopOnKillEnable\000"
+ 3762      4F6E4B69 
+ 3762      6C6C456E 
+ 3762      61626C65 
  3762      00
- 3763              	.LASF1:
- 3764 04ab 756E7369 		.ascii	"unsigned char\000"
- 3764      676E6564 
- 3764      20636861 
- 3764      7200
- 3765              	.LASF40:
- 3766 04b9 73746F70 		.ascii	"stopOnKillEnable\000"
- 3766      4F6E4B69 
- 3766      6C6C456E 
- 3766      61626C65 
- 3766      00
- 3767              	.LASF2:
- 3768 04ca 73686F72 		.ascii	"short int\000"
- 3768      7420696E 
- 3768      7400
- 3769              	.LASF18:
- 3770 04d4 696E7465 		.ascii	"interruptMask\000"
- 3770      72727570 
- 3770      744D6173 
- 3770      6B00
- 3771              	.LASF31:
- 3772 04e2 54696D65 		.ascii	"Timer_SetPrescaler\000"
+ 3763              	.LASF2:
+ 3764 044d 73686F72 		.ascii	"short int\000"
+ 3764      7420696E 
+ 3764      7400
+ 3765              	.LASF18:
+ 3766 0457 696E7465 		.ascii	"interruptMask\000"
+ 3766      72727570 
+ 3766      744D6173 
+ 3766      6B00
+ 3767              	.LASF31:
+ 3768 0465 54696D65 		.ascii	"Timer_SetPrescaler\000"
+ 3768      725F5365 
+ 3768      74507265 
+ 3768      7363616C 
+ 3768      657200
+ 3769              	.LASF24:
+ 3770 0478 54696D65 		.ascii	"Timer_Init\000"
+ 3770      725F496E 
+ 3770      697400
+ 3771              	.LASF45:
+ 3772 0483 54696D65 		.ascii	"Timer_SetCounterMode\000"
  3772      725F5365 
- 3772      74507265 
- 3772      7363616C 
- 3772      657200
- 3773              	.LASF24:
- 3774 04f5 54696D65 		.ascii	"Timer_Init\000"
- 3774      725F496E 
- 3774      697400
- 3775              	.LASF45:
- 3776 0500 54696D65 		.ascii	"Timer_SetCounterMode\000"
- 3776      725F5365 
- 3776      74436F75 
- 3776      6E746572 
- 3776      4D6F6465 
- 3777              	.LASF13:
- 3778 0515 63686172 		.ascii	"char\000"
- 3778      00
- 3779              	.LASF29:
- 3780 051a 6D6F6465 		.ascii	"mode\000"
- 3780      00
- 3781              	.LASF63:
- 3782 051f 54696D65 		.ascii	"Timer_SetReloadMode\000"
- 3782      725F5365 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 100
+ 3772      74436F75 
+ 3772      6E746572 
+ 3772      4D6F6465 
+ 3773              	.LASF13:
+ 3774 0498 63686172 		.ascii	"char\000"
+ 3774      00
+ 3775              	.LASF29:
+ 3776 049d 6D6F6465 		.ascii	"mode\000"
+ 3776      00
+ 3777              	.LASF63:
+ 3778 04a2 54696D65 		.ascii	"Timer_SetReloadMode\000"
+ 3778      725F5365 
+ 3778      7452656C 
+ 3778      6F61644D 
+ 3778      6F646500 
+ 3779              	.LASF46:
+ 3780 04b6 636F756E 		.ascii	"counterMode\000"
+ 3780      7465724D 
+ 3780      6F646500 
+ 3781              	.LASF48:
+ 3782 04c2 54696D65 		.ascii	"Timer_ReadPeriod\000"
+ 3782      725F5265 
+ 3782      61645065 
+ 3782      72696F64 
+ 3782      00
+ 3783              	.LASF57:
+ 3784 04d3 636F6D70 		.ascii	"compareBuf\000"
+ 3784      61726542 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 100
 
 
- 3782      7452656C 
- 3782      6F61644D 
- 3782      6F646500 
- 3783              	.LASF46:
- 3784 0533 636F756E 		.ascii	"counterMode\000"
- 3784      7465724D 
- 3784      6F646500 
- 3785              	.LASF48:
- 3786 053f 54696D65 		.ascii	"Timer_ReadPeriod\000"
- 3786      725F5265 
- 3786      61645065 
- 3786      72696F64 
+ 3784      756600
+ 3785              	.LASF27:
+ 3786 04de 656E6162 		.ascii	"enableInterrupts\000"
+ 3786      6C65496E 
+ 3786      74657272 
+ 3786      75707473 
  3786      00
- 3787              	.LASF57:
- 3788 0550 636F6D70 		.ascii	"compareBuf\000"
- 3788      61726542 
- 3788      756600
- 3789              	.LASF27:
- 3790 055b 656E6162 		.ascii	"enableInterrupts\000"
- 3790      6C65496E 
- 3790      74657272 
- 3790      75707473 
+ 3787              	.LASF61:
+ 3788 04ef 54696D65 		.ascii	"Timer_SetCaptureMode\000"
+ 3788      725F5365 
+ 3788      74436170 
+ 3788      74757265 
+ 3788      4D6F6465 
+ 3789              	.LASF33:
+ 3790 0504 54696D65 		.ascii	"Timer_SetOneShot\000"
+ 3790      725F5365 
+ 3790      744F6E65 
+ 3790      53686F74 
  3790      00
- 3791              	.LASF61:
- 3792 056c 54696D65 		.ascii	"Timer_SetCaptureMode\000"
- 3792      725F5365 
- 3792      74436170 
- 3792      74757265 
- 3792      4D6F6465 
- 3793              	.LASF33:
- 3794 0581 54696D65 		.ascii	"Timer_SetOneShot\000"
- 3794      725F5365 
- 3794      744F6E65 
- 3794      53686F74 
- 3794      00
- 3795              	.LASF74:
- 3796 0592 54696D65 		.ascii	"Timer_ClearInterrupt\000"
- 3796      725F436C 
- 3796      65617249 
- 3796      6E746572 
- 3796      72757074 
- 3797              	.LASF50:
- 3798 05a7 73776170 		.ascii	"swapEnable\000"
- 3798      456E6162 
- 3798      6C6500
+ 3791              	.LASF74:
+ 3792 0515 54696D65 		.ascii	"Timer_ClearInterrupt\000"
+ 3792      725F436C 
+ 3792      65617249 
+ 3792      6E746572 
+ 3792      72757074 
+ 3793              	.LASF50:
+ 3794 052a 73776170 		.ascii	"swapEnable\000"
+ 3794      456E6162 
+ 3794      6C6500
+ 3795              	.LASF78:
+ 3796 0535 473A5C43 		.ascii	"G:\\Company\\Jetronic\\CYPRESS\\Customer\\Troughpur"
+ 3796      6F6D7061 
+ 3796      6E795C4A 
+ 3796      6574726F 
+ 3796      6E69635C 
+ 3797 0563 5F43656E 		.ascii	"_Central_Peripheral_V2.9\\Troughput_Central_Periphe"
+ 3797      7472616C 
+ 3797      5F506572 
+ 3797      69706865 
+ 3797      72616C5F 
+ 3798 0595 72616C2E 		.ascii	"ral.cydsn\000"
+ 3798      63796473 
+ 3798      6E00
  3799              	.LASF52:
- 3800 05b2 70657269 		.ascii	"periodBuf\000"
+ 3800 059f 70657269 		.ascii	"periodBuf\000"
  3800      6F644275 
  3800      6600
  3801              	.LASF35:
- 3802 05bc 54696D65 		.ascii	"Timer_SetPWMMode\000"
+ 3802 05a9 54696D65 		.ascii	"Timer_SetPWMMode\000"
  3802      725F5365 
  3802      7450574D 
  3802      4D6F6465 
  3802      00
  3803              	.LASF58:
- 3804 05cd 54696D65 		.ascii	"Timer_ReadCompareBuf\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccc3xJzK.s 			page 101
-
-
+ 3804 05ba 54696D65 		.ascii	"Timer_ReadCompareBuf\000"
  3804      725F5265 
  3804      6164436F 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccgtNVFZ.s 			page 101
+
+
  3804      6D706172 
  3804      65427566 
  3805              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

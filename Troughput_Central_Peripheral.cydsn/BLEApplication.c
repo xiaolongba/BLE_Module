@@ -138,7 +138,8 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             //广播超时
 //            if(*(uint8_t*)eventParam==CYBLE_GAP_ADV_MODE_TO)
 //            {
-//                CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_SLOW);
+//               printf("+ADV_TO\r\n");  
+////                CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_SLOW);
 //            }
         break;
         case CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP:
@@ -157,7 +158,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             }
             else
             {
-                printf("+CONN_EVT=<%d,OK>\r\n",Conn_or_Disconn_Idx);   
+                printf("+CONN_EVT=%d,OK\r\n",Conn_or_Disconn_Idx);   
 //                与从机连接成功后，主机发起连接间隔更新请求
                 CyBle_GapcConnectionParamUpdateRequest(cyBle_connHandle.bdHandle,&connParam);
                                 /* Initiate an MTU exchange request CYBLE_GATT_MTU*/
@@ -180,7 +181,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
         break;
 //            主机接收从机的MTU交换响应
         case CYBLE_EVT_GATTC_XCHNG_MTU_RSP:            
-            negotiatedMtu=((CYBLE_GATT_XCHG_MTU_PARAM_T *)eventParam)->mtu;
+//            negotiatedMtu=((CYBLE_GATT_XCHG_MTU_PARAM_T *)eventParam)->mtu;
 //            printf("mtu is %d\r\n",negotiatedMtu);
             /* Enable notifications on the characteristic to get data from the 
              * Server.
@@ -199,9 +200,9 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
         /* GATT MTU exchange request - Update the negotiated MTU value */
 //            做为从机时接收主机发送过来的MTU交换请求
         case CYBLE_EVT_GATTS_XCNHG_MTU_REQ:            
-            negotiatedMtu = (((CYBLE_GATT_XCHG_MTU_PARAM_T *)eventParam)->mtu < CYBLE_GATT_MTU) ?
-                            ((CYBLE_GATT_XCHG_MTU_PARAM_T *)eventParam)->mtu : CYBLE_GATT_MTU;
-            CyBle_GattsExchangeMtuRsp(cyBle_connHandle,negotiatedMtu);                            
+//            negotiatedMtu = (((CYBLE_GATT_XCHG_MTU_PARAM_T *)eventParam)->mtu < CYBLE_GATT_MTU) ?
+//                            ((CYBLE_GATT_XCHG_MTU_PARAM_T *)eventParam)->mtu : CYBLE_GATT_MTU;
+//            CyBle_GattsExchangeMtuRsp(cyBle_connHandle,negotiatedMtu);                            
 //                            printf("mtu is %d\r\n",negotiatedMtu);
 //            printf("'MTU Exchange Request' received from GATT client device\r\n");
         break;
@@ -211,7 +212,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             cyBle_discoveryModeInfo.advParam->advIntvMax = CYBLE_FAST_ADV_INT_MAX;                            
             if(Role==Peripheral)
             {
-               printf("+DISCONN_EVT=<0x%02X>\r\n",*(uint8_t*)eventParam);
+               printf("+DISCONN_EVT=0x%02X\r\n",*(uint8_t*)eventParam);
                if(!SleepMode)
                {
                    CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_SLOW);
@@ -223,7 +224,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             }
             else
             {
-               printf("+DISCONN_EVT=<%d,0x%02X>\r\n",Conn_or_Disconn_Idx,*(uint8_t*)eventParam);
+               printf("+DISCONN_EVT=%d,0x%02X\r\n",Conn_or_Disconn_Idx,*(uint8_t*)eventParam);
                if(!SleepMode)
                {
                    CyBle_GapcStartScan(CYBLE_SCANNING_SLOW);
@@ -235,7 +236,13 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             }
             while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据                
 //            LowPower_EN=TURE;
-            AUTHFLAG=FALSE;            
+            AUTHFLAG=FALSE;         
+            CommandMode=AT_COMMAND_MODE;
+            /* RESET Uart and flush all buffers */
+            UART_Stop();
+            UART_SpiUartClearTxBuffer();
+            UART_SpiUartClearRxBuffer();
+            UART_Start();
         break;
 //            从机接收主机的写请求，并且从机不需要写响应
         case CYBLE_EVT_GATTS_WRITE_CMD_REQ:
@@ -274,12 +281,12 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
                 if(charNotificationEnabled)
                 {               
                     CommandMode=THROUGHT_MODE;
-                    printf("+MODE=<THROUGHT_MODE>\r\n");
+                    printf("+MODE=THROUGHT_MODE\r\n");
                 }
                 else
                 {
                     CommandMode=AT_COMMAND_MODE;
-                    printf("+MODE=<AT_COMMAND_MODE>\r\n");
+                    printf("+MODE=AT_COMMAND_MODE\r\n");
                 }
             }   
         break;
@@ -411,7 +418,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
 //            printf("byteCount is %d\r\n",DisAllCharResult.handleValueList.byteCount);
             for(i=0;i<DisAllCharResult.handleValueList.byteCount;)
             {                
-                printf("+DIS_EVT=<0x%02X%02X,0x%02X%02X>\r\n",
+                printf("+DIS_EVT=0x%02X%02X,0x%02X%02X\r\n",
                     DisAllCharResult.handleValueList.list[i+1],DisAllCharResult.handleValueList.list[i],
                     DisAllCharResult.handleValueList.list[i+3],DisAllCharResult.handleValueList.list[i+2]);
                 i=i+4;
@@ -429,7 +436,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
         break;    
         case CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST://显示随机产生的配对码
 //            PassKey=*(uint32*)eventParam;            
-            printf("+AUTHKEY=<%lu>\r\n",*(uint32 *)eventParam);
+            printf("+AUTHKEY=%lu\r\n",*(uint32 *)eventParam);
         break;
         case CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST:
             KEYBOARD=TURE;//标记此时此设备具有输入能力
@@ -758,7 +765,7 @@ void Parser_UartData(const char* SerialData)
 //         当前固件版本的查询
         case VERSION:
             if(SerialData[11]=='?')
-                printf("+VERSION=Ver1.5\r\n");
+                printf("+VERSION=Ver1.7\r\n");
             else
             {
                 printf("AT+ERR=5\r\n");//表示没有该AT命令     
@@ -776,7 +783,7 @@ void Parser_UartData(const char* SerialData)
             if('?'==idx)
             {
                 CyBle_GetDeviceAddress(&DeviceAddr);
-                printf("+LADDR:<0x%02X%02X%02X%02X%02X%02X>\r\n",                  
+                printf("+LADDR=%02X%02X%02X%02X%02X%02X\r\n",                  
                     DeviceAddr.bdAddr[5],
                     DeviceAddr.bdAddr[4],
                     DeviceAddr.bdAddr[3],
@@ -799,7 +806,7 @@ void Parser_UartData(const char* SerialData)
                 {
                     case '?':
                         CyBle_GapGetLocalName(Name);
-                        printf("+NAME=<%s>\r\n",Name);
+                        printf("+NAME=%s\r\n",Name);
 //                        free(Name);
                     break;
                     case '<':
@@ -904,12 +911,12 @@ void Parser_UartData(const char* SerialData)
                     case '?':
                         if(CYBLE_STATE_ADVERTISING==CyBle_GetState())
                         {
-                            printf("+ADVD=<0x");
+                            printf("+ADVD=");
                             for(i=0;i<cyBle_discoveryModeInfo.advData->advDataLen;i++)
                             {
                                 printf("%02X",cyBle_discoveryModeInfo.advData->advData[i]);
                             }
-                            printf(">\r\n");
+                            printf("\r\n");
                         }
                         else
                         {
@@ -940,7 +947,7 @@ void Parser_UartData(const char* SerialData)
                         case '?':
                         AdvMin=(cyBle_discoveryModeInfo.advParam->advIntvMin)*0.625;
                         AdvMax=(cyBle_discoveryModeInfo.advParam->advIntvMax)*0.625;                    
-                        printf("+ADVI=<MIN=%hdms,MAX=%hdms,TIMEOUT=%hus>\r\n",AdvMin,
+                        printf("+ADVI=%hdms,%hdms,%hus\r\n",AdvMin,
                         AdvMax,cyBle_discoveryModeInfo.advTo);
                         while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
                         break;
@@ -1001,7 +1008,7 @@ void Parser_UartData(const char* SerialData)
                 {
 //                    connintv=(ConnParam.connIntv)*1.25;
 //                    supervisionTO=(ConnParam.supervisionTO)*10;
-                    printf("+CONNI=<CONNINTV=0x%04X,CONNTO=0x%04X,CONNLATENCY=0x%04X>\r\n",ConnParam.connIntv,
+                    printf("+CONNI=%04X,%04X,%04X\r\n",ConnParam.connIntv,
                     ConnParam.supervisionTO,ConnParam.connLatency);
                 }
                 else
@@ -1067,11 +1074,13 @@ void Parser_UartData(const char* SerialData)
                 case '?':
                     if(Peripheral==Role)
                     {
-                        printf("+ROLE:<Peripheral>\r\n");
+                        printf("+ROLE=0\r\n");
+//                        printf("+ROLE=<Peripheral>\r\n");
                     }
                     else
-                    {
-                        printf("+ROLE:<Central>\r\n");
+                    {   
+                        printf("+ROLE=1\r\n");
+//                        printf("+ROLE=<Central>\r\n");
                     }
                 break;
 //                    0：从机(Slave)
@@ -1081,8 +1090,8 @@ void Parser_UartData(const char* SerialData)
                         WriteDataToFlash=Peripheral;//把当前的值写入Flash中,用于复位时判断是主还是从模式
                         if(USER_SFLASH_WRITE_SUCCESSFUL==WriteUserSFlashRow(0,&WriteDataToFlash,1,0x06))
                         {
-                            //停止扫描
-                            CyBle_GapcStopScan();
+                            //停止扫描,注释掉广播才正常，否则只有快广播没有慢广播
+//                            CyBle_GapcStopScan();
                             //开始广播
                             CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
                             Role=Peripheral;
@@ -1105,7 +1114,7 @@ void Parser_UartData(const char* SerialData)
                         if(USER_SFLASH_WRITE_SUCCESSFUL==WriteUserSFlashRow(0,&WriteDataToFlash,1,0x06))
                         {
 //                        停止广播
-                            CyBle_GappStopAdvertisement();
+//                            CyBle_GappStopAdvertisement();
 //                        开始扫描
                             CyBle_GapcStartScan(CYBLE_SCANNING_FAST);
                             Role=Central;
@@ -1180,9 +1189,14 @@ void Parser_UartData(const char* SerialData)
                 }
                 else if(SerialData[8]=='?')
                 {
+                    if(0==DeviceCount)
+                    {
+                        printf("AT+ERR=10\r\n");//表示当前还没有扫描到周边的BLE设备
+                        return;
+                    }
                     for(i=0;i<DeviceCount;i++)
                     {
-                        printf("+INQ_SCAN:<%d,0x%02X%02X%02X%02X%02X%02X>\r\n",
+                        printf("+INQ_SCAN=%d,%02X%02X%02X%02X%02X%02X\r\n",
                         DeviceInfo[i].idx,
                         DeviceInfo[i].DeviceList.bdAddr[5],
                         DeviceInfo[i].DeviceList.bdAddr[4],
@@ -1231,7 +1245,7 @@ void Parser_UartData(const char* SerialData)
                             API_RESULT=CyBle_GapDisconnect(cyBle_connHandle.bdHandle);
                             if(CYBLE_ERROR_OK!=API_RESULT)  
                             {
-                                printf("AT+ERR=<%d,0x%02X>\r\n",idx-0x30,API_RESULT);                    
+                                printf("AT+ERR=%d,0x%02X\r\n",idx-0x30,API_RESULT);                    
                             }
                             else
                             {
@@ -1255,7 +1269,7 @@ void Parser_UartData(const char* SerialData)
                             API_RESULT=CyBle_GapDisconnect(cyBle_connHandle.bdHandle);
                             if(CYBLE_ERROR_OK!=API_RESULT)  
                             {
-                                printf("AT+ERR=<%d,0x%02X>\r\n",idx-0x30,API_RESULT);                    
+                                printf("AT+ERR=%d,0x%02X\r\n",idx-0x30,API_RESULT);                    
                             }
                             else
                             {
@@ -1279,7 +1293,7 @@ void Parser_UartData(const char* SerialData)
                             API_RESULT=CyBle_GapDisconnect(cyBle_connHandle.bdHandle);
                             if(CYBLE_ERROR_OK!=API_RESULT)  
                             {
-                                printf("AT+ERR=<%d,0x%02X>\r\n",idx-0x30,API_RESULT);                    
+                                printf("AT+ERR=%d,0x%02X\r\n",idx-0x30,API_RESULT);                    
                             }
                             else
                             {
@@ -1303,7 +1317,7 @@ void Parser_UartData(const char* SerialData)
                             API_RESULT=CyBle_GapDisconnect(cyBle_connHandle.bdHandle);
                             if(CYBLE_ERROR_OK!=API_RESULT)  
                             {
-                                printf("AT+ERR=<%d,0x%02X>\r\n",idx-0x30,API_RESULT);                    
+                                printf("AT+ERR=%d,0x%02X\r\n",idx-0x30,API_RESULT);                    
                             }
                             else
                             {
@@ -1335,7 +1349,7 @@ void Parser_UartData(const char* SerialData)
                         API_RESULT=CyBle_GapDisconnect(cyBle_connHandle.bdHandle);
                         if(CYBLE_ERROR_OK!=API_RESULT)  
                         {
-                            printf("AT+ERR=<0x%02X>\r\n",API_RESULT);                    
+                            printf("AT+ERR=0x%02X\r\n",API_RESULT);                    
                         }
                     }
                     else
@@ -1360,7 +1374,9 @@ void Parser_UartData(const char* SerialData)
             {
                 idx=SerialData[8];
                 if(idx=='?')
-                    printf("+RSSI:<%ddBm>\r\n",CyBle_GetRssi());
+                {                    
+                     printf("+RSSI=%ddbm\r\n",CyBle_GetRssi());
+                }                    
                 else
                 {
                     printf("AT+ERR=5\r\n");//表示没有该AT命令
@@ -1438,7 +1454,7 @@ void Parser_UartData(const char* SerialData)
 //                        if(CYBLE_ERROR_OK==API_RESULT)
 //                        {
                         CommandMode=AT_COMMAND_MODE;
-                        printf("+MODE=<AT_COMMAND_MODE>\r\n");
+                        printf("+MODE=AT_COMMAND_MODE\r\n");
 //                        }
 ////                        printf("CyBle_GattcWriteCharacteristicValue is %d\r\n",API_RESULT);
                     break;
@@ -1450,12 +1466,12 @@ void Parser_UartData(const char* SerialData)
                         if(CYBLE_ERROR_OK==API_RESULT)
                         {
                             CommandMode=THROUGHT_MODE;
-                            printf("+MODE=<THROUGHT_MODE>\r\n");
+                            printf("+MODE=THROUGHT_MODE\r\n");
                         }
 //                        printf("CyBle_GattcWriteCharacteristicValue is %d\r\n",API_RESULT);
                     break;
                     case '?'://主机模式下，能接收到该命令则一定是AT命令模式
-                        printf("+MODE=<AT_COMMAND_MODE>\r\n");                       
+                        printf("+MODE=AT_COMMAND_MODE\r\n");                       
                     break;
                     default:
                         printf("AT+ERR=5\r\n");//表示没有该AT命令
@@ -1472,14 +1488,14 @@ void Parser_UartData(const char* SerialData)
                 {
                     case '0':
                         CommandMode=AT_COMMAND_MODE;
-                        printf("+MODE=<AT_COMMAND_MODE>\r\n");
+                        printf("+MODE=AT_COMMAND_MODE\r\n");
                     break;
                     case '1'://从机模式且AT命令模式下，打开从机给主机的透传通道
                         CommandMode=THROUGHT_MODE;
-                        printf("+MODE=<THROUGHT_MODE>\r\n");
+                        printf("+MODE=THROUGHT_MODE\r\n");
                     break;
                     case '?'://从机模式下，能接收到该命令则一定是AT命令模式
-                        printf("+MODE=<AT_COMMAND_MODE>\r\n");                       
+                        printf("+MODE=AT_COMMAND_MODE\r\n");                       
                     break;
                     default:
                         printf("AT+ERR=5\r\n");//表示没有该AT命令
@@ -1503,25 +1519,32 @@ void Parser_UartData(const char* SerialData)
                 switch(STAUS_T)
                 {
                     case 0:
-                        printf("+STAUS=<STATE_STOPPED>\r\n");
+                            printf("+STAUS=0\r\n");
+//                        printf("+STAUS=<STATE_STOPPED>\r\n");
                     break;
                     case 1:
-                        printf("+STAUS=<STATE_INITIALIZING>\r\n");
+                            printf("+STAUS=1\r\n");
+//                        printf("+STAUS=<STATE_INITIALIZING>\r\n");
                     break;
                     case 2:
-                        printf("+STAUS=<STATE_CONNECTED>\r\n");
+                            printf("+STAUS=2\r\n");
+//                        printf("+STAUS=<STATE_CONNECTED>\r\n");
                     break;
                     case 3:
-                        printf("+STAUS=<STATE_ADVERTISING>\r\n");
+                            printf("+STAUS=3\r\n");
+//                        printf("+STAUS=<STATE_ADVERTISING>\r\n");
                     break;
                     case 4:
-                        printf("+STAUS=<STATE_SCANNING>\r\n");
+                            printf("+STAUS=4\r\n");
+//                        printf("+STAUS=<STATE_SCANNING>\r\n");
                     break;
                     case 5:
-                        printf("+STAUS=<STATE_CONNECTING>\r\n");
+                            printf("+STAUS=5\r\n");
+//                        printf("+STAUS=<STATE_CONNECTING>\r\n");
                     break;
                     case 6:
-                        printf("+STAUS=<STATE_DISCONNECTED>\r\n");
+                            printf("+STAUS=6\r\n");
+//                        printf("+STAUS=<STATE_DISCONNECTED>\r\n");
                     break;
                     default:
                     break;
@@ -1667,19 +1690,24 @@ void Parser_UartData(const char* SerialData)
                         switch(iocapability)
                         {
                             case 0:
-                                printf("+IOCAP=<DISPLAY_ONLY>\r\n");
+                                    printf("+IOCAP=0\r\n");
+//                                printf("+IOCAP=<DISPLAY_ONLY>\r\n");
                             break;
                             case 1:
-                                printf("+IOCAP=<DISPLAY_YESNO>\r\n");
+                                    printf("+IOCAP=1\r\n");
+//                                printf("+IOCAP=<DISPLAY_YESNO>\r\n");
                             break;
                             case 2:
-                                printf("+IOCAP=<KEYBOARD_ONLY>\r\n");
+                                    printf("+IOCAP=2\r\n");
+//                                printf("+IOCAP=<KEYBOARD_ONLY>\r\n");
                             break;
                             case 3:
-                                printf("+IOCAP=<NOINPUT_NOOUTPUT>\r\n");
+                                    printf("+IOCAP=3\r\n");
+//                                printf("+IOCAP=<NOINPUT_NOOUTPUT>\r\n");
                             break;
                             case 4:
-                                printf("+IOCAP=<KEYBOARD_DISPLAY>\r\n");
+                                    printf("+IOCAP=4\r\n");
+//                                printf("+IOCAP=<KEYBOARD_DISPLAY>\r\n");
                             break;
                         }
                     break;
@@ -1700,9 +1728,11 @@ void Parser_UartData(const char* SerialData)
             if(idx=='?')
             {
                 if(AUTHFLAG)
-                    printf("+AUTH=<ENABLE>\r\n");
+                        printf("+AUTH=1\r\n");
+//                    printf("+AUTH=<ENABLE>\r\n");
                 else
-                    printf("+AUTH=<DISABLE>\r\n");
+                        printf("+AUTH=0\r\n");
+//                    printf("+AUTH=<DISABLE>\r\n");
             }
             else if(idx=='1')
             {
@@ -1748,9 +1778,11 @@ void Parser_UartData(const char* SerialData)
                 break;
                 case '?':
                     if(SleepMode)
-                        printf("+SLEEPMODE=<ENABLE>\r\n");
+                            printf("+SLEEPMODE=1\r\n");
+//                        printf("+SLEEPMODE=<ENABLE>\r\n");
                     else
-                        printf("+SLEEPMODE=<DISABLE>\r\n");
+                            printf("+SLEEPMODE=0\r\n");
+//                        printf("+SLEEPMODE=<DISABLE>\r\n");
                 break;
                 default:
                     printf("AT+ERR=5\r\n");//表示没有该AT命令
@@ -1962,8 +1994,9 @@ void Master_Slave_UartHandler(uint8_t Role)
 //    Uart_Char=UART_UartGetChar();
     CYBLE_GATTS_HANDLE_VALUE_NTF_T      uartTxDataNtf;
     uartTxDataLength = UART_SpiUartGetRxBufferSize();//只有读取完了RX_Buffer才清0
+//    UART_UartPutChar(uartTxDataLength);
     #ifdef  FLOW_CONTROL//此处最好置一GPIO口为低电平告诉发送方停止发送数据
-        if(uartTxDataLength>=(UART_RX_BUFFER/2))
+        if(uartTxDataLength>=(UART_RX_BUFFER/4))
         {
             UART_RX_INT_DISABLE();
             CTS_Write(CTS_ON);
@@ -1976,9 +2009,9 @@ void Master_Slave_UartHandler(uint8_t Role)
     #endif
 //        处理串口信息,不采用中断的方式,采取中断会影响透传速率
     if((0!=uartTxDataLength)&&((CommandMode==THROUGHT_MODE)))
-    {   
+    {           
         if(uartTxDataLength>=negotiatedMtu-3)
-        {
+        {                 
             uartIdleCount=UART_IDLE_TIMEOUT;
             uartTxDataLength=negotiatedMtu-3;
         }
@@ -1996,10 +2029,11 @@ void Master_Slave_UartHandler(uint8_t Role)
         if(0!=uartTxDataLength)
         {
             uartIdleCount=UART_IDLE_TIMEOUT;
+//            UART_UartPutChar(UART_SpiUartGetRxBufferSize());
             for(index=0;index<uartTxDataLength;index++)//不管是主机还是从机，在透传模式下先收串口接收到的数据，然后才判断是主机和从机再进行相对应的处理
             {
                 uartTxData[index] = (uint8) UART_UartGetByte();
-            }
+            }            
             if(0==memcmp("AT+NOTIFY=0",uartTxData,11))//在透传模式下，判断是不是要退出透传模式，因为透传模式下会认为串口接收的数据都是透传数据       
             {
                 if(Role==Central) //主机模式下退出透传模式
@@ -2189,7 +2223,7 @@ void Connect_Device(uint8_t idx)
                 API_RESULT=CyBle_GapcConnectDevice(&DeviceInfo[idx-1-0x30].DeviceList);
                 if(CYBLE_ERROR_OK!=API_RESULT)  
                 {
-                    printf("AT+ERR=<%d,0x%02X>\r\n",idx-0x30,API_RESULT);                    
+                    printf("AT+ERR=%d,0x%02X\r\n",idx-0x30,API_RESULT);                    
                 }
                 else
                 {
@@ -2207,7 +2241,7 @@ void Connect_Device(uint8_t idx)
                 API_RESULT=CyBle_GapcConnectDevice(&DeviceInfo[idx-1-0x30].DeviceList);
                 if(CYBLE_ERROR_OK!=API_RESULT)  
                 {
-                    printf("AT+ERR=<%d,0x%02X>\r\n",idx-0x30,API_RESULT);                    
+                    printf("AT+ERR=%d,0x%02X\r\n",idx-0x30,API_RESULT);                    
                 }
                 else
                 {
@@ -2223,7 +2257,7 @@ void Connect_Device(uint8_t idx)
                 API_RESULT=CyBle_GapcConnectDevice(&DeviceInfo[idx-1-0x30].DeviceList);
                 if(CYBLE_ERROR_OK!=API_RESULT)  
                 {
-                    printf("AT+ERR=<%d,0x%02X>\r\n",idx-0x30,API_RESULT);                    
+                    printf("AT+ERR=%d,0x%02X\r\n",idx-0x30,API_RESULT);                    
                 }
                 else
                 {
@@ -2239,7 +2273,7 @@ void Connect_Device(uint8_t idx)
                 API_RESULT=CyBle_GapcConnectDevice(&DeviceInfo[idx-1-0x30].DeviceList);
                 if(CYBLE_ERROR_OK!=API_RESULT)  
                 {
-                    printf("AT+ERR=<%d,0x%02X>\r\n",idx-0x30,API_RESULT);                    
+                    printf("AT+ERR=%d,0x%02X\r\n",idx-0x30,API_RESULT);                    
                 }
                 else
                 {
@@ -2256,7 +2290,7 @@ void Connect_Device(uint8_t idx)
                 {
                     for(i=0;i<Conn_Or_Disconn_Info.Connected_Count;i++)
                     {
-                        printf("+INQ_CONN:<%d,0x%02X%02X%02X%02X%02X%02X>\r\n",
+                        printf("+INQ_CONN=%d,%02X%02X%02X%02X%02X%02X\r\n",
                         Conn_Or_Disconn_Info.Connect_Idx[i],
                         Conn_Or_Disconn_Info.DeviceAddr[i].bdAddr[5],
                         Conn_Or_Disconn_Info.DeviceAddr[i].bdAddr[4],
@@ -2493,28 +2527,36 @@ void TxPower_Handler(uint8_t idx)
             switch(idx)
             {
                 case 1:
-                    printf("+TXP:<-18dBm>\r\n");
+                        printf("+TXP=1\r\n");
+//                    printf("+TXP=<-18dBm>\r\n");
                 break;
                 case 2:
-                    printf("+TXP:<-12dBm>\r\n");
+                        printf("+TXP=2\r\n");
+//                    printf("+TXP=<-12dBm>\r\n");
                 break;
                 case 3:
-                    printf("+TXP:<-6dBm>\r\n");
+                        printf("+TXP=3\r\n");
+//                    printf("+TXP=<-6dBm>\r\n");
                 break;
                 case 4:
-                    printf("+TXP:<-3dBm>\r\n");
+                        printf("+TXP=4\r\n");
+//                    printf("+TXP=<-3dBm>\r\n");
                 break;
                 case 5:
-                    printf("+TXP:<-2dBm>\r\n");
+                        printf("+TXP=5\r\n");
+//                    printf("+TXP=<-2dBm>\r\n");
                 break;
                 case 6:
-                    printf("+TXP:<-1dBm>\r\n");
+                        printf("+TXP=6\r\n");
+//                    printf("+TXP=<-1dBm>\r\n");
                 break;
                 case 7:
-                    printf("+TXP:<0dBm>\r\n");
+                        printf("+TXP=7\r\n");
+//                    printf("+TXP=<0dBm>\r\n");
                 break;
                 case 8:
-                    printf("+TXP:<3dBm>\r\n");
+                        printf("+TXP=8\r\n");
+//                    printf("+TXP=<3dBm>\r\n");
                 break;
             }
             

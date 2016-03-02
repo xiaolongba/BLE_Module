@@ -67,7 +67,7 @@ void HandleScanDevices(CYBLE_GAPC_ADV_REPORT_T* ScanReport)
                 memset(DeviceInfo[DeviceCount-1].DeviceName,0,sizeof(DeviceInfo[DeviceCount-1].DeviceName));
                 memcpy(DeviceInfo[DeviceCount-1].DeviceName,"NULL",sizeof("NULL"));
             }
-            printf("+SCAN=<%d,%d,%c,0x%02X%02X%02X%02X%02X%02X,%s>\r\n",
+            printf("+SCAN=%d,%d,%c,%02X%02X%02X%02X%02X%02X,%s\r\n",
                     DeviceInfo[DeviceCount-1].idx,
                     DeviceInfo[DeviceCount-1].rssi,
                     PUBLIC_OR_RANDOM(DeviceInfo[DeviceCount-1].DeviceList.type),
@@ -121,7 +121,7 @@ void HandleScanDevices(CYBLE_GAPC_ADV_REPORT_T* ScanReport)
                 memset(DeviceInfo[DeviceCount-1].DeviceName,0,sizeof(DeviceInfo[DeviceCount-1].DeviceName));
                 memcpy(DeviceInfo[DeviceCount-1].DeviceName,"NULL",sizeof("NULL"));
             }
-            printf("+SCAN=<%d,%d,%c,0x%02X%02X%02X%02X%02X%02X,%s>\r\n",
+            printf("+SCAN=%d,%d,%c,%02X%02X%02X%02X%02X%02X,%s\r\n",
                     DeviceInfo[DeviceCount-1].idx,
                     DeviceInfo[DeviceCount-1].rssi,
                     DeviceInfo[DeviceCount-1].DeviceList.type,

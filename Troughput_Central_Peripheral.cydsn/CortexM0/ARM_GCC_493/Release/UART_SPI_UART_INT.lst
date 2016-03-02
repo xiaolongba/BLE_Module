@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckz72kZ.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
   30:.\Generated_Source\PSoC4/UART_SPI_UART_INT.c **** * Parameters:
   31:.\Generated_Source\PSoC4/UART_SPI_UART_INT.c **** *  None
   32:.\Generated_Source\PSoC4/UART_SPI_UART_INT.c **** *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckz72kZ.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/UART_SPI_UART_INT.c **** * Return:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
   66:.\Generated_Source\PSoC4/UART_SPI_UART_INT.c ****         {
   67:.\Generated_Source\PSoC4/UART_SPI_UART_INT.c ****             do
   68:.\Generated_Source\PSoC4/UART_SPI_UART_INT.c ****             {
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckz72kZ.s 			page 3
 
 
   69:.\Generated_Source\PSoC4/UART_SPI_UART_INT.c ****                 /* Move local head index */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
   71              		.loc 1 96 0
   72 0032 2022     		mov	r2, #32
   73              	.LVL3:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckz72kZ.s 			page 4
 
 
   74 0034 0D4B     		ldr	r3, .L15+24
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
  128:.\Generated_Source\PSoC4/UART_SPI_UART_INT.c **** 
  129:.\Generated_Source\PSoC4/UART_SPI_UART_INT.c ****                     /* Adjust local tail index */
  130:.\Generated_Source\PSoC4/UART_SPI_UART_INT.c ****                     if (UART_TX_BUFFER_SIZE == locTail)
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckz72kZ.s 			page 5
 
 
  131:.\Generated_Source\PSoC4/UART_SPI_UART_INT.c ****                     {
@@ -298,15 +298,15 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
  122              	.Ldebug_info0:
  123 0000 35010000 		.4byte	0x135
  124 0004 0400     		.2byte	0x4
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckz72kZ.s 			page 6
 
 
  125 0006 00000000 		.4byte	.Ldebug_abbrev0
  126 000a 04       		.byte	0x4
  127 000b 01       		.uleb128 0x1
- 128 000c E2000000 		.4byte	.LASF22
+ 128 000c CF000000 		.4byte	.LASF22
  129 0010 01       		.byte	0x1
- 130 0011 9F000000 		.4byte	.LASF23
+ 130 0011 8C000000 		.4byte	.LASF23
  131 0015 22000000 		.4byte	.LASF24
  132 0019 00000000 		.4byte	.Ldebug_ranges0+0
  133 001d 00000000 		.4byte	0
@@ -314,27 +314,27 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
  135 0025 02       		.uleb128 0x2
  136 0026 01       		.byte	0x1
  137 0027 06       		.byte	0x6
- 138 0028 41020000 		.4byte	.LASF0
+ 138 0028 2E020000 		.4byte	.LASF0
  139 002c 02       		.uleb128 0x2
  140 002d 01       		.byte	0x1
  141 002e 08       		.byte	0x8
- 142 002f EE010000 		.4byte	.LASF1
+ 142 002f DB010000 		.4byte	.LASF1
  143 0033 02       		.uleb128 0x2
  144 0034 02       		.byte	0x2
  145 0035 05       		.byte	0x5
- 146 0036 65020000 		.4byte	.LASF2
+ 146 0036 52020000 		.4byte	.LASF2
  147 003a 02       		.uleb128 0x2
  148 003b 02       		.byte	0x2
  149 003c 07       		.byte	0x7
- 150 003d A1010000 		.4byte	.LASF3
+ 150 003d 8E010000 		.4byte	.LASF3
  151 0041 02       		.uleb128 0x2
  152 0042 04       		.byte	0x4
  153 0043 05       		.byte	0x5
- 154 0044 18020000 		.4byte	.LASF4
+ 154 0044 05020000 		.4byte	.LASF4
  155 0048 02       		.uleb128 0x2
  156 0049 04       		.byte	0x4
  157 004a 07       		.byte	0x7
- 158 004b 70010000 		.4byte	.LASF5
+ 158 004b 5D010000 		.4byte	.LASF5
  159 004f 02       		.uleb128 0x2
  160 0050 08       		.byte	0x8
  161 0051 05       		.byte	0x5
@@ -342,7 +342,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
  163 0056 02       		.uleb128 0x2
  164 0057 08       		.byte	0x8
  165 0058 07       		.byte	0x7
- 166 0059 8A010000 		.4byte	.LASF7
+ 166 0059 77010000 		.4byte	.LASF7
  167 005d 03       		.uleb128 0x3
  168 005e 04       		.byte	0x4
  169 005f 05       		.byte	0x5
@@ -352,13 +352,13 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
  173 0066 07       		.byte	0x7
  174 0067 15000000 		.4byte	.LASF8
  175 006b 04       		.uleb128 0x4
- 176 006c 3B020000 		.4byte	.LASF9
+ 176 006c 28020000 		.4byte	.LASF9
  177 0070 02       		.byte	0x2
  178 0071 C2       		.byte	0xc2
  179 0072 2C000000 		.4byte	0x2c
  180 0076 04       		.uleb128 0x4
  181 0077 0E000000 		.4byte	.LASF10
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckz72kZ.s 			page 7
 
 
  182 007b 02       		.byte	0x2
@@ -367,26 +367,26 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
  185 0081 02       		.uleb128 0x2
  186 0082 04       		.byte	0x4
  187 0083 04       		.byte	0x4
- 188 0084 4D020000 		.4byte	.LASF11
+ 188 0084 3A020000 		.4byte	.LASF11
  189 0088 02       		.uleb128 0x2
  190 0089 08       		.byte	0x8
  191 008a 04       		.byte	0x4
- 192 008b 2E020000 		.4byte	.LASF12
+ 192 008b 1B020000 		.4byte	.LASF12
  193 008f 02       		.uleb128 0x2
  194 0090 01       		.byte	0x1
  195 0091 08       		.byte	0x8
- 196 0092 13020000 		.4byte	.LASF13
+ 196 0092 00020000 		.4byte	.LASF13
  197 0096 05       		.uleb128 0x5
  198 0097 6B000000 		.4byte	0x6b
  199 009b 06       		.uleb128 0x6
- 200 009c 35020000 		.4byte	.LASF14
+ 200 009c 22020000 		.4byte	.LASF14
  201 00a0 02       		.byte	0x2
  202 00a1 6E01     		.2byte	0x16e
  203 00a3 A7000000 		.4byte	0xa7
  204 00a7 05       		.uleb128 0x5
  205 00a8 76000000 		.4byte	0x76
  206 00ac 06       		.uleb128 0x6
- 207 00ad 21020000 		.4byte	.LASF15
+ 207 00ad 0E020000 		.4byte	.LASF15
  208 00b1 02       		.byte	0x2
  209 00b2 7E01     		.2byte	0x17e
  210 00b4 B8000000 		.4byte	0xb8
@@ -397,9 +397,9 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
  215 00bf 02       		.uleb128 0x2
  216 00c0 04       		.byte	0x4
  217 00c1 07       		.byte	0x7
- 218 00c2 6F020000 		.4byte	.LASF16
+ 218 00c2 5C020000 		.4byte	.LASF16
  219 00c6 09       		.uleb128 0x9
- 220 00c7 53020000 		.4byte	.LASF25
+ 220 00c7 40020000 		.4byte	.LASF25
  221 00cb 01       		.byte	0x1
  222 00cc 25       		.byte	0x25
  223 00cd 00000000 		.4byte	.LFB2
@@ -408,32 +408,32 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
  226 00d6 9C       		.byte	0x9c
  227 00d7 EB000000 		.4byte	0xeb
  228 00db 0A       		.uleb128 0xa
- 229 00dc 82010000 		.4byte	.LASF26
+ 229 00dc 6F010000 		.4byte	.LASF26
  230 00e0 01       		.byte	0x1
  231 00e1 28       		.byte	0x28
  232 00e2 76000000 		.4byte	0x76
  233 00e6 00000000 		.4byte	.LLST0
  234 00ea 00       		.byte	0
  235 00eb 0B       		.uleb128 0xb
- 236 00ec FC010000 		.4byte	.LASF17
+ 236 00ec E9010000 		.4byte	.LASF17
  237 00f0 03       		.byte	0x3
  238 00f1 3A       		.byte	0x3a
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckz72kZ.s 			page 8
 
 
  239 00f2 AC000000 		.4byte	0xac
  240 00f6 0B       		.uleb128 0xb
- 241 00f7 B4010000 		.4byte	.LASF18
+ 241 00f7 A1010000 		.4byte	.LASF18
  242 00fb 04       		.byte	0x4
  243 00fc 1E       		.byte	0x1e
  244 00fd A7000000 		.4byte	0xa7
  245 0101 0B       		.uleb128 0xb
- 246 0102 C6010000 		.4byte	.LASF19
+ 246 0102 B3010000 		.4byte	.LASF19
  247 0106 04       		.byte	0x4
  248 0107 1F       		.byte	0x1f
  249 0108 A7000000 		.4byte	0xa7
  250 010c 0B       		.uleb128 0xb
- 251 010d CC000000 		.4byte	.LASF20
+ 251 010d B9000000 		.4byte	.LASF20
  252 0111 04       		.byte	0x4
  253 0112 20       		.byte	0x20
  254 0113 96000000 		.4byte	0x96
@@ -445,7 +445,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
  260 0125 0008     		.2byte	0x800
  261 0127 00       		.byte	0
  262 0128 0B       		.uleb128 0xb
- 263 0129 D8010000 		.4byte	.LASF21
+ 263 0129 C5010000 		.4byte	.LASF21
  264 012d 04       		.byte	0x4
  265 012e 29       		.byte	0x29
  266 012f 33010000 		.4byte	0x133
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
  293 0015 00       		.byte	0
  294 0016 0B       		.uleb128 0xb
  295 0017 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckz72kZ.s 			page 9
 
 
  296 0018 3E       		.uleb128 0x3e
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
  350 004e 0B       		.uleb128 0xb
  351 004f 49       		.uleb128 0x49
  352 0050 13       		.uleb128 0x13
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckz72kZ.s 			page 10
 
 
  353 0051 00       		.byte	0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
  407 0088 3A       		.uleb128 0x3a
  408 0089 0B       		.uleb128 0xb
  409 008a 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 11
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckz72kZ.s 			page 11
 
 
  410 008b 0B       		.uleb128 0xb
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
  464              	.Ldebug_ranges0:
  465 0000 00000000 		.4byte	.LFB2
  466 0004 7C000000 		.4byte	.LFE2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckz72kZ.s 			page 12
 
 
  467 0008 00000000 		.4byte	0
@@ -684,145 +684,143 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 1
  477      20696E74 
  477      00
  478              	.LASF24:
- 479 0022 473A5C43 		.ascii	"G:\\Company\\Jetronic\\CYPRESS\\CYPRESS_BLE_Study\\"
+ 479 0022 473A5C43 		.ascii	"G:\\Company\\Jetronic\\CYPRESS\\Customer\\Troughpur"
  479      6F6D7061 
  479      6E795C4A 
  479      6574726F 
  479      6E69635C 
- 480 0050 54726F75 		.ascii	"Troughput\\Troughpur_Central_Peripheral_V2.7\\Troug"
- 480      67687075 
- 480      745C5472 
- 480      6F756768 
- 480      7075725F 
- 481 0081 68707574 		.ascii	"hput_Central_Peripheral.cydsn\000"
- 481      5F43656E 
- 481      7472616C 
- 481      5F506572 
- 481      69706865 
+ 480 0050 5F43656E 		.ascii	"_Central_Peripheral_V2.9\\Troughput_Central_Periphe"
+ 480      7472616C 
+ 480      5F506572 
+ 480      69706865 
+ 480      72616C5F 
+ 481 0082 72616C2E 		.ascii	"ral.cydsn\000"
+ 481      63796473 
+ 481      6E00
  482              	.LASF23:
- 483 009f 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\UART_SPI_UART_INT.c\000"
+ 483 008c 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\UART_SPI_UART_INT.c\000"
  483      6E657261 
  483      7465645F 
  483      536F7572 
  483      63655C50 
  484              	.LASF20:
- 485 00cc 55415254 		.ascii	"UART_rxBufferOverflow\000"
+ 485 00b9 55415254 		.ascii	"UART_rxBufferOverflow\000"
  485      5F727842 
  485      75666665 
  485      724F7665 
  485      72666C6F 
  486              	.LASF22:
- 487 00e2 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 487 00cf 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  487      4320342E 
  487      392E3320 
  487      32303135 
  487      30333033 
- 488 0115 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 13
-
-
+ 488 0102 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
  488      20726576 
  488      6973696F 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckz72kZ.s 			page 13
+
+
  488      6E203232 
  488      31323230 
- 489 0148 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
+ 489 0135 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
  489      66756E63 
  489      74696F6E 
  489      2D736563 
  489      74696F6E 
  490              	.LASF5:
- 491 0170 6C6F6E67 		.ascii	"long unsigned int\000"
+ 491 015d 6C6F6E67 		.ascii	"long unsigned int\000"
  491      20756E73 
  491      69676E65 
  491      6420696E 
  491      7400
  492              	.LASF26:
- 493 0182 6C6F6348 		.ascii	"locHead\000"
+ 493 016f 6C6F6348 		.ascii	"locHead\000"
  493      65616400 
  494              	.LASF7:
- 495 018a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 495 0177 6C6F6E67 		.ascii	"long long unsigned int\000"
  495      206C6F6E 
  495      6720756E 
  495      7369676E 
  495      65642069 
  496              	.LASF3:
- 497 01a1 73686F72 		.ascii	"short unsigned int\000"
+ 497 018e 73686F72 		.ascii	"short unsigned int\000"
  497      7420756E 
  497      7369676E 
  497      65642069 
  497      6E7400
  498              	.LASF18:
- 499 01b4 55415254 		.ascii	"UART_rxBufferHead\000"
+ 499 01a1 55415254 		.ascii	"UART_rxBufferHead\000"
  499      5F727842 
  499      75666665 
  499      72486561 
  499      6400
  500              	.LASF19:
- 501 01c6 55415254 		.ascii	"UART_rxBufferTail\000"
+ 501 01b3 55415254 		.ascii	"UART_rxBufferTail\000"
  501      5F727842 
  501      75666665 
  501      72546169 
  501      6C00
  502              	.LASF21:
- 503 01d8 55415254 		.ascii	"UART_rxBufferInternal\000"
+ 503 01c5 55415254 		.ascii	"UART_rxBufferInternal\000"
  503      5F727842 
  503      75666665 
  503      72496E74 
  503      65726E61 
  504              	.LASF1:
- 505 01ee 756E7369 		.ascii	"unsigned char\000"
+ 505 01db 756E7369 		.ascii	"unsigned char\000"
  505      676E6564 
  505      20636861 
  505      7200
  506              	.LASF17:
- 507 01fc 55415254 		.ascii	"UART_customIntrHandler\000"
+ 507 01e9 55415254 		.ascii	"UART_customIntrHandler\000"
  507      5F637573 
  507      746F6D49 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwnW91o.s 			page 14
-
-
  507      6E747248 
  507      616E646C 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckz72kZ.s 			page 14
+
+
  508              	.LASF13:
- 509 0213 63686172 		.ascii	"char\000"
+ 509 0200 63686172 		.ascii	"char\000"
  509      00
  510              	.LASF4:
- 511 0218 6C6F6E67 		.ascii	"long int\000"
+ 511 0205 6C6F6E67 		.ascii	"long int\000"
  511      20696E74 
  511      00
  512              	.LASF15:
- 513 0221 63796973 		.ascii	"cyisraddress\000"
+ 513 020e 63796973 		.ascii	"cyisraddress\000"
  513      72616464 
  513      72657373 
  513      00
  514              	.LASF12:
- 515 022e 646F7562 		.ascii	"double\000"
+ 515 021b 646F7562 		.ascii	"double\000"
  515      6C6500
  516              	.LASF14:
- 517 0235 72656733 		.ascii	"reg32\000"
+ 517 0222 72656733 		.ascii	"reg32\000"
  517      3200
  518              	.LASF9:
- 519 023b 75696E74 		.ascii	"uint8\000"
+ 519 0228 75696E74 		.ascii	"uint8\000"
  519      3800
  520              	.LASF0:
- 521 0241 7369676E 		.ascii	"signed char\000"
+ 521 022e 7369676E 		.ascii	"signed char\000"
  521      65642063 
  521      68617200 
  522              	.LASF11:
- 523 024d 666C6F61 		.ascii	"float\000"
+ 523 023a 666C6F61 		.ascii	"float\000"
  523      7400
  524              	.LASF25:
- 525 0253 55415254 		.ascii	"UART_SPI_UART_ISR\000"
+ 525 0240 55415254 		.ascii	"UART_SPI_UART_ISR\000"
  525      5F535049 
  525      5F554152 
  525      545F4953 
  525      5200
  526              	.LASF2:
- 527 0265 73686F72 		.ascii	"short int\000"
+ 527 0252 73686F72 		.ascii	"short int\000"
  527      7420696E 
  527      7400
  528              	.LASF16:
- 529 026f 73697A65 		.ascii	"sizetype\000"
+ 529 025c 73697A65 		.ascii	"sizetype\000"
  529      74797065 
  529      00
  530              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
