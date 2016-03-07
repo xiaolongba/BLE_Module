@@ -119,6 +119,7 @@ void StrToHex(char *pbDest, char *pbSrc, int nLen);
 #define AT_AUTH         "AT+AUTH"
 #define AT_IOCAP        "AT+IOCAP"
 #define AT_SLEEP        "AT+SLEEP"
+#define AT_BOND         "AT+BOND"
 
 /***************************************
 * AT命令枚举定义
@@ -178,7 +179,9 @@ typedef enum
 //    功能：认证时设备IO的显示能力 
     IOCAP,
 //    功能：设置是否进入低功耗    
-    SLEEP
+    SLEEP,
+//    功能：设置是否清除绑定信息  
+    BOND
 }AT_COMMAND;
 
 /***************************************

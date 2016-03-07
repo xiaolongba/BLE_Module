@@ -204,7 +204,7 @@ CYBLE_GAPC_T cyBle_gapc;
 CYBLE_GAP_AUTH_INFO_T cyBle_authInfo =
 {
     (CYBLE_GAP_SEC_MODE_1 | CYBLE_GAP_SEC_LEVEL_3 ), /* uint8 security */
-    CYBLE_GAP_BONDING_NONE, /* uint8 bonding */
+    CYBLE_GAP_BONDING, /* uint8 bonding */
     0x10u,      /* uint8 ekeySize */
     CYBLE_GAP_AUTH_ERROR_NONE, /* CYBLE_AUTH_FAILED_REASON_T authErr */
 };

@@ -36,12 +36,14 @@ extern uint8_t CommandMode;
 extern uint8 buffer[20];
 extern uint16 negotiatedMtu;
 extern char SetDeviceName[23];
+extern uint8_t Bond;
 //extern CYBLE_CONN_HANDLE_T	connHandle;
 int main()
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
 //    uint8_t test[20]={0};
+//    uint32 test=12345;
     if(Central==ReadDataFromSFlash())//每次复位均要从SFlash中读取模式标志位来判断复位是主还是从模式
     {
         Role=Central;
@@ -55,6 +57,7 @@ int main()
         CyBle_GapSetLocalName(SetDeviceName);
     }
     SystemInitialization();  
+//     printf("+AUTHKEY=%6ld\r\n",test);
     for(;;)
     {
         
@@ -79,6 +82,24 @@ int main()
 //            
 //        }
         Master_Slave_UartHandler(Role);
+//      保存Peer Device的信息到Flash中，即绑定主机端的信息，方便下次快速重连时不用再配对
+        if((cyBle_pendingFlashWrite != 0u) &&
+           ((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) == 0u))
+        {
+            // Store Bonding informtation to flash             
+            if ( CyBle_StoreBondingData(0u) == CYBLE_ERROR_OK)
+            {
+                if(Bond==FALSE)
+                {
+                    Bond=TURE;
+                    printf("+BOND=1\r\n");
+                }
+            }
+//            else
+//            {
+////                printf ("Bonding data storing pending\r\n");
+//            }
+        }
         //主机处理10s定时器,10秒内给从机发送的数据，测试透传速率使用
 //        if(_10sIsOver)
 //        {

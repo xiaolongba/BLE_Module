@@ -50,6 +50,10 @@ CYBLE_GAP_CONN_PARAM_UPDATED_IN_CONTROLLER_T ConnParam;
 uint8_t KEYBOARD=FALSE;
 uint8_t AUTHFLAG=FALSE;
 uint8_t SleepMode=TURE;
+uint8_t Bond=FALSE;
+/* All zeros passed as  argument passed to CyBle_GapRemoveDeviceFromWhiteList for 
+removing all the bonding data stored */
+CYBLE_GAP_BD_ADDR_T clearAllDevices = {{0,0,0,0,0,0},0};
 //CYBLE_GAPP_DISC_MODE_INFO_T updateadvparam;
 //uint8_t ExitThrought[]={
 //    0x11,0x24,0xFB,0x1E,0x1F,0x24,0x19,0x16,0x29};
@@ -81,7 +85,8 @@ char * StringArry[]={
                      AT_RESET,AT_REFAC,AT_VERSION,AT_BAUD,AT_LADDR,AT_NAME,
                      AT_CPIN,AT_TXP,AT_ADVD,AT_ADVI,AT_CONNI,AT_ROLE,AT_SCAN,
                      AT_CONNT,AT_DISCONN,AT_LOGIN,AT_TX,AT_RSSI,AT_DISALLCHAR,
-                     AT,AT_SPEED,AT_NOTIFY,AT_STAUS,AT_ADVS,AT_AUTH,AT_IOCAP,AT_SLEEP
+                     AT,AT_SPEED,AT_NOTIFY,AT_STAUS,AT_ADVS,AT_AUTH,AT_IOCAP,
+                    AT_SLEEP,AT_BOND
                     };
 uint8_t STOP_SCAN_FLAG=FALSE;
 uint8_t Baud_rate_idx='7';//默认是115200
@@ -103,6 +108,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
     uint8_t i=0;
     CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T * handleValueNotification;
     CYBLE_GATTS_WRITE_REQ_PARAM_T writeParam;  
+//    CYBLE_GATT_HANDLE_VALUE_PAIR_T handleValuePair;
 //    uint32 PassKey=0;
 //    CYBLE_GATTC_READ_RSP_PARAM_T readParam;
     switch(eventCode)
@@ -154,14 +160,22 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             if(Role==Peripheral)
             {
                 printf("+CONN_EVT=OK\r\n");
+//                handleValuePair.value.val[0]=0x01;
+//                handleValuePair.value.val[1]=0x00;
+//                handleValuePair.value.len=2;
+//                handleValuePair.attrHandle=CYBLE_TROUGHPUT_SERVICE_CUSTOM_CHARACTERISTIC_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE;
+//                 printf("+WRITE=%d\r\n",CyBle_GattsWriteAttributeValue(&handleValuePair,0,&cyBle_connHandle,CYBLE_GATT_DB_PEER_INITIATED));                
+//                CommandMode=THROUGHT_MODE;
                 CyBle_L2capLeConnectionParamUpdateRequest(cyBle_connHandle.bdHandle,&connParam);
+                CyBle_GapAuthReq(cyBle_connHandle.bdHandle,&cyBle_authInfo);
             }
             else
             {
+//                CommandMode=THROUGHT_MODE;
                 printf("+CONN_EVT=%d,OK\r\n",Conn_or_Disconn_Idx);   
 //                与从机连接成功后，主机发起连接间隔更新请求
                 CyBle_GapcConnectionParamUpdateRequest(cyBle_connHandle.bdHandle,&connParam);
-                                /* Initiate an MTU exchange request CYBLE_GATT_MTU*/
+                /* Initiate an MTU exchange request CYBLE_GATT_MTU*/
                 CyBle_GattcExchangeMtuReq(cyBle_connHandle,CYBLE_GATT_MTU);
             }
 //            //主机发送的MTU exchange request
@@ -435,19 +449,25 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             }
         break;    
         case CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST://显示随机产生的配对码
-//            PassKey=*(uint32*)eventParam;            
-            printf("+AUTHKEY=%lu\r\n",*(uint32 *)eventParam);
+//            PassKey=*(uint32*)eventParam;   
+            if((*(uint32 *)eventParam)<100000)//解决随机配对码最高位是0时的情况
+            {
+                printf("+AUTHKEY=0");
+                printf("%lu\r\n",*(uint32 *)eventParam);                
+            }
+            else
+                printf("+AUTHKEY=%lu\r\n",*(uint32 *)eventParam);
         break;
         case CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST:
             KEYBOARD=TURE;//标记此时此设备具有输入能力
             printf("Please Input PassKey:\r\n");            
         break;
         case CYBLE_EVT_GAP_AUTH_COMPLETE:
-             printf("+AUTH=OK\r\n");
+//             printf("+AUTH=OK\r\n");
              AUTHFLAG=TURE;
         break;
         case CYBLE_EVT_GAP_AUTH_FAILED:            
-            printf("AT+ERR=%d\r\n",*(CYBLE_GAP_AUTH_FAILED_REASON_T*)eventParam);
+            printf("AT+AUTHERR=%d\r\n",*(CYBLE_GAP_AUTH_FAILED_REASON_T*)eventParam);
             AUTHFLAG=FALSE;
         break;
         default:
@@ -737,6 +757,7 @@ void Parser_UartData(const char* SerialData)
     uint8_t STAUS_T=0;
     CYBLE_GATTC_FIND_INFO_REQ_T range;    
     CYBLE_GAPP_DISC_DATA_T advDiscData;
+    CYBLE_GAP_BONDED_DEV_ADDR_LIST_T bondedDevList;
 //    CYBLE_CONN_HANDLE_T  connHandle; 
 //     uint8 bdHandle=0;
     At_Command_Idex=Command_Identify(SerialData);
@@ -765,7 +786,7 @@ void Parser_UartData(const char* SerialData)
 //         当前固件版本的查询
         case VERSION:
             if(SerialData[11]=='?')
-                printf("+VERSION=Ver1.7\r\n");
+                printf("+VERSION=Ver2.0.2\r\n");
             else
             {
                 printf("AT+ERR=5\r\n");//表示没有该AT命令     
@@ -1789,6 +1810,56 @@ void Parser_UartData(const char* SerialData)
                 break;
             }
         break;
+        case BOND:
+            idx=SerialData[8];
+            if(Role==Peripheral)
+            {
+                CyBle_GapGetBondedDevicesList(&bondedDevList);//防止即使掉电后，再次发起清除绑定命令仍然有效
+                if(bondedDevList.count)
+                    Bond=TURE;
+                else
+                    Bond=FALSE;
+                switch(idx)
+                {
+                    case '0':
+                        if(CYBLE_STATE_CONNECTED!=CyBle_GetState())//非连接状态时，解除绑定才有效
+                        {                                                        
+                            if(Bond)
+                            {
+                                CyBle_GapRemoveDeviceFromWhiteList(&clearAllDevices);//清除绑定先从白名单中清除再清除Flash中的信息
+                                while(CYBLE_ERROR_OK != CyBle_StoreBondingData(1));
+                                printf("+BOND=0\r\n");//清除绑定成功
+                                Bond=FALSE;
+                            }                                             
+                            else
+                            {
+                                printf("+BOND=2\r\n");//清除绑定失败 
+                            }
+                        }
+                        else
+                        {
+                            printf("AT+ERR=3\r\n");//当前的 BLE 状态下不支持该命令
+                        }
+                    break;
+                    case '?':
+                        if(Bond)
+                           printf("+BOND=1\r\n");//绑定成功 
+                        else
+                            printf("+BOND=0\r\n");//清除绑定成功
+                    break;                        
+                    default:
+                        printf("AT+ERR=5\r\n");//表示没有该AT命令
+                    break;                        
+                }                                                  
+            }
+            else
+            {
+                if(CYBLE_STATE_CONNECTED!=CyBle_GetState())
+                {
+                    
+                }
+            }
+        break;
         default:
             printf("AT+ERR=5\r\n");//表示没有该AT命令
         break;
@@ -2046,7 +2117,7 @@ void Master_Slave_UartHandler(uint8_t Role)
                         CommandMode=AT_COMMAND_MODE;
                         Buffer_Length=0;
                         memset(RX_BUFFER,0,sizeof(RX_BUFFER));
-                        printf("+MODE=<AT_COMMAND_MODE>\r\n");
+                        printf("+MODE=AT_COMMAND_MODE\r\n");
                     }
                 }
                 else //从机模式下退出透传模式
@@ -2054,7 +2125,7 @@ void Master_Slave_UartHandler(uint8_t Role)
                     CommandMode=AT_COMMAND_MODE;
                     Buffer_Length=0;
                     memset(RX_BUFFER,0,sizeof(RX_BUFFER));
-                    printf("+MODE=<AT_COMMAND_MODE>\r\n");
+                    printf("+MODE=AT_COMMAND_MODE\r\n");
                 }
                 return;
             }  
@@ -2062,7 +2133,7 @@ void Master_Slave_UartHandler(uint8_t Role)
             {
                 Buffer_Length=0;
                 memset(RX_BUFFER,0,sizeof(RX_BUFFER));
-                printf("+MODE=<THROUGHT_MODE>\r\n");
+                printf("+MODE=THROUGHT_MODE\r\n");
                 return;
             }
             else if(Peripheral==Role)//从机给主机发送透传数据
@@ -2117,7 +2188,7 @@ void Master_Slave_UartHandler(uint8_t Role)
                 }
                 else  /* If entered digit is not in between the rnage '0' and '9'*/
                 {
-                    printf("+AUTHKEY=<INVALID>\r\n");
+                    printf("+AUTHKEY=INVALID\r\n");
                     break;
                 }
             }            
@@ -2138,7 +2209,7 @@ void Master_Slave_UartHandler(uint8_t Role)
             }
             else if(API_RESULT==CYBLE_ERROR_OK)
             {
-                printf("+AUTHKEY=<SUCCESFULLY>\r\n");
+                printf("+AUTHKEY=SUCCESFULLY\r\n");
             }
         }
         else

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
   30:.\Generated_Source\PSoC4/CyFlash.c **** * (Flash program) with the correct (original) data.
   31:.\Generated_Source\PSoC4/CyFlash.c **** *******************************************************************************/
   32:.\Generated_Source\PSoC4/CyFlash.c **** #define CY_FLASH_CHECKSUM_WORKAROUND    (CY_PSOC4_4000 || CY_PSOC4_4100 || CY_PSOC4_4200)
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/CyFlash.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
   87:.\Generated_Source\PSoC4/CyFlash.c **** *   a minimum frequency of the current IMO frequency divided by 8 and a maximum
   88:.\Generated_Source\PSoC4/CyFlash.c **** *   frequency of 12 MHz. This will impact the operation of most of the hardware
   89:.\Generated_Source\PSoC4/CyFlash.c **** *   in the device.
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 3
 
 
   90:.\Generated_Source\PSoC4/CyFlash.c **** *
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
   57 001a FFF7FEFF 		bl	memcpy
   58              	.LVL2:
  112:.\Generated_Source\PSoC4/CyFlash.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 4
 
 
  113:.\Generated_Source\PSoC4/CyFlash.c ****         #if (CY_FLASH_CHECKSUM_WORKAROUND)
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
   81 0038 374D     		ldr	r5, .L22+24
  141:.\Generated_Source\PSoC4/CyFlash.c ****         CY_FLASH_CPUSS_SYSREQ_REG = CY_FLASH_CPUSS_REQ_START | CY_FLASH_API_OPCODE_LOAD;
   82              		.loc 1 141 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 5
 
 
   83 003a 2760     		str	r7, [r4]
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  172:.\Generated_Source\PSoC4/CyFlash.c ****                 retValue = CY_FLASH_API_RETURN;
  173:.\Generated_Source\PSoC4/CyFlash.c ****             }
  174:.\Generated_Source\PSoC4/CyFlash.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 6
 
 
  175:.\Generated_Source\PSoC4/CyFlash.c ****             #if (CY_FLASH_CHECKSUM_WORKAROUND)
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  229:.\Generated_Source\PSoC4/CyFlash.c **** *
  230:.\Generated_Source\PSoC4/CyFlash.c **** * Summary:
  231:.\Generated_Source\PSoC4/CyFlash.c **** *  Sets the number of clock cycles the cache will wait before it samples data
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 7
 
 
  232:.\Generated_Source\PSoC4/CyFlash.c **** *  coming back from Flash. This function must be called before increasing the
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  286:.\Generated_Source\PSoC4/CyFlash.c ****     CyExitCriticalSection(interruptState);
  287:.\Generated_Source\PSoC4/CyFlash.c **** }
  288:.\Generated_Source\PSoC4/CyFlash.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 8
 
 
  289:.\Generated_Source\PSoC4/CyFlash.c **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  343:.\Generated_Source\PSoC4/CyFlash.c ****         * The registers not to be saved:
  344:.\Generated_Source\PSoC4/CyFlash.c ****         * - CY_SYS_CLK_IMO_TRIM1_REG  - No need to save. Function of frequency.
  345:.\Generated_Source\PSoC4/CyFlash.c ****         *                               Restored by CySysClkWriteImoFreq().
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 9
 
 
  346:.\Generated_Source\PSoC4/CyFlash.c ****         * - CY_SYS_CLK_IMO_TRIM3_REG  - No need to save. Function of frequency.
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  139 0082 0CD1     		bne	.L7
  140              	.LVL5:
  141              	.LBB10:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 10
 
 
  142              	.LBB11:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  420:.\Generated_Source\PSoC4/CyFlash.c ****         * is within the valid limit (16 MHz for the PSoC4 4000).
  421:.\Generated_Source\PSoC4/CyFlash.c ****         ***********************************************************************/
  422:.\Generated_Source\PSoC4/CyFlash.c ****         CySysClkWriteHfclkDiv(CY_SYS_CLK_HFCLK_DIV_4);
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 11
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 11
 
 
  423:.\Generated_Source\PSoC4/CyFlash.c **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  167:.\Generated_Source\PSoC4/CyFlash.c ****                 parameters[0u] |= (uint32)(rowNum << 16u);
  170              		.loc 1 167 0
  171 00a4 2249     		ldr	r1, .L22+48
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 12
 
 
  172 00a6 0891     		str	r1, [sp, #32]
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  459:.\Generated_Source\PSoC4/CyFlash.c **** *
  460:.\Generated_Source\PSoC4/CyFlash.c **** * Summary:
  461:.\Generated_Source\PSoC4/CyFlash.c **** *  Restores the device clock configuration.
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 13
 
 
  462:.\Generated_Source\PSoC4/CyFlash.c **** *
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  516:.\Generated_Source\PSoC4/CyFlash.c ****             /* Stop IMO if needed */
  517:.\Generated_Source\PSoC4/CyFlash.c ****             if (0u == cySysFlashBackup.clkImoEna)
  518:.\Generated_Source\PSoC4/CyFlash.c ****             {
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 14
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 14
 
 
  519:.\Generated_Source\PSoC4/CyFlash.c ****                 CySysClkImoStop();
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  242              		.loc 1 219 0
  243 00f6 0423     		mov	r3, #4
  244 00f8 0293     		str	r3, [sp, #8]
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 15
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 15
 
 
  245              	.LVL14:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  294              	.LVL16:
  264:.\Generated_Source\PSoC4/CyFlash.c ****         {
  295              		.loc 1 264 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 16
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 16
 
 
  296 0008 102C     		cmp	r4, #16
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  343              		.size	CySysFlashSetWaitCycles, .-CySysFlashSetWaitCycles
  344              		.bss
  345              		.align	2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 17
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 17
 
 
  346              		.set	.LANCHOR0,. + 0
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  396 0051 05       		.byte	0x5
  397 0052 5B020000 		.4byte	.LASF6
  398 0056 02       		.uleb128 0x2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 18
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 18
 
 
  399 0057 08       		.byte	0x8
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  453 00c5 07       		.uleb128 0x7
  454 00c6 04       		.byte	0x4
  455 00c7 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 19
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 19
 
 
  456 00c8 A6000000 		.4byte	.LASF35
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  510 0140 00       		.byte	0
  511 0141 06       		.uleb128 0x6
  512 0142 31010000 		.4byte	0x131
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 20
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 20
 
 
  513 0146 0C       		.uleb128 0xc
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  567 01c6 39000000 		.4byte	.LLST1
  568 01ca 10       		.uleb128 0x10
  569 01cb 0F000000 		.4byte	.LASF21
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 21
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 21
 
 
  570 01cf 01       		.byte	0x1
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  624 0245 5D020000 		.4byte	0x25d
  625 0249 13       		.uleb128 0x13
  626 024a 84000000 		.4byte	.LBB11
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 22
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 22
 
 
  627 024e 18000000 		.4byte	.LBE11-.LBB11
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  681 02b9 F4000000 		.4byte	.LVL12
  682 02bd 68030000 		.4byte	0x368
  683 02c1 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 23
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 23
 
 
  684 02c2 19       		.uleb128 0x19
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  738 0346 1D       		.uleb128 0x1d
  739 0347 C5000000 		.4byte	0xc5
  740 034b 1D       		.uleb128 0x1d
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 24
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 24
 
 
  741 034c 56030000 		.4byte	0x356
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  795 001f 24       		.uleb128 0x24
  796 0020 00       		.byte	0
  797 0021 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 25
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 25
 
 
  798 0022 0B       		.uleb128 0xb
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  852 0058 3A       		.uleb128 0x3a
  853 0059 0B       		.uleb128 0xb
  854 005a 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 26
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 26
 
 
  855 005b 0B       		.uleb128 0xb
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  909 0091 13       		.uleb128 0x13
  910 0092 00       		.byte	0
  911 0093 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 27
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 27
 
 
  912 0094 0D       		.uleb128 0xd
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  966 00cb 00       		.byte	0
  967 00cc 10       		.uleb128 0x10
  968 00cd 34       		.uleb128 0x34
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 28
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 28
 
 
  969 00ce 00       		.byte	0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  1023 0104 14       		.uleb128 0x14
  1024 0105 34       		.uleb128 0x34
  1025 0106 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 29
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 29
 
 
  1026 0107 31       		.uleb128 0x31
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  1080 0144 26       		.uleb128 0x26
  1081 0145 00       		.byte	0
  1082 0146 49       		.uleb128 0x49
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 30
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 30
 
 
  1083 0147 13       		.uleb128 0x13
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  1137 017e 1E       		.uleb128 0x1e
  1138 017f 26       		.uleb128 0x26
  1139 0180 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 31
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 31
 
 
  1140 0181 00       		.byte	0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  1194 0022 50       		.byte	0x50
  1195 0023 FA000000 		.4byte	.LVL14
  1196 0027 40010000 		.4byte	.LFE2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 32
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 32
 
 
  1197 002b 0400     		.2byte	0x4
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  1251 00ad 0200     		.2byte	0x2
  1252 00af 30       		.byte	0x30
  1253 00b0 9F       		.byte	0x9f
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 33
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 33
 
 
  1254 00b1 9C000000 		.4byte	.LVL6
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  1308 001c 44000000 		.4byte	.LFE3-.LFB3
  1309 0020 00000000 		.4byte	0
  1310 0024 00000000 		.4byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 34
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 34
 
 
  1311              		.section	.debug_ranges,"",%progbits
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  1337      7456616C 
  1337      756500
  1338              	.LASF33:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 35
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 35
 
 
  1339 00d8 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\CyFlash.c\000"
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  1362              	.LASF2:
  1363 0187 73686F72 		.ascii	"short int\000"
  1363      7420696E 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 36
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 36
 
 
  1363      7400
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 1
  1385      707900
  1386              	.LASF30:
  1387 0270 66726571 		.ascii	"freq\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccaVOcs5.s 			page 37
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccZCNoTX.s 			page 37
 
 
  1387      00
