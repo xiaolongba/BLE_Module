@@ -83,6 +83,7 @@ int main()
 //        }
         Master_Slave_UartHandler(Role);
 //      保存Peer Device的信息到Flash中，即绑定主机端的信息，方便下次快速重连时不用再配对
+        #ifdef RELEASE
         if((cyBle_pendingFlashWrite != 0u) &&
            ((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) == 0u))
         {
@@ -100,6 +101,7 @@ int main()
 ////                printf ("Bonding data storing pending\r\n");
 //            }
         }
+        #endif
         //主机处理10s定时器,10秒内给从机发送的数据，测试透传速率使用
 //        if(_10sIsOver)
 //        {
@@ -123,7 +125,7 @@ int main()
 ////            printf("SendNotification\r\n");
 //            if(CyBle_GattGetBusStatus() == CYBLE_STACK_STATE_FREE)
 //            {
-//                SendNotification(buffer,negotiatedMtu);                
+//                SendNotification(buffer,negotiated Mtu);                
 //            }
 //        }
         if(LowPower_EN)

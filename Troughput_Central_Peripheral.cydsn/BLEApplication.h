@@ -41,8 +41,8 @@ void StrToHex(char *pbDest, char *pbSrc, int nLen);
 //#define LOW_POWER_EN
 #define LED_OFF             (1)
 #define LED_ON              (0)
-#define CTS_OFF             (1)
-#define CTS_ON              (0)
+#define CTS_OFF             (0)
+#define CTS_ON              (1)
 #define TURE                (1)
 #define FALSE               (0)
 #define BUFFER_LENGHTH      (48u)
@@ -63,6 +63,8 @@ void StrToHex(char *pbDest, char *pbSrc, int nLen);
 #define UART_RX_INT_DISABLE() UART_INTR_RX_MASK_REG &= ~UART_RX_INTR_MASK
 #define START               (1u)
 #define OVER                (0u)
+
+//#define RELEASE
 /***************************************
 * 串口波特率设置
 * Div SCBCLK=48MHz/BAUD_RATE*OVERSAMPLE-1

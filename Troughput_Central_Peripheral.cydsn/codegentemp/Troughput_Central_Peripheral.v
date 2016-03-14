@@ -1,6 +1,6 @@
 // ======================================================================
 // Troughput_Central_Peripheral.v generated from TopDesign.cysch
-// 03/07/2016 at 22:13
+// 03/10/2016 at 09:52
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -784,7 +784,7 @@ module top ;
 		#(.id("c07120f2-56ec-4266-a995-866be78a5e25"),
 		  .drive_mode(3'b110),
 		  .ibuf_enabled(1'b1),
-		  .init_dr_st(1'b1),
+		  .init_dr_st(1'b0),
 		  .input_clk_en(0),
 		  .input_sync(1'b1),
 		  .input_sync_mode(1'b0),

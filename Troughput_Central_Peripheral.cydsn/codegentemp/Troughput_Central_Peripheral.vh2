@@ -2,7 +2,7 @@
 --	Conversion of Troughput_Central_Peripheral.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Mon Mar 07 22:13:48 2016
+--	Thu Mar 10 09:52:42 2016
 --
 
 USE cypress.cypress.all;
@@ -469,7 +469,7 @@ CTS:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"c07120f2-56ec-4266-a995-866be78a5e25",
 		drive_mode=>"110",
 		ibuf_enabled=>"1",
-		init_dr_st=>"1",
+		init_dr_st=>"0",
 		input_sync=>"1",
 		input_clk_en=>'0',
 		input_sync_mode=>"0",

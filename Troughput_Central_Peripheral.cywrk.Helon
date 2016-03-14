@@ -13,107 +13,31 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Troughput_Central_Peripheral\Troughput_Central_Peripheral\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_tx\UART_tx.c">
 <ExpandedNodeIds>
 <v>Troughput_Central_Peripheral</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\TopDesign</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Troughput_Central_Peripheral.cydwr</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Header Files</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Header Files\BLEApplication.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Header Files\BLEClient.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Header Files\cyapicallbacks.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Header Files\WriteUserSFlash.h</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Source Files</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Source Files\BLEApplication.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Source Files\BLEClient.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Source Files\main.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Source Files\WriteUserSFlash.c</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_custom.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_custom.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_eventHandler.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_eventHandler.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_gatt.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_gatt.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_HAL_INT.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_HAL_PVT.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_HAL_PVT.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_Stack.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_STACK_PVT.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_StackGap.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_StackGatt.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_StackGattClient.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_StackGattDb.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_StackGattServer.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_StackHostMain.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE_StackL2cap.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE_bless_isr\BLE_bless_isr.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE_bless_isr\BLE_bless_isr.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\Connected_LED\Connected_LED.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\Connected_LED\Connected_LED.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\Connected_LED\Connected_LED_aliases.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\CTS\CTS.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\CTS\CTS.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\CTS\CTS_aliases.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\cm0gcc.ld</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\Cm0Iar.icf</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\Cm0RealView.scat</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\Cm0Start.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\core_cm0.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\core_cm0_psoc4.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\core_cmFunc.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\core_cmInstr.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\CyBootAsmGnu.s</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\CyBootAsmIar.s</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\CyBootAsmRv.s</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\CyFlash.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\CyFlash.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\CyLib.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\CyLib.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\cypins.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\cyPm.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\cyPm.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\cytypes.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_boot\cyutils.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_lfclk\CyLFClk.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cy_lfclk\CyLFClk.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\Status_LED\Status_LED.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\Status_LED\Status_LED.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\Status_LED\Status_LED_aliases.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\Timer\Timer.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\Timer\Timer.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\Timer\Timer_PM.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\TimerClock\TimerClock.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\TimerClock\TimerClock.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\TimerInterrupt\TimerInterrupt.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\TimerInterrupt\TimerInterrupt.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART\UART.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART\UART.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART\UART_BOOT.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART\UART_BOOT.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART\UART_PINS.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART\UART_PM.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART\UART_PVT.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART\UART_SPI_UART.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART\UART_SPI_UART.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART\UART_SPI_UART_INT.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART\UART_SPI_UART_PVT.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART\UART_UART.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART\UART_UART_BOOT.c</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_rx_wake</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_tx</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\Status_LED</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\Timer</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\TimerClock</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\TimerInterrupt</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_rx_wake</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_rx_wake\UART_rx_wake.c</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_rx_wake\UART_rx_wake.h</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_rx_wake\UART_rx_wake_aliases.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_RX_WAKEUP_IRQ\UART_RX_WAKEUP_IRQ.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_RX_WAKEUP_IRQ\UART_RX_WAKEUP_IRQ.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_SCB_IRQ\UART_SCB_IRQ.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_SCB_IRQ\UART_SCB_IRQ.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_SCBCLK\UART_SCBCLK.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_SCBCLK\UART_SCBCLK.h</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_RX_WAKEUP_IRQ</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_SCB_IRQ</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_SCBCLK</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_tx</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_tx\UART_tx.c</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_tx\UART_tx.h</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\UART_tx\UART_tx_aliases.h</v>
@@ -121,40 +45,6 @@
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cycodeshareexport.ld</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cycodeshareimport.ld</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cycodeshareimport.scat</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cydevice_trm.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cydevicegnu_trm.inc</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cydeviceiar_trm.inc</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cydevicerv_trm.inc</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cydisabledsheets.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cyfitter.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cyfitter_cfg.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cyfitter_cfg.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cyfittergnu.inc</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cyfitteriar.inc</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cyfitterrv.inc</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\cymetadata.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\project.h</v>
-</ExpandedNodeIds>
-<VisibleNodeIds>
-<v>Troughput_Central_Peripheral</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\TopDesign</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Troughput_Central_Peripheral.cydwr</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Header Files</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Header Files\BLEApplication.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Header Files\BLEClient.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Header Files\cyapicallbacks.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Header Files\WriteUserSFlash.h</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Source Files</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Source Files\BLEApplication.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Source Files\BLEClient.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Source Files\main.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Source Files\WriteUserSFlash.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE.c</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\Generated_Source\PSoC4\BLE\BLE.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -266,6 +156,24 @@
 <VisibleNodeIds>
 <v>Troughput_Central_Peripheral</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE.lst</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_bless_isr.lst</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_custom.lst</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_eventHandler.lst</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_gatt.lst</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_HAL_INT.lst</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_HAL_PVT.lst</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLEApplication.lst</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLEClient.lst</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\Connected_LED.lst</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\CTS.lst</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -320,9 +228,10 @@
 <Unloaded />
 <OpenDocs>
 <name v=".\Troughput_Central_Peripheral.cydsn\main.c" />
+<name v=".\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4\UART_rx_wake.c" />
 <name v=".\Troughput_Central_Peripheral.cydsn\BLEApplication.c" />
-<name v=".\Troughput_Central_Peripheral.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4\BLE_StackGattDb.h" />
+<name v=".\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4\UART_tx.c" />
+<name v=".\Troughput_Central_Peripheral.cydsn\BLEApplication.h" />
 </OpenDocs>
 <config v="Release" />
 <AutoUpdate v="true" />

@@ -1,5 +1,27 @@
---------------- Build Started: 03/07/2016 22:38:20 Project: Troughput_Central_Peripheral, Configuration: ARM GCC 4.9-2015-q1-update Release ---------------
+--------------- Build Started: 03/14/2016 10:37:04 Project: Troughput_Central_Peripheral, Configuration: ARM GCC 4.9-2015-q1-update Release ---------------
 The code generation step is up to date.
-The compile step is up to date, no work needs to be done.
-The link step is up to date, no work needs to be done.
---------------- Build Succeeded: 03/07/2016 22:38:20 ---------------
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/main.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\main.c -o .\CortexM0\ARM_GCC_493\Release\main.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/BLEApplication.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\BLEApplication.c -o .\CortexM0\ARM_GCC_493\Release\BLEApplication.o
+.\BLEApplication.c: In function 'Parser_UartData':
+.\BLEApplication.c:857:50: warning: passing argument 2 of 'WriteUserSFlashRow' from incompatible pointer type
+                             WriteUserSFlashRow(1,DeviceNameLen,1,0x00);//灏嗚澶囧悕瀛楅暱搴﹀啓鍏Flash涓紝鎺夌數鏈夋晥
+                                                  ^
+In file included from .\BLEApplication.c:17:0:
+.\WriteUserSFlash.h:51:8: note: expected 'uint32 *' but argument is of type 'uint8 *'
+ uint32 WriteUserSFlashRow(uint8 userRowNUmber, uint32 *dataPointer,uint8_t datalength,uint8_t address);     
+        ^
+.\BLEApplication.c:858:50: warning: passing argument 2 of 'WriteUserSFlashRow' from incompatible pointer type
+                             WriteUserSFlashRow(2,Name,DeviceNameLen[0],0x00);//灏嗚澶囧悕鍐欏叆SFlash涓紝鎺夌數鏈夋晥
+                                                  ^
+In file included from .\BLEApplication.c:17:0:
+.\WriteUserSFlash.h:51:8: note: expected 'uint32 *' but argument is of type 'char8 *'
+ uint32 WriteUserSFlashRow(uint8 userRowNUmber, uint32 *dataPointer,uint8_t datalength,uint8_t address);     
+        ^
+arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.a .\CortexM0\ARM_GCC_493\Release\cyfitter_cfg.o .\CortexM0\ARM_GCC_493\Release\BLE.o .\CortexM0\ARM_GCC_493\Release\BLE_gatt.o .\CortexM0\ARM_GCC_493\Release\BLE_eventHandler.o .\CortexM0\ARM_GCC_493\Release\BLE_HAL_INT.o .\CortexM0\ARM_GCC_493\Release\BLE_HAL_PVT.o .\CortexM0\ARM_GCC_493\Release\BLE_custom.o .\CortexM0\ARM_GCC_493\Release\UART.o .\CortexM0\ARM_GCC_493\Release\UART_SPI_UART.o .\CortexM0\ARM_GCC_493\Release\UART_SPI_UART_INT.o .\CortexM0\ARM_GCC_493\Release\UART_PM.o .\CortexM0\ARM_GCC_493\Release\UART_UART.o .\CortexM0\ARM_GCC_493\Release\UART_BOOT.o .\CortexM0\ARM_GCC_493\Release\UART_UART_BOOT.o .\CortexM0\ARM_GCC_493\Release\Status_LED.o .\CortexM0\ARM_GCC_493\Release\Connected_LED.o .\CortexM0\ARM_GCC_493\Release\BLE_bless_isr.o .\CortexM0\ARM_GCC_493\Release\UART_SCB_IRQ.o .\CortexM0\ARM_GCC_493\Release\CyBootAsmGnu.o .\CortexM0\ARM_GCC_493\Release\CyFlash.o .\CortexM0\ARM_GCC_493\Release\CyLib.o .\CortexM0\ARM_GCC_493\Release\cyPm.o .\CortexM0\ARM_GCC_493\Release\cyutils.o .\CortexM0\ARM_GCC_493\Release\CyLFClk.o .\CortexM0\ARM_GCC_493\Release\TimerInterrupt.o .\CortexM0\ARM_GCC_493\Release\TimerClock.o .\CortexM0\ARM_GCC_493\Release\Timer.o .\CortexM0\ARM_GCC_493\Release\Timer_PM.o .\CortexM0\ARM_GCC_493\Release\UART_SCBCLK.o .\CortexM0\ARM_GCC_493\Release\UART_tx.o .\CortexM0\ARM_GCC_493\Release\CTS.o .\CortexM0\ARM_GCC_493\Release\UART_rx_wake.o .\CortexM0\ARM_GCC_493\Release\UART_RX_WAKEUP_IRQ.o
+arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.elf .\CortexM0\ARM_GCC_493\Release\main.o .\CortexM0\ARM_GCC_493\Release\BLEApplication.o .\CortexM0\ARM_GCC_493\Release\BLEClient.o .\CortexM0\ARM_GCC_493\Release\WriteUserSFlash.o .\CortexM0\ARM_GCC_493\Release\cymetadata.o .\CortexM0\ARM_GCC_493\Release\Cm0Start.o .\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.a "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\BLE_v2_30\Library\gccCyBLEStack_BLE_SOC_CENTRAL_PERIPHERAL.a" "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_493\Release\CyComponentLibrary.a" -mcpu=cortex-m0 -mthumb -g -ffunction-sections -Os -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_493\Release/Troughput_Central_Peripheral.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
+cyelftool.exe -C G:\Company\Jetronic\CYPRESS\Customer\Troughpur_Central_Peripheral(c)\Troughput_Central_Peripheral.cydsn\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.elf --flash_row_size 128 --flash_size 131072
+cyelftool.exe -S G:\Company\Jetronic\CYPRESS\Customer\Troughpur_Central_Peripheral(c)\Troughput_Central_Peripheral.cydsn\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.elf
+Flash used: 99968 of 131072 bytes (76.3%).
+SRAM used: 13788 of 16384 bytes (84.2%). Stack: 1024 bytes. Heap: 512 bytes.
+--------------- Build Succeeded: 03/14/2016 10:37:07 ---------------

@@ -1287,28 +1287,6 @@
 <file name=".\BLEApplication.h" />
 <file name=".\BLEClient.h" />
 <file name=".\WriteUserSFlash.h" />
-<file name=".\CortexM0\ARM_GCC_493\Release\BLE_gatt.o">
-<dep name=".\Generated_Source\PSoC4\BLE.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_Stack.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_StackGap.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_StackGatt.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_StackGattClient.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_StackGattDb.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_StackGattServer.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_StackHostMain.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_StackL2cap.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_custom.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_eventHandler.h" />
-<dep name=".\Generated_Source\PSoC4\BLE_gatt.c" />
-<dep name=".\Generated_Source\PSoC4\BLE_gatt.h" />
-<dep name=".\Generated_Source\PSoC4\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
-<dep name=".\Generated_Source\PSoC4\CyLib.h" />
-<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC4\cytypes.h" />
-</file>
-<file name=".\Generated_Source\PSoC4\BLE_gatt.c" />
 <file name=".\CortexM0\ARM_GCC_493\Release\main.o">
 <dep name=".\Generated_Source\PSoC4\BLE.h" />
 <dep name=".\Generated_Source\PSoC4\BLE_HAL_PVT.h" />
@@ -1376,6 +1354,38 @@
 <dep name=".\main.c" />
 </file>
 <file name=".\main.c" />
+<file name=".\CortexM0\ARM_GCC_493\Release\cyfitter_cfg.o">
+<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
+<dep name=".\Generated_Source\PSoC4\CyLib.h" />
+<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC4\cyfitter_cfg.c" />
+<dep name=".\Generated_Source\PSoC4\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC4\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC4\cyfitter_cfg.c" />
+<file name=".\CortexM0\ARM_GCC_493\Release\BLE_gatt.o">
+<dep name=".\Generated_Source\PSoC4\BLE.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_Stack.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_StackGap.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_StackGatt.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_StackGattClient.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_StackGattDb.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_StackGattServer.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_StackHostMain.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_StackL2cap.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_custom.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_eventHandler.h" />
+<dep name=".\Generated_Source\PSoC4\BLE_gatt.c" />
+<dep name=".\Generated_Source\PSoC4\BLE_gatt.h" />
+<dep name=".\Generated_Source\PSoC4\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
+<dep name=".\Generated_Source\PSoC4\CyLib.h" />
+<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC4\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC4\BLE_gatt.c" />
 <file name=".\CortexM0\ARM_GCC_493\Release\BLEClient.o">
 <dep name=".\Generated_Source\PSoC4\BLE.h" />
 <dep name=".\Generated_Source\PSoC4\BLE_HAL_PVT.h" />
@@ -2005,16 +2015,6 @@
 <dep name=".\Generated_Source\PSoC4\cytypes.h" />
 </file>
 <file name=".\Generated_Source\PSoC4\cyPm.c" />
-<file name=".\CortexM0\ARM_GCC_493\Release\cyfitter_cfg.o">
-<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
-<dep name=".\Generated_Source\PSoC4\CyLib.h" />
-<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC4\cyfitter_cfg.c" />
-<dep name=".\Generated_Source\PSoC4\cyfitter_cfg.h" />
-<dep name=".\Generated_Source\PSoC4\cytypes.h" />
-</file>
-<file name=".\Generated_Source\PSoC4\cyfitter_cfg.c" />
 <file name=".\CortexM0\ARM_GCC_493\Release\cymetadata.o">
 <dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
 <dep name=".\Generated_Source\PSoC4\cyfitter.h" />
@@ -2306,9 +2306,9 @@
 <dataGuid v="597c5b74-0c46-4204-8b7f-96f3570671dc">
 <CyGuid_597c5b74-0c46-4204-8b7f-96f3570671dc type_name="CyDesigner.Common.ProjMgmt.DeviceSelector.CyDeviceSelectorState" version="1">
 <name_val_pair name="Dialog Bounds" v="-4, 65, 1300, 598" />
-<name_val_pair name="Column Order" v="PartNumber;CPU;Architecture;PACKAGE;SPEED_MHZ;FLASH_KB;SRAM_KB;EEPROM_KB;IO_COUNT;CAPSENSE;BLUETOOTH;DIRDRIVELCD;TIMERCOUNTERPWM_COUNT;I2C_COUNT;UDB_COUNT;PRECONFIGURED_BLOCKS;USB_TYPE;CAN20B_COUNT;PVT_COMPLEX_ADC;DAC8_COUNT;OPAMP_COUNT;COMP_COUNT;DFB_COUNT;ANALOGBLOCKS_COUNT;DMACHANNELS_COUNT;PLL_COUNT;BOOSTCONVERTER_VOLTS;PVT_DIGITAL_IN_VOLT_RANGE;PVT_ANALOG_IN_VOLT_RANGE;TEMPMIN_CELSIUS;TEMPMAX_CELSIUS;AUTOMOTIVE_QUALIFIED;TRACEBUFF_KB;SILICONID;DesignFits;" />
-<name_val_pair name="Filter Options" v="Architecture:PRoC BLE;" />
-<name_val_pair name="Visible Columns" v="PartNumber;CPU;Architecture;PACKAGE;SPEED_MHZ;FLASH_KB;SRAM_KB;EEPROM_KB;IO_COUNT;CAPSENSE;BLUETOOTH;DIRDRIVELCD;TIMERCOUNTERPWM_COUNT;I2C_COUNT;UDB_COUNT;PRECONFIGURED_BLOCKS;USB_TYPE;CAN20B_COUNT;PVT_COMPLEX_ADC;DAC8_COUNT;OPAMP_COUNT;COMP_COUNT;DFB_COUNT;ANALOGBLOCKS_COUNT;DMACHANNELS_COUNT;PLL_COUNT;BOOSTCONVERTER_VOLTS;PVT_DIGITAL_IN_VOLT_RANGE;PVT_ANALOG_IN_VOLT_RANGE;TEMPMIN_CELSIUS;TEMPMAX_CELSIUS;AUTOMOTIVE_QUALIFIED;TRACEBUFF_KB;SILICONID;DesignFits;" />
+<name_val_pair name="Column Order" v="PartNumber;CPU;Architecture;PACKAGE;SPEED_MHZ;FLASH_KB;SRAM_KB;EEPROM_KB;IO_COUNT;CAPSENSE;BLUETOOTH;DIRDRIVELCD;TIMERCOUNTERPWM_COUNT;I2C_COUNT;UDB_COUNT;PRECONFIGURED_BLOCKS;USB_TYPE;CAN20B_COUNT;PVT_COMPLEX_ADC;DAC8_COUNT;OPAMP_COUNT;COMP_COUNT;DFB_COUNT;ANALOGBLOCKS_COUNT;DMACHANNELS_COUNT;PLL_COUNT;BOOSTCONVERTER_VOLTS;PVT_DIGITAL_IN_VOLT_RANGE;PVT_ANALOG_IN_VOLT_RANGE;TEMPMIN_CELSIUS;TEMPMAX_CELSIUS;AUTOMOTIVE_QUALIFIED;TRACEBUFF_KB;SILICONID;DesignFits;;" />
+<name_val_pair name="Filter Options" v="Architecture:PRoC BLE;;" />
+<name_val_pair name="Visible Columns" v="PartNumber;CPU;Architecture;PACKAGE;SPEED_MHZ;FLASH_KB;SRAM_KB;EEPROM_KB;IO_COUNT;CAPSENSE;BLUETOOTH;DIRDRIVELCD;TIMERCOUNTERPWM_COUNT;I2C_COUNT;UDB_COUNT;PRECONFIGURED_BLOCKS;USB_TYPE;CAN20B_COUNT;PVT_COMPLEX_ADC;DAC8_COUNT;OPAMP_COUNT;COMP_COUNT;DFB_COUNT;ANALOGBLOCKS_COUNT;DMACHANNELS_COUNT;PLL_COUNT;BOOSTCONVERTER_VOLTS;PVT_DIGITAL_IN_VOLT_RANGE;PVT_ANALOG_IN_VOLT_RANGE;TEMPMIN_CELSIUS;TEMPMAX_CELSIUS;AUTOMOTIVE_QUALIFIED;TRACEBUFF_KB;SILICONID;DesignFits;;" />
 <name_val_pair name="Sort" v="Architecture;Ascending" />
 </CyGuid_597c5b74-0c46-4204-8b7f-96f3570671dc>
 </dataGuid>
@@ -3087,14 +3087,14 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 </warp_dep>
-<deps_time v="131018336327828005" />
+<deps_time v="131020483667931080" />
 <top_block v="TopDesign" />
 <last_generation v="0" />
 </CyGuid_925cc1e1-309e-4e08-b0a1-09a83c35b157>
 </dataGuid>
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
-<deps_time v="131018348169345301" />
+<deps_time v="131023966267528721" />
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
 <dataGuid v="504337dd-7d07-4bc7-9057-90e60cf6c469">

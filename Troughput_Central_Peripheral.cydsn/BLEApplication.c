@@ -116,7 +116,8 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
         case CYBLE_EVT_STACK_ON:
             printf("BLE is Ready\r\n");
             while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
-//            StartScan=TRUE;            
+//            StartScan=TRUE;     
+//            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_SLOW);
         break;
         case CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT:
             Scan_Result=*(CYBLE_GAPC_ADV_REPORT_T *)eventParam;
@@ -149,10 +150,10 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
 //            }
         break;
         case CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP:
-//            if(CYBLE_STATE_ADVERTISING!=CyBle_GetState())
-//            {
-//                CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_SLOW);
-//            }
+            if(CYBLE_STATE_ADVERTISING!=CyBle_GetState())
+            {
+                CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_SLOW);
+            }
         break;
         case CYBLE_EVT_GAP_DEVICE_CONNECTED:
 //            获取连接参数信息
@@ -167,7 +168,9 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
 //                 printf("+WRITE=%d\r\n",CyBle_GattsWriteAttributeValue(&handleValuePair,0,&cyBle_connHandle,CYBLE_GATT_DB_PEER_INITIATED));                
 //                CommandMode=THROUGHT_MODE;
                 CyBle_L2capLeConnectionParamUpdateRequest(cyBle_connHandle.bdHandle,&connParam);
+                #ifdef RELEASE
                 CyBle_GapAuthReq(cyBle_connHandle.bdHandle,&cyBle_authInfo);
+                #endif
             }
             else
             {
@@ -252,6 +255,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
 //            LowPower_EN=TURE;
             AUTHFLAG=FALSE;         
             CommandMode=AT_COMMAND_MODE;
+            CTS_Write(CTS_OFF);
             /* RESET Uart and flush all buffers */
             UART_Stop();
             UART_SpiUartClearTxBuffer();
@@ -295,11 +299,13 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
                 if(charNotificationEnabled)
                 {               
                     CommandMode=THROUGHT_MODE;
+                    CTS_Write(CTS_ON);
                     printf("+MODE=THROUGHT_MODE\r\n");
                 }
                 else
                 {
                     CommandMode=AT_COMMAND_MODE;
+                    CTS_Write(CTS_OFF);
                     printf("+MODE=AT_COMMAND_MODE\r\n");
                 }
             }   
@@ -618,7 +624,9 @@ void SystemInitialization(void)
 {
 //    流控引脚的初始化
     CTS_SetDriveMode(CTS_DM_STRONG);//流控引脚设置为推挽输出
-    CTS_Write(CTS_OFF);//流控是低电平有效
+    CTS_Write(CTS_OFF);//流控是高电平有效
+    UART_rx_wake_SetDriveMode(UART_rx_wake_DM_RES_UP);//设置RX脚为内部上拉
+    UART_tx_SetDriveMode(UART_tx_DM_RES_UP);//设置TX为内部上拉
 //    uint16_t counter;
     //存放Notify值的数组初始化
 //    for(counter = 0; counter < 20; counter++)
@@ -786,7 +794,11 @@ void Parser_UartData(const char* SerialData)
 //         当前固件版本的查询
         case VERSION:
             if(SerialData[11]=='?')
-                printf("+VERSION=Ver2.0.2\r\n");
+            #ifdef RELEASE
+                printf("+VERSION=CY-B01_V2.0.4\r\n");
+            #else
+                printf("+VERSION=CY-B01_V1.1.1\r\n");
+            #endif
             else
             {
                 printf("AT+ERR=5\r\n");//表示没有该AT命令     
@@ -1474,6 +1486,7 @@ void Parser_UartData(const char* SerialData)
 //                        API_RESULT=CyBle_GattcWriteCharacteristicValue(cyBle_connHandle, &writeRequestData);
 //                        if(CYBLE_ERROR_OK==API_RESULT)
 //                        {
+                        CTS_Write(CTS_OFF);
                         CommandMode=AT_COMMAND_MODE;
                         printf("+MODE=AT_COMMAND_MODE\r\n");
 //                        }
@@ -1487,6 +1500,7 @@ void Parser_UartData(const char* SerialData)
                         if(CYBLE_ERROR_OK==API_RESULT)
                         {
                             CommandMode=THROUGHT_MODE;
+                            CTS_Write(CTS_ON);
                             printf("+MODE=THROUGHT_MODE\r\n");
                         }
 //                        printf("CyBle_GattcWriteCharacteristicValue is %d\r\n",API_RESULT);
@@ -1509,10 +1523,12 @@ void Parser_UartData(const char* SerialData)
                 {
                     case '0':
                         CommandMode=AT_COMMAND_MODE;
+                        CTS_Write(CTS_OFF);
                         printf("+MODE=AT_COMMAND_MODE\r\n");
                     break;
                     case '1'://从机模式且AT命令模式下，打开从机给主机的透传通道
                         CommandMode=THROUGHT_MODE;
+                        CTS_Write(CTS_ON);
                         printf("+MODE=THROUGHT_MODE\r\n");
                     break;
                     case '?'://从机模式下，能接收到该命令则一定是AT命令模式
@@ -2065,22 +2081,22 @@ void Master_Slave_UartHandler(uint8_t Role)
 //    Uart_Char=UART_UartGetChar();
     CYBLE_GATTS_HANDLE_VALUE_NTF_T      uartTxDataNtf;
     uartTxDataLength = UART_SpiUartGetRxBufferSize();//只有读取完了RX_Buffer才清0
-//    UART_UartPutChar(uartTxDataLength);
-    #ifdef  FLOW_CONTROL//此处最好置一GPIO口为低电平告诉发送方停止发送数据
-        if(uartTxDataLength>=(UART_RX_BUFFER/4))
-        {
-            UART_RX_INT_DISABLE();
-            CTS_Write(CTS_ON);
-        }
-        else
-        {
-            UART_RX_INT_ENABLE();
-            CTS_Write(CTS_OFF);
-        }
-    #endif
+//    UART_UartPutChar(uartTxDataLength);   
 //        处理串口信息,不采用中断的方式,采取中断会影响透传速率
     if((0!=uartTxDataLength)&&((CommandMode==THROUGHT_MODE)))
-    {           
+    {   
+         #ifdef  FLOW_CONTROL//此处最好置一GPIO口为低电平告诉发送方停止发送数据
+            if(uartTxDataLength>=(UART_RX_BUFFER/4))
+            {
+                UART_RX_INT_DISABLE();
+                CTS_Write(CTS_OFF);
+            }
+            else
+            {
+                UART_RX_INT_ENABLE();
+                CTS_Write(CTS_ON);
+            }
+        #endif
         if(uartTxDataLength>=negotiatedMtu-3)
         {                 
             uartIdleCount=UART_IDLE_TIMEOUT;
@@ -2106,7 +2122,7 @@ void Master_Slave_UartHandler(uint8_t Role)
                 uartTxData[index] = (uint8) UART_UartGetByte();
             }            
             if(0==memcmp("AT+NOTIFY=0",uartTxData,11))//在透传模式下，判断是不是要退出透传模式，因为透传模式下会认为串口接收的数据都是透传数据       
-            {
+            {                
                 if(Role==Central) //主机模式下退出透传模式
                 {
                     writeRequestData.value.val[0]=0x00;
@@ -2115,6 +2131,7 @@ void Master_Slave_UartHandler(uint8_t Role)
                     if(CYBLE_ERROR_OK==API_RESULT)
                     {
                         CommandMode=AT_COMMAND_MODE;
+                        CTS_Write(CTS_OFF);
                         Buffer_Length=0;
                         memset(RX_BUFFER,0,sizeof(RX_BUFFER));
                         printf("+MODE=AT_COMMAND_MODE\r\n");
@@ -2123,6 +2140,7 @@ void Master_Slave_UartHandler(uint8_t Role)
                 else //从机模式下退出透传模式
                 {
                     CommandMode=AT_COMMAND_MODE;
+                    CTS_Write(CTS_OFF);
                     Buffer_Length=0;
                     memset(RX_BUFFER,0,sizeof(RX_BUFFER));
                     printf("+MODE=AT_COMMAND_MODE\r\n");
