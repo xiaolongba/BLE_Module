@@ -57,6 +57,7 @@ void StrToHex(char *pbDest, char *pbSrc, int nLen);
 #define THROUGHT_MODE       (1u)
 #define AT_COMMAND_MODE     (0u)    
 #define UART_IDLE_TIMEOUT   (7000u)
+#define CRLF_TIMEOUT        (10000u)
 #define FLOW_CONTROL
 #define UART_RX_INTR_MASK     0x00000004
 #define UART_RX_INT_ENABLE()  UART_INTR_RX_MASK_REG |= UART_RX_INTR_MASK

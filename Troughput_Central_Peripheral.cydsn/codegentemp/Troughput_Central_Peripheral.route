@@ -2,18 +2,18 @@ net ClockBlock_HFCLK
 	term   ":m0s8clockblockcell.hfclk"
 	switch ":m0s8clockblockcell.hfclk==>:interrupt_12.clock"
 	term   ":interrupt_12.clock"
-	switch ":m0s8clockblockcell.hfclk==>:interrupt_1.clock"
-	term   ":interrupt_1.clock"
-	switch ":m0s8clockblockcell.hfclk==>:interrupt_9.clock"
-	term   ":interrupt_9.clock"
+	switch ":m0s8clockblockcell.hfclk==>:interrupt_3.clock"
+	term   ":interrupt_3.clock"
+	switch ":m0s8clockblockcell.hfclk==>:interrupt_10.clock"
+	term   ":interrupt_10.clock"
 	switch ":m0s8clockblockcell.hfclk==>:interrupt_17.clock"
 	term   ":interrupt_17.clock"
 end ClockBlock_HFCLK
 net Net_38
-	term   ":m0s8scbcell_0.interrupt"
-	switch ":m0s8scbcell_0.interrupt==>:interrupt_idmux_9.in_0"
-	switch ":interrupt_idmux_9.interrupt_idmux_9__out==>:interrupt_9.interrupt"
-	term   ":interrupt_9.interrupt"
+	term   ":m0s8scbcell_1.interrupt"
+	switch ":m0s8scbcell_1.interrupt==>:interrupt_idmux_10.in_0"
+	switch ":interrupt_idmux_10.interrupt_idmux_10__out==>:interrupt_10.interrupt"
+	term   ":interrupt_10.interrupt"
 end Net_38
 net Net_82
 	term   ":m0s8tcpwmcell_0.interrupt"
@@ -28,9 +28,9 @@ net \BLE:Net_15\
 	term   ":interrupt_12.interrupt"
 end \BLE:Net_15\
 net \UART:rx_irq\
-	term   ":logicalport_1.interrupt"
-	switch ":logicalport_1.interrupt==>Stub-:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v17+:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v19"
-	switch "Stub-:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v17+:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v19==>:interrupt_idmux_1.in_0"
-	switch ":interrupt_idmux_1.interrupt_idmux_1__out==>:interrupt_1.interrupt"
-	term   ":interrupt_1.interrupt"
+	term   ":logicalport_3.interrupt"
+	switch ":logicalport_3.interrupt==>Stub-:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v21+:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v23"
+	switch "Stub-:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v21+:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v23==>:interrupt_idmux_3.in_0"
+	switch ":interrupt_idmux_3.interrupt_idmux_3__out==>:interrupt_3.interrupt"
+	term   ":interrupt_3.interrupt"
 end \UART:rx_irq\

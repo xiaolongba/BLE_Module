@@ -1,10 +1,10 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2016-03-10T01:52:44Z")
+ (DATE "2016-04-14T15:18:36Z")
  (DESIGN "Troughput_Central_Peripheral")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
- (VERSION " 3.3 SP1")
+ (VERSION " 3.3 CP2")
  (DIVIDER .)
  (TIMESCALE 1 ns)
  (CELL
@@ -22,7 +22,7 @@
     (INTERCONNECT \\BLE\:cy_m0s8_ble\\.interrupt \\BLE\:bless_isr\\.interrupt (1.000:1.000:1.000))
     (INTERCONNECT \\UART\:SCB\\.tx \\UART\:tx\(0\)\\.pin_input (1.000:1.000:1.000))
     (INTERCONNECT \\UART\:rx_wake\(0\)\\.fb \\UART\:SCB\\.rx (1.000:1.000:1.000))
-    (INTERCONNECT ClockBlock.ff_div_1 \\UART\:SCB\\.clock (0.000:0.000:0.000))
+    (INTERCONNECT ClockBlock.ff_div_2 \\UART\:SCB\\.clock (0.000:0.000:0.000))
     (INTERCONNECT \\UART\:rx_wake\\.interrupt \\UART\:RX_WAKEUP_IRQ\\.interrupt (1.000:1.000:1.000))
     (INTERCONNECT \\UART\:tx\(0\)\\.pad_out \\UART\:tx\(0\)\\.pad_in (0.000:0.000:0.000))
     (INTERCONNECT \\UART\:rx_wake\(0\)_PAD\\ \\UART\:rx_wake\(0\)\\.pad_in (0.000:0.000:0.000))

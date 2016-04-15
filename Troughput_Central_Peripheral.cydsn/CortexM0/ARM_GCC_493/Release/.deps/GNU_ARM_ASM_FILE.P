@@ -1,8 +1,8 @@
-G:/Company/Jetronic/CYPRESS/Customer/Troughpur_Central_Peripheral_V2.9/Troughput_Central_Peripheral.cydsn/CortexM0/ARM_GCC_493/Release/CyBootAsmGnu.o : G:/Company/Jetronic/CYPRESS/Customer/Troughpur_Central_Peripheral_V2.9/Troughput_Central_Peripheral.cydsn/Generated_Source/PSoC4/CyBootAsmGnu.s G:/Company/Jetronic/CYPRESS/Customer/Troughpur_Central_Peripheral_V2.9/Troughput_Central_Peripheral.cydsn/Generated_Source/PSoC4/cydevicegnu_trm.inc G:/Company/Jetronic/CYPRESS/Customer/Troughpur_Central_Peripheral_V2.9/Troughput_Central_Peripheral.cydsn/Generated_Source/PSoC4/cyfittergnu.inc 
+G:/Project/LiYangLiu---BLE\ Module/Code/Troughpur_Central_Peripheral/Troughput_Central_Peripheral.cydsn/CortexM0/ARM_GCC_493/Release/CyBootAsmGnu.o : G:/Project/LiYangLiu---BLE\ Module/Code/Troughpur_Central_Peripheral/Troughput_Central_Peripheral.cydsn/Generated_Source/PSoC4/CyBootAsmGnu.s G:/Project/LiYangLiu---BLE\ Module/Code/Troughpur_Central_Peripheral/Troughput_Central_Peripheral.cydsn/Generated_Source/PSoC4/cydevicegnu_trm.inc G:/Project/LiYangLiu---BLE\ Module/Code/Troughpur_Central_Peripheral/Troughput_Central_Peripheral.cydsn/Generated_Source/PSoC4/cyfittergnu.inc 
 
-G:/Company/Jetronic/CYPRESS/Customer/Troughpur_Central_Peripheral_V2.9/Troughput_Central_Peripheral.cydsn/Generated_Source/PSoC4/CyBootAsmGnu.s : 
+G:/Project/LiYangLiu---BLE\ Module/Code/Troughpur_Central_Peripheral/Troughput_Central_Peripheral.cydsn/Generated_Source/PSoC4/CyBootAsmGnu.s : 
 
-G:/Company/Jetronic/CYPRESS/Customer/Troughpur_Central_Peripheral_V2.9/Troughput_Central_Peripheral.cydsn/Generated_Source/PSoC4/cydevicegnu_trm.inc : 
+G:/Project/LiYangLiu---BLE\ Module/Code/Troughpur_Central_Peripheral/Troughput_Central_Peripheral.cydsn/Generated_Source/PSoC4/cydevicegnu_trm.inc : 
 
-G:/Company/Jetronic/CYPRESS/Customer/Troughpur_Central_Peripheral_V2.9/Troughput_Central_Peripheral.cydsn/Generated_Source/PSoC4/cyfittergnu.inc : 
+G:/Project/LiYangLiu---BLE\ Module/Code/Troughpur_Central_Peripheral/Troughput_Central_Peripheral.cydsn/Generated_Source/PSoC4/cyfittergnu.inc : 
 

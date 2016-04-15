@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File Name: cymetadata.c
 * 
-* PSoC Creator  3.3 SP1
+* PSoC Creator  3.3 CP2
 *
 * Description:
 * This file defines all extra memory spaces that need to be included.
@@ -58,7 +58,7 @@ CY_META_SECTION
 #error "Unsupported toolchain"
 #endif
 const uint8 cy_metadata[] = {
-    0x00u, 0x02u, 0x0Eu, 0x09u, 0x11u, 0x9Eu, 0x00u, 0x01u,
+    0x00u, 0x02u, 0x0Eu, 0x09u, 0x11u, 0x9Eu, 0x00u, 0x00u,
     0x00u, 0x00u, 0x00u, 0x00u
 };
 

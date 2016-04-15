@@ -1,5 +1,5 @@
-G:\Company\Jetronic\CYPRESS\Customer\Troughpur_Central_Peripheral(c)\Troughput_Central_Peripheral.cydsn\Troughput_Central_Peripheral.cyprj|39551b0f-271a-4da2-a1a4-7b06f71b8a91
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|5ccafd03-cd59-471b-b525-2b1b81111b46
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|7b3b3e9f-8fb3-4428-85c3-b38b3b4df324
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|75d789d1-f48d-492e-96db-c328bf7e59ca
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|1f69dc1f-e1db-4867-a017-91551d7f94c1
+G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\Troughput_Central_Peripheral.cyprj|465caa50-1061-47d5-bc99-130a5d6d2b67
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|5bf274d7-e032-4ab0-a6be-d757e542e8d3
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|ee0544a1-b142-4bdd-b54d-7c64efee1611
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|1bad88e3-e907-43de-b1e9-98895240b851
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|40666ce0-3e36-4561-a544-a6212e5c3f1b

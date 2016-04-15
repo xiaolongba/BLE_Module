@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccPahfR2.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
   30:.\Generated_Source\PSoC4/CTS.c **** ********************************************************************************
   31:.\Generated_Source\PSoC4/CTS.c **** *
   32:.\Generated_Source\PSoC4/CTS.c **** * Summary:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccPahfR2.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/CTS.c **** *  Assign a new value to the digital port's data output register.  
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
   61              		.type	CTS_SetDriveMode, %function
   62              	CTS_SetDriveMode:
   63              	.LFB1:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccPahfR2.s 			page 3
 
 
   48:.\Generated_Source\PSoC4/CTS.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
   89              		.global	CTS_Read
   90              		.code	16
   91              		.thumb_func
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccPahfR2.s 			page 4
 
 
   92              		.type	CTS_Read, %function
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
  121              	.LFB3:
  101:.\Generated_Source\PSoC4/CTS.c **** 
  102:.\Generated_Source\PSoC4/CTS.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccPahfR2.s 			page 5
 
 
  103:.\Generated_Source\PSoC4/CTS.c **** /*******************************************************************************
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
  129:.\Generated_Source\PSoC4/CTS.c ****     *
  130:.\Generated_Source\PSoC4/CTS.c ****     * Summary:
  131:.\Generated_Source\PSoC4/CTS.c ****     *  Clears any active interrupts attached to port and returns the value of the 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccPahfR2.s 			page 6
 
 
  132:.\Generated_Source\PSoC4/CTS.c ****     *  interrupt status register.
@@ -357,46 +357,46 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
  184 000b 01       		.uleb128 0x1
  185 000c 16000000 		.4byte	.LASF22
  186 0010 01       		.byte	0x1
- 187 0011 0D010000 		.4byte	.LASF23
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 7
+ 187 0011 74010000 		.4byte	.LASF23
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccPahfR2.s 			page 7
 
 
- 188 0015 65010000 		.4byte	.LASF24
+ 188 0015 F3000000 		.4byte	.LASF24
  189 0019 00000000 		.4byte	.Ldebug_ranges0+0
  190 001d 00000000 		.4byte	0
  191 0021 00000000 		.4byte	.Ldebug_line0
  192 0025 02       		.uleb128 0x2
  193 0026 01       		.byte	0x1
  194 0027 06       		.byte	0x6
- 195 0028 19020000 		.4byte	.LASF0
+ 195 0028 16020000 		.4byte	.LASF0
  196 002c 02       		.uleb128 0x2
  197 002d 01       		.byte	0x1
  198 002e 08       		.byte	0x8
- 199 002f BA000000 		.4byte	.LASF1
+ 199 002f CD000000 		.4byte	.LASF1
  200 0033 02       		.uleb128 0x2
  201 0034 02       		.byte	0x2
  202 0035 05       		.byte	0x5
- 203 0036 EF010000 		.4byte	.LASF2
+ 203 0036 EC010000 		.4byte	.LASF2
  204 003a 02       		.uleb128 0x2
  205 003b 02       		.byte	0x2
  206 003c 07       		.byte	0x7
- 207 003d E0000000 		.4byte	.LASF3
+ 207 003d AA000000 		.4byte	.LASF3
  208 0041 02       		.uleb128 0x2
  209 0042 04       		.byte	0x4
  210 0043 05       		.byte	0x5
- 211 0044 FF010000 		.4byte	.LASF4
+ 211 0044 FC010000 		.4byte	.LASF4
  212 0048 02       		.uleb128 0x2
  213 0049 04       		.byte	0x4
  214 004a 07       		.byte	0x7
- 215 004b CE000000 		.4byte	.LASF5
+ 215 004b E1000000 		.4byte	.LASF5
  216 004f 02       		.uleb128 0x2
  217 0050 08       		.byte	0x8
  218 0051 05       		.byte	0x5
- 219 0052 CF010000 		.4byte	.LASF6
+ 219 0052 CC010000 		.4byte	.LASF6
  220 0056 02       		.uleb128 0x2
  221 0057 08       		.byte	0x8
  222 0058 07       		.byte	0x7
- 223 0059 49010000 		.4byte	.LASF7
+ 223 0059 B0010000 		.4byte	.LASF7
  224 005d 03       		.uleb128 0x3
  225 005e 04       		.byte	0x4
  226 005f 05       		.byte	0x5
@@ -404,32 +404,32 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
  228 0064 02       		.uleb128 0x2
  229 0065 04       		.byte	0x4
  230 0066 07       		.byte	0x7
- 231 0067 3C010000 		.4byte	.LASF8
+ 231 0067 A3010000 		.4byte	.LASF8
  232 006b 04       		.uleb128 0x4
- 233 006c F9010000 		.4byte	.LASF9
+ 233 006c F6010000 		.4byte	.LASF9
  234 0070 02       		.byte	0x2
  235 0071 C2       		.byte	0xc2
  236 0072 2C000000 		.4byte	0x2c
  237 0076 04       		.uleb128 0x4
- 238 0077 2C010000 		.4byte	.LASF10
+ 238 0077 93010000 		.4byte	.LASF10
  239 007b 02       		.byte	0x2
  240 007c C4       		.byte	0xc4
  241 007d 48000000 		.4byte	0x48
  242 0081 02       		.uleb128 0x2
  243 0082 04       		.byte	0x4
  244 0083 04       		.byte	0x4
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccPahfR2.s 			page 8
 
 
- 245 0084 B4000000 		.4byte	.LASF11
+ 245 0084 C7000000 		.4byte	.LASF11
  246 0088 02       		.uleb128 0x2
  247 0089 08       		.byte	0x8
  248 008a 04       		.byte	0x4
- 249 008b F3000000 		.4byte	.LASF12
+ 249 008b 5A010000 		.4byte	.LASF12
  250 008f 02       		.uleb128 0x2
  251 0090 01       		.byte	0x1
  252 0091 08       		.byte	0x8
- 253 0092 EA010000 		.4byte	.LASF13
+ 253 0092 E7010000 		.4byte	.LASF13
  254 0096 05       		.uleb128 0x5
  255 0097 10000000 		.4byte	.LASF14
  256 009b 02       		.byte	0x2
@@ -438,7 +438,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
  259 00a2 06       		.uleb128 0x6
  260 00a3 76000000 		.4byte	0x76
  261 00a7 07       		.uleb128 0x7
- 262 00a8 AA000000 		.4byte	.LASF15
+ 262 00a8 BD000000 		.4byte	.LASF15
  263 00ac 01       		.byte	0x1
  264 00ad 2A       		.byte	0x2a
  265 00ae 00000000 		.4byte	.LFB0
@@ -453,13 +453,13 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
  274 00c3 6B000000 		.4byte	0x6b
  275 00c7 00000000 		.4byte	.LLST0
  276 00cb 09       		.uleb128 0x9
- 277 00cc C8000000 		.4byte	.LASF25
+ 277 00cc DB000000 		.4byte	.LASF25
  278 00d0 01       		.byte	0x1
  279 00d1 2C       		.byte	0x2c
  280 00d2 6B000000 		.4byte	0x6b
  281 00d6 00       		.byte	0
  282 00d7 07       		.uleb128 0x7
- 283 00d8 08020000 		.4byte	.LASF16
+ 283 00d8 05020000 		.4byte	.LASF16
  284 00dc 01       		.byte	0x1
  285 00dd 49       		.byte	0x49
  286 00de 00000000 		.4byte	.LFB1
@@ -468,17 +468,17 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
  289 00e7 9C       		.byte	0x9c
  290 00e8 FC000000 		.4byte	0xfc
  291 00ec 08       		.uleb128 0x8
- 292 00ed 60010000 		.4byte	.LASF18
+ 292 00ed C7010000 		.4byte	.LASF18
  293 00f1 01       		.byte	0x1
  294 00f2 49       		.byte	0x49
  295 00f3 6B000000 		.4byte	0x6b
  296 00f7 21000000 		.4byte	.LLST1
  297 00fb 00       		.byte	0
  298 00fc 0A       		.uleb128 0xa
- 299 00fd 33010000 		.4byte	.LASF19
+ 299 00fd 9A010000 		.4byte	.LASF19
  300 0101 01       		.byte	0x1
  301 0102 61       		.byte	0x61
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccPahfR2.s 			page 9
 
 
  302 0103 6B000000 		.4byte	0x6b
@@ -496,7 +496,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
  314 0124 01       		.uleb128 0x1
  315 0125 9C       		.byte	0x9c
  316 0126 0B       		.uleb128 0xb
- 317 0127 FA000000 		.4byte	.LASF21
+ 317 0127 61010000 		.4byte	.LASF21
  318 012b 01       		.byte	0x1
  319 012c 8D       		.byte	0x8d
  320 012d 6B000000 		.4byte	0x6b
@@ -505,7 +505,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
  323 0139 01       		.uleb128 0x1
  324 013a 9C       		.byte	0x9c
  325 013b 0C       		.uleb128 0xc
- 326 013c DD010000 		.4byte	.LASF26
+ 326 013c DA010000 		.4byte	.LASF26
  327 0140 01       		.byte	0x1
  328 0141 8F       		.byte	0x8f
  329 0142 6B000000 		.4byte	0x6b
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
  356 0015 00       		.byte	0
  357 0016 0B       		.uleb128 0xb
  358 0017 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccPahfR2.s 			page 10
 
 
  359 0018 3E       		.uleb128 0x3e
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
  413 004e 19       		.uleb128 0x19
  414 004f 03       		.uleb128 0x3
  415 0050 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 11
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccPahfR2.s 			page 11
 
 
  416 0051 3A       		.uleb128 0x3a
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
  470 0088 0B       		.uleb128 0xb
  471 0089 3B       		.uleb128 0x3b
  472 008a 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccPahfR2.s 			page 12
 
 
  473 008b 27       		.uleb128 0x27
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
  527 00c3 00       		.byte	0
  528              		.section	.debug_loc,"",%progbits
  529              	.Ldebug_loc0:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccPahfR2.s 			page 13
 
 
  530              	.LLST0:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
  584 0020 00000000 		.4byte	.LFB2
  585 0024 10000000 		.4byte	.LFE2-.LFB2
  586 0028 00000000 		.4byte	.LFB3
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 14
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccPahfR2.s 			page 14
 
 
  587 002c 10000000 		.4byte	.LFE3-.LFB3
@@ -834,121 +834,120 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 1
  617              	.LASF17:
  618 00a4 76616C75 		.ascii	"value\000"
  618      6500
- 619              	.LASF15:
- 620 00aa 4354535F 		.ascii	"CTS_Write\000"
- 620      57726974 
- 620      6500
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 15
+ 619              	.LASF3:
+ 620 00aa 73686F72 		.ascii	"short unsigned int\000"
+ 620      7420756E 
+ 620      7369676E 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccPahfR2.s 			page 15
 
 
- 621              	.LASF11:
- 622 00b4 666C6F61 		.ascii	"float\000"
- 622      7400
- 623              	.LASF1:
- 624 00ba 756E7369 		.ascii	"unsigned char\000"
- 624      676E6564 
- 624      20636861 
- 624      7200
- 625              	.LASF25:
- 626 00c8 64725661 		.ascii	"drVal\000"
- 626      6C00
- 627              	.LASF5:
- 628 00ce 6C6F6E67 		.ascii	"long unsigned int\000"
- 628      20756E73 
- 628      69676E65 
- 628      6420696E 
- 628      7400
- 629              	.LASF3:
- 630 00e0 73686F72 		.ascii	"short unsigned int\000"
- 630      7420756E 
- 630      7369676E 
- 630      65642069 
- 630      6E7400
- 631              	.LASF12:
- 632 00f3 646F7562 		.ascii	"double\000"
- 632      6C6500
- 633              	.LASF21:
- 634 00fa 4354535F 		.ascii	"CTS_ClearInterrupt\000"
- 634      436C6561 
- 634      72496E74 
- 634      65727275 
- 634      707400
- 635              	.LASF23:
- 636 010d 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\CTS.c\000"
- 636      6E657261 
- 636      7465645F 
- 636      536F7572 
- 636      63655C50 
- 637              	.LASF10:
- 638 012c 75696E74 		.ascii	"uint32\000"
- 638      333200
- 639              	.LASF19:
- 640 0133 4354535F 		.ascii	"CTS_Read\000"
- 640      52656164 
- 640      00
- 641              	.LASF8:
- 642 013c 756E7369 		.ascii	"unsigned int\000"
- 642      676E6564 
- 642      20696E74 
- 642      00
- 643              	.LASF7:
- 644 0149 6C6F6E67 		.ascii	"long long unsigned int\000"
- 644      206C6F6E 
- 644      6720756E 
- 644      7369676E 
- 644      65642069 
- 645              	.LASF18:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccfBH1WN.s 			page 16
+ 620      65642069 
+ 620      6E7400
+ 621              	.LASF15:
+ 622 00bd 4354535F 		.ascii	"CTS_Write\000"
+ 622      57726974 
+ 622      6500
+ 623              	.LASF11:
+ 624 00c7 666C6F61 		.ascii	"float\000"
+ 624      7400
+ 625              	.LASF1:
+ 626 00cd 756E7369 		.ascii	"unsigned char\000"
+ 626      676E6564 
+ 626      20636861 
+ 626      7200
+ 627              	.LASF25:
+ 628 00db 64725661 		.ascii	"drVal\000"
+ 628      6C00
+ 629              	.LASF5:
+ 630 00e1 6C6F6E67 		.ascii	"long unsigned int\000"
+ 630      20756E73 
+ 630      69676E65 
+ 630      6420696E 
+ 630      7400
+ 631              	.LASF24:
+ 632 00f3 473A5C50 		.ascii	"G:\\Project\\LiYangLiu---BLE Module\\Code\\Troughpu"
+ 632      726F6A65 
+ 632      63745C4C 
+ 632      6959616E 
+ 632      674C6975 
+ 633 0122 725F4365 		.ascii	"r_Central_Peripheral\\Troughput_Central_Peripheral."
+ 633      6E747261 
+ 633      6C5F5065 
+ 633      72697068 
+ 633      6572616C 
+ 634 0154 63796473 		.ascii	"cydsn\000"
+ 634      6E00
+ 635              	.LASF12:
+ 636 015a 646F7562 		.ascii	"double\000"
+ 636      6C6500
+ 637              	.LASF21:
+ 638 0161 4354535F 		.ascii	"CTS_ClearInterrupt\000"
+ 638      436C6561 
+ 638      72496E74 
+ 638      65727275 
+ 638      707400
+ 639              	.LASF23:
+ 640 0174 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\CTS.c\000"
+ 640      6E657261 
+ 640      7465645F 
+ 640      536F7572 
+ 640      63655C50 
+ 641              	.LASF10:
+ 642 0193 75696E74 		.ascii	"uint32\000"
+ 642      333200
+ 643              	.LASF19:
+ 644 019a 4354535F 		.ascii	"CTS_Read\000"
+ 644      52656164 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccPahfR2.s 			page 16
 
 
- 646 0160 6D6F6465 		.ascii	"mode\000"
+ 644      00
+ 645              	.LASF8:
+ 646 01a3 756E7369 		.ascii	"unsigned int\000"
+ 646      676E6564 
+ 646      20696E74 
  646      00
- 647              	.LASF24:
- 648 0165 473A5C43 		.ascii	"G:\\Company\\Jetronic\\CYPRESS\\Customer\\Troughpur"
- 648      6F6D7061 
- 648      6E795C4A 
- 648      6574726F 
- 648      6E69635C 
- 649 0193 5F43656E 		.ascii	"_Central_Peripheral_V2.9\\Troughput_Central_Periphe"
- 649      7472616C 
- 649      5F506572 
- 649      69706865 
- 649      72616C5F 
- 650 01c5 72616C2E 		.ascii	"ral.cydsn\000"
- 650      63796473 
- 650      6E00
+ 647              	.LASF7:
+ 648 01b0 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 648      206C6F6E 
+ 648      6720756E 
+ 648      7369676E 
+ 648      65642069 
+ 649              	.LASF18:
+ 650 01c7 6D6F6465 		.ascii	"mode\000"
+ 650      00
  651              	.LASF6:
- 652 01cf 6C6F6E67 		.ascii	"long long int\000"
+ 652 01cc 6C6F6E67 		.ascii	"long long int\000"
  652      206C6F6E 
  652      6720696E 
  652      7400
  653              	.LASF26:
- 654 01dd 6D61736B 		.ascii	"maskedStatus\000"
+ 654 01da 6D61736B 		.ascii	"maskedStatus\000"
  654      65645374 
  654      61747573 
  654      00
  655              	.LASF13:
- 656 01ea 63686172 		.ascii	"char\000"
+ 656 01e7 63686172 		.ascii	"char\000"
  656      00
  657              	.LASF2:
- 658 01ef 73686F72 		.ascii	"short int\000"
+ 658 01ec 73686F72 		.ascii	"short int\000"
  658      7420696E 
  658      7400
  659              	.LASF9:
- 660 01f9 75696E74 		.ascii	"uint8\000"
+ 660 01f6 75696E74 		.ascii	"uint8\000"
  660      3800
  661              	.LASF4:
- 662 01ff 6C6F6E67 		.ascii	"long int\000"
+ 662 01fc 6C6F6E67 		.ascii	"long int\000"
  662      20696E74 
  662      00
  663              	.LASF16:
- 664 0208 4354535F 		.ascii	"CTS_SetDriveMode\000"
+ 664 0205 4354535F 		.ascii	"CTS_SetDriveMode\000"
  664      53657444 
  664      72697665 
  664      4D6F6465 
  664      00
  665              	.LASF0:
- 666 0219 7369676E 		.ascii	"signed char\000"
+ 666 0216 7369676E 		.ascii	"signed char\000"
  666      65642063 
  666      68617200 
  667              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

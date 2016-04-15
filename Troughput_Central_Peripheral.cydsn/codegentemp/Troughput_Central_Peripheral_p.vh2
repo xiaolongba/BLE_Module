@@ -1,6 +1,6 @@
 -- Project:   Troughput_Central_Peripheral
--- Generated: 03/10/2016 09:52:43
--- PSoC Creator  3.3 SP1
+-- Generated: 04/14/2016 23:18:33
+-- PSoC Creator  3.3 CP2
 
 ENTITY Troughput_Central_Peripheral IS
     PORT(

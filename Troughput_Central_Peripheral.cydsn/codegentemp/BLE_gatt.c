@@ -146,7 +146,7 @@ const CYBLE_GATTS_DB_T cyBle_gattDB[0x11u] = {
     { 0x000Cu, 0x2800u /* Primary service                     */, 0x00000001u /*            */, 0x0011u, {{0x00A1u, NULL}}                           },
     { 0x000Du, 0x2803u /* Characteristic                      */, 0x00001C01u /* wr,wwr,ntf */, 0x000Fu, {{0xAA08u, NULL}}                           },
     { 0x000Eu, 0xAA08u /* Custom Characteristic               */, 0x00011C1Au /* wr,wwr,ntf */, 0x000Fu, {{0x0032u, (void *)&cyBle_attValuesLen[5]}} },
-    { 0x000Fu, 0x2902u /* Client Characteristic Configuration */, 0x00010A1Eu /* rd,wr      */, 0x000Fu, {{0x0002u, (void *)&cyBle_attValuesLen[6]}} },
+    { 0x000Fu, 0x2902u /* Client Characteristic Configuration */, 0x00010A16u /* rd,wr      */, 0x000Fu, {{0x0002u, (void *)&cyBle_attValuesLen[6]}} },
     { 0x0010u, 0x2803u /* Characteristic                      */, 0x00000801u /* wr         */, 0x0011u, {{0xAA09u, NULL}}                           },
     { 0x0011u, 0xAA09u /* SpeedTest                           */, 0x0001081Au /* wr         */, 0x0011u, {{0x0001u, (void *)&cyBle_attValuesLen[7]}} },
 };

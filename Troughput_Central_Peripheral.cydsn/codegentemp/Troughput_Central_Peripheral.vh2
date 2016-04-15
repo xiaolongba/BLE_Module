@@ -2,7 +2,7 @@
 --	Conversion of Troughput_Central_Peripheral.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Mar 10 09:52:42 2016
+--	Thu Apr 14 23:18:32 2016
 --
 
 USE cypress.cypress.all;

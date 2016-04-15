@@ -117,7 +117,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             printf("BLE is Ready\r\n");
             while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
 //            StartScan=TRUE;     
-//            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_SLOW);
+//            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
         break;
         case CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT:
             Scan_Result=*(CYBLE_GAPC_ADV_REPORT_T *)eventParam;
@@ -315,6 +315,51 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
         */
 //            从机接收主机的写请求，并且从机要有写响应
         case CYBLE_EVT_GATTS_WRITE_REQ:
+            writeParam = *(CYBLE_GATTS_WRITE_REQ_PARAM_T *)eventParam;
+            //自定义服务的CUSTOM Characteristic
+            if(writeParam.handleValPair.attrHandle == 
+               CYBLE_TROUGHPUT_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE)
+            {
+                if(CommandMode==THROUGHT_MODE)
+                {
+                    testCount+=writeParam.handleValPair.value.len;    
+//                printf("0x");
+//                UART_UartPutString("0x");
+                    for(i=0;i<writeParam.handleValPair.value.len;i++)
+                    {                    
+    //                    printf("%02X",writeParam.handleValPair.value.val[i]);
+                        UART_UartPutChar(writeParam.handleValPair.value.val[i]);
+                    }  
+                }
+//                UART_UartPutString("\r\n");
+//                printf("\r\n");
+//                UART_SpiUartWriteTxData(testCount);
+//                printf("%ld\r\n",testCount);
+//                printf("+RX=<0x");
+//                for(i=0;i<writeParam.handleValPair.value.len;i++)
+//                {
+//                    printf("%02X",writeParam.handleValPair.value.val[i]);
+//                }
+//                printf(">\r\n");
+            } 
+             //自定义服务的Client Characteristic
+            if(writeParam.handleValPair.attrHandle == 
+               CYBLE_TROUGHPUT_SERVICE_CUSTOM_CHARACTERISTIC_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE)
+            {
+                charNotificationEnabled = writeParam.handleValPair.value.val[0];  
+                if(charNotificationEnabled)
+                {               
+                    CommandMode=THROUGHT_MODE;
+                    CTS_Write(CTS_ON);
+                    printf("+MODE=THROUGHT_MODE\r\n");
+                }
+                else
+                {
+                    CommandMode=AT_COMMAND_MODE;
+                    CTS_Write(CTS_OFF);
+                    printf("+MODE=AT_COMMAND_MODE\r\n");
+                }
+            }   
 //            writeParam = *(CYBLE_GATTS_WRITE_REQ_PARAM_T *)eventParam;
 //            //自定义服务的CUSTOM Characteristic
 //            if(writeParam.handleValPair.attrHandle == 
@@ -352,7 +397,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
 //            {
 //                TroughtTest_Flag = writeParam.handleValPair.value.val[0];                
 //            }               
-//            CyBle_GattsWriteRsp(cyBle_connHandle);
+            CyBle_GattsWriteRsp(cyBle_connHandle);
         break;
 //        做为主机时，接收到从机的写响应
         case CYBLE_EVT_GATTC_WRITE_RSP:
@@ -795,9 +840,9 @@ void Parser_UartData(const char* SerialData)
         case VERSION:
             if(SerialData[11]=='?')
             #ifdef RELEASE
-                printf("+VERSION=CY-B01_V2.0.4\r\n");
+                printf("+VERSION=CY-B01_V2.0.5\r\n");
             #else
-                printf("+VERSION=CY-B01_V1.1.1\r\n");
+                printf("+VERSION=CY-B01_V1.1.2\r\n");
             #endif
             else
             {
@@ -2248,7 +2293,7 @@ void Master_Slave_UartHandler(uint8_t Role)
             }
             else
             {
-                uartIdleCount=UART_IDLE_TIMEOUT;
+                uartIdleCount=CRLF_TIMEOUT;
                 RxFlag=OVER;
             //串口接收的数据长度清零,以便下一条命令过来时还是存放在数组首地址
                 RX_BUFFER[Buffer_Length]=Uart_Char;//读取串口接收缓冲区的数据                
@@ -2280,7 +2325,7 @@ void Master_Slave_UartHandler(uint8_t Role)
             if(--uartIdleCount == 0)
             {
                 RxFlag=OVER;
-                uartIdleCount=UART_IDLE_TIMEOUT;
+                uartIdleCount=CRLF_TIMEOUT;
                 Buffer_Length=0;
                 memset(RX_BUFFER,0,sizeof(RX_BUFFER));
                 printf("AT+ERR=7\r\n");//AT命令没有回车换行
