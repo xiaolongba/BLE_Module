@@ -117,7 +117,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             printf("BLE is Ready\r\n");
             while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
 //            StartScan=TRUE;     
-//            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
+            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
         break;
         case CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT:
             Scan_Result=*(CYBLE_GAPC_ADV_REPORT_T *)eventParam;
@@ -145,14 +145,14 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             //广播超时
 //            if(*(uint8_t*)eventParam==CYBLE_GAP_ADV_MODE_TO)
 //            {
-//               printf("+ADV_TO\r\n");  
-////                CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_SLOW);
+////               printf("+ADV_TO\r\n");  
+//                CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
 //            }
         break;
         case CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP:
             if(CYBLE_STATE_ADVERTISING!=CyBle_GetState())
             {
-                CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_SLOW);
+                CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
             }
         break;
         case CYBLE_EVT_GAP_DEVICE_CONNECTED:
@@ -500,14 +500,15 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             }
         break;    
         case CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST://显示随机产生的配对码
+            printf("+AUTHKEY=%6.6lu\r\n",*(uint32 *)eventParam);
 //            PassKey=*(uint32*)eventParam;   
-            if((*(uint32 *)eventParam)<100000)//解决随机配对码最高位是0时的情况
-            {
-                printf("+AUTHKEY=0");
-                printf("%lu\r\n",*(uint32 *)eventParam);                
-            }
-            else
-                printf("+AUTHKEY=%lu\r\n",*(uint32 *)eventParam);
+//            if((*(uint32 *)eventParam)<100000)//解决随机配对码最高位是0时的情况
+//            {
+//                printf("+AUTHKEY=0");
+//                printf("%lu\r\n",*(uint32 *)eventParam);                
+//            }
+//            else
+//                printf("+AUTHKEY=%lu\r\n",*(uint32 *)eventParam);
         break;
         case CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST:
             KEYBOARD=TURE;//标记此时此设备具有输入能力
@@ -692,9 +693,10 @@ void SystemInitialization(void)
     UART_Start();
   //    UART_SCB_IRQ_StartEx(My_ISR_UART);   
 //    isr_UserButton_StartEx(MY_ISR_USERBUTTON);
-    LedInit();
+    LedInit();    
     CyBle_Start(StackEventHandler);
-    
+    CyBle_GapFixAuthPassKey(TRUE,PASSKEY);
+//    CyBle_ProcessEvents();
 }
 
 /******************************************************************************
@@ -1215,9 +1217,10 @@ void Parser_UartData(const char* SerialData)
         break;
 ////            查询所有的特征描述符----主机有效
         case DISALLCHAR:
-            if(Role==Central)
+            idx=SerialData[14];
+            if((Role==Central)&&(idx='1'))
             {
-                range.startHandle=0x0001;
+                range.startHandle=0x0001;//开始句柄不能从0开始，只能从1开始
                 range.endHandle=0xFFFF;       
                 API_RESULT=CyBle_GattcDiscoverAllCharacteristicDescriptors(cyBle_connHandle,&range);
             }
@@ -1951,7 +1954,7 @@ uint8_t Command_Identify(const char* SerialData)
     }
     //获取AT命令等号的位置，如“AT+RESET=1”中“=”号的位置是8.
     location=strchr((char*)SerialData,'=')-SerialData;
-    if(location>11)
+    if(location>14)
     {
         return 0xff;
     }
@@ -2223,6 +2226,10 @@ void Master_Slave_UartHandler(uint8_t Role)
                 #endif
                 while(CyBle_GattGetBusStatus()!= CYBLE_STACK_STATE_FREE);//只有当蓝牙协议栈空闲时才发送数据
                 SendData_toSlave(uartTxData,uartTxDataLength);
+                #ifdef FLOW_CONTROL
+                    UART_RX_INT_ENABLE();
+                #endif
+
             }
         }
         return ;

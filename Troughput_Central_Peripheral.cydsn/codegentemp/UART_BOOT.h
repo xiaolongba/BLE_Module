@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: UART_BOOT.h
-* Version 3.0
+* Version 3.10
 *
 * Description:
 *  This file provides constants and parameter values of the bootloader

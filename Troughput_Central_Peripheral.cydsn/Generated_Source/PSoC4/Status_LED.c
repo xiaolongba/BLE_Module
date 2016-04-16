@@ -1,14 +1,12 @@
 /*******************************************************************************
 * File Name: Status_LED.c  
-* Version 2.10
+* Version 2.20
 *
 * Description:
 *  This file contains API to enable firmware control of a Pins component.
 *
-* Note:
-*
 ********************************************************************************
-* Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions, 
 * disclaimers, and limitations in the end user license agreement accompanying 
 * the software package with which this file was provided.
@@ -17,29 +15,100 @@
 #include "cytypes.h"
 #include "Status_LED.h"
 
-#define SetP4PinDriveMode(shift, mode)  \
+
+#if defined(Status_LED__PC)
+    #define Status_LED_SetP4PinDriveMode(shift, mode)  \
     do { \
         Status_LED_PC =   (Status_LED_PC & \
-                                (uint32)(~(uint32)(Status_LED_DRIVE_MODE_IND_MASK << (Status_LED_DRIVE_MODE_BITS * (shift))))) | \
-                                (uint32)((uint32)(mode) << (Status_LED_DRIVE_MODE_BITS * (shift))); \
+                                (uint32)(~(uint32)(Status_LED_DRIVE_MODE_IND_MASK << \
+                                (Status_LED_DRIVE_MODE_BITS * (shift))))) | \
+                                (uint32)((uint32)(mode) << \
+                                (Status_LED_DRIVE_MODE_BITS * (shift))); \
     } while (0)
+#else
+    #if (CY_PSOC4_4200L)
+        #define Status_LED_SetP4PinDriveMode(shift, mode)  \
+        do { \
+            Status_LED_USBIO_CTRL_REG = (Status_LED_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(Status_LED_DRIVE_MODE_IND_MASK << \
+                                    (Status_LED_DRIVE_MODE_BITS * (shift))))) | \
+                                    (uint32)((uint32)(mode) << \
+                                    (Status_LED_DRIVE_MODE_BITS * (shift))); \
+        } while (0)
+    #endif
+#endif
+  
+
+#if defined(Status_LED__PC) || (CY_PSOC4_4200L) 
+    /*******************************************************************************
+    * Function Name: Status_LED_SetDriveMode
+    ****************************************************************************//**
+    *
+    * \brief Sets the drive mode for each of the Pins component's pins.
+    * 
+    * <b>Note</b> This affects all pins in the Pins component instance. Use the
+    * Per-Pin APIs if you wish to control individual pin's drive modes.
+    *
+    * <b>Note</b> USBIOs have limited drive functionality. Refer to the Drive Mode
+    * parameter for more information.
+    *
+    * \param mode
+    *  Mode for the selected signals. Valid options are documented in 
+    *  \ref driveMode.
+    *
+    * \return
+    *  None
+    *
+    * \sideeffect
+    *  If you use read-modify-write operations that are not atomic, the ISR can
+    *  cause corruption of this function. An ISR that interrupts this function 
+    *  and performs writes to the Pins component Drive Mode registers can cause 
+    *  corrupted port data. To avoid this issue, you should either use the Per-Pin
+    *  APIs (primary method) or disable interrupts around this function.
+    *
+    * \funcusage
+    *  \snippet Status_LED_SUT.c usage_Status_LED_SetDriveMode
+    *******************************************************************************/
+    void Status_LED_SetDriveMode(uint8 mode)
+    {
+		Status_LED_SetP4PinDriveMode(Status_LED__0__SHIFT, mode);
+    }
+#endif
 
 
 /*******************************************************************************
 * Function Name: Status_LED_Write
-********************************************************************************
+****************************************************************************//**
 *
-* Summary:
-*  Assign a new value to the digital port's data output register.  
+* \brief Writes the value to the physical port (data output register), masking
+*  and shifting the bits appropriately. 
 *
-* Parameters:  
-*  prtValue:  The value to be assigned to the Digital Port. 
+* The data output register controls the signal applied to the physical pin in 
+* conjunction with the drive mode parameter. This function avoids changing 
+* other bits in the port by using the appropriate method (read-modify-write or
+* bit banding).
 *
-* Return: 
+* <b>Note</b> This function should not be used on a hardware digital output pin 
+* as it is driven by the hardware signal attached to it.
+*
+* \param value
+*  Value to write to the component instance.
+*
+* \return 
 *  None 
-*  
+*
+* \sideeffect
+*  If you use read-modify-write operations that are not atomic; the Interrupt 
+*  Service Routines (ISR) can cause corruption of this function. An ISR that 
+*  interrupts this function and performs writes to the Pins component data 
+*  register can cause corrupted port data. To avoid this issue, you should 
+*  either use the Per-Pin APIs (primary method) or disable interrupts around 
+*  this function.
+*
+* \funcusage
+*  \snippet Status_LED_SUT.c usage_Status_LED_Write
 *******************************************************************************/
-void Status_LED_Write(uint8 value) 
+void Status_LED_Write(uint8 value)
 {
     uint8 drVal = (uint8)(Status_LED_DR & (uint8)(~Status_LED_MASK));
     drVal = (drVal | ((uint8)(value << Status_LED_SHIFT) & Status_LED_MASK));
@@ -48,53 +117,23 @@ void Status_LED_Write(uint8 value)
 
 
 /*******************************************************************************
-* Function Name: Status_LED_SetDriveMode
-********************************************************************************
-*
-* Summary:
-*  Change the drive mode on the pins of the port.
-* 
-* Parameters:  
-*  mode:  Change the pins to one of the following drive modes.
-*
-*  Status_LED_DM_STRONG     Strong Drive 
-*  Status_LED_DM_OD_HI      Open Drain, Drives High 
-*  Status_LED_DM_OD_LO      Open Drain, Drives Low 
-*  Status_LED_DM_RES_UP     Resistive Pull Up 
-*  Status_LED_DM_RES_DWN    Resistive Pull Down 
-*  Status_LED_DM_RES_UPDWN  Resistive Pull Up/Down 
-*  Status_LED_DM_DIG_HIZ    High Impedance Digital 
-*  Status_LED_DM_ALG_HIZ    High Impedance Analog 
-*
-* Return: 
-*  None
-*
-*******************************************************************************/
-void Status_LED_SetDriveMode(uint8 mode) 
-{
-	SetP4PinDriveMode(Status_LED__0__SHIFT, mode);
-}
-
-
-/*******************************************************************************
 * Function Name: Status_LED_Read
-********************************************************************************
+****************************************************************************//**
 *
-* Summary:
-*  Read the current value on the pins of the Digital Port in right justified 
-*  form.
+* \brief Reads the associated physical port (pin status register) and masks 
+*  the required bits according to the width and bit position of the component
+*  instance. 
 *
-* Parameters:  
-*  None 
+* The pin's status register returns the current logic level present on the 
+* physical pin.
 *
-* Return: 
-*  Returns the current value of the Digital Port as a right justified number
-*  
-* Note:
-*  Macro Status_LED_ReadPS calls this function. 
-*  
+* \return 
+*  The current value for the pins in the component as a right justified number.
+*
+* \funcusage
+*  \snippet Status_LED_SUT.c usage_Status_LED_Read  
 *******************************************************************************/
-uint8 Status_LED_Read(void) 
+uint8 Status_LED_Read(void)
 {
     return (uint8)((Status_LED_PS & Status_LED_MASK) >> Status_LED_SHIFT);
 }
@@ -102,50 +141,104 @@ uint8 Status_LED_Read(void)
 
 /*******************************************************************************
 * Function Name: Status_LED_ReadDataReg
-********************************************************************************
+****************************************************************************//**
 *
-* Summary:
-*  Read the current value assigned to a Digital Port's data output register
+* \brief Reads the associated physical port's data output register and masks 
+*  the correct bits according to the width and bit position of the component 
+*  instance. 
 *
-* Parameters:  
-*  None 
+* The data output register controls the signal applied to the physical pin in 
+* conjunction with the drive mode parameter. This is not the same as the 
+* preferred Status_LED_Read() API because the 
+* Status_LED_ReadDataReg() reads the data register instead of the status 
+* register. For output pins this is a useful function to determine the value 
+* just written to the pin.
 *
-* Return: 
-*  Returns the current value assigned to the Digital Port's data output register
-*  
+* \return 
+*  The current value of the data register masked and shifted into a right 
+*  justified number for the component instance.
+*
+* \funcusage
+*  \snippet Status_LED_SUT.c usage_Status_LED_ReadDataReg 
 *******************************************************************************/
-uint8 Status_LED_ReadDataReg(void) 
+uint8 Status_LED_ReadDataReg(void)
 {
     return (uint8)((Status_LED_DR & Status_LED_MASK) >> Status_LED_SHIFT);
 }
 
 
-/* If Interrupts Are Enabled for this Pins component */ 
-#if defined(Status_LED_INTSTAT) 
+/*******************************************************************************
+* Function Name: Status_LED_SetInterruptMode
+****************************************************************************//**
+*
+* \brief Configures the interrupt mode for each of the Pins component's
+*  pins. Alternatively you may set the interrupt mode for all the pins
+*  specified in the Pins component.
+*
+*  <b>Note</b> The interrupt is port-wide and therefore any enabled pin
+*  interrupt may trigger it.
+*
+* \param position
+*  The pin position as listed in the Pins component. You may OR these to be 
+*  able to configure the interrupt mode of multiple pins within a Pins 
+*  component. Or you may use Status_LED_INTR_ALL to configure the
+*  interrupt mode of all the pins in the Pins component.       
+*  - Status_LED_0_INTR       (First pin in the list)
+*  - Status_LED_1_INTR       (Second pin in the list)
+*  - ...
+*  - Status_LED_INTR_ALL     (All pins in Pins component)
+*
+* \param mode
+*  Interrupt mode for the selected pins. Valid options are documented in
+*  \ref intrMode.
+*
+* \return 
+*  None
+*  
+* \sideeffect
+*  It is recommended that the interrupt be disabled before calling this 
+*  function to avoid unintended interrupt requests. Note that the interrupt
+*  type is port wide, and therefore will trigger for any enabled pin on the 
+*  port.
+*
+* \funcusage
+*  \snippet Status_LED_SUT.c usage_Status_LED_SetInterruptMode
+*******************************************************************************/
+void Status_LED_SetInterruptMode(uint16 position, uint16 mode)
+{
+    uint32 intrCfg;
+    
+    intrCfg =  Status_LED_INTCFG & (uint32)(~(uint32)position);
+    Status_LED_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+}
 
-    /*******************************************************************************
-    * Function Name: Status_LED_ClearInterrupt
-    ********************************************************************************
-    *
-    * Summary:
-    *  Clears any active interrupts attached to port and returns the value of the 
-    *  interrupt status register.
-    *
-    * Parameters:  
-    *  None 
-    *
-    * Return: 
-    *  Returns the value of the interrupt status register
-    *  
-    *******************************************************************************/
-    uint8 Status_LED_ClearInterrupt(void) 
-    {
-		uint8 maskedStatus = (uint8)(Status_LED_INTSTAT & Status_LED_MASK);
-		Status_LED_INTSTAT = maskedStatus;
-        return maskedStatus >> Status_LED_SHIFT;
-    }
 
-#endif /* If Interrupts Are Enabled for this Pins component */ 
+/*******************************************************************************
+* Function Name: Status_LED_ClearInterrupt
+****************************************************************************//**
+*
+* \brief Clears any active interrupts attached with the component and returns 
+*  the value of the interrupt status register allowing determination of which
+*  pins generated an interrupt event.
+*
+* \return 
+*  The right-shifted current value of the interrupt status register. Each pin 
+*  has one bit set if it generated an interrupt event. For example, bit 0 is 
+*  for pin 0 and bit 1 is for pin 1 of the Pins component.
+*  
+* \sideeffect
+*  Clears all bits of the physical port's interrupt status register, not just
+*  those associated with the Pins component.
+*
+* \funcusage
+*  \snippet Status_LED_SUT.c usage_Status_LED_ClearInterrupt
+*******************************************************************************/
+uint8 Status_LED_ClearInterrupt(void)
+{
+	uint8 maskedStatus = (uint8)(Status_LED_INTSTAT & Status_LED_MASK);
+	Status_LED_INTSTAT = maskedStatus;
+    return maskedStatus >> Status_LED_SHIFT;
+}
 
 
 /* [] END OF FILE */

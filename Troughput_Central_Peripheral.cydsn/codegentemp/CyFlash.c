@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: CyFlash.c
-* Version 5.20
+* Version 5.30
 *
 *  Description:
 *   Provides an API for the FLASH.
@@ -285,6 +285,105 @@ void CySysFlashSetWaitCycles(uint32 freq)
 
     CyExitCriticalSection(interruptState);
 }
+
+#if (CY_SFLASH_XTRA_ROWS)
+/*******************************************************************************
+* Function Name: CySysSFlashWriteUserRow
+********************************************************************************
+*
+* Summary:
+*  Writes data to a row of SFlash user configurable area.
+*
+*  This API is applicable for PSoC 4100 BLE, PSoC 4200 BLE, PSoC 4100M,
+*  PSoC 4200M, and PSoC 4200L family of devices.
+*
+* Parameters:
+*  uint16 rowNum:
+*   The flash row number. The flash row number. The number of the flash rows is
+*   defined by the CY_SFLASH_NUMBER_USERROWS macro for the selected device.
+*   Valid range is 0-3. Refer to the device TRM for details.
+*
+*  uint8* rowData:
+*   Array of bytes to write. The size of the array must be equal to the flash
+*   row size. The flash row size for the selected device is defined by the
+*   CY_SFLASH_SIZEOF_USERROW macro. Refer to the device TRM for the details.
+*
+* Return:
+*  Status
+*     Value                     Description
+*    CY_SYS_SFLASH_SUCCESS          Successful
+*    CY_SYS_SFLASH_INVALID_ADDR     Specified flash row address is invalid
+*    CY_SYS_SFLASH_PROTECTED        Specified flash row is protected
+*    Other non-zero                 Failure
+*
+*******************************************************************************/
+uint32 CySysSFlashWriteUserRow(uint32 rowNum, const uint8 rowData[])
+{
+    volatile uint32 retValue = CY_SYS_FLASH_SUCCESS;
+    volatile uint32 clkCnfRetValue = CY_SYS_FLASH_SUCCESS;
+    volatile uint32 parameters[(CY_FLASH_SIZEOF_ROW + CY_FLASH_SRAM_ROM_DATA)/4u];
+    uint8  interruptState;
+
+
+    if ((rowNum < CY_SFLASH_NUMBER_USERROWS) && (rowData != 0u))
+    {
+        /* Load Flash Bytes */
+        parameters[0u] = (uint32) (CY_FLASH_GET_MACRO_FROM_ROW(rowNum)        << CY_FLASH_PARAM_MACRO_SEL_OFFSET) |
+                         (uint32) (CY_FLASH_PAGE_LATCH_START_ADDR             << CY_FLASH_PARAM_ADDR_OFFSET     ) |
+                         (uint32) (CY_FLASH_KEY_TWO(CY_FLASH_API_OPCODE_LOAD) << CY_FLASH_PARAM_KEY_TWO_OFFSET  ) |
+                         CY_FLASH_KEY_ONE;
+        parameters[1u] = CY_FLASH_SIZEOF_ROW - 1u;
+
+        (void)memcpy((void *)&parameters[2u], rowData, CY_FLASH_SIZEOF_ROW);
+        CY_FLASH_CPUSS_SYSARG_REG = (uint32) &parameters[0u];
+        CY_FLASH_CPUSS_SYSREQ_REG = CY_FLASH_CPUSS_REQ_START | CY_FLASH_API_OPCODE_LOAD;
+        retValue = CY_FLASH_API_RETURN;
+
+        if(retValue == CY_SYS_FLASH_SUCCESS)
+        {
+            /***************************************************************
+            * Mask all the exceptions to guarantee that Flash write will
+            * occur in the atomic way. It will not affect system call
+            * execution (flash row write) since it is executed in the NMI
+            * context.
+            ***************************************************************/
+            interruptState = CyEnterCriticalSection();
+
+            clkCnfRetValue = CySysFlashClockBackup();
+
+        #if(CY_IP_SPCIF_SYNCHRONOUS)
+            if(clkCnfRetValue == CY_SYS_FLASH_SUCCESS)
+            {
+                retValue = CySysFlashClockConfig();
+            }
+        #endif  /* (CY_IP_SPCIF_SYNCHRONOUS) */
+
+            if(retValue == CY_SYS_FLASH_SUCCESS)
+            {
+                /* Write User Sflash Row */
+                parameters[0u]  = (uint32) (((uint32) CY_FLASH_KEY_TWO(CY_FLASH_API_OPCODE_WRITE_SFLASH_ROW) <<  CY_FLASH_PARAM_KEY_TWO_OFFSET) | CY_FLASH_KEY_ONE);
+                parameters[1u] = (uint32) rowNum;
+
+                CY_FLASH_CPUSS_SYSARG_REG = (uint32) &parameters[0u];
+                CY_FLASH_CPUSS_SYSREQ_REG = CY_FLASH_CPUSS_REQ_START | CY_FLASH_API_OPCODE_WRITE_SFLASH_ROW;
+                retValue = CY_FLASH_API_RETURN;
+            }
+
+            if(clkCnfRetValue == CY_SYS_FLASH_SUCCESS)
+            {
+                clkCnfRetValue = CySysFlashClockRestore();
+            }
+            CyExitCriticalSection(interruptState);
+        }
+    }
+    else
+    {
+        retValue = CY_SYS_FLASH_INVALID_ADDR;
+    }
+
+    return (retValue);
+}
+#endif /* (CY_SFLASH_XTRA_ROWS) */
 
 
 /*******************************************************************************

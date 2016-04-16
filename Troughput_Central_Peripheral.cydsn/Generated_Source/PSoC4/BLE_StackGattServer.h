@@ -1,25 +1,20 @@
 /***************************************************************************//**
 * \file CYBLE_StackGattServer.h
-* \version 2.30
+* \version 3.10
 * 
 * \brief
 *  This file contains the GATT Server routines
 * 
 * Related Document:
-*  BLE Standard Spec - CoreV4.1, CSS, CSAs, ESR05, ESR06
+*  BLE Standard Spec - CoreV4.2, CoreV4.1, CSS, CSAs, ESR05, ESR06
 * 
 ********************************************************************************
 * \copyright
-* Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2014-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
 *******************************************************************************/
-
-/**
- \addtogroup group_common_api_gatt_definitions
- @{
-*/
 
 
 #ifndef CY_BLE_CYBLE_STACK_GATT_SERVER_INTERNAL_H
@@ -47,6 +42,11 @@
 /***************************************
 * Exported structures
 ***************************************/
+
+/**
+ \addtogroup group_common_api_gatt_definitions
+ @{
+*/
 
 /** Handle value notification data to be sent to Client */
 typedef CYBLE_GATT_HANDLE_VALUE_PAIR_T CYBLE_GATTS_HANDLE_VALUE_NTF_T;
@@ -211,14 +211,33 @@ typedef struct
 * \return
 *  CYBLE_API_RESULT_T : Return value indicates if the function succeeded or
 *  failed. Following are the possible error codes.
-*
-*  Errors codes                          | Description
-*  ------------                          | -----------
-*   CYBLE_ERROR_OK                       | On successful operation
-*   CYBLE_ERROR_INVALID_PARAMETER        | 'connHandle' value does not represent any existing entry in the Stack
-*   CYBLE_ERROR_INVALID_OPERATION        | This operation is not permitted as BLE Stack is busy processing previous requests.
-*   CYBLE_ERROR_MEMORY_ALLOCATION_FAILED | Memory allocation failed
 * 
+*  <table>
+*  <tr>
+*    <th>Errors codes</th>
+*    <th>Description</th>
+*  </tr>
+*  <tr>
+*    <td>CYBLE_ERROR_OK</td>
+*    <td>On successful operation</td>
+*  </tr>
+*  <tr>
+*    <td>CYBLE_ERROR_INVALID_PARAMETER</td>
+*    <td>'connHandle' value does not represent any existing entry in the Stack</td>
+*  </tr>
+*  <tr>
+*    <td>CYBLE_ERROR_INVALID_OPERATION</td>
+*    <td>This operation is not permitted as BLE Stack is busy processing previous requests. The Error code is
+         returned if the stack queue is full or for other reasons, the stack cannot 
+  		 process the operation. If stack busy event 'CYBLE_EVT_STACK_BUSY_STATUS' 
+  		 is triggered with status busy, calling this API will trigger this error code. For details
+  		 refer 'CYBLE_EVT_STACK_BUSY_STATUS' event</td>
+*  </tr>
+*  <tr>
+*    <td>CYBLE_ERROR_MEMORY_ALLOCATION_FAILED</td>
+*    <td>Memory allocation failed</td>
+*  </tr>
+* </table>
 ******************************************************************************/
 CYBLE_API_RESULT_T CyBle_GattsNotification
 (
@@ -233,7 +252,7 @@ CYBLE_API_RESULT_T CyBle_GattsNotification
 * 
 *  This function sends an indication to the peer device when the GATT Server is
 *  configured to indicate a Characteristic Value to the GATT Client and expects
-*  an Attribute Protocol layer acknowledgement that the indication was 
+*  an Attribute Protocol layer acknowledgment that the indication was 
 *  successfully received. This is a non-blocking function.
 * 
 *  On enabling indication successfully, if the GATT server has an updated value to be 

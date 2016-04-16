@@ -65,6 +65,8 @@ void StrToHex(char *pbDest, char *pbSrc, int nLen);
 #define START               (1u)
 #define OVER                (0u)
 
+
+#define PASSKEY             12345//配对密码一定要少于等于999999
 //#define RELEASE
 /***************************************
 * 串口波特率设置

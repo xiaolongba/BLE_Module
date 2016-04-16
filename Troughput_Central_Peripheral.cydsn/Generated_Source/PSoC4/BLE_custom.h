@@ -1,13 +1,13 @@
 /***************************************************************************//**
 * \file CYBLE_custom.h
-* \version 2.30
+* \version 3.10
 * 
 * \brief
 *  Contains the function prototypes and constants for the Custom Service.
 * 
 ********************************************************************************
 * \copyright
-* Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2014-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -37,8 +37,10 @@
 
 
 #define CYBLE_TROUGHPUT_SERVICE_SERVICE_HANDLE   (0x000Cu) /* Handle of Troughput Service service */
+#define CYBLE_TROUGHPUT_SERVICE_CUSTOM_CHARACTERISTIC_DECL_HANDLE   (0x000Du) /* Handle of Custom Characteristic characteristic declaration */
 #define CYBLE_TROUGHPUT_SERVICE_CUSTOM_CHARACTERISTIC_CHAR_HANDLE   (0x000Eu) /* Handle of Custom Characteristic characteristic */
 #define CYBLE_TROUGHPUT_SERVICE_CUSTOM_CHARACTERISTIC_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE   (0x000Fu) /* Handle of Client Characteristic Configuration descriptor */
+#define CYBLE_TROUGHPUT_SERVICE_SPEEDTEST_DECL_HANDLE   (0x0010u) /* Handle of SpeedTest characteristic declaration */
 #define CYBLE_TROUGHPUT_SERVICE_SPEEDTEST_CHAR_HANDLE   (0x0011u) /* Handle of SpeedTest characteristic */
 
 

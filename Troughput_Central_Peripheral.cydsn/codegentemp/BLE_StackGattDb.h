@@ -1,16 +1,16 @@
 /***************************************************************************//**
 * \file CYBLE_StackGattDb.h
-* \version 2.30
+* \version 3.10
 * 
 * \brief
 *  This file contains the data structure for GATT Database
 * 
 * Related Document:
-*  BLE Standard Spec - CoreV4.1, CSS, CSAs, ESR05, ESR06
+*  BLE Standard Spec - CoreV4.2, CoreV4.1, CSS, CSAs, ESR05, ESR06
 * 
 ********************************************************************************
 * \copyright
-* Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2014-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -26,6 +26,7 @@
 ***************************************/
 
 #include "cytypes.h"
+#include "BLE_StackGatt.h"
     
     
 /***************************************
@@ -53,19 +54,20 @@
     3. <B2>, <B3>Implementation Specific */
 
 /* Attribute permissions <B0>: Bluetooth Spec Defined */
-#define CYBLE_GATT_DB_ATTR_PROP_READ                0x01u
-#define CYBLE_GATT_DB_ATTR_PROP_WRITE               0x02u
-#define CYBLE_GATT_DB_ATTR_PROP_RD_WR               0x04u
-#define CYBLE_GATT_DB_ATTR_PROP_SEC_ENCRYPT         0x08u
-#define CYBLE_GATT_DB_ATTR_PROP_SEC_AUTHENTICATE    0x10u
-#define CYBLE_GATT_DB_ATTR_PROP_SEC_AUTHORIZE       0x20u
-
+#define CYBLE_GATT_DB_ATTR_PROP_READ                	0x01u
+#define CYBLE_GATT_DB_ATTR_PROP_WRITE               	0x02u
+#define CYBLE_GATT_DB_ATTR_PROP_RD_WR               	0x04u
+#define CYBLE_GATT_DB_ATTR_PROP_SEC_ENCRYPT         	0x08u
+#define CYBLE_GATT_DB_ATTR_PROP_SEC_AUTHENTICATE    	0x10u
+#define CYBLE_GATT_DB_ATTR_PROP_SEC_AUTHORIZE       	0x20u
+#define CYBLE_GATT_DB_ATTR_PROP_SEC_SC_AUTHENTICATE    	0x40u
+    
     
 #define CYBLE_GATT_DB_ATTR_PROP_MASK                0x000000FFu
     
 #define CYBLE_GATT_DB_ATTR_PROP_BIT_SHIFT           0x0u
     
-#define CYBLE_GATT_DB_SECURITY_MASK                 0x38u
+#define CYBLE_GATT_DB_SECURITY_MASK                 0x78u
 
 #define CYBLE_GATT_DB_SECURITY_BIT_SHIFT            0x3u
 
@@ -215,17 +217,17 @@ typedef struct
 
 }CYBLE_GATTS_ATT_PACK_VAL_LEN_T;
 
-/* Attribute value type used in GATT database */
+/** Attribute value type used in GATT database */
 typedef union
 {    
-  /* Buffer containing 32-bit or 128-bit UUID values for Service and
+   /** Buffer containing 32-bit or 128-bit UUID values for Service and
       Characteristic declaration.
       Attribute format structure: if entry is for characteristic value format, 
       then it has the "attribute format value" of pointer type to represent generic
       structure to cater wide formats of available list of characteristic formats. */
 	CYBLE_GATTS_ATT_PACK_VAL_LEN_T  	attFormatValue;
 
-	/* Attribute UUID value */
+	/** Attribute UUID value */
 	uint16 				attValueUuid;
 
 } CYBLE_GATTS_ATT_VALUE_T;
@@ -258,14 +260,13 @@ typedef struct
     /** Attribute value format, it can be one of following:
         * uint16 16bit - UUID for 16bit service & characteristic declaration
         * CYBLE_GATTS_ATT_GENERIC_VAL_T attFormatValue - Buffer containing 32 bit
-            or 128 bit UUID values for service & charactertistic declaration
-        * CYBLE_GATTS_ATT_GENERIC_VAL_T attFormatValue - Buffer contraining generic 
+            or 128 bit UUID values for service & characteristic declaration
+        * CYBLE_GATTS_ATT_GENERIC_VAL_T attFormatValue - Buffer containing generic 
             char definition value, or generic descriptor values
      */
 	CYBLE_GATTS_ATT_VALUE_T 	attValue;
  } CYBLE_GATTS_DB_T; 
 
-/** @} */
 
 /***************************************
 * Characteristic Descriptors definitions
@@ -282,12 +283,21 @@ typedef struct
     7. Characteristic Presentation format (If any)
     8. Characteristic Aggregate format (If any)
  */
+
+/** Characteristic Extended Property */
 typedef CYBLE_GATTS_ATT_VALUE_T      CYBLE_CHAR_EXT_PRPRTY_T;
+/** Characteristic User Description */
 typedef CYBLE_GATTS_ATT_VALUE_T      CYBLE_CHAR_USER_DESCRIPTION_T;
+/** Client Characteristic Configuration */
 typedef CYBLE_GATTS_ATT_VALUE_T      CYBLE_CLIENT_CHAR_CONFIG_T;
+/** Server Characteristic Configuration */
 typedef CYBLE_GATTS_ATT_VALUE_T      CYBLE_SERVER_CHAR_CONFIG_T;
+/** Characteristic Presentation Format */
 typedef CYBLE_GATTS_ATT_VALUE_T      CYBLE_CHAR_PRESENT_FMT_T;
+/** Characteristic Aggregate Format */
 typedef CYBLE_GATTS_ATT_VALUE_T      CYBLE_CHAR_AGGREGATE_FMT_T;
+
+/** @} */
 
 /**
  \addtogroup group_common_api_gatt_server_functions
@@ -312,7 +322,7 @@ typedef CYBLE_GATTS_ATT_VALUE_T      CYBLE_CHAR_AGGREGATE_FMT_T;
 *  \param gattDbMaxValue: Maximum characteristic value length
 * 
 * \return
-*  CYBLE_API_RESULT_T : Return value indicates if the function succeeded or
+*  CYBLE_API_RESULT_T: Return value indicates if the function succeeded or
 *  failed. Following are the possible error codes.
 *
 *  Errors codes                      | Description
@@ -355,21 +365,12 @@ CYBLE_API_RESULT_T CyBle_GattsDbRegister
 * \param offset: Offset at which the data (length in number of bytes) is written.
 * \param connHandle: Pointer to the attribute instance handle, of type 
 *              CYBLE_CONN_HANDLE_T.
-* \param falgs: Attribute permissions. Allowed values are,
+* \param flags: Attribute permissions. Allowed values are,
 *         * CYBLE_GATT_DB_LOCALLY_INITIATED
 *         * CYBLE_GATT_DB_PEER_INITIATED
 * 
 * \return
-*  CYBLE_GATT_ERR_CODE_T : Return value indicates if the function succeeded or
-*  failed. Following are the possible error codes.
-*
-*  Errors codes                          | Description
-*  ------------                          | -----------
-*   CYBLE_GATT_ERR_NONE                  | On successful operation
-*   CYBLE_GATT_ERR_INVALID_HANDLE        | 'handleValuePair.attrHandle' is not valid
-*   CYBLE_GATT_ERR_WRITE_NOT_PERMITTED   | Write operation is not permitted on this attribute
-*   CYBLE_GATT_ERR_INVALID_OFFSET        | Offset value is invalid
-*   CYBLE_GATT_ERR_UNLIKELY_ERROR        | Some other error occurred
+*  Return value is GATT Error code specified in 'CYBLE_GATT_ERR_CODE_T'
 * 
 ******************************************************************************/
 CYBLE_GATT_ERR_CODE_T CyBle_GattsWriteAttributeValue
@@ -500,7 +501,7 @@ CYBLE_GATT_ERR_CODE_T CyBle_GattsDisableAttribute
 * 
 *  This Function sets or clears authorization permission for the GATT database
 * 
-*  \param yesNo : Setting this to '0' turns off authorization on the entire GATT database
+*  \param yesNo: Setting this to '0' turns off authorization on the entire GATT database
 * 			and all attributes marked as authorize will return authorization error.
 * 			Setting this to any non-zero value will authorize the entire GATT
 * 			database and all attributes marked as authorize can be read / written
@@ -512,7 +513,7 @@ CYBLE_GATT_ERR_CODE_T CyBle_GattsDisableAttribute
 *
 *  Errors codes                      | Description
 *  ------------                      | -----------
-*   CYBLE_GATT_ERR_NONE              | On successful operation
+*  CYBLE_GATT_ERR_NONE               | On successful operation
 * 
 ******************************************************************************/
 CYBLE_GATT_ERR_CODE_T CyBle_GattsDbAuthorize(uint8 yesNo);

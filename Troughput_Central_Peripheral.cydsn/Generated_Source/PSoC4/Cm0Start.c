@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: Cm0Start.c
-* Version 5.20
+* Version 5.30
 *
 *  Description:
 *  Startup code for the ARM CM0.
@@ -34,18 +34,24 @@
     #define CY_NUM_ROM_VECTORS      (4u)
 #endif  /* defined (__ICCARM__) */
 
-#if defined(__ARMCC_VERSION)
-    #define INITIAL_STACK_POINTER ((cyisraddress)(uint32)&Image$$ARM_LIB_STACK$$ZI$$Limit)
-#elif defined (__GNUC__)
-    #define INITIAL_STACK_POINTER (&__cy_stack)
-#elif defined (__ICCARM__)
-    #pragma language=extended
-    #pragma segment="CSTACK"
-    #define INITIAL_STACK_POINTER  { .__ptr = __sfe( "CSTACK" ) }
 
-    extern void __iar_program_start( void );
-    extern void __iar_data_init3 (void);
-#endif  /* (__ARMCC_VERSION) */
+#ifndef CY_SYS_INITIAL_STACK_POINTER
+
+    #if defined(__ARMCC_VERSION)
+        #define CY_SYS_INITIAL_STACK_POINTER ((cyisraddress)(uint32)&Image$$ARM_LIB_STACK$$ZI$$Limit)
+    #elif defined (__GNUC__)
+        #define CY_SYS_INITIAL_STACK_POINTER (&__cy_stack)
+    #elif defined (__ICCARM__)
+        #pragma language=extended
+        #pragma segment="CSTACK"
+        #define CY_SYS_INITIAL_STACK_POINTER  { .__ptr = __sfe( "CSTACK" ) }
+
+        extern void __iar_program_start( void );
+        extern void __iar_data_init3 (void);
+    #endif  /* (__ARMCC_VERSION) */
+
+#endif /* CY_SYS_INITIAL_STACK_POINTER */
+
 
 #if defined(__GNUC__)
     #include <errno.h>
@@ -321,41 +327,46 @@ void * _sbrk (int nbytes)
 void Start_c(void)  __attribute__ ((noreturn, noinline));
 void Start_c(void)
 {
-    unsigned regions = __cy_region_num;
-    const struct __cy_region *rptr = __cy_regions;
+    #ifdef CY_BOOT_START_C_CALLBACK
+        CyBoot_Start_c_Callback();
+    #else
+        unsigned regions = __cy_region_num;
+        const struct __cy_region *rptr = __cy_regions;
 
-    /* Initialize memory */
-    for (regions = __cy_region_num; regions != 0u; regions--)
-    {
-        uint32 *src = (uint32 *)rptr->init;
-        uint32 *dst = (uint32 *)rptr->data;
-        unsigned limit = rptr->init_size;
-        unsigned count;
-
-        for (count = 0u; count != limit; count += sizeof (uint32))
+        /* Initialize memory */
+        for (regions = __cy_region_num; regions != 0u; regions--)
         {
-            *dst = *src;
-            dst++;
-            src++;
+            uint32 *src = (uint32 *)rptr->init;
+            uint32 *dst = (uint32 *)rptr->data;
+            unsigned limit = rptr->init_size;
+            unsigned count;
+
+            for (count = 0u; count != limit; count += sizeof (uint32))
+            {
+                *dst = *src;
+                dst++;
+                src++;
+            }
+            limit = rptr->zero_size;
+            for (count = 0u; count != limit; count += sizeof (uint32))
+            {
+                *dst = 0u;
+                dst++;
+            }
+
+            rptr++;
         }
-        limit = rptr->zero_size;
-        for (count = 0u; count != limit; count += sizeof (uint32))
+
+        /* Invoke static objects constructors */
+        __libc_init_array();
+        (void) main();
+
+        while (1)
         {
-            *dst = 0u;
-            dst++;
+            /* If main returns, make sure we don't return. */
         }
 
-        rptr++;
-    }
-
-    /* Invoke static objects constructors */
-    __libc_init_array();
-    (void) main();
-
-    while (1)
-    {
-        /* If main returns, make sure we don't return. */
-    }
+    #endif /* CY_BOOT_START_C_CALLBACK */
 }
 
 
@@ -447,7 +458,10 @@ int __low_level_init(void)
 #if defined (__ICCARM__)
     #pragma location=".ramvectors"
 #else
-    CY_SECTION(".ramvectors")
+    #ifndef CY_SYS_RAM_VECTOR_SECTION
+        #define CY_SYS_RAM_VECTOR_SECTION CY_SECTION(".ramvectors")
+    #endif /* CY_SYS_RAM_VECTOR_SECTION */
+    CY_SYS_RAM_VECTOR_SECTION
 #endif  /* defined (__ICCARM__) */
 cyisraddress CyRamVectors[CY_NUM_VECTORS];
 
@@ -465,11 +479,14 @@ cyisraddress CyRamVectors[CY_NUM_VECTORS];
     #pragma location=".romvectors"
     const intvec_elem __vector_table[CY_NUM_ROM_VECTORS] =
 #else
-    CY_SECTION(".romvectors")
+    #ifndef CY_SYS_ROM_VECTOR_SECTION
+        #define CY_SYS_ROM_VECTOR_SECTION CY_SECTION(".romvectors")
+    #endif /* CY_SYS_ROM_VECTOR_SECTION */
+    CY_SYS_ROM_VECTOR_SECTION
     const cyisraddress RomVectors[CY_NUM_ROM_VECTORS] =
 #endif  /* defined (__ICCARM__) */
 {
-    INITIAL_STACK_POINTER,   /* The initial stack pointer  0 */
+    CY_SYS_INITIAL_STACK_POINTER,   /* The initial stack pointer  0 */
     #if defined (__ICCARM__) /* The reset handler          1 */
         __iar_program_start,
     #else

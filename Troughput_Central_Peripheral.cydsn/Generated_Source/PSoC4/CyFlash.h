@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: CyFlash.h
-* Version 5.20
+* Version 5.30
 *
 *  Description:
 *   Provides the function definitions for the FLASH.
@@ -26,6 +26,9 @@
 *     Function Prototypes
 *******************************************************************************/
 uint32 CySysFlashWriteRow       (uint32 rowNum, const uint8 rowData[]);
+#if (CY_SFLASH_XTRA_ROWS)
+    uint32 CySysSFlashWriteUserRow  (uint32 rowNum, const uint8 rowData[]);
+#endif /* (CY_SFLASH_XTRA_ROWS) */
 void   CySysFlashSetWaitCycles  (uint32 freq);
 
 
@@ -41,12 +44,23 @@ void   CySysFlashSetWaitCycles  (uint32 freq);
 #define CY_FLASH_NUMBER_ROWS            (CYDEV_FLASH_SIZE / CYDEV_FLS_ROW_SIZE)
 #define CY_FLASH_SIZEOF_ROW             (CYDEV_FLS_ROW_SIZE)
 
+#if (CY_SFLASH_XTRA_ROWS)
+    /* SFlash API macros */
+    #define CY_SFLASH_USERBASE              (CYREG_SFLASH_MACRO_0_FREE_SFLASH0)
+    #define CY_SFLASH_SIZE                  (CYDEV_SFLASH_SIZE)
+    #define CY_SFLASH_SIZEOF_USERROW        (CYDEV_FLS_ROW_SIZE)
+    #define CY_SFLASH_NUMBER_USERROWS       (4u)
+#endif /* (CY_SFLASH_XTRA_ROWS) */
 
 /* CySysFlashWriteRow() - return codes */
 #define CY_SYS_FLASH_SUCCESS            (0x00u)
 #define CY_SYS_FLASH_INVALID_ADDR       (0x04u)
 #define CY_SYS_FLASH_PROTECTED          (0x05u)
 
+/* CySysSFlashWriteRow() - return codes */
+#define CY_SYS_SFLASH_SUCCESS            (CY_SYS_FLASH_SUCCESS)
+#define CY_SYS_SFLASH_INVALID_ADDR       (CY_SYS_FLASH_INVALID_ADDR)
+#define CY_SYS_SFLASH_PROTECTED          (CY_SYS_FLASH_PROTECTED)
 
 /* CySysFlashSetWaitCycles() - implementation definitions */
 #define CY_FLASH_WAIT_STATE_EN          (( uint32 )(( uint32 )0x01u << 18u))
@@ -90,7 +104,8 @@ void   CySysFlashSetWaitCycles  (uint32 freq);
 #define CY_FLASH_API_OPCODE_LOAD        (0x04u)
 #define CY_FLASH_API_OPCODE_WRITE_ROW   (0x05u)
 
-#define CY_FLASH_API_OPCODE_PROGRAM_ROW (0x06u)
+#define CY_FLASH_API_OPCODE_PROGRAM_ROW         (0x06u)
+#define CY_FLASH_API_OPCODE_WRITE_SFLASH_ROW    (0x18u)
 
 #define CY_FLASH_API_OPCODE_CLK_CONFIG  (0x15u)
 #define CY_FLASH_API_OPCODE_CLK_BACKUP  (0x16u)

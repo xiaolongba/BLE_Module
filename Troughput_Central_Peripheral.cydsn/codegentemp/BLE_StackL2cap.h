@@ -1,25 +1,20 @@
 /***************************************************************************//**
 * \file CYBLE_StackL2cap.h
-* \version 2.30
+* \version 3.10
 * 
 * \brief
 *  This file contains the L2CAP APIs of the BLE Host Stack IP
 * 
 * Related Document:
-*  BLE Standard Spec - CoreV4.1, CSS, CSAs, ESR05, ESR06
+*  BLE Standard Spec - CoreV4.2, CoreV4.1, CSS, CSAs, ESR05, ESR06
 * 
 ********************************************************************************
 * \copyright
-* Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2014-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
 *******************************************************************************/
-
-/**
- \addtogroup group_common_api_l2cap_definitions
- @{
-*/
 
 
 #ifndef CY_BLE_CYBLE_STACK_L2CAP_H
@@ -97,6 +92,11 @@
 * Exported Enumerations
 ***************************************/
 
+/**
+ \addtogroup group_common_api_l2cap_definitions
+ @{
+*/
+
 /** Reason for command reject event - CYBLE_EVT_L2CAP_COMMAND_REJ */
 typedef enum
 {
@@ -168,7 +168,7 @@ typedef struct
 
 }CYBLE_L2CAP_CBFC_CONNECT_PARAM_T;
 
-/** Connect indication parameter*/
+/** Connect indication parameter */
 typedef struct
 {
 	/** bd handle of the remote device */
@@ -177,7 +177,7 @@ typedef struct
 	/** Local CID */
 	uint16 								lCid; 
 
-	/** PSM value for the Protocol */
+	/** Local PSM value */
 	uint16 								psm; 
 
 	/** L2CAP Credit based flow Connection parameter */
@@ -191,7 +191,7 @@ typedef struct
 	/** bd handle of the remote device */
 	uint8 								bdHandle;
 
-	/** Local CID*/
+	/** Local CID */
 	uint16 								lCid; 
 
 	/** Response codes for Connection parameter update request */
@@ -549,7 +549,7 @@ CYBLE_API_RESULT_T CyBle_L2capCbfcSendFlowControlCredit
 *   CYBLE_ERROR_INVALID_PARAMETER            | If "buffer" is NULL
 *   CYBLE_ERROR_MEMORY_ALLOCATION_FAILED     | Memory allocation failed
 *   CYBLE_ERROR_NO_CONNECTION                | No Link Layer connection is present
-*   CYBLE_L2CAP_CHANNEL_NOT_FOUND            | No L2ACP channel found corresponding to CID
+*   CYBLE_L2CAP_CHANNEL_NOT_FOUND            | No L2CAP channel found corresponding to CID
 *   CYBLE_L2CAP_NOT_ENOUGH_CREDITS           | Not Enough Credits to transfer data
 * 
 ******************************************************************************/

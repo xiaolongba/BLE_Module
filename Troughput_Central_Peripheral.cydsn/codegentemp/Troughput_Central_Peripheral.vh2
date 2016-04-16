@@ -2,7 +2,7 @@
 --	Conversion of Troughput_Central_Peripheral.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Apr 14 23:18:32 2016
+--	Fri Apr 15 23:27:45 2016
 --
 
 USE cypress.cypress.all;
@@ -13,7 +13,7 @@ END top_RTL;
 --------------------------------------------------------
 ARCHITECTURE R_T_L OF top_RTL IS
 SIGNAL \BLE:Net_15\ : bit;
-SIGNAL \BLE:Net_63\ : bit;
+SIGNAL Net_90 : bit;
 SIGNAL \BLE:Net_53\ : bit;
 SIGNAL Net_42 : bit;
 SIGNAL \BLE:Net_55\ : bit;
@@ -107,7 +107,7 @@ one <=  ('1') ;
 \BLE:cy_m0s8_ble\:cy_m0s8_ble_v1_0
 	GENERIC MAP(cy_registers=>"")
 	PORT MAP(interrupt=>\BLE:Net_15\,
-		rf_ext_pa_en=>\BLE:Net_63\);
+		rf_ext_pa_en=>Net_90);
 \BLE:bless_isr\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10")
 	PORT MAP(int_signal=>\BLE:Net_15\);
@@ -161,14 +161,14 @@ one <=  ('1') ;
 		pin_mode=>"I",
 		por_state=>4,
 		sio_group_cnt=>0,
-		sio_hifreq=>"",
+		sio_hifreq=>"00000000",
 		sio_hyst=>"1",
 		sio_ibuf=>"00000000",
 		sio_info=>"00",
 		sio_obuf=>"00000000",
 		sio_refsel=>"00000000",
 		sio_vtrip=>"00000000",
-		sio_vohsel=>"",
+		sio_vohsel=>"00000000",
 		slew_rate=>"0",
 		spanning=>'0',
 		sw_only=>'0',
@@ -234,14 +234,14 @@ one <=  ('1') ;
 		pin_mode=>"B",
 		por_state=>4,
 		sio_group_cnt=>0,
-		sio_hifreq=>"",
+		sio_hifreq=>"00000000",
 		sio_hyst=>"1",
 		sio_ibuf=>"00000000",
 		sio_info=>"00",
 		sio_obuf=>"00000000",
 		sio_refsel=>"00000000",
 		sio_vtrip=>"00000000",
-		sio_vohsel=>"",
+		sio_vohsel=>"00000000",
 		slew_rate=>"0",
 		spanning=>'0',
 		sw_only=>'0',
@@ -328,14 +328,14 @@ Status_LED:cy_psoc3_pins_v1_10
 		pin_mode=>"O",
 		por_state=>4,
 		sio_group_cnt=>0,
-		sio_hifreq=>"",
+		sio_hifreq=>"00000000",
 		sio_hyst=>"1",
 		sio_ibuf=>"00000000",
 		sio_info=>"00",
 		sio_obuf=>"00000000",
 		sio_refsel=>"00000000",
 		sio_vtrip=>"00000000",
-		sio_vohsel=>"",
+		sio_vohsel=>"00000000",
 		slew_rate=>"0",
 		spanning=>'0',
 		sw_only=>'0',
@@ -398,14 +398,14 @@ Connected_LED:cy_psoc3_pins_v1_10
 		pin_mode=>"O",
 		por_state=>4,
 		sio_group_cnt=>0,
-		sio_hifreq=>"",
+		sio_hifreq=>"00000000",
 		sio_hyst=>"1",
 		sio_ibuf=>"00000000",
 		sio_info=>"00",
 		sio_obuf=>"00000000",
 		sio_refsel=>"00000000",
 		sio_vtrip=>"00000000",
-		sio_vohsel=>"",
+		sio_vohsel=>"00000000",
 		slew_rate=>"0",
 		spanning=>'0',
 		sw_only=>'0',
@@ -495,14 +495,14 @@ CTS:cy_psoc3_pins_v1_10
 		pin_mode=>"O",
 		por_state=>4,
 		sio_group_cnt=>0,
-		sio_hifreq=>"",
+		sio_hifreq=>"00000000",
 		sio_hyst=>"1",
 		sio_ibuf=>"00000000",
 		sio_info=>"00",
 		sio_obuf=>"00000000",
 		sio_refsel=>"00000000",
 		sio_vtrip=>"00000000",
-		sio_vohsel=>"",
+		sio_vohsel=>"00000000",
 		slew_rate=>"0",
 		spanning=>'0',
 		sw_only=>'0',

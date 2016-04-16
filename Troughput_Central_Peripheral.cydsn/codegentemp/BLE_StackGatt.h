@@ -1,25 +1,20 @@
 /***************************************************************************//**
 * \file CYBLE_StackGatt.h
-* \version 2.30
+* \version 3.10
 * 
 * \brief
 *  This file contains the GATT APIs of the BLE Host Stack IP
 * 
 * Related Document:
-*  BLE Standard Spec - CoreV4.1, CSS, CSAs, ESR05, ESR06
+*  BLE Standard Spec - CoreV4.2, CoreV4.1, CSS, CSAs, ESR05, ESR06
 * 
 ********************************************************************************
 * \copyright
-* Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2014-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
 *******************************************************************************/
-
-/**
- \addtogroup group_common_api_gatt_definitions
- @{
-*/
 
 
 #ifndef CY_BLE_CYBLE_GATT_STACK_H
@@ -30,6 +25,7 @@
 * Common stack includes
 ***************************************/
 
+#include "BLE_Stack.h"
 #include "cytypes.h"
 
 
@@ -72,6 +68,11 @@
 /***************************************
 * Enumerated Types
 ***************************************/
+
+/**
+ \addtogroup group_common_api_gatt_definitions
+ @{
+*/
 
 /** Opcode which has resulted in error */
 typedef enum
@@ -303,6 +304,14 @@ typedef enum
     /** The Invalid CRC error code is used when the CRC is invalid in the 
        incoming characteristic value. */
 	CYBLE_GATT_ERR_INVALID_CRC = 0x81u,
+    
+    /** A HTTP Control Point request cannot be serviced because content of the URI,
+        the HTTP Headers or the HTTP Entity Body characteristics is not set
+        correctly. */
+	CYBLE_GATTS_ERR_HPS_INVALID_REQUEST = 0x81u,
+    
+    /** Network connection not available. */
+	CYBLE_GATTS_ERR_NETWORK_NOT_AVAILABLE = 0x82u,
 	
 	/** Command Not Supported used by the Alert Notification Server when the Client
        sends incorrect value of the Command ID or Category ID of to the Alert
@@ -363,6 +372,7 @@ typedef uint16 		CYBLE_UUID16;
 /** GATT 128 Bit UUID type */
 typedef struct
 {
+	/** 128 Bit UUID */
     uint8   value[CYBLE_GATT_128_BIT_UUID_SIZE];
 }CYBLE_UUID128_T;
 
@@ -402,7 +412,7 @@ typedef uint16 		CYBLE_GATT_DB_ATTR_HANDLE_T;
 typedef struct
 {
     /** Identifies the peer device(s) bonded or in current connection. Stack supports CYBLE_GAP_MAX_BONDED_DEVICE+1 devices.
-       first device connected is assinged value CYBLE_GAP_MAX_BONDED_DEVICE. If previous 
+       first device connected is assigned value CYBLE_GAP_MAX_BONDED_DEVICE. If previous 
        device is bonded then current device will be assigned value CYBLE_GAP_MAX_BONDED_DEVICE-1, 
        else CYBLE_GAP_MAX_BONDED_DEVICE.
     */
@@ -410,7 +420,7 @@ typedef struct
 
     /** Identifies the ATT Instance. Current implementation supports only one att instance (0) due to availability
        of only on fixed channel for att. This parameter is introduced as part of connection handle to keep the 
-       interface unchanged event if new Bluetooth spect defines more fixed channels for ATT payload. 
+       interface unchanged event if new Bluetooth spec defines more fixed channels for ATT payload. 
     */
     uint8       attId;
 
@@ -431,7 +441,7 @@ typedef struct
     Is used in multiple commands - see CYBLE_GATT_READ_RSP,
     CYBLE_GATT_FIND_BY_TYPE_VALUE_REQ, CYBLE_GATT_READ_BLOB_RSP etc.
   
-    In GATT Read Response for example, if the attribute length is 30 octects
+    In GATT Read Response for example, if the attribute length is 30 octets
     and the GATT MTU is 23 octets, then only first 22 octets can be sent by GATT,
     therefore actual length will be 22 (GATT MTU-1).
     However, if the GATT MTU is configured to be 54 for example, all 30 octets
@@ -441,7 +451,7 @@ typedef struct
     actualLen = length>(GATT MTU-1) ? (GATT MTU-1):len
   
     In case multiple values are being packed, the actual length processed will
-    depend on the available MTU. */
+    depend on the available GATT MTU. */
 typedef struct
 {
     /** Pointer to the value to be packed */
@@ -453,7 +463,7 @@ typedef struct
     /** Out Parameter Indicating Actual Length Packed and sent over the air. Actual length
        can be less than or equal to the 'len' parameter value. This provides information
        to application that what is the actual length of data that is transmitted over the 
-       air. Each GATT procedures defines different length of data that can ne transmitted 
+       air. Each GATT procedures defines different length of data that can be transmitted 
        over the air. If application sends more than that, all data may not transmitted over air.*/
     uint16   actualLen;
 
@@ -502,6 +512,28 @@ typedef struct
     uint16                    			offset;    		
 
 }CYBLE_GATT_HANDLE_VALUE_OFFSET_PARAM_T;
+
+/* memory request parameters for prepare write request*/
+typedef struct
+{
+    /** buffer to which prepare write queue request will be stored 
+		buffer can be calculated as - total buffer = totalAttrValueLength
+        + prepareWriteQueueSize * sizeof (CYBLE_GATT_HANDLE_VALUE_OFFSET_PARAM_T) */
+    uint8	* queueBuffer;
+
+    /** length of attribute value. This value can be max attribute value length
+    		or summation of values lengths which supports long write. Value should be multiple of 
+    		32 bit unsigned integer */    
+	uint16	totalAttrValueLength;
+
+    /** Size of prepareWriteQueue buffer. Application may choose to decide the size base on
+    	(totalAttrValueLength or Max attribute length or summation of values 
+    	lengths which supports long write) /(negotiated or default MTU size - 5)
+	    In case of reliable write, queue depth should at least be equal to number of handles which has 
+	    reliable write support	*/
+    uint16 	prepareWriteQueueSize;
+	
+} CYBLE_PREPARE_WRITE_REQUEST_MEMORY_T;
 
 /** @} */
 

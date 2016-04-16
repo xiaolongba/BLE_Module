@@ -1,18 +1,18 @@
 /***************************************************************************//**
 * \file CYBLE_Stack.h
-* \version 2.30
-* 
+* \version 3.10
+*
 * \brief
 *  This file contains declaration of public BLE APIs other than those covered by
 *  GAP, GATT and L2CAP specific APIs. Also specified are the defines, constants
 *  and data structures required for the APIs.
 * 
 * Related Document:
-*  BLE Standard Spec - CoreV4.1, CSS, CSAs, ESR05, ESR06
+*  BLE Standard Spec - CoreV4.2, CoreV4.1, CSS, CSAs, ESR05, ESR06
 * 
 ********************************************************************************
 * \copyright
-* Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2014-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -27,6 +27,7 @@
 * Common stack includes
 ***************************************/
 
+#include "cyfitter.h"
 #include "cytypes.h"
 
 
@@ -34,37 +35,179 @@
 * Constants
 ***************************************/
 
-#define CYBLE_STACK_STATE_BUSY		   	0x01u
+/* Enable all features */
+#define GAP_CENTRAL
+#define GAP_PERIPHERAL
+#define GATT_SUPPORT_128_BIT_UUID
+#define GATT_SERVER
+#define GATT_CLIENT
+#define ATT_HANDLE_VALUE_NOTIFICATION_SUPPORT
+#define ATT_HANDLE_VALUE_INDICATION_SUPPORT
+#define ATT_MTU_EXCHANGE_SUPPORT
+#define ATT_FIND_INFO_SUPPORT
+#define ATT_FIND_BY_TYPE_VALUE_SUPPORT
+#define ATT_READ_BY_TYPE_SUPPORT
+#define ATT_READ_REQUEST_SUPPORT
+#define ATT_READ_BLOB_SUPPORT
+#define ATT_READ_MULTIPLE_SUPPORT
+#define ATT_READ_BY_GROUP_TYPE_SUPPORT
+#define ATT_WRITE_REQUEST_SUPPORT
+#define ATT_WRITE_COMMAND_SUPPORT
+#define ATT_QUEUED_WRITE_SUPPORT
+#define ATT_SIGNED_WRITE_SUPPORT    
+#define HOST_RESOLVE_PVT_ADDR
+#define L2CAP_SUPPORT_CBFC_MODE
+#define GAP_DYNAMIC_BONDLIST_SUPPORT
+    
+/* BLE 4.2 features */
+#define HCI_PRIVACY_1_2_SUPPORT
+#define HCI_DLE_SUPPORT
+#define SMP_SECURED_CONNECTION_SUPPORT
+#define SMP_HAVE_OOB_SUPPORT
 
+#define CYBLE_STACK_STATE_BUSY		   	0x01u
 #define CYBLE_STACK_STATE_FREE		   	0x00u
+
 
 /***************************************
 * Retention data definition
 ***************************************/
 
 /* Bluetooth Device Address size */
-#define CYBLE_GAP_BD_ADDR_SIZE			                      (0x06u)
+#define CYBLE_GAP_BD_ADDR_SIZE                                          (0x06u)
 
 /***************************************
 *  Memory pool configuration data defines
 ***************************************/
 
 /* Size of internal data buffer structures */
-#define CYBLE_STACK_BUFFER_MGR_UTIL_RAM_SZ                    (0x1Cu)
+#define CYBLE_STACK_BUFFER_MGR_UTIL_RAM_SZ                              (0x1Cu)
+
+/* Default Max ACL Packet Size for LE-DATA packet both for */
+#define CYBLE_LL_DEFAULT_MAX_SUPPORTED_ACL_BUFFER_SZ                    (0xFCu)
+
+/* Default Max ACL Packet Size for Rx LE-DATA Packet
+ * Formula: Default ACL Size (27 bytes) ~ AlignToWord(27) =  28
+ * */
+#define CYBLE_LL_DEFAULT_ACL_MAX_RX_BUFFER_SZ                           (0x1Cu)
+
+
+/* 8 Additional Bytes = (4 bytes of MIC + 4 bytes of HCI header) */
+#define CYBLE_LL_ACL_DATA_PACKET_OVERHEAD_SZ                            (0x08u)
+
+
+/* Default Max ACL Packet Size for Tx LE-DATA Packet
+ *
+ * Formula: Default ACL Size (27 bytes) ~ AlignToWord(27) =  28
+ *
+ * */
+#define CYBLE_LL_DEFAULT_ACL_MAX_TX_BUFFER_SZ                           (0x1Cu)
+
+
+/* Number of Rx ACL Packet buffers, this shall not change
+ * as this should not be user configurable parameter */
+#define CYBLE_LL_DEFAULT_NUM_ACL_RX_PACKETS                             (0x04u)
+
+
+/* Number of Tx ACL Packet buffers */
+#define CYBLE_LL_DEFAULT_NUM_ACL_TX_PACKETS                             (0x04u)
+
+/* Default Tx capability . If DLE is not enabled, this is Tx capability*/
+#define CYBLE_LL_DEFAULT_TX_CAPABILITY                                  (0x1Bu)
+
+/* Default Rx capability . If DLE is not enabled, this is Rx capability*/
+#define CYBLE_LL_DEFAULT_RX_CAPABILITY                                  (0x1Bu)
+
+/* Example for ACL Rx Packets User Configuration
+ * 1) 
+ * CYBLE_LL_DEFAULT_ACL_MAX_BUFFER_SZ can change as User can choose
+ * to support Max RX packet, this should get change based on 
+ * BLE Core 4.2 Data Length Configuration as per
+ * "Max Supported Rx Octets" 
+ * 
+ * 2) 
+ * CYBLE_LL_DEFAULT_NUM_ACL_RX_PACKETS shall be fixed to the defined value
+ * */
+/*#define CYBLE_LL_ACL_RX_HEAP_REQ        (CYBLE_LL_DEFAULT_NUM_ACL_RX_PACKETS * \
+                            (                                                  \
+                                 CYBLE_LL_DEFAULT_MAX_SUPPORTED_ACL_BUFFER_SZ + \
+                                 CYBLE_LL_ACL_DATA_PACKET_OVERHEAD_SZ +    \
+                                 CYBLE_MEM_EXT_SZ                           \
+                            ))
+*/
+/* Example for ACL Tx Packets User Configuration
+ * 1) 
+ * CYBLE_LL_DEFAULT_ACL_MAX_BUFFER_SZ can change as User can choose
+ * to support Max TX packet size, this should get change based on 
+ * BLE Core 4.2 Data Length Configuration as per
+ * "Max Supported Tx Octets"
+ *  
+ *  CYBLE_LL_TOTAL_ACL_MAX_TX_BUFFER_SZ = "Max Supported Tx Octets" + 
+ *  CYBLE_MEM_EXT_SZ (8 bytes = 4 bytes of MIC + 4 bytes of HCI header)
+ *
+ * 
+ * 2) 
+ * CYBLE_LL_DEFAULT_NUM_ACL_RX_PACKETS shall be fixed to the defined value
+ * */
+/*#define CYBLE_LL_ACL_TX_HEAP_REQ        (CYBLE_LL_DEFAULT_NUM_ACL_TX_PACKETS * \
+                            (                                                  \
+                                 CYBLE_LL_DEFAULT_MAX_SUPPORTED_ACL_BUFFER_SZ + \
+                                 CYBLE_LL_ACL_DATA_PACKET_OVERHEAD_SZ +    \
+                                 CYBLE_MEM_EXT_SZ                           \
+                            ))
+*/
+
+/* Internal RAM required for LE Data Length Extension Feature */
+#define CYBLE_LL_DLE_HEAP_REQ                                           (0x50u)
+
+/* Internal RAM required for LE Privacy Extension Feature */
+#define CYBLE_LL_PRIVACY_HEAP_REQ                                       (0x54u)
+
+/* Default RPA List Entry Size */
+#define CYBLE_DEFAULT_RPA_LIST_SZ                                       (0x08u)
+
+/* Default RPA List Entry Size 
+ * DKSH: RPA list support is limited to 8 only for time being */
+#define CYBLE_MAX_RPA_LIST_SZ                                           (0x08u)
+
+/* Example for Total BLE Controller Heap Requirement */
+/*#define CYBLE_LL_CONTROLLER_HEAP_REQ    ((CYBLE_LL_PRIVACY_HEAP_REQ * \
+                                            CYBLE_DEFAULT_RPA_LIST_SZ) + \
+                                            CYBLE_LL_DLE_HEAP_REQ + \
+                                            CYBLE_LL_ACL_TX_HEAP_REQ + \
+                                            CYBLE_LL_ACL_RX_HEAP_REQ)
+*/
+
 
 /* Size of the heap when GATT MTU, L2CAP MTU, MPS sizes are specified as 23 Bytes */
-#define CYBLE_DEFAULT_RAM_SIZE_SOC				(16u + 1024u + 1224u)
+#define CYBLE_DEFAULT_RAM_SIZE_SOC	    		        (16u + 1024u + 824u + 120u)    
 
 /* Size of the heap when the BLE Stack is built in HCI mode */
-#define CYBLE_DEFAULT_RAM_SIZE_HCI				        (16u + 1168u)
+#define CYBLE_DEFAULT_RAM_SIZE_HCI  		                    (16u + 824u + 120u)
 
 #define CYBLE_MEM_EXT_SZ                                          (0x08u)
+
 #define CYBLE_L2CAP_HDR_SZ                                        (0x04u)
 
 /* Buffer size needed for L2cap PSM and CBFC channels */
-#define CYBLE_L2CAP_PSM_SIZE                                    (40u)
-#define CYBLE_L2CAP_CBFC_CHANNEL_SIZE                           (64u)
+#define CYBLE_L2CAP_PSM_SIZE                                         (40u)
+#define CYBLE_L2CAP_CBFC_CHANNEL_SIZE                                (32u)
 
+/* Size of the heap required for Secure connection feature 
+ * This includes memory for SMP FSM, SMP Crypto tool box and ECC
+ */
+#define CYBLE_RAM_SIZE_SECURE_CONNECTIONS                            (860u)
+
+/* Size of the heap required for DLE 
+ * This will depend on configuration parameters. 
+ * Exact formula to be provided yet.
+ */
+#define CYBLE_RAM_SIZE_DLE                                           (0u)
+/* Size of the heap required for LL Privacy feature 
+ * This will depend on configuration parameters. 
+ * Exact formula to be provided yet.
+ */
+#define CYBLE_RAM_SIZE_PRIVACY_1_2                                   (0u)
 
 /* Data Buffer Pool identifiers to support configurable parameters for L2CAP and
  * GATT in BLE Stack 
@@ -74,25 +217,22 @@
 /* Data Buffer index for ATT/GATT Configured MTU Size */
 #define CYBLE_STACK_APP_POOL_1_SZ            	                   	0x00u
 
-/* Data Buffer index for GATT Server maximum attribute size */
-#define CYBLE_STACK_APP_POOL_2_SZ	                               	0x01u
-
 /* Data Buffer index for L2CAP configuration for number of PSM Channels
  * */
-#define CYBLE_STACK_APP_POOL_3_SZ		                           	0x02u
+#define CYBLE_STACK_APP_POOL_2_SZ		                           	0x01u
 
 /* Data Buffer index for L2CAP configuration for number of CBFC Channels
  * */
-#define CYBLE_STACK_APP_POOL_4_SZ                          			0x03u
+#define CYBLE_STACK_APP_POOL_3_SZ                          			0x02u
 
 /* Data Buffer index for L2CAP configured MTU Size */
-#define CYBLE_STACK_APP_POOL_5_SZ                                   0x04u
+#define CYBLE_STACK_APP_POOL_4_SZ                                   0x03u
 
 /* Data Buffer index for L2CAP configured MPS Size */
-#define CYBLE_STACK_APP_POOL_6_SZ                                   0x05u
+#define CYBLE_STACK_APP_POOL_5_SZ                                   0x04u
 
 /* Maximum Application Pool  */
-#define CYBLE_STACK_APP_MIN_POOL                                   (CYBLE_STACK_APP_POOL_6_SZ + 1)
+#define CYBLE_STACK_APP_MIN_POOL                                   (CYBLE_STACK_APP_POOL_5_SZ + 1)
 
 /* BLESS Radio normal gain mode for Rx and Tx */
 #define CYBLE_BLESS_NORMAL_GAIN_MODE                                (0x00u)
@@ -108,9 +248,9 @@
  * on buffer creation as it requires additional 8 bytes and 
  * L2CAP header size (4 bytes)
  * */
-#define CYBLE_GATT_MAX_ATTR_LEN_MAX_VAL                          (0xFFD0u)
+#define CYBLE_GATT_MAX_ATTR_LEN_MAX_VAL                             (0xFFD0u)
 
-#define CYBLE_L2CAP_MTU_MIN_VALUE                                  (0x17u)
+#define CYBLE_L2CAP_MTU_MIN_VALUE                                   (0x17u)
 
 /* Max L2CAP MTU or MPS size can be of 0xFFFF, but Stack has limitation
  * on buffer creation as it requires additional 8 bytes and 
@@ -122,9 +262,22 @@
 
 #define CYBLE_L2CAP_MPS_MAX_VALUE                CYBLE_L2CAP_MTU_MAX_VALUE
 
-#define CYBLE_STACK_FLASH_STORAGE_SIZE           (0x09u + (0x59u * CYBLE_GAP_MAX_BONDED_DEVICE))
+#define CYBLE_STACK_FLASH_STORAGE_SIZE           (0x09u + (0x9Cu * CYBLE_GAP_MAX_BONDED_DEVICE))
 
 
+/* Feature mask for selective features for CYBLE_STACK_CONFIG_PARAM_T */
+#define CYBLE_DLE_FEATURE_MASK                                     (0x01u)
+#define CYBLE_LL_PRIVACY_FEATURE_MASK                              (0x02u)
+#define CYBLE_SECURE_CONN_FEATURE_MASK                             (0x04u)
+
+/* BLESS IP Version for BLE128, BLE256 **, *A revision compatible
+ * with Bluetooth 4.1 Core Specification */
+#define CYBLE_M0S8BLESS_IP_VERSION_4_1                             (0x01u)
+
+/* BLESS IP Version for BLE256 *B, and future revision compatible
+ * with Bluetooth 4.2 and higher version Core Specification */
+#define CYBLE_M0S8BLESS_IP_VERSION_4_2                             (0x02u)
+    
 /***************************************
 * Deprecated definitions
 ***************************************/
@@ -133,6 +286,11 @@
 	Do not use this for new designs. Use CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE
 	instead */
 #define CYBLE_EVT_GAPC_CONNECTION_UPDATE_COMPLETE	CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE
+
+/* Application to provide or free memory */
+#define CYBLE_ALLOC_MEMORY							(0x00u)
+#define CYBLE_FREE_MEMORY							(0x01u)
+
 
 /***************************************
 * Enumerated Types and Structs
@@ -187,6 +345,7 @@ typedef enum
        Event Parameter corresponding to this event will indicate the state of BLE stack's internal protocol buffers
        for the application to safely initiate data transactions (GATT, GAP Security, and L2CAP transactions)
        with the peer BLE device.
+       Event parameter is of type uint8.
 
         * CYBLE_STACK_STATE_BUSY (0x01) = CYBLE_STACK_STATE_BUSY indicates application that BLE stack's internal buffers
         *                   are about to be filled, and the remaining buffers are required to respond peer BLE device
@@ -201,8 +360,21 @@ typedef enum
         *                   The 'CYBLE_EVT_STACK_BUSY_STATUS' event with 'CYBLE_STACK_STATE_FREE' is indicated to 
         *                   application if BLE Stack's internal buffer state has transitioned from 'CYBLE_STACK_STATE_BUSY'
         *                   to 'CYBLE_STACK_STATE_FREE'.
-        **/
+        *
+       To increase BLE stack's internal buffers count and achieve better throughput for attribute MTU greater then 32, 
+       use MaxAttrNoOfBuffer parameter in the Expression view of the Advanced tab.    
+    */
     CYBLE_EVT_STACK_BUSY_STATUS,
+	
+	/** This event is received when stack wants application to provide memory to process remote request.
+       Event parameter is of type CYBLE_MEMORY_REQUEST_T.
+       This event is automatically handled by the component for the CYBLE_PREPARED_WRITE_REQUEST request. 
+       The component allocates sufficient memory for the long write request with assumption that attribute MTU size 
+       is negotiated to the minimum possible value. Application could use dynamic memory allocation to save static 
+       RAM memory consumption. To enable this event for application level, set EnableExternalPrepWriteBuff parameter
+       in the Expression view of the Advanced tab to the true.    
+    */
+	CYBLE_EVT_MEMORY_REQUEST,
 
     /* Range for GAP events - 0x20 to 0x3F */
 
@@ -234,7 +406,7 @@ typedef enum
        be any 6-decimal-digit value. */
     CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST,
 
-    /** This event indicates that the authentication procedure has been completed.
+     /** This event indicates that the authentication procedure has been completed.
 
      The event parameter contains the security information as defined by CYBLE_GAP_AUTH_INFO_T.
      This event is generated at the end of the following three operations:
@@ -262,7 +434,8 @@ typedef enum
     /** This event is generated at the GAP Peripheral end after connection is completed with peer Central device.
     	For GAP Central device, this event is generated as in acknowledgment of receiving this event successfully
     	by BLE Controller. Once connection is done, no more event is required but if fails to establish connection,
-    	'CYBLE_EVT_GAP_DEVICE_DISCONNECTED' is passed to application.      
+    	'CYBLE_EVT_GAP_DEVICE_DISCONNECTED' is passed to application. ' CYBLE_EVT_GAP_ENHANCE_CONN_COMPLETE'
+    	event is triggered instead of 'CYBLE_EVT_GAP_DEVICE_CONNECTED', if Link Layer Privacy is enabled in component customizer.   
 	Event parameter is a pointer to a structure of type CYBLE_GAP_CONN_PARAM_UPDATED_IN_CONTROLLER_T. */
     CYBLE_EVT_GAP_DEVICE_CONNECTED,
 
@@ -297,6 +470,47 @@ typedef enum
        
        Event parameter returns data of type CYBLE_GAP_SMP_KEY_DIST_T containing the peer device keys. */
     CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT,
+    
+    /** This event indicates that the device needs to display passkey during 
+        secure connection pairing procedure. CyBle_GapAuthPassKeyReply() is
+        required to be called with valid parameters on receiving this event.
+        Since no key to be entered by the user for Numeric comparison, 
+        parameter passkey for the function CyBle_GapAuthPassKeyReply will be 
+        ignored.
+        Event parameter is a pointer to a 6 digit Passkey value. */
+    CYBLE_EVT_GAP_NUMERIC_COMPARISON_REQUEST,
+    
+    /** This event is generated when keypress (Secure connections) is received
+       from peer device. */
+    CYBLE_EVT_GAP_KEYPRESS_NOTIFICATION,
+
+    /** This event is generated when OOB generation for Secure connections is complete.  
+       Event parameter is of type 'CYBLE_GAP_OOB_DATA_T' */
+    CYBLE_EVT_GAP_OOB_GENERATED_NOTIFICATION,
+    
+    /** The LE Data Length Change event notifies the Host of a change to either the maximum Payload length or 
+       the maximum transmission time of Data Channel PDUs in either direction. The values reported are the maximum
+       that will actually be used on the connection following the change. Event parameter is of type 
+       'CYBLE_GAP_CONN_DATA_LENGTH_T' */
+    CYBLE_EVT_GAP_DATA_LENGTH_CHANGE,
+
+    /** The LE Enhanced Connection Complete event indicates application that a new connection has been created when 
+        Link Layer Privacy is enabled in component customizer. 
+       Event parameter is of type 'CYBLE_GAP_ENHANCE_CONN_COMPLETE_T' */
+    CYBLE_EVT_GAP_ENHANCE_CONN_COMPLETE,
+	
+    /** The LE Direct Advertising Report event indicates that directed advertisements have been received where 
+       the advertiser is using a resolvable private address for the InitA field in the ADV_DIRECT_IND PDU and the
+       Scanning_Filter_Policy is equal to 0x02 or 0x03. Event parameter is of type 'CYBLE_GAPC_DIRECT_ADV_REPORT_T' */
+    CYBLE_EVT_GAPC_DIRECT_ADV_REPORT,
+
+    /** SMP negotiated auth info event is raised as soon as SMP has completed pairing properties (feature exchange)
+     * negotiation. The event parameter is CYBLE_GAP_AUTH_INFO_T. CYBLE_GAP_AUTH_INFO_T will have the 
+     * negotiated parameter, the pairing should either pass with these negotiated parameters or may fail. This event
+     * is applicable to both GAP Central and GAP Peripheral devices. In GAP Peripheral, this event is called from 
+     * API-CyBle_GappAuthReqReply context.
+     */
+    CYBLE_EVT_GAP_SMP_NEGOTIATED_AUTH_INFO,
 
     /* Range for GATT events - 0x40 to 6F */
 
@@ -309,17 +523,17 @@ typedef enum
     	For GAP Central device, this event is generated as in acknowledgment of receiving this event successfully
     	by BLE Controller. Once connection is done, no more event is required but if fails to establish connection,
     	'CYBLE_EVT_GATT_DISCONNECT_IND' is passed to application.      
-	Event parameter is a pointer to a structure of type CYBLE_GAP_CONN_PARAM_UPDATED_IN_CONTROLLER_T. */
+	Event parameter is a pointer to a structure of type CYBLE_CONN_HANDLE_T. */
     CYBLE_EVT_GATT_CONNECT_IND,
 
     /** GATT is disconnected. Nothing is returned as part of the event parameter. */
     CYBLE_EVT_GATT_DISCONNECT_IND,
 
-    /** 'MTU Exchange Request' received from GATT client device. Event parameter
+    /** 'GATT MTU Exchange Request' received from GATT client device. Event parameter 
        contains the MTU size of type CYBLE_GATT_XCHG_MTU_PARAM_T. */
     CYBLE_EVT_GATTS_XCNHG_MTU_REQ,
 
-    /** 'MTU Exchange Response' received from server device. Event parameter is a
+    /** 'GATT MTU Exchange Response' received from server device. Event parameter is a
        pointer to a structure of type CYBLE_GATT_XCHG_MTU_PARAM_T. */
     CYBLE_EVT_GATTC_XCHNG_MTU_RSP,
 
@@ -371,12 +585,12 @@ typedef enum
     /** 'Execute Write' request from client device. Event parameter is a
        pointer to a structure of type 'CYBLE_GATTS_EXEC_WRITE_REQ_T'
        This event will be triggered before GATT DB is modified. GATT Db will be updated 
-       only if there is no error condition provided by application. Incase of error condition triggered
-       during stack validation, partial write will occur. Write will be cancelled from that handle where 
+       only if there is no error condition provided by application. In case of error condition triggered
+       during stack validation, partial write will occur. Write will be canceled from that handle where 
        error has occurred and error response corresponding to that handle will be sent to remote.
        If at any point of time 'CYBLE_GATT_EXECUTE_WRITE_CANCEL_FLAG' is received in 
        execWriteFlag fields of 'CYBLE_GATTS_EXEC_WRITE_REQ_T' structure, then all previous 
-       writes are cancelled. For execute cancel scenario, all elements of 
+       writes are canceled. For execute cancel scenario, all elements of 
        'CYBLE_GATTS_EXEC_WRITE_REQ_T' should be ignored except execWriteFlag and connHandle.
      */
     CYBLE_EVT_GATTS_EXEC_WRITE_REQ,
@@ -407,11 +621,26 @@ typedef enum
        Event parameters shall be ignored */
     CYBLE_EVT_GATTC_STOP_CMD_COMPLETE,
 
-    /** Event parameters for characteristic read value access event generated by
-       BLE Stack upon an access of Characteristic value read for the
-       characteristic definition which has CYBLE_GATT_DB_ATTR_CHAR_VAL_RD_EVENT
-       property set. */
+   /** Event parameter type is CYBLE_GATTS_CHAR_VAL_READ_REQ_T. It is triggered on server side 
+       when client sends read request and when characteristic has CYBLE_GATT_DB_ATTR_CHAR_VAL_RD_EVENT 
+       property set. This event could be ignored by application unless it need to response by error response which
+       needs to be set in gattErrorCode field of event parameter. */
     CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ,
+
+	/** Event indicates that GATT long procedure is end and stack will not send any further
+    * requests to peer. Either this event or 'CYBLE_EVT_GATTC_ERROR_RSP' will be received
+    * by application. This event may get triggered for below GATT long procedures:
+    * 	1. CyBle_GattcDiscoverAllPrimaryServices
+	* 	2. CyBle_GattcDiscoverPrimaryServiceByUuid
+	* 	3. CyBle_GattcFindIncludedServices
+	* 	4. CyBle_GattcDiscoverAllCharacteristics
+	* 	5. CyBle_GattcDiscoverCharacteristicByUuid
+	* 	6. CyBle_GattcDiscoverAllCharacteristicDescriptors
+	* 	7. CyBle_GattcReadLongCharacteristicValues
+	* 	8. CyBle_GattcReadLongCharacteristicDescriptors	\n
+	* 	Event parameter is ATT opcode for the corresponding long GATT Procedure.
+	*/
+	CYBLE_EVT_GATTC_LONG_PROCEDURE_END,
 
     /* Range for L2CAP events - 0x70 to 0x7F */
 
@@ -496,15 +725,29 @@ typedef enum
        It is not recommended to be used by new design */
     CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND,
 
-    /* Range for future use - 0x80 to 0xFF */
+#ifdef CYBLE_HOST_QUALIFICATION
+	/** Tester to manipulate pairing request or response PDU. Event parameter is a pointer to 1 bytes data.
+	    Tester can manipulate the bits of the byte */
+	CYBLE_EVT_QUAL_SMP_PAIRING_REQ_RSP = 0x80u,
+
+	/** Tester to manipulate local Public Key. Event parameter is a pointer to local public key of size 64 Bytes.
+		Tester can manipulate the bits/bytes */
+	CYBLE_EVT_QUAL_SMP_LOCAL_PUBLIC_KEY,
+
+	/** Tester to assign pairing failed error code. Event parameter is a pointer to 16 bits value.
+		Tester should assign error code to lower bits */
+	CYBLE_EVT_QUAL_SMP_PAIRING_FAILED_CMD,
+
+#endif /* CYBLE_HOST_QUALIFICATION */
+
+    /*##Range for for future use - 0x90 to 0xFF*/
 
     /** This event is used to inform application that flash write is pending
-       Stack internal data structures are modified and require backup .
-       */
+        Stack internal data structures are modified and require backup. */
     CYBLE_EVT_PENDING_FLASH_WRITE = 0xFA,
 
     /** LE PING Authentication Timeout Event to indicate that peer device has not responded
-       with the valid MIC packet within the application configured ping authentication time. */
+        with the valid MIC packet within the application configured ping authentication time. */
     CYBLE_EVT_LE_PING_AUTH_TIMEOUT = 0xFB,
 
 	/** Maximum value of CYBLE_EVENT_T type */
@@ -523,7 +766,7 @@ typedef enum
 typedef enum
 {
     /** No Error occurred */
-    CYBLE_ERROR_OK = 0x00u,
+    CYBLE_ERROR_OK = 0x0000u,
     
     /** At least one of the input parameters is invalid */
     CYBLE_ERROR_INVALID_PARAMETER,
@@ -562,10 +805,10 @@ typedef enum
     /** Security operation failed */
     CYBLE_ERROR_SEC_FAILED,
 
-    /**L2CAP error codes*/
+    /*L2CAP error codes*/
     
     /** L2CAP PSM encoding is incorrect */
-    CYBLE_ERROR_L2CAP_PSM_WRONG_ENCODING = 0x0Du,
+    CYBLE_ERROR_L2CAP_PSM_WRONG_ENCODING = 0x000Du,
     
     /** L2CAP PSM has already been registered */
     CYBLE_ERROR_L2CAP_PSM_ALREADY_REGISTERED,
@@ -590,18 +833,32 @@ typedef enum
     /* Other Codes.  */
     
     /** Device cannot be added to whitelist as it has already been added */
-    CYBLE_ERROR_DEVICE_ALREADY_EXISTS = 0x27u,
+    CYBLE_ERROR_DEVICE_ALREADY_EXISTS = 0x0027u,
     
     /** Write to flash is not permitted */
-    CYBLE_ERROR_FLASH_WRITE_NOT_PERMITED = 0x28u,
+    CYBLE_ERROR_FLASH_WRITE_NOT_PERMITED = 0x0028u,
 
 	/** MIC Authentication failure */
-	CYBLE_ERROR_MIC_AUTH_FAILED = 0x29u,	
-    
-    /** All other errors not covered in the above list map to this error code */
-    CYBLE_ERROR_MAX = 0xFFu,
+	CYBLE_ERROR_MIC_AUTH_FAILED = 0x0029u,	
 
-    /* Profile level API_RESULT codes will be here */
+   /** Controller error codes. These come directly from controller (not host stack)*/
+
+    /** Hardware Failure */
+    CYBLE_ERROR_HARDWARE_FAILURE,
+
+    /** Unsupported feature or parameter value */
+    CYBLE_ERROR_UNSUPPORTED_FEATURE_OR_PARAMETER_VALUE,
+
+    /** Error in flash Write */
+    CYBLE_ERROR_FLASH_WRITE,
+
+	/** Controller Busy */
+    CYBLE_ERROR_CONTROLLER_BUSY = 0x00FEu,
+	
+    /** All other errors not covered in the above list map to this error code */
+    CYBLE_ERROR_MAX = 0x00FFu,
+
+    /* Profile level API_RESULT codes */
     /** Characteristic notifications disabled */
     CYBLE_ERROR_NTF_DISABLED,
 
@@ -614,6 +871,7 @@ typedef enum
 
     /** The state is not valid for current operation */
     CYBLE_ERROR_INVALID_STATE
+
 }CYBLE_API_RESULT_T;
 
 /** BLE power modes */
@@ -679,10 +937,10 @@ typedef enum
     /** ABS PWR = 0dBm, PA_Gain = 0x07 */
     CYBLE_LL_PWR_LVL_0_DBM,           
     /** ABS PWR = 3dBm, PA_Gain = 0x07,
-        PWR_GAIN level is same as 0 dBm, but
-        the ABS_PWR is amplified and applied for both
-        Connection and Advertising channel.
-     */
+     * PWR_GAIN level is same as 0 dBm, but
+     * the ABS_PWR is amplified and applied for both
+     * Connection and Advertising channel.
+     * */
     CYBLE_LL_PWR_LVL_3_DBM,           
     /** ABS PWR = 3dBm, PA_Gain = 0x07 */
     CYBLE_LL_PWR_LVL_MAX
@@ -736,6 +994,39 @@ typedef enum
 	/** Invalid Link Layer clock divider*/
 	CYBLE_LL_ECO_CLK_DIV_INVALID
 } CYBLE_BLESS_ECO_CLK_DIV_T;
+
+/** BLE Stack memory request type */
+typedef enum
+{
+	/** Memory requested for prepare write request */
+	CYBLE_PREPARED_WRITE_REQUEST = 0x00u,
+
+	/** Invalid request */
+	CYBLE_INVALID_REQUEST
+		
+}CYBLE_PROTOCOL_REQ_T;
+
+/** Memory request parameters */
+typedef struct
+{
+    /** Protocol Request type*/
+    CYBLE_PROTOCOL_REQ_T  	request;
+
+    /** event parameter is generated to allocatate memory or to free up previously allocated memory
+    		CYBLE_ALLOC_MEMORY (0) = to allocate memory for request type, 
+    		CYBLE_FREE_MEMORY (1) = free previously allocated memory for the request type*/
+    uint8					allocFree;
+
+	/** This is an output parameter which application needs to fill and pass to BLE Stack as per below table:
+	
+	     request 						| memory							 
+	 	 ------------				  	| ------------ 	
+	     CYBLE_PREPARED_WRITE_REQUEST	| CYBLE_PREPARE_WRITE_REQUEST_MEMORY_T
+	*/
+	void					* configMemory;
+
+} CYBLE_MEMORY_REQUEST_T;
+
 
 /** BLE clock configuration parameters */
 typedef struct
@@ -794,12 +1085,121 @@ typedef struct
     uint8   bufferUnits; 
 } CYBLE_STK_APP_DATA_BUFF_T;
 
+
+/** Configuration structure for Data Length Extension feature */
+typedef struct
+{
+    /** DLE max Tx capability */
+    uint16   dleMaxTxCapability;
+
+    /** DLE max Rx capability */
+    uint16   dleMaxRxCapability;
+
+    /** DLE number of Tx buffers*/
+    uint8   dleNumTxBuffer;
+} CYBLE_DLE_CONFIG_PARAM_T;
+
+/** Configuration structure for LL Privacy feature */
+typedef struct
+{
+    /** Maximum number of possible entries in resolving list */
+    uint8   resolvingListSize;
+} CYBLE_PRIVACY_1_2_CONFIG_PARAM_T;
+
+/**
+ * Configuration structure for enabling selective features 
+ * and passing associated parameters.
+ */
+typedef struct
+{
+    /** Configuration parameter for DLE feature */
+    CYBLE_DLE_CONFIG_PARAM_T           *dleConfig;
+
+    /** Configuration parameter for LL Privacy feature */
+    CYBLE_PRIVACY_1_2_CONFIG_PARAM_T   *privacyConfig;
+
+    /** The feature set mask used to control usage of 
+     * specified feature in BLE stack. If a feature is not selected
+     * then associated parameter pointer can be NULL.
+     */
+    uint16                             feature_mask;
+} CYBLE_STACK_CONFIG_PARAM_T;
+
 /** @} */
 
 
 /***************************************
 * Global Function Declarations
 ***************************************/
+
+
+/******************************************************************************
+* Function Name: CyBle_StackSetFeatureConfig
+***************************************************************************//**
+*
+* This API sets the configuration for Bluetooth 4.2 features in BLE Stack to
+* initialize the corresponding data structures and data buffers to support
+* the features. BLE Stack will create the data buffers for Data length extension
+* feature, LE Privacy 1_2 and Secure connections as specified in the parameters
+* during time of initialization in CyBle_StackInit() API.
+*
+* This is a blocking function. No event is generated on calling this function.
+*
+* \param configParam: pointer to CYBLE_STACK_CONFIG_PARAM_T. This structure contains
+*                     pointers to config params for individual features. Individual
+*                     feature configuration structures can be NULL is that feature is 
+*                     not selected.
+*
+* \param featureHeapReq: Out parameter for returning memory requirement for selected features.
+*
+*
+* \return
+* CYBLE_API_RESULT_T : Return value indicates if the function succeeded or
+* failed. Following are the possible error codes.
+*
+*  Errors codes                     | Description
+*  ------------                     | -----------
+*  CYBLE_ERROR_OK                   | On successful operation.
+*  CYBLE_ERROR_INVALID_PARAMETER    | Invalid configuration parameters passed or invalid combination of configParam and featureMask
+*  CYBLE_ERROR_INVALID_OPERATION    | Invoked after successful stack initialization
+*
+******************************************************************************/
+CYBLE_API_RESULT_T CyBle_StackSetFeatureConfig
+(
+    const CYBLE_STACK_CONFIG_PARAM_T       *configParam,
+    uint16                                 *featureHeapReq
+);
+
+
+/******************************************************************************
+* Function Name: CyBle_StackGetFeatureConfig
+*******************************************************************************
+*
+* This API is used to get Bluetooth 4.2 features configuration made to BLE Stack 
+* during Stack initialization. For more details about configuration please 
+* refer API CyBle_StackSetFeatureConfig.
+*
+* This is a blocking function. No event is generated on calling this function.
+*
+* \param configParam: pointer to CYBLE_STACK_CONFIG_PARAM_T. This structure
+*                     contains pointers to config params for individual 
+*                     features. Application shall provide memory for this
+*                     configuration structure.
+*
+* \return
+* CYBLE_API_RESULT_T : Return value indicates if the function succeeded or
+* failed. Following are the possible error codes.
+*
+*  Errors codes                      | Description
+*  ------------                      | -----------
+*  CYBLE_ERROR_OK                    | On successful operation.
+*  CYBLE_ERROR_INVALID_PARAMETER     | Invalid input parameter. 
+*
+******************************************************************************/
+CYBLE_API_RESULT_T CyBle_StackGetFeatureConfig
+(
+    CYBLE_STACK_CONFIG_PARAM_T       *configParam
+);
 
 
 /******************************************************************************
@@ -815,13 +1215,30 @@ typedef struct
 * module.
 *
 * This is a non-blocking function. A call to this function results in the
-*
 * generation of CYBLE_EVT_STACK_ON event on successful initialization of the
 * BLE Stack.
 *   
 *     
 *  \param CyBLEApplCbFunc: Event callback function to receive events from BLE Stack.
-*                   CYBLE_APP_CB_T is a function pointer type.
+*                  CYBLE_APP_CB_T is a function pointer type. Application is not expected to call 
+*                  stack APIs in the stack call back context. Stack execution should be allowed to
+*                  return unless Stack API explicitly mentions otherwise.
+*
+*                  Following APIs should not be called from BLE Stack callback context but can be called from
+*                   'CYBLE_EVT_GATTC_ERROR_RSP' or 'CYBLE_EVT_GATTC_LONG_PROCEDURE_END' events
+*                   or any not long procedure events.
+*                     1.  CyBle_GattcDiscoverAllPrimaryServices
+*                     2.  CyBle_GattcDiscoverPrimaryServiceByUuid
+*                     3.  CyBle_GattcFindIncludedServices
+*                     4.  CyBle_GattcDiscoverAllCharacteristics
+*                     5.  CyBle_GattcDiscoverCharacteristicByUuid
+*                     6.  CyBle_GattcDiscoverAllCharacteristicDescriptors
+*                     7.  CyBle_GattcReadLongCharacteristicValues
+*                     8.  CyBle_GattcWriteLongCharacteristicValues
+*                     9.  CyBle_GattcReliableWrites
+*                     10. CyBle_GattcReadLongCharacteristicDescriptors
+*                     11. CyBle_GattcWriteLongCharacteristicDescriptors
+*              
 *  \param memoryHeapPtr: Pointer to an array of bytes to be allocated by the BLE component.
 *  				(or the application, if the component's initialization function
 * 				 is not used). The size of the memory to be allocated is as
@@ -871,40 +1288,33 @@ typedef struct
 *  </tr>
 *  <tr>
 *    <td>0</td>
-*    <td>ATT MTU</td>
+*    <td>GATT MTU</td>
 *    <td>Size of MTU + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ</td>
 *    <td>2</td>
 *  </tr>
 *  <tr>
 *    <td>1</td>
-*    <td>Maximum Gatt attribute length (Up to 0xFFD0u) Or Min size of 16u shall be provided for GATT Client role or 
-		 other GAP, GATT roles where this field is not applicable</td>
-*    <td>max attr length + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ</td>
-*    <td>1</td>
+*    <td>Number of PSM supported</td>
+*    <td>((CYBLE_L2CAP_PSM_SIZE + CYBLE_MEM_EXT_SZ) * no of PSM supported)</td>
+*    <td>No of PSM supported</td>
 *  </tr>
 *  <tr>
 *    <td>2</td>
-*    <td>Number of PSM supported</td>
-*    <td>CYBLE_L2CAP_PSM_SIZE + CYBLE_MEM_EXT_SZ</td>
-*    <td>As per application requirement</td>
+*    <td>Number of L2cap CBFC logical</td>
+*    <td>((CYBLE_L2CAP_CBFC_CHANNEL_SIZE + CYBLE_MEM_EXT_SZ) * No of L2cap logical channels)</td>
+*    <td>2 * No of L2cap logical channels</td>
 *  </tr>
 *  <tr>
 *    <td>3</td>
-*    <td>Number of L2cap CBFC logical</td>
-*    <td>CYBLE_L2CAP_CBFC_CHANNEL_SIZE + CYBLE_MEM_EXT_SZ</td>
-*    <td>No of L2cap logical channels</td>
-*  </tr>
-*  <tr>
-*    <td>4</td>
 *    <td>L2cap mtu (0x17 to 0xFFD0u)</td>
 *    <td>Size of L2CAP MTU + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ</td>
 *    <td>No of L2cap logical channels</td>
 *  </tr>
 *  <tr>
-*    <td>5</td>
+*    <td>4</td>
 *    <td>L2cap mps (0x17 to 0xFFD0u)</td>
 *    <td>Size of MPS + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ</td>
-*    <td>(No of L2cap logical channels)*(Size of L2CAP MTU / Size of MPS)</td>
+*    <td>(No of L2cap logical channels)*(Size of L2CAP MTU / Size of MPS (if not Zero))</td>
 *  </tr>
 *  </table>
 * 
@@ -912,12 +1322,13 @@ typedef struct
 *   First four buffers of with valid size (shall be > 12) corresponding to each field are required
 *   for BLE_SOC mode operation, otherwise stack will throw error.
 * 
+*   'dataBuff' will be modified by stack. If application wants to reuse dataBuff, application should keep a copy of it.
+*
 * 	* No of buffers can be increased from 1 to 10 to achieve better throughput if mtu>32.
-* 
 * 	   This is based on application throughput requirement.
 * 
 *  \param bleStackFlashPointer: Pointer to an array of bytes to be allocated by the BLE component for the storing the
-*                         persistant data into the flash. Pointer provided is should be aligned to the flash
+*                         persistent data into the flash. Pointer provided is should be aligned to the flash
 *                         boundary.
 * 
 *  \param bleStackFlashSize: Size of the total flash memory pointed by bleStackFlashPointer
@@ -953,7 +1364,6 @@ typedef struct
 *  </table>
 *     
 ******************************************************************************/
-/* Event callback function prototype to receive events from stack */
 CYBLE_API_RESULT_T CyBle_StackInit
 (
     CYBLE_APP_CB_T 					CyBleAppCbFunc,
@@ -1043,7 +1453,7 @@ CYBLE_API_RESULT_T CyBle_SoftReset(void);
 *   particular low power mode.
 *  
 *   __Active Mode__
-
+*
 *   Bluetooth Low Energy Sub System (BLESS) has three sub-modes in Active mode:
 *    1. Idle
 *    2. Transmit Mode, and
@@ -1053,14 +1463,14 @@ CYBLE_API_RESULT_T CyBle_SoftReset(void);
 *   its registers.
 *   
 *   __Sleep Mode__
-
+*
 *   The clock to the link layer engine and digital modem is gated and the 
 *   (External Crystal Oscillator) ECO continues to run to maintain the link layer
 *   timing. The application cannot enter sleep mode if a Transmit or Receive is 
 *   in progress.
 * 
 *   __Deep Sleep with ECO Off Mode__
-
+*
 *   The ECO is stopped and Watch Crystal Oscillator (WCO) is used to maintain
 *   link layer timing. All the regulators in the Radio Frequency (RF) transceiver
 *   are turned off to reduce leakage current and BLESS logic is kept powered ON
@@ -1070,8 +1480,24 @@ CYBLE_API_RESULT_T CyBle_SoftReset(void);
 *   instant in time domain is greater than the Deep Sleep total wakeup time 
 *   (typically 2ms).
 * 
+*   NOTE: If application is using ECO as source of HFCLK for higher clock accuracy
+*   and calls this API to move BLESS to Deep Sleep mode then HFCLK accuracy and
+*   frequency would be impacted as this API switches HFCLK source from ECO to IMO.
+*   On BLESS wakeup, the HFCLK source would be switched back to ECO.
+*
+*   Recommendation is that application turns on IMO and sets it as HFCLK source before 
+*   calling this API. Upon wakeup due to sources other than BLESS, application can turn
+*   on ECO and switch HFCLK source to ECO. Pseudo code of recommendation is given below.
+*
+*   Pseudo Code:
+*      //Turn on IMO and switch HFCLK to IMO
+*      CyBle_EnterLPM(CYBLE_BLESS_DEEPSLEEP);
+*      CySysPmDeepSleep();
+*      //If exit is not due to BLE and application need to use ECO 
+*      //then turn on ECO and switch HFCLK source to ECO.
+*
 *   __Hibernate mode__
-
+*
 *   The application layer should invoke this function with the Hibernate Mode 
 *   option to put the BLE Stack in to hibernate mode. If this mode is set, the 
 *   micro-controller can be put in to Hibernate Mode by the application layer. 
@@ -1139,10 +1565,10 @@ CYBLE_LP_MODE_T CyBle_EnterLPM(CYBLE_LP_MODE_T pwrMode);
 *  this function. The wake up is not performed for the entire chip. This is a
 *  blocking call and returns when BLE Stack has come out of LPM, and in process
 *  of waking up from BLESS Deep Sleep Mode, BLE Stack puts CPU in Sleep Mode to
-*  save power while polling for wakeup indication from BLESS.No event is
+*  save power while polling for wakeup indication from BLESS. No event is
 *  generated on calling this function. It has no effect if it is invoked when
 *  the BLE Stack is already in active mode.
-*
+* 
 * \return 
 * CYBLE_LP_MODE_T: The actual power mode that BLE stack is now set to. Expected
 *                  return value is CYBLE_BLESS_ACTIVE.
@@ -1154,7 +1580,6 @@ CYBLE_LP_MODE_T CyBle_ExitLPM(void);
 /******************************************************************************
 * Function Name: CyBle_ProcessEvents
 ***************************************************************************//**
-* 
 * 	
 *  This function checks the internal task queue in the BLE Stack, and pending
 *  operation of the BLE Stack, if any. This needs to be called at least once
@@ -1191,16 +1616,18 @@ void CyBle_ProcessEvents(void);
 * Function Name: CyBle_SetDeviceAddress
 ***************************************************************************//**
 * 
-*  This function sets the Bluetooth device address into BLE Controller's memory.
-*  This address shall be used for BLE procedures unless explicitly indicated by
-*  BLE Host through HCI commands. The application layer needs to call this
-*  function every time an address change is required. Bluetooth 4.1 Core
-*  specification [3.12] specifies that the Bluetooth device can change its
-*  private address periodically, with the period being decided by the
-*  application; there are no limits specified on this period. The application
-*  layer should maintain its own timers in order to do this.
-* 
+* This function sets the Bluetooth device address into BLE Stack's memory.
+* This address shall be used for all BLE procedures unless explicitly changed by application.
+* The application layer needs to call this function every time an address change is required. 
+* Bluetooth 4.1 Core specification [3.12] specifies that the Bluetooth device can change its
+* private address periodically, with the period being decided by the
+* application; there are no limits specified on this period. The application
+* layer should maintain its own timers in order to do this.
+*
+* User should call 'CyBle_GapSetIdAddress' API to set identity address if 'CyBle_SetDeviceAddress'
+* API is used to set public or random static address.
 *  This is a blocking function. No event is generated on calling this function.
+*  This API will be obsolete in future.
 * 
 *  \param bdAddr: Bluetooth Device address retrieved from the BLE stack gets stored
 *           to a variable pointed to by this pointer. The variable is of type
@@ -1214,7 +1641,8 @@ void CyBle_ProcessEvents(void);
 *   ------------                     | -----------
 *   CYBLE_ERROR_OK                   | On successful operation.
 *   CYBLE_ERROR_INVALID_PARAMETER    | On specifying NULL as input parameter.
-* 
+*   CYBLE_ERROR_INVALID_OPERATION    | Operation is not permitted when device is in connected state.
+*
 ******************************************************************************/
 CYBLE_API_RESULT_T CyBle_SetDeviceAddress(CYBLE_GAP_BD_ADDR_T* bdAddr);
 
@@ -1294,9 +1722,9 @@ int8 CyBle_GetRssi(void);
 *                   (CYBLE_LL_ADV_CH_TYPE) or data
 *                   channels (CYBLE_LL_CONN_CH_TYPE). 
 * 
-*                 If bleSsPwrLvl->blePwrLevelInDbm is greater than 0dBm, then the
-*                 power level is applicable to both advertisement and 
-*                 connection channel.                  
+*                   If bleSsPwrLvl->blePwrLevelInDbm is greater than 0dBm, then the
+*                   power level is applicable to both advertisement and 
+*                   connection channel.                  
 *
 * \return
 *  CYBLE_API_RESULT_T: Return value indicates if the function succeeded or
@@ -1328,9 +1756,10 @@ CYBLE_API_RESULT_T CyBle_GetTxPowerLevel(CYBLE_BLESS_PWR_IN_DB_T *bleSsPwrLvl);
 *                  channels (CYBLE_LL_ADV_CH_TYPE) or data channels 
 *                  (CYBLE_LL_CONN_CH_TYPE).
 * 
-*                 If bleSsPwrLvl->blePwrLevelInDbm is greater than 0dBm, then the
-*                 power level is applicable to both advertisement and 
-*                 connection channel.
+*   NOTE: The set power level is applicable to both advertisement and connection channel 
+*         for the following scenarios 
+*           - bleSsPwrLvl->blePwrLevelInDbm is greater than 0dB  
+*           - Before calling this API Tx power level is 3dB  
 *
 * \return
 *  CYBLE_API_RESULT_T : Return value indicates if the function succeeded or
@@ -1376,7 +1805,7 @@ CYBLE_API_RESULT_T CyBle_SetTxPowerLevel (CYBLE_BLESS_PWR_IN_DB_T *bleSsPwrLvl);
 *   details on how the SCA is used.
 * 
 *  __Link Layer clock divider__
-*
+
 *   This input decides the frequency of the clock to the link layer. A lower
 *   clock frequency results in lower power consumption. Default clock frequency
 *   for the operation is 24 MHz. BLESS supports 24 MHz, 12 MHz and 8 MHz clock
@@ -1438,7 +1867,7 @@ CYBLE_API_RESULT_T CyBle_GetBleClockCfgParam
 *   details on how the SCA is used.
 * 
 *  __Link Layer clock divider__
-*
+
 *   This input decides the frequency of the clock to the link layer. A lower
 *   clock frequency results in lower power consumption. Default clock frequency
 *   for the operation is 24MHz. BLESS supports 24MHz, 12MHz and 8MHz clock
@@ -1837,7 +2266,7 @@ CYBLE_API_RESULT_T CyBle_AesCcmDecrypt(
 * Function Name: CyBle_SetTxGainMode
 ***************************************************************************//**
 * 
-*  This function configures the Tx gain mode for BLESS radio for Tx operation.
+*  This function configures the Tx gain mode for BLESS radio for Tx operation. 
 * 	
 *  \param bleSsGainMode: Gain mode setting for the output power
 * 
@@ -1855,17 +2284,18 @@ void CyBle_SetTxGainMode(uint8 bleSsGainMode);
 
 
 /******************************************************************************
-* Function Name: CyBle_SetTxGainMode
+* Function Name: CyBle_SetRxGainMode
 ***************************************************************************//**
 * 
-*  This function configures the Rx gain mode for BLESS radio for Rx operation.
+*  This function configures the Rx gain mode to select Higher or Lower Receive
+*  Sensitivity for BLESS radio.
 * 	
-*  \param bleSsGainMode: Gain mode setting for the output power
+*  \param bleSsGainMode: Gain mode setting for the Receiver Sensitivity.
 * 
 *   BLESS RD Gain Mode            | Description
 * 	------------------            | -----------
-*   CYBLE_BLESS_NORMAL_GAIN_MODE  |	0x00u - BLESS Normal Gain Mode Tx Pwr Range -18dBm to 0 dBm Normal Rx Sensitivity
-*   CYBLE_BLESS_HIGH_GAIN_MODE    | 0x01u - BLESS High Gain Mode Tx Pwr Range -18dBm to 3 dBm 3 dBm Additional Rx Sensitivity
+*   CYBLE_BLESS_NORMAL_GAIN_MODE  |	0x00u - BLESS Normal Gain Mode. Rx Sensitivity of -89dBm.
+*   CYBLE_BLESS_HIGH_GAIN_MODE    | 0x01u - BLESS High Gain Mode. Rx Sensitivity of -91dBm.
 *  
 *  \return
 *  none
@@ -1873,7 +2303,136 @@ void CyBle_SetTxGainMode(uint8 bleSsGainMode);
 ******************************************************************************/
 void CyBle_SetRxGainMode(uint8 bleSsGainMode);
 
+
+/******************************************************************************
+* Function Name: CyBle_SetSlaveLatencyMode
+***************************************************************************//**
+*
+* This function overrides the default BLE Stack behavior for LE connection that
+* is established with non zero slave latency. This API can be used by application
+* to force set quick transmission for a link related to specified 'bdHandle' during
+* slave latency period. 
+* 
+* If the force quick transmit option is selected, the device will always respond
+* all the Connection Events (CE) ignoring the slave latency. To re-enable BLE Stack
+* control quick transmit behavior application should call this API with force 
+* quick transmit option set to zero.
+*
+* BLE Stack Control Policy: BLE Stack enables quick transmission whenever any
+* data packet is queued in link layer. Upon successful transmission of data packet
+* BLE Stack resets the quick transmit to enable latency for power save.
+*
+* BLE Stack also enables quick transmit whenever any real time LL Control PDU
+* is received. Once the acknowledgement of the PDU is processed the quick transmit
+* option is reset.
+*
+*
+* \param bdHandle: bdHandle identifying LE connection for which force quick transmit
+*                  option is to be set or reset.
+*
+*  \param setForceQuickTransmit: This parameter is used to set or reset the force quick transmit
+*                                configuration in BLE Stack.\n
+*  * '1': Set the quick transmit behavior, it gets set immediately and disables
+*    over the air slave latency . This quick transmit setting remains true until
+*    application gives control to BLE Stack for controlling quick transmit bit.
+*  * '0': Reset the force quick transmit behavior in BLESS to allow BLE Stack to control
+*    quick transmit behavior when slave latency is applied.
+*
+* \return
+* CYBLE_API_RESULT_T: Return value indicates if the function succeeded or
+* failed. Following are the possible error codes.
+*
+*  Errors codes                 | Description
+*  ------------                 | -----------
+*  CYBLE_ERROR_OK               | On successful operation.
+*  CYBLE_ERROR_NO_CONNECTION    | Invalid bdHandle or LE connection doesn't exist for link identified by bdHandle.
+*
+******************************************************************************/
+CYBLE_API_RESULT_T CyBle_SetSlaveLatencyMode(uint8 bdHandle, uint8 setForceQuickTransmit);
+
+
+/******************************************************************************
+* Function Name: CyBle_SetSeedForRandomGenerator
+***************************************************************************//**
+*
+* This function sets application specific seed for DRBG (Deterministic 
+*  Random number generator).
+*  
+*  \param seed: Seed for DRBG. Setting the seed to zero is functionally 
+*               equivalent to not setting the application specific seed.
+*
+* \return
+*  None.
+*
+******************************************************************************/
+void CyBle_SetSeedForRandomGenerator(uint32 seed);
+
+
+/******************************************************************************
+* Function Name: CyBle_IsLLControlProcPending
+***************************************************************************//**
+*
+* This function checks the Link Layer state for any pending real time
+* control (LL_CHANNEL_MAP, LL_CONNECTION_UPDATE) procedure. When any such 
+* procedure is pending in Link layer busy state it is indicated by Link Layer.
+*
+* Application using specific GAP APIs or L2CAP API that can result
+* in initiation of real time procedures such as LL_CHANNEL_MAP, LL_CONNECTION_UPDATE
+* can check the state of Link Layer to avoid any such rejection from BLE Stack.
+*
+* BLE Stack can reject the new request 
+* If any LL control procedure is pending for completion this API will return 
+* CYBLE_ERROR_CONTROLLER_BUSY.
+*
+* \return
+* CYBLE_API_RESULT_T: Return value indicates the Link Layer status for any pending
+* real time procedure.
+*
+*  Errors codes                     | Description
+*  ------------                     | -----------
+*  CYBLE_ERROR_OK                   | Link Layer is Free.
+*  CYBLE_ERROR_CONTROLLER_BUSY      | Link Layer Control Procedure is pending, no new LL control procedure can be initiated.
+*
+******************************************************************************/
+CYBLE_API_RESULT_T CyBle_IsLLControlProcPending(void);
+
 /** @} */
+
+/** \cond IGNORE */
+
+/******************************************************************************
+* Function Name: CyBle_EnablePrivacyFeature
+*******************************************************************************
+*
+* This function Enables Privacy features in
+* controller. When this function is not called in the application, 
+* Privacy features gets disabled and memory space used in the controller
+* is relinquished.
+*
+* \return
+*    None.
+*
+******************************************************************************/
+void CyBle_EnablePrivacyFeature(void);
+
+
+/******************************************************************************
+* Function Name: CyBle_EnableDleFeature
+*******************************************************************************
+*
+* This function Enables Data Length Extension features in
+* controller. When this function is not called in the application, 
+* DLE features gets disabled and memory space used in the controller
+* is relinquished.
+*
+* \return
+*    None.
+*
+******************************************************************************/
+void CyBle_EnableDleFeature(void);
+
+/** \endcond */
+
 
 #endif /* CY_BLE_CYBLE_STACK_H */
 

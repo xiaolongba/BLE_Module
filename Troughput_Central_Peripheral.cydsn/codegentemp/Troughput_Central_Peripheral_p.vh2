@@ -1,5 +1,5 @@
 -- Project:   Troughput_Central_Peripheral
--- Generated: 04/14/2016 23:18:33
+-- Generated: 04/15/2016 23:27:45
 -- PSoC Creator  3.3 CP2
 
 ENTITY Troughput_Central_Peripheral IS
@@ -46,9 +46,9 @@ ARCHITECTURE __DEFAULT__ OF Troughput_Central_Peripheral IS
     SIGNAL Net_76_ff7 : bit;
     ATTRIBUTE global_signal OF Net_76_ff7 : SIGNAL IS true;
     SIGNAL Net_82 : bit;
+    SIGNAL Net_90 : bit;
     SIGNAL Status_LED(0)__PA : bit;
     SIGNAL \BLE:Net_15\ : bit;
-    SIGNAL \BLE:Net_63\ : bit;
     SIGNAL \UART:Net_1053\ : bit;
     SIGNAL \UART:Net_1055\ : bit;
     SIGNAL \UART:Net_1059\ : bit;
@@ -344,13 +344,13 @@ BEGIN
             port_alias_group => "",
             port_alias_required => 0,
             sio_group_cnt => 0,
-            sio_hifreq => "",
+            sio_hifreq => "00000000",
             sio_hyst => "1",
             sio_ibuf => "00000000",
             sio_info => "00",
             sio_obuf => "00000000",
             sio_refsel => "00000000",
-            sio_vohsel => "",
+            sio_vohsel => "00000000",
             sio_vtrip => "00000000",
             slew_rate => "0",
             spanning => 0,
@@ -436,13 +436,13 @@ BEGIN
             port_alias_group => "",
             port_alias_required => 0,
             sio_group_cnt => 0,
-            sio_hifreq => "",
+            sio_hifreq => "00000000",
             sio_hyst => "1",
             sio_ibuf => "00000000",
             sio_info => "00",
             sio_obuf => "00000000",
             sio_refsel => "00000000",
-            sio_vohsel => "",
+            sio_vohsel => "00000000",
             sio_vtrip => "00000000",
             slew_rate => "0",
             spanning => 0,
@@ -528,13 +528,13 @@ BEGIN
             port_alias_group => "",
             port_alias_required => 0,
             sio_group_cnt => 0,
-            sio_hifreq => "",
+            sio_hifreq => "00000000",
             sio_hyst => "1",
             sio_ibuf => "00000000",
             sio_info => "00",
             sio_obuf => "00000000",
             sio_refsel => "00000000",
-            sio_vohsel => "",
+            sio_vohsel => "00000000",
             sio_vtrip => "00000000",
             slew_rate => "0",
             spanning => 0,
@@ -618,13 +618,13 @@ BEGIN
             port_alias_group => "",
             port_alias_required => 0,
             sio_group_cnt => 0,
-            sio_hifreq => "",
+            sio_hifreq => "00000000",
             sio_hyst => "1",
             sio_ibuf => "00000000",
             sio_info => "00",
             sio_obuf => "00000000",
             sio_refsel => "00000000",
-            sio_vohsel => "",
+            sio_vohsel => "00000000",
             sio_vtrip => "00000000",
             slew_rate => "0",
             spanning => 0,
@@ -708,13 +708,13 @@ BEGIN
             port_alias_group => "",
             port_alias_required => 0,
             sio_group_cnt => 0,
-            sio_hifreq => "",
+            sio_hifreq => "00000000",
             sio_hyst => "1",
             sio_ibuf => "00000000",
             sio_info => "00",
             sio_obuf => "00000000",
             sio_refsel => "00000000",
-            sio_vohsel => "",
+            sio_vohsel => "00000000",
             sio_vtrip => "00000000",
             slew_rate => "0",
             spanning => 0,
@@ -758,7 +758,7 @@ BEGIN
     \BLE:cy_m0s8_ble\:p4blecell
         PORT MAP(
             interrupt => \BLE:Net_15\,
-            rfctrl_extpa_en => \BLE:Net_63\);
+            rfctrl_extpa_en => Net_90);
 
     \BLE:bless_isr\:interrupt
         GENERIC MAP(

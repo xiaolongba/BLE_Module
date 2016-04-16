@@ -50,9 +50,11 @@
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\Status_LED.c" value="ARM_C_FILE;Status_LED" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\Status_LED.h" value="NONE;Status_LED" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\Status_LED_aliases.h" value="NONE;Status_LED" />
+  <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\Status_LED_PM.c" value="ARM_C_FILE;Status_LED" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\Connected_LED.c" value="ARM_C_FILE;Connected_LED" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\Connected_LED.h" value="NONE;Connected_LED" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\Connected_LED_aliases.h" value="NONE;Connected_LED" />
+  <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\Connected_LED_PM.c" value="ARM_C_FILE;Connected_LED" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\TimerInterrupt.c" value="ARM_C_FILE;TimerInterrupt" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\TimerInterrupt.h" value="NONE;TimerInterrupt" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\TimerClock.c" value="ARM_C_FILE;TimerClock" />
@@ -63,6 +65,7 @@
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\CTS.c" value="ARM_C_FILE;CTS" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\CTS.h" value="NONE;CTS" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\CTS_aliases.h" value="NONE;CTS" />
+  <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\CTS_PM.c" value="ARM_C_FILE;CTS" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\BLE_bless_isr.c" value="ARM_C_FILE;BLE_bless_isr" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\BLE_bless_isr.h" value="NONE;BLE_bless_isr" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\UART_SCBCLK.c" value="ARM_C_FILE;UART_SCBCLK" />
@@ -70,11 +73,13 @@
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\UART_rx_wake.c" value="ARM_C_FILE;UART_rx_wake" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\UART_rx_wake.h" value="NONE;UART_rx_wake" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\UART_rx_wake_aliases.h" value="NONE;UART_rx_wake" />
+  <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\UART_rx_wake_PM.c" value="ARM_C_FILE;UART_rx_wake" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\UART_RX_WAKEUP_IRQ.c" value="ARM_C_FILE;UART_RX_WAKEUP_IRQ" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\UART_RX_WAKEUP_IRQ.h" value="NONE;UART_RX_WAKEUP_IRQ" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\UART_tx.c" value="ARM_C_FILE;UART_tx" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\UART_tx.h" value="NONE;UART_tx" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\UART_tx_aliases.h" value="NONE;UART_tx" />
+  <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\UART_tx_PM.c" value="ARM_C_FILE;UART_tx" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\UART_SCB_IRQ.c" value="ARM_C_FILE;UART_SCB_IRQ" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\UART_SCB_IRQ.h" value="NONE;UART_SCB_IRQ" />
   <file name="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\codegentemp\BLE.cycsa" value="NONE;" />

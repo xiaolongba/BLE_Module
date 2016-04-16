@@ -1,13 +1,13 @@
 /***************************************************************************//**
 * \file CYBLE.h
-* \version 2.30
+* \version 3.10
 * 
 * \brief
 *  Contains the function prototypes and constants available to the BLE component.
 * 
 ********************************************************************************
 * \copyright
-* Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2014-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -18,8 +18,10 @@
 #define CY_BLE_CYBLE_H
 
 #include "cytypes.h"
+#include "cyfitter.h"
 #include "CyLib.h"
 #include "CyFlash.h"
+
 
 /***************************************
 * Stack includes
@@ -35,7 +37,7 @@
 
 
 /***************************************
-* Conditional Compilation Parameters
+* Other Conditional Compilation Parameters
 ***************************************/
     
 #if defined(__GNUC__) || defined(__ARMCC_VERSION)
@@ -44,9 +46,11 @@
     #define CYBLE_CYPACKED_ATTR __attribute__ ((packed))
     #define CYBLE_CYALIGNED_BEGIN
     #define CYBLE_CYALIGNED_END __attribute__ ((aligned))
+    #define CYBLE_UNUSED_ATTR __attribute__ ((unused))
 #elif defined(__ICCARM__)
     #define CYBLE_CYPACKED __packed
     #define CYBLE_CYPACKED_ATTR 
+    #define CYBLE_UNUSED_ATTR
     #define CYBLE_CYALIGNED_BEGIN _Pragma("data_alignment=4")
     #define CYBLE_CYALIGNED_END
     /* For IAR data alignment is handled directly prior structure declaration */
@@ -65,6 +69,30 @@
 #define CYBLE_STACK_RELEASE                         (3u)
 #define CYBLE_STACK_MODE_DEBUG                      (CYBLE_STACK_MODE == CYBLE_STACK_DEBUG)
 #define CYBLE_STACK_MODE_RELEASE                    (CYBLE_STACK_MODE == CYBLE_STACK_RELEASE)
+    
+#define CYBLE_M0S8BLESS_VERSION                     (CYIPBLOCK_m0s8bless_VERSION)
+#define CYBLE_M0S8BLESS_VERSION_2                   (CYBLE_M0S8BLESS_VERSION > 1u)
+    
+#if(CYBLE_MODE_PROFILE)
+    #define CYBLE_AUTO_POPULATE_WHITELIST           (0x01u)
+    #if(CYBLE_M0S8BLESS_VERSION_2)
+        #define CYBLE_MAX_RESOLVABLE_DEVICES        (0x08u)
+        #define CYBLE_ENABLE_LL_PRIVACY             (0x00u)
+    #else
+        #define CYBLE_MAX_RESOLVABLE_DEVICES        (0u)
+        #define CYBLE_ENABLE_LL_PRIVACY             (0u)
+    #endif /* CYBLE_M0S8BLESS_VERSION_2 */
+    #define CYBLE_GAP_SECURITY_LEVEL                (0x02u)
+#else
+    #if(CYBLE_M0S8BLESS_VERSION_2)
+        #define CYBLE_MAX_RESOLVABLE_DEVICES        (CYBLE_DEFAULT_RPA_LIST_SZ)    
+        #define CYBLE_ENABLE_LL_PRIVACY             (1u)
+    #else
+        #define CYBLE_MAX_RESOLVABLE_DEVICES        (0u)
+        #define CYBLE_ENABLE_LL_PRIVACY             (0u)
+    #endif /* CYBLE_M0S8BLESS_VERSION_2 */
+    #define CYBLE_GAP_SECURITY_LEVEL                (0x0u)
+#endif /* CYBLE_MODE_PROFILE */
 
 #define CYBLE_SHARING_NONE                          (0u)
 #define CYBLE_SHARING_EXPORT                        (1u)
@@ -72,6 +100,12 @@
 #define CYBLE_SHARING_MODE                          (0u)  
 #define CYBLE_SHARING_MODE_EXPORT                   (CYBLE_SHARING_MODE == CYBLE_SHARING_EXPORT)  
 #define CYBLE_SHARING_MODE_IMPORT                   (CYBLE_SHARING_MODE == CYBLE_SHARING_IMPORT)  
+
+#define CYBLE_FLASH_SIZE                            ((CYDEV_FLASH_SIZE >> 17u) & 0xff)  /* 1 - 128k, 2 - 256k */
+#define CYBLE_PSVP_DEVICE                           (0u)
+
+/* Align buffer size value to 4 */
+#define CYBLE_ALIGN_TO_4(x)                         ((((x) & 3u) == 0u) ? (x) : (((x) - ((x) & 3u)) + 4u))
 
 #if(CYBLE_MODE_PROFILE)
     
@@ -89,10 +123,10 @@
 #define CYBLE_GAP_ROLE_BROADCASTER                  (0u != (CYBLE_GAP_ROLE & CYBLE_GAP_BROADCASTER))
 
 #if(CYBLE_GAP_ROLE_PERIPHERAL || CYBLE_GAP_ROLE_BROADCASTER)
-    #define CYBLE_FAST_ADV_INT_MIN                  (0x0020u)
-    #define CYBLE_FAST_ADV_INT_MAX                  (0x0020u)
+    #define CYBLE_FAST_ADV_INT_MIN                  (0x0C80u)
+    #define CYBLE_FAST_ADV_INT_MAX                  (0x0C80u)
     #define CYBLE_FAST_ADV_TIMEOUT                  (0x001Eu)
-    #define CYBLE_SLOW_ADV_ENABLED                  (0x01u)
+    #define CYBLE_SLOW_ADV_ENABLED                  (0x00u)
     #define CYBLE_SLOW_ADV_INT_MIN                  (0x0640u)
     #define CYBLE_SLOW_ADV_INT_MAX                  (0x4000u)
     #define CYBLE_SLOW_ADV_TIMEOUT                  (0x0096u)
@@ -140,57 +174,188 @@
 
 
 
-/* Align buffer size value to 4 */
-#define CYBLE_ALIGN_TO_4(x)                 ((((x) & 3u) == 0u) ? (x) : (((x) - ((x) & 3u)) + 4u))
-
 /* Stack buffers count */
-#define CYBLE_GATT_MTU_BUF_COUNT            (CYBLE_GATT_MIN_NO_OF_ATT_MTU_BUFF)
-#define CYBLE_STACK_BUF_COUNT               (6u)
+#define CYBLE_GATT_MTU_BUFF_COUNT            (CYBLE_GATT_MIN_NO_OF_ATT_MTU_BUFF)
+/* Additional buffers provided from customiser with default value equal to 1 */
+#define CYBLE_GATT_MAX_ATTR_BUFF_COUNT       ((1 > 0u) ? (1 - 1u) : 0u)
 
 /* GATT MTU Size */
 #define CYBLE_GATT_MTU                      (0x0200u)
-#define CYBLE_GATT_MTU_PLUS_L2CAP_MEM_EXT   CYBLE_ALIGN_TO_4(CYBLE_GATT_MTU + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ)
+#define CYBLE_GATT_MTU_PLUS_L2CAP_MEM_EXT   (CYBLE_ALIGN_TO_4(CYBLE_GATT_MTU + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ))
 
 /* GATT Maximum attribute length */
 #define CYBLE_GATT_MAX_ATTR_LEN             ((0x0032u == 0u) ? (1u) : (0x0032u))
 #define CYBLE_GATT_MAX_ATTR_LEN_PLUS_L2CAP_MEM_EXT \
-                                    CYBLE_ALIGN_TO_4(CYBLE_GATT_MAX_ATTR_LEN + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ)
+                                    (CYBLE_ALIGN_TO_4(CYBLE_GATT_MAX_ATTR_LEN + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ))
 
-/* L2CAP MTU Size */
-#define CYBLE_L2CAP_MTU                     (23u)
-#define CYBLE_L2CAP_MTU_PLUS_L2CAP_MEM_EXT  CYBLE_ALIGN_TO_4(CYBLE_L2CAP_MTU + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ)
+/* Header length for prepare write request */
+#define CYBLE_GATT_PREPARE_WRITE_HEADER_LEN (5u)
+/* Header length for write request */
+#define CYBLE_GATT_WRITE_HEADER_LEN         (3u)
 
-/* L2CAP PMS Size */
-#define CYBLE_L2CAP_MPS                     (23u)
-#define CYBLE_L2CAP_MPS_PLUS_L2CAP_MEM_EXT  CYBLE_ALIGN_TO_4(CYBLE_L2CAP_MPS + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ)
+/* Number of characteristics supporting reliable write property */
+#define CYBLE_GATT_RELIABLE_CHAR_COUNT      (0x0000u)
+/* The total length of characteristics with reliable write property */
+#define CYBLE_GATT_RELIABLE_CHAR_LENGTH      (0x0000u)
 
-#define CYBLE_L2CAP_PSM_PLUS_L2CAP_MEM_EXT  CYBLE_ALIGN_TO_4(CYBLE_L2CAP_PSM_SIZE + CYBLE_MEM_EXT_SZ)
+#define CYBLE_GATT_PREPARE_LENGTH           ((CYBLE_GATT_RELIABLE_CHAR_LENGTH > CYBLE_GATT_MAX_ATTR_LEN) ? \
+                                             CYBLE_GATT_RELIABLE_CHAR_LENGTH : CYBLE_GATT_MAX_ATTR_LEN)
 
-#define CYBLE_L2CAP_CBFC_PLUS_L2CAP_MEM_EXT CYBLE_ALIGN_TO_4(CYBLE_L2CAP_CBFC_CHANNEL_SIZE + CYBLE_MEM_EXT_SZ)
+/* Number of buffers required for prepare write request based on assumption that negotiated MTU
+*  size is equal to the CYBLE_GATT_DEFAULT_MTU and all characteristics supporting reliable write
+*  property must be written, in order, in a single operation. 
+*  Buffer count is 0 when maximum attribute size is less then minimum MTU - 3.
+*/
+#define CYBLE_GATT_MAX_PREPARE_BUFF_COUNT   \
+        (((CYBLE_GATT_MAX_ATTR_LEN <= (CYBLE_GATT_DEFAULT_MTU - CYBLE_GATT_WRITE_HEADER_LEN)) && \
+            (CYBLE_GATT_RELIABLE_CHAR_COUNT == 0)) ? 0u : \
+        ((CYBLE_GATT_PREPARE_LENGTH / (CYBLE_GATT_DEFAULT_MTU - CYBLE_GATT_PREPARE_WRITE_HEADER_LEN)) + \
+        (((CYBLE_GATT_PREPARE_LENGTH % (CYBLE_GATT_DEFAULT_MTU - CYBLE_GATT_PREPARE_WRITE_HEADER_LEN)) > 0u) ?\
+            1u : 0u)))
 
-#define CYBLE_L2CAP_LOGICAL_CHANNEL_COUNT   (1u) 
+#define CYBLE_GATT_PREPARE_LENGTH_ALIGN     ((CYBLE_GATT_MAX_PREPARE_BUFF_COUNT == 0u) ? 0u : \
+                                                CYBLE_ALIGN_TO_4(CYBLE_GATT_PREPARE_LENGTH))
+            
+/* Parameter to enable application to provide dynamically allocated buffer for prepare write request.  */            
+#define CYBLE_GATT_ENABLE_EXTERNAL_PREP_WRITE_BUFF  (0u)
+            
+/* Buffer length for the data received during prepare write requests 
+   For dynamic memory allocation by application level, set EnableExternalPrepWriteBuff parameter
+   in the Expression view of the Advanced tab to the true.
+*/            
+#define CYBLE_GATT_PREPARE_WRITE_BUFF_LEN       ((CYBLE_GATT_ENABLE_EXTERNAL_PREP_WRITE_BUFF != 0u) ? 0u : \
+                                (CYBLE_GATT_PREPARE_LENGTH_ALIGN + \
+                                (CYBLE_GATT_MAX_PREPARE_BUFF_COUNT * sizeof(CYBLE_GATT_HANDLE_VALUE_OFFSET_PARAM_T))))
 
-#define CYBLE_L2CAP_PSM_COUNT               (1u)
+#define CYBLE_L2CAP_ENABLE                              (1u)
+
+#if(CYBLE_L2CAP_ENABLE != 0u)
+    /* L2CAP MTU Size */
+    #define CYBLE_L2CAP_MTU                             (23u)
+    /* L2CAP PMS Size */
+    #define CYBLE_L2CAP_MPS                             (23u)
+    #define CYBLE_L2CAP_MTU_MPS                         (CYBLE_L2CAP_MTU / CYBLE_L2CAP_MPS)
+    /* Number of L2CAP Logical channels */
+    #define CYBLE_L2CAP_LOGICAL_CHANNEL_COUNT           (1u) 
+    /* Number of L2CAP PSMs */
+    #define CYBLE_L2CAP_PSM_COUNT                       (1u)
+#else
+    /* L2CAP MTU Size */
+    #define CYBLE_L2CAP_MTU                             (0u)
+    /* L2CAP PMS Size */
+    #define CYBLE_L2CAP_MPS                             (0u)
+    #define CYBLE_L2CAP_MTU_MPS                         (0u)
+    /* Number of L2CAP Logical channels */
+    #define CYBLE_L2CAP_LOGICAL_CHANNEL_COUNT           (0u) 
+    /* Number of L2CAP PSMs */
+    #define CYBLE_L2CAP_PSM_COUNT                       (0u)
+#endif  /* CYBLE_L2CAP_ENABLE != 0u */
+
+/* L2CAP RAM buffer sizes */
+#define CYBLE_L2CAP_MTU_PLUS_L2CAP_MEM_EXT  (CYBLE_ALIGN_TO_4(CYBLE_L2CAP_MTU + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ))
+#define CYBLE_L2CAP_MPS_PLUS_L2CAP_MEM_EXT  (CYBLE_ALIGN_TO_4(CYBLE_L2CAP_MPS + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ))
+#define CYBLE_L2CAP_PSM_PLUS_L2CAP_MEM_EXT  (CYBLE_ALIGN_TO_4((CYBLE_L2CAP_PSM_SIZE + CYBLE_MEM_EXT_SZ) *\
+                                                CYBLE_L2CAP_PSM_COUNT))
+#define CYBLE_L2CAP_CBFC_PLUS_L2CAP_MEM_EXT (CYBLE_ALIGN_TO_4((CYBLE_L2CAP_CBFC_CHANNEL_SIZE + CYBLE_MEM_EXT_SZ) *\
+                                                CYBLE_L2CAP_LOGICAL_CHANNEL_COUNT))
 
 #endif /* CYBLE_MODE_PROFILE */
 
+/* LL max data length */
+#define CYBLE_LL_MAX_SUPPORTED_TX_PAYLOAD_SIZE          (251u)
+#define CYBLE_LL_MAX_SUPPORTED_RX_PAYLOAD_SIZE          (251u)
+#define CYBLE_LL_MIN_SUPPORTED_TX_PAYLOAD_SIZE          (27u)
+#define CYBLE_LL_MIN_SUPPORTED_RX_PAYLOAD_SIZE          (27u)
+#define CYBLE_LL_MAX_TX_TIME                            (0x0848u)
+
+#if(CYBLE_MODE_PROFILE)
+    #if(CYBLE_M0S8BLESS_VERSION_2)
+        #define CYBLE_LL_MAX_TX_PAYLOAD_SIZE            (0x1Bu)
+        #define CYBLE_LL_MAX_RX_PAYLOAD_SIZE            (0x1Bu)
+    #else   /* For 4.1 silicon use minimum payload size */
+        #define CYBLE_LL_MAX_TX_PAYLOAD_SIZE            (CYBLE_LL_MIN_SUPPORTED_TX_PAYLOAD_SIZE)
+        #define CYBLE_LL_MAX_RX_PAYLOAD_SIZE            (CYBLE_LL_MIN_SUPPORTED_RX_PAYLOAD_SIZE)
+    #endif  /* CYBLE_M0S8BLESS_VERSION_2 */
+#else   /* Use maximum payload size for HCI mode */
+    #if(CYBLE_M0S8BLESS_VERSION_2)
+        #define CYBLE_LL_MAX_TX_PAYLOAD_SIZE            (CYBLE_LL_MAX_SUPPORTED_TX_PAYLOAD_SIZE)
+        #define CYBLE_LL_MAX_RX_PAYLOAD_SIZE            (CYBLE_LL_MAX_SUPPORTED_RX_PAYLOAD_SIZE)
+    #else   /* For 4.1 silicon use minimum payload size */
+        #define CYBLE_LL_MAX_TX_PAYLOAD_SIZE            (CYBLE_LL_MIN_SUPPORTED_TX_PAYLOAD_SIZE)
+        #define CYBLE_LL_MAX_RX_PAYLOAD_SIZE            (CYBLE_LL_MIN_SUPPORTED_RX_PAYLOAD_SIZE)
+    #endif  /* CYBLE_M0S8BLESS_VERSION_2 */
+#endif /* CYBLE_MODE_PROFILE */
+
+#define CYBLE_LL_MAX_TX_PAYLOAD_BUFFER_SZ               CYBLE_ALIGN_TO_4(CYBLE_LL_MAX_TX_PAYLOAD_SIZE)
+#define CYBLE_LL_MAX_RX_PAYLOAD_BUFFER_SZ               CYBLE_ALIGN_TO_4(CYBLE_LL_MAX_RX_PAYLOAD_SIZE)
+#if((CYBLE_LL_MAX_TX_PAYLOAD_SIZE > CYBLE_LL_MIN_SUPPORTED_TX_PAYLOAD_SIZE) ||\
+    (CYBLE_LL_MAX_RX_PAYLOAD_SIZE > CYBLE_LL_MIN_SUPPORTED_RX_PAYLOAD_SIZE))
+    #define CYBLE_DLE_FEATURE                           (CYBLE_DLE_FEATURE_MASK)
+    #define CYBLE_LL_DLE_HEAP_SZ                        (CYBLE_LL_DLE_HEAP_REQ)
+#else
+    #define CYBLE_DLE_FEATURE                           (0u)
+    #define CYBLE_LL_DLE_HEAP_SZ                        (0u)
+#endif /* DLE enabled */
+
+#if(CYBLE_ENABLE_LL_PRIVACY > 0u)
+    #define CYBLE_LL_PRIVACY_FEATURE                    (CYBLE_LL_PRIVACY_FEATURE_MASK)
+    #define CYBLE_LL_PRIVACY_HEAP_SZ                    (CYBLE_LL_PRIVACY_HEAP_REQ)
+#else
+    #define CYBLE_LL_PRIVACY_FEATURE                    (0u)
+    #define CYBLE_LL_PRIVACY_HEAP_SZ                    (0u)
+#endif /* CYBLE_MAX_RESOLVABLE_DEVICES > 0u */
+
+#if(CYBLE_GAP_SECURITY_LEVEL == 0x03u)
+    #define CYBLE_SECURE_CONN_FEATURE                   (CYBLE_SECURE_CONN_FEATURE_MASK)
+    #define CYBLE_RAM_SECURE_CONNECTIONS_SZ             (CYBLE_RAM_SIZE_SECURE_CONNECTIONS)
+#else
+    #define CYBLE_SECURE_CONN_FEATURE                   (0u)
+    #define CYBLE_RAM_SECURE_CONNECTIONS_SZ             (0u)
+#endif /* CYBLE_GAP_SECURITY_LEVEL == 0x03u */
+
+#define CYBLE_DLE_FEATURE_ENABLED                       (CYBLE_DLE_FEATURE != 0u)
+#define CYBLE_LL_PRIVACY_FEATURE_ENABLED                (CYBLE_LL_PRIVACY_FEATURE != 0u)
+#define CYBLE_SECURE_CONN_FEATURE_ENABLED               (CYBLE_SECURE_CONN_FEATURE != 0u)
+
+#define CYBLE_LL_ACL_TX_HEAP_SZ        (CYBLE_LL_DEFAULT_NUM_ACL_TX_PACKETS *  \
+                                        (                                      \
+                                         CYBLE_LL_MAX_TX_PAYLOAD_BUFFER_SZ +   \
+                                         CYBLE_LL_ACL_DATA_PACKET_OVERHEAD_SZ +\
+                                         CYBLE_MEM_EXT_SZ                      \
+                                        ))
+
+#define CYBLE_LL_ACL_RX_HEAP_SZ        (CYBLE_LL_DEFAULT_NUM_ACL_RX_PACKETS *  \
+                                        (                                      \
+                                         CYBLE_LL_MAX_RX_PAYLOAD_BUFFER_SZ +   \
+                                         CYBLE_LL_ACL_DATA_PACKET_OVERHEAD_SZ +\
+                                         CYBLE_MEM_EXT_SZ                      \
+                                        ))
+
+
+#define CYBLE_LL_CONTROLLER_HEAP_REQ    ((CYBLE_LL_PRIVACY_HEAP_SZ * CYBLE_MAX_RESOLVABLE_DEVICES) + \
+                                            CYBLE_LL_DLE_HEAP_SZ +    \
+                                            CYBLE_LL_ACL_TX_HEAP_SZ + \
+                                            CYBLE_LL_ACL_RX_HEAP_SZ + \
+                                            CYBLE_RAM_SECURE_CONNECTIONS_SZ)
+
+
 /* RAM memory size required for stack */
 #if(CYBLE_MODE_PROFILE)
-    #define CYBLE_STACK_RAM_SIZE   CYBLE_ALIGN_TO_4(CYBLE_DEFAULT_RAM_SIZE_SOC +\
-              (CYBLE_GATT_MTU_PLUS_L2CAP_MEM_EXT * CYBLE_GATT_MTU_BUF_COUNT) +\
-               CYBLE_GATT_MAX_ATTR_LEN_PLUS_L2CAP_MEM_EXT +\
+    #define CYBLE_STACK_RAM_SIZE   (CYBLE_ALIGN_TO_4(CYBLE_DEFAULT_RAM_SIZE_SOC + CYBLE_LL_CONTROLLER_HEAP_REQ + \
+              (CYBLE_GATT_MTU_PLUS_L2CAP_MEM_EXT * (CYBLE_GATT_MTU_BUFF_COUNT + CYBLE_GATT_MAX_ATTR_BUFF_COUNT)) +\
               (CYBLE_L2CAP_PSM_PLUS_L2CAP_MEM_EXT * CYBLE_L2CAP_PSM_COUNT) +\
-              (CYBLE_L2CAP_CBFC_PLUS_L2CAP_MEM_EXT * CYBLE_L2CAP_LOGICAL_CHANNEL_COUNT) +\
+              (CYBLE_L2CAP_CBFC_PLUS_L2CAP_MEM_EXT * 2 * CYBLE_L2CAP_LOGICAL_CHANNEL_COUNT) +\
               (CYBLE_L2CAP_MTU_PLUS_L2CAP_MEM_EXT * CYBLE_L2CAP_LOGICAL_CHANNEL_COUNT) +\
               (CYBLE_L2CAP_MPS_PLUS_L2CAP_MEM_EXT * CYBLE_L2CAP_LOGICAL_CHANNEL_COUNT *\
-              (CYBLE_L2CAP_MTU / CYBLE_L2CAP_MPS)) +\
-              (CYBLE_STACK_BUFFER_MGR_UTIL_RAM_SZ * CYBLE_STACK_BUF_COUNT))
+              (CYBLE_L2CAP_MTU_MPS)) +\
+              (CYBLE_STACK_BUFFER_MGR_UTIL_RAM_SZ * CYBLE_STACK_APP_MIN_POOL) +\
+              (CYBLE_GATT_PREPARE_WRITE_BUFF_LEN)))   /* This buffer must always be the latest */
 #else
-    #define CYBLE_STACK_RAM_SIZE     (CYBLE_DEFAULT_RAM_SIZE_HCI)
+    #define CYBLE_STACK_RAM_SIZE     (CYBLE_DEFAULT_RAM_SIZE_HCI + CYBLE_LL_CONTROLLER_HEAP_REQ)
 #endif /* CYBLE_MODE_PROFILE */  
 
 #if(CYBLE_MODE_PROFILE)
-    #define CYBLE_STACK_FLASH_SIZE   (9u + (89u * 4u))
+    #define CYBLE_STACK_FLASH_SIZE   (CYBLE_STACK_FLASH_STORAGE_SIZE)
 #endif /* (CYBLE_MODE_PROFILE) */
 
 
@@ -333,8 +498,6 @@ typedef void (* CYBLE_CALLBACK_T) (uint32 eventCode, void *eventParam);
 #define CYBLE_AD_TYPE_MORE128UUID                   (0x06u)
 #define CYBLE_AD_TYPE_CMPL128UUID                   (0x07u)
 
-#define CYBLE_PDU_DATA_LEN_ZERO                     (0x00u)
-
 #define CYBLE_DISCOVERY_IDLE                        (0x00u)
 #define CYBLE_DISCOVERY_SERVICE                     (0x01u)
 #define CYBLE_DISCOVERY_CHAR                        (0x02u)
@@ -345,16 +508,24 @@ typedef void (* CYBLE_CALLBACK_T) (uint32 eventCode, void *eventParam);
 #define CYBLE_DISCOVERY_INIT                        (0x00u)
 #define CYBLE_DISCOVERY_CONTINUE                    (0x01u)
 
-/* Device address stored by user in ROW4 of the SFLASH */
-#define CYBLE_M0S8BLESS_VERSION                     (CYIPBLOCK_m0s8bless_VERSION)
-#if (CYBLE_M0S8BLESS_VERSION == 1)
-#define CYBLE_SFLASH_DEVICE_ADDRESS_PTR             ( (CYBLE_GAP_BD_ADDR_T *) (CYREG_SFLASH_MACRO_0_FREE_SFLASH0))
-#else
-#define CYBLE_SFLASH_DEVICE_ADDRESS_PTR             ( (CYBLE_GAP_BD_ADDR_T *) (0x0ffff200u))  /* Cypress ID 219598  */
-#endif
-#define CYBLE_SFLASH_DIE_WAFER_REG                  ( *(uint8 *) CYREG_SFLASH_DIE_WAFER)
+#define CYBLE_SFLASH_DIE_X_MASK                     (0x3Fu)
+#define CYBLE_SFLASH_DIE_X_BITS                     (6u)
+#define CYBLE_SFLASH_DIE_Y_MASK                     (0x3Fu)
+#define CYBLE_SFLASH_DIE_Y_BITS                     (6u)
+#define CYBLE_SFLASH_DIE_XY_BITS                    (CYBLE_SFLASH_DIE_X_BITS + CYBLE_SFLASH_DIE_Y_BITS)
+#define CYBLE_SFLASH_DIE_WAFER_MASK                 (0x1Fu)
+#define CYBLE_SFLASH_DIE_WAFER_BITS                 (5u)
+#define CYBLE_SFLASH_DIE_XYWAFER_BITS               (CYBLE_SFLASH_DIE_XY_BITS + CYBLE_SFLASH_DIE_WAFER_BITS)
+#define CYBLE_SFLASH_DIE_LOT_MASK                   (0x7Fu)
+#define CYBLE_SFLASH_DIE_LOT_BITS                   (7u)
+
 #define CYBLE_SFLASH_DIE_X_REG                      ( *(uint8 *) CYREG_SFLASH_DIE_X)
 #define CYBLE_SFLASH_DIE_Y_REG                      ( *(uint8 *) CYREG_SFLASH_DIE_Y)
+#define CYBLE_SFLASH_DIE_WAFER_REG                  ( *(uint8 *) CYREG_SFLASH_DIE_WAFER)
+#define CYBLE_SFLASH_DIE_LOT_REG                    ( *(uint8 *) CYREG_SFLASH_DIE_LOT0)
+
+/* Device address stored by user in ROW4 of the SFLASH */
+#define CYBLE_SFLASH_DEVICE_ADDRESS_PTR             ( (CYBLE_GAP_BD_ADDR_T *) (CYREG_SFLASH_MACRO_0_FREE_SFLASH0))
 
 #define CYBLE_AD_STRUCTURE_MAX_LENGTH               (31u)
 
@@ -375,6 +546,10 @@ typedef void (* CYBLE_CALLBACK_T) (uint32 eventCode, void *eventParam);
 
 #define CYBLE_PENDING_STACK_FLASH_WRITE_BIT         (0x01u)
 #define CYBLE_PENDING_CCCD_FLASH_WRITE_BIT          (0x02u)
+#define CYBLE_PENDING_CCCD_FLASH_CLEAR_BIT          (0x04u)
+#define CYBLE_PENDING_CCCD_FLASH_CLEAR_ALL_BIT      (0x08u)
+#define CYBLE_PENDING_CCCD_FLASH_CLEAR_MASK         \
+                                        (CYBLE_PENDING_CCCD_FLASH_CLEAR_BIT | CYBLE_PENDING_CCCD_FLASH_CLEAR_ALL_BIT)
 
 /* GAP Advertisement Flags */
 #define CYBLE_GAP_ADV_FLAG_LE_LIMITED_DISC_MODE     (0x01u)   /* LE Limited Discoverable Mode. */
@@ -385,9 +560,12 @@ typedef void (* CYBLE_CALLBACK_T) (uint32 eventCode, void *eventParam);
 #define CYBLE_GAP_ADV_FLAGS_PACKET_LENGTH           (0x02u)
 
 /* GAP Advertising interval min and max */
-#define CYBLE_GAP_ADV_ADVERT_INTERVAL_MIN           (0x0020u) /* Minimum Advertising interval in 625 us units, i.e. 20 ms. */
-#define CYBLE_GAP_ADV_ADVERT_INTERVAL_NONCON_MIN    (0x00A0u) /* Minimum Advertising interval in 625 us units for non connectable mode, i.e. 100 ms. */
-#define CYBLE_GAP_ADV_ADVERT_INTERVAL_MAX           (0x4000u) /* Maximum Advertising interval in 625 us units, i.e. 10.24 s. */
+#define CYBLE_GAP_ADV_ADVERT_INTERVAL_MIN           (0x0020u) /* Minimum Advertising interval in 625 us units, i.e. 
+                                                                20 ms. */
+#define CYBLE_GAP_ADV_ADVERT_INTERVAL_NONCON_MIN    (0x00A0u) /* Minimum Advertising interval in 625 us units for non 
+                                                                 connectable mode, i.e. 100 ms. */
+#define CYBLE_GAP_ADV_ADVERT_INTERVAL_MAX           (0x4000u) /* Maximum Advertising interval in 625 us units, i.e. 
+                                                                 10.24 s. */
 #define CYBLE_GAP_ADV_ADVERT_INTERVAL_PACKET_LENGTH (0x03u)
 
 #define CYBLE_GAPC_CONNECTING_TIMEOUT               (30u)     /* Seconds */
@@ -419,6 +597,7 @@ void CyBle_Stop(void);
 
 #if((CYBLE_GAP_ROLE_PERIPHERAL || CYBLE_GAP_ROLE_CENTRAL) && (CYBLE_BONDING_REQUIREMENT == CYBLE_BONDING_YES))
     CYBLE_API_RESULT_T CyBle_StoreBondingData(uint8 isForceWrite);
+    CYBLE_API_RESULT_T CyBle_GapRemoveBondedDevice(CYBLE_GAP_BD_ADDR_T* bdAddr);
 #endif /* (CYBLE_GAP_ROLE_PERIPHERAL || CYBLE_GAP_ROLE_CENTRAL) && (CYBLE_BONDING_REQUIREMENT == CYBLE_BONDING_YES) */
 
 /** @} */
@@ -468,10 +647,6 @@ extern volatile uint8                               cyBle_eventHandlerFlag;
 extern CYBLE_GAP_BD_ADDR_T                          cyBle_deviceAddress;
 extern CYBLE_GAP_BD_ADDR_T                          *cyBle_sflashDeviceAddress;
 extern CYBLE_GAP_AUTH_INFO_T                        cyBle_authInfo;
-
-#if(CYBLE_MODE_PROFILE)
-    extern const uint8 cyBle_StackFlashptr[CYBLE_STACK_FLASH_SIZE];
-#endif /* (CYBLE_MODE_PROFILE) */
 
 #if(CYBLE_GAP_ROLE_CENTRAL || CYBLE_GAP_ROLE_OBSERVER)
     extern CYBLE_GAPC_DISC_INFO_T                   cyBle_discoveryInfo;

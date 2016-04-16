@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: cyPm.c
-* Version 5.20
+* Version 5.30
 *
 *  Description:
 *   Provides an API for the power management.
@@ -89,9 +89,9 @@ void CySysPmDeepSleep(void)
         CY_PM_PWR_CONTROL_REG &= (uint32) (~CY_PM_PWR_CONTROL_HIBERNATE);
     #endif /* (CY_IP_SRSSV2) */
 
-    #if (CY_PSOC4_4100 || CY_PSOC4_4200)
+    #if (CY_IP_CPUSS && CY_IP_SRSSV2)
         CY_PM_CPUSS_CONFIG_REG |= CY_PM_CPUSS_CONFIG_FLSH_ACC_BYPASS;
-    #endif /* (CY_PSOC4_4100 || CY_PSOC4_4200) */
+    #endif /* (CY_IP_CPUSS && CY_IP_SRSSV2) */
 
     /* Adjust delay to wait for references to settle on wakeup from Deep Sleep */
     CY_PM_PWR_KEY_DELAY_REG = CY_SFLASH_DPSLP_KEY_DELAY_REG;
@@ -115,9 +115,9 @@ void CySysPmDeepSleep(void)
         CY_SYS_CLK_SELECT_REG = clkSelectReg;
     #endif /* (CY_IP_SRSSV2) */
 
-    #if (CY_PSOC4_4100 || CY_PSOC4_4200)
+    #if (CY_IP_CPUSS && CY_IP_SRSSV2)
         CY_PM_CPUSS_CONFIG_REG &= (uint32) (~CY_PM_CPUSS_CONFIG_FLSH_ACC_BYPASS);
-    #endif /* (CY_PSOC4_4100 || CY_PSOC4_4200) */
+    #endif /* (CY_IP_CPUSS && CY_IP_SRSSV2) */
 
     CyExitCriticalSection(interruptState);
 }
@@ -162,6 +162,11 @@ void CySysPmDeepSleep(void)
         uint8 interruptState;
 
         interruptState = CyEnterCriticalSection();
+
+        #if (CY_IP_HOBTO_DEVICE)
+            /* Disable input buffers for all ports */
+            CySysPmHibPinsDisableInputBuf();
+        #endif /* (CY_IP_HOBTO_DEVICE) */
 
         /* Device enters Hibernate mode when CPU asserts SLEEPDEEP signal */
         CY_PM_PWR_CONTROL_REG |= CY_PM_PWR_CONTROL_HIBERNATE;
@@ -462,6 +467,5 @@ void CySysPmDeepSleep(void)
     }
 
 #endif /* (CY_IP_SRSSV2) */
-
 
 /* [] END OF FILE */

@@ -1,13 +1,13 @@
 /***************************************************************************//**
 * \file CYBLE.c
-* \version 2.30
+* \version 3.10
 * 
 * \brief
 *  This file contains the source code for the Common APIs of the BLE Component.
 * 
 ********************************************************************************
 * \copyright
-* Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2014-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -51,7 +51,7 @@ uint8 *cyBle_stackMemoryRam = NULL;
 
 #else
 
-CYBLE_CYALIGNED_BEGIN uint8 cyBle_stackMemoryRam[CYBLE_STACK_RAM_SIZE] CYBLE_CYALIGNED_END;
+CYBLE_CYALIGNED_BEGIN CY_NOINIT uint8 cyBle_stackMemoryRam[CYBLE_STACK_RAM_SIZE] CYBLE_CYALIGNED_END;
 
 #endif  /* CYBLE_SHARING_MODE_EXPORT */
 
@@ -59,8 +59,8 @@ CYBLE_CYALIGNED_BEGIN uint8 cyBle_stackMemoryRam[CYBLE_STACK_RAM_SIZE] CYBLE_CYA
 
 CYBLE_GAPP_DISC_PARAM_T cyBle_discoveryParam =
 {
-    0x0020u,    /* uint16 advertising_interval_min */
-    0x0020u,    /* uint16 advertising_interval_max */
+    0x0C80u,    /* uint16 advertising_interval_min */
+    0x0C80u,    /* uint16 advertising_interval_max */
     CYBLE_GAPP_CONNECTABLE_UNDIRECTED_ADV, /* uint8 advertising_type */
     0x00u,      /* uint8 own_addr_type */
     0x00u,      /* uint8 direct_addr_type */
@@ -144,22 +144,15 @@ CYBLE_GAPC_DISC_INFO_T cyBle_discoveryInfo =
 uint8 cyBle_peerBonding;
 uint8 cyBle_pendingFlashWrite;
     
+#if(CYBLE_GATT_DB_CCCD_COUNT != 0u)
+    static uint8 cyBle_pendingFlashClearCccdHandle;
+#endif /* CYBLE_GATT_DB_CCCD_COUNT != 0u */
+    
 #endif  /* (CYBLE_BONDING_REQUIREMENT == CYBLE_BONDING_YES) */
 
 CYBLE_CALLBACK_T CyBle_ApplCallback;
 CYBLE_GAP_BD_ADDR_T cyBle_deviceAddress = {{0x00u, 0x00u, 0x00u, 0x50u, 0xA0u, 0x00u}, 0x00u };
 CYBLE_GAP_BD_ADDR_T * cyBle_sflashDeviceAddress = CYBLE_SFLASH_DEVICE_ADDRESS_PTR;
-
-#if(CYBLE_MODE_PROFILE)
-    #if defined(__ARMCC_VERSION)
-        CY_ALIGN(CYDEV_FLS_ROW_SIZE) const uint8 cyBle_StackFlashptr[CYBLE_STACK_FLASH_SIZE] = {0u};
-    #elif defined (__GNUC__)
-        const uint8 cyBle_StackFlashptr[CYBLE_STACK_FLASH_SIZE] CY_ALIGN(CYDEV_FLS_ROW_SIZE) = {0u};
-    #elif defined (__ICCARM__)
-        #pragma data_alignment=CY_FLASH_SIZEOF_ROW
-        const uint8 cyBle_StackFlashptr[CYBLE_STACK_FLASH_SIZE] = {0u};
-    #endif  /* (__ARMCC_VERSION) */
-#endif /* (CYBLE_MODE_PROFILE) */
 
 
 /******************************************************************************
@@ -224,8 +217,15 @@ void CyBle_Init(void)
 void CyBle_ServiceInit(void)
 {
     #if(CYBLE_GATT_ROLE_CLIENT)
-        (void)memset(&cyBle_gapc, 0, sizeof(cyBle_gapc));
-        (void)memset(&cyBle_gattc, 0, sizeof(cyBle_gattc));
+        /* Check service range before clearing to support partial discovery */
+        if(cyBle_serverInfo[CYBLE_SRVI_GAP].range.startHandle == CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE)
+        {
+            (void)memset(&cyBle_gapc, 0, sizeof(cyBle_gapc));
+        }
+        if(cyBle_serverInfo[CYBLE_SRVI_GATT].range.startHandle == CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE)
+        {
+            (void)memset(&cyBle_gattc, 0, sizeof(cyBle_gattc));
+        }
     #endif /* CYBLE_GATT_ROLE_CLIENT */
     
 	#ifdef CYBLE_ANCS
@@ -240,6 +240,10 @@ void CyBle_ServiceInit(void)
         CyBle_BasInit();
     #endif /* CYBLE_BAS */
     
+    #ifdef CYBLE_BCS
+        CyBle_BcsInit();
+    #endif /* CYBLE_BCS */
+
     #ifdef CYBLE_BLS
         CyBle_BlsInit();
     #endif /* CYBLE_BLS */
@@ -264,6 +268,10 @@ void CyBle_ServiceInit(void)
         CyBle_CtsInit();
     #endif /* CYBLE_CTS */
 
+    #ifdef CYBLE_CUSTOM
+        CyBle_CustomInit();
+    #endif /* CYBLE_CUSTOM */
+
     #ifdef CYBLE_DIS
         CyBle_DisInit();
     #endif /* CYBLE_DIS */
@@ -276,13 +284,13 @@ void CyBle_ServiceInit(void)
         CyBle_GlsInit();
     #endif /* CYBLE_GLS */
     
-    #ifdef CYBLE_CUSTOM
-        CyBle_CustomInit();
-    #endif /* CYBLE_CUSTOM */
-
     #ifdef CYBLE_HIDS
         CyBle_HidsInit();
     #endif /* CYBLE_HIDS */
+
+    #ifdef CYBLE_HPS
+        CyBle_HpsInit();
+    #endif /* CYBLE_HPS */
 
     #ifdef CYBLE_HRS
         CyBle_HrsInit();
@@ -296,17 +304,21 @@ void CyBle_ServiceInit(void)
         CyBle_IasInit();
     #endif /* CYBLE_IAS */
 
+    #ifdef CYBLE_IPS
+        CyBle_IpsInit();
+    #endif /* CYBLE_IPS */
+    
     #ifdef CYBLE_LLS
         CyBle_LlsInit();
     #endif /* CYBLE_LLS */
 
-    #ifdef CYBLE_RTUS
-        CyBle_RtusInit();
-    #endif /* CYBLE_RTUS */
-
     #ifdef CYBLE_LNS
         CyBle_LnsInit();
     #endif /* CYBLE_LNS */
+    
+    #ifdef CYBLE_NDCS
+        CyBle_NdcsInit();
+    #endif /* CYBLE_NDCS */
     
     #ifdef CYBLE_PASS
         CyBle_PassInit();
@@ -315,6 +327,10 @@ void CyBle_ServiceInit(void)
     #ifdef CYBLE_RSCS
         CyBle_RscsInit();
     #endif /* CYBLE_RSCS */
+
+    #ifdef CYBLE_RTUS
+        CyBle_RtusInit();
+    #endif /* CYBLE_RTUS */
 
     #ifdef CYBLE_SCPS
         CyBle_ScpsInit();
@@ -402,14 +418,13 @@ CYBLE_API_RESULT_T CyBle_Start(CYBLE_CALLBACK_T callbackFunc)
     
     #if(CYBLE_MODE_PROFILE)
     
-    CYBLE_STK_APP_DATA_BUFF_T cyBle_stackDataBuff[CYBLE_STACK_BUF_COUNT] = 
+    CYBLE_STK_APP_DATA_BUFF_T cyBle_stackDataBuff[CYBLE_STACK_APP_MIN_POOL] = 
     {
-        {CYBLE_GATT_MTU_PLUS_L2CAP_MEM_EXT, CYBLE_GATT_MTU_BUF_COUNT},
-        {CYBLE_GATT_MAX_ATTR_LEN_PLUS_L2CAP_MEM_EXT, 1u},
+        {CYBLE_GATT_MTU_PLUS_L2CAP_MEM_EXT, CYBLE_GATT_MTU_BUFF_COUNT + CYBLE_GATT_MAX_ATTR_BUFF_COUNT},
         {CYBLE_L2CAP_PSM_PLUS_L2CAP_MEM_EXT, CYBLE_L2CAP_PSM_COUNT},
-        {CYBLE_L2CAP_CBFC_PLUS_L2CAP_MEM_EXT, CYBLE_L2CAP_LOGICAL_CHANNEL_COUNT},
+        {CYBLE_L2CAP_CBFC_PLUS_L2CAP_MEM_EXT, 2u * CYBLE_L2CAP_LOGICAL_CHANNEL_COUNT},
         {CYBLE_L2CAP_MTU_PLUS_L2CAP_MEM_EXT, CYBLE_L2CAP_LOGICAL_CHANNEL_COUNT},
-        {CYBLE_L2CAP_MPS_PLUS_L2CAP_MEM_EXT, CYBLE_L2CAP_LOGICAL_CHANNEL_COUNT * (CYBLE_L2CAP_MTU/CYBLE_L2CAP_MPS)}
+        {CYBLE_L2CAP_MPS_PLUS_L2CAP_MEM_EXT, CYBLE_L2CAP_LOGICAL_CHANNEL_COUNT * (CYBLE_L2CAP_MTU_MPS)}
     }; 
 
     #endif /* CYBLE_MODE_PROFILE */
@@ -423,6 +438,8 @@ CYBLE_API_RESULT_T CyBle_Start(CYBLE_CALLBACK_T callbackFunc)
     
     if(callbackFunc != NULL)
     {
+        CyBle_ApplCallback = callbackFunc;
+        
     #if(CYBLE_SHARING_MODE_EXPORT)
         if(cyBle_stackMemoryRam == NULL)
         {
@@ -430,16 +447,53 @@ CYBLE_API_RESULT_T CyBle_Start(CYBLE_CALLBACK_T callbackFunc)
             if(cyBle_stackMemoryRam == NULL)
             {
                 apiResult = CYBLE_ERROR_MEMORY_ALLOCATION_FAILED;
-            } 
+            }
         }
     #endif /* CYBLE_SHARING_MODE_EXPORT */
         if(apiResult == CYBLE_ERROR_OK)
         {
-            CyBle_ApplCallback = callbackFunc;
+            CYBLE_DLE_CONFIG_PARAM_T dleConfigParams;
+            CYBLE_PRIVACY_1_2_CONFIG_PARAM_T privacyConfigParams;
+            CYBLE_STACK_CONFIG_PARAM_T stackConfig;
+            uint16 featureHeapReq;
+            
+            stackConfig.privacyConfig = &privacyConfigParams;
+            stackConfig.dleConfig = &dleConfigParams;
+            
+            /* Configure default BLE 4.1 features and enabled 4.2 features */
+            stackConfig.feature_mask = CYBLE_DLE_FEATURE | CYBLE_LL_PRIVACY_FEATURE | 
+                                       CYBLE_SECURE_CONN_FEATURE;
+
+            /* Configure DLE */
+            dleConfigParams.dleMaxTxCapability = CYBLE_LL_MAX_TX_PAYLOAD_SIZE;
+            dleConfigParams.dleMaxRxCapability = CYBLE_LL_MAX_RX_PAYLOAD_SIZE;
+            dleConfigParams.dleNumTxBuffer = CYBLE_LL_DEFAULT_NUM_ACL_TX_PACKETS;
+        #if(CYBLE_DLE_FEATURE_ENABLED)
+            CyBle_EnableDleFeature();              /* Enable DLE code in stack */
+        #endif /* CYBLE_DLE_FEATURE_ENABLED */
+        
+            /* Configure LL Privacy */
+            privacyConfigParams.resolvingListSize = CYBLE_MAX_RESOLVABLE_DEVICES;
+        #if(CYBLE_LL_PRIVACY_FEATURE_ENABLED)
+            CyBle_EnablePrivacyFeature();          /* Enable LL Privacy code in stack */
+        #endif /* CYBLE_LL_PRIVACY_FEATURE_ENABLED */
+
+            apiResult = CyBle_StackSetFeatureConfig(&stackConfig, &featureHeapReq);
+            }
+    
+        if(apiResult == CYBLE_ERROR_OK)
+        {
             
         #if(CYBLE_MODE_PROFILE)
-            apiResult = CyBle_StackInit(&CyBle_EventHandler, cyBle_stackMemoryRam, CYBLE_STACK_RAM_SIZE, 
-                cyBle_stackDataBuff, CYBLE_STACK_BUF_COUNT, cyBle_flashStorage.stackFlashptr, CYBLE_STACK_FLASH_SIZE);
+            #if(CYBLE_BONDING_REQUIREMENT == CYBLE_BONDING_YES)
+                apiResult = CyBle_StackInit(&CyBle_EventHandler, cyBle_stackMemoryRam, 
+                    CYBLE_STACK_RAM_SIZE - CYBLE_GATT_PREPARE_WRITE_BUFF_LEN, cyBle_stackDataBuff, 
+                    CYBLE_STACK_APP_MIN_POOL, cyBle_flashStorage.stackFlashptr, CYBLE_STACK_FLASH_SIZE);
+            #else
+                apiResult = CyBle_StackInit(&CyBle_EventHandler, cyBle_stackMemoryRam, 
+                    CYBLE_STACK_RAM_SIZE - CYBLE_GATT_PREPARE_WRITE_BUFF_LEN, cyBle_stackDataBuff, 
+                    CYBLE_STACK_APP_MIN_POOL, NULL, 0u);
+            #endif  /* CYBLE_BONDING_REQUIREMENT == CYBLE_BONDING_YES */
         #else
             apiResult = CyBle_StackInit(&CyBle_EventHandler, cyBle_stackMemoryRam, CYBLE_STACK_RAM_SIZE,
                 NULL, 0u, NULL, 0u);
@@ -528,7 +582,7 @@ void CyBle_Stop(void)
 *   device.
 * 
 *  \globalvars
-*   The BLE_pendingFlashWrite variable is used to detect status
+*   The cyBle_pendingFlashWrite variable is used to detect status
 *   of pending write to flash operation for stack data and CCCD.
 *   This API automatically clears pending bits after write operation complete.
 *     
@@ -557,14 +611,123 @@ CYBLE_API_RESULT_T CyBle_StoreBondingData(uint8 isForceWrite)
         ((cyBle_pendingFlashWrite & CYBLE_PENDING_CCCD_FLASH_WRITE_BIT) != 0u) &&
         (cyBle_connHandle.bdHandle <= CYBLE_GAP_MAX_BONDED_DEVICE))
     {
-        apiResult = CyBle_StoreAppData(cyBle_attValuesCCCD, cyBle_flashStorage.attValuesCCCDFlashMemory[cyBle_connHandle.bdHandle], 
-                                       CYBLE_GATT_DB_CCCD_COUNT, isForceWrite);
+        apiResult = CyBle_StoreAppData(cyBle_attValuesCCCD, cyBle_flashStorage.attValuesCCCDFlashMemory[
+                        cyBle_connHandle.bdHandle], CYBLE_GATT_DB_CCCD_COUNT, isForceWrite);
         if(apiResult == CYBLE_ERROR_OK)
         {
             cyBle_pendingFlashWrite &= (uint8)~CYBLE_PENDING_CCCD_FLASH_WRITE_BIT;
         }
     }
+    /* Clear requested CCCD values */
+    if( ((apiResult == CYBLE_ERROR_OK) || (isForceWrite != 0u)) && 
+        ((cyBle_pendingFlashWrite & CYBLE_PENDING_CCCD_FLASH_CLEAR_MASK) != 0u) )
+    {
+        if((cyBle_pendingFlashWrite & CYBLE_PENDING_CCCD_FLASH_CLEAR_ALL_BIT) != 0u)
+        {
+            /* Remove cccd values for all bonded devices */
+            uint8 defaultValuesCCCD[CYBLE_GAP_MAX_BONDED_DEVICE + 1u][CYBLE_GATT_DB_CCCD_COUNT];
+            
+            (void)memset(defaultValuesCCCD, 0, sizeof(defaultValuesCCCD));
+
+            apiResult = CyBle_StoreAppData((uint8 *)defaultValuesCCCD, 
+                (const uint8 *)cyBle_flashStorage.attValuesCCCDFlashMemory, sizeof(defaultValuesCCCD), isForceWrite);
+            if(apiResult == CYBLE_ERROR_OK)
+            {
+                cyBle_pendingFlashWrite &= (uint8)~CYBLE_PENDING_CCCD_FLASH_CLEAR_ALL_BIT;
+            }
+        }
+        else /* Remove cccd values for particular device */
+        {
+            uint8 defaultValuesCCCD[CYBLE_GATT_DB_CCCD_COUNT] = {0u};
+            
+            apiResult = CyBle_StoreAppData(defaultValuesCCCD, cyBle_flashStorage.attValuesCCCDFlashMemory[
+                                    cyBle_pendingFlashClearCccdHandle], CYBLE_GATT_DB_CCCD_COUNT, isForceWrite);
+            if(apiResult == CYBLE_ERROR_OK)
+            {
+                cyBle_pendingFlashWrite &= (uint8)~CYBLE_PENDING_CCCD_FLASH_CLEAR_BIT;
+            }
+        }
+    }
 #endif /* CYBLE_GATT_DB_CCCD_COUNT != 0u */
+    return(apiResult);
+}
+
+
+/******************************************************************************
+* Function Name: CyBle_GapRemoveBondedDevice
+***************************************************************************//**
+* 
+*  This function marks the device untrusted. It removes the bonding information
+*  of the device including CCCD values. This function removes device from the
+*  white list also when autopopulate white list with bonded devices option is
+*  enabled.
+* 
+*  This function is available only when Bonding requirement is selected in
+*  Security settings.    
+*
+*  \param bdAddr: Pointer to peer device address, of type CYBLE_GAP_BD_ADDR_T.
+*                 If device address is set to 0, then all devices shall be
+*                 removed from trusted list and white list.
+*
+* \return
+*  CYBLE_API_RESULT_T : Return value indicates if the function succeeded or
+*  failed. Following are the possible error codes.
+*
+*   Errors codes                     | Description
+*   ---------------------------------| ------------------------------------
+*   CYBLE_ERROR_OK                   | On successful operation.
+*   CYBLE_ERROR_INVALID_PARAMETER    | On specifying NULL as input parameter for 'bdAddr'.
+*   CYBLE_ERROR_INVALID_OPERATION    | Whitelist is already in use or there is pending write to flash operation.	
+*   CYBLE_ERROR_NO_DEVICE_ENTITY     | Device does not exist in the bond list.
+*
+*  \globalvars
+*   The bdHandle is set in cyBle_pendingFlashWrite variable to indicate that
+*   data should be stored to flash by CyBle_StoreBondingData afterwards. 
+*     
+******************************************************************************/
+CYBLE_API_RESULT_T CyBle_GapRemoveBondedDevice(CYBLE_GAP_BD_ADDR_T* bdAddr)
+{
+    CYBLE_API_RESULT_T apiResult = CYBLE_ERROR_OK;
+    
+    if(cyBle_pendingFlashWrite == 0u)
+    {
+        
+    #if(CYBLE_GATT_DB_CCCD_COUNT != 0u)
+        /* Request to clear CCCD values which will be done by CyBle_StoreBondingData API */
+        uint8 bDevHandle;
+        CYBLE_GAP_BD_ADDR_T invalidBdAddr = {{0u,0u,0u,0u,0u,0u}, 0u};
+
+        if(memcmp(((uint8 *) &(bdAddr->bdAddr)), ((uint8 *) &(invalidBdAddr.bdAddr)), CYBLE_GAP_BD_ADDR_SIZE) == 0u)
+	    {
+            /* Request to remove all bonded devices by cyBle_StoreBondingData API */
+            cyBle_pendingFlashWrite |= CYBLE_PENDING_CCCD_FLASH_CLEAR_ALL_BIT;
+        }
+        else
+        {
+            /* Get the BD handle from Address */
+            apiResult = CyBle_GapGetPeerBdHandle(&bDevHandle, bdAddr);
+            if(apiResult == CYBLE_ERROR_OK)
+            {
+                /* Store BD handle to clear cccd values by CyBle_StoreBondingData API */
+                cyBle_pendingFlashWrite |= CYBLE_PENDING_CCCD_FLASH_CLEAR_BIT;
+                cyBle_pendingFlashClearCccdHandle = bDevHandle;
+            }
+        }
+        if(apiResult == CYBLE_ERROR_OK)
+        {
+            #if(CYBLE_AUTO_POPULATE_WHITELIST != 0u)
+                apiResult = CyBle_GapRemoveDeviceFromWhiteList(bdAddr);
+            #else
+                apiResult = CyBle_GapRemDeviceFromBondList(bdAddr);
+            #endif
+        }
+    #endif /* CYBLE_GATT_DB_CCCD_COUNT != 0u */
+    }
+    else
+    {
+        apiResult = CYBLE_ERROR_INVALID_OPERATION;
+    }
+    
     return(apiResult);
 }
 
@@ -588,8 +751,10 @@ CYBLE_API_RESULT_T CyBle_StoreBondingData(uint8 isForceWrite)
     *  CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP event. The following events are 
     *  possible on invoking this function:
     *  
-    *  * CYBLE_EVT_GAP_DEVICE_CONNECTED: If the device connects to remote GAP 
-    *                                      Central device
+    *  * CYBLE_EVT_GAP_DEVICE_CONNECTED - If the device connects to a GAP Central and 
+    *    Link Layer Privacy is disabled in component customizer.
+    *  * CYBLE_EVT_GAP_ENHANCE_CONN_COMPLETE - If the device connects to a GAP Central and 
+    *    Link Layer Privacy is enabled in component customizer.
     *  * CYBLE_EVT_TIMEOUT: If no device in GAP Central mode connects to this 
     *                       device within the specified timeout limit. Stack 
     *                       automatically initiate stop advertising when Slow 
@@ -893,6 +1058,10 @@ CYBLE_API_RESULT_T CyBle_StoreBondingData(uint8 isForceWrite)
     *  On successful connection, the following events are generated at the GAP 
     *  Central device (as well as the GAP Peripheral device), in the following order.
     *  * CYBLE_EVT_GATT_CONNECT_IND
+    *  * CYBLE_EVT_GAP_DEVICE_CONNECTED - If the device connects to a GAP Central and 
+    *    Link Layer Privacy is disabled in component customizer.
+    *  * CYBLE_EVT_GAP_ENHANCE_CONN_COMPLETE - If the device connects to a GAP Central and 
+    *    Link Layer Privacy is enabled in component customizer.
     *  * CYBLE_EVT_GAP_DEVICE_CONNECTED
     *  
     *  A procedure is considered to have timed out if a connection response packet is 
@@ -902,7 +1071,6 @@ CYBLE_API_RESULT_T CyBle_StoreBondingData(uint8 isForceWrite)
     *  be canceled and state will be changed to CYBLE_STATE_DISCONNECTED.
     * 
     *  \param address: The device address of the remote device to connect to. 
-    *  \param timeout: Timeout for which timer to be started in seconds.
     *  
     * \return
     *  CYBLE_API_RESULT_T : Return value indicates if the function succeeded or 
@@ -921,7 +1089,7 @@ CYBLE_API_RESULT_T CyBle_StoreBondingData(uint8 isForceWrite)
         CYBLE_API_RESULT_T apiResult;
         uint8 i;
 
-        if(CYBLE_STATE_DISCONNECTED != CyBle_GetState())
+        if(CyBle_GetState() != CYBLE_STATE_DISCONNECTED)
         {
             apiResult = CYBLE_ERROR_INVALID_STATE;
         }
@@ -938,7 +1106,7 @@ CYBLE_API_RESULT_T CyBle_StoreBondingData(uint8 isForceWrite)
             cyBle_connectionParameters.peerAddrType = address -> type;
             apiResult = CyBle_GapcInitConnection(&cyBle_connectionParameters);
             
-            if(CYBLE_ERROR_OK == apiResult)
+            if(apiResult == CYBLE_ERROR_OK)
             {
                 CyBle_SetState(CYBLE_STATE_CONNECTING);
                 if(cyBle_connectingTimeout != 0u)
@@ -969,23 +1137,30 @@ CYBLE_API_RESULT_T CyBle_StoreBondingData(uint8 isForceWrite)
     *   ---------------------------------- | --------------------------------------
     *   CYBLE_ERROR_OK                     | On successful operation.
     *   CYBLE_ERROR_STACK_INTERNAL         | An error occurred in the BLE stack.
-    *   CYBLE_ERROR_INVALID_OPERATION      | Device is already connected.
+    *   CYBLE_ERROR_INVALID_STATE          | On calling this API not in Connecting state.
     *  
     *******************************************************************************/
     CYBLE_API_RESULT_T CyBle_GapcCancelDeviceConnection(void)
     {
         CYBLE_API_RESULT_T apiResult;
         
-        apiResult = CyBle_GapcCancelConnection();
-            
-        if(cyBle_connectingTimeout != 0u)
+        if(CyBle_GetState() != CYBLE_STATE_CONNECTING)
         {
-            (void)CyBle_StopTimer();
+            apiResult = CYBLE_ERROR_INVALID_STATE;
         }
-
-        if(CYBLE_ERROR_OK == apiResult)
+        else 
         {
-            CyBle_SetState(CYBLE_STATE_DISCONNECTED);
+            apiResult = CyBle_GapcCancelConnection();
+            
+            if(cyBle_connectingTimeout != 0u)
+            {
+                (void)CyBle_StopTimer();
+            }
+
+            if(apiResult == CYBLE_ERROR_OK)
+            {
+                CyBle_SetState(CYBLE_STATE_DISCONNECTED);
+            }
         }
         return (apiResult);
     }    

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
   30:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
   31:.\Generated_Source\PSoC4/TimerInterrupt.c **** /* `#END` */
   32:.\Generated_Source\PSoC4/TimerInterrupt.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/TimerInterrupt.c **** extern cyisraddress CyRamVectors[CYINT_IRQ_BASE + CY_NUM_INTERRUPTS];
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
   87:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   {
   88:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   }
   89:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Function prototype example:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 3
 
 
   90:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   CY_ISR_PROTO(MyISR);
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  144:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   The default Interrupt Service Routine for TimerInterrupt.
  145:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
  146:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Add custom code between the START and END comments to keep the next version
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 4
 
 
  147:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   of this file from over-writing your code.
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  180:.\Generated_Source\PSoC4/TimerInterrupt.c **** * 
  181:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
  182:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   used to provide consistent definition across compilers:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 5
 
 
  183:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  237:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
  238:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
  239:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 6
 
 
  240:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Parameters:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  294:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
  295:.\Generated_Source\PSoC4/TimerInterrupt.c **** *   function, which sets the vector and the priority, has been called.
  296:.\Generated_Source\PSoC4/TimerInterrupt.c **** *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 7
 
 
  297:.\Generated_Source\PSoC4/TimerInterrupt.c **** * Parameters:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
   47 0000 8022     		mov	r2, #128
   48 0002 044B     		ldr	r3, .L3
   49 0004 9202     		lsl	r2, r2, #10
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 8
 
 
   50 0006 1A60     		str	r2, [r3]
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
   97              	.L6:
   98 0008 00000000 		.word	CyRamVectors
   99              		.cfi_endproc
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 9
 
 
  100              	.LFE6:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  146 0004 FFF7FEFF 		bl	CyEnterCriticalSection
  147              	.LVL3:
  255:.\Generated_Source\PSoC4/TimerInterrupt.c ****                                     ((uint32)priority << priorityOffset);
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 10
 
 
  148              		.loc 1 255 0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  197              	.LBB25:
  201:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
  198              		.loc 1 201 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 11
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 11
 
 
  199 000a 064B     		ldr	r3, .L15+4
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  246              		.type	TimerInterrupt_StartEx, %function
  247              	TimerInterrupt_StartEx:
  248              	.LFB3:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 12
 
 
  100:.\Generated_Source\PSoC4/TimerInterrupt.c ****     /* For all we know the interrupt is active. */
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  296              		.align	2
  297              	.L18:
  298 001c 80E100E0 		.word	-536813184
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 13
 
 
  299 0020 00000000 		.word	CyRamVectors
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  345              		.loc 1 307 0
  346 0000 8022     		mov	r2, #128
  347 0002 024B     		ldr	r3, .L24
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 14
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 14
 
 
  348 0004 9202     		lsl	r2, r2, #10
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  395              		.loc 1 347 0
  396              		.cfi_startproc
  397              		.loc 1 349 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 15
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 15
 
 
  398 0000 8022     		mov	r2, #128
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  426 0006 1A60     		str	r2, [r3]
  376:.\Generated_Source\PSoC4/TimerInterrupt.c **** }
  427              		.loc 1 376 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 16
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 16
 
 
  428              		@ sp needed
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  457              	.L36:
  458 000c 80E200E0 		.word	-536812928
  459              		.cfi_endproc
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 17
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 17
 
 
  460              	.LFE14:
@@ -969,7 +969,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  465              		.file 3 "Generated_Source\\PSoC4/CyLib.h"
  466              		.section	.debug_info,"",%progbits
  467              	.Ldebug_info0:
- 468 0000 4A030000 		.4byte	0x34a
+ 468 0000 4C030000 		.4byte	0x34c
  469 0004 0400     		.2byte	0x4
  470 0006 00000000 		.4byte	.Ldebug_abbrev0
  471 000a 04       		.byte	0x4
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  514 005f 05       		.byte	0x5
  515 0060 696E7400 		.ascii	"int\000"
  516 0064 02       		.uleb128 0x2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 18
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 18
 
 
  517 0065 04       		.byte	0x4
@@ -1027,348 +1027,348 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  520 006b 04       		.uleb128 0x4
  521 006c 3E030000 		.4byte	.LASF9
  522 0070 02       		.byte	0x2
- 523 0071 C2       		.byte	0xc2
- 524 0072 2C000000 		.4byte	0x2c
- 525 0076 04       		.uleb128 0x4
- 526 0077 80020000 		.4byte	.LASF10
- 527 007b 02       		.byte	0x2
- 528 007c C4       		.byte	0xc4
- 529 007d 48000000 		.4byte	0x48
- 530 0081 02       		.uleb128 0x2
- 531 0082 04       		.byte	0x4
- 532 0083 04       		.byte	0x4
- 533 0084 41010000 		.4byte	.LASF11
- 534 0088 02       		.uleb128 0x2
- 535 0089 08       		.byte	0x8
- 536 008a 04       		.byte	0x4
- 537 008b 47020000 		.4byte	.LASF12
- 538 008f 02       		.uleb128 0x2
- 539 0090 01       		.byte	0x1
- 540 0091 08       		.byte	0x8
- 541 0092 2F030000 		.4byte	.LASF13
- 542 0096 05       		.uleb128 0x5
- 543 0097 17000000 		.4byte	.LASF14
- 544 009b 02       		.byte	0x2
- 545 009c 6E01     		.2byte	0x16e
- 546 009e A2000000 		.4byte	0xa2
- 547 00a2 06       		.uleb128 0x6
- 548 00a3 76000000 		.4byte	0x76
- 549 00a7 05       		.uleb128 0x5
- 550 00a8 E1020000 		.4byte	.LASF15
- 551 00ac 02       		.byte	0x2
- 552 00ad 7E01     		.2byte	0x17e
- 553 00af B3000000 		.4byte	0xb3
- 554 00b3 07       		.uleb128 0x7
- 555 00b4 04       		.byte	0x4
- 556 00b5 B9000000 		.4byte	0xb9
- 557 00b9 08       		.uleb128 0x8
- 558 00ba 02       		.uleb128 0x2
- 559 00bb 04       		.byte	0x4
- 560 00bc 07       		.byte	0x7
- 561 00bd 18030000 		.4byte	.LASF16
- 562 00c1 09       		.uleb128 0x9
- 563 00c2 00000000 		.4byte	.LASF17
- 564 00c6 01       		.byte	0x1
- 565 00c7 5A01     		.2byte	0x15a
- 566 00c9 01       		.byte	0x1
- 567 00ca 0A       		.uleb128 0xa
- 568 00cb CE000000 		.4byte	.LASF35
- 569 00cf 01       		.byte	0x1
- 570 00d0 C7       		.byte	0xc7
- 571 00d1 01       		.byte	0x1
- 572 00d2 E2000000 		.4byte	0xe2
- 573 00d6 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 19
+ 523 0071 3801     		.2byte	0x138
+ 524 0073 2C000000 		.4byte	0x2c
+ 525 0077 04       		.uleb128 0x4
+ 526 0078 80020000 		.4byte	.LASF10
+ 527 007c 02       		.byte	0x2
+ 528 007d 3A01     		.2byte	0x13a
+ 529 007f 48000000 		.4byte	0x48
+ 530 0083 02       		.uleb128 0x2
+ 531 0084 04       		.byte	0x4
+ 532 0085 04       		.byte	0x4
+ 533 0086 41010000 		.4byte	.LASF11
+ 534 008a 02       		.uleb128 0x2
+ 535 008b 08       		.byte	0x8
+ 536 008c 04       		.byte	0x4
+ 537 008d 47020000 		.4byte	.LASF12
+ 538 0091 02       		.uleb128 0x2
+ 539 0092 01       		.byte	0x1
+ 540 0093 08       		.byte	0x8
+ 541 0094 2F030000 		.4byte	.LASF13
+ 542 0098 04       		.uleb128 0x4
+ 543 0099 17000000 		.4byte	.LASF14
+ 544 009d 02       		.byte	0x2
+ 545 009e E401     		.2byte	0x1e4
+ 546 00a0 A4000000 		.4byte	0xa4
+ 547 00a4 05       		.uleb128 0x5
+ 548 00a5 77000000 		.4byte	0x77
+ 549 00a9 04       		.uleb128 0x4
+ 550 00aa E1020000 		.4byte	.LASF15
+ 551 00ae 02       		.byte	0x2
+ 552 00af F401     		.2byte	0x1f4
+ 553 00b1 B5000000 		.4byte	0xb5
+ 554 00b5 06       		.uleb128 0x6
+ 555 00b6 04       		.byte	0x4
+ 556 00b7 BB000000 		.4byte	0xbb
+ 557 00bb 07       		.uleb128 0x7
+ 558 00bc 02       		.uleb128 0x2
+ 559 00bd 04       		.byte	0x4
+ 560 00be 07       		.byte	0x7
+ 561 00bf 18030000 		.4byte	.LASF16
+ 562 00c3 08       		.uleb128 0x8
+ 563 00c4 00000000 		.4byte	.LASF17
+ 564 00c8 01       		.byte	0x1
+ 565 00c9 5A01     		.2byte	0x15a
+ 566 00cb 01       		.byte	0x1
+ 567 00cc 09       		.uleb128 0x9
+ 568 00cd CE000000 		.4byte	.LASF35
+ 569 00d1 01       		.byte	0x1
+ 570 00d2 C7       		.byte	0xc7
+ 571 00d3 01       		.byte	0x1
+ 572 00d4 E4000000 		.4byte	0xe4
+ 573 00d8 0A       		.uleb128 0xa
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 19
 
 
- 574 00d7 C3020000 		.4byte	.LASF26
- 575 00db 01       		.byte	0x1
- 576 00dc C7       		.byte	0xc7
- 577 00dd A7000000 		.4byte	0xa7
- 578 00e1 00       		.byte	0
- 579 00e2 09       		.uleb128 0x9
- 580 00e3 B8000000 		.4byte	.LASF18
- 581 00e7 01       		.byte	0x1
- 582 00e8 3001     		.2byte	0x130
- 583 00ea 01       		.byte	0x1
- 584 00eb 0C       		.uleb128 0xc
- 585 00ec 67020000 		.4byte	.LASF29
- 586 00f0 01       		.byte	0x1
- 587 00f1 9F       		.byte	0x9f
- 588 00f2 00000000 		.4byte	.LFB5
- 589 00f6 02000000 		.4byte	.LFE5-.LFB5
- 590 00fa 01       		.uleb128 0x1
- 591 00fb 9C       		.byte	0x9c
- 592 00fc 0D       		.uleb128 0xd
- 593 00fd 2D010000 		.4byte	.LASF19
- 594 0101 01       		.byte	0x1
- 595 0102 81       		.byte	0x81
- 596 0103 00000000 		.4byte	.LFB4
- 597 0107 20000000 		.4byte	.LFE4-.LFB4
- 598 010b 01       		.uleb128 0x1
- 599 010c 9C       		.byte	0x9c
- 600 010d 36010000 		.4byte	0x136
- 601 0111 0E       		.uleb128 0xe
- 602 0112 C1000000 		.4byte	0xc1
- 603 0116 00000000 		.4byte	.LBB18
- 604 011a 08000000 		.4byte	.LBE18-.LBB18
- 605 011e 01       		.byte	0x1
- 606 011f 84       		.byte	0x84
- 607 0120 0F       		.uleb128 0xf
- 608 0121 CA000000 		.4byte	0xca
- 609 0125 08000000 		.4byte	.LBB20
- 610 0129 08000000 		.4byte	.LBE20-.LBB20
- 611 012d 01       		.byte	0x1
- 612 012e 87       		.byte	0x87
- 613 012f 10       		.uleb128 0x10
- 614 0130 D6000000 		.4byte	0xd6
- 615 0134 00       		.byte	0
- 616 0135 00       		.byte	0
- 617 0136 11       		.uleb128 0x11
- 618 0137 CA000000 		.4byte	0xca
- 619 013b 00000000 		.4byte	.LFB6
- 620 013f 0C000000 		.4byte	.LFE6-.LFB6
- 621 0143 01       		.uleb128 0x1
- 622 0144 9C       		.byte	0x9c
- 623 0145 51010000 		.4byte	0x151
- 624 0149 12       		.uleb128 0x12
- 625 014a D6000000 		.4byte	0xd6
- 626 014e 01       		.uleb128 0x1
- 627 014f 50       		.byte	0x50
- 628 0150 00       		.byte	0
- 629 0151 13       		.uleb128 0x13
- 630 0152 4E020000 		.4byte	.LASF27
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 20
+ 574 00d9 C3020000 		.4byte	.LASF26
+ 575 00dd 01       		.byte	0x1
+ 576 00de C7       		.byte	0xc7
+ 577 00df A9000000 		.4byte	0xa9
+ 578 00e3 00       		.byte	0
+ 579 00e4 08       		.uleb128 0x8
+ 580 00e5 B8000000 		.4byte	.LASF18
+ 581 00e9 01       		.byte	0x1
+ 582 00ea 3001     		.2byte	0x130
+ 583 00ec 01       		.byte	0x1
+ 584 00ed 0B       		.uleb128 0xb
+ 585 00ee 67020000 		.4byte	.LASF29
+ 586 00f2 01       		.byte	0x1
+ 587 00f3 9F       		.byte	0x9f
+ 588 00f4 00000000 		.4byte	.LFB5
+ 589 00f8 02000000 		.4byte	.LFE5-.LFB5
+ 590 00fc 01       		.uleb128 0x1
+ 591 00fd 9C       		.byte	0x9c
+ 592 00fe 0C       		.uleb128 0xc
+ 593 00ff 2D010000 		.4byte	.LASF19
+ 594 0103 01       		.byte	0x1
+ 595 0104 81       		.byte	0x81
+ 596 0105 00000000 		.4byte	.LFB4
+ 597 0109 20000000 		.4byte	.LFE4-.LFB4
+ 598 010d 01       		.uleb128 0x1
+ 599 010e 9C       		.byte	0x9c
+ 600 010f 38010000 		.4byte	0x138
+ 601 0113 0D       		.uleb128 0xd
+ 602 0114 C3000000 		.4byte	0xc3
+ 603 0118 00000000 		.4byte	.LBB18
+ 604 011c 08000000 		.4byte	.LBE18-.LBB18
+ 605 0120 01       		.byte	0x1
+ 606 0121 84       		.byte	0x84
+ 607 0122 0E       		.uleb128 0xe
+ 608 0123 CC000000 		.4byte	0xcc
+ 609 0127 08000000 		.4byte	.LBB20
+ 610 012b 08000000 		.4byte	.LBE20-.LBB20
+ 611 012f 01       		.byte	0x1
+ 612 0130 87       		.byte	0x87
+ 613 0131 0F       		.uleb128 0xf
+ 614 0132 D8000000 		.4byte	0xd8
+ 615 0136 00       		.byte	0
+ 616 0137 00       		.byte	0
+ 617 0138 10       		.uleb128 0x10
+ 618 0139 CC000000 		.4byte	0xcc
+ 619 013d 00000000 		.4byte	.LFB6
+ 620 0141 0C000000 		.4byte	.LFE6-.LFB6
+ 621 0145 01       		.uleb128 0x1
+ 622 0146 9C       		.byte	0x9c
+ 623 0147 53010000 		.4byte	0x153
+ 624 014b 11       		.uleb128 0x11
+ 625 014c D8000000 		.4byte	0xd8
+ 626 0150 01       		.uleb128 0x1
+ 627 0151 50       		.byte	0x50
+ 628 0152 00       		.byte	0
+ 629 0153 12       		.uleb128 0x12
+ 630 0154 4E020000 		.4byte	.LASF27
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 20
 
 
- 631 0156 01       		.byte	0x1
- 632 0157 DB       		.byte	0xdb
- 633 0158 A7000000 		.4byte	0xa7
- 634 015c 00000000 		.4byte	.LFB7
- 635 0160 0C000000 		.4byte	.LFE7-.LFB7
- 636 0164 01       		.uleb128 0x1
- 637 0165 9C       		.byte	0x9c
- 638 0166 0D       		.uleb128 0xd
- 639 0167 9B010000 		.4byte	.LASF20
- 640 016b 01       		.byte	0x1
- 641 016c F9       		.byte	0xf9
- 642 016d 00000000 		.4byte	.LFB8
- 643 0171 24000000 		.4byte	.LFE8-.LFB8
- 644 0175 01       		.uleb128 0x1
- 645 0176 9C       		.byte	0x9c
- 646 0177 B8010000 		.4byte	0x1b8
- 647 017b 14       		.uleb128 0x14
- 648 017c 3E020000 		.4byte	.LASF25
- 649 0180 01       		.byte	0x1
- 650 0181 F9       		.byte	0xf9
- 651 0182 6B000000 		.4byte	0x6b
- 652 0186 00000000 		.4byte	.LLST0
- 653 018a 15       		.uleb128 0x15
- 654 018b B6010000 		.4byte	.LASF21
- 655 018f 01       		.byte	0x1
- 656 0190 FB       		.byte	0xfb
- 657 0191 6B000000 		.4byte	0x6b
- 658 0195 21000000 		.4byte	.LLST1
- 659 0199 16       		.uleb128 0x16
- 660 019a 44030000 		.4byte	.LASF22
- 661 019e 01       		.byte	0x1
- 662 019f FC       		.byte	0xfc
- 663 01a0 76000000 		.4byte	0x76
- 664 01a4 0E       		.byte	0xe
- 665 01a5 17       		.uleb128 0x17
- 666 01a6 08000000 		.4byte	.LVL3
- 667 01aa 35030000 		.4byte	0x335
- 668 01ae 17       		.uleb128 0x17
- 669 01af 1A000000 		.4byte	.LVL4
- 670 01b3 40030000 		.4byte	0x340
- 671 01b7 00       		.byte	0
- 672 01b8 0D       		.uleb128 0xd
- 673 01b9 5E010000 		.4byte	.LASF23
- 674 01bd 01       		.byte	0x1
- 675 01be 38       		.byte	0x38
- 676 01bf 00000000 		.4byte	.LFB2
- 677 01c3 30000000 		.4byte	.LFE2-.LFB2
- 678 01c7 01       		.uleb128 0x1
- 679 01c8 9C       		.byte	0x9c
- 680 01c9 1B020000 		.4byte	0x21b
- 681 01cd 0E       		.uleb128 0xe
- 682 01ce C1000000 		.4byte	0xc1
- 683 01d2 02000000 		.4byte	.LBB22
- 684 01d6 08000000 		.4byte	.LBE22-.LBB22
- 685 01da 01       		.byte	0x1
- 686 01db 3B       		.byte	0x3b
- 687 01dc 18       		.uleb128 0x18
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 21
+ 631 0158 01       		.byte	0x1
+ 632 0159 DB       		.byte	0xdb
+ 633 015a A9000000 		.4byte	0xa9
+ 634 015e 00000000 		.4byte	.LFB7
+ 635 0162 0C000000 		.4byte	.LFE7-.LFB7
+ 636 0166 01       		.uleb128 0x1
+ 637 0167 9C       		.byte	0x9c
+ 638 0168 0C       		.uleb128 0xc
+ 639 0169 9B010000 		.4byte	.LASF20
+ 640 016d 01       		.byte	0x1
+ 641 016e F9       		.byte	0xf9
+ 642 016f 00000000 		.4byte	.LFB8
+ 643 0173 24000000 		.4byte	.LFE8-.LFB8
+ 644 0177 01       		.uleb128 0x1
+ 645 0178 9C       		.byte	0x9c
+ 646 0179 BA010000 		.4byte	0x1ba
+ 647 017d 13       		.uleb128 0x13
+ 648 017e 3E020000 		.4byte	.LASF25
+ 649 0182 01       		.byte	0x1
+ 650 0183 F9       		.byte	0xf9
+ 651 0184 6B000000 		.4byte	0x6b
+ 652 0188 00000000 		.4byte	.LLST0
+ 653 018c 14       		.uleb128 0x14
+ 654 018d B6010000 		.4byte	.LASF21
+ 655 0191 01       		.byte	0x1
+ 656 0192 FB       		.byte	0xfb
+ 657 0193 6B000000 		.4byte	0x6b
+ 658 0197 21000000 		.4byte	.LLST1
+ 659 019b 15       		.uleb128 0x15
+ 660 019c 44030000 		.4byte	.LASF22
+ 661 01a0 01       		.byte	0x1
+ 662 01a1 FC       		.byte	0xfc
+ 663 01a2 77000000 		.4byte	0x77
+ 664 01a6 0E       		.byte	0xe
+ 665 01a7 16       		.uleb128 0x16
+ 666 01a8 08000000 		.4byte	.LVL3
+ 667 01ac 37030000 		.4byte	0x337
+ 668 01b0 16       		.uleb128 0x16
+ 669 01b1 1A000000 		.4byte	.LVL4
+ 670 01b5 42030000 		.4byte	0x342
+ 671 01b9 00       		.byte	0
+ 672 01ba 0C       		.uleb128 0xc
+ 673 01bb 5E010000 		.4byte	.LASF23
+ 674 01bf 01       		.byte	0x1
+ 675 01c0 38       		.byte	0x38
+ 676 01c1 00000000 		.4byte	.LFB2
+ 677 01c5 30000000 		.4byte	.LFE2-.LFB2
+ 678 01c9 01       		.uleb128 0x1
+ 679 01ca 9C       		.byte	0x9c
+ 680 01cb 1D020000 		.4byte	0x21d
+ 681 01cf 0D       		.uleb128 0xd
+ 682 01d0 C3000000 		.4byte	0xc3
+ 683 01d4 02000000 		.4byte	.LBB22
+ 684 01d8 08000000 		.4byte	.LBE22-.LBB22
+ 685 01dc 01       		.byte	0x1
+ 686 01dd 3B       		.byte	0x3b
+ 687 01de 17       		.uleb128 0x17
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 21
 
 
- 688 01dd CA000000 		.4byte	0xca
- 689 01e1 0A000000 		.4byte	.LBB24
- 690 01e5 00000000 		.4byte	.Ldebug_ranges0+0
- 691 01e9 01       		.byte	0x1
- 692 01ea 3E       		.byte	0x3e
- 693 01eb FC010000 		.4byte	0x1fc
- 694 01ef 12       		.uleb128 0x12
- 695 01f0 D6000000 		.4byte	0xd6
- 696 01f4 06       		.uleb128 0x6
- 697 01f5 03       		.byte	0x3
- 698 01f6 00000000 		.4byte	TimerInterrupt_Interrupt
- 699 01fa 9F       		.byte	0x9f
- 700 01fb 00       		.byte	0
- 701 01fc 19       		.uleb128 0x19
- 702 01fd E2000000 		.4byte	0xe2
- 703 0201 18000000 		.4byte	.LBB28
- 704 0205 18000000 		.4byte	.Ldebug_ranges0+0x18
- 705 0209 01       		.byte	0x1
- 706 020a 44       		.byte	0x44
- 707 020b 1A       		.uleb128 0x1a
- 708 020c 18000000 		.4byte	.LVL6
- 709 0210 66010000 		.4byte	0x166
- 710 0214 1B       		.uleb128 0x1b
- 711 0215 01       		.uleb128 0x1
- 712 0216 50       		.byte	0x50
- 713 0217 01       		.uleb128 0x1
- 714 0218 33       		.byte	0x33
- 715 0219 00       		.byte	0
- 716 021a 00       		.byte	0
- 717 021b 0D       		.uleb128 0xd
- 718 021c FA000000 		.4byte	.LASF24
- 719 0220 01       		.byte	0x1
- 720 0221 63       		.byte	0x63
- 721 0222 00000000 		.4byte	.LFB3
- 722 0226 28000000 		.4byte	.LFE3-.LFB3
- 723 022a 01       		.uleb128 0x1
- 724 022b 9C       		.byte	0x9c
- 725 022c 8A020000 		.4byte	0x28a
- 726 0230 14       		.uleb128 0x14
- 727 0231 C3020000 		.4byte	.LASF26
- 728 0235 01       		.byte	0x1
- 729 0236 63       		.byte	0x63
- 730 0237 A7000000 		.4byte	0xa7
- 731 023b 34000000 		.4byte	.LLST2
- 732 023f 0E       		.uleb128 0xe
- 733 0240 C1000000 		.4byte	0xc1
- 734 0244 02000000 		.4byte	.LBB32
- 735 0248 08000000 		.4byte	.LBE32-.LBB32
- 736 024c 01       		.byte	0x1
- 737 024d 66       		.byte	0x66
- 738 024e 18       		.uleb128 0x18
- 739 024f CA000000 		.4byte	0xca
- 740 0253 0A000000 		.4byte	.LBB34
- 741 0257 30000000 		.4byte	.Ldebug_ranges0+0x30
- 742 025b 01       		.byte	0x1
- 743 025c 69       		.byte	0x69
- 744 025d 6B020000 		.4byte	0x26b
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 22
+ 688 01df CC000000 		.4byte	0xcc
+ 689 01e3 0A000000 		.4byte	.LBB24
+ 690 01e7 00000000 		.4byte	.Ldebug_ranges0+0
+ 691 01eb 01       		.byte	0x1
+ 692 01ec 3E       		.byte	0x3e
+ 693 01ed FE010000 		.4byte	0x1fe
+ 694 01f1 11       		.uleb128 0x11
+ 695 01f2 D8000000 		.4byte	0xd8
+ 696 01f6 06       		.uleb128 0x6
+ 697 01f7 03       		.byte	0x3
+ 698 01f8 00000000 		.4byte	TimerInterrupt_Interrupt
+ 699 01fc 9F       		.byte	0x9f
+ 700 01fd 00       		.byte	0
+ 701 01fe 18       		.uleb128 0x18
+ 702 01ff E4000000 		.4byte	0xe4
+ 703 0203 18000000 		.4byte	.LBB28
+ 704 0207 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 705 020b 01       		.byte	0x1
+ 706 020c 44       		.byte	0x44
+ 707 020d 19       		.uleb128 0x19
+ 708 020e 18000000 		.4byte	.LVL6
+ 709 0212 68010000 		.4byte	0x168
+ 710 0216 1A       		.uleb128 0x1a
+ 711 0217 01       		.uleb128 0x1
+ 712 0218 50       		.byte	0x50
+ 713 0219 01       		.uleb128 0x1
+ 714 021a 33       		.byte	0x33
+ 715 021b 00       		.byte	0
+ 716 021c 00       		.byte	0
+ 717 021d 0C       		.uleb128 0xc
+ 718 021e FA000000 		.4byte	.LASF24
+ 719 0222 01       		.byte	0x1
+ 720 0223 63       		.byte	0x63
+ 721 0224 00000000 		.4byte	.LFB3
+ 722 0228 28000000 		.4byte	.LFE3-.LFB3
+ 723 022c 01       		.uleb128 0x1
+ 724 022d 9C       		.byte	0x9c
+ 725 022e 8C020000 		.4byte	0x28c
+ 726 0232 13       		.uleb128 0x13
+ 727 0233 C3020000 		.4byte	.LASF26
+ 728 0237 01       		.byte	0x1
+ 729 0238 63       		.byte	0x63
+ 730 0239 A9000000 		.4byte	0xa9
+ 731 023d 34000000 		.4byte	.LLST2
+ 732 0241 0D       		.uleb128 0xd
+ 733 0242 C3000000 		.4byte	0xc3
+ 734 0246 02000000 		.4byte	.LBB32
+ 735 024a 08000000 		.4byte	.LBE32-.LBB32
+ 736 024e 01       		.byte	0x1
+ 737 024f 66       		.byte	0x66
+ 738 0250 17       		.uleb128 0x17
+ 739 0251 CC000000 		.4byte	0xcc
+ 740 0255 0A000000 		.4byte	.LBB34
+ 741 0259 30000000 		.4byte	.Ldebug_ranges0+0x30
+ 742 025d 01       		.byte	0x1
+ 743 025e 69       		.byte	0x69
+ 744 025f 6D020000 		.4byte	0x26d
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 22
 
 
- 745 0261 1C       		.uleb128 0x1c
- 746 0262 D6000000 		.4byte	0xd6
- 747 0266 62000000 		.4byte	.LLST3
- 748 026a 00       		.byte	0
- 749 026b 0E       		.uleb128 0xe
- 750 026c E2000000 		.4byte	0xe2
- 751 0270 16000000 		.4byte	.LBB38
- 752 0274 04000000 		.4byte	.LBE38-.LBB38
- 753 0278 01       		.byte	0x1
- 754 0279 6F       		.byte	0x6f
- 755 027a 1A       		.uleb128 0x1a
- 756 027b 16000000 		.4byte	.LVL10
- 757 027f 66010000 		.4byte	0x166
- 758 0283 1B       		.uleb128 0x1b
- 759 0284 01       		.uleb128 0x1
- 760 0285 50       		.byte	0x50
- 761 0286 01       		.uleb128 0x1
- 762 0287 33       		.byte	0x33
- 763 0288 00       		.byte	0
- 764 0289 00       		.byte	0
- 765 028a 1D       		.uleb128 0x1d
- 766 028b 68030000 		.4byte	.LASF36
- 767 028f 01       		.byte	0x1
- 768 0290 1501     		.2byte	0x115
- 769 0292 6B000000 		.4byte	0x6b
- 770 0296 00000000 		.4byte	.LFB9
- 771 029a 10000000 		.4byte	.LFE9-.LFB9
- 772 029e 01       		.uleb128 0x1
- 773 029f 9C       		.byte	0x9c
- 774 02a0 C2020000 		.4byte	0x2c2
- 775 02a4 1E       		.uleb128 0x1e
- 776 02a5 3E020000 		.4byte	.LASF25
- 777 02a9 01       		.byte	0x1
- 778 02aa 1701     		.2byte	0x117
- 779 02ac 76000000 		.4byte	0x76
- 780 02b0 90000000 		.4byte	.LLST4
- 781 02b4 1F       		.uleb128 0x1f
- 782 02b5 44030000 		.4byte	.LASF22
- 783 02b9 01       		.byte	0x1
- 784 02ba 1801     		.2byte	0x118
- 785 02bc 76000000 		.4byte	0x76
- 786 02c0 0E       		.byte	0xe
- 787 02c1 00       		.byte	0
- 788 02c2 20       		.uleb128 0x20
- 789 02c3 E2000000 		.4byte	0xe2
- 790 02c7 00000000 		.4byte	.LFB10
- 791 02cb 10000000 		.4byte	.LFE10-.LFB10
- 792 02cf 01       		.uleb128 0x1
- 793 02d0 9C       		.byte	0x9c
- 794 02d1 21       		.uleb128 0x21
- 795 02d2 AB020000 		.4byte	.LASF28
- 796 02d6 01       		.byte	0x1
- 797 02d7 4501     		.2byte	0x145
- 798 02d9 6B000000 		.4byte	0x6b
- 799 02dd 00000000 		.4byte	.LFB11
- 800 02e1 10000000 		.4byte	.LFE11-.LFB11
- 801 02e5 01       		.uleb128 0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 23
+ 745 0263 1B       		.uleb128 0x1b
+ 746 0264 D8000000 		.4byte	0xd8
+ 747 0268 62000000 		.4byte	.LLST3
+ 748 026c 00       		.byte	0
+ 749 026d 0D       		.uleb128 0xd
+ 750 026e E4000000 		.4byte	0xe4
+ 751 0272 16000000 		.4byte	.LBB38
+ 752 0276 04000000 		.4byte	.LBE38-.LBB38
+ 753 027a 01       		.byte	0x1
+ 754 027b 6F       		.byte	0x6f
+ 755 027c 19       		.uleb128 0x19
+ 756 027d 16000000 		.4byte	.LVL10
+ 757 0281 68010000 		.4byte	0x168
+ 758 0285 1A       		.uleb128 0x1a
+ 759 0286 01       		.uleb128 0x1
+ 760 0287 50       		.byte	0x50
+ 761 0288 01       		.uleb128 0x1
+ 762 0289 33       		.byte	0x33
+ 763 028a 00       		.byte	0
+ 764 028b 00       		.byte	0
+ 765 028c 1C       		.uleb128 0x1c
+ 766 028d 68030000 		.4byte	.LASF36
+ 767 0291 01       		.byte	0x1
+ 768 0292 1501     		.2byte	0x115
+ 769 0294 6B000000 		.4byte	0x6b
+ 770 0298 00000000 		.4byte	.LFB9
+ 771 029c 10000000 		.4byte	.LFE9-.LFB9
+ 772 02a0 01       		.uleb128 0x1
+ 773 02a1 9C       		.byte	0x9c
+ 774 02a2 C4020000 		.4byte	0x2c4
+ 775 02a6 1D       		.uleb128 0x1d
+ 776 02a7 3E020000 		.4byte	.LASF25
+ 777 02ab 01       		.byte	0x1
+ 778 02ac 1701     		.2byte	0x117
+ 779 02ae 77000000 		.4byte	0x77
+ 780 02b2 90000000 		.4byte	.LLST4
+ 781 02b6 1E       		.uleb128 0x1e
+ 782 02b7 44030000 		.4byte	.LASF22
+ 783 02bb 01       		.byte	0x1
+ 784 02bc 1801     		.2byte	0x118
+ 785 02be 77000000 		.4byte	0x77
+ 786 02c2 0E       		.byte	0xe
+ 787 02c3 00       		.byte	0
+ 788 02c4 1F       		.uleb128 0x1f
+ 789 02c5 E4000000 		.4byte	0xe4
+ 790 02c9 00000000 		.4byte	.LFB10
+ 791 02cd 10000000 		.4byte	.LFE10-.LFB10
+ 792 02d1 01       		.uleb128 0x1
+ 793 02d2 9C       		.byte	0x9c
+ 794 02d3 20       		.uleb128 0x20
+ 795 02d4 AB020000 		.4byte	.LASF28
+ 796 02d8 01       		.byte	0x1
+ 797 02d9 4501     		.2byte	0x145
+ 798 02db 6B000000 		.4byte	0x6b
+ 799 02df 00000000 		.4byte	.LFB11
+ 800 02e3 10000000 		.4byte	.LFE11-.LFB11
+ 801 02e7 01       		.uleb128 0x1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 23
 
 
- 802 02e6 9C       		.byte	0x9c
- 803 02e7 20       		.uleb128 0x20
- 804 02e8 C1000000 		.4byte	0xc1
- 805 02ec 00000000 		.4byte	.LFB12
- 806 02f0 10000000 		.4byte	.LFE12-.LFB12
- 807 02f4 01       		.uleb128 0x1
- 808 02f5 9C       		.byte	0x9c
- 809 02f6 22       		.uleb128 0x22
- 810 02f7 81010000 		.4byte	.LASF30
- 811 02fb 01       		.byte	0x1
- 812 02fc 7501     		.2byte	0x175
- 813 02fe 00000000 		.4byte	.LFB13
- 814 0302 10000000 		.4byte	.LFE13-.LFB13
- 815 0306 01       		.uleb128 0x1
- 816 0307 9C       		.byte	0x9c
- 817 0308 22       		.uleb128 0x22
- 818 0309 11010000 		.4byte	.LASF31
- 819 030d 01       		.byte	0x1
- 820 030e 8E01     		.2byte	0x18e
- 821 0310 00000000 		.4byte	.LFB14
- 822 0314 10000000 		.4byte	.LFE14-.LFB14
- 823 0318 01       		.uleb128 0x1
- 824 0319 9C       		.byte	0x9c
- 825 031a 23       		.uleb128 0x23
- 826 031b A7000000 		.4byte	0xa7
- 827 031f 2A030000 		.4byte	0x32a
- 828 0323 24       		.uleb128 0x24
- 829 0324 BA000000 		.4byte	0xba
- 830 0328 2F       		.byte	0x2f
- 831 0329 00       		.byte	0
- 832 032a 25       		.uleb128 0x25
- 833 032b AB000000 		.4byte	.LASF37
- 834 032f 01       		.byte	0x1
- 835 0330 21       		.byte	0x21
- 836 0331 1A030000 		.4byte	0x31a
- 837 0335 26       		.uleb128 0x26
- 838 0336 87020000 		.4byte	.LASF38
- 839 033a 03       		.byte	0x3
- 840 033b 5E       		.byte	0x5e
- 841 033c 6B000000 		.4byte	0x6b
- 842 0340 27       		.uleb128 0x27
- 843 0341 CB020000 		.4byte	.LASF39
- 844 0345 03       		.byte	0x3
- 845 0346 5F       		.byte	0x5f
- 846 0347 28       		.uleb128 0x28
- 847 0348 6B000000 		.4byte	0x6b
- 848 034c 00       		.byte	0
- 849 034d 00       		.byte	0
+ 802 02e8 9C       		.byte	0x9c
+ 803 02e9 1F       		.uleb128 0x1f
+ 804 02ea C3000000 		.4byte	0xc3
+ 805 02ee 00000000 		.4byte	.LFB12
+ 806 02f2 10000000 		.4byte	.LFE12-.LFB12
+ 807 02f6 01       		.uleb128 0x1
+ 808 02f7 9C       		.byte	0x9c
+ 809 02f8 21       		.uleb128 0x21
+ 810 02f9 81010000 		.4byte	.LASF30
+ 811 02fd 01       		.byte	0x1
+ 812 02fe 7501     		.2byte	0x175
+ 813 0300 00000000 		.4byte	.LFB13
+ 814 0304 10000000 		.4byte	.LFE13-.LFB13
+ 815 0308 01       		.uleb128 0x1
+ 816 0309 9C       		.byte	0x9c
+ 817 030a 21       		.uleb128 0x21
+ 818 030b 11010000 		.4byte	.LASF31
+ 819 030f 01       		.byte	0x1
+ 820 0310 8E01     		.2byte	0x18e
+ 821 0312 00000000 		.4byte	.LFB14
+ 822 0316 10000000 		.4byte	.LFE14-.LFB14
+ 823 031a 01       		.uleb128 0x1
+ 824 031b 9C       		.byte	0x9c
+ 825 031c 22       		.uleb128 0x22
+ 826 031d A9000000 		.4byte	0xa9
+ 827 0321 2C030000 		.4byte	0x32c
+ 828 0325 23       		.uleb128 0x23
+ 829 0326 BC000000 		.4byte	0xbc
+ 830 032a 2F       		.byte	0x2f
+ 831 032b 00       		.byte	0
+ 832 032c 24       		.uleb128 0x24
+ 833 032d AB000000 		.4byte	.LASF37
+ 834 0331 01       		.byte	0x1
+ 835 0332 21       		.byte	0x21
+ 836 0333 1C030000 		.4byte	0x31c
+ 837 0337 25       		.uleb128 0x25
+ 838 0338 87020000 		.4byte	.LASF38
+ 839 033c 03       		.byte	0x3
+ 840 033d 61       		.byte	0x61
+ 841 033e 6B000000 		.4byte	0x6b
+ 842 0342 26       		.uleb128 0x26
+ 843 0343 CB020000 		.4byte	.LASF39
+ 844 0347 03       		.byte	0x3
+ 845 0348 62       		.byte	0x62
+ 846 0349 27       		.uleb128 0x27
+ 847 034a 6B000000 		.4byte	0x6b
+ 848 034e 00       		.byte	0
+ 849 034f 00       		.byte	0
  850              		.section	.debug_abbrev,"",%progbits
  851              	.Ldebug_abbrev0:
  852 0000 01       		.uleb128 0x1
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  856 0004 0E       		.uleb128 0xe
  857 0005 13       		.uleb128 0x13
  858 0006 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 24
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 24
 
 
  859 0007 03       		.uleb128 0x3
@@ -1423,975 +1423,962 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 1
  898 002e 3A       		.uleb128 0x3a
  899 002f 0B       		.uleb128 0xb
  900 0030 3B       		.uleb128 0x3b
- 901 0031 0B       		.uleb128 0xb
+ 901 0031 05       		.uleb128 0x5
  902 0032 49       		.uleb128 0x49
  903 0033 13       		.uleb128 0x13
  904 0034 00       		.byte	0
  905 0035 00       		.byte	0
  906 0036 05       		.uleb128 0x5
- 907 0037 16       		.uleb128 0x16
+ 907 0037 35       		.uleb128 0x35
  908 0038 00       		.byte	0
- 909 0039 03       		.uleb128 0x3
- 910 003a 0E       		.uleb128 0xe
- 911 003b 3A       		.uleb128 0x3a
- 912 003c 0B       		.uleb128 0xb
- 913 003d 3B       		.uleb128 0x3b
- 914 003e 05       		.uleb128 0x5
- 915 003f 49       		.uleb128 0x49
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 25
+ 909 0039 49       		.uleb128 0x49
+ 910 003a 13       		.uleb128 0x13
+ 911 003b 00       		.byte	0
+ 912 003c 00       		.byte	0
+ 913 003d 06       		.uleb128 0x6
+ 914 003e 0F       		.uleb128 0xf
+ 915 003f 00       		.byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 25
 
 
- 916 0040 13       		.uleb128 0x13
- 917 0041 00       		.byte	0
- 918 0042 00       		.byte	0
- 919 0043 06       		.uleb128 0x6
- 920 0044 35       		.uleb128 0x35
+ 916 0040 0B       		.uleb128 0xb
+ 917 0041 0B       		.uleb128 0xb
+ 918 0042 49       		.uleb128 0x49
+ 919 0043 13       		.uleb128 0x13
+ 920 0044 00       		.byte	0
  921 0045 00       		.byte	0
- 922 0046 49       		.uleb128 0x49
- 923 0047 13       		.uleb128 0x13
+ 922 0046 07       		.uleb128 0x7
+ 923 0047 15       		.uleb128 0x15
  924 0048 00       		.byte	0
- 925 0049 00       		.byte	0
- 926 004a 07       		.uleb128 0x7
- 927 004b 0F       		.uleb128 0xf
+ 925 0049 27       		.uleb128 0x27
+ 926 004a 19       		.uleb128 0x19
+ 927 004b 00       		.byte	0
  928 004c 00       		.byte	0
- 929 004d 0B       		.uleb128 0xb
- 930 004e 0B       		.uleb128 0xb
- 931 004f 49       		.uleb128 0x49
- 932 0050 13       		.uleb128 0x13
- 933 0051 00       		.byte	0
- 934 0052 00       		.byte	0
- 935 0053 08       		.uleb128 0x8
- 936 0054 15       		.uleb128 0x15
- 937 0055 00       		.byte	0
- 938 0056 27       		.uleb128 0x27
- 939 0057 19       		.uleb128 0x19
- 940 0058 00       		.byte	0
- 941 0059 00       		.byte	0
- 942 005a 09       		.uleb128 0x9
- 943 005b 2E       		.uleb128 0x2e
+ 929 004d 08       		.uleb128 0x8
+ 930 004e 2E       		.uleb128 0x2e
+ 931 004f 00       		.byte	0
+ 932 0050 3F       		.uleb128 0x3f
+ 933 0051 19       		.uleb128 0x19
+ 934 0052 03       		.uleb128 0x3
+ 935 0053 0E       		.uleb128 0xe
+ 936 0054 3A       		.uleb128 0x3a
+ 937 0055 0B       		.uleb128 0xb
+ 938 0056 3B       		.uleb128 0x3b
+ 939 0057 05       		.uleb128 0x5
+ 940 0058 27       		.uleb128 0x27
+ 941 0059 19       		.uleb128 0x19
+ 942 005a 20       		.uleb128 0x20
+ 943 005b 0B       		.uleb128 0xb
  944 005c 00       		.byte	0
- 945 005d 3F       		.uleb128 0x3f
- 946 005e 19       		.uleb128 0x19
- 947 005f 03       		.uleb128 0x3
- 948 0060 0E       		.uleb128 0xe
- 949 0061 3A       		.uleb128 0x3a
- 950 0062 0B       		.uleb128 0xb
- 951 0063 3B       		.uleb128 0x3b
- 952 0064 05       		.uleb128 0x5
- 953 0065 27       		.uleb128 0x27
- 954 0066 19       		.uleb128 0x19
- 955 0067 20       		.uleb128 0x20
+ 945 005d 00       		.byte	0
+ 946 005e 09       		.uleb128 0x9
+ 947 005f 2E       		.uleb128 0x2e
+ 948 0060 01       		.byte	0x1
+ 949 0061 3F       		.uleb128 0x3f
+ 950 0062 19       		.uleb128 0x19
+ 951 0063 03       		.uleb128 0x3
+ 952 0064 0E       		.uleb128 0xe
+ 953 0065 3A       		.uleb128 0x3a
+ 954 0066 0B       		.uleb128 0xb
+ 955 0067 3B       		.uleb128 0x3b
  956 0068 0B       		.uleb128 0xb
- 957 0069 00       		.byte	0
- 958 006a 00       		.byte	0
- 959 006b 0A       		.uleb128 0xa
- 960 006c 2E       		.uleb128 0x2e
- 961 006d 01       		.byte	0x1
- 962 006e 3F       		.uleb128 0x3f
- 963 006f 19       		.uleb128 0x19
- 964 0070 03       		.uleb128 0x3
- 965 0071 0E       		.uleb128 0xe
- 966 0072 3A       		.uleb128 0x3a
- 967 0073 0B       		.uleb128 0xb
- 968 0074 3B       		.uleb128 0x3b
- 969 0075 0B       		.uleb128 0xb
- 970 0076 27       		.uleb128 0x27
- 971 0077 19       		.uleb128 0x19
- 972 0078 20       		.uleb128 0x20
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 26
+ 957 0069 27       		.uleb128 0x27
+ 958 006a 19       		.uleb128 0x19
+ 959 006b 20       		.uleb128 0x20
+ 960 006c 0B       		.uleb128 0xb
+ 961 006d 01       		.uleb128 0x1
+ 962 006e 13       		.uleb128 0x13
+ 963 006f 00       		.byte	0
+ 964 0070 00       		.byte	0
+ 965 0071 0A       		.uleb128 0xa
+ 966 0072 05       		.uleb128 0x5
+ 967 0073 00       		.byte	0
+ 968 0074 03       		.uleb128 0x3
+ 969 0075 0E       		.uleb128 0xe
+ 970 0076 3A       		.uleb128 0x3a
+ 971 0077 0B       		.uleb128 0xb
+ 972 0078 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 26
 
 
  973 0079 0B       		.uleb128 0xb
- 974 007a 01       		.uleb128 0x1
+ 974 007a 49       		.uleb128 0x49
  975 007b 13       		.uleb128 0x13
  976 007c 00       		.byte	0
  977 007d 00       		.byte	0
  978 007e 0B       		.uleb128 0xb
- 979 007f 05       		.uleb128 0x5
+ 979 007f 2E       		.uleb128 0x2e
  980 0080 00       		.byte	0
- 981 0081 03       		.uleb128 0x3
- 982 0082 0E       		.uleb128 0xe
- 983 0083 3A       		.uleb128 0x3a
- 984 0084 0B       		.uleb128 0xb
- 985 0085 3B       		.uleb128 0x3b
+ 981 0081 3F       		.uleb128 0x3f
+ 982 0082 19       		.uleb128 0x19
+ 983 0083 03       		.uleb128 0x3
+ 984 0084 0E       		.uleb128 0xe
+ 985 0085 3A       		.uleb128 0x3a
  986 0086 0B       		.uleb128 0xb
- 987 0087 49       		.uleb128 0x49
- 988 0088 13       		.uleb128 0x13
- 989 0089 00       		.byte	0
- 990 008a 00       		.byte	0
- 991 008b 0C       		.uleb128 0xc
- 992 008c 2E       		.uleb128 0x2e
- 993 008d 00       		.byte	0
- 994 008e 3F       		.uleb128 0x3f
- 995 008f 19       		.uleb128 0x19
- 996 0090 03       		.uleb128 0x3
- 997 0091 0E       		.uleb128 0xe
- 998 0092 3A       		.uleb128 0x3a
- 999 0093 0B       		.uleb128 0xb
- 1000 0094 3B       		.uleb128 0x3b
- 1001 0095 0B       		.uleb128 0xb
- 1002 0096 27       		.uleb128 0x27
- 1003 0097 19       		.uleb128 0x19
- 1004 0098 11       		.uleb128 0x11
- 1005 0099 01       		.uleb128 0x1
- 1006 009a 12       		.uleb128 0x12
- 1007 009b 06       		.uleb128 0x6
- 1008 009c 40       		.uleb128 0x40
- 1009 009d 18       		.uleb128 0x18
- 1010 009e 9742     		.uleb128 0x2117
- 1011 00a0 19       		.uleb128 0x19
- 1012 00a1 00       		.byte	0
- 1013 00a2 00       		.byte	0
- 1014 00a3 0D       		.uleb128 0xd
- 1015 00a4 2E       		.uleb128 0x2e
- 1016 00a5 01       		.byte	0x1
- 1017 00a6 3F       		.uleb128 0x3f
- 1018 00a7 19       		.uleb128 0x19
- 1019 00a8 03       		.uleb128 0x3
- 1020 00a9 0E       		.uleb128 0xe
- 1021 00aa 3A       		.uleb128 0x3a
- 1022 00ab 0B       		.uleb128 0xb
- 1023 00ac 3B       		.uleb128 0x3b
- 1024 00ad 0B       		.uleb128 0xb
- 1025 00ae 27       		.uleb128 0x27
- 1026 00af 19       		.uleb128 0x19
- 1027 00b0 11       		.uleb128 0x11
- 1028 00b1 01       		.uleb128 0x1
- 1029 00b2 12       		.uleb128 0x12
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 27
+ 987 0087 3B       		.uleb128 0x3b
+ 988 0088 0B       		.uleb128 0xb
+ 989 0089 27       		.uleb128 0x27
+ 990 008a 19       		.uleb128 0x19
+ 991 008b 11       		.uleb128 0x11
+ 992 008c 01       		.uleb128 0x1
+ 993 008d 12       		.uleb128 0x12
+ 994 008e 06       		.uleb128 0x6
+ 995 008f 40       		.uleb128 0x40
+ 996 0090 18       		.uleb128 0x18
+ 997 0091 9742     		.uleb128 0x2117
+ 998 0093 19       		.uleb128 0x19
+ 999 0094 00       		.byte	0
+ 1000 0095 00       		.byte	0
+ 1001 0096 0C       		.uleb128 0xc
+ 1002 0097 2E       		.uleb128 0x2e
+ 1003 0098 01       		.byte	0x1
+ 1004 0099 3F       		.uleb128 0x3f
+ 1005 009a 19       		.uleb128 0x19
+ 1006 009b 03       		.uleb128 0x3
+ 1007 009c 0E       		.uleb128 0xe
+ 1008 009d 3A       		.uleb128 0x3a
+ 1009 009e 0B       		.uleb128 0xb
+ 1010 009f 3B       		.uleb128 0x3b
+ 1011 00a0 0B       		.uleb128 0xb
+ 1012 00a1 27       		.uleb128 0x27
+ 1013 00a2 19       		.uleb128 0x19
+ 1014 00a3 11       		.uleb128 0x11
+ 1015 00a4 01       		.uleb128 0x1
+ 1016 00a5 12       		.uleb128 0x12
+ 1017 00a6 06       		.uleb128 0x6
+ 1018 00a7 40       		.uleb128 0x40
+ 1019 00a8 18       		.uleb128 0x18
+ 1020 00a9 9742     		.uleb128 0x2117
+ 1021 00ab 19       		.uleb128 0x19
+ 1022 00ac 01       		.uleb128 0x1
+ 1023 00ad 13       		.uleb128 0x13
+ 1024 00ae 00       		.byte	0
+ 1025 00af 00       		.byte	0
+ 1026 00b0 0D       		.uleb128 0xd
+ 1027 00b1 1D       		.uleb128 0x1d
+ 1028 00b2 00       		.byte	0
+ 1029 00b3 31       		.uleb128 0x31
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 27
 
 
- 1030 00b3 06       		.uleb128 0x6
- 1031 00b4 40       		.uleb128 0x40
- 1032 00b5 18       		.uleb128 0x18
- 1033 00b6 9742     		.uleb128 0x2117
- 1034 00b8 19       		.uleb128 0x19
- 1035 00b9 01       		.uleb128 0x1
- 1036 00ba 13       		.uleb128 0x13
- 1037 00bb 00       		.byte	0
- 1038 00bc 00       		.byte	0
- 1039 00bd 0E       		.uleb128 0xe
- 1040 00be 1D       		.uleb128 0x1d
- 1041 00bf 00       		.byte	0
- 1042 00c0 31       		.uleb128 0x31
- 1043 00c1 13       		.uleb128 0x13
- 1044 00c2 11       		.uleb128 0x11
- 1045 00c3 01       		.uleb128 0x1
- 1046 00c4 12       		.uleb128 0x12
- 1047 00c5 06       		.uleb128 0x6
- 1048 00c6 58       		.uleb128 0x58
- 1049 00c7 0B       		.uleb128 0xb
- 1050 00c8 59       		.uleb128 0x59
+ 1030 00b4 13       		.uleb128 0x13
+ 1031 00b5 11       		.uleb128 0x11
+ 1032 00b6 01       		.uleb128 0x1
+ 1033 00b7 12       		.uleb128 0x12
+ 1034 00b8 06       		.uleb128 0x6
+ 1035 00b9 58       		.uleb128 0x58
+ 1036 00ba 0B       		.uleb128 0xb
+ 1037 00bb 59       		.uleb128 0x59
+ 1038 00bc 0B       		.uleb128 0xb
+ 1039 00bd 00       		.byte	0
+ 1040 00be 00       		.byte	0
+ 1041 00bf 0E       		.uleb128 0xe
+ 1042 00c0 1D       		.uleb128 0x1d
+ 1043 00c1 01       		.byte	0x1
+ 1044 00c2 31       		.uleb128 0x31
+ 1045 00c3 13       		.uleb128 0x13
+ 1046 00c4 11       		.uleb128 0x11
+ 1047 00c5 01       		.uleb128 0x1
+ 1048 00c6 12       		.uleb128 0x12
+ 1049 00c7 06       		.uleb128 0x6
+ 1050 00c8 58       		.uleb128 0x58
  1051 00c9 0B       		.uleb128 0xb
- 1052 00ca 00       		.byte	0
- 1053 00cb 00       		.byte	0
- 1054 00cc 0F       		.uleb128 0xf
- 1055 00cd 1D       		.uleb128 0x1d
- 1056 00ce 01       		.byte	0x1
- 1057 00cf 31       		.uleb128 0x31
- 1058 00d0 13       		.uleb128 0x13
- 1059 00d1 11       		.uleb128 0x11
- 1060 00d2 01       		.uleb128 0x1
- 1061 00d3 12       		.uleb128 0x12
- 1062 00d4 06       		.uleb128 0x6
- 1063 00d5 58       		.uleb128 0x58
- 1064 00d6 0B       		.uleb128 0xb
- 1065 00d7 59       		.uleb128 0x59
- 1066 00d8 0B       		.uleb128 0xb
- 1067 00d9 00       		.byte	0
- 1068 00da 00       		.byte	0
- 1069 00db 10       		.uleb128 0x10
- 1070 00dc 05       		.uleb128 0x5
- 1071 00dd 00       		.byte	0
- 1072 00de 31       		.uleb128 0x31
- 1073 00df 13       		.uleb128 0x13
- 1074 00e0 00       		.byte	0
- 1075 00e1 00       		.byte	0
- 1076 00e2 11       		.uleb128 0x11
- 1077 00e3 2E       		.uleb128 0x2e
- 1078 00e4 01       		.byte	0x1
- 1079 00e5 31       		.uleb128 0x31
- 1080 00e6 13       		.uleb128 0x13
- 1081 00e7 11       		.uleb128 0x11
- 1082 00e8 01       		.uleb128 0x1
- 1083 00e9 12       		.uleb128 0x12
- 1084 00ea 06       		.uleb128 0x6
- 1085 00eb 40       		.uleb128 0x40
- 1086 00ec 18       		.uleb128 0x18
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 28
+ 1052 00ca 59       		.uleb128 0x59
+ 1053 00cb 0B       		.uleb128 0xb
+ 1054 00cc 00       		.byte	0
+ 1055 00cd 00       		.byte	0
+ 1056 00ce 0F       		.uleb128 0xf
+ 1057 00cf 05       		.uleb128 0x5
+ 1058 00d0 00       		.byte	0
+ 1059 00d1 31       		.uleb128 0x31
+ 1060 00d2 13       		.uleb128 0x13
+ 1061 00d3 00       		.byte	0
+ 1062 00d4 00       		.byte	0
+ 1063 00d5 10       		.uleb128 0x10
+ 1064 00d6 2E       		.uleb128 0x2e
+ 1065 00d7 01       		.byte	0x1
+ 1066 00d8 31       		.uleb128 0x31
+ 1067 00d9 13       		.uleb128 0x13
+ 1068 00da 11       		.uleb128 0x11
+ 1069 00db 01       		.uleb128 0x1
+ 1070 00dc 12       		.uleb128 0x12
+ 1071 00dd 06       		.uleb128 0x6
+ 1072 00de 40       		.uleb128 0x40
+ 1073 00df 18       		.uleb128 0x18
+ 1074 00e0 9742     		.uleb128 0x2117
+ 1075 00e2 19       		.uleb128 0x19
+ 1076 00e3 01       		.uleb128 0x1
+ 1077 00e4 13       		.uleb128 0x13
+ 1078 00e5 00       		.byte	0
+ 1079 00e6 00       		.byte	0
+ 1080 00e7 11       		.uleb128 0x11
+ 1081 00e8 05       		.uleb128 0x5
+ 1082 00e9 00       		.byte	0
+ 1083 00ea 31       		.uleb128 0x31
+ 1084 00eb 13       		.uleb128 0x13
+ 1085 00ec 02       		.uleb128 0x2
+ 1086 00ed 18       		.uleb128 0x18
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 28
 
 
- 1087 00ed 9742     		.uleb128 0x2117
- 1088 00ef 19       		.uleb128 0x19
- 1089 00f0 01       		.uleb128 0x1
- 1090 00f1 13       		.uleb128 0x13
+ 1087 00ee 00       		.byte	0
+ 1088 00ef 00       		.byte	0
+ 1089 00f0 12       		.uleb128 0x12
+ 1090 00f1 2E       		.uleb128 0x2e
  1091 00f2 00       		.byte	0
- 1092 00f3 00       		.byte	0
- 1093 00f4 12       		.uleb128 0x12
- 1094 00f5 05       		.uleb128 0x5
- 1095 00f6 00       		.byte	0
- 1096 00f7 31       		.uleb128 0x31
- 1097 00f8 13       		.uleb128 0x13
- 1098 00f9 02       		.uleb128 0x2
- 1099 00fa 18       		.uleb128 0x18
- 1100 00fb 00       		.byte	0
- 1101 00fc 00       		.byte	0
- 1102 00fd 13       		.uleb128 0x13
- 1103 00fe 2E       		.uleb128 0x2e
- 1104 00ff 00       		.byte	0
- 1105 0100 3F       		.uleb128 0x3f
- 1106 0101 19       		.uleb128 0x19
- 1107 0102 03       		.uleb128 0x3
- 1108 0103 0E       		.uleb128 0xe
- 1109 0104 3A       		.uleb128 0x3a
- 1110 0105 0B       		.uleb128 0xb
- 1111 0106 3B       		.uleb128 0x3b
- 1112 0107 0B       		.uleb128 0xb
- 1113 0108 27       		.uleb128 0x27
- 1114 0109 19       		.uleb128 0x19
- 1115 010a 49       		.uleb128 0x49
- 1116 010b 13       		.uleb128 0x13
- 1117 010c 11       		.uleb128 0x11
- 1118 010d 01       		.uleb128 0x1
- 1119 010e 12       		.uleb128 0x12
- 1120 010f 06       		.uleb128 0x6
- 1121 0110 40       		.uleb128 0x40
- 1122 0111 18       		.uleb128 0x18
- 1123 0112 9742     		.uleb128 0x2117
- 1124 0114 19       		.uleb128 0x19
- 1125 0115 00       		.byte	0
- 1126 0116 00       		.byte	0
- 1127 0117 14       		.uleb128 0x14
- 1128 0118 05       		.uleb128 0x5
- 1129 0119 00       		.byte	0
- 1130 011a 03       		.uleb128 0x3
- 1131 011b 0E       		.uleb128 0xe
- 1132 011c 3A       		.uleb128 0x3a
- 1133 011d 0B       		.uleb128 0xb
- 1134 011e 3B       		.uleb128 0x3b
+ 1092 00f3 3F       		.uleb128 0x3f
+ 1093 00f4 19       		.uleb128 0x19
+ 1094 00f5 03       		.uleb128 0x3
+ 1095 00f6 0E       		.uleb128 0xe
+ 1096 00f7 3A       		.uleb128 0x3a
+ 1097 00f8 0B       		.uleb128 0xb
+ 1098 00f9 3B       		.uleb128 0x3b
+ 1099 00fa 0B       		.uleb128 0xb
+ 1100 00fb 27       		.uleb128 0x27
+ 1101 00fc 19       		.uleb128 0x19
+ 1102 00fd 49       		.uleb128 0x49
+ 1103 00fe 13       		.uleb128 0x13
+ 1104 00ff 11       		.uleb128 0x11
+ 1105 0100 01       		.uleb128 0x1
+ 1106 0101 12       		.uleb128 0x12
+ 1107 0102 06       		.uleb128 0x6
+ 1108 0103 40       		.uleb128 0x40
+ 1109 0104 18       		.uleb128 0x18
+ 1110 0105 9742     		.uleb128 0x2117
+ 1111 0107 19       		.uleb128 0x19
+ 1112 0108 00       		.byte	0
+ 1113 0109 00       		.byte	0
+ 1114 010a 13       		.uleb128 0x13
+ 1115 010b 05       		.uleb128 0x5
+ 1116 010c 00       		.byte	0
+ 1117 010d 03       		.uleb128 0x3
+ 1118 010e 0E       		.uleb128 0xe
+ 1119 010f 3A       		.uleb128 0x3a
+ 1120 0110 0B       		.uleb128 0xb
+ 1121 0111 3B       		.uleb128 0x3b
+ 1122 0112 0B       		.uleb128 0xb
+ 1123 0113 49       		.uleb128 0x49
+ 1124 0114 13       		.uleb128 0x13
+ 1125 0115 02       		.uleb128 0x2
+ 1126 0116 17       		.uleb128 0x17
+ 1127 0117 00       		.byte	0
+ 1128 0118 00       		.byte	0
+ 1129 0119 14       		.uleb128 0x14
+ 1130 011a 34       		.uleb128 0x34
+ 1131 011b 00       		.byte	0
+ 1132 011c 03       		.uleb128 0x3
+ 1133 011d 0E       		.uleb128 0xe
+ 1134 011e 3A       		.uleb128 0x3a
  1135 011f 0B       		.uleb128 0xb
- 1136 0120 49       		.uleb128 0x49
- 1137 0121 13       		.uleb128 0x13
- 1138 0122 02       		.uleb128 0x2
- 1139 0123 17       		.uleb128 0x17
- 1140 0124 00       		.byte	0
- 1141 0125 00       		.byte	0
- 1142 0126 15       		.uleb128 0x15
- 1143 0127 34       		.uleb128 0x34
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 29
+ 1136 0120 3B       		.uleb128 0x3b
+ 1137 0121 0B       		.uleb128 0xb
+ 1138 0122 49       		.uleb128 0x49
+ 1139 0123 13       		.uleb128 0x13
+ 1140 0124 02       		.uleb128 0x2
+ 1141 0125 17       		.uleb128 0x17
+ 1142 0126 00       		.byte	0
+ 1143 0127 00       		.byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 29
 
 
- 1144 0128 00       		.byte	0
- 1145 0129 03       		.uleb128 0x3
- 1146 012a 0E       		.uleb128 0xe
- 1147 012b 3A       		.uleb128 0x3a
- 1148 012c 0B       		.uleb128 0xb
- 1149 012d 3B       		.uleb128 0x3b
+ 1144 0128 15       		.uleb128 0x15
+ 1145 0129 34       		.uleb128 0x34
+ 1146 012a 00       		.byte	0
+ 1147 012b 03       		.uleb128 0x3
+ 1148 012c 0E       		.uleb128 0xe
+ 1149 012d 3A       		.uleb128 0x3a
  1150 012e 0B       		.uleb128 0xb
- 1151 012f 49       		.uleb128 0x49
- 1152 0130 13       		.uleb128 0x13
- 1153 0131 02       		.uleb128 0x2
- 1154 0132 17       		.uleb128 0x17
- 1155 0133 00       		.byte	0
- 1156 0134 00       		.byte	0
- 1157 0135 16       		.uleb128 0x16
- 1158 0136 34       		.uleb128 0x34
- 1159 0137 00       		.byte	0
- 1160 0138 03       		.uleb128 0x3
- 1161 0139 0E       		.uleb128 0xe
- 1162 013a 3A       		.uleb128 0x3a
- 1163 013b 0B       		.uleb128 0xb
- 1164 013c 3B       		.uleb128 0x3b
- 1165 013d 0B       		.uleb128 0xb
- 1166 013e 49       		.uleb128 0x49
- 1167 013f 13       		.uleb128 0x13
- 1168 0140 1C       		.uleb128 0x1c
- 1169 0141 0B       		.uleb128 0xb
- 1170 0142 00       		.byte	0
- 1171 0143 00       		.byte	0
- 1172 0144 17       		.uleb128 0x17
- 1173 0145 898201   		.uleb128 0x4109
- 1174 0148 00       		.byte	0
- 1175 0149 11       		.uleb128 0x11
- 1176 014a 01       		.uleb128 0x1
- 1177 014b 31       		.uleb128 0x31
- 1178 014c 13       		.uleb128 0x13
- 1179 014d 00       		.byte	0
- 1180 014e 00       		.byte	0
- 1181 014f 18       		.uleb128 0x18
- 1182 0150 1D       		.uleb128 0x1d
- 1183 0151 01       		.byte	0x1
- 1184 0152 31       		.uleb128 0x31
- 1185 0153 13       		.uleb128 0x13
- 1186 0154 52       		.uleb128 0x52
- 1187 0155 01       		.uleb128 0x1
- 1188 0156 55       		.uleb128 0x55
- 1189 0157 17       		.uleb128 0x17
- 1190 0158 58       		.uleb128 0x58
- 1191 0159 0B       		.uleb128 0xb
- 1192 015a 59       		.uleb128 0x59
- 1193 015b 0B       		.uleb128 0xb
- 1194 015c 01       		.uleb128 0x1
- 1195 015d 13       		.uleb128 0x13
- 1196 015e 00       		.byte	0
- 1197 015f 00       		.byte	0
- 1198 0160 19       		.uleb128 0x19
- 1199 0161 1D       		.uleb128 0x1d
- 1200 0162 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 30
+ 1151 012f 3B       		.uleb128 0x3b
+ 1152 0130 0B       		.uleb128 0xb
+ 1153 0131 49       		.uleb128 0x49
+ 1154 0132 13       		.uleb128 0x13
+ 1155 0133 1C       		.uleb128 0x1c
+ 1156 0134 0B       		.uleb128 0xb
+ 1157 0135 00       		.byte	0
+ 1158 0136 00       		.byte	0
+ 1159 0137 16       		.uleb128 0x16
+ 1160 0138 898201   		.uleb128 0x4109
+ 1161 013b 00       		.byte	0
+ 1162 013c 11       		.uleb128 0x11
+ 1163 013d 01       		.uleb128 0x1
+ 1164 013e 31       		.uleb128 0x31
+ 1165 013f 13       		.uleb128 0x13
+ 1166 0140 00       		.byte	0
+ 1167 0141 00       		.byte	0
+ 1168 0142 17       		.uleb128 0x17
+ 1169 0143 1D       		.uleb128 0x1d
+ 1170 0144 01       		.byte	0x1
+ 1171 0145 31       		.uleb128 0x31
+ 1172 0146 13       		.uleb128 0x13
+ 1173 0147 52       		.uleb128 0x52
+ 1174 0148 01       		.uleb128 0x1
+ 1175 0149 55       		.uleb128 0x55
+ 1176 014a 17       		.uleb128 0x17
+ 1177 014b 58       		.uleb128 0x58
+ 1178 014c 0B       		.uleb128 0xb
+ 1179 014d 59       		.uleb128 0x59
+ 1180 014e 0B       		.uleb128 0xb
+ 1181 014f 01       		.uleb128 0x1
+ 1182 0150 13       		.uleb128 0x13
+ 1183 0151 00       		.byte	0
+ 1184 0152 00       		.byte	0
+ 1185 0153 18       		.uleb128 0x18
+ 1186 0154 1D       		.uleb128 0x1d
+ 1187 0155 00       		.byte	0
+ 1188 0156 31       		.uleb128 0x31
+ 1189 0157 13       		.uleb128 0x13
+ 1190 0158 52       		.uleb128 0x52
+ 1191 0159 01       		.uleb128 0x1
+ 1192 015a 55       		.uleb128 0x55
+ 1193 015b 17       		.uleb128 0x17
+ 1194 015c 58       		.uleb128 0x58
+ 1195 015d 0B       		.uleb128 0xb
+ 1196 015e 59       		.uleb128 0x59
+ 1197 015f 0B       		.uleb128 0xb
+ 1198 0160 00       		.byte	0
+ 1199 0161 00       		.byte	0
+ 1200 0162 19       		.uleb128 0x19
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 30
 
 
- 1201 0163 31       		.uleb128 0x31
- 1202 0164 13       		.uleb128 0x13
- 1203 0165 52       		.uleb128 0x52
- 1204 0166 01       		.uleb128 0x1
- 1205 0167 55       		.uleb128 0x55
- 1206 0168 17       		.uleb128 0x17
- 1207 0169 58       		.uleb128 0x58
- 1208 016a 0B       		.uleb128 0xb
- 1209 016b 59       		.uleb128 0x59
- 1210 016c 0B       		.uleb128 0xb
- 1211 016d 00       		.byte	0
- 1212 016e 00       		.byte	0
- 1213 016f 1A       		.uleb128 0x1a
- 1214 0170 898201   		.uleb128 0x4109
- 1215 0173 01       		.byte	0x1
- 1216 0174 11       		.uleb128 0x11
- 1217 0175 01       		.uleb128 0x1
- 1218 0176 31       		.uleb128 0x31
- 1219 0177 13       		.uleb128 0x13
- 1220 0178 00       		.byte	0
- 1221 0179 00       		.byte	0
- 1222 017a 1B       		.uleb128 0x1b
- 1223 017b 8A8201   		.uleb128 0x410a
- 1224 017e 00       		.byte	0
- 1225 017f 02       		.uleb128 0x2
- 1226 0180 18       		.uleb128 0x18
- 1227 0181 9142     		.uleb128 0x2111
- 1228 0183 18       		.uleb128 0x18
- 1229 0184 00       		.byte	0
- 1230 0185 00       		.byte	0
- 1231 0186 1C       		.uleb128 0x1c
- 1232 0187 05       		.uleb128 0x5
- 1233 0188 00       		.byte	0
- 1234 0189 31       		.uleb128 0x31
- 1235 018a 13       		.uleb128 0x13
- 1236 018b 02       		.uleb128 0x2
- 1237 018c 17       		.uleb128 0x17
- 1238 018d 00       		.byte	0
- 1239 018e 00       		.byte	0
- 1240 018f 1D       		.uleb128 0x1d
- 1241 0190 2E       		.uleb128 0x2e
- 1242 0191 01       		.byte	0x1
- 1243 0192 3F       		.uleb128 0x3f
- 1244 0193 19       		.uleb128 0x19
- 1245 0194 03       		.uleb128 0x3
- 1246 0195 0E       		.uleb128 0xe
- 1247 0196 3A       		.uleb128 0x3a
- 1248 0197 0B       		.uleb128 0xb
- 1249 0198 3B       		.uleb128 0x3b
- 1250 0199 05       		.uleb128 0x5
- 1251 019a 27       		.uleb128 0x27
- 1252 019b 19       		.uleb128 0x19
- 1253 019c 49       		.uleb128 0x49
- 1254 019d 13       		.uleb128 0x13
- 1255 019e 11       		.uleb128 0x11
- 1256 019f 01       		.uleb128 0x1
- 1257 01a0 12       		.uleb128 0x12
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 31
+ 1201 0163 898201   		.uleb128 0x4109
+ 1202 0166 01       		.byte	0x1
+ 1203 0167 11       		.uleb128 0x11
+ 1204 0168 01       		.uleb128 0x1
+ 1205 0169 31       		.uleb128 0x31
+ 1206 016a 13       		.uleb128 0x13
+ 1207 016b 00       		.byte	0
+ 1208 016c 00       		.byte	0
+ 1209 016d 1A       		.uleb128 0x1a
+ 1210 016e 8A8201   		.uleb128 0x410a
+ 1211 0171 00       		.byte	0
+ 1212 0172 02       		.uleb128 0x2
+ 1213 0173 18       		.uleb128 0x18
+ 1214 0174 9142     		.uleb128 0x2111
+ 1215 0176 18       		.uleb128 0x18
+ 1216 0177 00       		.byte	0
+ 1217 0178 00       		.byte	0
+ 1218 0179 1B       		.uleb128 0x1b
+ 1219 017a 05       		.uleb128 0x5
+ 1220 017b 00       		.byte	0
+ 1221 017c 31       		.uleb128 0x31
+ 1222 017d 13       		.uleb128 0x13
+ 1223 017e 02       		.uleb128 0x2
+ 1224 017f 17       		.uleb128 0x17
+ 1225 0180 00       		.byte	0
+ 1226 0181 00       		.byte	0
+ 1227 0182 1C       		.uleb128 0x1c
+ 1228 0183 2E       		.uleb128 0x2e
+ 1229 0184 01       		.byte	0x1
+ 1230 0185 3F       		.uleb128 0x3f
+ 1231 0186 19       		.uleb128 0x19
+ 1232 0187 03       		.uleb128 0x3
+ 1233 0188 0E       		.uleb128 0xe
+ 1234 0189 3A       		.uleb128 0x3a
+ 1235 018a 0B       		.uleb128 0xb
+ 1236 018b 3B       		.uleb128 0x3b
+ 1237 018c 05       		.uleb128 0x5
+ 1238 018d 27       		.uleb128 0x27
+ 1239 018e 19       		.uleb128 0x19
+ 1240 018f 49       		.uleb128 0x49
+ 1241 0190 13       		.uleb128 0x13
+ 1242 0191 11       		.uleb128 0x11
+ 1243 0192 01       		.uleb128 0x1
+ 1244 0193 12       		.uleb128 0x12
+ 1245 0194 06       		.uleb128 0x6
+ 1246 0195 40       		.uleb128 0x40
+ 1247 0196 18       		.uleb128 0x18
+ 1248 0197 9742     		.uleb128 0x2117
+ 1249 0199 19       		.uleb128 0x19
+ 1250 019a 01       		.uleb128 0x1
+ 1251 019b 13       		.uleb128 0x13
+ 1252 019c 00       		.byte	0
+ 1253 019d 00       		.byte	0
+ 1254 019e 1D       		.uleb128 0x1d
+ 1255 019f 34       		.uleb128 0x34
+ 1256 01a0 00       		.byte	0
+ 1257 01a1 03       		.uleb128 0x3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 31
 
 
- 1258 01a1 06       		.uleb128 0x6
- 1259 01a2 40       		.uleb128 0x40
- 1260 01a3 18       		.uleb128 0x18
- 1261 01a4 9742     		.uleb128 0x2117
- 1262 01a6 19       		.uleb128 0x19
- 1263 01a7 01       		.uleb128 0x1
+ 1258 01a2 0E       		.uleb128 0xe
+ 1259 01a3 3A       		.uleb128 0x3a
+ 1260 01a4 0B       		.uleb128 0xb
+ 1261 01a5 3B       		.uleb128 0x3b
+ 1262 01a6 05       		.uleb128 0x5
+ 1263 01a7 49       		.uleb128 0x49
  1264 01a8 13       		.uleb128 0x13
- 1265 01a9 00       		.byte	0
- 1266 01aa 00       		.byte	0
- 1267 01ab 1E       		.uleb128 0x1e
- 1268 01ac 34       		.uleb128 0x34
- 1269 01ad 00       		.byte	0
- 1270 01ae 03       		.uleb128 0x3
- 1271 01af 0E       		.uleb128 0xe
- 1272 01b0 3A       		.uleb128 0x3a
- 1273 01b1 0B       		.uleb128 0xb
- 1274 01b2 3B       		.uleb128 0x3b
- 1275 01b3 05       		.uleb128 0x5
- 1276 01b4 49       		.uleb128 0x49
- 1277 01b5 13       		.uleb128 0x13
- 1278 01b6 02       		.uleb128 0x2
- 1279 01b7 17       		.uleb128 0x17
- 1280 01b8 00       		.byte	0
- 1281 01b9 00       		.byte	0
- 1282 01ba 1F       		.uleb128 0x1f
- 1283 01bb 34       		.uleb128 0x34
- 1284 01bc 00       		.byte	0
- 1285 01bd 03       		.uleb128 0x3
- 1286 01be 0E       		.uleb128 0xe
- 1287 01bf 3A       		.uleb128 0x3a
- 1288 01c0 0B       		.uleb128 0xb
- 1289 01c1 3B       		.uleb128 0x3b
- 1290 01c2 05       		.uleb128 0x5
- 1291 01c3 49       		.uleb128 0x49
- 1292 01c4 13       		.uleb128 0x13
- 1293 01c5 1C       		.uleb128 0x1c
- 1294 01c6 0B       		.uleb128 0xb
- 1295 01c7 00       		.byte	0
- 1296 01c8 00       		.byte	0
- 1297 01c9 20       		.uleb128 0x20
- 1298 01ca 2E       		.uleb128 0x2e
- 1299 01cb 00       		.byte	0
- 1300 01cc 31       		.uleb128 0x31
- 1301 01cd 13       		.uleb128 0x13
- 1302 01ce 11       		.uleb128 0x11
- 1303 01cf 01       		.uleb128 0x1
- 1304 01d0 12       		.uleb128 0x12
- 1305 01d1 06       		.uleb128 0x6
- 1306 01d2 40       		.uleb128 0x40
- 1307 01d3 18       		.uleb128 0x18
- 1308 01d4 9742     		.uleb128 0x2117
- 1309 01d6 19       		.uleb128 0x19
- 1310 01d7 00       		.byte	0
- 1311 01d8 00       		.byte	0
- 1312 01d9 21       		.uleb128 0x21
- 1313 01da 2E       		.uleb128 0x2e
- 1314 01db 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 32
+ 1265 01a9 02       		.uleb128 0x2
+ 1266 01aa 17       		.uleb128 0x17
+ 1267 01ab 00       		.byte	0
+ 1268 01ac 00       		.byte	0
+ 1269 01ad 1E       		.uleb128 0x1e
+ 1270 01ae 34       		.uleb128 0x34
+ 1271 01af 00       		.byte	0
+ 1272 01b0 03       		.uleb128 0x3
+ 1273 01b1 0E       		.uleb128 0xe
+ 1274 01b2 3A       		.uleb128 0x3a
+ 1275 01b3 0B       		.uleb128 0xb
+ 1276 01b4 3B       		.uleb128 0x3b
+ 1277 01b5 05       		.uleb128 0x5
+ 1278 01b6 49       		.uleb128 0x49
+ 1279 01b7 13       		.uleb128 0x13
+ 1280 01b8 1C       		.uleb128 0x1c
+ 1281 01b9 0B       		.uleb128 0xb
+ 1282 01ba 00       		.byte	0
+ 1283 01bb 00       		.byte	0
+ 1284 01bc 1F       		.uleb128 0x1f
+ 1285 01bd 2E       		.uleb128 0x2e
+ 1286 01be 00       		.byte	0
+ 1287 01bf 31       		.uleb128 0x31
+ 1288 01c0 13       		.uleb128 0x13
+ 1289 01c1 11       		.uleb128 0x11
+ 1290 01c2 01       		.uleb128 0x1
+ 1291 01c3 12       		.uleb128 0x12
+ 1292 01c4 06       		.uleb128 0x6
+ 1293 01c5 40       		.uleb128 0x40
+ 1294 01c6 18       		.uleb128 0x18
+ 1295 01c7 9742     		.uleb128 0x2117
+ 1296 01c9 19       		.uleb128 0x19
+ 1297 01ca 00       		.byte	0
+ 1298 01cb 00       		.byte	0
+ 1299 01cc 20       		.uleb128 0x20
+ 1300 01cd 2E       		.uleb128 0x2e
+ 1301 01ce 00       		.byte	0
+ 1302 01cf 3F       		.uleb128 0x3f
+ 1303 01d0 19       		.uleb128 0x19
+ 1304 01d1 03       		.uleb128 0x3
+ 1305 01d2 0E       		.uleb128 0xe
+ 1306 01d3 3A       		.uleb128 0x3a
+ 1307 01d4 0B       		.uleb128 0xb
+ 1308 01d5 3B       		.uleb128 0x3b
+ 1309 01d6 05       		.uleb128 0x5
+ 1310 01d7 27       		.uleb128 0x27
+ 1311 01d8 19       		.uleb128 0x19
+ 1312 01d9 49       		.uleb128 0x49
+ 1313 01da 13       		.uleb128 0x13
+ 1314 01db 11       		.uleb128 0x11
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 32
 
 
- 1315 01dc 3F       		.uleb128 0x3f
- 1316 01dd 19       		.uleb128 0x19
- 1317 01de 03       		.uleb128 0x3
- 1318 01df 0E       		.uleb128 0xe
- 1319 01e0 3A       		.uleb128 0x3a
- 1320 01e1 0B       		.uleb128 0xb
- 1321 01e2 3B       		.uleb128 0x3b
- 1322 01e3 05       		.uleb128 0x5
- 1323 01e4 27       		.uleb128 0x27
- 1324 01e5 19       		.uleb128 0x19
- 1325 01e6 49       		.uleb128 0x49
- 1326 01e7 13       		.uleb128 0x13
- 1327 01e8 11       		.uleb128 0x11
- 1328 01e9 01       		.uleb128 0x1
- 1329 01ea 12       		.uleb128 0x12
- 1330 01eb 06       		.uleb128 0x6
- 1331 01ec 40       		.uleb128 0x40
- 1332 01ed 18       		.uleb128 0x18
- 1333 01ee 9742     		.uleb128 0x2117
- 1334 01f0 19       		.uleb128 0x19
- 1335 01f1 00       		.byte	0
- 1336 01f2 00       		.byte	0
- 1337 01f3 22       		.uleb128 0x22
- 1338 01f4 2E       		.uleb128 0x2e
- 1339 01f5 00       		.byte	0
- 1340 01f6 3F       		.uleb128 0x3f
- 1341 01f7 19       		.uleb128 0x19
- 1342 01f8 03       		.uleb128 0x3
- 1343 01f9 0E       		.uleb128 0xe
- 1344 01fa 3A       		.uleb128 0x3a
- 1345 01fb 0B       		.uleb128 0xb
- 1346 01fc 3B       		.uleb128 0x3b
- 1347 01fd 05       		.uleb128 0x5
- 1348 01fe 27       		.uleb128 0x27
- 1349 01ff 19       		.uleb128 0x19
- 1350 0200 11       		.uleb128 0x11
- 1351 0201 01       		.uleb128 0x1
- 1352 0202 12       		.uleb128 0x12
- 1353 0203 06       		.uleb128 0x6
- 1354 0204 40       		.uleb128 0x40
- 1355 0205 18       		.uleb128 0x18
- 1356 0206 9742     		.uleb128 0x2117
- 1357 0208 19       		.uleb128 0x19
+ 1315 01dc 01       		.uleb128 0x1
+ 1316 01dd 12       		.uleb128 0x12
+ 1317 01de 06       		.uleb128 0x6
+ 1318 01df 40       		.uleb128 0x40
+ 1319 01e0 18       		.uleb128 0x18
+ 1320 01e1 9742     		.uleb128 0x2117
+ 1321 01e3 19       		.uleb128 0x19
+ 1322 01e4 00       		.byte	0
+ 1323 01e5 00       		.byte	0
+ 1324 01e6 21       		.uleb128 0x21
+ 1325 01e7 2E       		.uleb128 0x2e
+ 1326 01e8 00       		.byte	0
+ 1327 01e9 3F       		.uleb128 0x3f
+ 1328 01ea 19       		.uleb128 0x19
+ 1329 01eb 03       		.uleb128 0x3
+ 1330 01ec 0E       		.uleb128 0xe
+ 1331 01ed 3A       		.uleb128 0x3a
+ 1332 01ee 0B       		.uleb128 0xb
+ 1333 01ef 3B       		.uleb128 0x3b
+ 1334 01f0 05       		.uleb128 0x5
+ 1335 01f1 27       		.uleb128 0x27
+ 1336 01f2 19       		.uleb128 0x19
+ 1337 01f3 11       		.uleb128 0x11
+ 1338 01f4 01       		.uleb128 0x1
+ 1339 01f5 12       		.uleb128 0x12
+ 1340 01f6 06       		.uleb128 0x6
+ 1341 01f7 40       		.uleb128 0x40
+ 1342 01f8 18       		.uleb128 0x18
+ 1343 01f9 9742     		.uleb128 0x2117
+ 1344 01fb 19       		.uleb128 0x19
+ 1345 01fc 00       		.byte	0
+ 1346 01fd 00       		.byte	0
+ 1347 01fe 22       		.uleb128 0x22
+ 1348 01ff 01       		.uleb128 0x1
+ 1349 0200 01       		.byte	0x1
+ 1350 0201 49       		.uleb128 0x49
+ 1351 0202 13       		.uleb128 0x13
+ 1352 0203 01       		.uleb128 0x1
+ 1353 0204 13       		.uleb128 0x13
+ 1354 0205 00       		.byte	0
+ 1355 0206 00       		.byte	0
+ 1356 0207 23       		.uleb128 0x23
+ 1357 0208 21       		.uleb128 0x21
  1358 0209 00       		.byte	0
- 1359 020a 00       		.byte	0
- 1360 020b 23       		.uleb128 0x23
- 1361 020c 01       		.uleb128 0x1
- 1362 020d 01       		.byte	0x1
- 1363 020e 49       		.uleb128 0x49
- 1364 020f 13       		.uleb128 0x13
- 1365 0210 01       		.uleb128 0x1
- 1366 0211 13       		.uleb128 0x13
+ 1359 020a 49       		.uleb128 0x49
+ 1360 020b 13       		.uleb128 0x13
+ 1361 020c 2F       		.uleb128 0x2f
+ 1362 020d 0B       		.uleb128 0xb
+ 1363 020e 00       		.byte	0
+ 1364 020f 00       		.byte	0
+ 1365 0210 24       		.uleb128 0x24
+ 1366 0211 34       		.uleb128 0x34
  1367 0212 00       		.byte	0
- 1368 0213 00       		.byte	0
- 1369 0214 24       		.uleb128 0x24
- 1370 0215 21       		.uleb128 0x21
- 1371 0216 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 33
+ 1368 0213 03       		.uleb128 0x3
+ 1369 0214 0E       		.uleb128 0xe
+ 1370 0215 3A       		.uleb128 0x3a
+ 1371 0216 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 33
 
 
- 1372 0217 49       		.uleb128 0x49
- 1373 0218 13       		.uleb128 0x13
- 1374 0219 2F       		.uleb128 0x2f
- 1375 021a 0B       		.uleb128 0xb
- 1376 021b 00       		.byte	0
- 1377 021c 00       		.byte	0
- 1378 021d 25       		.uleb128 0x25
- 1379 021e 34       		.uleb128 0x34
+ 1372 0217 3B       		.uleb128 0x3b
+ 1373 0218 0B       		.uleb128 0xb
+ 1374 0219 49       		.uleb128 0x49
+ 1375 021a 13       		.uleb128 0x13
+ 1376 021b 3F       		.uleb128 0x3f
+ 1377 021c 19       		.uleb128 0x19
+ 1378 021d 3C       		.uleb128 0x3c
+ 1379 021e 19       		.uleb128 0x19
  1380 021f 00       		.byte	0
- 1381 0220 03       		.uleb128 0x3
- 1382 0221 0E       		.uleb128 0xe
- 1383 0222 3A       		.uleb128 0x3a
- 1384 0223 0B       		.uleb128 0xb
- 1385 0224 3B       		.uleb128 0x3b
- 1386 0225 0B       		.uleb128 0xb
- 1387 0226 49       		.uleb128 0x49
- 1388 0227 13       		.uleb128 0x13
- 1389 0228 3F       		.uleb128 0x3f
- 1390 0229 19       		.uleb128 0x19
- 1391 022a 3C       		.uleb128 0x3c
- 1392 022b 19       		.uleb128 0x19
- 1393 022c 00       		.byte	0
- 1394 022d 00       		.byte	0
- 1395 022e 26       		.uleb128 0x26
- 1396 022f 2E       		.uleb128 0x2e
- 1397 0230 00       		.byte	0
- 1398 0231 3F       		.uleb128 0x3f
- 1399 0232 19       		.uleb128 0x19
- 1400 0233 03       		.uleb128 0x3
- 1401 0234 0E       		.uleb128 0xe
- 1402 0235 3A       		.uleb128 0x3a
- 1403 0236 0B       		.uleb128 0xb
- 1404 0237 3B       		.uleb128 0x3b
- 1405 0238 0B       		.uleb128 0xb
- 1406 0239 27       		.uleb128 0x27
- 1407 023a 19       		.uleb128 0x19
- 1408 023b 49       		.uleb128 0x49
- 1409 023c 13       		.uleb128 0x13
- 1410 023d 3C       		.uleb128 0x3c
- 1411 023e 19       		.uleb128 0x19
- 1412 023f 00       		.byte	0
- 1413 0240 00       		.byte	0
- 1414 0241 27       		.uleb128 0x27
- 1415 0242 2E       		.uleb128 0x2e
- 1416 0243 01       		.byte	0x1
- 1417 0244 3F       		.uleb128 0x3f
- 1418 0245 19       		.uleb128 0x19
- 1419 0246 03       		.uleb128 0x3
- 1420 0247 0E       		.uleb128 0xe
- 1421 0248 3A       		.uleb128 0x3a
- 1422 0249 0B       		.uleb128 0xb
- 1423 024a 3B       		.uleb128 0x3b
- 1424 024b 0B       		.uleb128 0xb
- 1425 024c 27       		.uleb128 0x27
- 1426 024d 19       		.uleb128 0x19
- 1427 024e 3C       		.uleb128 0x3c
- 1428 024f 19       		.uleb128 0x19
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 34
+ 1381 0220 00       		.byte	0
+ 1382 0221 25       		.uleb128 0x25
+ 1383 0222 2E       		.uleb128 0x2e
+ 1384 0223 00       		.byte	0
+ 1385 0224 3F       		.uleb128 0x3f
+ 1386 0225 19       		.uleb128 0x19
+ 1387 0226 03       		.uleb128 0x3
+ 1388 0227 0E       		.uleb128 0xe
+ 1389 0228 3A       		.uleb128 0x3a
+ 1390 0229 0B       		.uleb128 0xb
+ 1391 022a 3B       		.uleb128 0x3b
+ 1392 022b 0B       		.uleb128 0xb
+ 1393 022c 27       		.uleb128 0x27
+ 1394 022d 19       		.uleb128 0x19
+ 1395 022e 49       		.uleb128 0x49
+ 1396 022f 13       		.uleb128 0x13
+ 1397 0230 3C       		.uleb128 0x3c
+ 1398 0231 19       		.uleb128 0x19
+ 1399 0232 00       		.byte	0
+ 1400 0233 00       		.byte	0
+ 1401 0234 26       		.uleb128 0x26
+ 1402 0235 2E       		.uleb128 0x2e
+ 1403 0236 01       		.byte	0x1
+ 1404 0237 3F       		.uleb128 0x3f
+ 1405 0238 19       		.uleb128 0x19
+ 1406 0239 03       		.uleb128 0x3
+ 1407 023a 0E       		.uleb128 0xe
+ 1408 023b 3A       		.uleb128 0x3a
+ 1409 023c 0B       		.uleb128 0xb
+ 1410 023d 3B       		.uleb128 0x3b
+ 1411 023e 0B       		.uleb128 0xb
+ 1412 023f 27       		.uleb128 0x27
+ 1413 0240 19       		.uleb128 0x19
+ 1414 0241 3C       		.uleb128 0x3c
+ 1415 0242 19       		.uleb128 0x19
+ 1416 0243 00       		.byte	0
+ 1417 0244 00       		.byte	0
+ 1418 0245 27       		.uleb128 0x27
+ 1419 0246 05       		.uleb128 0x5
+ 1420 0247 00       		.byte	0
+ 1421 0248 49       		.uleb128 0x49
+ 1422 0249 13       		.uleb128 0x13
+ 1423 024a 00       		.byte	0
+ 1424 024b 00       		.byte	0
+ 1425 024c 00       		.byte	0
+ 1426              		.section	.debug_loc,"",%progbits
+ 1427              	.Ldebug_loc0:
+ 1428              	.LLST0:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 34
 
 
- 1429 0250 00       		.byte	0
- 1430 0251 00       		.byte	0
- 1431 0252 28       		.uleb128 0x28
- 1432 0253 05       		.uleb128 0x5
- 1433 0254 00       		.byte	0
- 1434 0255 49       		.uleb128 0x49
- 1435 0256 13       		.uleb128 0x13
- 1436 0257 00       		.byte	0
- 1437 0258 00       		.byte	0
- 1438 0259 00       		.byte	0
- 1439              		.section	.debug_loc,"",%progbits
- 1440              	.Ldebug_loc0:
- 1441              	.LLST0:
- 1442 0000 00000000 		.4byte	.LVL2
- 1443 0004 07000000 		.4byte	.LVL3-1
- 1444 0008 0100     		.2byte	0x1
- 1445 000a 50       		.byte	0x50
- 1446 000b 07000000 		.4byte	.LVL3-1
- 1447 000f 24000000 		.4byte	.LFE8
- 1448 0013 0400     		.2byte	0x4
- 1449 0015 F3       		.byte	0xf3
- 1450 0016 01       		.uleb128 0x1
- 1451 0017 50       		.byte	0x50
- 1452 0018 9F       		.byte	0x9f
- 1453 0019 00000000 		.4byte	0
- 1454 001d 00000000 		.4byte	0
- 1455              	.LLST1:
- 1456 0021 08000000 		.4byte	.LVL3
- 1457 0025 19000000 		.4byte	.LVL4-1
- 1458 0029 0100     		.2byte	0x1
- 1459 002b 50       		.byte	0x50
- 1460 002c 00000000 		.4byte	0
- 1461 0030 00000000 		.4byte	0
- 1462              	.LLST2:
- 1463 0034 00000000 		.4byte	.LVL7
- 1464 0038 12000000 		.4byte	.LVL9
- 1465 003c 0100     		.2byte	0x1
- 1466 003e 50       		.byte	0x50
- 1467 003f 12000000 		.4byte	.LVL9
- 1468 0043 15000000 		.4byte	.LVL10-1
- 1469 0047 0300     		.2byte	0x3
- 1470 0049 73       		.byte	0x73
- 1471 004a FC00     		.sleb128 124
- 1472 004c 15000000 		.4byte	.LVL10-1
- 1473 0050 28000000 		.4byte	.LFE3
- 1474 0054 0400     		.2byte	0x4
- 1475 0056 F3       		.byte	0xf3
- 1476 0057 01       		.uleb128 0x1
- 1477 0058 50       		.byte	0x50
- 1478 0059 9F       		.byte	0x9f
- 1479 005a 00000000 		.4byte	0
- 1480 005e 00000000 		.4byte	0
- 1481              	.LLST3:
- 1482 0062 0A000000 		.4byte	.LVL8
- 1483 0066 12000000 		.4byte	.LVL9
- 1484 006a 0100     		.2byte	0x1
- 1485 006c 50       		.byte	0x50
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 35
+ 1429 0000 00000000 		.4byte	.LVL2
+ 1430 0004 07000000 		.4byte	.LVL3-1
+ 1431 0008 0100     		.2byte	0x1
+ 1432 000a 50       		.byte	0x50
+ 1433 000b 07000000 		.4byte	.LVL3-1
+ 1434 000f 24000000 		.4byte	.LFE8
+ 1435 0013 0400     		.2byte	0x4
+ 1436 0015 F3       		.byte	0xf3
+ 1437 0016 01       		.uleb128 0x1
+ 1438 0017 50       		.byte	0x50
+ 1439 0018 9F       		.byte	0x9f
+ 1440 0019 00000000 		.4byte	0
+ 1441 001d 00000000 		.4byte	0
+ 1442              	.LLST1:
+ 1443 0021 08000000 		.4byte	.LVL3
+ 1444 0025 19000000 		.4byte	.LVL4-1
+ 1445 0029 0100     		.2byte	0x1
+ 1446 002b 50       		.byte	0x50
+ 1447 002c 00000000 		.4byte	0
+ 1448 0030 00000000 		.4byte	0
+ 1449              	.LLST2:
+ 1450 0034 00000000 		.4byte	.LVL7
+ 1451 0038 12000000 		.4byte	.LVL9
+ 1452 003c 0100     		.2byte	0x1
+ 1453 003e 50       		.byte	0x50
+ 1454 003f 12000000 		.4byte	.LVL9
+ 1455 0043 15000000 		.4byte	.LVL10-1
+ 1456 0047 0300     		.2byte	0x3
+ 1457 0049 73       		.byte	0x73
+ 1458 004a FC00     		.sleb128 124
+ 1459 004c 15000000 		.4byte	.LVL10-1
+ 1460 0050 28000000 		.4byte	.LFE3
+ 1461 0054 0400     		.2byte	0x4
+ 1462 0056 F3       		.byte	0xf3
+ 1463 0057 01       		.uleb128 0x1
+ 1464 0058 50       		.byte	0x50
+ 1465 0059 9F       		.byte	0x9f
+ 1466 005a 00000000 		.4byte	0
+ 1467 005e 00000000 		.4byte	0
+ 1468              	.LLST3:
+ 1469 0062 0A000000 		.4byte	.LVL8
+ 1470 0066 12000000 		.4byte	.LVL9
+ 1471 006a 0100     		.2byte	0x1
+ 1472 006c 50       		.byte	0x50
+ 1473 006d 12000000 		.4byte	.LVL9
+ 1474 0071 15000000 		.4byte	.LVL10-1
+ 1475 0075 0300     		.2byte	0x3
+ 1476 0077 73       		.byte	0x73
+ 1477 0078 FC00     		.sleb128 124
+ 1478 007a 15000000 		.4byte	.LVL10-1
+ 1479 007e 28000000 		.4byte	.LFE3
+ 1480 0082 0400     		.2byte	0x4
+ 1481 0084 F3       		.byte	0xf3
+ 1482 0085 01       		.uleb128 0x1
+ 1483 0086 50       		.byte	0x50
+ 1484 0087 9F       		.byte	0x9f
+ 1485 0088 00000000 		.4byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 35
 
 
- 1486 006d 12000000 		.4byte	.LVL9
- 1487 0071 15000000 		.4byte	.LVL10-1
- 1488 0075 0300     		.2byte	0x3
- 1489 0077 73       		.byte	0x73
- 1490 0078 FC00     		.sleb128 124
- 1491 007a 15000000 		.4byte	.LVL10-1
- 1492 007e 28000000 		.4byte	.LFE3
- 1493 0082 0400     		.2byte	0x4
- 1494 0084 F3       		.byte	0xf3
- 1495 0085 01       		.uleb128 0x1
- 1496 0086 50       		.byte	0x50
- 1497 0087 9F       		.byte	0x9f
- 1498 0088 00000000 		.4byte	0
- 1499 008c 00000000 		.4byte	0
- 1500              	.LLST4:
- 1501 0090 04000000 		.4byte	.LVL12
- 1502 0094 06000000 		.4byte	.LVL13
- 1503 0098 0900     		.2byte	0x9
- 1504 009a 70       		.byte	0x70
- 1505 009b 00       		.sleb128 0
- 1506 009c 0A       		.byte	0xa
- 1507 009d 00C0     		.2byte	0xc000
- 1508 009f 1A       		.byte	0x1a
- 1509 00a0 3E       		.byte	0x3e
- 1510 00a1 25       		.byte	0x25
- 1511 00a2 9F       		.byte	0x9f
- 1512 00a3 00000000 		.4byte	0
- 1513 00a7 00000000 		.4byte	0
- 1514              		.section	.debug_aranges,"",%progbits
- 1515 0000 7C000000 		.4byte	0x7c
- 1516 0004 0200     		.2byte	0x2
- 1517 0006 00000000 		.4byte	.Ldebug_info0
- 1518 000a 04       		.byte	0x4
- 1519 000b 00       		.byte	0
- 1520 000c 0000     		.2byte	0
- 1521 000e 0000     		.2byte	0
- 1522 0010 00000000 		.4byte	.LFB5
- 1523 0014 02000000 		.4byte	.LFE5-.LFB5
- 1524 0018 00000000 		.4byte	.LFB4
- 1525 001c 20000000 		.4byte	.LFE4-.LFB4
- 1526 0020 00000000 		.4byte	.LFB6
- 1527 0024 0C000000 		.4byte	.LFE6-.LFB6
- 1528 0028 00000000 		.4byte	.LFB7
- 1529 002c 0C000000 		.4byte	.LFE7-.LFB7
- 1530 0030 00000000 		.4byte	.LFB8
- 1531 0034 24000000 		.4byte	.LFE8-.LFB8
- 1532 0038 00000000 		.4byte	.LFB2
- 1533 003c 30000000 		.4byte	.LFE2-.LFB2
- 1534 0040 00000000 		.4byte	.LFB3
- 1535 0044 28000000 		.4byte	.LFE3-.LFB3
- 1536 0048 00000000 		.4byte	.LFB9
- 1537 004c 10000000 		.4byte	.LFE9-.LFB9
- 1538 0050 00000000 		.4byte	.LFB10
- 1539 0054 10000000 		.4byte	.LFE10-.LFB10
- 1540 0058 00000000 		.4byte	.LFB11
- 1541 005c 10000000 		.4byte	.LFE11-.LFB11
- 1542 0060 00000000 		.4byte	.LFB12
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 36
+ 1486 008c 00000000 		.4byte	0
+ 1487              	.LLST4:
+ 1488 0090 04000000 		.4byte	.LVL12
+ 1489 0094 06000000 		.4byte	.LVL13
+ 1490 0098 0900     		.2byte	0x9
+ 1491 009a 70       		.byte	0x70
+ 1492 009b 00       		.sleb128 0
+ 1493 009c 0A       		.byte	0xa
+ 1494 009d 00C0     		.2byte	0xc000
+ 1495 009f 1A       		.byte	0x1a
+ 1496 00a0 3E       		.byte	0x3e
+ 1497 00a1 25       		.byte	0x25
+ 1498 00a2 9F       		.byte	0x9f
+ 1499 00a3 00000000 		.4byte	0
+ 1500 00a7 00000000 		.4byte	0
+ 1501              		.section	.debug_aranges,"",%progbits
+ 1502 0000 7C000000 		.4byte	0x7c
+ 1503 0004 0200     		.2byte	0x2
+ 1504 0006 00000000 		.4byte	.Ldebug_info0
+ 1505 000a 04       		.byte	0x4
+ 1506 000b 00       		.byte	0
+ 1507 000c 0000     		.2byte	0
+ 1508 000e 0000     		.2byte	0
+ 1509 0010 00000000 		.4byte	.LFB5
+ 1510 0014 02000000 		.4byte	.LFE5-.LFB5
+ 1511 0018 00000000 		.4byte	.LFB4
+ 1512 001c 20000000 		.4byte	.LFE4-.LFB4
+ 1513 0020 00000000 		.4byte	.LFB6
+ 1514 0024 0C000000 		.4byte	.LFE6-.LFB6
+ 1515 0028 00000000 		.4byte	.LFB7
+ 1516 002c 0C000000 		.4byte	.LFE7-.LFB7
+ 1517 0030 00000000 		.4byte	.LFB8
+ 1518 0034 24000000 		.4byte	.LFE8-.LFB8
+ 1519 0038 00000000 		.4byte	.LFB2
+ 1520 003c 30000000 		.4byte	.LFE2-.LFB2
+ 1521 0040 00000000 		.4byte	.LFB3
+ 1522 0044 28000000 		.4byte	.LFE3-.LFB3
+ 1523 0048 00000000 		.4byte	.LFB9
+ 1524 004c 10000000 		.4byte	.LFE9-.LFB9
+ 1525 0050 00000000 		.4byte	.LFB10
+ 1526 0054 10000000 		.4byte	.LFE10-.LFB10
+ 1527 0058 00000000 		.4byte	.LFB11
+ 1528 005c 10000000 		.4byte	.LFE11-.LFB11
+ 1529 0060 00000000 		.4byte	.LFB12
+ 1530 0064 10000000 		.4byte	.LFE12-.LFB12
+ 1531 0068 00000000 		.4byte	.LFB13
+ 1532 006c 10000000 		.4byte	.LFE13-.LFB13
+ 1533 0070 00000000 		.4byte	.LFB14
+ 1534 0074 10000000 		.4byte	.LFE14-.LFB14
+ 1535 0078 00000000 		.4byte	0
+ 1536 007c 00000000 		.4byte	0
+ 1537              		.section	.debug_ranges,"",%progbits
+ 1538              	.Ldebug_ranges0:
+ 1539 0000 0A000000 		.4byte	.LBB24
+ 1540 0004 10000000 		.4byte	.LBE24
+ 1541 0008 12000000 		.4byte	.LBB27
+ 1542 000c 14000000 		.4byte	.LBE27
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 36
 
 
- 1543 0064 10000000 		.4byte	.LFE12-.LFB12
- 1544 0068 00000000 		.4byte	.LFB13
- 1545 006c 10000000 		.4byte	.LFE13-.LFB13
- 1546 0070 00000000 		.4byte	.LFB14
- 1547 0074 10000000 		.4byte	.LFE14-.LFB14
- 1548 0078 00000000 		.4byte	0
- 1549 007c 00000000 		.4byte	0
- 1550              		.section	.debug_ranges,"",%progbits
- 1551              	.Ldebug_ranges0:
- 1552 0000 0A000000 		.4byte	.LBB24
- 1553 0004 10000000 		.4byte	.LBE24
- 1554 0008 12000000 		.4byte	.LBB27
- 1555 000c 14000000 		.4byte	.LBE27
- 1556 0010 00000000 		.4byte	0
- 1557 0014 00000000 		.4byte	0
- 1558 0018 18000000 		.4byte	.LBB28
- 1559 001c 1A000000 		.4byte	.LBE28
- 1560 0020 1A000000 		.4byte	.LBB31
- 1561 0024 1C000000 		.4byte	.LBE31
- 1562 0028 00000000 		.4byte	0
- 1563 002c 00000000 		.4byte	0
- 1564 0030 0A000000 		.4byte	.LBB34
- 1565 0034 0C000000 		.4byte	.LBE34
- 1566 0038 0C000000 		.4byte	.LBB37
- 1567 003c 10000000 		.4byte	.LBE37
- 1568 0040 00000000 		.4byte	0
- 1569 0044 00000000 		.4byte	0
- 1570 0048 00000000 		.4byte	.LFB5
- 1571 004c 02000000 		.4byte	.LFE5
- 1572 0050 00000000 		.4byte	.LFB4
- 1573 0054 20000000 		.4byte	.LFE4
- 1574 0058 00000000 		.4byte	.LFB6
- 1575 005c 0C000000 		.4byte	.LFE6
- 1576 0060 00000000 		.4byte	.LFB7
- 1577 0064 0C000000 		.4byte	.LFE7
- 1578 0068 00000000 		.4byte	.LFB8
- 1579 006c 24000000 		.4byte	.LFE8
- 1580 0070 00000000 		.4byte	.LFB2
- 1581 0074 30000000 		.4byte	.LFE2
- 1582 0078 00000000 		.4byte	.LFB3
- 1583 007c 28000000 		.4byte	.LFE3
- 1584 0080 00000000 		.4byte	.LFB9
- 1585 0084 10000000 		.4byte	.LFE9
- 1586 0088 00000000 		.4byte	.LFB10
- 1587 008c 10000000 		.4byte	.LFE10
- 1588 0090 00000000 		.4byte	.LFB11
- 1589 0094 10000000 		.4byte	.LFE11
- 1590 0098 00000000 		.4byte	.LFB12
- 1591 009c 10000000 		.4byte	.LFE12
- 1592 00a0 00000000 		.4byte	.LFB13
- 1593 00a4 10000000 		.4byte	.LFE13
- 1594 00a8 00000000 		.4byte	.LFB14
- 1595 00ac 10000000 		.4byte	.LFE14
- 1596 00b0 00000000 		.4byte	0
- 1597 00b4 00000000 		.4byte	0
- 1598              		.section	.debug_line,"",%progbits
- 1599              	.Ldebug_line0:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 37
+ 1543 0010 00000000 		.4byte	0
+ 1544 0014 00000000 		.4byte	0
+ 1545 0018 18000000 		.4byte	.LBB28
+ 1546 001c 1A000000 		.4byte	.LBE28
+ 1547 0020 1A000000 		.4byte	.LBB31
+ 1548 0024 1C000000 		.4byte	.LBE31
+ 1549 0028 00000000 		.4byte	0
+ 1550 002c 00000000 		.4byte	0
+ 1551 0030 0A000000 		.4byte	.LBB34
+ 1552 0034 0C000000 		.4byte	.LBE34
+ 1553 0038 0C000000 		.4byte	.LBB37
+ 1554 003c 10000000 		.4byte	.LBE37
+ 1555 0040 00000000 		.4byte	0
+ 1556 0044 00000000 		.4byte	0
+ 1557 0048 00000000 		.4byte	.LFB5
+ 1558 004c 02000000 		.4byte	.LFE5
+ 1559 0050 00000000 		.4byte	.LFB4
+ 1560 0054 20000000 		.4byte	.LFE4
+ 1561 0058 00000000 		.4byte	.LFB6
+ 1562 005c 0C000000 		.4byte	.LFE6
+ 1563 0060 00000000 		.4byte	.LFB7
+ 1564 0064 0C000000 		.4byte	.LFE7
+ 1565 0068 00000000 		.4byte	.LFB8
+ 1566 006c 24000000 		.4byte	.LFE8
+ 1567 0070 00000000 		.4byte	.LFB2
+ 1568 0074 30000000 		.4byte	.LFE2
+ 1569 0078 00000000 		.4byte	.LFB3
+ 1570 007c 28000000 		.4byte	.LFE3
+ 1571 0080 00000000 		.4byte	.LFB9
+ 1572 0084 10000000 		.4byte	.LFE9
+ 1573 0088 00000000 		.4byte	.LFB10
+ 1574 008c 10000000 		.4byte	.LFE10
+ 1575 0090 00000000 		.4byte	.LFB11
+ 1576 0094 10000000 		.4byte	.LFE11
+ 1577 0098 00000000 		.4byte	.LFB12
+ 1578 009c 10000000 		.4byte	.LFE12
+ 1579 00a0 00000000 		.4byte	.LFB13
+ 1580 00a4 10000000 		.4byte	.LFE13
+ 1581 00a8 00000000 		.4byte	.LFB14
+ 1582 00ac 10000000 		.4byte	.LFE14
+ 1583 00b0 00000000 		.4byte	0
+ 1584 00b4 00000000 		.4byte	0
+ 1585              		.section	.debug_line,"",%progbits
+ 1586              	.Ldebug_line0:
+ 1587 0000 B3010000 		.section	.debug_str,"MS",%progbits,1
+ 1587      02006F00 
+ 1587      00000201 
+ 1587      FB0E0D00 
+ 1587      01010101 
+ 1588              	.LASF17:
+ 1589 0000 54696D65 		.ascii	"TimerInterrupt_Disable\000"
+ 1589      72496E74 
+ 1589      65727275 
+ 1589      70745F44 
+ 1589      69736162 
+ 1590              	.LASF14:
+ 1591 0017 72656733 		.ascii	"reg32\000"
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 37
 
 
- 1600 0000 B3010000 		.section	.debug_str,"MS",%progbits,1
- 1600      02006F00 
- 1600      00000201 
- 1600      FB0E0D00 
- 1600      01010101 
- 1601              	.LASF17:
- 1602 0000 54696D65 		.ascii	"TimerInterrupt_Disable\000"
- 1602      72496E74 
- 1602      65727275 
- 1602      70745F44 
- 1602      69736162 
- 1603              	.LASF14:
- 1604 0017 72656733 		.ascii	"reg32\000"
- 1604      3200
- 1605              	.LASF32:
- 1606 001d 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1606      4320342E 
- 1606      392E3320 
- 1606      32303135 
- 1606      30333033 
- 1607 0050 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
- 1607      20726576 
- 1607      6973696F 
- 1607      6E203232 
- 1607      31323230 
- 1608 0083 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
- 1608      66756E63 
- 1608      74696F6E 
- 1608      2D736563 
- 1608      74696F6E 
- 1609              	.LASF37:
- 1610 00ab 43795261 		.ascii	"CyRamVectors\000"
- 1610      6D566563 
- 1610      746F7273 
- 1610      00
- 1611              	.LASF18:
- 1612 00b8 54696D65 		.ascii	"TimerInterrupt_Enable\000"
- 1612      72496E74 
- 1612      65727275 
- 1612      70745F45 
- 1612      6E61626C 
- 1613              	.LASF35:
- 1614 00ce 54696D65 		.ascii	"TimerInterrupt_SetVector\000"
- 1614      72496E74 
- 1614      65727275 
- 1614      70745F53 
- 1614      65745665 
- 1615              	.LASF3:
- 1616 00e7 73686F72 		.ascii	"short unsigned int\000"
- 1616      7420756E 
- 1616      7369676E 
- 1616      65642069 
- 1616      6E7400
- 1617              	.LASF24:
- 1618 00fa 54696D65 		.ascii	"TimerInterrupt_StartEx\000"
- 1618      72496E74 
- 1618      65727275 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 38
+ 1591      3200
+ 1592              	.LASF32:
+ 1593 001d 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1593      4320342E 
+ 1593      392E3320 
+ 1593      32303135 
+ 1593      30333033 
+ 1594 0050 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 1594      20726576 
+ 1594      6973696F 
+ 1594      6E203232 
+ 1594      31323230 
+ 1595 0083 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
+ 1595      66756E63 
+ 1595      74696F6E 
+ 1595      2D736563 
+ 1595      74696F6E 
+ 1596              	.LASF37:
+ 1597 00ab 43795261 		.ascii	"CyRamVectors\000"
+ 1597      6D566563 
+ 1597      746F7273 
+ 1597      00
+ 1598              	.LASF18:
+ 1599 00b8 54696D65 		.ascii	"TimerInterrupt_Enable\000"
+ 1599      72496E74 
+ 1599      65727275 
+ 1599      70745F45 
+ 1599      6E61626C 
+ 1600              	.LASF35:
+ 1601 00ce 54696D65 		.ascii	"TimerInterrupt_SetVector\000"
+ 1601      72496E74 
+ 1601      65727275 
+ 1601      70745F53 
+ 1601      65745665 
+ 1602              	.LASF3:
+ 1603 00e7 73686F72 		.ascii	"short unsigned int\000"
+ 1603      7420756E 
+ 1603      7369676E 
+ 1603      65642069 
+ 1603      6E7400
+ 1604              	.LASF24:
+ 1605 00fa 54696D65 		.ascii	"TimerInterrupt_StartEx\000"
+ 1605      72496E74 
+ 1605      65727275 
+ 1605      70745F53 
+ 1605      74617274 
+ 1606              	.LASF31:
+ 1607 0111 54696D65 		.ascii	"TimerInterrupt_ClearPending\000"
+ 1607      72496E74 
+ 1607      65727275 
+ 1607      70745F43 
+ 1607      6C656172 
+ 1608              	.LASF19:
+ 1609 012d 54696D65 		.ascii	"TimerInterrupt_Stop\000"
+ 1609      72496E74 
+ 1609      65727275 
+ 1609      70745F53 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 38
 
 
- 1618      70745F53 
- 1618      74617274 
- 1619              	.LASF31:
- 1620 0111 54696D65 		.ascii	"TimerInterrupt_ClearPending\000"
- 1620      72496E74 
- 1620      65727275 
- 1620      70745F43 
- 1620      6C656172 
- 1621              	.LASF19:
- 1622 012d 54696D65 		.ascii	"TimerInterrupt_Stop\000"
- 1622      72496E74 
- 1622      65727275 
- 1622      70745F53 
- 1622      746F7000 
- 1623              	.LASF11:
- 1624 0141 666C6F61 		.ascii	"float\000"
- 1624      7400
- 1625              	.LASF7:
- 1626 0147 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1626      206C6F6E 
- 1626      6720756E 
- 1626      7369676E 
- 1626      65642069 
- 1627              	.LASF23:
- 1628 015e 54696D65 		.ascii	"TimerInterrupt_Start\000"
- 1628      72496E74 
- 1628      65727275 
- 1628      70745F53 
- 1628      74617274 
- 1629              	.LASF1:
- 1630 0173 756E7369 		.ascii	"unsigned char\000"
- 1630      676E6564 
- 1630      20636861 
- 1630      7200
- 1631              	.LASF30:
- 1632 0181 54696D65 		.ascii	"TimerInterrupt_SetPending\000"
- 1632      72496E74 
- 1632      65727275 
- 1632      70745F53 
- 1632      65745065 
- 1633              	.LASF20:
- 1634 019b 54696D65 		.ascii	"TimerInterrupt_SetPriority\000"
- 1634      72496E74 
- 1634      65727275 
- 1634      70745F53 
- 1634      65745072 
- 1635              	.LASF21:
- 1636 01b6 696E7465 		.ascii	"interruptState\000"
- 1636      72727570 
- 1636      74537461 
- 1636      746500
- 1637              	.LASF5:
- 1638 01c5 6C6F6E67 		.ascii	"long unsigned int\000"
- 1638      20756E73 
- 1638      69676E65 
- 1638      6420696E 
- 1638      7400
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 39
+ 1609      746F7000 
+ 1610              	.LASF11:
+ 1611 0141 666C6F61 		.ascii	"float\000"
+ 1611      7400
+ 1612              	.LASF7:
+ 1613 0147 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1613      206C6F6E 
+ 1613      6720756E 
+ 1613      7369676E 
+ 1613      65642069 
+ 1614              	.LASF23:
+ 1615 015e 54696D65 		.ascii	"TimerInterrupt_Start\000"
+ 1615      72496E74 
+ 1615      65727275 
+ 1615      70745F53 
+ 1615      74617274 
+ 1616              	.LASF1:
+ 1617 0173 756E7369 		.ascii	"unsigned char\000"
+ 1617      676E6564 
+ 1617      20636861 
+ 1617      7200
+ 1618              	.LASF30:
+ 1619 0181 54696D65 		.ascii	"TimerInterrupt_SetPending\000"
+ 1619      72496E74 
+ 1619      65727275 
+ 1619      70745F53 
+ 1619      65745065 
+ 1620              	.LASF20:
+ 1621 019b 54696D65 		.ascii	"TimerInterrupt_SetPriority\000"
+ 1621      72496E74 
+ 1621      65727275 
+ 1621      70745F53 
+ 1621      65745072 
+ 1622              	.LASF21:
+ 1623 01b6 696E7465 		.ascii	"interruptState\000"
+ 1623      72727570 
+ 1623      74537461 
+ 1623      746500
+ 1624              	.LASF5:
+ 1625 01c5 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1625      20756E73 
+ 1625      69676E65 
+ 1625      6420696E 
+ 1625      7400
+ 1626              	.LASF34:
+ 1627 01d7 473A5C50 		.ascii	"G:\\Project\\LiYangLiu---BLE Module\\Code\\Troughpu"
+ 1627      726F6A65 
+ 1627      63745C4C 
+ 1627      6959616E 
+ 1627      674C6975 
+ 1628 0206 725F4365 		.ascii	"r_Central_Peripheral\\Troughput_Central_Peripheral."
+ 1628      6E747261 
+ 1628      6C5F5065 
+ 1628      72697068 
+ 1628      6572616C 
+ 1629 0238 63796473 		.ascii	"cydsn\000"
+ 1629      6E00
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 39
 
 
- 1639              	.LASF34:
- 1640 01d7 473A5C50 		.ascii	"G:\\Project\\LiYangLiu---BLE Module\\Code\\Troughpu"
- 1640      726F6A65 
- 1640      63745C4C 
- 1640      6959616E 
- 1640      674C6975 
- 1641 0206 725F4365 		.ascii	"r_Central_Peripheral\\Troughput_Central_Peripheral."
- 1641      6E747261 
- 1641      6C5F5065 
- 1641      72697068 
- 1641      6572616C 
- 1642 0238 63796473 		.ascii	"cydsn\000"
- 1642      6E00
- 1643              	.LASF25:
- 1644 023e 7072696F 		.ascii	"priority\000"
- 1644      72697479 
- 1644      00
- 1645              	.LASF12:
- 1646 0247 646F7562 		.ascii	"double\000"
- 1646      6C6500
- 1647              	.LASF27:
- 1648 024e 54696D65 		.ascii	"TimerInterrupt_GetVector\000"
- 1648      72496E74 
- 1648      65727275 
- 1648      70745F47 
- 1648      65745665 
- 1649              	.LASF29:
- 1650 0267 54696D65 		.ascii	"TimerInterrupt_Interrupt\000"
- 1650      72496E74 
- 1650      65727275 
- 1650      70745F49 
- 1650      6E746572 
- 1651              	.LASF10:
- 1652 0280 75696E74 		.ascii	"uint32\000"
- 1652      333200
- 1653              	.LASF38:
- 1654 0287 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 1654      74657243 
- 1654      72697469 
- 1654      63616C53 
- 1654      65637469 
- 1655              	.LASF8:
- 1656 029e 756E7369 		.ascii	"unsigned int\000"
- 1656      676E6564 
- 1656      20696E74 
- 1656      00
- 1657              	.LASF28:
- 1658 02ab 54696D65 		.ascii	"TimerInterrupt_GetState\000"
- 1658      72496E74 
- 1658      65727275 
- 1658      70745F47 
- 1658      65745374 
- 1659              	.LASF26:
- 1660 02c3 61646472 		.ascii	"address\000"
- 1660      65737300 
- 1661              	.LASF39:
- 1662 02cb 43794578 		.ascii	"CyExitCriticalSection\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccWMtJoz.s 			page 40
+ 1630              	.LASF25:
+ 1631 023e 7072696F 		.ascii	"priority\000"
+ 1631      72697479 
+ 1631      00
+ 1632              	.LASF12:
+ 1633 0247 646F7562 		.ascii	"double\000"
+ 1633      6C6500
+ 1634              	.LASF27:
+ 1635 024e 54696D65 		.ascii	"TimerInterrupt_GetVector\000"
+ 1635      72496E74 
+ 1635      65727275 
+ 1635      70745F47 
+ 1635      65745665 
+ 1636              	.LASF29:
+ 1637 0267 54696D65 		.ascii	"TimerInterrupt_Interrupt\000"
+ 1637      72496E74 
+ 1637      65727275 
+ 1637      70745F49 
+ 1637      6E746572 
+ 1638              	.LASF10:
+ 1639 0280 75696E74 		.ascii	"uint32\000"
+ 1639      333200
+ 1640              	.LASF38:
+ 1641 0287 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1641      74657243 
+ 1641      72697469 
+ 1641      63616C53 
+ 1641      65637469 
+ 1642              	.LASF8:
+ 1643 029e 756E7369 		.ascii	"unsigned int\000"
+ 1643      676E6564 
+ 1643      20696E74 
+ 1643      00
+ 1644              	.LASF28:
+ 1645 02ab 54696D65 		.ascii	"TimerInterrupt_GetState\000"
+ 1645      72496E74 
+ 1645      65727275 
+ 1645      70745F47 
+ 1645      65745374 
+ 1646              	.LASF26:
+ 1647 02c3 61646472 		.ascii	"address\000"
+ 1647      65737300 
+ 1648              	.LASF39:
+ 1649 02cb 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1649      69744372 
+ 1649      69746963 
+ 1649      616C5365 
+ 1649      6374696F 
+ 1650              	.LASF15:
+ 1651 02e1 63796973 		.ascii	"cyisraddress\000"
+ 1651      72616464 
+ 1651      72657373 
+ 1651      00
+ 1652              	.LASF33:
+ 1653 02ee 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\TimerInterrupt.c\000"
+ 1653      6E657261 
+ 1653      7465645F 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccIy35rI.s 			page 40
 
 
- 1662      69744372 
- 1662      69746963 
- 1662      616C5365 
- 1662      6374696F 
- 1663              	.LASF15:
- 1664 02e1 63796973 		.ascii	"cyisraddress\000"
- 1664      72616464 
- 1664      72657373 
- 1664      00
- 1665              	.LASF33:
- 1666 02ee 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\TimerInterrupt.c\000"
- 1666      6E657261 
- 1666      7465645F 
- 1666      536F7572 
- 1666      63655C50 
- 1667              	.LASF16:
- 1668 0318 73697A65 		.ascii	"sizetype\000"
- 1668      74797065 
- 1668      00
- 1669              	.LASF6:
- 1670 0321 6C6F6E67 		.ascii	"long long int\000"
- 1670      206C6F6E 
- 1670      6720696E 
- 1670      7400
- 1671              	.LASF13:
- 1672 032f 63686172 		.ascii	"char\000"
- 1672      00
- 1673              	.LASF2:
- 1674 0334 73686F72 		.ascii	"short int\000"
- 1674      7420696E 
- 1674      7400
- 1675              	.LASF9:
- 1676 033e 75696E74 		.ascii	"uint8\000"
- 1676      3800
- 1677              	.LASF22:
- 1678 0344 7072696F 		.ascii	"priorityOffset\000"
- 1678      72697479 
- 1678      4F666673 
- 1678      657400
- 1679              	.LASF4:
- 1680 0353 6C6F6E67 		.ascii	"long int\000"
- 1680      20696E74 
- 1680      00
- 1681              	.LASF0:
- 1682 035c 7369676E 		.ascii	"signed char\000"
- 1682      65642063 
- 1682      68617200 
- 1683              	.LASF36:
- 1684 0368 54696D65 		.ascii	"TimerInterrupt_GetPriority\000"
- 1684      72496E74 
- 1684      65727275 
- 1684      70745F47 
- 1684      65745072 
- 1685              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 1653      536F7572 
+ 1653      63655C50 
+ 1654              	.LASF16:
+ 1655 0318 73697A65 		.ascii	"sizetype\000"
+ 1655      74797065 
+ 1655      00
+ 1656              	.LASF6:
+ 1657 0321 6C6F6E67 		.ascii	"long long int\000"
+ 1657      206C6F6E 
+ 1657      6720696E 
+ 1657      7400
+ 1658              	.LASF13:
+ 1659 032f 63686172 		.ascii	"char\000"
+ 1659      00
+ 1660              	.LASF2:
+ 1661 0334 73686F72 		.ascii	"short int\000"
+ 1661      7420696E 
+ 1661      7400
+ 1662              	.LASF9:
+ 1663 033e 75696E74 		.ascii	"uint8\000"
+ 1663      3800
+ 1664              	.LASF22:
+ 1665 0344 7072696F 		.ascii	"priorityOffset\000"
+ 1665      72697479 
+ 1665      4F666673 
+ 1665      657400
+ 1666              	.LASF4:
+ 1667 0353 6C6F6E67 		.ascii	"long int\000"
+ 1667      20696E74 
+ 1667      00
+ 1668              	.LASF0:
+ 1669 035c 7369676E 		.ascii	"signed char\000"
+ 1669      65642063 
+ 1669      68617200 
+ 1670              	.LASF36:
+ 1671 0368 54696D65 		.ascii	"TimerInterrupt_GetPriority\000"
+ 1671      72496E74 
+ 1671      65727275 
+ 1671      70745F47 
+ 1671      65745072 
+ 1672              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

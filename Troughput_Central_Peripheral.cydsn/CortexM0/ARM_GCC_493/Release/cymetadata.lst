@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwpfkcR.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckp2ONd.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -45,383 +45,512 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwpfkcR.s 			page 1
   42              		.type	cy_meta_flashprotect, %object
   43              		.size	cy_meta_flashprotect, 128
   44              	cy_meta_flashprotect:
-  45 0000 00000000 		.space	128
-  45      00000000 
-  45      00000000 
-  45      00000000 
-  45      00000000 
-  46              		.text
-  47              	.Letext0:
-  48              		.file 1 ".\\Generated_Source\\PSoC4\\cymetadata.c"
-  49              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
-  50              		.section	.debug_info,"",%progbits
-  51              	.Ldebug_info0:
-  52 0000 F9000000 		.4byte	0xf9
-  53 0004 0400     		.2byte	0x4
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwpfkcR.s 			page 2
+  45 0000 FF       		.byte	-1
+  46 0001 FF       		.byte	-1
+  47 0002 FF       		.byte	-1
+  48 0003 FF       		.byte	-1
+  49 0004 FF       		.byte	-1
+  50 0005 FF       		.byte	-1
+  51 0006 FF       		.byte	-1
+  52 0007 FF       		.byte	-1
+  53 0008 FF       		.byte	-1
+  54 0009 FF       		.byte	-1
+  55 000a FF       		.byte	-1
+  56 000b FF       		.byte	-1
+  57 000c FF       		.byte	-1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckp2ONd.s 			page 2
 
 
-  54 0006 00000000 		.4byte	.Ldebug_abbrev0
-  55 000a 04       		.byte	0x4
-  56 000b 01       		.uleb128 0x1
-  57 000c 14000000 		.4byte	.LASF16
-  58 0010 01       		.byte	0x1
-  59 0011 55010000 		.4byte	.LASF17
-  60 0015 E7000000 		.4byte	.LASF18
-  61 0019 00000000 		.4byte	.Ldebug_line0
-  62 001d 02       		.uleb128 0x2
-  63 001e 01       		.byte	0x1
-  64 001f 06       		.byte	0x6
-  65 0020 E9010000 		.4byte	.LASF0
-  66 0024 02       		.uleb128 0x2
-  67 0025 01       		.byte	0x1
-  68 0026 08       		.byte	0x8
-  69 0027 C7000000 		.4byte	.LASF1
-  70 002b 02       		.uleb128 0x2
-  71 002c 02       		.byte	0x2
-  72 002d 05       		.byte	0x5
-  73 002e D0010000 		.4byte	.LASF2
-  74 0032 02       		.uleb128 0x2
-  75 0033 02       		.byte	0x2
-  76 0034 07       		.byte	0x7
-  77 0035 A2000000 		.4byte	.LASF3
-  78 0039 02       		.uleb128 0x2
-  79 003a 04       		.byte	0x4
-  80 003b 05       		.byte	0x5
-  81 003c E0010000 		.4byte	.LASF4
-  82 0040 02       		.uleb128 0x2
-  83 0041 04       		.byte	0x4
-  84 0042 07       		.byte	0x7
-  85 0043 D5000000 		.4byte	.LASF5
-  86 0047 02       		.uleb128 0x2
-  87 0048 08       		.byte	0x8
-  88 0049 05       		.byte	0x5
-  89 004a BD010000 		.4byte	.LASF6
-  90 004e 02       		.uleb128 0x2
-  91 004f 08       		.byte	0x8
-  92 0050 07       		.byte	0x7
-  93 0051 88010000 		.4byte	.LASF7
-  94 0055 03       		.uleb128 0x3
-  95 0056 04       		.byte	0x4
-  96 0057 05       		.byte	0x5
-  97 0058 696E7400 		.ascii	"int\000"
-  98 005c 02       		.uleb128 0x2
-  99 005d 04       		.byte	0x4
- 100 005e 07       		.byte	0x7
- 101 005f 7B010000 		.4byte	.LASF8
- 102 0063 04       		.uleb128 0x4
- 103 0064 DA010000 		.4byte	.LASF19
- 104 0068 02       		.byte	0x2
- 105 0069 C2       		.byte	0xc2
- 106 006a 24000000 		.4byte	0x24
- 107 006e 02       		.uleb128 0x2
- 108 006f 04       		.byte	0x4
- 109 0070 04       		.byte	0x4
- 110 0071 C1000000 		.4byte	.LASF9
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwpfkcR.s 			page 3
+  58 000d FF       		.byte	-1
+  59 000e FF       		.byte	-1
+  60 000f FF       		.byte	-1
+  61 0010 FF       		.byte	-1
+  62 0011 FF       		.byte	-1
+  63 0012 FF       		.byte	-1
+  64 0013 FF       		.byte	-1
+  65 0014 FF       		.byte	-1
+  66 0015 FF       		.byte	-1
+  67 0016 FF       		.byte	-1
+  68 0017 FF       		.byte	-1
+  69 0018 FF       		.byte	-1
+  70 0019 FF       		.byte	-1
+  71 001a FF       		.byte	-1
+  72 001b FF       		.byte	-1
+  73 001c FF       		.byte	-1
+  74 001d FF       		.byte	-1
+  75 001e FF       		.byte	-1
+  76 001f FF       		.byte	-1
+  77 0020 FF       		.byte	-1
+  78 0021 FF       		.byte	-1
+  79 0022 FF       		.byte	-1
+  80 0023 FF       		.byte	-1
+  81 0024 FF       		.byte	-1
+  82 0025 FF       		.byte	-1
+  83 0026 FF       		.byte	-1
+  84 0027 FF       		.byte	-1
+  85 0028 FF       		.byte	-1
+  86 0029 FF       		.byte	-1
+  87 002a FF       		.byte	-1
+  88 002b FF       		.byte	-1
+  89 002c FF       		.byte	-1
+  90 002d FF       		.byte	-1
+  91 002e FF       		.byte	-1
+  92 002f FF       		.byte	-1
+  93 0030 FF       		.byte	-1
+  94 0031 FF       		.byte	-1
+  95 0032 FF       		.byte	-1
+  96 0033 FF       		.byte	-1
+  97 0034 FF       		.byte	-1
+  98 0035 FF       		.byte	-1
+  99 0036 FF       		.byte	-1
+ 100 0037 FF       		.byte	-1
+ 101 0038 FF       		.byte	-1
+ 102 0039 FF       		.byte	-1
+ 103 003a FF       		.byte	-1
+ 104 003b FF       		.byte	-1
+ 105 003c FF       		.byte	-1
+ 106 003d FF       		.byte	-1
+ 107 003e FF       		.byte	-1
+ 108 003f FF       		.byte	-1
+ 109 0040 FF       		.byte	-1
+ 110 0041 FF       		.byte	-1
+ 111 0042 FF       		.byte	-1
+ 112 0043 FF       		.byte	-1
+ 113 0044 FF       		.byte	-1
+ 114 0045 FF       		.byte	-1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckp2ONd.s 			page 3
 
 
- 111 0075 02       		.uleb128 0x2
- 112 0076 08       		.byte	0x8
- 113 0077 04       		.byte	0x4
- 114 0078 4E010000 		.4byte	.LASF10
- 115 007c 02       		.uleb128 0x2
- 116 007d 01       		.byte	0x1
- 117 007e 08       		.byte	0x8
- 118 007f CB010000 		.4byte	.LASF11
- 119 0083 05       		.uleb128 0x5
- 120 0084 63000000 		.4byte	0x63
- 121 0088 93000000 		.4byte	0x93
- 122 008c 06       		.uleb128 0x6
- 123 008d 93000000 		.4byte	0x93
- 124 0091 7F       		.byte	0x7f
- 125 0092 00       		.byte	0
- 126 0093 02       		.uleb128 0x2
- 127 0094 04       		.byte	0x4
- 128 0095 07       		.byte	0x7
- 129 0096 B4010000 		.4byte	.LASF12
- 130 009a 07       		.uleb128 0x7
- 131 009b 9F010000 		.4byte	.LASF13
- 132 009f 01       		.byte	0x1
- 133 00a0 1F       		.byte	0x1f
- 134 00a1 AB000000 		.4byte	0xab
- 135 00a5 05       		.uleb128 0x5
- 136 00a6 03       		.byte	0x3
- 137 00a7 00000000 		.4byte	cy_meta_flashprotect
- 138 00ab 08       		.uleb128 0x8
- 139 00ac 83000000 		.4byte	0x83
- 140 00b0 05       		.uleb128 0x5
- 141 00b1 63000000 		.4byte	0x63
- 142 00b5 C0000000 		.4byte	0xc0
- 143 00b9 06       		.uleb128 0x6
- 144 00ba 93000000 		.4byte	0x93
- 145 00be 0B       		.byte	0xb
- 146 00bf 00       		.byte	0
- 147 00c0 07       		.uleb128 0x7
- 148 00c1 B5000000 		.4byte	.LASF14
- 149 00c5 01       		.byte	0x1
- 150 00c6 3C       		.byte	0x3c
- 151 00c7 D1000000 		.4byte	0xd1
- 152 00cb 05       		.uleb128 0x5
- 153 00cc 03       		.byte	0x3
- 154 00cd 00000000 		.4byte	cy_metadata
- 155 00d1 08       		.uleb128 0x8
- 156 00d2 B0000000 		.4byte	0xb0
- 157 00d6 05       		.uleb128 0x5
- 158 00d7 63000000 		.4byte	0x63
- 159 00db E6000000 		.4byte	0xe6
- 160 00df 06       		.uleb128 0x6
- 161 00e0 93000000 		.4byte	0x93
- 162 00e4 00       		.byte	0
- 163 00e5 00       		.byte	0
- 164 00e6 07       		.uleb128 0x7
- 165 00e7 00000000 		.4byte	.LASF15
- 166 00eb 01       		.byte	0x1
- 167 00ec 4B       		.byte	0x4b
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwpfkcR.s 			page 4
+ 115 0046 FF       		.byte	-1
+ 116 0047 FF       		.byte	-1
+ 117 0048 FF       		.byte	-1
+ 118 0049 FF       		.byte	-1
+ 119 004a FF       		.byte	-1
+ 120 004b FF       		.byte	-1
+ 121 004c FF       		.byte	-1
+ 122 004d FF       		.byte	-1
+ 123 004e FF       		.byte	-1
+ 124 004f FF       		.byte	-1
+ 125 0050 FF       		.byte	-1
+ 126 0051 FF       		.byte	-1
+ 127 0052 FF       		.byte	-1
+ 128 0053 FF       		.byte	-1
+ 129 0054 FF       		.byte	-1
+ 130 0055 FF       		.byte	-1
+ 131 0056 FF       		.byte	-1
+ 132 0057 FF       		.byte	-1
+ 133 0058 FF       		.byte	-1
+ 134 0059 FF       		.byte	-1
+ 135 005a FF       		.byte	-1
+ 136 005b FF       		.byte	-1
+ 137 005c FF       		.byte	-1
+ 138 005d FF       		.byte	-1
+ 139 005e FF       		.byte	-1
+ 140 005f FF       		.byte	-1
+ 141 0060 FF       		.byte	-1
+ 142 0061 FF       		.byte	-1
+ 143 0062 FF       		.byte	-1
+ 144 0063 FF       		.byte	-1
+ 145 0064 FF       		.byte	-1
+ 146 0065 FF       		.byte	-1
+ 147 0066 FF       		.byte	-1
+ 148 0067 FF       		.byte	-1
+ 149 0068 FF       		.byte	-1
+ 150 0069 FF       		.byte	-1
+ 151 006a FF       		.byte	-1
+ 152 006b FF       		.byte	-1
+ 153 006c FF       		.byte	-1
+ 154 006d FF       		.byte	-1
+ 155 006e FF       		.byte	-1
+ 156 006f FF       		.byte	-1
+ 157 0070 FF       		.byte	-1
+ 158 0071 FF       		.byte	-1
+ 159 0072 FF       		.byte	-1
+ 160 0073 FF       		.byte	-1
+ 161 0074 FF       		.byte	-1
+ 162 0075 FF       		.byte	-1
+ 163 0076 FF       		.byte	-1
+ 164 0077 FF       		.byte	-1
+ 165 0078 FF       		.byte	-1
+ 166 0079 FF       		.byte	-1
+ 167 007a FF       		.byte	-1
+ 168 007b FF       		.byte	-1
+ 169 007c FF       		.byte	-1
+ 170 007d FF       		.byte	-1
+ 171 007e FF       		.byte	-1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckp2ONd.s 			page 4
 
 
- 168 00ed F7000000 		.4byte	0xf7
- 169 00f1 05       		.uleb128 0x5
- 170 00f2 03       		.byte	0x3
- 171 00f3 00000000 		.4byte	cy_meta_chipprotect
- 172 00f7 08       		.uleb128 0x8
- 173 00f8 D6000000 		.4byte	0xd6
- 174 00fc 00       		.byte	0
- 175              		.section	.debug_abbrev,"",%progbits
- 176              	.Ldebug_abbrev0:
- 177 0000 01       		.uleb128 0x1
- 178 0001 11       		.uleb128 0x11
- 179 0002 01       		.byte	0x1
- 180 0003 25       		.uleb128 0x25
- 181 0004 0E       		.uleb128 0xe
- 182 0005 13       		.uleb128 0x13
- 183 0006 0B       		.uleb128 0xb
- 184 0007 03       		.uleb128 0x3
- 185 0008 0E       		.uleb128 0xe
- 186 0009 1B       		.uleb128 0x1b
- 187 000a 0E       		.uleb128 0xe
- 188 000b 10       		.uleb128 0x10
- 189 000c 17       		.uleb128 0x17
- 190 000d 00       		.byte	0
- 191 000e 00       		.byte	0
- 192 000f 02       		.uleb128 0x2
- 193 0010 24       		.uleb128 0x24
- 194 0011 00       		.byte	0
- 195 0012 0B       		.uleb128 0xb
- 196 0013 0B       		.uleb128 0xb
- 197 0014 3E       		.uleb128 0x3e
- 198 0015 0B       		.uleb128 0xb
- 199 0016 03       		.uleb128 0x3
- 200 0017 0E       		.uleb128 0xe
- 201 0018 00       		.byte	0
- 202 0019 00       		.byte	0
- 203 001a 03       		.uleb128 0x3
- 204 001b 24       		.uleb128 0x24
- 205 001c 00       		.byte	0
- 206 001d 0B       		.uleb128 0xb
- 207 001e 0B       		.uleb128 0xb
- 208 001f 3E       		.uleb128 0x3e
- 209 0020 0B       		.uleb128 0xb
- 210 0021 03       		.uleb128 0x3
- 211 0022 08       		.uleb128 0x8
- 212 0023 00       		.byte	0
- 213 0024 00       		.byte	0
- 214 0025 04       		.uleb128 0x4
- 215 0026 16       		.uleb128 0x16
- 216 0027 00       		.byte	0
- 217 0028 03       		.uleb128 0x3
- 218 0029 0E       		.uleb128 0xe
- 219 002a 3A       		.uleb128 0x3a
- 220 002b 0B       		.uleb128 0xb
- 221 002c 3B       		.uleb128 0x3b
- 222 002d 0B       		.uleb128 0xb
- 223 002e 49       		.uleb128 0x49
- 224 002f 13       		.uleb128 0x13
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwpfkcR.s 			page 5
+ 172 007f FF       		.byte	-1
+ 173              		.text
+ 174              	.Letext0:
+ 175              		.file 1 ".\\Generated_Source\\PSoC4\\cymetadata.c"
+ 176              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
+ 177              		.section	.debug_info,"",%progbits
+ 178              	.Ldebug_info0:
+ 179 0000 FA000000 		.4byte	0xfa
+ 180 0004 0400     		.2byte	0x4
+ 181 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 182 000a 04       		.byte	0x4
+ 183 000b 01       		.uleb128 0x1
+ 184 000c 14000000 		.4byte	.LASF16
+ 185 0010 01       		.byte	0x1
+ 186 0011 55010000 		.4byte	.LASF17
+ 187 0015 E7000000 		.4byte	.LASF18
+ 188 0019 00000000 		.4byte	.Ldebug_line0
+ 189 001d 02       		.uleb128 0x2
+ 190 001e 01       		.byte	0x1
+ 191 001f 06       		.byte	0x6
+ 192 0020 E9010000 		.4byte	.LASF0
+ 193 0024 02       		.uleb128 0x2
+ 194 0025 01       		.byte	0x1
+ 195 0026 08       		.byte	0x8
+ 196 0027 C7000000 		.4byte	.LASF1
+ 197 002b 02       		.uleb128 0x2
+ 198 002c 02       		.byte	0x2
+ 199 002d 05       		.byte	0x5
+ 200 002e D0010000 		.4byte	.LASF2
+ 201 0032 02       		.uleb128 0x2
+ 202 0033 02       		.byte	0x2
+ 203 0034 07       		.byte	0x7
+ 204 0035 A2000000 		.4byte	.LASF3
+ 205 0039 02       		.uleb128 0x2
+ 206 003a 04       		.byte	0x4
+ 207 003b 05       		.byte	0x5
+ 208 003c E0010000 		.4byte	.LASF4
+ 209 0040 02       		.uleb128 0x2
+ 210 0041 04       		.byte	0x4
+ 211 0042 07       		.byte	0x7
+ 212 0043 D5000000 		.4byte	.LASF5
+ 213 0047 02       		.uleb128 0x2
+ 214 0048 08       		.byte	0x8
+ 215 0049 05       		.byte	0x5
+ 216 004a BD010000 		.4byte	.LASF6
+ 217 004e 02       		.uleb128 0x2
+ 218 004f 08       		.byte	0x8
+ 219 0050 07       		.byte	0x7
+ 220 0051 88010000 		.4byte	.LASF7
+ 221 0055 03       		.uleb128 0x3
+ 222 0056 04       		.byte	0x4
+ 223 0057 05       		.byte	0x5
+ 224 0058 696E7400 		.ascii	"int\000"
+ 225 005c 02       		.uleb128 0x2
+ 226 005d 04       		.byte	0x4
+ 227 005e 07       		.byte	0x7
+ 228 005f 7B010000 		.4byte	.LASF8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckp2ONd.s 			page 5
 
 
- 225 0030 00       		.byte	0
- 226 0031 00       		.byte	0
- 227 0032 05       		.uleb128 0x5
- 228 0033 01       		.uleb128 0x1
- 229 0034 01       		.byte	0x1
- 230 0035 49       		.uleb128 0x49
- 231 0036 13       		.uleb128 0x13
- 232 0037 01       		.uleb128 0x1
- 233 0038 13       		.uleb128 0x13
- 234 0039 00       		.byte	0
- 235 003a 00       		.byte	0
- 236 003b 06       		.uleb128 0x6
- 237 003c 21       		.uleb128 0x21
- 238 003d 00       		.byte	0
- 239 003e 49       		.uleb128 0x49
- 240 003f 13       		.uleb128 0x13
- 241 0040 2F       		.uleb128 0x2f
- 242 0041 0B       		.uleb128 0xb
- 243 0042 00       		.byte	0
- 244 0043 00       		.byte	0
- 245 0044 07       		.uleb128 0x7
- 246 0045 34       		.uleb128 0x34
- 247 0046 00       		.byte	0
- 248 0047 03       		.uleb128 0x3
- 249 0048 0E       		.uleb128 0xe
- 250 0049 3A       		.uleb128 0x3a
- 251 004a 0B       		.uleb128 0xb
- 252 004b 3B       		.uleb128 0x3b
- 253 004c 0B       		.uleb128 0xb
- 254 004d 49       		.uleb128 0x49
- 255 004e 13       		.uleb128 0x13
- 256 004f 3F       		.uleb128 0x3f
- 257 0050 19       		.uleb128 0x19
- 258 0051 02       		.uleb128 0x2
- 259 0052 18       		.uleb128 0x18
- 260 0053 00       		.byte	0
- 261 0054 00       		.byte	0
- 262 0055 08       		.uleb128 0x8
- 263 0056 26       		.uleb128 0x26
- 264 0057 00       		.byte	0
- 265 0058 49       		.uleb128 0x49
- 266 0059 13       		.uleb128 0x13
- 267 005a 00       		.byte	0
- 268 005b 00       		.byte	0
- 269 005c 00       		.byte	0
- 270              		.section	.debug_aranges,"",%progbits
- 271 0000 14000000 		.4byte	0x14
- 272 0004 0200     		.2byte	0x2
- 273 0006 00000000 		.4byte	.Ldebug_info0
- 274 000a 04       		.byte	0x4
- 275 000b 00       		.byte	0
- 276 000c 0000     		.2byte	0
- 277 000e 0000     		.2byte	0
- 278 0010 00000000 		.4byte	0
- 279 0014 00000000 		.4byte	0
- 280              		.section	.debug_line,"",%progbits
- 281              	.Ldebug_line0:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwpfkcR.s 			page 6
+ 229 0063 04       		.uleb128 0x4
+ 230 0064 DA010000 		.4byte	.LASF19
+ 231 0068 02       		.byte	0x2
+ 232 0069 3801     		.2byte	0x138
+ 233 006b 24000000 		.4byte	0x24
+ 234 006f 02       		.uleb128 0x2
+ 235 0070 04       		.byte	0x4
+ 236 0071 04       		.byte	0x4
+ 237 0072 C1000000 		.4byte	.LASF9
+ 238 0076 02       		.uleb128 0x2
+ 239 0077 08       		.byte	0x8
+ 240 0078 04       		.byte	0x4
+ 241 0079 4E010000 		.4byte	.LASF10
+ 242 007d 02       		.uleb128 0x2
+ 243 007e 01       		.byte	0x1
+ 244 007f 08       		.byte	0x8
+ 245 0080 CB010000 		.4byte	.LASF11
+ 246 0084 05       		.uleb128 0x5
+ 247 0085 63000000 		.4byte	0x63
+ 248 0089 94000000 		.4byte	0x94
+ 249 008d 06       		.uleb128 0x6
+ 250 008e 94000000 		.4byte	0x94
+ 251 0092 7F       		.byte	0x7f
+ 252 0093 00       		.byte	0
+ 253 0094 02       		.uleb128 0x2
+ 254 0095 04       		.byte	0x4
+ 255 0096 07       		.byte	0x7
+ 256 0097 B4010000 		.4byte	.LASF12
+ 257 009b 07       		.uleb128 0x7
+ 258 009c 9F010000 		.4byte	.LASF13
+ 259 00a0 01       		.byte	0x1
+ 260 00a1 1F       		.byte	0x1f
+ 261 00a2 AC000000 		.4byte	0xac
+ 262 00a6 05       		.uleb128 0x5
+ 263 00a7 03       		.byte	0x3
+ 264 00a8 00000000 		.4byte	cy_meta_flashprotect
+ 265 00ac 08       		.uleb128 0x8
+ 266 00ad 84000000 		.4byte	0x84
+ 267 00b1 05       		.uleb128 0x5
+ 268 00b2 63000000 		.4byte	0x63
+ 269 00b6 C1000000 		.4byte	0xc1
+ 270 00ba 06       		.uleb128 0x6
+ 271 00bb 94000000 		.4byte	0x94
+ 272 00bf 0B       		.byte	0xb
+ 273 00c0 00       		.byte	0
+ 274 00c1 07       		.uleb128 0x7
+ 275 00c2 B5000000 		.4byte	.LASF14
+ 276 00c6 01       		.byte	0x1
+ 277 00c7 3C       		.byte	0x3c
+ 278 00c8 D2000000 		.4byte	0xd2
+ 279 00cc 05       		.uleb128 0x5
+ 280 00cd 03       		.byte	0x3
+ 281 00ce 00000000 		.4byte	cy_metadata
+ 282 00d2 08       		.uleb128 0x8
+ 283 00d3 B1000000 		.4byte	0xb1
+ 284 00d7 05       		.uleb128 0x5
+ 285 00d8 63000000 		.4byte	0x63
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckp2ONd.s 			page 6
 
 
- 282 0000 4F000000 		.section	.debug_str,"MS",%progbits,1
- 282      02004900 
- 282      00000201 
- 282      FB0E0D00 
- 282      01010101 
- 283              	.LASF15:
- 284 0000 63795F6D 		.ascii	"cy_meta_chipprotect\000"
- 284      6574615F 
- 284      63686970 
- 284      70726F74 
- 284      65637400 
- 285              	.LASF16:
- 286 0014 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 286      4320342E 
- 286      392E3320 
- 286      32303135 
- 286      30333033 
- 287 0047 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
- 287      20726576 
- 287      6973696F 
- 287      6E203232 
- 287      31323230 
- 288 007a 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
- 288      66756E63 
- 288      74696F6E 
- 288      2D736563 
- 288      74696F6E 
- 289              	.LASF3:
- 290 00a2 73686F72 		.ascii	"short unsigned int\000"
- 290      7420756E 
- 290      7369676E 
- 290      65642069 
- 290      6E7400
- 291              	.LASF14:
- 292 00b5 63795F6D 		.ascii	"cy_metadata\000"
- 292      65746164 
- 292      61746100 
- 293              	.LASF9:
- 294 00c1 666C6F61 		.ascii	"float\000"
- 294      7400
- 295              	.LASF1:
- 296 00c7 756E7369 		.ascii	"unsigned char\000"
- 296      676E6564 
- 296      20636861 
- 296      7200
- 297              	.LASF5:
- 298 00d5 6C6F6E67 		.ascii	"long unsigned int\000"
- 298      20756E73 
- 298      69676E65 
- 298      6420696E 
- 298      7400
- 299              	.LASF18:
- 300 00e7 473A5C50 		.ascii	"G:\\Project\\LiYangLiu---BLE Module\\Code\\Troughpu"
- 300      726F6A65 
- 300      63745C4C 
- 300      6959616E 
- 300      674C6975 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwpfkcR.s 			page 7
+ 286 00dc E7000000 		.4byte	0xe7
+ 287 00e0 06       		.uleb128 0x6
+ 288 00e1 94000000 		.4byte	0x94
+ 289 00e5 00       		.byte	0
+ 290 00e6 00       		.byte	0
+ 291 00e7 07       		.uleb128 0x7
+ 292 00e8 00000000 		.4byte	.LASF15
+ 293 00ec 01       		.byte	0x1
+ 294 00ed 4B       		.byte	0x4b
+ 295 00ee F8000000 		.4byte	0xf8
+ 296 00f2 05       		.uleb128 0x5
+ 297 00f3 03       		.byte	0x3
+ 298 00f4 00000000 		.4byte	cy_meta_chipprotect
+ 299 00f8 08       		.uleb128 0x8
+ 300 00f9 D7000000 		.4byte	0xd7
+ 301 00fd 00       		.byte	0
+ 302              		.section	.debug_abbrev,"",%progbits
+ 303              	.Ldebug_abbrev0:
+ 304 0000 01       		.uleb128 0x1
+ 305 0001 11       		.uleb128 0x11
+ 306 0002 01       		.byte	0x1
+ 307 0003 25       		.uleb128 0x25
+ 308 0004 0E       		.uleb128 0xe
+ 309 0005 13       		.uleb128 0x13
+ 310 0006 0B       		.uleb128 0xb
+ 311 0007 03       		.uleb128 0x3
+ 312 0008 0E       		.uleb128 0xe
+ 313 0009 1B       		.uleb128 0x1b
+ 314 000a 0E       		.uleb128 0xe
+ 315 000b 10       		.uleb128 0x10
+ 316 000c 17       		.uleb128 0x17
+ 317 000d 00       		.byte	0
+ 318 000e 00       		.byte	0
+ 319 000f 02       		.uleb128 0x2
+ 320 0010 24       		.uleb128 0x24
+ 321 0011 00       		.byte	0
+ 322 0012 0B       		.uleb128 0xb
+ 323 0013 0B       		.uleb128 0xb
+ 324 0014 3E       		.uleb128 0x3e
+ 325 0015 0B       		.uleb128 0xb
+ 326 0016 03       		.uleb128 0x3
+ 327 0017 0E       		.uleb128 0xe
+ 328 0018 00       		.byte	0
+ 329 0019 00       		.byte	0
+ 330 001a 03       		.uleb128 0x3
+ 331 001b 24       		.uleb128 0x24
+ 332 001c 00       		.byte	0
+ 333 001d 0B       		.uleb128 0xb
+ 334 001e 0B       		.uleb128 0xb
+ 335 001f 3E       		.uleb128 0x3e
+ 336 0020 0B       		.uleb128 0xb
+ 337 0021 03       		.uleb128 0x3
+ 338 0022 08       		.uleb128 0x8
+ 339 0023 00       		.byte	0
+ 340 0024 00       		.byte	0
+ 341 0025 04       		.uleb128 0x4
+ 342 0026 16       		.uleb128 0x16
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckp2ONd.s 			page 7
 
 
- 301 0116 725F4365 		.ascii	"r_Central_Peripheral\\Troughput_Central_Peripheral."
- 301      6E747261 
- 301      6C5F5065 
- 301      72697068 
- 301      6572616C 
- 302 0148 63796473 		.ascii	"cydsn\000"
- 302      6E00
- 303              	.LASF10:
- 304 014e 646F7562 		.ascii	"double\000"
- 304      6C6500
- 305              	.LASF17:
- 306 0155 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\cymetadata.c\000"
- 306      6E657261 
- 306      7465645F 
- 306      536F7572 
- 306      63655C50 
- 307              	.LASF8:
- 308 017b 756E7369 		.ascii	"unsigned int\000"
- 308      676E6564 
- 308      20696E74 
- 308      00
- 309              	.LASF7:
- 310 0188 6C6F6E67 		.ascii	"long long unsigned int\000"
- 310      206C6F6E 
- 310      6720756E 
- 310      7369676E 
- 310      65642069 
- 311              	.LASF13:
- 312 019f 63795F6D 		.ascii	"cy_meta_flashprotect\000"
- 312      6574615F 
- 312      666C6173 
- 312      6870726F 
- 312      74656374 
- 313              	.LASF12:
- 314 01b4 73697A65 		.ascii	"sizetype\000"
- 314      74797065 
- 314      00
- 315              	.LASF6:
- 316 01bd 6C6F6E67 		.ascii	"long long int\000"
- 316      206C6F6E 
- 316      6720696E 
- 316      7400
- 317              	.LASF11:
- 318 01cb 63686172 		.ascii	"char\000"
- 318      00
- 319              	.LASF2:
- 320 01d0 73686F72 		.ascii	"short int\000"
- 320      7420696E 
- 320      7400
- 321              	.LASF19:
- 322 01da 75696E74 		.ascii	"uint8\000"
- 322      3800
- 323              	.LASF4:
- 324 01e0 6C6F6E67 		.ascii	"long int\000"
- 324      20696E74 
- 324      00
- 325              	.LASF0:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccwpfkcR.s 			page 8
+ 343 0027 00       		.byte	0
+ 344 0028 03       		.uleb128 0x3
+ 345 0029 0E       		.uleb128 0xe
+ 346 002a 3A       		.uleb128 0x3a
+ 347 002b 0B       		.uleb128 0xb
+ 348 002c 3B       		.uleb128 0x3b
+ 349 002d 05       		.uleb128 0x5
+ 350 002e 49       		.uleb128 0x49
+ 351 002f 13       		.uleb128 0x13
+ 352 0030 00       		.byte	0
+ 353 0031 00       		.byte	0
+ 354 0032 05       		.uleb128 0x5
+ 355 0033 01       		.uleb128 0x1
+ 356 0034 01       		.byte	0x1
+ 357 0035 49       		.uleb128 0x49
+ 358 0036 13       		.uleb128 0x13
+ 359 0037 01       		.uleb128 0x1
+ 360 0038 13       		.uleb128 0x13
+ 361 0039 00       		.byte	0
+ 362 003a 00       		.byte	0
+ 363 003b 06       		.uleb128 0x6
+ 364 003c 21       		.uleb128 0x21
+ 365 003d 00       		.byte	0
+ 366 003e 49       		.uleb128 0x49
+ 367 003f 13       		.uleb128 0x13
+ 368 0040 2F       		.uleb128 0x2f
+ 369 0041 0B       		.uleb128 0xb
+ 370 0042 00       		.byte	0
+ 371 0043 00       		.byte	0
+ 372 0044 07       		.uleb128 0x7
+ 373 0045 34       		.uleb128 0x34
+ 374 0046 00       		.byte	0
+ 375 0047 03       		.uleb128 0x3
+ 376 0048 0E       		.uleb128 0xe
+ 377 0049 3A       		.uleb128 0x3a
+ 378 004a 0B       		.uleb128 0xb
+ 379 004b 3B       		.uleb128 0x3b
+ 380 004c 0B       		.uleb128 0xb
+ 381 004d 49       		.uleb128 0x49
+ 382 004e 13       		.uleb128 0x13
+ 383 004f 3F       		.uleb128 0x3f
+ 384 0050 19       		.uleb128 0x19
+ 385 0051 02       		.uleb128 0x2
+ 386 0052 18       		.uleb128 0x18
+ 387 0053 00       		.byte	0
+ 388 0054 00       		.byte	0
+ 389 0055 08       		.uleb128 0x8
+ 390 0056 26       		.uleb128 0x26
+ 391 0057 00       		.byte	0
+ 392 0058 49       		.uleb128 0x49
+ 393 0059 13       		.uleb128 0x13
+ 394 005a 00       		.byte	0
+ 395 005b 00       		.byte	0
+ 396 005c 00       		.byte	0
+ 397              		.section	.debug_aranges,"",%progbits
+ 398 0000 14000000 		.4byte	0x14
+ 399 0004 0200     		.2byte	0x2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckp2ONd.s 			page 8
 
 
- 326 01e9 7369676E 		.ascii	"signed char\000"
- 326      65642063 
- 326      68617200 
- 327              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 400 0006 00000000 		.4byte	.Ldebug_info0
+ 401 000a 04       		.byte	0x4
+ 402 000b 00       		.byte	0
+ 403 000c 0000     		.2byte	0
+ 404 000e 0000     		.2byte	0
+ 405 0010 00000000 		.4byte	0
+ 406 0014 00000000 		.4byte	0
+ 407              		.section	.debug_line,"",%progbits
+ 408              	.Ldebug_line0:
+ 409 0000 4F000000 		.section	.debug_str,"MS",%progbits,1
+ 409      02004900 
+ 409      00000201 
+ 409      FB0E0D00 
+ 409      01010101 
+ 410              	.LASF15:
+ 411 0000 63795F6D 		.ascii	"cy_meta_chipprotect\000"
+ 411      6574615F 
+ 411      63686970 
+ 411      70726F74 
+ 411      65637400 
+ 412              	.LASF16:
+ 413 0014 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 413      4320342E 
+ 413      392E3320 
+ 413      32303135 
+ 413      30333033 
+ 414 0047 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 414      20726576 
+ 414      6973696F 
+ 414      6E203232 
+ 414      31323230 
+ 415 007a 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
+ 415      66756E63 
+ 415      74696F6E 
+ 415      2D736563 
+ 415      74696F6E 
+ 416              	.LASF3:
+ 417 00a2 73686F72 		.ascii	"short unsigned int\000"
+ 417      7420756E 
+ 417      7369676E 
+ 417      65642069 
+ 417      6E7400
+ 418              	.LASF14:
+ 419 00b5 63795F6D 		.ascii	"cy_metadata\000"
+ 419      65746164 
+ 419      61746100 
+ 420              	.LASF9:
+ 421 00c1 666C6F61 		.ascii	"float\000"
+ 421      7400
+ 422              	.LASF1:
+ 423 00c7 756E7369 		.ascii	"unsigned char\000"
+ 423      676E6564 
+ 423      20636861 
+ 423      7200
+ 424              	.LASF5:
+ 425 00d5 6C6F6E67 		.ascii	"long unsigned int\000"
+ 425      20756E73 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckp2ONd.s 			page 9
+
+
+ 425      69676E65 
+ 425      6420696E 
+ 425      7400
+ 426              	.LASF18:
+ 427 00e7 473A5C50 		.ascii	"G:\\Project\\LiYangLiu---BLE Module\\Code\\Troughpu"
+ 427      726F6A65 
+ 427      63745C4C 
+ 427      6959616E 
+ 427      674C6975 
+ 428 0116 725F4365 		.ascii	"r_Central_Peripheral\\Troughput_Central_Peripheral."
+ 428      6E747261 
+ 428      6C5F5065 
+ 428      72697068 
+ 428      6572616C 
+ 429 0148 63796473 		.ascii	"cydsn\000"
+ 429      6E00
+ 430              	.LASF10:
+ 431 014e 646F7562 		.ascii	"double\000"
+ 431      6C6500
+ 432              	.LASF17:
+ 433 0155 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\cymetadata.c\000"
+ 433      6E657261 
+ 433      7465645F 
+ 433      536F7572 
+ 433      63655C50 
+ 434              	.LASF8:
+ 435 017b 756E7369 		.ascii	"unsigned int\000"
+ 435      676E6564 
+ 435      20696E74 
+ 435      00
+ 436              	.LASF7:
+ 437 0188 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 437      206C6F6E 
+ 437      6720756E 
+ 437      7369676E 
+ 437      65642069 
+ 438              	.LASF13:
+ 439 019f 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 439      6574615F 
+ 439      666C6173 
+ 439      6870726F 
+ 439      74656374 
+ 440              	.LASF12:
+ 441 01b4 73697A65 		.ascii	"sizetype\000"
+ 441      74797065 
+ 441      00
+ 442              	.LASF6:
+ 443 01bd 6C6F6E67 		.ascii	"long long int\000"
+ 443      206C6F6E 
+ 443      6720696E 
+ 443      7400
+ 444              	.LASF11:
+ 445 01cb 63686172 		.ascii	"char\000"
+ 445      00
+ 446              	.LASF2:
+ 447 01d0 73686F72 		.ascii	"short int\000"
+ 447      7420696E 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cckp2ONd.s 			page 10
+
+
+ 447      7400
+ 448              	.LASF19:
+ 449 01da 75696E74 		.ascii	"uint8\000"
+ 449      3800
+ 450              	.LASF4:
+ 451 01e0 6C6F6E67 		.ascii	"long int\000"
+ 451      20696E74 
+ 451      00
+ 452              	.LASF0:
+ 453 01e9 7369676E 		.ascii	"signed char\000"
+ 453      65642063 
+ 453      68617200 
+ 454              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

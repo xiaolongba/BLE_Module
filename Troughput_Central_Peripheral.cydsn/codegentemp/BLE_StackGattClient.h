@@ -1,25 +1,20 @@
 /***************************************************************************//**
 * \file CYBLE_StackGattClient.h
-* \version 2.30
+* \version 3.10
 * 
 * \brief
 *  This file contains the GATT Client routines
 * 
 * Related Document:
-*  BLE Standard Spec - CoreV4.1, CSS, CSAs, ESR05, ESR06
+*  BLE Standard Spec - CoreV4.2, CoreV4.1, CSS, CSAs, ESR05, ESR06
 * 
 ********************************************************************************
 * \copyright
-* Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2014-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
 *******************************************************************************/
-
-/**
- \addtogroup group_common_api_gatt_definitions
- @{
-*/
 
 
 #ifndef CY_BLE_CYBLE_STACK_GATT_CLIENT_H
@@ -37,7 +32,13 @@
 * Exported structures and unions
 ***************************************/
 
-/* Error Response parameter type received from Server 
+/**
+ \addtogroup group_common_api_gatt_definitions
+ @{
+*/
+
+
+/** Error Response parameter type received from Server 
     For error codes that are received during gatt discovery procedure, 
     Client may choose to disconnect the link.
     i.e. if client did not get the service of its choice, client may choose to disconnect.
@@ -308,7 +309,7 @@ void CyBle_GattcStopCmd(void);
 * 
 *  \param connHandle: Connection handle to identify the peer GATT entity of type 
 *               CYBLE_CONN_HANDLE_T.
-*  \param mtu: Size of GATT MTU. Max GATT MTU supported by BLE stack is 256 Bytes.
+*  \param mtu: Size of GATT MTU. Max GATT MTU supported by BLE stack is 512 Bytes.
 * 
 * \return
 *  CYBLE_API_RESULT_T : Return value indicates if the function succeeded or
@@ -763,7 +764,7 @@ CYBLE_API_RESULT_T CyBle_GattcReadUsingCharacteristicUuid
 * 
 *  \param connHandle: Connection handle to identify the peer GATT entity, of type 
 *               CYBLE_CONN_HANDLE_T.
-*  \param readblobReqParam: Pointer to a variable of type CYBLE_GATTC_READ_BLOB_REQ_T.
+*  \param readBlobReqParam: Pointer to a variable of type CYBLE_GATTC_READ_BLOB_REQ_T.
 * 
 * \return
 *  CYBLE_API_RESULT_T : Return value indicates if the function succeeded or
@@ -836,7 +837,7 @@ CYBLE_API_RESULT_T CyBle_GattcReadMultipleCharacteristicValues
 * 
 *  This function writes a Characteristic Value to a GATT Server when the GATT
 *  Client knows the Characteristic Value Handle and the client does not need an
-*  acknowledgement that the write was successfully performed. This is a blocking
+*  acknowledgment that the write was successfully performed. This is a blocking
 *  function. No event is generated on calling this function.
 * 
 *  Internally, Write Command is sent to the GATT Server and nothing is
@@ -880,11 +881,11 @@ CYBLE_API_RESULT_T CyBle_GattcWriteWithoutResponse
 *  authenticated bit is enabled and the client and server device share a bond
 *  as defined in Bluetooth Spec4.1 [Vol. 3] Part C, Generic Access Profile.
 * 
-*  This function only writes the first (ATT_MTU - 15) octets of an 
+*  This function only writes the first (GATT_MTU - 15) octets of an 
 *  Attribute Value. This function cannot be used to write a long Attribute.
 * 
 *  Internally, Signed Write Command is used.
-*  Refer Bluetooth Spec4.1 Security Manager [Vol. 3] Part H, Section 2.4.5.
+*  Refer Bluetooth Spec 4.1 Security Manager [Vol. 3] Part H, Section 2.4.5.
 * 
 *  If the authenticated Characteristic Value that is written is the wrong size, 
 *  has an invalid value as defined by the profile, or the signed value does not
@@ -1206,7 +1207,7 @@ CYBLE_API_RESULT_T CyBle_GattcReadCharacteristicDescriptors
 * 
 *  \param connHandle: Connection handle to identify the peer GATT entity, of type 
 *               CYBLE_CONN_HANDLE_T.
-*  \param readBlonReqParam: Pointer to a variable of type CYBLE_GATTC_READ_BLOB_REQ_T
+*  \param readBlobReqParam: Pointer to a variable of type CYBLE_GATTC_READ_BLOB_REQ_T
 * 
 * \return
 *  CYBLE_API_RESULT_T : Return value indicates if the function succeeded or
@@ -1346,13 +1347,13 @@ CYBLE_API_RESULT_T CyBle_GattcWriteLongCharacteristicDescriptors
 * 
 *  \param connHandle: Connection handle to identify the peer GATT entity of type 
 *               CYBLE_CONN_HANDLE_T.
-*  readByTypeReqParam	: Pointer to a variable of type CYBLE_GATTC_READ_BY_TYPE_REQ_T,
+*  \param readByTypeReqParam: Pointer to a variable of type CYBLE_GATTC_READ_BY_TYPE_REQ_T,
 * 					Where, the following needs to be set:
-* 					readByTypeReqParam->range.startHandle
-* 					readByTypeReqParam->range.endHandle
-* 					readByTypeReqParam->uuidFormat (CYBLE_GATT_16_BIT_UUID_FORMAT or
+* 					* readByTypeReqParam->range.startHandle
+* 					* readByTypeReqParam->range.endHandle
+* 					* readByTypeReqParam->uuidFormat (CYBLE_GATT_16_BIT_UUID_FORMAT or
 * 													CYBLE_GATT_128_BIT_UUID_FORMAT)
-* 					readByTypeReqParam->uuid.uuid16 or readByTypeReqParam->uuid.uuid128 
+* 					* readByTypeReqParam->uuid.uuid16 or readByTypeReqParam->uuid.uuid128 
 * 					based on the uuidFormat
 * 
 * \return
@@ -1403,6 +1404,60 @@ CYBLE_API_RESULT_T CyBle_GattcSendExecuteWriteReq
 (
 	CYBLE_CONN_HANDLE_T		connHandle, 
 	uint8  					flag
+);
+
+/******************************************************************************
+* Function Name: CyBle_GattcDiscoverPrimaryServices
+***************************************************************************//**
+* 
+* This function is used by the GATT Client to discover the primary services as 
+* per the range provided on a GATT Server to which it is connected. 
+* This is a non-blocking function.
+*
+* Internally, this function initiates multiple Read By Group Type Requests to
+* the peer device in response to which it receives Read By Group Type Responses.
+* Each Read By Group Type Response results in 
+* CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP event, which is propagated to the 
+* application layer for handling.
+*
+* Primary service discovery is complete when Error Response 
+* (CYBLE_EVT_GATTC_ERROR_RSP) is received and the Error Code is set to Attribute
+* Not Found or when the End Group Handle in the Read by Group Type Response is
+* 0xFFFF. Completion of this operation is notified to the upper layer(s) using
+* CYBLE_EVT_GATTC_ERROR_RSP with error code updated appropriately.
+*
+* It is permitted to end the above stated sequence of operations early if the
+* desired primary service is found prior to discovering all the primary services
+* on the GATT Server. This can be achieved by calling the CyBle_GattcStopCmd() 
+* function.
+*
+* Refer to Bluetooth 4.1 core specification, Volume 3, Part G, section 4.4.1 for
+* more details on this sequence of operations.
+*
+*  \param connHandle: Connection handle to identify the peer GATT entity of type
+*              CYBLE_CONN_HANDLE_T.
+*  \param range: Parameter is of type CYBLE_GATT_ATTR_HANDLE_RANGE_T where,
+*		1. 'range.startHandle' can be set to the start handle of the desired
+*			primary service.
+*		2. 'range.endHandle' can be set to the end handle of the desired 
+*			primary service.
+*
+* \return
+* CYBLE_API_RESULT_T : Return value indicates if the function succeeded or
+* failed. Following are the possible error codes.
+* 
+*  Errors codes                          | Description
+*  ------------                          | -----------
+*   CYBLE_ERROR_OK                       | On successful operation
+*   CYBLE_ERROR_INVALID_PARAMETER        | 'connHandle' value does not  represent any existing entry in the Stack
+*   CYBLE_ERROR_INVALID_OPERATION        | This operation is not permitted
+*   CYBLE_ERROR_MEMORY_ALLOCATION_FAILED | Memory allocation failed
+*
+******************************************************************************/
+CYBLE_API_RESULT_T CyBle_GattcDiscoverPrimaryServices
+(
+	CYBLE_CONN_HANDLE_T 				connHandle,
+	CYBLE_GATT_ATTR_HANDLE_RANGE_T 		*range
 );
 
 /** @} */

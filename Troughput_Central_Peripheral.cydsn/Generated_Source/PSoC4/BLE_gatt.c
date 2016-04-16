@@ -1,13 +1,13 @@
 /***************************************************************************//**
 * \file CYBLE_gatt.c
-* \version 2.30
+* \version 3.10
 * 
 * \brief
 *  This file contains the source code for the GATT API of the BLE Component.
 * 
 ********************************************************************************
 * \copyright
-* Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2014-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -23,7 +23,8 @@
 
 CYBLE_STATE_T cyBle_state;
 
-
+#if ((CYBLE_MODE_PROFILE) && (CYBLE_BONDING_REQUIREMENT == CYBLE_BONDING_YES))
+    
 #if(CYBLE_MODE_PROFILE)
     #if defined(__ARMCC_VERSION)
         CY_ALIGN(CYDEV_FLS_ROW_SIZE) const CY_BLE_FLASH_STORAGE cyBle_flashStorage CY_SECTION(".cy_checksum_exclude") =
@@ -58,7 +59,24 @@ CYBLE_STATE_T cyBle_state;
         0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
         0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
         0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
-        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u }, 
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+        0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u }, 
         {{
             0x00u, 0x00u, 
             0x00u, 0x00u, 
@@ -84,6 +102,7 @@ CYBLE_STATE_T cyBle_state;
     };
 #endif /* (CYBLE_MODE_PROFILE) */
 
+#endif  /* (CYBLE_MODE_PROFILE) && (CYBLE_BONDING_REQUIREMENT == CYBLE_BONDING_YES) */
 
 #if(CYBLE_GATT_ROLE_SERVER)
     
@@ -118,7 +137,9 @@ CYBLE_STATE_T cyBle_state;
     0x00u, 
 
 };
+#if(CYBLE_GATT_DB_CCCD_COUNT != 0u)
 uint8 cyBle_attValuesCCCD[CYBLE_GATT_DB_CCCD_COUNT];
+#endif /* CYBLE_GATT_DB_CCCD_COUNT != 0u */
 
 CYBLE_GATTS_ATT_GEN_VAL_LEN_T cyBle_attValuesLen[CYBLE_GATT_DB_ATT_VAL_COUNT] = {
     { 0x0017u, (void *)&cyBle_attValues[0] }, /* Device Name */
@@ -158,6 +179,7 @@ const CYBLE_GATTS_DB_T cyBle_gattDB[0x11u] = {
     
 CYBLE_CLIENT_STATE_T cyBle_clientState;
 CYBLE_GATTC_T cyBle_gattc;
+CYBLE_GATT_ATTR_HANDLE_RANGE_T cyBle_gattcDiscoveryRange;
     
 #endif /* (CYBLE_GATT_ROLE_CLIENT) */
 
@@ -170,13 +192,15 @@ CYBLE_GATTC_T cyBle_gattc;
 * 
 *  Reinitializes the GATT database.
 * 
-* \return
+*  \return
 *  CYBLE_API_RESULT_T: An API result states if the API succeeded or failed with
 *  error codes:
-*   * CYBLE_ERROR_OK: GATT database was reinitialized successfully
-*   * CYBLE_ERROR_INVALID_STATE: If the function is called in any state except
-*                                 CYBLE_STATE_DISCONNECTED.
-*   * Any of the CyBle_GattsDbRegister() stack API function return values.
+
+*  Errors codes                          | Description
+*  ------------                          | -----------
+*  CYBLE_ERROR_OK						 | GATT database was reinitialized successfully.
+*  CYBLE_ERROR_INVALID_STATE             | If the function is called in any state except CYBLE_STATE_DISCONNECTED.
+*  CYBLE_ERROR_INVALID_PARAMETER         | If the Database has zero entries or is a NULL pointer.
 * 
 ******************************************************************************/
 CYBLE_API_RESULT_T CyBle_GattsReInitGattDb(void)
@@ -202,12 +226,15 @@ CYBLE_API_RESULT_T CyBle_GattsReInitGattDb(void)
 * 
 *  Handles the Write Request Event for GATT service.
 * 
-*  \param *eventParam: The pointer to the data structure specified by the event.
+*  \param eventParam: The pointer to the data structure specified by the event.
 * 
-* \return
-*  * CYBLE_GATT_ERR_CODE_T: An API result returns one of the following status 
-*     values
-*  * CYBLE_GATT_ERR_NONE - Write is successful.
+*  \return
+*  CYBLE_GATT_ERR_CODE_T: An API result returns one of the following status 
+*  values.
+
+*  Errors codes                          | Description
+*  --------------------                  | -----------
+*  CYBLE_GATT_ERR_NONE                   | Write is successful.
 * 
 ******************************************************************************/
 CYBLE_GATT_ERR_CODE_T CyBle_GattsWriteEventHandler(CYBLE_GATTS_WRITE_REQ_PARAM_T *eventParam)
@@ -300,17 +327,111 @@ CYBLE_API_RESULT_T CyBle_GattcStartDiscovery(CYBLE_CONN_HANDLE_T connHandle)
     }
     else
     {
-        CyBle_ServiceInit();
-        
-        cyBle_connHandle = connHandle;
-
         /* Clean old discovery information */
         for(j = 0u; j < (uint8) CYBLE_SRVI_COUNT; j++)
         {
             (void)memset(&cyBle_serverInfo[j].range, 0, sizeof(cyBle_serverInfo[0].range));
         }
 
+        cyBle_connHandle = connHandle;
+        cyBle_gattcDiscoveryRange.startHandle = CYBLE_GATT_ATTR_HANDLE_START_RANGE;
+        cyBle_gattcDiscoveryRange.endHandle = CYBLE_GATT_ATTR_HANDLE_END_RANGE;
+        
+        CyBle_ServiceInit();
+        
         apiResult = CyBle_GattcDiscoverAllPrimaryServices(connHandle);
+
+        if(CYBLE_ERROR_OK == apiResult)
+        {
+            CyBle_SetClientState(CYBLE_CLIENT_STATE_SRVC_DISCOVERING);
+            cyBle_eventHandlerFlag |= CYBLE_AUTO_DISCOVERY;
+        }
+    }
+    
+    return (apiResult);
+}
+
+
+/****************************************************************************** 
+* Function Name: CyBle_GattcStartPartialDiscovery
+***************************************************************************//**
+* 
+*  Starts the automatic server discovery process as per the range provided
+*  on a GATT Server to which it is connected. This API could be used for 
+*  partial server discovery after indication received to the Service Changed
+*  Characteristic Value. Two events may be generated 
+*  after calling this function - CYBLE_EVT_GATTC_DISCOVERY_COMPLETE or 
+*  CYBLE_EVT_GATTC_ERROR_RSP. The CYBLE_EVT_GATTC_DISCOVERY_COMPLETE event is 
+*  generated when the remote device was successfully discovered. The
+*  CYBLE_EVT_GATTC_ERROR_RSP is generated if the device discovery is failed.
+* 
+*  \param connHandle: The handle which consists of the device ID and ATT connection ID.
+*  \param startHandle: Start of affected attribute handle range.
+*  \param endHandle: End of affected attribute handle range.
+* 
+*  \return
+*	CYBLE_API_RESULT_T : Return value indicates if the function succeeded or
+*                        failed. Following are the possible error codes.
+*
+*   <table>	
+*   <tr>
+*	  <th>Errors codes</th>
+*	  <th>Description</th>
+*	</tr>
+*	<tr>
+*	  <td>CYBLE_ERROR_OK</td>
+*	  <td>On successful operation</td>
+*	</tr>
+*	<tr>
+*	  <td>CYBLE_ERROR_INVALID_PARAMETER</td>
+*	  <td>'connHandle' value does not represent any existing entry.</td>
+*	</tr>
+*	<tr>
+*	  <td>CYBLE_ERROR_INVALID_OPERATION</td>
+*	  <td>The operation is not permitted</td>
+*	</tr>
+*   <tr>
+*	  <td>CYBLE_ERROR_MEMORY_ALLOCATION_FAILED</td>
+*	  <td>Memory allocation failed</td>
+*	</tr>
+*   <tr>
+*	  <td>CYBLE_ERROR_INVALID_STATE</td>
+*	  <td>If the function is called in any state except connected or discovered</td>
+*	</tr>
+*   </table>
+* 
+******************************************************************************/
+CYBLE_API_RESULT_T CyBle_GattcStartPartialDiscovery(CYBLE_CONN_HANDLE_T connHandle,
+                        CYBLE_GATT_DB_ATTR_HANDLE_T startHandle, CYBLE_GATT_DB_ATTR_HANDLE_T endHandle)
+{
+    uint8 j;
+    CYBLE_API_RESULT_T apiResult;
+    
+    if((CyBle_GetState() != CYBLE_STATE_CONNECTED) || 
+       ((CyBle_GetClientState() != CYBLE_CLIENT_STATE_CONNECTED) && 
+        (CyBle_GetClientState() != CYBLE_CLIENT_STATE_DISCOVERED))) 
+    {
+        apiResult = CYBLE_ERROR_INVALID_STATE;
+    }
+    else
+    {
+        /* Clean old discovery information of affected attribute range */
+        for(j = 0u; j < (uint8) CYBLE_SRVI_COUNT; j++)
+        {
+            if((cyBle_serverInfo[j].range.startHandle >= startHandle) &&
+               (cyBle_serverInfo[j].range.startHandle <= endHandle))
+            {
+                (void)memset(&cyBle_serverInfo[j].range, 0, sizeof(cyBle_serverInfo[0].range));
+            }
+        }
+
+        cyBle_connHandle = connHandle;
+        cyBle_gattcDiscoveryRange.startHandle = startHandle;
+        cyBle_gattcDiscoveryRange.endHandle = endHandle;
+
+        CyBle_ServiceInit();
+
+        apiResult = CyBle_GattcDiscoverPrimaryServices(connHandle, &cyBle_gattcDiscoveryRange);
 
         if(CYBLE_ERROR_OK == apiResult)
         {

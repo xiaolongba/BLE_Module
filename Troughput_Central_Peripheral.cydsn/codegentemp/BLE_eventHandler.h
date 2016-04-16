@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file CYBLE_eventHandler.h
-* \version 2.30
+* \version 3.10
 * 
 * \brief
 *  Contains the prototypes and constants used in the Event Handler State Machine
@@ -8,7 +8,7 @@
 * 
 ********************************************************************************
 * \copyright
-* Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2014-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -73,6 +73,9 @@
 #ifdef CYBLE_HIDS
     #include "BLE_hids.h"
 #endif /* CYBLE_HIDS */
+#ifdef CYBLE_HPS
+    #include "BLE_hps.h"
+#endif /* CYBLE_HPS */
 #ifdef CYBLE_HRS
     #include "BLE_hrs.h"
 #endif /* CYBLE_HRS */
@@ -82,6 +85,9 @@
 #ifdef CYBLE_IAS
     #include "BLE_ias.h"
 #endif /* CYBLE_IAS */
+#ifdef CYBLE_IPS
+    #include "BLE_ips.h"
+#endif /* CYBLE_IPS */
 #ifdef CYBLE_LLS
     #include "BLE_lls.h"
 #endif /* CYBLE_LLS */
@@ -141,6 +147,14 @@
 #define CYBLE_DISC_DESCR_INFO_128_LEN           (2u + CYBLE_GATT_128_BIT_UUID_SIZE)
 #endif /* CYBLE_GATT_ROLE_CLIENT */
 
+#define CYBLE_LE_MASK_LENGTH                    (0x2u)
+#define CYBLE_LE_MASK_DEFAULT                   (0x003Fu)
+#define CYBLE_LE_MASK_DLE                       ((CYBLE_DLE_FEATURE_ENABLED) ?          (0x0040u) : (0u))
+#define CYBLE_LE_MASK_LL_PRIVACY                ((CYBLE_LL_PRIVACY_FEATURE_ENABLED) ?   (0x0600u) : (0u))
+#define CYBLE_LE_MASK_SECURE_CONN               ((CYBLE_SECURE_CONN_FEATURE_ENABLED) ?  (0x0180u) : (0u))
+#define CYBLE_LE_MASK                           (CYBLE_LE_MASK_DEFAULT | CYBLE_LE_MASK_DLE | CYBLE_LE_MASK_LL_PRIVACY \
+                                                    | CYBLE_LE_MASK_SECURE_CONN)
+
 
 /***************************************
 * Type Definitions
@@ -170,13 +184,13 @@ typedef enum
      GATT Service Events
      ***************************************/
     
-    /** GATT Server - Notifications for GATT Service's "Service Changed"
+    /** GATT Server - Indications for GATT Service's "Service Changed"
         Characteristic were enabled. The parameter of this event is a structure of
         CYBLE_GATTS_WRITE_REQ_PARAM_T type.
     */
     CYBLE_EVT_GATTS_INDICATION_ENABLED,
     
-    /** GATT Server - Notifications for GATT Service's "Service Changed"
+    /** GATT Server - Indications for GATT Service's "Service Changed"
         Characteristic were disabled. The parameter of this event is a structure of
         CYBLE_GATTS_WRITE_REQ_PARAM_T type.
     */
@@ -1118,7 +1132,61 @@ typedef enum
         CYBLE_HIDS_CHAR_VALUE_T type.
     */
     CYBLE_EVT_HIDSC_WRITE_DESCR_RESPONSE,
+
+
+    /****************************************
+        HTTP Proxy Service Events
+     ***************************************/
+
+    /** HPS Server - Notification for HTTP Proxy Service Characteristic
+        was enabled. The parameter of this event is a structure 
+        of CYBLE_HPS_CHAR_VALUE_T type.
+    */
+    CYBLE_EVT_HPSS_NOTIFICATION_ENABLED,
+
+    /** HPS Server - Notification for HTTP Proxy Service Characteristic
+        was disabled. The parameter of this event is a structure 
+        of CYBLE_HPS_CHAR_VALUE_T type.
+    */
+    CYBLE_EVT_HPSS_NOTIFICATION_DISABLED,
+
+    /** HPS Server - Write Request for HTTP Proxy Service
+        Characteristic was received. The parameter of this event is a structure of
+        CYBLE_HPS_CHAR_VALUE_T type.
+    */    
+    CYBLE_EVT_HPSS_CHAR_WRITE,
+
+    /** HPS Client - HTTP Proxy Service Characteristic
+        Notification was received. The parameter of this event
+        is a structure of CYBLE_HPS_CHAR_VALUE_T type.
+    */
+    CYBLE_EVT_HPSC_NOTIFICATION,
     
+    /** HPS Client - Read Response for Read Request of HTTP Proxy 
+        Service Characteristic value. The parameter of this event
+        is a structure of CYBLE_HPS_CHAR_VALUE_T type.
+    */
+    CYBLE_EVT_HPSC_READ_CHAR_RESPONSE,
+
+    /** HPS Client - Read Response for Read Request of HTTP Proxy
+        Service Characteristic Descriptor Read request. The 
+        parameter of this event is a structure of
+        CYBLE_HPS_DESCR_VALUE_T type.
+    */
+    CYBLE_EVT_HPSC_READ_DESCR_RESPONSE,
+
+    /** HPS Client - Write Response for Write Request of HTTP Proxy
+        Service Characteristic Configuration Descriptor value.
+        The parameter of this event is a structure of 
+        CYBLE_HPS_DESCR_VALUE_T type.
+    */
+    CYBLE_EVT_HPSC_WRITE_DESCR_RESPONSE,
+    
+    /** HPS Client - Write Response for Write Request of HPS 
+        Service Characteristic value. The parameter of this event
+        is a structure of CYBLE_HPS_CHAR_VALUE_T type.
+    */
+    CYBLE_EVT_HPSC_WRITE_CHAR_RESPONSE,
     
     /****************************************
      HRS Service Events
@@ -1264,7 +1332,72 @@ typedef enum
     */
     CYBLE_EVT_IASS_WRITE_CHAR_CMD,
     
+    /****************************************
+     Indoor Positioning Service Events
+     ***************************************/
     
+    /** IPS Server - Read Request for Indoor Positioning Service Characteristic
+        was received. The parameter of this event is a structure
+        of CYBLE_IPSS_CHAR_VALUE_T type.
+    */    
+    CYBLE_EVT_IPSS_READ_CHAR,
+    
+    /** IPS Server - Write Request for Indoor Positioning Service Characteristic
+        was received. The parameter of this event is a structure
+        of CYBLE_IPSS_CHAR_VALUE_T type.
+    */    
+    CYBLE_EVT_IPSS_WRITE_CHAR,
+     
+    /** IPS Server - Write command request for Indoor Positioning Service
+        Characteristic. The parameter of this event
+        is a structure of CYBLE_IPSS_CHAR_VALUE_T type.
+    */
+    CYBLE_EVT_IPSS_WRITE_CHAR_CMD,
+    
+    /** IPS Client - Read Response for Read Request of Indoor Positioning
+        Service Characteristic value. The parameter of this event
+        is a structure of CYBLE_IPS_CHAR_VALUE_T type.
+    */
+    CYBLE_EVT_IPSC_READ_CHAR_RESPONSE,
+
+    /** IPS Client - Read Multiple Response for Read Multiple Request of 
+        Indoor Positioning Service Characteristic value. The parameter 
+        of this event is a structure of CYBLE_IPS_CHAR_VALUE_T type.
+    */
+    CYBLE_EVT_IPSC_READ_MULTIPLE_CHAR_RESPONSE,
+    
+    /** IPS Client - Write Response for Write Request of Indoor Positioning 
+        Service Characteristic value. The parameter of this event
+        is a structure of CYBLE_IPS_CHAR_VALUE_T type.
+    */
+    CYBLE_EVT_IPSC_WRITE_CHAR_RESPONSE,
+
+    /** IPS Client - Read Response for Read Request of Indoor Positioning
+        Service Characteristic Descriptor Read request. The 
+        parameter of this event is a structure of
+        CYBLE_IPS_DESCR_VALUE_T type.
+    */
+    CYBLE_EVT_IPSC_READ_DESCR_RESPONSE,
+
+    /** IPS Client - Write Response for Write Request of Indoor Positioning
+        Service Characteristic Configuration Descriptor value.
+        The parameter of this event is a structure of 
+        CYBLE_IPS_DESCR_VALUE_T type.
+    */
+    CYBLE_EVT_IPSC_WRITE_DESCR_RESPONSE,
+    
+    /** IPS Client - Error Response for Write Request for Indoor Positioning
+        Service Characteristic Value. The parameter of this event is a structure of 
+        CYBLE_IPS_CHAR_VALUE_T type.
+    */
+    CYBLE_EVT_IPSC_ERROR_RESPONSE,
+    
+    /** IPS Client - Read Response for Long Read Request of Indoor Positioning
+        Service Characteristic value. The parameter of this event
+        is a structure of CYBLE_IPS_CHAR_VALUE_T type.
+    */
+    CYBLE_EVT_IPSC_READ_BLOB_RSP,
+         
     /****************************************
      Link Loss Service Events
      ***************************************/
@@ -1785,8 +1918,8 @@ typedef enum
 
     
     /****************************************
-*     Weight Scale Service Events
-*     ***************************************/
+    *     Weight Scale Service Events
+    ****************************************/
 
     /** WSS Server - Indication for Weight Scale Service Characteristic
         was enabled. The parameter of this event is a structure 
@@ -1835,7 +1968,10 @@ typedef enum
     /****************************************
      Debug Events
      ***************************************/
-    
+	 
+    /** Event from BLESS interrupt, enebled when StackMode parameter is set to Debug
+	    in the expression view of the customizer's General tab. 
+	*/
     CYBLE_DEBUG_EVT_BLESS_INT = 0xE000u
 
 }CYBLE_EVT_T;
@@ -1902,6 +2038,8 @@ typedef struct
     /** Handle of the GAPS Peripheral Preferred Connection Parameters 
        Characteristic */
     CYBLE_GATT_DB_ATTR_HANDLE_T prefConnParamCharHandle;
+    /** Handle of the GAPS Central Address Resolution characteristic */
+    CYBLE_GATT_DB_ATTR_HANDLE_T centralAddrResolutionCharHandle;
 }CYBLE_GAPC_T;
 
 /** @} */
@@ -1960,6 +2098,9 @@ typedef enum
     CYBLE_SRVI_HIDS,
     CYBLE_SRVI_HIDS_END = CYBLE_SRVI_HIDS + CYBLE_HIDSC_SERVICE_COUNT - 1u,
 #endif /**< CYBLE_HIDS_CLIENT */
+#ifdef CYBLE_HPS_CLIENT
+    CYBLE_SRVI_HPS,
+#endif /**< CYBLE_HPS_CLIENT */
 #ifdef CYBLE_HRS_CLIENT
     CYBLE_SRVI_HRS,
 #endif /**< CYBLE_HRS_CLIENT */
@@ -1969,6 +2110,9 @@ typedef enum
 #ifdef CYBLE_IAS_CLIENT
     CYBLE_SRVI_IAS,
 #endif /**< CYBLE_IAS_CLIENT */
+#ifdef CYBLE_IPS_CLIENT
+    CYBLE_SRVI_IPS,
+#endif /**< CYBLE_IPS_CLIENT */
 #ifdef CYBLE_LLS_CLIENT
     CYBLE_SRVI_LLS,
 #endif /**< CYBLE_LLS_CLIENT */
@@ -2081,6 +2225,9 @@ typedef enum
     CYBLE_SCDI_HIDS_REPORT,                                 /**< Report Characteristic index */
     CYBLE_SCDI_HIDS_REPORT_END = CYBLE_SCDI_HIDS_REPORT + CYBLE_HIDSC_REPORT_COUNT - 1u,
 #endif /**< CYBLE_HIDS_CLIENT */
+#ifdef CYBLE_HPS_CLIENT
+    CYBLE_SCDI_HPS_STATUS_CODE,                             /**< Descriptor Status Code Characteristic */
+#endif /**< CYBLE_ESS_CLIENT */
 #ifdef CYBLE_HRS_CLIENT
     CYBLE_SCDI_HRS_HRM,                                     /**< Heart Rate Measurement Characteristic */
 #endif /**< CYBLE_HRS_CLIENT */
@@ -2090,6 +2237,17 @@ typedef enum
     CYBLE_SCDI_HTS_INTERM_TEMP,                             /**< Intermediate Temperature characteristic index*/
     CYBLE_SCDI_HTS_MEASURE_INTERVAL,                        /**< Measurement Interval characteristic index */
 #endif /**< CYBLE_HTS_CLIENT */
+#ifdef CYBLE_IPS_CLIENT
+    CYBLE_SCDI_IPS_LATITUDE,                         /**< WGS84 North coordinate of the device.*/
+    CYBLE_SCDI_IPS_LONGITUDE,                        /**< WGS84 East coordinate of the device.*/
+    CYBLE_SCDI_IPS_LOCAL_NORTH_COORDINATE,           /**< North coordinate of the device using local coordinate system. */
+    CYBLE_SCDI_IPS_LOCAL_EAST_COORDINATE,            /**< East coordinate of the device using local coordinate system. */
+    CYBLE_SCDI_IPS_FLOOR_NUMBER,                     /**< Describes in which floor the device is installed in. */
+    CYBLE_SCDI_IPS_ALTITUDE,                         /**< Altitude of the device. */
+    CYBLE_SCDI_IPS_UNCERTSINTY,                      /**< Uncertainty of the location information the device exposes. */
+    CYBLE_SCDI_IPS_LOCATION_NAME,                    /**< Name of the location the device is installed in. */
+#endif /**< CYBLE_IPS_CLIENT */
+
 #ifdef CYBLE_LNS_CLIENT
     CYBLE_SCDI_LNS_LS,                                      /**< Location and Speed characteristic index */
     CYBLE_SCDI_LNS_CP,                                      /**< L&N Control Point characteristic index */
@@ -2139,6 +2297,7 @@ void CyBle_ReadByGroupEventHandler(CYBLE_GATTC_READ_BY_GRP_RSP_PARAM_T *eventPar
 void CyBle_ReadByTypeEventHandler(CYBLE_GATTC_READ_BY_TYPE_RSP_PARAM_T *eventParam);
 void CyBle_FindInfoEventHandler(CYBLE_GATTC_FIND_INFO_RSP_PARAM_T *eventParam);
 void CyBle_ErrorResponseEventHandler(const CYBLE_GATTC_ERR_RSP_PARAM_T *eventParam);
+void CyBle_LongProcedureEndEventHandler(void);
 void CyBle_NextInclDiscovery(uint8 incrementIndex);
 void CyBle_NextCharDiscovery(uint8 incrementIndex);
 void CyBle_NextCharDscrDiscovery(uint8 incrementIndex);
@@ -2197,7 +2356,8 @@ void CyBle_NextCharDscrDiscovery(uint8 incrementIndex);
 * Function Name: CyBle_GattGetBusyStatus
 ***************************************************************************//**
 * 
-*  This function returns the status of BLE stack(busy or not busy).
+*  This function returns the status of BLE stack (busy or not busy).
+*  The status is changed after CYBLE_EVT_STACK_BUSY_STATUS event. 
 * 
 * \return
 *  uint8: Busy status 
@@ -2212,7 +2372,7 @@ void CyBle_NextCharDscrDiscovery(uint8 incrementIndex);
     
 /******************************************************************************
 * Function Prototype: void CyBle_SetGattError(CYBLE_GATT_ERR_CODE_T gattError);
-*******************************************************************************
+***************************************************************************//**
 * 
 *  Sets the GATT Error Code after the Authorization Code check 
 *  on the application layer on the CYBLE_EVT_<service initials>_WRITE_CHAR event 
@@ -2244,10 +2404,8 @@ void CyBle_NextCharDscrDiscovery(uint8 incrementIndex);
 *  - For the CGMS:
 *     - CYBLE_GATT_ERR_MISSING_CRC - when the CRC is missed.
 *     - CYBLE_GATT_ERR_INVALID_CRC - when the CRC is incorrect.
-*     - CYBLE_GATT_ERR_INVALID_PDU - when the lenth of the attribute is incorrect.
-* 
-*  None.
-* 
+*     - CYBLE_GATT_ERR_INVALID_PDU - when the length of the attribute is incorrect.
+*
 ******************************************************************************/
 #define CyBle_SetGattError(gattError) (cyBle_gattError = (gattError))
     
@@ -2339,6 +2497,22 @@ void CyBle_NextCharDscrDiscovery(uint8 incrementIndex);
 /** \endcond */
 
 
+/***************************************
+* Function Prototypes
+***************************************/
+
+/**
+ \addtogroup group_common_api_core_functions
+ @{
+*/
+
+#if (CYBLE_GATT_ROLE_SERVER || CYBLE_GATT_ROLE_CLIENT)
+
+uint8 CyBle_IsDeviceAddressValid(const CYBLE_GAP_BD_ADDR_T *deviceAddress);
+    
+#endif /* (CYBLE_GATT_ROLE_SERVER || CYBLE_GATT_ROLE_CLIENT) */
+
+/** @} */
 
 
 /***************************************

@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: UART.h
-* Version 3.0
+* Version 3.10
 *
 * Description:
 *  This file provides constants and parameter values for the SCB Component.

@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: UART_SPI_UART.c
-* Version 3.0
+* Version 3.10
 *
 * Description:
 *  This file provides the source code to the API for the SCB Component in

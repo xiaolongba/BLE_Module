@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: UART_PM.c
-* Version 3.0
+* Version 3.10
 *
 * Description:
 *  This file provides the source code to the Power Management support for

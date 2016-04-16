@@ -4,7 +4,7 @@
 
 ;********************************************************************************
 ;* File Name: Cm0RealView.scat
-;* Version 5.20
+;* Version 5.30
 ;*
 ;*  Description:
 ;*  This Linker Descriptor file describes the memory layout of the PSOC4 device

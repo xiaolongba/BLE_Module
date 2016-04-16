@@ -1,6 +1,6 @@
 ;-------------------------------------------------------------------------------
 ; FILENAME: CyBootAsmRv.s
-; Version 5.20
+; Version 5.30
 ;
 ;  DESCRIPTION:
 ;    Assembly routines for RealView.
@@ -40,7 +40,7 @@ CyDelayCycles FUNCTION
     LSRS r0, r0, #2         ;    1    2    Divide by 4 and set flags
     BEQ CyDelayCycles_done  ;    2    2    Skip if 0
     IF :DEF: CYIPBLOCK_m0s8cpussv2_VERSION && :DEF: CYIPBLOCK_m0s8srssv2_VERSION
-        IF ((CYIPBLOCK_m0s8cpussv2_VERSION == 1)&&(CYIPBLOCK_m0s8srssv2_VERSION == 1))
+        IF ((CYIPBLOCK_m0s8cpussv2_VERSION == 1) && ((CYIPBLOCK_m0s8srssv2_VERSION == 1) || (CYIPBLOCK_m0s8srssv2_VERSION == 2)))
             ; If device is using CPUSSv2 and SRSSv2 leave loop unaligned
         ENDIF
     ELSE

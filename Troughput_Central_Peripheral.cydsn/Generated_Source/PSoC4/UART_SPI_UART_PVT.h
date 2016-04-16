@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: UART_SPI_UART_PVT.h
-* Version 3.0
+* Version 3.10
 *
 * Description:
 *  This private file provides constants and parameter values for the

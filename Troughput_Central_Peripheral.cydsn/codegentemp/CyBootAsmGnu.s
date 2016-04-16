@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: CyBootAsmGnu.s
-* Version 5.20
+* Version 5.30
 *
 *  Description:
 *   Assembly routines for GNU as.
@@ -42,13 +42,13 @@ CyDelayCycles:              /* cycles bytes */
     ADDS r0, r0, #2         /*    1    2    Round to nearest multiple of 4 */
     LSRS r0, r0, #2         /*    1    2    Divide by 4 and set flags */
     BEQ CyDelayCycles_done  /*    2    2    Skip if 0 */
-.IF ((CYIPBLOCK_m0s8cpussv2_VERSION == 1) && (CYIPBLOCK_m0s8srssv2_VERSION == 1))
+.IF ((CYIPBLOCK_m0s8cpussv2_VERSION == 1) && ((CYIPBLOCK_m0s8srssv2_VERSION == 1) || (CYIPBLOCK_m0s8srssv2_VERSION == 2)))
     /* If device is using CPUSSv2 and SRSSv2 leave loop unaligned */
 .ELSE
     NOP                     /*    1    2    Loop alignment padding */
 .ENDIF
 CyDelayCycles_loop:
-    SUBS r0, r0, #1         /*    1    2   Decrement counter */ 
+    SUBS r0, r0, #1         /*    1    2   Decrement counter */
     BNE CyDelayCycles_loop  /*    3    2   3 CPU cycles (if branche is taken)*/
     NOP                     /*    1    2    Loop alignment padding */
     NOP                     /*    1    2    Loop alignment padding */
