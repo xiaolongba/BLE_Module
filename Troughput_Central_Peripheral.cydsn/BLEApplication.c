@@ -118,7 +118,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             printf("BLE is Ready\r\n");
             while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
 //            StartScan=TRUE;     
-//            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
+            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
         break;
         case CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT:
             Scan_Result=*(CYBLE_GAPC_ADV_REPORT_T *)eventParam;
@@ -250,7 +250,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
                }
                else
                {
-                   LowPower_EN=TURE;
+//                   LowPower_EN=TURE;
                }
             }
             while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据                
@@ -259,10 +259,10 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             CommandMode=AT_COMMAND_MODE;
             CTS_Write(CTS_OFF);
             /* RESET Uart and flush all buffers */
-//            UART_Stop();
+            UART_Stop();
             UART_SpiUartClearTxBuffer();
             UART_SpiUartClearRxBuffer();
-//            UART_Start();
+            UART_Start();
         break;
 //            从机接收主机的写请求，并且从机不需要写响应
         case CYBLE_EVT_GATTS_WRITE_CMD_REQ:
@@ -477,7 +477,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
 //            printf("valueHandle is 0x%04X\r\n",DisAllCharResult.valueHandle);            
         break;
 //        查找Server的所有特征值
-//        case CYBLE_EVT_GATTC_FIND_INFO_RSP:
+        case CYBLE_EVT_GATTC_FIND_INFO_RSP:
             DisAllCharResult=*((CYBLE_GATTC_FIND_INFO_RSP_PARAM_T *)eventParam);
 //            printf("+DISALLCHAR=<0x%02X%02X,",);
 //            printf("connHandle is 0x%04X\r\n",DisAllCharResult.connHandle.bdHandle);
@@ -1261,7 +1261,7 @@ void Parser_UartData(const char* SerialData)
                 {
                     if(CYBLE_STATE_SCANNING==CyBle_GetState())
                     {
-                        ScanDeviceInfoInit();
+//                        ScanDeviceInfoInit();
                         CyBle_GapcStopScan();                                   
                         STOP_SCAN_FLAG=TRUE;
                         printf("AT+OK\r\n"); 

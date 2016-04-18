@@ -128,11 +128,11 @@ int main()
 //                SendNotification(buffer,negotiated Mtu);                
 //            }
 //        }
-        if(LowPower_EN)
-        {
-            CyBle_ProcessEvents();            
-            LowPowerManagement();
-        }
+//        if(LowPower_EN)
+//        {
+//            CyBle_ProcessEvents();            
+//            LowPowerManagement();
+//        }
         
 //        #ifdef LOW_POWER_EN
 //        /* Call CyBle_ProcessEvents to process all events before going to sleep. */

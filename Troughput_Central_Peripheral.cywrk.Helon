@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Troughput_Central_Peripheral\Troughput_Central_Peripheral\Source Files\BLEApplication.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Troughput_Central_Peripheral\Troughput_Central_Peripheral\Troughput_Central_Peripheral.cydwr">
 <ExpandedNodeIds>
 <v>Troughput_Central_Peripheral</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral</v>
@@ -180,35 +180,6 @@
 <VisibleNodeIds>
 <v>Troughput_Central_Peripheral</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_bless_isr.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_custom.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_eventHandler.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_gatt.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_HAL_INT.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_HAL_PVT.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLEApplication.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\BLEClient.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\Connected_LED.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\CTS.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\Status_LED.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\Timer.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\Timer_PM.lst</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\CortexM0\ARM_GCC_493\Debug\Listing Files\TimerClock.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -223,6 +194,15 @@
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\PSoC 4 Architecture TRM</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\PRoC BLE Family Datasheet</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\System Reference Guides</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\System Reference Guides\cy_boot_v5_30</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\System Reference Guides\cy_lfclk_v1_0</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\BLE_v3_10.pdf</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\cy_clock_v2_20.pdf</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\cy_isr_v1_70.pdf</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\cy_pins_v2_20</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\SCB_P4_v3_10.pdf</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\TCPWM_P4_v2_10.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>Troughput_Central_Peripheral</v>
@@ -230,6 +210,15 @@
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\PSoC 4 Architecture TRM</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\PRoC BLE Family Datasheet</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\System Reference Guides</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\System Reference Guides\cy_boot_v5_30</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\System Reference Guides\cy_lfclk_v1_0</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\BLE_v3_10.pdf</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\cy_clock_v2_20.pdf</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\cy_isr_v1_70.pdf</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\cy_pins_v2_20</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\SCB_P4_v3_10.pdf</v>
+<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\TCPWM_P4_v2_10.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -244,17 +233,9 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\Troughput_Central_Peripheral.cydsn\main.c" />
-<name v=".\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4\BLE_gatt.c" />
-<name v=".\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4\BLE_eventHandler.h" />
-<name v=".\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4\BLE_eventHandler.c" />
-<name v=".\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4\BLE_Stack.h" />
 <name v=".\Troughput_Central_Peripheral.cydsn\BLEApplication.c" />
-<name v=".\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4\BLE_StackGattClient.h" />
+<name v=".\Troughput_Central_Peripheral.cydsn\main.c" />
 <name v=".\Troughput_Central_Peripheral.cydsn\Troughput_Central_Peripheral.cydwr" />
-<name v=".\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4\BLE_StackGap.h" />
-<name v=".\Troughput_Central_Peripheral.cydsn\BLEClient.h" />
-<name v=".\Troughput_Central_Peripheral.cydsn\BLEClient.c" />
 </OpenDocs>
 <config v="Release" />
 <AutoUpdate v="true" />

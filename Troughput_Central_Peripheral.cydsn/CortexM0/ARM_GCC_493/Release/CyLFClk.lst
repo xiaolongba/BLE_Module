@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
   31:.\Generated_Source\PSoC4/CyLFClk.h **** 
   32:.\Generated_Source\PSoC4/CyLFClk.h **** /* Clocks API */
   33:.\Generated_Source\PSoC4/CyLFClk.h **** void CySysClkIloStart(void);
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 2
 
 
   34:.\Generated_Source\PSoC4/CyLFClk.h **** void CySysClkIloStop(void);
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
   88:.\Generated_Source\PSoC4/CyLFClk.h ****     void   CySysWdtUnmaskInterrupt(void);
   89:.\Generated_Source\PSoC4/CyLFClk.h ****     cyWdtCallback CySysWdtSetInterruptCallback(cyWdtCallback function);
   90:.\Generated_Source\PSoC4/CyLFClk.h ****     cyWdtCallback CySysWdtGetInterruptCallback(void);
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 3
 
 
   91:.\Generated_Source\PSoC4/CyLFClk.h ****     void   CySysWdtIsr(void);
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  145:.\Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_CLK_WCO_TRIM_GM_HPM                  (( uint32 ) 0x01u)
  146:.\Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_CLK_WCO_TRIM_GM_LPM                  (( uint32 ) 0x02u)
  147:.\Generated_Source\PSoC4/CyLFClk.h **** #endif  /* (CY_IP_WCO) */
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 4
 
 
  148:.\Generated_Source\PSoC4/CyLFClk.h **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  202:.\Generated_Source\PSoC4/CyLFClk.h ****     #define CY_WDT_NUM_OF_WDT                    (3u)
  203:.\Generated_Source\PSoC4/CyLFClk.h ****     #define CY_WDT_NUM_OF_CALLBACKS             (3u)
  204:.\Generated_Source\PSoC4/CyLFClk.h **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 5
 
 
  205:.\Generated_Source\PSoC4/CyLFClk.h ****     #if (CY_PSOC4_4100 || CY_PSOC4_4200)
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  259:.\Generated_Source\PSoC4/CyLFClk.h **** #if (CY_IP_WCO)
  260:.\Generated_Source\PSoC4/CyLFClk.h **** 
  261:.\Generated_Source\PSoC4/CyLFClk.h ****     #if (CY_PSOC4_4100BL || CY_PSOC4_4200BL)
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 6
 
 
  262:.\Generated_Source\PSoC4/CyLFClk.h ****         /* WCO Status Register */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  316:.\Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_WDT_COUNTER_PTR              ( (reg32 *) CYREG_WDT_COUNTER)
  317:.\Generated_Source\PSoC4/CyLFClk.h **** 
  318:.\Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_SRSS_INTR_REG                (*(reg32 *) CYREG_SRSS_INTR)
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 7
 
 
  319:.\Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_SRSS_INTR_PTR                ( (reg32 *) CYREG_SRSS_INTR)
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
   38 000c 1168     		ldr	r1, [r2]
   39 000e 9943     		bic	r1, r3
   40 0010 1160     		str	r1, [r2]
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 8
 
 
  353:.\Generated_Source\PSoC4/CyLFClk.h ****                     | (uint32)(CY_SYS_CLK_WCO_TRIM_GM_HPM << CY_SYS_CLK_WCO_TRIM_GM_SHIFT);
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
   12:.\Generated_Source\PSoC4/CyLFClk.c **** * the software package with which this file was provided.
   13:.\Generated_Source\PSoC4/CyLFClk.c **** *******************************************************************************/
   14:.\Generated_Source\PSoC4/CyLFClk.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 9
 
 
   15:.\Generated_Source\PSoC4/CyLFClk.c **** 
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
   67:.\Generated_Source\PSoC4/CyLFClk.c ****     CY_SYS_CLK_ILO_CONFIG_REG |= CY_SYS_CLK_ILO_CONFIG_ENABLE;
   80              		.loc 2 67 0
   81 0000 8021     		mov	r1, #128
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 10
 
 
   82 0002 034A     		ldr	r2, .L5
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
   96:.\Generated_Source\PSoC4/CyLFClk.c **** void CySysClkIloStop(void)
   97:.\Generated_Source\PSoC4/CyLFClk.c **** {
   98:.\Generated_Source\PSoC4/CyLFClk.c ****     #if(CY_IP_SRSSV2)
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 11
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 11
 
 
   99:.\Generated_Source\PSoC4/CyLFClk.c ****         uint8  interruptState;
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  153:.\Generated_Source\PSoC4/CyLFClk.c ****             (uint32) 0u);
  154:.\Generated_Source\PSoC4/CyLFClk.c ****     }
  155:.\Generated_Source\PSoC4/CyLFClk.c **** #endif /* (CY_IP_SRSSV2) */
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 12
 
 
  156:.\Generated_Source\PSoC4/CyLFClk.c **** 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  210:.\Generated_Source\PSoC4/CyLFClk.c **** *  None
  211:.\Generated_Source\PSoC4/CyLFClk.c **** *
  212:.\Generated_Source\PSoC4/CyLFClk.c **** * Side Effects:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 13
 
 
  213:.\Generated_Source\PSoC4/CyLFClk.c **** *  This function has no effect if WDT is locked (CySysWdtLock() is
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  267:.\Generated_Source\PSoC4/CyLFClk.c ****     *  None.
  268:.\Generated_Source\PSoC4/CyLFClk.c ****     *
  269:.\Generated_Source\PSoC4/CyLFClk.c ****     *******************************************************************************/
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 14
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 14
 
 
  270:.\Generated_Source\PSoC4/CyLFClk.c ****     void CySysClkWcoStart(void)
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  287:.\Generated_Source\PSoC4/CyLFClk.c ****     * Return:
  288:.\Generated_Source\PSoC4/CyLFClk.c ****     *  None.
  289:.\Generated_Source\PSoC4/CyLFClk.c ****     *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 15
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 15
 
 
  290:.\Generated_Source\PSoC4/CyLFClk.c ****     *******************************************************************************/
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  151              		.loc 2 331 0
  152 0004 C00F     		lsr	r0, r0, #31
  153              		.loc 2 333 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 16
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 16
 
 
  154 0006 7047     		bx	lr
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  179              		.cfi_offset 4, -16
  180              		.cfi_offset 5, -12
  181              		.cfi_offset 6, -8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 17
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 17
 
 
  182              		.cfi_offset 14, -4
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  206              		.loc 1 384 0
  207 0022 2A43     		orr	r2, r5
  383:.\Generated_Source\PSoC4/CyLFClk.h ****                         | (uint32)(CY_SYS_CLK_WCO_TRIM_XGM_2250NA << CY_SYS_CLK_WCO_TRIM_XGM_SHIFT)
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 18
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 18
 
 
  208              		.loc 1 383 0
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  238              	.L19:
  239 0042 C046     		.align	2
  240              	.L18:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 19
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 19
 
 
  241 0044 00F02E40 		.word	1076817920
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  263              		.loc 2 413 0
  264 0006 C021     		mov	r1, #192
  265 0008 034A     		ldr	r2, .L21
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 20
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 20
 
 
  266 000a 0902     		lsl	r1, r1, #8
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  439:.\Generated_Source\PSoC4/CyLFClk.c **** 
  440:.\Generated_Source\PSoC4/CyLFClk.c **** 
  441:.\Generated_Source\PSoC4/CyLFClk.c ****     /*******************************************************************************
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 21
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 21
 
 
  442:.\Generated_Source\PSoC4/CyLFClk.c ****     * Function Name: CySysWdtUnlock
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  318 001a 8022     		mov	r2, #128
  319 001c 1202     		lsl	r2, r2, #8
  320 001e 1343     		orr	r3, r2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 22
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 22
 
 
  321 0020 0B60     		str	r3, [r1]
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  346              		.loc 2 496 0
  347 0000 044B     		ldr	r3, .L27
  348 0002 C000     		lsl	r0, r0, #3
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 23
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 23
 
 
  349              	.LVL12:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  523:.\Generated_Source\PSoC4/CyLFClk.c ****     *   WDT counter counterNum should be disabled to set a mode. Otherwise, this
  524:.\Generated_Source\PSoC4/CyLFClk.c ****     *   function call has no effect. If the specified counter is enabled,
  525:.\Generated_Source\PSoC4/CyLFClk.c ****     *   call the CySysWdtDisable() function with the corresponding parameter to
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 24
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 24
 
 
  526:.\Generated_Source\PSoC4/CyLFClk.c ****     *   disable the specified counter and wait for it to stop.
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  414 0022 1160     		str	r1, [r2]
  415              	.LVL19:
  416              	.L29:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 25
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 25
 
 
  417              	.LBE15:
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  575:.\Generated_Source\PSoC4/CyLFClk.c ****     * Parameters:
  576:.\Generated_Source\PSoC4/CyLFClk.c ****     *  counterNum:
  577:.\Generated_Source\PSoC4/CyLFClk.c ****     *   Valid range [0-1].  The number of the WDT counter.  The match values are not
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 26
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 26
 
 
  578:.\Generated_Source\PSoC4/CyLFClk.c ****     *   supported by counter 2.
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  632:.\Generated_Source\PSoC4/CyLFClk.c **** 
  633:.\Generated_Source\PSoC4/CyLFClk.c ****         return (uint32)((CY_SYS_WDT_CONFIG_REG >>
  634:.\Generated_Source\PSoC4/CyLFClk.c ****                         ((counterNum * CY_SYS_WDT_CNT_SHIFT) + CY_SYS_WDT_CNT_MATCH_CLR_SHIFT)) & 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 27
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 27
 
 
  635:.\Generated_Source\PSoC4/CyLFClk.c ****     }
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  689:.\Generated_Source\PSoC4/CyLFClk.c **** 
  690:.\Generated_Source\PSoC4/CyLFClk.c ****         if(0u != (counterMask & CY_SYS_WDT_COUNTER1_MASK))
  691:.\Generated_Source\PSoC4/CyLFClk.c ****         {
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 28
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 28
 
 
  692:.\Generated_Source\PSoC4/CyLFClk.c ****             while (0u == CySysWdtGetEnabledStatus(CY_SYS_WDT_COUNTER1))
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  746:.\Generated_Source\PSoC4/CyLFClk.c ****                 }
  747:.\Generated_Source\PSoC4/CyLFClk.c ****             }
  748:.\Generated_Source\PSoC4/CyLFClk.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 29
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 29
 
 
  749:.\Generated_Source\PSoC4/CyLFClk.c ****             if(0u != (counterMask & CY_SYS_WDT_COUNTER2_MASK))
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  803:.\Generated_Source\PSoC4/CyLFClk.c ****         {
  804:.\Generated_Source\PSoC4/CyLFClk.c ****             configRegValue = CY_SYS_WDT_CONFIG_REG;
  805:.\Generated_Source\PSoC4/CyLFClk.c ****             configRegValue &= ((uint32)(~(CY_SYS_WDT_CASCADE_01|CY_SYS_WDT_CASCADE_12)));
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 30
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 30
 
 
  806:.\Generated_Source\PSoC4/CyLFClk.c ****             configRegValue |= cascadeMask;
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  860:.\Generated_Source\PSoC4/CyLFClk.c ****                  (counterNum == CY_SYS_WDT_COUNTER1));
  861:.\Generated_Source\PSoC4/CyLFClk.c **** 
  862:.\Generated_Source\PSoC4/CyLFClk.c ****         /* Wait for previous changes to come into effect */
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 31
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 31
 
 
  863:.\Generated_Source\PSoC4/CyLFClk.c ****         CyDelayUs(CY_SYS_WDT_3LFCLK_DELAY_US);
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  917:.\Generated_Source\PSoC4/CyLFClk.c ****     * Summary:
  918:.\Generated_Source\PSoC4/CyLFClk.c ****     *  Reads which bit in WDT counter 2 is monitored for a toggle.
  919:.\Generated_Source\PSoC4/CyLFClk.c ****     *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 32
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 32
 
 
  920:.\Generated_Source\PSoC4/CyLFClk.c ****     * Parameters:
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  974:.\Generated_Source\PSoC4/CyLFClk.c ****         uint32 regValue = 0u;
  975:.\Generated_Source\PSoC4/CyLFClk.c **** 
  976:.\Generated_Source\PSoC4/CyLFClk.c ****         switch(counterNum)
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 33
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 33
 
 
  977:.\Generated_Source\PSoC4/CyLFClk.c ****         {
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
 1031:.\Generated_Source\PSoC4/CyLFClk.c ****     * Summary:
 1032:.\Generated_Source\PSoC4/CyLFClk.c ****     *   Clears all the WDT counter interrupts set in the mask. Calling this function
 1033:.\Generated_Source\PSoC4/CyLFClk.c ****     *   also prevents from Reset when the counter mode is set to generate
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 34
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 34
 
 
 1034:.\Generated_Source\PSoC4/CyLFClk.c ****     *   3 interrupts and then the device resets.
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
 1088:.\Generated_Source\PSoC4/CyLFClk.c ****             CySysWdtLock();
 1089:.\Generated_Source\PSoC4/CyLFClk.c ****         }
 1090:.\Generated_Source\PSoC4/CyLFClk.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 35
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 35
 
 
 1091:.\Generated_Source\PSoC4/CyLFClk.c ****         CyExitCriticalSection(interruptState);
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
 1145:.\Generated_Source\PSoC4/CyLFClk.c ****     *  NULL is returned if the specified address is not set.
 1146:.\Generated_Source\PSoC4/CyLFClk.c ****     *
 1147:.\Generated_Source\PSoC4/CyLFClk.c ****     *******************************************************************************/
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 36
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 36
 
 
 1148:.\Generated_Source\PSoC4/CyLFClk.c ****     cyWdtCallback CySysWdtSetInterruptCallback(uint32 counterNum, cyWdtCallback function)
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
 1202:.\Generated_Source\PSoC4/CyLFClk.c ****     * Summary:
 1203:.\Generated_Source\PSoC4/CyLFClk.c ****     *  Enables the ISR callback servicing for the particular WDT counter
 1204:.\Generated_Source\PSoC4/CyLFClk.c ****     *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 37
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 37
 
 
 1205:.\Generated_Source\PSoC4/CyLFClk.c ****     * Parameters:
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
 1259:.\Generated_Source\PSoC4/CyLFClk.c ****     * Parameters:
 1260:.\Generated_Source\PSoC4/CyLFClk.c ****     *  None.
 1261:.\Generated_Source\PSoC4/CyLFClk.c ****     *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 38
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 38
 
 
 1262:.\Generated_Source\PSoC4/CyLFClk.c ****     * Return:
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
 1316:.\Generated_Source\PSoC4/CyLFClk.c ****     /*******************************************************************************
 1317:.\Generated_Source\PSoC4/CyLFClk.c ****     * Function Name: CySysTimerDelay
 1318:.\Generated_Source\PSoC4/CyLFClk.c ****     ********************************************************************************
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 39
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 39
 
 
 1319:.\Generated_Source\PSoC4/CyLFClk.c ****     *
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
 1373:.\Generated_Source\PSoC4/CyLFClk.c ****         uint32 regValue;
 1374:.\Generated_Source\PSoC4/CyLFClk.c ****         uint32 matchValue;
 1375:.\Generated_Source\PSoC4/CyLFClk.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 40
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 40
 
 
 1376:.\Generated_Source\PSoC4/CyLFClk.c ****         if((counterNum < CY_SYS_WDT_COUNTER2) && (0uL == CySysWdtGetClearOnMatch(counterNum)) && (d
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
 1430:.\Generated_Source\PSoC4/CyLFClk.c ****     *
 1431:.\Generated_Source\PSoC4/CyLFClk.c ****     * Parameters:
 1432:.\Generated_Source\PSoC4/CyLFClk.c ****     *  counterNum: Valid range [0-1]. The number of the WDT counter (WDT0 or WDT1).
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 41
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 41
 
 
 1433:.\Generated_Source\PSoC4/CyLFClk.c ****     *  delayType : Defines the operation mode.
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
 1487:.\Generated_Source\PSoC4/CyLFClk.c ****     *  for WDT0 and WDT1 in the "Watchdog" or "Watchdog w/ Interrupts" modes.
 1488:.\Generated_Source\PSoC4/CyLFClk.c ****     *
 1489:.\Generated_Source\PSoC4/CyLFClk.c ****     * Parameters:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 42
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 42
 
 
 1490:.\Generated_Source\PSoC4/CyLFClk.c ****     *  counterNum:    The number of the WDT counter.
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
 1544:.\Generated_Source\PSoC4/CyLFClk.c ****     *
 1545:.\Generated_Source\PSoC4/CyLFClk.c ****     * Summary:
 1546:.\Generated_Source\PSoC4/CyLFClk.c ****     *  Returns once the LFCLK positive edge occurred.
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 43
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 43
 
 
 1547:.\Generated_Source\PSoC4/CyLFClk.c ****     *
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
 1601:.\Generated_Source\PSoC4/CyLFClk.c ****         while (CySysWdtGetCount(lfclkPosedgeEnabledWdtCounter) == firstCount)
 1602:.\Generated_Source\PSoC4/CyLFClk.c ****         {
 1603:.\Generated_Source\PSoC4/CyLFClk.c ****             /* Wait for counter to increment */
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 44
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 44
 
 
 1604:.\Generated_Source\PSoC4/CyLFClk.c ****         }
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  456 0010 1368     		ldr	r3, [r2]
  457 0012 8B43     		bic	r3, r1
  458 0014 1360     		str	r3, [r2]
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 45
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 45
 
 
  459              		.loc 2 1637 0
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  505              	.L42:
  506              		.align	2
  507              	.L41:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 46
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 46
 
 
  508 0010 0C020B40 		.word	1074463244
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  606:.\Generated_Source\PSoC4/CyLFClk.c **** 
  554              		.loc 2 606 0
  555 0020 1C43     		orr	r4, r3
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 47
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 47
 
 
  556              	.LVL29:
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  599              		.loc 2 635 0
  600 0010 7047     		bx	lr
  601              	.L49:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 48
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 48
 
 
  602 0012 C046     		.align	2
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  649              	.LBE31:
  650              	.LBE30:
  692:.\Generated_Source\PSoC4/CyLFClk.c ****             {
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 49
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 49
 
 
  651              		.loc 2 692 0 discriminator 1
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  699              		.loc 2 437 0
  700 0000 0C4B     		ldr	r3, .L85
  701 0002 1A68     		ldr	r2, [r3]
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 50
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 50
 
 
  702 0004 C023     		mov	r3, #192
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  748              	.L77:
  749              	.LVL45:
  750              	.LBB50:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 51
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 51
 
 
  751              	.LBB51:
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  798              	.LVL48:
  799              	.LBE60:
  800              	.LBE62:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 52
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 52
 
 
  801              	.LBB63:
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  806:.\Generated_Source\PSoC4/CyLFClk.c ****             CY_SYS_WDT_CONFIG_REG = configRegValue;
  847              		.loc 2 806 0
  848 0020 1843     		orr	r0, r3
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 53
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 53
 
 
  849              	.LVL54:
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  896              		.global	CySysWdtSetMatch
  897              		.code	16
  898              		.thumb_func
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 54
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 54
 
 
  899              		.type	CySysWdtSetMatch, %function
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  941              		.loc 2 865 0 discriminator 4
  942 0024 1368     		ldr	r3, [r2]
  943              	.LVL60:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 55
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 55
 
 
  866:.\Generated_Source\PSoC4/CyLFClk.c ****         CY_SYS_WDT_MATCH_REG = (regValue | (match << (counterNum * CY_SYS_WDT_CNT_MATCH_SHIFT)));
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  903:.\Generated_Source\PSoC4/CyLFClk.c ****         {
  990              		.loc 2 903 0
  991 0004 9B03     		lsl	r3, r3, #14
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 56
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 56
 
 
  992 0006 08D4     		bmi	.L103
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  1037 0000 024B     		ldr	r3, .L108
  930:.\Generated_Source\PSoC4/CyLFClk.c **** 
  1038              		.loc 2 930 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 57
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 57
 
 
  1039              		@ sp needed
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  1086              		.code	16
  1087              		.thumb_func
  1088              		.type	CySysWdtGetCount, %function
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 58
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 58
 
 
  1089              	CySysWdtGetCount:
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  1133              		.loc 2 999 0
  1134              		@ sp needed
  1135 0024 7047     		bx	lr
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 59
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 59
 
 
  1136              	.L122:
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  1184              		.loc 2 1581 0
  1185 0016 2A42     		tst	r2, r5
  1186 0018 01D0     		beq	.L126
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 60
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 60
 
 
 1583:.\Generated_Source\PSoC4/CyLFClk.c ****         }
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  562:.\Generated_Source\PSoC4/CyLFClk.c ****     }
  1232              		.loc 2 562 0
  1233 0038 1340     		and	r3, r2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 61
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 61
 
 
  1234              	.LBE93:
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  1281              		.loc 2 97 0
  1282              		.cfi_startproc
  1283 0000 38B5     		push	{r3, r4, r5, lr}
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 62
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 62
 
 
  1284              		.cfi_def_cfa_offset 16
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  1330              		.loc 2 114 0
  1331 0028 2368     		ldr	r3, [r4]
  1332 002a 5B00     		lsl	r3, r3, #1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 63
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 63
 
 
  1333 002c 5B08     		lsr	r3, r3, #1
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  179:.\Generated_Source\PSoC4/CyLFClk.c ****         return (lfclkSource);
  1382              		.loc 2 179 0
  1383 0002 0C4D     		ldr	r5, .L143
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 64
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 64
 
 
  1384 0004 2B68     		ldr	r3, [r5]
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  1427              	.L144:
  1428              		.align	2
  1429              	.L143:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 65
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 65
 
 
  1430 0034 0C020B40 		.word	1074463244
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  1477              		.loc 2 302 0
  1478 0020 2368     		ldr	r3, [r4]
  1479 0022 5B00     		lsl	r3, r3, #1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 66
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 66
 
 
  1480 0024 5B08     		lsr	r3, r3, #1
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  1526 0006 1840     		and	r0, r3
 1024:.\Generated_Source\PSoC4/CyLFClk.c **** 
  1527              		.loc 2 1024 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 67
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 67
 
 
  1528 0008 7047     		bx	lr
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  1576              	.L159:
  1577              	.LVL122:
  1578              	.LBE116:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 68
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 68
 
 
  1579              	.LBE117:
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  1622              	.L161:
  1623 0044 00010B40 		.word	1074462976
  1624 0048 04040400 		.word	263172
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 69
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 69
 
 
  1625 004c 10020B40 		.word	1074463248
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  1674              		.cfi_startproc
  1675              	.LVL132:
 1150:.\Generated_Source\PSoC4/CyLFClk.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 70
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 70
 
 
  1676              		.loc 2 1150 0
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  1722              	.LVL137:
  1723 000a 1818     		add	r0, r3, r0
  1724 000c C368     		ldr	r3, [r0, #12]
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 71
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 71
 
 
  1725              	.LVL138:
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  1773 001c 00000000 		.word	.LANCHOR0
  1774 0020 00000000 		.word	.LANCHOR1
  1775 0024 00000000 		.word	.LANCHOR2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 72
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 72
 
 
  1776              		.cfi_endproc
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  1824              		.loc 2 1274 0
  1825 0000 0422     		mov	r2, #4
 1273:.\Generated_Source\PSoC4/CyLFClk.c ****         if(0u != (CY_SYS_WDT_COUNTER0_INT & CY_SYS_WDT_CONTROL_REG))
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 73
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 73
 
 
  1826              		.loc 2 1273 0
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  1872 003c 15D0     		beq	.L190
 1290:.\Generated_Source\PSoC4/CyLFClk.c ****             {
  1873              		.loc 2 1290 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 74
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 74
 
 
  1874 003e 1549     		ldr	r1, .L217+4
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
 1308:.\Generated_Source\PSoC4/CyLFClk.c ****                 }
  1920              		.loc 2 1308 0
  1921 0084 9847     		blx	r3
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 75
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 75
 
 
  1922              	.LVL147:
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
 1451:.\Generated_Source\PSoC4/CyLFClk.c ****         {
  1971              		.loc 2 1451 0 discriminator 2
  1972 0014 0F4B     		ldr	r3, .L226
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 76
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 76
 
 
  1973 0016 9D42     		cmp	r5, r3
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
 1471:.\Generated_Source\PSoC4/CyLFClk.c ****             }
  2017              		.loc 2 1471 0
  2018 004a 054A     		ldr	r2, .L226+12
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 77
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 77
 
 
  2019 004c 1368     		ldr	r3, [r2]
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2068 0014 064B     		ldr	r3, .L232
  2069 0016 9C42     		cmp	r4, r3
  2070 0018 08D8     		bhi	.L228
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 78
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 78
 
 
 1378:.\Generated_Source\PSoC4/CyLFClk.c ****             matchValue = (regValue + delay) & (uint32)UINT16_MAX_VAL;
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2117 000a 0328     		cmp	r0, #3
  2118 000c 01D1     		bne	.L236
 1506:.\Generated_Source\PSoC4/CyLFClk.c ****             }
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 79
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 79
 
 
  2119              		.loc 2 1506 0
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2164              	.L241:
  2165 004c FFF7FEFF 		bl	CySysWdtClearInterrupt
  2166              	.LVL171:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 80
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 80
 
 
  2167              	.L234:
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2218              		.section	.debug_info,"",%progbits
  2219              	.Ldebug_info0:
  2220 0000 580E0000 		.4byte	0xe58
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 81
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 81
 
 
  2221 0004 0400     		.2byte	0x4
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2275 0071 3801     		.2byte	0x138
  2276 0073 2C000000 		.4byte	0x2c
  2277 0077 04       		.uleb128 0x4
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 82
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 82
 
 
  2278 0078 00000000 		.4byte	.LASF10
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2332 00e7 02       		.uleb128 0x2
  2333 00e8 04       		.byte	0x4
  2334 00e9 07       		.byte	0x7
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 83
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 83
 
 
  2335 00ea 09050000 		.4byte	.LASF20
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2389 0160 6E050000 		.4byte	.LASF28
  2390 0164 02       		.byte	0x2
  2391 0165 A705     		.2byte	0x5a7
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 84
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 84
 
 
  2392 0167 01       		.byte	0x1
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2446 01e5 02       		.byte	0x2
  2447 01e6 4801     		.2byte	0x148
  2448 01e8 83000000 		.4byte	0x83
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 85
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 85
 
 
  2449 01ec 00000000 		.4byte	.LFB9
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2503 0271 6B000000 		.4byte	0x6b
  2504 0275 58000000 		.4byte	.LLST2
  2505 0279 14       		.uleb128 0x14
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 86
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 86
 
 
  2506 027a 06000000 		.4byte	.LVL7
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2560 0305 00000000 		.4byte	.LFB15
  2561 0309 2C000000 		.4byte	.LFE15-.LFB15
  2562 030d 01       		.uleb128 0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 87
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 87
 
 
  2563 030e 9C       		.byte	0x9c
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2617 038f 00       		.byte	0
  2618 0390 00       		.byte	0
  2619 0391 1A       		.uleb128 0x1a
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 88
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 88
 
 
  2620 0392 B7060000 		.4byte	.LASF40
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2674 041c 01       		.uleb128 0x1
  2675 041d 50       		.byte	0x50
  2676 041e 02       		.uleb128 0x2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 89
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 89
 
 
  2677 041f 74       		.byte	0x74
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2731 04a4 1F       		.uleb128 0x1f
  2732 04a5 20000000 		.4byte	.LBB32
  2733 04a9 06000000 		.4byte	.LBE32-.LBB32
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 90
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 90
 
 
  2734 04ad 25       		.uleb128 0x25
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2788 052e C5020000 		.4byte	0x2c5
  2789 0532 22000000 		.4byte	.LBB48
  2790 0536 02000000 		.4byte	.LBE48-.LBB48
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 91
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 91
 
 
  2791 053a 02       		.byte	0x2
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2845 05c5 00       		.byte	0
  2846 05c6 00       		.byte	0
  2847 05c7 29       		.uleb128 0x29
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 92
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 92
 
 
  2848 05c8 C5020000 		.4byte	0x2c5
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2902 064c 5903     		.2byte	0x359
  2903 064e 83000000 		.4byte	0x83
  2904 0652 14       		.uleb128 0x14
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 93
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 93
 
 
  2905 0653 18000000 		.4byte	.LVL58
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  2959 06dd 01       		.uleb128 0x1
  2960 06de 9C       		.byte	0x9c
  2961 06df F4060000 		.4byte	0x6f4
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 94
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 94
 
 
  2962 06e3 17       		.uleb128 0x17
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3016 0768 C5020000 		.4byte	0x2c5
  3017 076c 02000000 		.4byte	.LBB84
  3018 0770 08000000 		.4byte	.LBE84-.LBB84
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 95
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 95
 
 
  3019 0774 02       		.byte	0x2
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3073 07f9 2E       		.uleb128 0x2e
  3074 07fa 4E000000 		.4byte	.LVL89
  3075 07fe F4060000 		.4byte	0x6f4
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 96
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 96
 
 
  3076 0802 0D080000 		.4byte	0x80d
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3130 0871 16000000 		.4byte	.LBB106
  3131 0875 06000000 		.4byte	.LBE106-.LBB106
  3132 0879 02       		.byte	0x2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 97
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 97
 
 
  3133 087a 6C       		.byte	0x6c
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3187 08fb 08000000 		.4byte	.LBE108-.LBB108
  3188 08ff 02       		.byte	0x2
  3189 0900 E5       		.byte	0xe5
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 98
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 98
 
 
  3190 0901 19090000 		.4byte	0x919
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3244 0988 20       		.uleb128 0x20
  3245 0989 53010000 		.4byte	0x153
  3246 098d 79050000 		.4byte	.LLST41
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 99
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 99
 
 
  3247 0991 00       		.byte	0
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3301 0a10 DA050000 		.4byte	.LLST43
  3302 0a14 18       		.uleb128 0x18
  3303 0a15 D6060000 		.4byte	.LASF68
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 100
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 100
 
 
  3304 0a19 02       		.byte	0x2
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3358 0a9f 01       		.uleb128 0x1
  3359 0aa0 9C       		.byte	0x9c
  3360 0aa1 D40A0000 		.4byte	0xad4
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 101
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 101
 
 
  3361 0aa5 17       		.uleb128 0x17
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3415 0b2a 02       		.byte	0x2
  3416 0b2b B904     		.2byte	0x4b9
  3417 0b2d 83000000 		.4byte	0x83
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 102
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 102
 
 
  3418 0b31 C4060000 		.4byte	.LLST50
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3472 0ba7 03       		.uleb128 0x3
  3473 0ba8 40       		.byte	0x40
  3474 0ba9 3E       		.byte	0x3e
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 103
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 103
 
 
  3475 0baa 24       		.byte	0x24
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3529 0c31 74       		.byte	0x74
  3530 0c32 00       		.sleb128 0
  3531 0c33 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 104
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 104
 
 
  3532 0c34 00       		.byte	0
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3586 0c9d D1000000 		.4byte	0xd1
  3587 0ca1 15080000 		.4byte	.LLST61
  3588 0ca5 17       		.uleb128 0x17
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 105
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 105
 
 
  3589 0ca6 D3050000 		.4byte	.LASF80
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3643 0d12 00       		.byte	0
  3644 0d13 00       		.byte	0
  3645 0d14 13       		.uleb128 0x13
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 106
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 106
 
 
  3646 0d15 F9000000 		.4byte	.LASF82
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3700 0d89 48000000 		.4byte	.LVL170
  3701 0d8d 640A0000 		.4byte	0xa64
  3702 0d91 9D0D0000 		.4byte	0xd9d
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 107
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 107
 
 
  3703 0d95 22       		.uleb128 0x22
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3757 0e02 0C0E0000 		.4byte	0xe0c
  3758 0e06 05       		.uleb128 0x5
  3759 0e07 03       		.byte	0x3
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 108
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 108
 
 
  3760 0e08 00000000 		.4byte	counterIntMaskTbl
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3814 000d 11       		.uleb128 0x11
  3815 000e 01       		.uleb128 0x1
  3816 000f 10       		.uleb128 0x10
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 109
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 109
 
 
  3817 0010 17       		.uleb128 0x17
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3871 0046 07       		.uleb128 0x7
  3872 0047 15       		.uleb128 0x15
  3873 0048 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 110
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 110
 
 
  3874 0049 27       		.uleb128 0x27
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3928 007f 01       		.uleb128 0x1
  3929 0080 13       		.uleb128 0x13
  3930 0081 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 111
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 111
 
 
  3931 0082 00       		.byte	0
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  3985 00b8 13       		.uleb128 0x13
  3986 00b9 20       		.uleb128 0x20
  3987 00ba 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 112
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 112
 
 
  3988 00bb 01       		.uleb128 0x1
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4042 00f2 06       		.uleb128 0x6
  4043 00f3 40       		.uleb128 0x40
  4044 00f4 18       		.uleb128 0x18
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 113
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 113
 
 
  4045 00f5 9742     		.uleb128 0x2117
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4099 012f 01       		.uleb128 0x1
  4100 0130 12       		.uleb128 0x12
  4101 0131 06       		.uleb128 0x6
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 114
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 114
 
 
  4102 0132 40       		.uleb128 0x40
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4156 016a 0B       		.uleb128 0xb
  4157 016b 3B       		.uleb128 0x3b
  4158 016c 05       		.uleb128 0x5
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 115
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 115
 
 
  4159 016d 49       		.uleb128 0x49
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4213 01a4 19       		.uleb128 0x19
  4214 01a5 01       		.uleb128 0x1
  4215 01a6 13       		.uleb128 0x13
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 116
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 116
 
 
  4216 01a7 00       		.byte	0
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4270 01df 00       		.byte	0
  4271 01e0 00       		.byte	0
  4272 01e1 22       		.uleb128 0x22
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 117
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 117
 
 
  4273 01e2 8A8201   		.uleb128 0x410a
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4327 021b 00       		.byte	0
  4328 021c 00       		.byte	0
  4329 021d 27       		.uleb128 0x27
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 118
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 118
 
 
  4330 021e 2E       		.uleb128 0x2e
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4384 0254 0B       		.uleb128 0xb
  4385 0255 00       		.byte	0
  4386 0256 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 119
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 119
 
 
  4387 0257 2B       		.uleb128 0x2b
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4441 028e 898201   		.uleb128 0x4109
  4442 0291 01       		.byte	0x1
  4443 0292 11       		.uleb128 0x11
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 120
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 120
 
 
  4444 0293 01       		.uleb128 0x1
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4498 02ca 3A       		.uleb128 0x3a
  4499 02cb 0B       		.uleb128 0xb
  4500 02cc 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 121
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 121
 
 
  4501 02cd 0B       		.uleb128 0xb
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4555 0303 35       		.uleb128 0x35
  4556 0304 1D       		.uleb128 0x1d
  4557 0305 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 122
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 122
 
 
  4558 0306 31       		.uleb128 0x31
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4612 033d 01       		.byte	0x1
  4613 033e 49       		.uleb128 0x49
  4614 033f 13       		.uleb128 0x13
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 123
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 123
 
 
  4615 0340 01       		.uleb128 0x1
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4669 0376 01       		.uleb128 0x1
  4670 0377 13       		.uleb128 0x13
  4671 0378 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 124
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 124
 
 
  4672 0379 00       		.byte	0
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4726 003a 0A000000 		.4byte	.LVL2
  4727 003e 40000000 		.4byte	.LVL6
  4728 0042 0100     		.2byte	0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 125
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 125
 
 
  4729 0044 54       		.byte	0x54
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4783 00cb 00000000 		.4byte	.LVL13
  4784 00cf 09000000 		.4byte	.LVL14-1
  4785 00d3 0100     		.2byte	0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 126
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 126
 
 
  4786 00d5 51       		.byte	0x51
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4840 015e F3       		.byte	0xf3
  4841 015f 01       		.uleb128 0x1
  4842 0160 50       		.byte	0x50
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 127
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 127
 
 
  4843 0161 9F       		.byte	0x9f
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4897 01ea 50       		.byte	0x50
  4898 01eb 04000000 		.4byte	.LVL32
  4899 01ef 18000000 		.4byte	.LFE18
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 128
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 128
 
 
  4900 01f3 0400     		.2byte	0x4
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  4954 0275 00000000 		.4byte	0
  4955              	.LLST21:
  4956 0279 00000000 		.4byte	.LVL47
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 129
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 129
 
 
  4957 027d 22000000 		.4byte	.LVL54
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5011 02f0 50       		.byte	0x50
  5012 02f1 0E000000 		.4byte	.LVL57
  5013 02f5 38000000 		.4byte	.LVL62
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 130
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 130
 
 
  5014 02f9 0100     		.2byte	0x1
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5068 037d 0100     		.2byte	0x1
  5069 037f 50       		.byte	0x50
  5070 0380 00000000 		.4byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 131
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 131
 
 
  5071 0384 00000000 		.4byte	0
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5125 0403 30000000 		.4byte	.LFE27
  5126 0407 0400     		.2byte	0x4
  5127 0409 F3       		.byte	0xf3
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 132
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 132
 
 
  5128 040a 01       		.uleb128 0x1
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5182 0494 0200     		.2byte	0x2
  5183 0496 31       		.byte	0x31
  5184 0497 9F       		.byte	0x9f
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 133
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 133
 
 
  5185 0498 2C000000 		.4byte	.LVL85
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5239 0518 13000000 		.4byte	.LVL104-1
  5240 051c 20000000 		.4byte	.LVL107
  5241 0520 0100     		.2byte	0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 134
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 134
 
 
  5242 0522 54       		.byte	0x54
@@ -8038,7 +8038,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5296 0597 07000000 		.4byte	.LVL120-1
  5297 059b 0100     		.2byte	0x1
  5298 059d 50       		.byte	0x50
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 135
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 135
 
 
  5299 059e 07000000 		.4byte	.LVL120-1
@@ -8098,7 +8098,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5353 062b 0100     		.2byte	0x1
  5354 062d 50       		.byte	0x50
  5355 062e 08000000 		.4byte	.LVL131
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 136
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 136
 
 
  5356 0632 1C000000 		.4byte	.LFE30
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5410 06b1 0E000000 		.4byte	.LVL138
  5411 06b5 18000000 		.4byte	.LFE32
  5412 06b9 0100     		.2byte	0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 137
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 137
 
 
  5413 06bb 53       		.byte	0x53
@@ -8218,7 +8218,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5467 073d 0F000000 		.4byte	.LVL150-1
  5468 0741 64000000 		.4byte	.LFE37
  5469 0745 0400     		.2byte	0x4
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 138
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 138
 
 
  5470 0747 F3       		.byte	0xf3
@@ -8278,7 +8278,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5524 07ce 00000000 		.4byte	0
  5525 07d2 00000000 		.4byte	0
  5526              	.LLST59:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 139
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 139
 
 
  5527 07d6 3E000000 		.4byte	.LVL155
@@ -8338,7 +8338,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5581 085a 00000000 		.4byte	0
  5582 085e 00000000 		.4byte	0
  5583              	.LLST63:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 140
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 140
 
 
  5584 0862 20000000 		.4byte	.LVL160
@@ -8398,7 +8398,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5638 000e 0000     		.2byte	0
  5639 0010 00000000 		.4byte	.LFB0
  5640 0014 34000000 		.4byte	.LFE0-.LFB0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 141
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 141
 
 
  5641 0018 00000000 		.4byte	.LFB2
@@ -8458,7 +8458,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5695 00f0 00000000 		.4byte	.LFB30
  5696 00f4 1C000000 		.4byte	.LFE30-.LFB30
  5697 00f8 00000000 		.4byte	.LFB31
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 142
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 142
 
 
  5698 00fc 18000000 		.4byte	.LFE31-.LFB31
@@ -8518,7 +8518,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5752 008c 34000000 		.4byte	.LFE0
  5753 0090 00000000 		.4byte	.LFB2
  5754 0094 14000000 		.4byte	.LFE2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 143
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 143
 
 
  5755 0098 00000000 		.4byte	.LFB7
@@ -8578,7 +8578,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5809 0170 00000000 		.4byte	.LFB31
  5810 0174 18000000 		.4byte	.LFE31
  5811 0178 00000000 		.4byte	.LFB32
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 144
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 144
 
 
  5812 017c 18000000 		.4byte	.LFE32
@@ -8638,7 +8638,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5841      6E744D61 
  5841      736B5462 
  5841      6C00
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 145
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 145
 
 
  5842              	.LASF88:
@@ -8698,7 +8698,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5861      7369676E 
  5861      65642069 
  5862              	.LASF41:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 146
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 146
 
 
  5863 0190 43795379 		.ascii	"CySysWdtSetClearOnMatch\000"
@@ -8758,7 +8758,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5883 027c 43794465 		.ascii	"CyDelayUs\000"
  5883      6C617955 
  5883      7300
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 147
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 147
 
 
  5884              	.LASF18:
@@ -8818,7 +8818,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5909      61746368 
  5909      00
  5910              	.LASF48:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 148
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 148
 
 
  5911 032a 636F756E 		.ascii	"countersEnableStatus\000"
@@ -8878,7 +8878,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5931      7400
  5932              	.LASF37:
  5933 03e7 696E7465 		.ascii	"interruptState\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 149
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 149
 
 
  5933      72727570 
@@ -8938,7 +8938,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5953 04b1 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\CyLFClk.c\000"
  5953      6E657261 
  5953      7465645F 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 150
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 150
 
 
  5953      536F7572 
@@ -8998,7 +8998,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5976              	.LASF28:
  5977 056e 43795379 		.ascii	"CySysTimerDelayUntilMatch\000"
  5977      7354696D 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 151
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 151
 
 
  5977      65724465 
@@ -9058,7 +9058,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  5999      73436C6B 
  5999      57636F53 
  5999      746F7000 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 152
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 152
 
 
  6000              	.LASF43:
@@ -9118,7 +9118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 1
  6021      00
  6022              	.LASF36:
  6023 06e3 73746174 		.ascii	"status\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccxmiMhR.s 			page 153
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccsNh1ic.s 			page 153
 
 
  6023      757300

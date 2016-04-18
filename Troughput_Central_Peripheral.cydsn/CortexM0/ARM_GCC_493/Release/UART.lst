@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
   30:.\Generated_Source\PSoC4/UART.c **** 
   31:.\Generated_Source\PSoC4/UART.c **** 
   32:.\Generated_Source\PSoC4/UART.c **** /***************************************
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/UART.c **** *    Run Time Configuration Vars
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
   87:.\Generated_Source\PSoC4/UART.c **** *
   88:.\Generated_Source\PSoC4/UART.c **** * Summary:
   89:.\Generated_Source\PSoC4/UART.c **** *  Initializes the SCB component to operate in one of the selected
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 3
 
 
   90:.\Generated_Source\PSoC4/UART.c **** *  configurations: I2C, SPI, UART or EZI2C.
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
   42              		.align	1
   43              		.global	UART_Enable
   44              		.code	16
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 4
 
 
   45              		.thumb_func
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
   65              	.LBB13:
  161:.\Generated_Source\PSoC4/UART.c **** 
  162:.\Generated_Source\PSoC4/UART.c ****     UART_ScbEnableIntr();
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 5
 
 
  163:.\Generated_Source\PSoC4/UART.c **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  217:.\Generated_Source\PSoC4/UART.c **** * Return:
  218:.\Generated_Source\PSoC4/UART.c **** *  None
  219:.\Generated_Source\PSoC4/UART.c **** * 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 6
 
 
  220:.\Generated_Source\PSoC4/UART.c **** *******************************************************************************/
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  274:.\Generated_Source\PSoC4/UART.c **** 
  275:.\Generated_Source\PSoC4/UART.c ****     UART_RX_FIFO_CTRL_REG = rxFifoCtrl;
  276:.\Generated_Source\PSoC4/UART.c **** }
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 7
 
 
  277:.\Generated_Source\PSoC4/UART.c **** 
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  331:.\Generated_Source\PSoC4/UART.c ****     *******************************************************************************/
  332:.\Generated_Source\PSoC4/UART.c ****     void UART_SetCustomInterruptHandler(void (*func)(void))
  333:.\Generated_Source\PSoC4/UART.c ****     {
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 8
 
 
  334:.\Generated_Source\PSoC4/UART.c ****     #if !defined (CY_REMOVE_UART_CUSTOM_INTR_HANDLER)
@@ -460,7 +460,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  370:.\Generated_Source\PSoC4/UART.c ****     #else
  371:.\Generated_Source\PSoC4/UART.c ****         UART_EnableInt();
   66              		.loc 1 371 0
-  67 000e 0920     		mov	r0, #9
+  67 000e 0A20     		mov	r0, #10
   68 0010 FFF7FEFF 		bl	CyIntEnable
   69              	.LVL1:
   70              	.LBE13:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  377:.\Generated_Source\PSoC4/UART.c **** 
  378:.\Generated_Source\PSoC4/UART.c **** /*******************************************************************************
  379:.\Generated_Source\PSoC4/UART.c **** * Function Name: UART_ScbModePostEnable
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 9
 
 
  380:.\Generated_Source\PSoC4/UART.c **** ********************************************************************************
@@ -527,7 +527,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
   83              	.L4:
   84 001a C046     		.align	2
   85              	.L3:
-  86 001c 00002440 		.word	1076101120
+  86 001c 00002540 		.word	1076166656
   87              		.cfi_endproc
   88              	.LFE3:
   89              		.size	UART_Enable, .-UART_Enable
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
   94              		.thumb_func
   95              		.type	UART_Start, %function
   96              	UART_Start:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 10
 
 
   97              	.LFB4:
@@ -598,12 +598,12 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  144              		.cfi_def_cfa_offset 8
  145              		.cfi_offset 3, -8
  146              		.cfi_offset 14, -4
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 11
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 11
 
 
  224:.\Generated_Source\PSoC4/UART.c **** #endif /* (UART_SCB_IRQ_INTERNAL) */
  147              		.loc 1 224 0
- 148 0002 0920     		mov	r0, #9
+ 148 0002 0A20     		mov	r0, #10
  149 0004 FFF7FEFF 		bl	CyIntDisable
  150              	.LVL5:
  151              	.LBB18:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  462:.\Generated_Source\PSoC4/UART.c ****     UART_I2CStop();
  463:.\Generated_Source\PSoC4/UART.c **** 
  464:.\Generated_Source\PSoC4/UART.c **** #elif (UART_SCB_MODE_EZI2C_CONST_CFG)
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 12
 
 
  465:.\Generated_Source\PSoC4/UART.c ****     UART_EzI2CStop();
@@ -678,7 +678,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  159 000c 054A     		ldr	r2, .L11
  244:.\Generated_Source\PSoC4/UART.c **** #endif /* (UART_SCB_IRQ_INTERNAL) */
  160              		.loc 1 244 0
- 161 000e 0920     		mov	r0, #9
+ 161 000e 0A20     		mov	r0, #10
  231:.\Generated_Source\PSoC4/UART.c **** 
  162              		.loc 1 231 0
  163 0010 1368     		ldr	r3, [r2]
@@ -705,8 +705,8 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  179              	.L12:
  180              		.align	2
  181              	.L11:
- 182 0024 00002440 		.word	1076101120
- 183 0028 880F2440 		.word	1076105096
+ 182 0024 00002540 		.word	1076166656
+ 183 0028 880F2540 		.word	1076170632
  184              		.cfi_endproc
  185              	.LFE5:
  186              		.size	UART_Stop, .-UART_Stop
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  192              		.type	UART_SetRxFifoLevel, %function
  193              	UART_SetRxFifoLevel:
  194              	.LFB6:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 13
 
 
  267:.\Generated_Source\PSoC4/UART.c ****     uint32 rxFifoCtrl;
@@ -759,7 +759,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  220              	.L15:
  221              		.align	2
  222              	.L14:
- 223 0010 04032440 		.word	1076101892
+ 223 0010 04032540 		.word	1076167428
  224              		.cfi_endproc
  225              	.LFE6:
  226              		.size	UART_SetRxFifoLevel, .-UART_SetRxFifoLevel
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  302:.\Generated_Source\PSoC4/UART.c ****     txFifoCtrl |= ((uint32) (UART_TX_FIFO_CTRL_TRIGGER_LEVEL_MASK & level));
  238              		.loc 1 302 0
  239 0000 0F22     		mov	r2, #15
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 14
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 14
 
 
  300:.\Generated_Source\PSoC4/UART.c **** 
@@ -812,7 +812,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  260              	.L18:
  261              		.align	2
  262              	.L17:
- 263 0010 04022440 		.word	1076101636
+ 263 0010 04022540 		.word	1076167172
  264              		.cfi_endproc
  265              	.LFE7:
  266              		.size	UART_SetTxFifoLevel, .-UART_SetTxFifoLevel
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  282              		.loc 1 335 0
  283 0002 5860     		str	r0, [r3, #4]
  342:.\Generated_Source\PSoC4/UART.c **** #endif /* (UART_SCB_IRQ_INTERNAL) */
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 15
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 15
 
 
  284              		.loc 1 342 0
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  338 003a 02       		.uleb128 0x2
  339 003b 02       		.byte	0x2
  340 003c 07       		.byte	0x7
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 16
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 16
 
 
  341 003d D0000000 		.4byte	.LASF3
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  395 00a9 06       		.uleb128 0x6
  396 00aa 04       		.byte	0x4
  397 00ab AF000000 		.4byte	0xaf
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 17
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 17
 
 
  398 00af 07       		.uleb128 0x7
@@ -1018,12 +1018,12 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  452 0124 96020000 		.4byte	0x296
  453 0128 0F       		.uleb128 0xf
  454 0129 01       		.uleb128 0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 18
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 18
 
 
  455 012a 50       		.byte	0x50
  456 012b 01       		.uleb128 0x1
- 457 012c 39       		.byte	0x39
+ 457 012c 3A       		.byte	0x3a
  458 012d 00       		.byte	0
  459 012e 00       		.byte	0
  460 012f 10       		.uleb128 0x10
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  509 01a8 E4       		.byte	0xe4
  510 01a9 B7010000 		.4byte	0x1b7
  511 01ad 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 19
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 19
 
 
  512 01ae 0C000000 		.4byte	.LVL6
@@ -1092,7 +1092,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  520 01c5 01       		.uleb128 0x1
  521 01c6 50       		.byte	0x50
  522 01c7 01       		.uleb128 0x1
- 523 01c8 39       		.byte	0x39
+ 523 01c8 3A       		.byte	0x3a
  524 01c9 00       		.byte	0
  525 01ca 0E       		.uleb128 0xe
  526 01cb 22000000 		.4byte	.LVL7
@@ -1101,7 +1101,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  529 01d4 01       		.uleb128 0x1
  530 01d5 50       		.byte	0x50
  531 01d6 01       		.uleb128 0x1
- 532 01d7 39       		.byte	0x39
+ 532 01d7 3A       		.byte	0x3a
  533 01d8 00       		.byte	0
  534 01d9 00       		.byte	0
  535 01da 12       		.uleb128 0x12
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  566 0227 13       		.uleb128 0x13
  567 0228 B3000000 		.4byte	.LASF24
  568 022c 01       		.byte	0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 20
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 20
 
 
  569 022d 2801     		.2byte	0x128
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  623 02a6 00       		.byte	0
  624 02a7 17       		.uleb128 0x17
  625 02a8 21010000 		.4byte	.LASF33
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 21
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 21
 
 
  626 02ac 03       		.byte	0x3
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  680 001e 03       		.uleb128 0x3
  681 001f 24       		.uleb128 0x24
  682 0020 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 22
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 22
 
 
  683 0021 0B       		.uleb128 0xb
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  737 0057 19       		.uleb128 0x19
  738 0058 20       		.uleb128 0x20
  739 0059 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 23
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 23
 
 
  740 005a 00       		.byte	0
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  794 0093 3B       		.uleb128 0x3b
  795 0094 0B       		.uleb128 0xb
  796 0095 27       		.uleb128 0x27
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 24
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 24
 
 
  797 0096 19       		.uleb128 0x19
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  851 00d2 01       		.uleb128 0x1
  852 00d3 12       		.uleb128 0x12
  853 00d4 06       		.uleb128 0x6
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 25
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 25
 
 
  854 00d5 58       		.uleb128 0x58
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  908 010e 17       		.uleb128 0x17
  909 010f 00       		.byte	0
  910 0110 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 26
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 26
 
 
  911 0111 14       		.uleb128 0x14
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  965 0147 3A       		.uleb128 0x3a
  966 0148 0B       		.uleb128 0xb
  967 0149 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 27
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 27
 
 
  968 014a 0B       		.uleb128 0xb
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  1022 0000 00000000 		.4byte	.LVL8
  1023 0004 06000000 		.4byte	.LVL9
  1024 0008 0100     		.2byte	0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 28
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 28
 
 
  1025 000a 50       		.byte	0x50
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  1079 0010 00000000 		.4byte	.LFB2
  1080 0014 08000000 		.4byte	.LFE2-.LFB2
  1081 0018 00000000 		.4byte	.LFB3
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 29
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 29
 
 
  1082 001c 20000000 		.4byte	.LFE3-.LFB3
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  1122      6E203232 
  1122      31323230 
  1123 0077 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 30
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 30
 
 
  1123      66756E63 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  1144              	.LASF5:
  1145 0135 6C6F6E67 		.ascii	"long unsigned int\000"
  1145      20756E73 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 31
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 31
 
 
  1145      69676E65 
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  1167      53746F70 
  1167      00
  1168              	.LASF8:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 32
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 32
 
 
  1169 0236 756E7369 		.ascii	"unsigned int\000"
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 1
  1191      3800
  1192              	.LASF16:
  1193 02d1 55415254 		.ascii	"UART_ScbModePostEnable\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP7J3cS.s 			page 33
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cchcLLsg.s 			page 33
 
 
  1193      5F536362 

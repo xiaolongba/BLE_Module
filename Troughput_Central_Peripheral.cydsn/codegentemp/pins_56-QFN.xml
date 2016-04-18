@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<pindata xsi:schemaLocation="http://cypress.com/xsd/cypindata_v2 ../../dtd/cypindata_v2.xsd" device="CYBL10162-56LQXI" package="56-QFN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cypress.com/xsd/cypindata_v2">
+<pindata xsi:schemaLocation="http://cypress.com/xsd/cypindata_v2 ../../dtd/cypindata_v2.xsd" device="CYBL10161-56LQXI" package="56-QFN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cypress.com/xsd/cypindata_v2">
   <capabilities>
     <capability name="DIGITAL" value="0x0000000000000001" />
     <capability name="ANALOG" value="0x0000000000000002" />
@@ -62,7 +62,6 @@
     </pin>
     <pin number="5" name="P4[0]">
       <pad name="P4[0]" number="5" portId="4" pinId="0" ioSupplyPin="VDDIO_0" capabilities="0x000002D000000013">
-        <ffbterm ffbtype="TCPWM" ffbid="0" term="line_out" />
         <ffbterm ffbtype="SCB" ffbid="1" term="uart_rts" />
         <ffbterm ffbtype="SCB" ffbid="1" term="rts" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="32" />
@@ -75,7 +74,6 @@
     </pin>
     <pin number="6" name="P4[1]">
       <pad name="P4[1]" number="6" portId="4" pinId="1" ioSupplyPin="VDDIO_0" capabilities="0x000001D000000013">
-        <ffbterm ffbtype="TCPWM" ffbid="0" term="line_out_compl" />
         <ffbterm ffbtype="SCB" ffbid="1" term="uart_cts" />
         <ffbterm ffbtype="SCB" ffbid="1" term="cts" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="33" />
@@ -152,7 +150,6 @@
     </pin>
     <pin number="19" name="P0[0]">
       <pad name="P0[0]" number="33" portId="0" pinId="0" ioSupplyPin="VDDIO_1" capabilities="0x000000D000000017">
-        <ffbterm ffbtype="TCPWM" ffbid="0" term="line_out" alternative="3" />
         <ffbterm ffbtype="SCB" ffbid="1" term="uart_rx" alternative="1" />
         <ffbterm ffbtype="SCB" ffbid="1" term="rx" alternative="1" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="0" />
@@ -167,7 +164,6 @@
     </pin>
     <pin number="20" name="P0[1]">
       <pad name="P0[1]" number="34" portId="0" pinId="1" ioSupplyPin="VDDIO_1" capabilities="0x000000D000000017">
-        <ffbterm ffbtype="TCPWM" ffbid="0" term="line_out_compl" alternative="3" />
         <ffbterm ffbtype="SCB" ffbid="1" term="uart_tx" alternative="1" />
         <ffbterm ffbtype="SCB" ffbid="1" term="tx" alternative="1" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="1" />
@@ -182,7 +178,6 @@
     </pin>
     <pin number="21" name="P0[2]">
       <pad name="P0[2]" number="35" portId="0" pinId="2" ioSupplyPin="VDDIO_1" capabilities="0x000000D000000017">
-        <ffbterm ffbtype="TCPWM" ffbid="1" term="line_out" alternative="3" />
         <ffbterm ffbtype="SCB" ffbid="1" term="uart_rts" alternative="1" />
         <ffbterm ffbtype="SCB" ffbid="1" term="rts" alternative="1" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="2" />
@@ -198,7 +193,6 @@
     </pin>
     <pin number="22" name="P0[3]">
       <pad name="P0[3]" number="36" portId="0" pinId="3" ioSupplyPin="VDDIO_1" capabilities="0x000000D000000017">
-        <ffbterm ffbtype="TCPWM" ffbid="1" term="line_out_compl" alternative="3" />
         <ffbterm ffbtype="SCB" ffbid="1" term="uart_cts" alternative="1" />
         <ffbterm ffbtype="SCB" ffbid="1" term="cts" alternative="1" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="3" />
@@ -214,67 +208,37 @@
     </pin>
     <pin number="24" name="P0[4]">
       <pad name="P0[4]" number="38" portId="0" pinId="4" ioSupplyPin="VDDIO_1" capabilities="0x000000D400000017">
-        <ffbterm ffbtype="TCPWM" ffbid="1" term="line_out" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="uart_rx" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="rx" alternative="1" />
         <ffbterm ffbtype="SRSS" ffbid="0" term="ext_clk" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="4" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="4" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="i2c_sda" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="sda" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="spi_mosi" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="mosi_m" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="mosi_s" alternative="1" />
         <ffbterm ffbtype="LPCOMP" ffbid="1" term="vplus" />
       </pad>
     </pin>
     <pin number="25" name="P0[5]">
       <pad name="P0[5]" number="39" portId="0" pinId="5" ioSupplyPin="VDDIO_1" capabilities="0x000000D000000017">
-        <ffbterm ffbtype="TCPWM" ffbid="1" term="line_out_compl" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="uart_tx" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="tx" alternative="1" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="5" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="5" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="i2c_scl" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="scl" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="spi_miso" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="miso_m" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="miso_s" alternative="1" />
         <ffbterm ffbtype="LPCOMP" ffbid="1" term="vminus" />
       </pad>
     </pin>
     <pin number="26" name="P0[6]">
       <pad name="P0[6]" number="40" portId="0" pinId="6" ioSupplyPin="VDDIO_1" capabilities="0x000000D000001017">
         <ffbterm ffbtype="TCPWM" ffbid="2" term="line_out" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="uart_rts" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="rts" alternative="1" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="6" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="6" />
         <ffbterm ffbtype="CPUSS" ffbid="0" term="swd_data" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="spi_select" wire="0" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="0" alternative="1" resource="spi_select_0" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="1" alternative="1" resource="spi_select_0" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="2" alternative="1" resource="spi_select_0" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="3" alternative="1" resource="spi_select_0" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_s" alternative="1" resource="spi_select_0" />
       </pad>
     </pin>
     <pin number="27" name="P0[7]">
       <pad name="P0[7]" number="41" portId="0" pinId="7" ioSupplyPin="VDDIO_1" capabilities="0x000000D000001017">
         <ffbterm ffbtype="TCPWM" ffbid="2" term="line_out_compl" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="uart_cts" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="cts" alternative="1" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="7" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="7" />
         <ffbterm ffbtype="CPUSS" ffbid="0" term="swd_clk" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="spi_clk" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="sclk_m" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="sclk_s" alternative="1" />
       </pad>
     </pin>
     <pin number="28" name="P1[0]">
       <pad name="P1[0]" number="44" portId="1" pinId="0" ioSupplyPin="VDDIO_2" capabilities="0x000000D000000217">
-        <ffbterm ffbtype="TCPWM" ffbid="0" term="line_out" alternative="1" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="8" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="8" />
         <ffbterm ffbtype="LPCOMP" ffbid="0" term="cmpout" alternative="1" />
@@ -284,7 +248,6 @@
     </pin>
     <pin number="29" name="P1[1]">
       <pad name="P1[1]" number="45" portId="1" pinId="1" ioSupplyPin="VDDIO_2" capabilities="0x000000D000000817">
-        <ffbterm ffbtype="TCPWM" ffbid="0" term="line_out_compl" alternative="1" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="9" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="9" />
         <ffbterm ffbtype="LPCOMP" ffbid="1" term="cmpout" alternative="1" />
@@ -298,7 +261,6 @@
     </pin>
     <pin number="30" name="P1[2]">
       <pad name="P1[2]" number="46" portId="1" pinId="2" ioSupplyPin="VDDIO_2" capabilities="0x000000D000000417">
-        <ffbterm ffbtype="TCPWM" ffbid="1" term="line_out" alternative="1" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="10" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="10" />
         <ffbterm ffbtype="SCB" ffbid="1" term="spi_select" wire="2" />
@@ -311,7 +273,6 @@
     </pin>
     <pin number="31" name="P1[3]">
       <pad name="P1[3]" number="47" portId="1" pinId="3" ioSupplyPin="VDDIO_2" capabilities="0x000000D000000417">
-        <ffbterm ffbtype="TCPWM" ffbid="1" term="line_out_compl" alternative="1" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="11" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="11" />
         <ffbterm ffbtype="SCB" ffbid="1" term="spi_select" wire="3" />
@@ -325,59 +286,32 @@
     <pin number="32" name="P1[4]">
       <pad name="P1[4]" number="48" portId="1" pinId="4" ioSupplyPin="VDDIO_2" capabilities="0x000000D000000817">
         <ffbterm ffbtype="TCPWM" ffbid="2" term="line_out" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="uart_rx" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="rx" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="12" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="12" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="i2c_sda" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="sda" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="spi_mosi" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="mosi_m" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="mosi_s" />
         <ffbterm ffbtype="OA" ffbid="3" term="vminus" />
       </pad>
     </pin>
     <pin number="33" name="P1[5]">
       <pad name="P1[5]" number="49" portId="1" pinId="5" ioSupplyPin="VDDIO_2" capabilities="0x000000D000000217">
         <ffbterm ffbtype="TCPWM" ffbid="2" term="line_out_compl" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="uart_tx" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="tx" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="13" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="13" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="i2c_scl" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="scl" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="spi_miso" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="miso_m" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="miso_s" />
         <ffbterm ffbtype="OA" ffbid="3" term="vplus" />
       </pad>
     </pin>
     <pin number="34" name="P1[6]">
       <pad name="P1[6]" number="50" portId="1" pinId="6" ioSupplyPin="VDDIO_2" capabilities="0x000000D000000217">
         <ffbterm ffbtype="TCPWM" ffbid="3" term="line_out" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="uart_rts" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="rts" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="14" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="14" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="spi_select" wire="0" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="0" resource="spi_select_0" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="1" resource="spi_select_0" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="2" resource="spi_select_0" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="3" resource="spi_select_0" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_s" resource="spi_select_0" />
         <ffbterm ffbtype="OA" ffbid="2" term="vplus" />
       </pad>
     </pin>
     <pin number="35" name="P1[7]">
       <pad name="P1[7]" number="51" portId="1" pinId="7" ioSupplyPin="VDDIO_2" capabilities="0x000000D000000217">
         <ffbterm ffbtype="TCPWM" ffbid="3" term="line_out_compl" alternative="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="uart_cts" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="cts" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="15" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="15" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="spi_clk" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="sclk_m" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="sclk_s" />
         <ffbterm ffbtype="OA" ffbid="3" term="vplus" />
       </pad>
     </pin>
@@ -388,11 +322,6 @@
       <pad name="P2[0]" number="57" portId="2" pinId="0" ioSupplyPin="VDDIO_2" capabilities="0x000000D000000217">
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="16" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="16" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="spi_select" wire="1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="0" resource="spi_select_1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="1" resource="spi_select_1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="2" resource="spi_select_1" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="3" resource="spi_select_1" />
         <ffbterm ffbtype="OA" ffbid="0" term="vplus" />
       </pad>
     </pin>
@@ -400,11 +329,6 @@
       <pad name="P2[1]" number="58" portId="2" pinId="1" ioSupplyPin="VDDIO_2" capabilities="0x000000D000000817">
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="17" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="17" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="spi_select" wire="2" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="0" resource="spi_select_2" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="1" resource="spi_select_2" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="2" resource="spi_select_2" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="3" resource="spi_select_2" />
         <ffbterm ffbtype="OA" ffbid="0" term="vminus" />
       </pad>
     </pin>
@@ -413,11 +337,6 @@
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="18" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="18" />
         <ffbterm ffbtype="SRSS" ffbid="0" term="wakeup" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="spi_select" wire="3" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="0" resource="spi_select_3" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="1" resource="spi_select_3" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="2" resource="spi_select_3" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="select_m" wire="3" resource="spi_select_3" />
         <ffbterm ffbtype="OA" ffbid="0" term="vout10" />
       </pad>
     </pin>
@@ -468,33 +387,20 @@
     </pin>
     <pin number="47" name="P3[0]">
       <pad name="P3[0]" number="69" portId="3" pinId="0" ioSupplyPin="VDDIO_2" capabilities="0x000000D000000017">
-        <ffbterm ffbtype="TCPWM" ffbid="0" term="line_out" alternative="2" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="uart_rx" alternative="2" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="rx" alternative="2" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="24" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="24" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="i2c_sda" alternative="2" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="sda" alternative="2" />
         <ffbterm ffbtype="SARMUX" ffbid="0" term="pads" wire="0" />
       </pad>
     </pin>
     <pin number="48" name="P3[1]">
       <pad name="P3[1]" number="70" portId="3" pinId="1" ioSupplyPin="VDDIO_2" capabilities="0x000000D000000017">
-        <ffbterm ffbtype="TCPWM" ffbid="0" term="line_out_compl" alternative="2" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="uart_tx" alternative="2" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="tx" alternative="2" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="25" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="25" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="i2c_scl" alternative="2" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="scl" alternative="2" />
         <ffbterm ffbtype="SARMUX" ffbid="0" term="pads" wire="1" />
       </pad>
     </pin>
     <pin number="49" name="P3[2]">
       <pad name="P3[2]" number="71" portId="3" pinId="2" ioSupplyPin="VDDIO_2" capabilities="0x000000D000000017">
-        <ffbterm ffbtype="TCPWM" ffbid="1" term="line_out" alternative="2" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="uart_rts" alternative="2" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="rts" alternative="2" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="26" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="26" />
         <ffbterm ffbtype="SARMUX" ffbid="0" term="pads" wire="2" />
@@ -502,9 +408,6 @@
     </pin>
     <pin number="50" name="P3[3]">
       <pad name="P3[3]" number="72" portId="3" pinId="3" ioSupplyPin="VDDIO_2" capabilities="0x000000D000000017">
-        <ffbterm ffbtype="TCPWM" ffbid="1" term="line_out_compl" alternative="2" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="uart_cts" alternative="2" />
-        <ffbterm ffbtype="SCB" ffbid="0" term="cts" alternative="2" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="com" wire="27" />
         <ffbterm ffbtype="M0S8LCD" ffbid="0" term="seg" wire="27" />
         <ffbterm ffbtype="SARMUX" ffbid="0" term="pads" wire="3" />

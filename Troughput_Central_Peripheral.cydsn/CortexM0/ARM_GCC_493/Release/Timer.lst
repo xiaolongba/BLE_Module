@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
   30:.\Generated_Source\PSoC4/Timer.c **** *
   31:.\Generated_Source\PSoC4/Timer.c **** * Parameters:
   32:.\Generated_Source\PSoC4/Timer.c **** *  None
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/Timer.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
   78:.\Generated_Source\PSoC4/Timer.c ****         /* Initialize counter value */
   79:.\Generated_Source\PSoC4/Timer.c ****         #if (Timer_CY_TCPWM_V2 && Timer_TIMER_UPDOWN_CNT_USED && !Timer_CY_TCPWM_4000)
   80:.\Generated_Source\PSoC4/Timer.c ****             Timer_WriteCounter(1u);
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 3
 
 
   81:.\Generated_Source\PSoC4/Timer.c ****         #elif(Timer__COUNT_DOWN == Timer_TC_COUNTER_MODE)
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  135:.\Generated_Source\PSoC4/Timer.c **** 
  136:.\Generated_Source\PSoC4/Timer.c ****             #if (Timer__CENTER == Timer_PWM_ALIGN)
  137:.\Generated_Source\PSoC4/Timer.c ****                 Timer_TRIG_CONTROL2_REG = Timer_PWM_MODE_CENTER;
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 4
 
 
  138:.\Generated_Source\PSoC4/Timer.c ****             #endif  /* ( Timer_PWM_CENTER == Timer_PWM_ALIGN) */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  180:.\Generated_Source\PSoC4/Timer.c **** 
  181:.\Generated_Source\PSoC4/Timer.c ****     enableInterrupts = CyEnterCriticalSection();
  182:.\Generated_Source\PSoC4/Timer.c ****     Timer_BLOCK_CONTROL_REG |= Timer_MASK;
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 5
 
 
  183:.\Generated_Source\PSoC4/Timer.c ****     CyExitCriticalSection(enableInterrupts);
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  237:.\Generated_Source\PSoC4/Timer.c **** 
  238:.\Generated_Source\PSoC4/Timer.c ****     Timer_Enable();
  239:.\Generated_Source\PSoC4/Timer.c **** }
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 6
 
 
  240:.\Generated_Source\PSoC4/Timer.c **** 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  294:.\Generated_Source\PSoC4/Timer.c **** {
  295:.\Generated_Source\PSoC4/Timer.c ****     uint8 enableInterrupts;
  296:.\Generated_Source\PSoC4/Timer.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 7
 
 
  297:.\Generated_Source\PSoC4/Timer.c ****     enableInterrupts = CyEnterCriticalSection();
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  351:.\Generated_Source\PSoC4/Timer.c **** *         - Timer_PRESCALE_DIVBY2    - Divide by 2
  352:.\Generated_Source\PSoC4/Timer.c **** *         - Timer_PRESCALE_DIVBY4    - Divide by 4
  353:.\Generated_Source\PSoC4/Timer.c **** *         - Timer_PRESCALE_DIVBY8    - Divide by 8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 8
 
 
  354:.\Generated_Source\PSoC4/Timer.c **** *         - Timer_PRESCALE_DIVBY16   - Divide by 16
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  408:.\Generated_Source\PSoC4/Timer.c **** 
  409:.\Generated_Source\PSoC4/Timer.c **** /*******************************************************************************
  410:.\Generated_Source\PSoC4/Timer.c **** * Function Name: Timer_SetPWMMode
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 9
 
 
  411:.\Generated_Source\PSoC4/Timer.c **** ********************************************************************************
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  465:.\Generated_Source\PSoC4/Timer.c **** *
  466:.\Generated_Source\PSoC4/Timer.c **** *  For Synchronous mode the kill signal disables both the line and line_n
  467:.\Generated_Source\PSoC4/Timer.c **** *  signals until the next terminal count.
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 10
 
 
  468:.\Generated_Source\PSoC4/Timer.c **** *
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  522:.\Generated_Source\PSoC4/Timer.c **** 
  523:.\Generated_Source\PSoC4/Timer.c ****     enableInterrupts = CyEnterCriticalSection();
  524:.\Generated_Source\PSoC4/Timer.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 11
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 11
 
 
  525:.\Generated_Source\PSoC4/Timer.c ****     Timer_CONTROL_REG &= (uint32)~Timer_PWM_STOP_KILL_MASK;
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  579:.\Generated_Source\PSoC4/Timer.c **** *         - Timer_INVERT_LINE_N - Inverts the line_n output
  580:.\Generated_Source\PSoC4/Timer.c **** *
  581:.\Generated_Source\PSoC4/Timer.c **** * Return:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 12
 
 
  582:.\Generated_Source\PSoC4/Timer.c **** *  None
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  636:.\Generated_Source\PSoC4/Timer.c **** {
  637:.\Generated_Source\PSoC4/Timer.c ****     return (Timer_COUNTER_REG & Timer_16BIT_MASK);
  638:.\Generated_Source\PSoC4/Timer.c **** }
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 13
 
 
  639:.\Generated_Source\PSoC4/Timer.c **** 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  693:.\Generated_Source\PSoC4/Timer.c **** void Timer_WritePeriod(uint32 period)
  694:.\Generated_Source\PSoC4/Timer.c **** {
  695:.\Generated_Source\PSoC4/Timer.c ****     Timer_PERIOD_REG = (period & Timer_16BIT_MASK);
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 14
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 14
 
 
  696:.\Generated_Source\PSoC4/Timer.c **** }
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  750:.\Generated_Source\PSoC4/Timer.c **** 
  751:.\Generated_Source\PSoC4/Timer.c **** 
  752:.\Generated_Source\PSoC4/Timer.c **** /*******************************************************************************
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 15
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 15
 
 
  753:.\Generated_Source\PSoC4/Timer.c **** * Function Name: Timer_WritePeriodBuf
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  807:.\Generated_Source\PSoC4/Timer.c **** *
  808:.\Generated_Source\PSoC4/Timer.c **** * Return:
  809:.\Generated_Source\PSoC4/Timer.c **** *  None
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 16
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 16
 
 
  810:.\Generated_Source\PSoC4/Timer.c **** *
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  864:.\Generated_Source\PSoC4/Timer.c ****             compare--;
  865:.\Generated_Source\PSoC4/Timer.c ****         }
  866:.\Generated_Source\PSoC4/Timer.c ****         else
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 17
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 17
 
 
  867:.\Generated_Source\PSoC4/Timer.c ****         {
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  921:.\Generated_Source\PSoC4/Timer.c ****         {
  922:.\Generated_Source\PSoC4/Timer.c ****         }
  923:.\Generated_Source\PSoC4/Timer.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 18
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 18
 
 
  924:.\Generated_Source\PSoC4/Timer.c ****         return (regVal & Timer_16BIT_MASK);
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  978:.\Generated_Source\PSoC4/Timer.c **** 
  979:.\Generated_Source\PSoC4/Timer.c **** 
  980:.\Generated_Source\PSoC4/Timer.c **** /*******************************************************************************
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 19
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 19
 
 
  981:.\Generated_Source\PSoC4/Timer.c **** * Function Name: Timer_ReadCompareBuf
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
 1035:.\Generated_Source\PSoC4/Timer.c **** * Summary:
 1036:.\Generated_Source\PSoC4/Timer.c **** *  Reads the captured counter value. This API is applicable only for
 1037:.\Generated_Source\PSoC4/Timer.c **** *  Timer/Counter with the capture mode and Quadrature Decoder modes.
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 20
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 20
 
 
 1038:.\Generated_Source\PSoC4/Timer.c **** *
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
 1092:.\Generated_Source\PSoC4/Timer.c **** *
 1093:.\Generated_Source\PSoC4/Timer.c **** *******************************************************************************/
 1094:.\Generated_Source\PSoC4/Timer.c **** void Timer_SetCaptureMode(uint32 triggerMode)
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 21
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 21
 
 
 1095:.\Generated_Source\PSoC4/Timer.c **** {
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
 1149:.\Generated_Source\PSoC4/Timer.c **** *  triggerMode: Enumerated trigger mode value
 1150:.\Generated_Source\PSoC4/Timer.c **** *   Values:
 1151:.\Generated_Source\PSoC4/Timer.c **** *     - Timer_TRIG_LEVEL     - Level
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 22
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 22
 
 
 1152:.\Generated_Source\PSoC4/Timer.c **** *     - Timer_TRIG_RISING    - Rising edge
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
 1206:.\Generated_Source\PSoC4/Timer.c **** * Function Name: Timer_SetCountMode
 1207:.\Generated_Source\PSoC4/Timer.c **** ********************************************************************************
 1208:.\Generated_Source\PSoC4/Timer.c **** *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 23
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 23
 
 
 1209:.\Generated_Source\PSoC4/Timer.c **** * Summary:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
 1263:.\Generated_Source\PSoC4/Timer.c **** *
 1264:.\Generated_Source\PSoC4/Timer.c **** *******************************************************************************/
 1265:.\Generated_Source\PSoC4/Timer.c **** void Timer_TriggerCommand(uint32 mask, uint32 command)
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 24
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 24
 
 
 1266:.\Generated_Source\PSoC4/Timer.c **** {
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
 1320:.\Generated_Source\PSoC4/Timer.c **** {
 1321:.\Generated_Source\PSoC4/Timer.c ****     Timer_INTERRUPT_MASK_REG =  interruptMask;
   44              		.loc 1 1321 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 25
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 25
 
 
   45 000c 074A     		ldr	r2, .L2+8
@@ -1480,12 +1480,12 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
   77              	.L3:
   78 0022 C046     		.align	2
   79              	.L2:
-  80 0024 00012040 		.word	1075839232
-  81 0028 24012040 		.word	1075839268
-  82 002c 38012040 		.word	1075839288
-  83 0030 14012040 		.word	1075839252
-  84 0034 0C012040 		.word	1075839244
-  85 0038 08012040 		.word	1075839240
+  80 0024 80012040 		.word	1075839360
+  81 0028 A4012040 		.word	1075839396
+  82 002c B8012040 		.word	1075839416
+  83 0030 94012040 		.word	1075839380
+  84 0034 8C012040 		.word	1075839372
+  85 0038 88012040 		.word	1075839368
   86              		.cfi_endproc
   87              	.LFE2:
   88              		.size	Timer_Init, .-Timer_Init
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
   95              	Timer_Stop:
   96              	.LFB5:
  257:.\Generated_Source\PSoC4/Timer.c ****     uint8 enableInterrupts;
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 26
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 26
 
 
   97              		.loc 1 257 0
@@ -1513,7 +1513,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  105              	.LVL4:
  262:.\Generated_Source\PSoC4/Timer.c **** 
  106              		.loc 1 262 0
- 107 0006 0121     		mov	r1, #1
+ 107 0006 0421     		mov	r1, #4
  108 0008 034A     		ldr	r2, .L5
  265:.\Generated_Source\PSoC4/Timer.c **** 
  109              		.loc 1 265 0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  143 0002 041C     		mov	r4, r0
  297:.\Generated_Source\PSoC4/Timer.c **** 
  144              		.loc 1 297 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 27
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 27
 
 
  145 0004 FFF7FEFF 		bl	CyEnterCriticalSection
@@ -1591,7 +1591,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  166              	.L9:
  167 001e C046     		.align	2
  168              	.L8:
- 169 0020 00012040 		.word	1075839232
+ 169 0020 80012040 		.word	1075839360
  170 0024 FFFFFFF8 		.word	-117440513
  171              		.cfi_endproc
  172              	.LFE6:
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  330:.\Generated_Source\PSoC4/Timer.c **** 
  191              		.loc 1 330 0
  192 0004 FFF7FEFF 		bl	CyEnterCriticalSection
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 28
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 28
 
 
  193              	.LVL11:
@@ -1650,7 +1650,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  213              	.L12:
  214 001e C046     		.align	2
  215              	.L11:
- 216 0020 00012040 		.word	1075839232
+ 216 0020 80012040 		.word	1075839360
  217 0024 FFFF8FFF 		.word	-7340033
  218              		.cfi_endproc
  219              	.LFE7:
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  238              		.loc 1 367 0
  239 0004 FFF7FEFF 		bl	CyEnterCriticalSection
  240              	.LVL15:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 29
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 29
 
 
  369:.\Generated_Source\PSoC4/Timer.c ****     Timer_CONTROL_REG |= prescaler;
@@ -1709,7 +1709,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  260              	.L15:
  261 001e C046     		.align	2
  262              	.L14:
- 263 0020 00012040 		.word	1075839232
+ 263 0020 80012040 		.word	1075839360
  264 0024 FF00FFFF 		.word	-65281
  265              		.cfi_endproc
  266              	.LFE8:
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  286 0004 FFF7FEFF 		bl	CyEnterCriticalSection
  287              	.LVL19:
  401:.\Generated_Source\PSoC4/Timer.c ****     Timer_CONTROL_REG |= ((uint32)((oneShotEnable & Timer_1BIT_MASK) <<
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 30
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 30
 
 
  288              		.loc 1 401 0
@@ -1771,7 +1771,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  310              	.L18:
  311              		.align	2
  312              	.L17:
- 313 0024 00012040 		.word	1075839232
+ 313 0024 80012040 		.word	1075839360
  314 0028 FFFFFBFF 		.word	-262145
  315              		.cfi_endproc
  316              	.LFE9:
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  334              		.loc 1 452 0
  335              		@ sp needed
  451:.\Generated_Source\PSoC4/Timer.c **** }
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 31
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 31
 
 
  336              		.loc 1 451 0
@@ -1809,7 +1809,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  340              	.L21:
  341 000a C046     		.align	2
  342              	.L20:
- 343 000c 28012040 		.word	1075839272
+ 343 000c A8012040 		.word	1075839400
  344              		.cfi_endproc
  345              	.LFE10:
  346              		.size	Timer_SetPWMMode, .-Timer_SetPWMMode
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  382 001c 1360     		str	r3, [r2]
  495:.\Generated_Source\PSoC4/Timer.c **** }
  383              		.loc 1 495 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 32
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 32
 
 
  384 001e FFF7FEFF 		bl	CyExitCriticalSection
@@ -1870,7 +1870,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  389              	.L24:
  390              		.align	2
  391              	.L23:
- 392 0024 00012040 		.word	1075839232
+ 392 0024 80012040 		.word	1075839360
  393              		.cfi_endproc
  394              	.LFE11:
  395              		.size	Timer_SetPWMSyncKill, .-Timer_SetPWMSyncKill
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  430 001a 0B43     		orr	r3, r1
  431 001c 1360     		str	r3, [r2]
  529:.\Generated_Source\PSoC4/Timer.c **** }
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 33
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 33
 
 
  432              		.loc 1 529 0
@@ -1931,7 +1931,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  438              	.L27:
  439              		.align	2
  440              	.L26:
- 441 0024 00012040 		.word	1075839232
+ 441 0024 80012040 		.word	1075839360
  442              		.cfi_endproc
  443              	.LFE12:
  444              		.size	Timer_SetPWMStopOnKill, .-Timer_SetPWMStopOnKill
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  478 0018 1443     		orr	r4, r2
  479 001a 1C60     		str	r4, [r3]
  562:.\Generated_Source\PSoC4/Timer.c **** }
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 34
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 34
 
 
  480              		.loc 1 562 0
@@ -1991,7 +1991,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  486              	.L30:
  487 0022 C046     		.align	2
  488              	.L29:
- 489 0024 00012040 		.word	1075839232
+ 489 0024 80012040 		.word	1075839360
  490 0028 FF00FFFF 		.word	-65281
  491              		.cfi_endproc
  492              	.LFE13:
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  526 0016 1A60     		str	r2, [r3]
  594:.\Generated_Source\PSoC4/Timer.c **** }
  527              		.loc 1 594 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 35
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 35
 
 
  528 0018 FFF7FEFF 		bl	CyExitCriticalSection
@@ -2050,7 +2050,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  533              	.L33:
  534 001e C046     		.align	2
  535              	.L32:
- 536 0020 00012040 		.word	1075839232
+ 536 0020 80012040 		.word	1075839360
  537 0024 FFFFCFFF 		.word	-3145729
  538              		.cfi_endproc
  539              	.LFE14:
@@ -2080,7 +2080,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  560              	.L36:
  561              		.align	2
  562              	.L35:
- 563 0008 08012040 		.word	1075839240
+ 563 0008 88012040 		.word	1075839368
  564              		.cfi_endproc
  565              	.LFE15:
  566              		.size	Timer_WriteCounter, .-Timer_WriteCounter
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  637:.\Generated_Source\PSoC4/Timer.c **** }
  577              		.loc 1 637 0
  578 0000 014B     		ldr	r3, .L38
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 36
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 36
 
 
  638:.\Generated_Source\PSoC4/Timer.c **** 
@@ -2114,7 +2114,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  586              	.L39:
  587              		.align	2
  588              	.L38:
- 589 0008 08012040 		.word	1075839240
+ 589 0008 88012040 		.word	1075839368
  590              		.cfi_endproc
  591              	.LFE16:
  592              		.size	Timer_ReadCounter, .-Timer_ReadCounter
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  623 0012 1A68     		ldr	r2, [r3]
  624 0014 2243     		orr	r2, r4
  625 0016 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 37
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 37
 
 
  673:.\Generated_Source\PSoC4/Timer.c **** }
@@ -2172,7 +2172,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  632              	.L42:
  633 001e C046     		.align	2
  634              	.L41:
- 635 0020 00012040 		.word	1075839232
+ 635 0020 80012040 		.word	1075839360
  636 0024 FFFFFCFF 		.word	-196609
  637              		.cfi_endproc
  638              	.LFE17:
@@ -2202,7 +2202,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  659              	.L45:
  660              		.align	2
  661              	.L44:
- 662 0008 14012040 		.word	1075839252
+ 662 0008 94012040 		.word	1075839380
  663              		.cfi_endproc
  664              	.LFE18:
  665              		.size	Timer_WritePeriod, .-Timer_WritePeriod
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  674              		.loc 1 714 0
  675              		.cfi_startproc
  715:.\Generated_Source\PSoC4/Timer.c **** }
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 38
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 38
 
 
  676              		.loc 1 715 0
@@ -2236,7 +2236,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  685              	.L48:
  686              		.align	2
  687              	.L47:
- 688 0008 14012040 		.word	1075839252
+ 688 0008 94012040 		.word	1075839380
  689              		.cfi_endproc
  690              	.LFE19:
  691              		.size	Timer_ReadPeriod, .-Timer_ReadPeriod
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  746:.\Generated_Source\PSoC4/Timer.c **** 
  721              		.loc 1 746 0
  722 0012 1968     		ldr	r1, [r3]
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 39
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 39
 
 
  723 0014 2240     		and	r2, r4
@@ -2295,7 +2295,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  732              	.L51:
  733              		.align	2
  734              	.L50:
- 735 0020 00012040 		.word	1075839232
+ 735 0020 80012040 		.word	1075839360
  736              		.cfi_endproc
  737              	.LFE20:
  738              		.size	Timer_SetCompareSwap, .-Timer_SetCompareSwap
@@ -2324,7 +2324,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  758              	.L54:
  759              		.align	2
  760              	.L53:
- 761 0008 18012040 		.word	1075839256
+ 761 0008 98012040 		.word	1075839384
  762              		.cfi_endproc
  763              	.LFE21:
  764              		.size	Timer_WritePeriodBuf, .-Timer_WritePeriodBuf
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  772              	.LFB22:
  787:.\Generated_Source\PSoC4/Timer.c ****     return (Timer_PERIOD_BUF_REG & Timer_16BIT_MASK);
  773              		.loc 1 787 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 40
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 40
 
 
  774              		.cfi_startproc
@@ -2358,7 +2358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  784              	.L57:
  785              		.align	2
  786              	.L56:
- 787 0008 18012040 		.word	1075839256
+ 787 0008 98012040 		.word	1075839384
  788              		.cfi_endproc
  789              	.LFE22:
  790              		.size	Timer_ReadPeriodBuf, .-Timer_ReadPeriodBuf
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  818 000e 8B43     		bic	r3, r1
  819 0010 1360     		str	r3, [r2]
  819:.\Generated_Source\PSoC4/Timer.c ****                                                             Timer_RELOAD_PERIOD_SHIFT));
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 41
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 41
 
 
  820              		.loc 1 819 0
@@ -2419,7 +2419,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  833              	.L60:
  834              		.align	2
  835              	.L59:
- 836 0024 00012040 		.word	1075839232
+ 836 0024 80012040 		.word	1075839360
  837              		.cfi_endproc
  838              	.LFE23:
  839              		.size	Timer_SetPeriodSwap, .-Timer_SetPeriodSwap
@@ -2448,7 +2448,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  859              	.L63:
  860              		.align	2
  861              	.L62:
- 862 0008 0C012040 		.word	1075839244
+ 862 0008 8C012040 		.word	1075839372
  863              		.cfi_endproc
  864              	.LFE24:
  865              		.size	Timer_WriteCompare, .-Timer_WriteCompare
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  869              		.code	16
  870              		.thumb_func
  871              		.type	Timer_ReadCompare, %function
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 42
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 42
 
 
  872              	Timer_ReadCompare:
@@ -2482,7 +2482,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  885              	.L66:
  886              		.align	2
  887              	.L65:
- 888 0008 0C012040 		.word	1075839244
+ 888 0008 8C012040 		.word	1075839372
  889              		.cfi_endproc
  890              	.LFE25:
  891              		.size	Timer_ReadCompare, .-Timer_ReadCompare
@@ -2511,14 +2511,14 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  911              	.L69:
  912              		.align	2
  913              	.L68:
- 914 0008 10012040 		.word	1075839248
+ 914 0008 90012040 		.word	1075839376
  915              		.cfi_endproc
  916              	.LFE26:
  917              		.size	Timer_WriteCompareBuf, .-Timer_WriteCompareBuf
  918              		.section	.text.Timer_ReadCompareBuf,"ax",%progbits
  919              		.align	1
  920              		.global	Timer_ReadCompareBuf
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 43
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 43
 
 
  921              		.code	16
@@ -2545,7 +2545,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  937              	.L72:
  938              		.align	2
  939              	.L71:
- 940 0008 10012040 		.word	1075839248
+ 940 0008 90012040 		.word	1075839376
  941              		.cfi_endproc
  942              	.LFE27:
  943              		.size	Timer_ReadCompareBuf, .-Timer_ReadCompareBuf
@@ -2576,9 +2576,9 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  963              	.L75:
  964              		.align	2
  965              	.L74:
- 966 0008 0C012040 		.word	1075839244
+ 966 0008 8C012040 		.word	1075839372
  967              		.cfi_endproc
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 44
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 44
 
 
  968              	.LFE28:
@@ -2610,7 +2610,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  989              	.L78:
  990              		.align	2
  991              	.L77:
- 992 0008 10012040 		.word	1075839248
+ 992 0008 90012040 		.word	1075839376
  993              		.cfi_endproc
  994              	.LFE29:
  995              		.size	Timer_ReadCaptureBuf, .-Timer_ReadCaptureBuf
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1014 0004 FFF7FEFF 		bl	CyEnterCriticalSection
  1015              	.LVL63:
 1100:.\Generated_Source\PSoC4/Timer.c ****     Timer_TRIG_CONTROL1_REG |= triggerMode;
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 45
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 45
 
 
  1016              		.loc 1 1100 0
@@ -2668,7 +2668,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1035              	.L81:
  1036 001e C046     		.align	2
  1037              	.L80:
- 1038 0020 24012040 		.word	1075839268
+ 1038 0020 A4012040 		.word	1075839396
  1039              		.cfi_endproc
  1040              	.LFE30:
  1041              		.size	Timer_SetCaptureMode, .-Timer_SetCaptureMode
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
 1133:.\Generated_Source\PSoC4/Timer.c ****     Timer_TRIG_CONTROL1_REG |= ((uint32)(triggerMode << Timer_RELOAD_SHIFT));
  1062              		.loc 1 1133 0
  1063 0008 3021     		mov	r1, #48
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 46
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 46
 
 
  1064 000a 054B     		ldr	r3, .L83
@@ -2727,7 +2727,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1082              	.L84:
  1083              		.align	2
  1084              	.L83:
- 1085 0020 24012040 		.word	1075839268
+ 1085 0020 A4012040 		.word	1075839396
  1086              		.cfi_endproc
  1087              	.LFE31:
  1088              		.size	Timer_SetReloadMode, .-Timer_SetReloadMode
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1109              		.loc 1 1166 0
  1110 0008 054B     		ldr	r3, .L86
  1111 000a 064A     		ldr	r2, .L86+4
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 47
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 47
 
 
  1112 000c 1968     		ldr	r1, [r3]
@@ -2786,7 +2786,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1129              	.L87:
  1130              		.align	2
  1131              	.L86:
- 1132 0020 24012040 		.word	1075839268
+ 1132 0020 A4012040 		.word	1075839396
  1133 0024 FFFCFFFF 		.word	-769
  1134              		.cfi_endproc
  1135              	.LFE32:
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1157              		.loc 1 1198 0
  1158 0008 C021     		mov	r1, #192
  1159 000a 054B     		ldr	r3, .L89
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 48
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 48
 
 
 1202:.\Generated_Source\PSoC4/Timer.c **** 
@@ -2846,7 +2846,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1177              	.L90:
  1178              		.align	2
  1179              	.L89:
- 1180 0020 24012040 		.word	1075839268
+ 1180 0020 A4012040 		.word	1075839396
  1181              		.cfi_endproc
  1182              	.LFE33:
  1183              		.size	Timer_SetStopMode, .-Timer_SetStopMode
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1205 0008 0C21     		mov	r1, #12
  1206 000a 054B     		ldr	r3, .L92
 1235:.\Generated_Source\PSoC4/Timer.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 49
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 49
 
 
  1207              		.loc 1 1235 0
@@ -2905,7 +2905,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1224              	.L93:
  1225              		.align	2
  1226              	.L92:
- 1227 0020 24012040 		.word	1075839268
+ 1227 0020 A4012040 		.word	1075839396
  1228              		.cfi_endproc
  1229              	.LFE34:
  1230              		.size	Timer_SetCountMode, .-Timer_SetCountMode
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1253              		.loc 1 1269 0
  1254 0008 FFF7FEFF 		bl	CyEnterCriticalSection
  1255              	.LVL83:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 50
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 50
 
 
 1271:.\Generated_Source\PSoC4/Timer.c **** 
@@ -2982,7 +2982,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1288              		.cfi_offset 14, -4
  182:.\Generated_Source\PSoC4/Timer.c ****     CyExitCriticalSection(enableInterrupts);
  1289              		.loc 1 182 0
- 1290 0002 0124     		mov	r4, #1
+ 1290 0002 0424     		mov	r4, #4
  181:.\Generated_Source\PSoC4/Timer.c ****     Timer_BLOCK_CONTROL_REG |= Timer_MASK;
  1291              		.loc 1 181 0
  1292 0004 FFF7FEFF 		bl	CyEnterCriticalSection
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1299 000a 1368     		ldr	r3, [r2]
  1300 000c 2343     		orr	r3, r4
  1301 000e 1360     		str	r3, [r2]
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 51
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 51
 
 
  183:.\Generated_Source\PSoC4/Timer.c **** 
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  239:.\Generated_Source\PSoC4/Timer.c **** 
  1348              		.loc 1 239 0
  1349              		@ sp needed
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 52
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 52
 
 
  1350 0016 10BD     		pop	{r4, pc}
@@ -3108,7 +3108,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1385              	.L107:
  1386              		.align	2
  1387              	.L106:
- 1388 0010 04012040 		.word	1075839236
+ 1388 0010 84012040 		.word	1075839364
  1389              		.cfi_endproc
  1390              	.LFE36:
  1391              		.size	Timer_ReadStatus, .-Timer_ReadStatus
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1395              		.code	16
  1396              		.thumb_func
  1397              		.type	Timer_SetInterruptMode, %function
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 53
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 53
 
 
  1398              	Timer_SetInterruptMode:
@@ -3140,7 +3140,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1411              	.L110:
  1412 0006 C046     		.align	2
  1413              	.L109:
- 1414 0008 38012040 		.word	1075839288
+ 1414 0008 B8012040 		.word	1075839416
  1415              		.cfi_endproc
  1416              	.LFE37:
  1417              		.size	Timer_SetInterruptMode, .-Timer_SetInterruptMode
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
 1344:.\Generated_Source\PSoC4/Timer.c ****     return (Timer_INTERRUPT_MASKED_REG);
  1428              		.loc 1 1344 0
  1429 0000 014B     		ldr	r3, .L112
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 54
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 54
 
 
 1345:.\Generated_Source\PSoC4/Timer.c **** }
@@ -3192,7 +3192,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1436              	.L113:
  1437 0006 C046     		.align	2
  1438              	.L112:
- 1439 0008 3C012040 		.word	1075839292
+ 1439 0008 BC012040 		.word	1075839420
  1440              		.cfi_endproc
  1441              	.LFE38:
  1442              		.size	Timer_GetInterruptSourceMasked, .-Timer_GetInterruptSourceMasked
@@ -3238,13 +3238,13 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1458 0002 1868     		ldr	r0, [r3]
  1459              		.loc 1 1368 0
  1460 0004 7047     		bx	lr
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 55
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 55
 
 
  1461              	.L116:
  1462 0006 C046     		.align	2
  1463              	.L115:
- 1464 0008 30012040 		.word	1075839280
+ 1464 0008 B0012040 		.word	1075839408
  1465              		.cfi_endproc
  1466              	.LFE39:
  1467              		.size	Timer_GetInterruptSource, .-Timer_GetInterruptSource
@@ -3294,11 +3294,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1487              	.L119:
  1488 0006 C046     		.align	2
  1489              	.L118:
- 1490 0008 30012040 		.word	1075839280
+ 1490 0008 B0012040 		.word	1075839408
  1491              		.cfi_endproc
  1492              	.LFE40:
  1493              		.size	Timer_ClearInterrupt, .-Timer_ClearInterrupt
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 56
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 56
 
 
  1494              		.section	.text.Timer_SetInterrupt,"ax",%progbits
@@ -3347,7 +3347,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1513              	.L122:
  1514 0006 C046     		.align	2
  1515              	.L121:
- 1516 0008 34012040 		.word	1075839284
+ 1516 0008 B4012040 		.word	1075839412
  1517              		.cfi_endproc
  1518              	.LFE41:
  1519              		.size	Timer_SetInterrupt, .-Timer_SetInterrupt
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1524              		.size	Timer_initVar, 1
  1525              	Timer_initVar:
  1526 0000 00       		.space	1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 57
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 57
 
 
  1527              		.text
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1581 0064 02       		.uleb128 0x2
  1582 0065 04       		.byte	0x4
  1583 0066 07       		.byte	0x7
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 58
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 58
 
 
  1584 0067 DF020000 		.4byte	.LASF8
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1638 00dc 01       		.byte	0x1
  1639 00dd B502     		.2byte	0x2b5
  1640 00df 77000000 		.4byte	0x77
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 59
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 59
 
 
  1641 00e3 00       		.byte	0
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1695 015f 0A       		.byte	0xa
  1696 0160 00       		.byte	0
  1697 0161 09       		.uleb128 0x9
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 60
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 60
 
 
  1698 0162 E4000000 		.4byte	0xe4
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1752 01e6 01       		.byte	0x1
  1753 01e7 2501     		.2byte	0x125
  1754 01e9 77000000 		.4byte	0x77
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 61
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 61
 
 
  1755 01ed 13000000 		.4byte	.LLST1
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1809 0279 6B01     		.2byte	0x16b
  1810 027b 77000000 		.4byte	0x77
  1811 027f 91000000 		.4byte	.LLST5
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 62
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 62
 
 
  1812 0283 0D       		.uleb128 0xd
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1866 030d 77000000 		.4byte	0x77
  1867 0311 0F010000 		.4byte	.LLST9
  1868 0315 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 63
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 63
 
 
  1869 0316 0C       		.uleb128 0xc
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1923 03a3 51090000 		.4byte	0x951
  1924 03a7 00       		.byte	0
  1925 03a8 0C       		.uleb128 0xc
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 64
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 64
 
 
  1926 03a9 39010000 		.4byte	.LASF41
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  1980 0439 00       		.byte	0
  1981 043a 10       		.uleb128 0x10
  1982 043b FE000000 		.4byte	0xfe
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 65
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 65
 
 
  1983 043f 00000000 		.4byte	.LFB15
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2037 04ca D7000000 		.4byte	0xd7
  2038 04ce 8C020000 		.4byte	.LLST21
  2039 04d2 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 66
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 66
 
 
  2040 04d3 12       		.uleb128 0x12
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2094 055a B5030000 		.4byte	.LASF53
  2095 055e 01       		.byte	0x1
  2096 055f 1203     		.2byte	0x312
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 67
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 67
 
 
  2097 0561 77000000 		.4byte	0x77
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2151 05ec A8020000 		.4byte	.LASF56
  2152 05f0 01       		.byte	0x1
  2153 05f1 BA03     		.2byte	0x3ba
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 68
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 68
 
 
  2154 05f3 00000000 		.4byte	.LFB26
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2208 067a 0D       		.uleb128 0xd
  2209 067b 45050000 		.4byte	.LASF27
  2210 067f 01       		.byte	0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 69
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 69
 
 
  2211 0680 4804     		.2byte	0x448
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2265 070d 45050000 		.4byte	.LASF27
  2266 0711 01       		.byte	0x1
  2267 0712 8A04     		.2byte	0x48a
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 70
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 70
 
 
  2268 0714 6B000000 		.4byte	0x6b
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2322 07a3 01       		.byte	0x1
  2323 07a4 CB04     		.2byte	0x4cb
  2324 07a6 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 71
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 71
 
 
  2325 07aa B6040000 		.4byte	.LLST38
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2379 0835 B3       		.byte	0xb3
  2380 0836 6B000000 		.4byte	0x6b
  2381 083a 29050000 		.4byte	.LLST42
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 72
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 72
 
 
  2382 083e 0E       		.uleb128 0xe
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2436 08b7 16       		.uleb128 0x16
  2437 08b8 BD000000 		.4byte	0xbd
  2438 08bc 01       		.uleb128 0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 73
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 73
 
 
  2439 08bd 50       		.byte	0x50
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2493 0935 18       		.uleb128 0x18
  2494 0936 14010000 		.4byte	.LASF79
  2495 093a 01       		.byte	0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 74
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 74
 
 
  2496 093b 15       		.byte	0x15
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2550 0022 0B       		.uleb128 0xb
  2551 0023 3E       		.uleb128 0x3e
  2552 0024 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 75
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 75
 
 
  2553 0025 03       		.uleb128 0x3
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2607 005b 00       		.byte	0
  2608 005c 00       		.byte	0
  2609 005d 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 76
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 76
 
 
  2610 005e 2E       		.uleb128 0x2e
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2664 0095 13       		.uleb128 0x13
  2665 0096 11       		.uleb128 0x11
  2666 0097 01       		.uleb128 0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 77
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 77
 
 
  2667 0098 12       		.uleb128 0x12
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2721 00d1 13       		.uleb128 0x13
  2722 00d2 00       		.byte	0
  2723 00d3 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 78
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 78
 
 
  2724 00d4 0F       		.uleb128 0xf
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2778 010b 49       		.uleb128 0x49
  2779 010c 13       		.uleb128 0x13
  2780 010d 11       		.uleb128 0x11
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 79
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 79
 
 
  2781 010e 01       		.uleb128 0x1
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2835 014a 03       		.uleb128 0x3
  2836 014b 0E       		.uleb128 0xe
  2837 014c 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 80
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 80
 
 
  2838 014d 0B       		.uleb128 0xb
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2892 0183 3B       		.uleb128 0x3b
  2893 0184 0B       		.uleb128 0xb
  2894 0185 27       		.uleb128 0x27
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 81
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 81
 
 
  2895 0186 19       		.uleb128 0x19
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  2949 0065 0100     		.2byte	0x1
  2950 0067 54       		.byte	0x54
  2951 0068 1C000000 		.4byte	.LVL13
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 82
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 82
 
 
  2952 006c 28000000 		.4byte	.LFE7
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3006 00f2 50       		.byte	0x50
  3007 00f3 9F       		.byte	0x9f
  3008 00f4 00000000 		.4byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 83
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 83
 
 
  3009 00f8 00000000 		.4byte	0
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3063 0182 0100     		.2byte	0x1
  3064 0184 54       		.byte	0x54
  3065 0185 22000000 		.4byte	.LVL31
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 84
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 84
 
 
  3066 0189 28000000 		.4byte	.LFE12
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3120 020f 50       		.byte	0x50
  3121 0210 9F       		.byte	0x9f
  3122 0211 00000000 		.4byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 85
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 85
 
 
  3123 0215 00000000 		.4byte	0
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3177 029f 0400     		.2byte	0x4
  3178 02a1 F3       		.byte	0xf3
  3179 02a2 01       		.uleb128 0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 86
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 86
 
 
  3180 02a3 50       		.byte	0x50
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3234 032b 0400     		.2byte	0x4
  3235 032d F3       		.byte	0xf3
  3236 032e 01       		.uleb128 0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 87
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 87
 
 
  3237 032f 50       		.byte	0x50
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3291 03b1 9F       		.byte	0x9f
  3292 03b2 00000000 		.4byte	0
  3293 03b6 00000000 		.4byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 88
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 88
 
 
  3294              	.LLST30:
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3348 0442 50       		.byte	0x50
  3349 0443 00000000 		.4byte	0
  3350 0447 00000000 		.4byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 89
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 89
 
 
  3351              	.LLST35:
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3405 04d3 50       		.byte	0x50
  3406 04d4 0B000000 		.4byte	.LVL83-1
  3407 04d8 1C000000 		.4byte	.LFE35
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 90
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 90
 
 
  3408 04dc 0400     		.2byte	0x4
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3462 002c 28000000 		.4byte	.LFE7-.LFB7
  3463 0030 00000000 		.4byte	.LFB8
  3464 0034 28000000 		.4byte	.LFE8-.LFB8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 91
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 91
 
 
  3465 0038 00000000 		.4byte	.LFB9
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3519 0110 00000000 		.4byte	.LFB3
  3520 0114 24000000 		.4byte	.LFE3-.LFB3
  3521 0118 00000000 		.4byte	.LFB4
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 92
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 92
 
 
  3522 011c 1C000000 		.4byte	.LFE4-.LFB4
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3576 0094 0C000000 		.4byte	.LFE22
  3577 0098 00000000 		.4byte	.LFB23
  3578 009c 28000000 		.4byte	.LFE23
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 93
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 93
 
 
  3579 00a0 00000000 		.4byte	.LFB24
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3625      4F6E4B69 
  3626              	.LASF23:
  3627 0017 636F756E 		.ascii	"count\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 94
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 94
 
 
  3627      7400
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3646              	.LASF7:
  3647 0122 6C6F6E67 		.ascii	"long long unsigned int\000"
  3647      206C6F6E 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 95
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 95
 
 
  3647      6720756E 
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3667      00
  3668              	.LASF59:
  3669 0217 54696D65 		.ascii	"Timer_ReadCapture\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 96
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 96
 
 
  3669      725F5265 
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3692              	.LASF77:
  3693 02be 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\Timer.c\000"
  3693      6E657261 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 97
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 97
 
 
  3693      7465645F 
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3714              	.LASF25:
  3715 0377 54696D65 		.ascii	"Timer_Stop\000"
  3715      725F5374 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 98
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 98
 
 
  3715      6F7000
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3737      74537461 
  3737      72744D6F 
  3737      646500
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 99
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 99
 
 
  3738              	.LASF11:
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3759      74507265 
  3759      7363616C 
  3759      657200
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 100
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 100
 
 
  3760              	.LASF24:
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 1
  3782              	.LASF74:
  3783 057c 54696D65 		.ascii	"Timer_ClearInterrupt\000"
  3783      725F436C 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGeMUiN.s 			page 101
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccGymN4h.s 			page 101
 
 
  3783      65617249 
