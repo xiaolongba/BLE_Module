@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<pindata xsi:schemaLocation="http://cypress.com/xsd/cypindata_v2 ../../dtd/cypindata_v2.xsd" device="CYBL10563-56LQXI" package="56-QFN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cypress.com/xsd/cypindata_v2">
+<pindata xsi:schemaLocation="http://cypress.com/xsd/cypindata_v2 ../../dtd/cypindata_v2.xsd" device="CYBL10162-56LQXI" package="56-QFN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cypress.com/xsd/cypindata_v2">
   <capabilities>
     <capability name="DIGITAL" value="0x0000000000000001" />
     <capability name="ANALOG" value="0x0000000000000002" />

@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Troughput_Central_Peripheral\Troughput_Central_Peripheral\Troughput_Central_Peripheral.cydwr">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Troughput_Central_Peripheral\Troughput_Central_Peripheral\Source Files\BLEApplication.c">
 <ExpandedNodeIds>
 <v>Troughput_Central_Peripheral</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral</v>
@@ -223,15 +223,6 @@
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\PSoC 4 Architecture TRM</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\PRoC BLE Family Datasheet</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\System Reference Guides</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\System Reference Guides\cy_boot_v5_30</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\System Reference Guides\cy_lfclk_v1_0</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\BLE_v3_10.pdf</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\cy_clock_v2_20.pdf</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\cy_isr_v1_70.pdf</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\cy_pins_v2_20</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\SCB_P4_v3_10.pdf</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\TCPWM_P4_v2_10.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>Troughput_Central_Peripheral</v>
@@ -239,15 +230,6 @@
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\PSoC 4 Architecture TRM</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\PRoC BLE Family Datasheet</v>
 <v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\System Reference Guides</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\System Reference Guides\cy_boot_v5_30</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\System Reference Guides\cy_lfclk_v1_0</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\BLE_v3_10.pdf</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\cy_clock_v2_20.pdf</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\cy_isr_v1_70.pdf</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\cy_pins_v2_20</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\SCB_P4_v3_10.pdf</v>
-<v>Troughput_Central_Peripheral\Troughput_Central_Peripheral\TCPWM_P4_v2_10.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -263,11 +245,16 @@
 <Unloaded />
 <OpenDocs>
 <name v=".\Troughput_Central_Peripheral.cydsn\main.c" />
-<name v=".\Troughput_Central_Peripheral.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\Troughput_Central_Peripheral.cydsn\Troughput_Central_Peripheral.cydwr" />
+<name v=".\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4\BLE_gatt.c" />
+<name v=".\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4\BLE_eventHandler.h" />
+<name v=".\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4\BLE_eventHandler.c" />
+<name v=".\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4\BLE_Stack.h" />
 <name v=".\Troughput_Central_Peripheral.cydsn\BLEApplication.c" />
-<name v=".\Troughput_Central_Peripheral.cydsn\BLEApplication.h" />
+<name v=".\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4\BLE_StackGattClient.h" />
+<name v=".\Troughput_Central_Peripheral.cydsn\Troughput_Central_Peripheral.cydwr" />
 <name v=".\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4\BLE_StackGap.h" />
+<name v=".\Troughput_Central_Peripheral.cydsn\BLEClient.h" />
+<name v=".\Troughput_Central_Peripheral.cydsn\BLEClient.c" />
 </OpenDocs>
 <config v="Release" />
 <AutoUpdate v="true" />

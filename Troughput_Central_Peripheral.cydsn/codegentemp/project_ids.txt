@@ -1,7 +1,5 @@
-G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\Troughput_Central_Peripheral.cyprj|2eba7676-9fdf-4ca0-9ff6-5de87a26eb83
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|bb0f57f0-b788-4458-a514-2c4d39615951
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|95e00cc4-211f-4b8c-b2bc-3656392daf2c
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|31189302-8f68-4a75-8546-925c3f974f7a
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|915fbfd8-8458-4e6c-b68b-16be69a36b05
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\dev\psoc4\PSoC4AnalogDevice\psoc4arch.cydsn\psoc4arch.cyprj|5999bc72-59ff-44dd-80ff-878eb8272eb3
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|60cedd3e-b5eb-4757-9365-ce80cc72c26c
+G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\Troughput_Central_Peripheral.cyprj|6aa60632-6c5a-45c2-ad0f-2636d34ce95d
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|19008985-7c40-4309-80e2-bf6434f697a9
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|fbef2c64-df47-47df-b5e1-b52d4322736f
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|289022ec-0604-4e29-b648-0c65dff52b7a
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|3d235935-741c-4763-a835-bfdeea519a40

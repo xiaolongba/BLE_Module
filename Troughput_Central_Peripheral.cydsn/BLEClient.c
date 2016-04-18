@@ -99,13 +99,13 @@ void HandleScanDevices(CYBLE_GAPC_ADV_REPORT_T* ScanReport)
     memcpy(DeviceInfo[DeviceCount-1].DeviceList.bdAddr,ScanReport->peerBdAddr,6);
     if(CYBLE_GAP_ADDR_TYPE_PUBLIC==ScanReport->peerAddrType)
     {
-//        DeviceInfo[DeviceCount-1].DeviceList.type=CYBLE_GAP_ADDR_TYPE_PUBLIC;
-        DeviceInfo[DeviceCount-1].DeviceList.type='P';
+        DeviceInfo[DeviceCount-1].DeviceList.type=CYBLE_GAP_ADDR_TYPE_PUBLIC;
+//        DeviceInfo[DeviceCount-1].DeviceList.type='P';
     }
     else
     {
-//        DeviceInfo[DeviceCount-1].DeviceList.type=CYBLE_GAP_ADDR_TYPE_RANDOM;
-        DeviceInfo[DeviceCount-1].DeviceList.type='R';
+        DeviceInfo[DeviceCount-1].DeviceList.type=CYBLE_GAP_ADDR_TYPE_RANDOM;
+//        DeviceInfo[DeviceCount-1].DeviceList.type='R';
     }
     DeviceInfo[DeviceCount-1].idx=DeviceCount;        
     if(CYBLE_GAPC_CONN_UNDIRECTED_ADV==ScanReport->eventType)   
@@ -124,7 +124,7 @@ void HandleScanDevices(CYBLE_GAPC_ADV_REPORT_T* ScanReport)
             printf("+SCAN=%d,%d,%c,%02X%02X%02X%02X%02X%02X,%s\r\n",
                     DeviceInfo[DeviceCount-1].idx,
                     DeviceInfo[DeviceCount-1].rssi,
-                    DeviceInfo[DeviceCount-1].DeviceList.type,
+                    PUBLIC_OR_RANDOM(DeviceInfo[DeviceCount-1].DeviceList.type),
                     DeviceInfo[DeviceCount-1].DeviceList.bdAddr[5],
                     DeviceInfo[DeviceCount-1].DeviceList.bdAddr[4],
                     DeviceInfo[DeviceCount-1].DeviceList.bdAddr[3],

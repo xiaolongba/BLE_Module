@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
   30:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
   31:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** /* `#END` */
   32:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** extern cyisraddress CyRamVectors[CYINT_IRQ_BASE + CY_NUM_INTERRUPTS];
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
   87:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *   {
   88:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *   }
   89:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *   Function prototype example:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 3
 
 
   90:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *   CY_ISR_PROTO(MyISR);
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  144:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *   The default Interrupt Service Routine for UART_RX_WAKEUP_IRQ.
  145:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *
  146:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *   Add custom code between the START and END comments to keep the next version
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 4
 
 
  147:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *   of this file from over-writing your code.
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  180:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** * 
  181:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
  182:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *   used to provide consistent definition across compilers:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 5
 
 
  183:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  237:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *
  238:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
  239:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 6
 
 
  240:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** * Parameters:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  294:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
  295:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *   function, which sets the vector and the priority, has been called.
  296:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 7
 
 
  297:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** * Parameters:
@@ -415,10 +415,10 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  348:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c ****     /* Disable the general interrupt. */
  349:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c ****     *UART_RX_WAKEUP_IRQ_INTC_CLR_EN = UART_RX_WAKEUP_IRQ__INTC_MASK;
   46              		.loc 1 349 0
-  47 0000 0822     		mov	r2, #8
+  47 0000 0222     		mov	r2, #2
   48 0002 034B     		ldr	r3, .L3
   49              	.LBE19:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 8
 
 
   50              	.LBE18:
@@ -438,7 +438,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
   62              		.loc 1 201 0
   63 0006 034A     		ldr	r2, .L3+4
   64 0008 034B     		ldr	r3, .L3+8
-  65 000a DA64     		str	r2, [r3, #76]
+  65 000a 5A64     		str	r2, [r3, #68]
   66              	.LBE23:
   67              	.LBE22:
  136:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
@@ -473,12 +473,12 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
   93              		@ sp needed
  201:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
   94              		.loc 1 201 0
-  95 0002 D864     		str	r0, [r3, #76]
+  95 0002 5864     		str	r0, [r3, #68]
  202:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
   96              		.loc 1 202 0
   97 0004 7047     		bx	lr
   98              	.L7:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 9
 
 
   99 0006 C046     		.align	2
@@ -506,7 +506,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  118              		@ sp needed
  221:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
  119              		.loc 1 221 0
- 120 0002 D86C     		ldr	r0, [r3, #76]
+ 120 0002 586C     		ldr	r0, [r3, #68]
  222:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
  121              		.loc 1 222 0
  122 0004 7047     		bx	lr
@@ -538,239 +538,237 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  146 0002 041C     		mov	r4, r0
  254:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c ****     *UART_RX_WAKEUP_IRQ_INTC_PRIOR = (*UART_RX_WAKEUP_IRQ_INTC_PRIOR & (uint32)(~UART_RX_WAKEUP_IRQ
  147              		.loc 1 254 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 10
 
 
  148 0004 FFF7FEFF 		bl	CyEnterCriticalSection
  149              	.LVL3:
  255:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c ****                                     ((uint32)priority << priorityOffset);
  150              		.loc 1 255 0
- 151 0008 044A     		ldr	r2, .L12
+ 151 0008 0449     		ldr	r1, .L12
+ 152 000a 054A     		ldr	r2, .L12+4
+ 153 000c 0B68     		ldr	r3, [r1]
  256:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 	CyExitCriticalSection(interruptState);
- 152              		.loc 1 256 0
- 153 000a A407     		lsl	r4, r4, #30
+ 154              		.loc 1 256 0
+ 155 000e A403     		lsl	r4, r4, #14
  255:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c ****                                     ((uint32)priority << priorityOffset);
- 154              		.loc 1 255 0
- 155 000c 1368     		ldr	r3, [r2]
- 258:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
- 156              		.loc 1 258 0
- 157              		@ sp needed
- 255:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c ****                                     ((uint32)priority << priorityOffset);
- 158              		.loc 1 255 0
- 159 000e 9B00     		lsl	r3, r3, #2
- 160 0010 9B08     		lsr	r3, r3, #2
- 161 0012 2343     		orr	r3, r4
- 162 0014 1360     		str	r3, [r2]
+ 156              		.loc 1 255 0
+ 157 0010 1340     		and	r3, r2
+ 158 0012 2343     		orr	r3, r4
+ 159 0014 0B60     		str	r3, [r1]
  257:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
- 163              		.loc 1 257 0
- 164 0016 FFF7FEFF 		bl	CyExitCriticalSection
- 165              	.LVL4:
+ 160              		.loc 1 257 0
+ 161 0016 FFF7FEFF 		bl	CyExitCriticalSection
+ 162              	.LVL4:
  258:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
- 166              		.loc 1 258 0
- 167 001a 10BD     		pop	{r4, pc}
- 168              	.L13:
- 169              		.align	2
- 170              	.L12:
- 171 001c 00E400E0 		.word	-536812544
- 172              		.cfi_endproc
- 173              	.LFE8:
- 174              		.size	UART_RX_WAKEUP_IRQ_SetPriority, .-UART_RX_WAKEUP_IRQ_SetPriority
- 175              		.section	.text.UART_RX_WAKEUP_IRQ_Start,"ax",%progbits
- 176              		.align	1
- 177              		.global	UART_RX_WAKEUP_IRQ_Start
- 178              		.code	16
- 179              		.thumb_func
- 180              		.type	UART_RX_WAKEUP_IRQ_Start, %function
- 181              	UART_RX_WAKEUP_IRQ_Start:
- 182              	.LFB2:
+ 163              		.loc 1 258 0
+ 164              		@ sp needed
+ 165 001a 10BD     		pop	{r4, pc}
+ 166              	.L13:
+ 167              		.align	2
+ 168              	.L12:
+ 169 001c 00E400E0 		.word	-536812544
+ 170 0020 FF3FFFFF 		.word	-49153
+ 171              		.cfi_endproc
+ 172              	.LFE8:
+ 173              		.size	UART_RX_WAKEUP_IRQ_SetPriority, .-UART_RX_WAKEUP_IRQ_SetPriority
+ 174              		.section	.text.UART_RX_WAKEUP_IRQ_Start,"ax",%progbits
+ 175              		.align	1
+ 176              		.global	UART_RX_WAKEUP_IRQ_Start
+ 177              		.code	16
+ 178              		.thumb_func
+ 179              		.type	UART_RX_WAKEUP_IRQ_Start, %function
+ 180              	UART_RX_WAKEUP_IRQ_Start:
+ 181              	.LFB2:
   57:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c ****     /* For all we know the interrupt is active. */
- 183              		.loc 1 57 0
- 184              		.cfi_startproc
- 185 0000 10B5     		push	{r4, lr}
- 186              		.cfi_def_cfa_offset 8
- 187              		.cfi_offset 4, -8
- 188              		.cfi_offset 14, -4
- 189              	.LBB24:
- 190              	.LBB25:
- 191              		.loc 1 349 0
- 192 0002 0824     		mov	r4, #8
- 193 0004 054B     		ldr	r3, .L15
- 194              	.LBE25:
- 195              	.LBE24:
- 196              	.LBB27:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 11
+ 182              		.loc 1 57 0
+ 183              		.cfi_startproc
+ 184 0000 10B5     		push	{r4, lr}
+ 185              		.cfi_def_cfa_offset 8
+ 186              		.cfi_offset 4, -8
+ 187              		.cfi_offset 14, -4
+ 188              	.LBB24:
+ 189              	.LBB25:
+ 190              		.loc 1 349 0
+ 191 0002 0224     		mov	r4, #2
+ 192 0004 054B     		ldr	r3, .L15
+ 193              	.LBE25:
+ 194              	.LBE24:
+ 195              	.LBB27:
+ 196              	.LBB28:
+ 201:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
+ 197              		.loc 1 201 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 11
 
 
- 197              	.LBB28:
+ 198 0006 064A     		ldr	r2, .L15+4
+ 199              	.LBE28:
+ 200              	.LBE27:
+ 201              	.LBB31:
+ 202              	.LBB26:
+ 203              		.loc 1 349 0
+ 204 0008 1C60     		str	r4, [r3]
+ 205              	.LVL5:
+ 206              	.LBE26:
+ 207              	.LBE31:
+ 208              	.LBB32:
+ 209              	.LBB29:
  201:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
- 198              		.loc 1 201 0
- 199 0006 064A     		ldr	r2, .L15+4
- 200              	.LBE28:
- 201              	.LBE27:
- 202              	.LBB31:
- 203              	.LBB26:
- 204              		.loc 1 349 0
- 205 0008 1C60     		str	r4, [r3]
- 206              	.LVL5:
- 207              	.LBE26:
- 208              	.LBE31:
- 209              	.LBB32:
- 210              	.LBB29:
- 201:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
- 211              		.loc 1 201 0
- 212 000a 064B     		ldr	r3, .L15+8
- 213              	.LBE29:
- 214              	.LBE32:
+ 210              		.loc 1 201 0
+ 211 000a 064B     		ldr	r3, .L15+8
+ 212              	.LBE29:
+ 213              	.LBE32:
   65:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
- 215              		.loc 1 65 0
- 216 000c 0320     		mov	r0, #3
- 217              	.LBB33:
- 218              	.LBB30:
+ 214              		.loc 1 65 0
+ 215 000c 0320     		mov	r0, #3
+ 216              	.LBB33:
+ 217              	.LBB30:
  201:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
- 219              		.loc 1 201 0
- 220 000e DA64     		str	r2, [r3, #76]
- 221              	.LBE30:
- 222              	.LBE33:
+ 218              		.loc 1 201 0
+ 219 000e 5A64     		str	r2, [r3, #68]
+ 220              	.LBE30:
+ 221              	.LBE33:
   65:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
- 223              		.loc 1 65 0
- 224 0010 FFF7FEFF 		bl	UART_RX_WAKEUP_IRQ_SetPriority
- 225              	.LVL6:
- 226              	.LBB34:
- 227              	.LBB35:
+ 222              		.loc 1 65 0
+ 223 0010 FFF7FEFF 		bl	UART_RX_WAKEUP_IRQ_SetPriority
+ 224              	.LVL6:
+ 225              	.LBB34:
+ 226              	.LBB35:
  307:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
- 228              		.loc 1 307 0
- 229 0014 044B     		ldr	r3, .L15+12
- 230              	.LBE35:
- 231              	.LBE34:
+ 227              		.loc 1 307 0
+ 228 0014 044B     		ldr	r3, .L15+12
+ 229              	.LBE35:
+ 230              	.LBE34:
   69:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
- 232              		.loc 1 69 0
- 233              		@ sp needed
- 234              	.LBB37:
- 235              	.LBB36:
+ 231              		.loc 1 69 0
+ 232              		@ sp needed
+ 233              	.LBB37:
+ 234              	.LBB36:
  307:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
- 236              		.loc 1 307 0
- 237 0016 1C60     		str	r4, [r3]
- 238              	.LBE36:
- 239              	.LBE37:
+ 235              		.loc 1 307 0
+ 236 0016 1C60     		str	r4, [r3]
+ 237              	.LBE36:
+ 238              	.LBE37:
   69:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
- 240              		.loc 1 69 0
- 241 0018 10BD     		pop	{r4, pc}
- 242              	.L16:
- 243 001a C046     		.align	2
- 244              	.L15:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 12
+ 239              		.loc 1 69 0
+ 240 0018 10BD     		pop	{r4, pc}
+ 241              	.L16:
+ 242 001a C046     		.align	2
+ 243              	.L15:
+ 244 001c 80E100E0 		.word	-536813184
+ 245 0020 00000000 		.word	UART_RX_WAKEUP_IRQ_Interrupt
+ 246 0024 00000000 		.word	CyRamVectors
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 12
 
 
- 245 001c 80E100E0 		.word	-536813184
- 246 0020 00000000 		.word	UART_RX_WAKEUP_IRQ_Interrupt
- 247 0024 00000000 		.word	CyRamVectors
- 248 0028 00E100E0 		.word	-536813312
- 249              		.cfi_endproc
- 250              	.LFE2:
- 251              		.size	UART_RX_WAKEUP_IRQ_Start, .-UART_RX_WAKEUP_IRQ_Start
- 252              		.section	.text.UART_RX_WAKEUP_IRQ_StartEx,"ax",%progbits
- 253              		.align	1
- 254              		.global	UART_RX_WAKEUP_IRQ_StartEx
- 255              		.code	16
- 256              		.thumb_func
- 257              		.type	UART_RX_WAKEUP_IRQ_StartEx, %function
- 258              	UART_RX_WAKEUP_IRQ_StartEx:
- 259              	.LFB3:
+ 247 0028 00E100E0 		.word	-536813312
+ 248              		.cfi_endproc
+ 249              	.LFE2:
+ 250              		.size	UART_RX_WAKEUP_IRQ_Start, .-UART_RX_WAKEUP_IRQ_Start
+ 251              		.section	.text.UART_RX_WAKEUP_IRQ_StartEx,"ax",%progbits
+ 252              		.align	1
+ 253              		.global	UART_RX_WAKEUP_IRQ_StartEx
+ 254              		.code	16
+ 255              		.thumb_func
+ 256              		.type	UART_RX_WAKEUP_IRQ_StartEx, %function
+ 257              	UART_RX_WAKEUP_IRQ_StartEx:
+ 258              	.LFB3:
  100:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c ****     /* For all we know the interrupt is active. */
- 260              		.loc 1 100 0
- 261              		.cfi_startproc
- 262              	.LVL7:
- 263 0000 10B5     		push	{r4, lr}
- 264              		.cfi_def_cfa_offset 8
- 265              		.cfi_offset 4, -8
- 266              		.cfi_offset 14, -4
- 267              	.LBB38:
- 268              	.LBB39:
- 269              		.loc 1 349 0
- 270 0002 0824     		mov	r4, #8
- 271 0004 044B     		ldr	r3, .L18
- 272              	.LBE39:
- 273              	.LBE38:
+ 259              		.loc 1 100 0
+ 260              		.cfi_startproc
+ 261              	.LVL7:
+ 262 0000 10B5     		push	{r4, lr}
+ 263              		.cfi_def_cfa_offset 8
+ 264              		.cfi_offset 4, -8
+ 265              		.cfi_offset 14, -4
+ 266              	.LBB38:
+ 267              	.LBB39:
+ 268              		.loc 1 349 0
+ 269 0002 0224     		mov	r4, #2
+ 270 0004 044B     		ldr	r3, .L18
+ 271              	.LBE39:
+ 272              	.LBE38:
  112:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
- 274              		.loc 1 112 0
- 275              		@ sp needed
- 276              	.LBB41:
- 277              	.LBB40:
- 278              		.loc 1 349 0
- 279 0006 1C60     		str	r4, [r3]
- 280              	.LVL8:
- 281              	.LBE40:
- 282              	.LBE41:
- 283              	.LBB42:
- 284              	.LBB43:
+ 273              		.loc 1 112 0
+ 274              		@ sp needed
+ 275              	.LBB41:
+ 276              	.LBB40:
+ 277              		.loc 1 349 0
+ 278 0006 1C60     		str	r4, [r3]
+ 279              	.LVL8:
+ 280              	.LBE40:
+ 281              	.LBE41:
+ 282              	.LBB42:
+ 283              	.LBB43:
  201:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
- 285              		.loc 1 201 0
- 286 0008 044B     		ldr	r3, .L18+4
- 287 000a D864     		str	r0, [r3, #76]
- 288              	.LBE43:
- 289              	.LBE42:
+ 284              		.loc 1 201 0
+ 285 0008 044B     		ldr	r3, .L18+4
+ 286 000a 5864     		str	r0, [r3, #68]
+ 287              	.LBE43:
+ 288              	.LBE42:
  108:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
- 290              		.loc 1 108 0
- 291 000c 0320     		mov	r0, #3
- 292              	.LVL9:
- 293 000e FFF7FEFF 		bl	UART_RX_WAKEUP_IRQ_SetPriority
- 294              	.LVL10:
- 295              	.LBB44:
- 296              	.LBB45:
+ 289              		.loc 1 108 0
+ 290 000c 0320     		mov	r0, #3
+ 291              	.LVL9:
+ 292 000e FFF7FEFF 		bl	UART_RX_WAKEUP_IRQ_SetPriority
+ 293              	.LVL10:
+ 294              	.LBB44:
+ 295              	.LBB45:
  307:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 13
+ 296              		.loc 1 307 0
+ 297 0012 034B     		ldr	r3, .L18+8
+ 298 0014 1C60     		str	r4, [r3]
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 13
 
 
- 297              		.loc 1 307 0
- 298 0012 034B     		ldr	r3, .L18+8
- 299 0014 1C60     		str	r4, [r3]
- 300              	.LBE45:
- 301              	.LBE44:
+ 299              	.LBE45:
+ 300              	.LBE44:
  112:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
- 302              		.loc 1 112 0
- 303 0016 10BD     		pop	{r4, pc}
- 304              	.L19:
- 305              		.align	2
- 306              	.L18:
- 307 0018 80E100E0 		.word	-536813184
- 308 001c 00000000 		.word	CyRamVectors
- 309 0020 00E100E0 		.word	-536813312
- 310              		.cfi_endproc
- 311              	.LFE3:
- 312              		.size	UART_RX_WAKEUP_IRQ_StartEx, .-UART_RX_WAKEUP_IRQ_StartEx
- 313              		.section	.text.UART_RX_WAKEUP_IRQ_GetPriority,"ax",%progbits
- 314              		.align	1
- 315              		.global	UART_RX_WAKEUP_IRQ_GetPriority
- 316              		.code	16
- 317              		.thumb_func
- 318              		.type	UART_RX_WAKEUP_IRQ_GetPriority, %function
- 319              	UART_RX_WAKEUP_IRQ_GetPriority:
- 320              	.LFB9:
+ 301              		.loc 1 112 0
+ 302 0016 10BD     		pop	{r4, pc}
+ 303              	.L19:
+ 304              		.align	2
+ 305              	.L18:
+ 306 0018 80E100E0 		.word	-536813184
+ 307 001c 00000000 		.word	CyRamVectors
+ 308 0020 00E100E0 		.word	-536813312
+ 309              		.cfi_endproc
+ 310              	.LFE3:
+ 311              		.size	UART_RX_WAKEUP_IRQ_StartEx, .-UART_RX_WAKEUP_IRQ_StartEx
+ 312              		.section	.text.UART_RX_WAKEUP_IRQ_GetPriority,"ax",%progbits
+ 313              		.align	1
+ 314              		.global	UART_RX_WAKEUP_IRQ_GetPriority
+ 315              		.code	16
+ 316              		.thumb_func
+ 317              		.type	UART_RX_WAKEUP_IRQ_GetPriority, %function
+ 318              	UART_RX_WAKEUP_IRQ_GetPriority:
+ 319              	.LFB9:
  278:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c ****     uint32 priority;
- 321              		.loc 1 278 0
- 322              		.cfi_startproc
- 323              	.LVL11:
+ 320              		.loc 1 278 0
+ 321              		.cfi_startproc
+ 322              	.LVL11:
  282:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
- 324              		.loc 1 282 0
- 325 0000 014B     		ldr	r3, .L21
+ 323              		.loc 1 282 0
+ 324 0000 024B     		ldr	r3, .L21
  285:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
- 326              		.loc 1 285 0
- 327              		@ sp needed
+ 325              		.loc 1 285 0
+ 326              		@ sp needed
  282:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
- 328              		.loc 1 282 0
- 329 0002 1868     		ldr	r0, [r3]
- 330              	.LVL12:
+ 327              		.loc 1 282 0
+ 328 0002 1868     		ldr	r0, [r3]
+ 329              	.LVL12:
+ 330 0004 0004     		lsl	r0, r0, #16
+ 331              	.LVL13:
  284:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
- 331              		.loc 1 284 0
- 332 0004 800F     		lsr	r0, r0, #30
- 333              	.LVL13:
+ 332              		.loc 1 284 0
+ 333 0006 800F     		lsr	r0, r0, #30
  285:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
  334              		.loc 1 285 0
- 335 0006 7047     		bx	lr
+ 335 0008 7047     		bx	lr
  336              	.L22:
- 337              		.align	2
+ 337 000a C046     		.align	2
  338              	.L21:
- 339 0008 00E400E0 		.word	-536812544
+ 339 000c 00E400E0 		.word	-536812544
  340              		.cfi_endproc
  341              	.LFE9:
  342              		.size	UART_RX_WAKEUP_IRQ_GetPriority, .-UART_RX_WAKEUP_IRQ_GetPriority
@@ -778,11 +776,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  344              		.align	1
  345              		.global	UART_RX_WAKEUP_IRQ_Enable
  346              		.code	16
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 14
-
-
  347              		.thumb_func
  348              		.type	UART_RX_WAKEUP_IRQ_Enable, %function
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 14
+
+
  349              	UART_RX_WAKEUP_IRQ_Enable:
  350              	.LFB10:
  305:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c ****     /* Enable the general interrupt. */
@@ -790,7 +788,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  352              		.cfi_startproc
  307:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
  353              		.loc 1 307 0
- 354 0000 0822     		mov	r2, #8
+ 354 0000 0222     		mov	r2, #2
  355 0002 014B     		ldr	r3, .L24
  308:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
  356              		.loc 1 308 0
@@ -828,7 +826,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  328:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
  383              		.loc 1 328 0
  384 0002 1868     		ldr	r0, [r3]
- 385 0004 0007     		lsl	r0, r0, #28
+ 385 0004 8007     		lsl	r0, r0, #30
  386 0006 C00F     		lsr	r0, r0, #31
  329:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** 
  387              		.loc 1 329 0
@@ -838,11 +836,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  391              	.L27:
  392 000c 00E100E0 		.word	-536813312
  393              		.cfi_endproc
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 15
-
-
  394              	.LFE11:
  395              		.size	UART_RX_WAKEUP_IRQ_GetState, .-UART_RX_WAKEUP_IRQ_GetState
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 15
+
+
  396              		.section	.text.UART_RX_WAKEUP_IRQ_Disable,"ax",%progbits
  397              		.align	1
  398              		.global	UART_RX_WAKEUP_IRQ_Disable
@@ -855,7 +853,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  404              		.loc 1 347 0
  405              		.cfi_startproc
  406              		.loc 1 349 0
- 407 0000 0822     		mov	r2, #8
+ 407 0000 0222     		mov	r2, #2
  408 0002 014B     		ldr	r3, .L30
  350:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
  409              		.loc 1 350 0
@@ -898,11 +896,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  366:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *
  367:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** * Side Effects:
  368:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 16
-
-
  369:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *   entered (depending on the priority of this interrupt and other pending 
  370:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *   interrupts).
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 16
+
+
  371:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *
  372:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *******************************************************************************/
  373:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** void UART_RX_WAKEUP_IRQ_SetPending(void)
@@ -911,7 +909,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  431              		.cfi_startproc
  375:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c ****     *UART_RX_WAKEUP_IRQ_INTC_SET_PD = UART_RX_WAKEUP_IRQ__INTC_MASK;
  432              		.loc 1 375 0
- 433 0000 0822     		mov	r2, #8
+ 433 0000 0222     		mov	r2, #2
  434 0002 014B     		ldr	r3, .L33
  376:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
  435              		.loc 1 376 0
@@ -958,15 +956,15 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  396:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *
  397:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** *******************************************************************************/
  398:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** void UART_RX_WAKEUP_IRQ_ClearPending(void)
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 17
-
-
  399:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** {
  456              		.loc 1 399 0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 17
+
+
  457              		.cfi_startproc
  400:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c ****     *UART_RX_WAKEUP_IRQ_INTC_CLR_PD = UART_RX_WAKEUP_IRQ__INTC_MASK;
  458              		.loc 1 400 0
- 459 0000 0822     		mov	r2, #8
+ 459 0000 0222     		mov	r2, #2
  460 0002 014B     		ldr	r3, .L36
  401:.\Generated_Source\PSoC4/UART_RX_WAKEUP_IRQ.c **** }
  461              		.loc 1 401 0
@@ -1018,11 +1016,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  506 003c 07       		.byte	0x7
  507 003d BC000000 		.4byte	.LASF3
  508 0041 02       		.uleb128 0x2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 18
-
-
  509 0042 04       		.byte	0x4
  510 0043 05       		.byte	0x5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 18
+
+
  511 0044 59030000 		.4byte	.LASF4
  512 0048 02       		.uleb128 0x2
  513 0049 04       		.byte	0x4
@@ -1078,11 +1076,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  563 00ae 02       		.byte	0x2
  564 00af F401     		.2byte	0x1f4
  565 00b1 B5000000 		.4byte	0xb5
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 19
-
-
  566 00b5 06       		.uleb128 0x6
  567 00b6 04       		.byte	0x4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 19
+
+
  568 00b7 BB000000 		.4byte	0xbb
  569 00bb 07       		.uleb128 0x7
  570 00bc 02       		.uleb128 0x2
@@ -1138,11 +1136,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  620 0123 CC000000 		.4byte	0xcc
  621 0127 06000000 		.4byte	.LBB22
  622 012b 06000000 		.4byte	.LBE22-.LBB22
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 20
-
-
  623 012f 01       		.byte	0x1
  624 0130 87       		.byte	0x87
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 20
+
+
  625 0131 0F       		.uleb128 0xf
  626 0132 D8000000 		.4byte	0xd8
  627 0136 00       		.byte	0
@@ -1173,7 +1171,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  652 016d 01       		.byte	0x1
  653 016e F9       		.byte	0xf9
  654 016f 00000000 		.4byte	.LFB8
- 655 0173 20000000 		.4byte	.LFE8-.LFB8
+ 655 0173 24000000 		.4byte	.LFE8-.LFB8
  656 0177 01       		.uleb128 0x1
  657 0178 9C       		.byte	0x9c
  658 0179 BA010000 		.4byte	0x1ba
@@ -1194,15 +1192,15 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  673 01a0 01       		.byte	0x1
  674 01a1 FC       		.byte	0xfc
  675 01a2 77000000 		.4byte	0x77
- 676 01a6 1E       		.byte	0x1e
+ 676 01a6 0E       		.byte	0xe
  677 01a7 16       		.uleb128 0x16
  678 01a8 08000000 		.4byte	.LVL3
  679 01ac 37030000 		.4byte	0x337
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 21
-
-
  680 01b0 16       		.uleb128 0x16
  681 01b1 1A000000 		.4byte	.LVL4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 21
+
+
  682 01b5 42030000 		.4byte	0x342
  683 01b9 00       		.byte	0
  684 01ba 0C       		.uleb128 0xc
@@ -1258,11 +1256,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  734 0228 24000000 		.4byte	.LFE3-.LFB3
  735 022c 01       		.uleb128 0x1
  736 022d 9C       		.byte	0x9c
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 22
-
-
  737 022e 8C020000 		.4byte	0x28c
  738 0232 13       		.uleb128 0x13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 22
+
+
  739 0233 6E020000 		.4byte	.LASF26
  740 0237 01       		.byte	0x1
  741 0238 63       		.byte	0x63
@@ -1307,7 +1305,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  780 0292 1501     		.2byte	0x115
  781 0294 6B000000 		.4byte	0x6b
  782 0298 00000000 		.4byte	.LFB9
- 783 029c 0C000000 		.4byte	.LFE9-.LFB9
+ 783 029c 10000000 		.4byte	.LFE9-.LFB9
  784 02a0 01       		.uleb128 0x1
  785 02a1 9C       		.byte	0x9c
  786 02a2 C4020000 		.4byte	0x2c4
@@ -1318,14 +1316,14 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  791 02ae 77000000 		.4byte	0x77
  792 02b2 90000000 		.4byte	.LLST4
  793 02b6 1F       		.uleb128 0x1f
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 23
-
-
  794 02b7 4A030000 		.4byte	.LASF22
  795 02bb 01       		.byte	0x1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 23
+
+
  796 02bc 1801     		.2byte	0x118
  797 02be 77000000 		.4byte	0x77
- 798 02c2 1E       		.byte	0x1e
+ 798 02c2 0E       		.byte	0xe
  799 02c3 00       		.byte	0
  800 02c4 20       		.uleb128 0x20
  801 02c5 E4000000 		.4byte	0xe4
@@ -1378,11 +1376,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  848 0333 1C030000 		.4byte	0x31c
  849 0337 26       		.uleb128 0x26
  850 0338 4A020000 		.4byte	.LASF38
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 24
-
-
  851 033c 03       		.byte	0x3
  852 033d 61       		.byte	0x61
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 24
+
+
  853 033e 6B000000 		.4byte	0x6b
  854 0342 27       		.uleb128 0x27
  855 0343 76020000 		.4byte	.LASF39
@@ -1438,11 +1436,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  905 0029 04       		.uleb128 0x4
  906 002a 16       		.uleb128 0x16
  907 002b 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 25
-
-
  908 002c 03       		.uleb128 0x3
  909 002d 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 25
+
+
  910 002e 3A       		.uleb128 0x3a
  911 002f 0B       		.uleb128 0xb
  912 0030 3B       		.uleb128 0x3b
@@ -1498,11 +1496,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  962 0062 19       		.uleb128 0x19
  963 0063 03       		.uleb128 0x3
  964 0064 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 26
-
-
  965 0065 3A       		.uleb128 0x3a
  966 0066 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 26
+
+
  967 0067 3B       		.uleb128 0x3b
  968 0068 0B       		.uleb128 0xb
  969 0069 27       		.uleb128 0x27
@@ -1558,11 +1556,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  1019 009c 0E       		.uleb128 0xe
  1020 009d 3A       		.uleb128 0x3a
  1021 009e 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 27
-
-
  1022 009f 3B       		.uleb128 0x3b
  1023 00a0 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 27
+
+
  1024 00a1 27       		.uleb128 0x27
  1025 00a2 19       		.uleb128 0x19
  1026 00a3 11       		.uleb128 0x11
@@ -1618,11 +1616,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  1076 00d6 2E       		.uleb128 0x2e
  1077 00d7 01       		.byte	0x1
  1078 00d8 31       		.uleb128 0x31
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 28
-
-
  1079 00d9 13       		.uleb128 0x13
  1080 00da 11       		.uleb128 0x11
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 28
+
+
  1081 00db 01       		.uleb128 0x1
  1082 00dc 12       		.uleb128 0x12
  1083 00dd 06       		.uleb128 0x6
@@ -1678,11 +1676,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  1133 0111 3B       		.uleb128 0x3b
  1134 0112 0B       		.uleb128 0xb
  1135 0113 49       		.uleb128 0x49
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 29
-
-
  1136 0114 13       		.uleb128 0x13
  1137 0115 02       		.uleb128 0x2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 29
+
+
  1138 0116 17       		.uleb128 0x17
  1139 0117 00       		.byte	0
  1140 0118 00       		.byte	0
@@ -1738,11 +1736,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  1190 014c 0B       		.uleb128 0xb
  1191 014d 59       		.uleb128 0x59
  1192 014e 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 30
-
-
  1193 014f 01       		.uleb128 0x1
  1194 0150 13       		.uleb128 0x13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 30
+
+
  1195 0151 00       		.byte	0
  1196 0152 00       		.byte	0
  1197 0153 18       		.uleb128 0x18
@@ -1798,11 +1796,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  1247 018a 01       		.uleb128 0x1
  1248 018b 12       		.uleb128 0x12
  1249 018c 06       		.uleb128 0x6
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 31
-
-
  1250 018d 58       		.uleb128 0x58
  1251 018e 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 31
+
+
  1252 018f 59       		.uleb128 0x59
  1253 0190 0B       		.uleb128 0xb
  1254 0191 00       		.byte	0
@@ -1858,11 +1856,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  1304 01c4 0B       		.uleb128 0xb
  1305 01c5 3B       		.uleb128 0x3b
  1306 01c6 05       		.uleb128 0x5
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 32
-
-
  1307 01c7 49       		.uleb128 0x49
  1308 01c8 13       		.uleb128 0x13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 32
+
+
  1309 01c9 1C       		.uleb128 0x1c
  1310 01ca 0B       		.uleb128 0xb
  1311 01cb 00       		.byte	0
@@ -1918,11 +1916,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  1361 01ff 0B       		.uleb128 0xb
  1362 0200 3B       		.uleb128 0x3b
  1363 0201 05       		.uleb128 0x5
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 33
-
-
  1364 0202 27       		.uleb128 0x27
  1365 0203 19       		.uleb128 0x19
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 33
+
+
  1366 0204 11       		.uleb128 0x11
  1367 0205 01       		.uleb128 0x1
  1368 0206 12       		.uleb128 0x12
@@ -1978,11 +1976,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  1418 0239 3A       		.uleb128 0x3a
  1419 023a 0B       		.uleb128 0xb
  1420 023b 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 34
-
-
  1421 023c 0B       		.uleb128 0xb
  1422 023d 27       		.uleb128 0x27
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 34
+
+
  1423 023e 19       		.uleb128 0x19
  1424 023f 49       		.uleb128 0x49
  1425 0240 13       		.uleb128 0x13
@@ -2023,7 +2021,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  1460 0008 0100     		.2byte	0x1
  1461 000a 50       		.byte	0x50
  1462 000b 07000000 		.4byte	.LVL3-1
- 1463 000f 20000000 		.4byte	.LFE8
+ 1463 000f 24000000 		.4byte	.LFE8
  1464 0013 0400     		.2byte	0x4
  1465 0015 F3       		.byte	0xf3
  1466 0016 01       		.uleb128 0x1
@@ -2038,11 +2036,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  1475 002b 50       		.byte	0x50
  1476 002c 00000000 		.4byte	0
  1477 0030 00000000 		.4byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 35
-
-
  1478              	.LLST2:
  1479 0034 00000000 		.4byte	.LVL7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 35
+
+
  1480 0038 0E000000 		.4byte	.LVL9
  1481 003c 0100     		.2byte	0x1
  1482 003e 50       		.byte	0x50
@@ -2050,7 +2048,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  1484 0043 11000000 		.4byte	.LVL10-1
  1485 0047 0300     		.2byte	0x3
  1486 0049 73       		.byte	0x73
- 1487 004a CC00     		.sleb128 76
+ 1487 004a C400     		.sleb128 68
  1488 004c 11000000 		.4byte	.LVL10-1
  1489 0050 24000000 		.4byte	.LFE3
  1490 0054 0400     		.2byte	0x4
@@ -2069,7 +2067,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  1503 0071 11000000 		.4byte	.LVL10-1
  1504 0075 0300     		.2byte	0x3
  1505 0077 73       		.byte	0x73
- 1506 0078 CC00     		.sleb128 76
+ 1506 0078 C400     		.sleb128 68
  1507 007a 11000000 		.4byte	.LVL10-1
  1508 007e 24000000 		.4byte	.LFE3
  1509 0082 0400     		.2byte	0x4
@@ -2082,359 +2080,357 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 1
  1516              	.LLST4:
  1517 0090 04000000 		.4byte	.LVL12
  1518 0094 06000000 		.4byte	.LVL13
- 1519 0098 0A00     		.2byte	0xa
+ 1519 0098 0900     		.2byte	0x9
  1520 009a 70       		.byte	0x70
  1521 009b 00       		.sleb128 0
- 1522 009c 40       		.byte	0x40
- 1523 009d 4A       		.byte	0x4a
- 1524 009e 24       		.byte	0x24
- 1525 009f 1F       		.byte	0x1f
- 1526 00a0 1A       		.byte	0x1a
- 1527 00a1 4E       		.byte	0x4e
- 1528 00a2 25       		.byte	0x25
- 1529 00a3 9F       		.byte	0x9f
- 1530 00a4 00000000 		.4byte	0
- 1531 00a8 00000000 		.4byte	0
- 1532              		.section	.debug_aranges,"",%progbits
- 1533 0000 7C000000 		.4byte	0x7c
- 1534 0004 0200     		.2byte	0x2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 36
+ 1522 009c 0A       		.byte	0xa
+ 1523 009d 00C0     		.2byte	0xc000
+ 1524 009f 1A       		.byte	0x1a
+ 1525 00a0 3E       		.byte	0x3e
+ 1526 00a1 25       		.byte	0x25
+ 1527 00a2 9F       		.byte	0x9f
+ 1528 00a3 00000000 		.4byte	0
+ 1529 00a7 00000000 		.4byte	0
+ 1530              		.section	.debug_aranges,"",%progbits
+ 1531 0000 7C000000 		.4byte	0x7c
+ 1532 0004 0200     		.2byte	0x2
+ 1533 0006 00000000 		.4byte	.Ldebug_info0
+ 1534 000a 04       		.byte	0x4
+ 1535 000b 00       		.byte	0
+ 1536 000c 0000     		.2byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 36
 
 
- 1535 0006 00000000 		.4byte	.Ldebug_info0
- 1536 000a 04       		.byte	0x4
- 1537 000b 00       		.byte	0
- 1538 000c 0000     		.2byte	0
- 1539 000e 0000     		.2byte	0
- 1540 0010 00000000 		.4byte	.LFB5
- 1541 0014 02000000 		.4byte	.LFE5-.LFB5
- 1542 0018 00000000 		.4byte	.LFB4
- 1543 001c 1C000000 		.4byte	.LFE4-.LFB4
- 1544 0020 00000000 		.4byte	.LFB6
- 1545 0024 0C000000 		.4byte	.LFE6-.LFB6
- 1546 0028 00000000 		.4byte	.LFB7
- 1547 002c 0C000000 		.4byte	.LFE7-.LFB7
- 1548 0030 00000000 		.4byte	.LFB8
- 1549 0034 20000000 		.4byte	.LFE8-.LFB8
- 1550 0038 00000000 		.4byte	.LFB2
- 1551 003c 2C000000 		.4byte	.LFE2-.LFB2
- 1552 0040 00000000 		.4byte	.LFB3
- 1553 0044 24000000 		.4byte	.LFE3-.LFB3
- 1554 0048 00000000 		.4byte	.LFB9
- 1555 004c 0C000000 		.4byte	.LFE9-.LFB9
- 1556 0050 00000000 		.4byte	.LFB10
- 1557 0054 0C000000 		.4byte	.LFE10-.LFB10
- 1558 0058 00000000 		.4byte	.LFB11
- 1559 005c 10000000 		.4byte	.LFE11-.LFB11
- 1560 0060 00000000 		.4byte	.LFB12
- 1561 0064 0C000000 		.4byte	.LFE12-.LFB12
- 1562 0068 00000000 		.4byte	.LFB13
- 1563 006c 0C000000 		.4byte	.LFE13-.LFB13
- 1564 0070 00000000 		.4byte	.LFB14
- 1565 0074 0C000000 		.4byte	.LFE14-.LFB14
- 1566 0078 00000000 		.4byte	0
- 1567 007c 00000000 		.4byte	0
- 1568              		.section	.debug_ranges,"",%progbits
- 1569              	.Ldebug_ranges0:
- 1570 0000 00000000 		.4byte	.LBB18
- 1571 0004 04000000 		.4byte	.LBE18
- 1572 0008 04000000 		.4byte	.LBB21
- 1573 000c 06000000 		.4byte	.LBE21
- 1574 0010 00000000 		.4byte	0
- 1575 0014 00000000 		.4byte	0
- 1576 0018 02000000 		.4byte	.LBB24
- 1577 001c 06000000 		.4byte	.LBE24
- 1578 0020 08000000 		.4byte	.LBB31
- 1579 0024 0A000000 		.4byte	.LBE31
- 1580 0028 00000000 		.4byte	0
- 1581 002c 00000000 		.4byte	0
- 1582 0030 06000000 		.4byte	.LBB27
- 1583 0034 08000000 		.4byte	.LBE27
- 1584 0038 0A000000 		.4byte	.LBB32
- 1585 003c 0C000000 		.4byte	.LBE32
- 1586 0040 0E000000 		.4byte	.LBB33
- 1587 0044 10000000 		.4byte	.LBE33
- 1588 0048 00000000 		.4byte	0
- 1589 004c 00000000 		.4byte	0
- 1590 0050 14000000 		.4byte	.LBB34
- 1591 0054 16000000 		.4byte	.LBE34
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 37
+ 1537 000e 0000     		.2byte	0
+ 1538 0010 00000000 		.4byte	.LFB5
+ 1539 0014 02000000 		.4byte	.LFE5-.LFB5
+ 1540 0018 00000000 		.4byte	.LFB4
+ 1541 001c 1C000000 		.4byte	.LFE4-.LFB4
+ 1542 0020 00000000 		.4byte	.LFB6
+ 1543 0024 0C000000 		.4byte	.LFE6-.LFB6
+ 1544 0028 00000000 		.4byte	.LFB7
+ 1545 002c 0C000000 		.4byte	.LFE7-.LFB7
+ 1546 0030 00000000 		.4byte	.LFB8
+ 1547 0034 24000000 		.4byte	.LFE8-.LFB8
+ 1548 0038 00000000 		.4byte	.LFB2
+ 1549 003c 2C000000 		.4byte	.LFE2-.LFB2
+ 1550 0040 00000000 		.4byte	.LFB3
+ 1551 0044 24000000 		.4byte	.LFE3-.LFB3
+ 1552 0048 00000000 		.4byte	.LFB9
+ 1553 004c 10000000 		.4byte	.LFE9-.LFB9
+ 1554 0050 00000000 		.4byte	.LFB10
+ 1555 0054 0C000000 		.4byte	.LFE10-.LFB10
+ 1556 0058 00000000 		.4byte	.LFB11
+ 1557 005c 10000000 		.4byte	.LFE11-.LFB11
+ 1558 0060 00000000 		.4byte	.LFB12
+ 1559 0064 0C000000 		.4byte	.LFE12-.LFB12
+ 1560 0068 00000000 		.4byte	.LFB13
+ 1561 006c 0C000000 		.4byte	.LFE13-.LFB13
+ 1562 0070 00000000 		.4byte	.LFB14
+ 1563 0074 0C000000 		.4byte	.LFE14-.LFB14
+ 1564 0078 00000000 		.4byte	0
+ 1565 007c 00000000 		.4byte	0
+ 1566              		.section	.debug_ranges,"",%progbits
+ 1567              	.Ldebug_ranges0:
+ 1568 0000 00000000 		.4byte	.LBB18
+ 1569 0004 04000000 		.4byte	.LBE18
+ 1570 0008 04000000 		.4byte	.LBB21
+ 1571 000c 06000000 		.4byte	.LBE21
+ 1572 0010 00000000 		.4byte	0
+ 1573 0014 00000000 		.4byte	0
+ 1574 0018 02000000 		.4byte	.LBB24
+ 1575 001c 06000000 		.4byte	.LBE24
+ 1576 0020 08000000 		.4byte	.LBB31
+ 1577 0024 0A000000 		.4byte	.LBE31
+ 1578 0028 00000000 		.4byte	0
+ 1579 002c 00000000 		.4byte	0
+ 1580 0030 06000000 		.4byte	.LBB27
+ 1581 0034 08000000 		.4byte	.LBE27
+ 1582 0038 0A000000 		.4byte	.LBB32
+ 1583 003c 0C000000 		.4byte	.LBE32
+ 1584 0040 0E000000 		.4byte	.LBB33
+ 1585 0044 10000000 		.4byte	.LBE33
+ 1586 0048 00000000 		.4byte	0
+ 1587 004c 00000000 		.4byte	0
+ 1588 0050 14000000 		.4byte	.LBB34
+ 1589 0054 16000000 		.4byte	.LBE34
+ 1590 0058 16000000 		.4byte	.LBB37
+ 1591 005c 18000000 		.4byte	.LBE37
+ 1592 0060 00000000 		.4byte	0
+ 1593 0064 00000000 		.4byte	0
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 37
 
 
- 1592 0058 16000000 		.4byte	.LBB37
- 1593 005c 18000000 		.4byte	.LBE37
- 1594 0060 00000000 		.4byte	0
- 1595 0064 00000000 		.4byte	0
- 1596 0068 02000000 		.4byte	.LBB38
- 1597 006c 06000000 		.4byte	.LBE38
- 1598 0070 06000000 		.4byte	.LBB41
- 1599 0074 08000000 		.4byte	.LBE41
- 1600 0078 00000000 		.4byte	0
- 1601 007c 00000000 		.4byte	0
- 1602 0080 00000000 		.4byte	.LFB5
- 1603 0084 02000000 		.4byte	.LFE5
- 1604 0088 00000000 		.4byte	.LFB4
- 1605 008c 1C000000 		.4byte	.LFE4
- 1606 0090 00000000 		.4byte	.LFB6
- 1607 0094 0C000000 		.4byte	.LFE6
- 1608 0098 00000000 		.4byte	.LFB7
- 1609 009c 0C000000 		.4byte	.LFE7
- 1610 00a0 00000000 		.4byte	.LFB8
- 1611 00a4 20000000 		.4byte	.LFE8
- 1612 00a8 00000000 		.4byte	.LFB2
- 1613 00ac 2C000000 		.4byte	.LFE2
- 1614 00b0 00000000 		.4byte	.LFB3
- 1615 00b4 24000000 		.4byte	.LFE3
- 1616 00b8 00000000 		.4byte	.LFB9
- 1617 00bc 0C000000 		.4byte	.LFE9
- 1618 00c0 00000000 		.4byte	.LFB10
- 1619 00c4 0C000000 		.4byte	.LFE10
- 1620 00c8 00000000 		.4byte	.LFB11
- 1621 00cc 10000000 		.4byte	.LFE11
- 1622 00d0 00000000 		.4byte	.LFB12
- 1623 00d4 0C000000 		.4byte	.LFE12
- 1624 00d8 00000000 		.4byte	.LFB13
- 1625 00dc 0C000000 		.4byte	.LFE13
- 1626 00e0 00000000 		.4byte	.LFB14
- 1627 00e4 0C000000 		.4byte	.LFE14
- 1628 00e8 00000000 		.4byte	0
- 1629 00ec 00000000 		.4byte	0
- 1630              		.section	.debug_line,"",%progbits
- 1631              	.Ldebug_line0:
- 1632 0000 D1010000 		.section	.debug_str,"MS",%progbits,1
- 1632      02007300 
- 1632      00000201 
- 1632      FB0E0D00 
- 1632      01010101 
- 1633              	.LASF24:
- 1634 0000 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_StartEx\000"
- 1634      5F52585F 
- 1634      57414B45 
- 1634      55505F49 
- 1634      52515F53 
- 1635              	.LASF14:
- 1636 001b 72656733 		.ascii	"reg32\000"
- 1636      3200
- 1637              	.LASF32:
- 1638 0021 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1638      4320342E 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 38
+ 1594 0068 02000000 		.4byte	.LBB38
+ 1595 006c 06000000 		.4byte	.LBE38
+ 1596 0070 06000000 		.4byte	.LBB41
+ 1597 0074 08000000 		.4byte	.LBE41
+ 1598 0078 00000000 		.4byte	0
+ 1599 007c 00000000 		.4byte	0
+ 1600 0080 00000000 		.4byte	.LFB5
+ 1601 0084 02000000 		.4byte	.LFE5
+ 1602 0088 00000000 		.4byte	.LFB4
+ 1603 008c 1C000000 		.4byte	.LFE4
+ 1604 0090 00000000 		.4byte	.LFB6
+ 1605 0094 0C000000 		.4byte	.LFE6
+ 1606 0098 00000000 		.4byte	.LFB7
+ 1607 009c 0C000000 		.4byte	.LFE7
+ 1608 00a0 00000000 		.4byte	.LFB8
+ 1609 00a4 24000000 		.4byte	.LFE8
+ 1610 00a8 00000000 		.4byte	.LFB2
+ 1611 00ac 2C000000 		.4byte	.LFE2
+ 1612 00b0 00000000 		.4byte	.LFB3
+ 1613 00b4 24000000 		.4byte	.LFE3
+ 1614 00b8 00000000 		.4byte	.LFB9
+ 1615 00bc 10000000 		.4byte	.LFE9
+ 1616 00c0 00000000 		.4byte	.LFB10
+ 1617 00c4 0C000000 		.4byte	.LFE10
+ 1618 00c8 00000000 		.4byte	.LFB11
+ 1619 00cc 10000000 		.4byte	.LFE11
+ 1620 00d0 00000000 		.4byte	.LFB12
+ 1621 00d4 0C000000 		.4byte	.LFE12
+ 1622 00d8 00000000 		.4byte	.LFB13
+ 1623 00dc 0C000000 		.4byte	.LFE13
+ 1624 00e0 00000000 		.4byte	.LFB14
+ 1625 00e4 0C000000 		.4byte	.LFE14
+ 1626 00e8 00000000 		.4byte	0
+ 1627 00ec 00000000 		.4byte	0
+ 1628              		.section	.debug_line,"",%progbits
+ 1629              	.Ldebug_line0:
+ 1630 0000 CF010000 		.section	.debug_str,"MS",%progbits,1
+ 1630      02007300 
+ 1630      00000201 
+ 1630      FB0E0D00 
+ 1630      01010101 
+ 1631              	.LASF24:
+ 1632 0000 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_StartEx\000"
+ 1632      5F52585F 
+ 1632      57414B45 
+ 1632      55505F49 
+ 1632      52515F53 
+ 1633              	.LASF14:
+ 1634 001b 72656733 		.ascii	"reg32\000"
+ 1634      3200
+ 1635              	.LASF32:
+ 1636 0021 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1636      4320342E 
+ 1636      392E3320 
+ 1636      32303135 
+ 1636      30333033 
+ 1637 0054 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 38
 
 
- 1638      392E3320 
- 1638      32303135 
- 1638      30333033 
- 1639 0054 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
- 1639      20726576 
- 1639      6973696F 
- 1639      6E203232 
- 1639      31323230 
- 1640 0087 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
- 1640      66756E63 
- 1640      74696F6E 
- 1640      2D736563 
- 1640      74696F6E 
- 1641              	.LASF37:
- 1642 00af 43795261 		.ascii	"CyRamVectors\000"
- 1642      6D566563 
- 1642      746F7273 
- 1642      00
- 1643              	.LASF3:
- 1644 00bc 73686F72 		.ascii	"short unsigned int\000"
- 1644      7420756E 
- 1644      7369676E 
- 1644      65642069 
- 1644      6E7400
- 1645              	.LASF17:
- 1646 00cf 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_Disable\000"
- 1646      5F52585F 
- 1646      57414B45 
- 1646      55505F49 
- 1646      52515F44 
- 1647              	.LASF12:
- 1648 00ea 646F7562 		.ascii	"double\000"
- 1648      6C6500
- 1649              	.LASF30:
- 1650 00f1 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_SetPending\000"
+ 1637      20726576 
+ 1637      6973696F 
+ 1637      6E203232 
+ 1637      31323230 
+ 1638 0087 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
+ 1638      66756E63 
+ 1638      74696F6E 
+ 1638      2D736563 
+ 1638      74696F6E 
+ 1639              	.LASF37:
+ 1640 00af 43795261 		.ascii	"CyRamVectors\000"
+ 1640      6D566563 
+ 1640      746F7273 
+ 1640      00
+ 1641              	.LASF3:
+ 1642 00bc 73686F72 		.ascii	"short unsigned int\000"
+ 1642      7420756E 
+ 1642      7369676E 
+ 1642      65642069 
+ 1642      6E7400
+ 1643              	.LASF17:
+ 1644 00cf 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_Disable\000"
+ 1644      5F52585F 
+ 1644      57414B45 
+ 1644      55505F49 
+ 1644      52515F44 
+ 1645              	.LASF12:
+ 1646 00ea 646F7562 		.ascii	"double\000"
+ 1646      6C6500
+ 1647              	.LASF30:
+ 1648 00f1 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_SetPending\000"
+ 1648      5F52585F 
+ 1648      57414B45 
+ 1648      55505F49 
+ 1648      52515F53 
+ 1649              	.LASF35:
+ 1650 010f 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_SetVector\000"
  1650      5F52585F 
  1650      57414B45 
  1650      55505F49 
  1650      52515F53 
- 1651              	.LASF35:
- 1652 010f 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_SetVector\000"
+ 1651              	.LASF28:
+ 1652 012c 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_GetState\000"
  1652      5F52585F 
  1652      57414B45 
  1652      55505F49 
- 1652      52515F53 
- 1653              	.LASF28:
- 1654 012c 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_GetState\000"
- 1654      5F52585F 
- 1654      57414B45 
- 1654      55505F49 
- 1654      52515F47 
- 1655              	.LASF11:
- 1656 0148 666C6F61 		.ascii	"float\000"
- 1656      7400
- 1657              	.LASF7:
- 1658 014e 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1658      206C6F6E 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 39
+ 1652      52515F47 
+ 1653              	.LASF11:
+ 1654 0148 666C6F61 		.ascii	"float\000"
+ 1654      7400
+ 1655              	.LASF7:
+ 1656 014e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1656      206C6F6E 
+ 1656      6720756E 
+ 1656      7369676E 
+ 1656      65642069 
+ 1657              	.LASF1:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 39
 
 
- 1658      6720756E 
- 1658      7369676E 
- 1658      65642069 
- 1659              	.LASF1:
- 1660 0165 756E7369 		.ascii	"unsigned char\000"
- 1660      676E6564 
- 1660      20636861 
- 1660      7200
- 1661              	.LASF21:
- 1662 0173 696E7465 		.ascii	"interruptState\000"
- 1662      72727570 
- 1662      74537461 
- 1662      746500
- 1663              	.LASF5:
- 1664 0182 6C6F6E67 		.ascii	"long unsigned int\000"
- 1664      20756E73 
- 1664      69676E65 
- 1664      6420696E 
- 1664      7400
- 1665              	.LASF20:
- 1666 0194 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_SetPriority\000"
- 1666      5F52585F 
- 1666      57414B45 
- 1666      55505F49 
- 1666      52515F53 
- 1667              	.LASF34:
- 1668 01b3 473A5C50 		.ascii	"G:\\Project\\LiYangLiu---BLE Module\\Code\\Troughpu"
- 1668      726F6A65 
- 1668      63745C4C 
- 1668      6959616E 
- 1668      674C6975 
- 1669 01e2 725F4365 		.ascii	"r_Central_Peripheral\\Troughput_Central_Peripheral."
- 1669      6E747261 
- 1669      6C5F5065 
- 1669      72697068 
- 1669      6572616C 
- 1670 0214 63796473 		.ascii	"cydsn\000"
- 1670      6E00
- 1671              	.LASF25:
- 1672 021a 7072696F 		.ascii	"priority\000"
- 1672      72697479 
- 1672      00
- 1673              	.LASF31:
- 1674 0223 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_ClearPending\000"
- 1674      5F52585F 
- 1674      57414B45 
- 1674      55505F49 
- 1674      52515F43 
- 1675              	.LASF10:
- 1676 0243 75696E74 		.ascii	"uint32\000"
- 1676      333200
- 1677              	.LASF38:
- 1678 024a 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 1678      74657243 
- 1678      72697469 
- 1678      63616C53 
- 1678      65637469 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 40
+ 1658 0165 756E7369 		.ascii	"unsigned char\000"
+ 1658      676E6564 
+ 1658      20636861 
+ 1658      7200
+ 1659              	.LASF21:
+ 1660 0173 696E7465 		.ascii	"interruptState\000"
+ 1660      72727570 
+ 1660      74537461 
+ 1660      746500
+ 1661              	.LASF5:
+ 1662 0182 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1662      20756E73 
+ 1662      69676E65 
+ 1662      6420696E 
+ 1662      7400
+ 1663              	.LASF20:
+ 1664 0194 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_SetPriority\000"
+ 1664      5F52585F 
+ 1664      57414B45 
+ 1664      55505F49 
+ 1664      52515F53 
+ 1665              	.LASF34:
+ 1666 01b3 473A5C50 		.ascii	"G:\\Project\\LiYangLiu---BLE Module\\Code\\Troughpu"
+ 1666      726F6A65 
+ 1666      63745C4C 
+ 1666      6959616E 
+ 1666      674C6975 
+ 1667 01e2 725F4365 		.ascii	"r_Central_Peripheral\\Troughput_Central_Peripheral."
+ 1667      6E747261 
+ 1667      6C5F5065 
+ 1667      72697068 
+ 1667      6572616C 
+ 1668 0214 63796473 		.ascii	"cydsn\000"
+ 1668      6E00
+ 1669              	.LASF25:
+ 1670 021a 7072696F 		.ascii	"priority\000"
+ 1670      72697479 
+ 1670      00
+ 1671              	.LASF31:
+ 1672 0223 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_ClearPending\000"
+ 1672      5F52585F 
+ 1672      57414B45 
+ 1672      55505F49 
+ 1672      52515F43 
+ 1673              	.LASF10:
+ 1674 0243 75696E74 		.ascii	"uint32\000"
+ 1674      333200
+ 1675              	.LASF38:
+ 1676 024a 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1676      74657243 
+ 1676      72697469 
+ 1676      63616C53 
+ 1676      65637469 
+ 1677              	.LASF8:
+ 1678 0261 756E7369 		.ascii	"unsigned int\000"
+ 1678      676E6564 
+ 1678      20696E74 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 40
 
 
- 1679              	.LASF8:
- 1680 0261 756E7369 		.ascii	"unsigned int\000"
- 1680      676E6564 
- 1680      20696E74 
- 1680      00
- 1681              	.LASF26:
- 1682 026e 61646472 		.ascii	"address\000"
- 1682      65737300 
- 1683              	.LASF39:
- 1684 0276 43794578 		.ascii	"CyExitCriticalSection\000"
- 1684      69744372 
- 1684      69746963 
- 1684      616C5365 
- 1684      6374696F 
- 1685              	.LASF27:
- 1686 028c 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_GetVector\000"
+ 1678      00
+ 1679              	.LASF26:
+ 1680 026e 61646472 		.ascii	"address\000"
+ 1680      65737300 
+ 1681              	.LASF39:
+ 1682 0276 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1682      69744372 
+ 1682      69746963 
+ 1682      616C5365 
+ 1682      6374696F 
+ 1683              	.LASF27:
+ 1684 028c 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_GetVector\000"
+ 1684      5F52585F 
+ 1684      57414B45 
+ 1684      55505F49 
+ 1684      52515F47 
+ 1685              	.LASF29:
+ 1686 02a9 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_Interrupt\000"
  1686      5F52585F 
  1686      57414B45 
  1686      55505F49 
- 1686      52515F47 
- 1687              	.LASF29:
- 1688 02a9 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_Interrupt\000"
- 1688      5F52585F 
- 1688      57414B45 
- 1688      55505F49 
- 1688      52515F49 
- 1689              	.LASF15:
- 1690 02c6 63796973 		.ascii	"cyisraddress\000"
- 1690      72616464 
- 1690      72657373 
+ 1686      52515F49 
+ 1687              	.LASF15:
+ 1688 02c6 63796973 		.ascii	"cyisraddress\000"
+ 1688      72616464 
+ 1688      72657373 
+ 1688      00
+ 1689              	.LASF16:
+ 1690 02d3 73697A65 		.ascii	"sizetype\000"
+ 1690      74797065 
  1690      00
- 1691              	.LASF16:
- 1692 02d3 73697A65 		.ascii	"sizetype\000"
- 1692      74797065 
- 1692      00
- 1693              	.LASF6:
- 1694 02dc 6C6F6E67 		.ascii	"long long int\000"
- 1694      206C6F6E 
- 1694      6720696E 
- 1694      7400
- 1695              	.LASF13:
- 1696 02ea 63686172 		.ascii	"char\000"
- 1696      00
- 1697              	.LASF23:
- 1698 02ef 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_Start\000"
- 1698      5F52585F 
- 1698      57414B45 
- 1698      55505F49 
- 1698      52515F53 
- 1699              	.LASF2:
- 1700 0308 73686F72 		.ascii	"short int\000"
- 1700      7420696E 
- 1700      7400
- 1701              	.LASF18:
- 1702 0312 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_Enable\000"
- 1702      5F52585F 
- 1702      57414B45 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccUB5NZZ.s 			page 41
+ 1691              	.LASF6:
+ 1692 02dc 6C6F6E67 		.ascii	"long long int\000"
+ 1692      206C6F6E 
+ 1692      6720696E 
+ 1692      7400
+ 1693              	.LASF13:
+ 1694 02ea 63686172 		.ascii	"char\000"
+ 1694      00
+ 1695              	.LASF23:
+ 1696 02ef 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_Start\000"
+ 1696      5F52585F 
+ 1696      57414B45 
+ 1696      55505F49 
+ 1696      52515F53 
+ 1697              	.LASF2:
+ 1698 0308 73686F72 		.ascii	"short int\000"
+ 1698      7420696E 
+ 1698      7400
+ 1699              	.LASF18:
+ 1700 0312 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_Enable\000"
+ 1700      5F52585F 
+ 1700      57414B45 
+ 1700      55505F49 
+ 1700      52515F45 
+ 1701              	.LASF9:
+ 1702 032c 75696E74 		.ascii	"uint8\000"
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc2GIQrw.s 			page 41
 
 
- 1702      55505F49 
- 1702      52515F45 
- 1703              	.LASF9:
- 1704 032c 75696E74 		.ascii	"uint8\000"
- 1704      3800
- 1705              	.LASF19:
- 1706 0332 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_Stop\000"
- 1706      5F52585F 
- 1706      57414B45 
- 1706      55505F49 
- 1706      52515F53 
- 1707              	.LASF22:
- 1708 034a 7072696F 		.ascii	"priorityOffset\000"
- 1708      72697479 
- 1708      4F666673 
- 1708      657400
- 1709              	.LASF4:
- 1710 0359 6C6F6E67 		.ascii	"long int\000"
- 1710      20696E74 
- 1710      00
- 1711              	.LASF33:
- 1712 0362 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\UART_RX_WAKEUP_IRQ.c\000"
- 1712      6E657261 
- 1712      7465645F 
- 1712      536F7572 
- 1712      63655C50 
- 1713              	.LASF0:
- 1714 0390 7369676E 		.ascii	"signed char\000"
- 1714      65642063 
- 1714      68617200 
- 1715              	.LASF36:
- 1716 039c 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_GetPriority\000"
- 1716      5F52585F 
- 1716      57414B45 
- 1716      55505F49 
- 1716      52515F47 
- 1717              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 1702      3800
+ 1703              	.LASF19:
+ 1704 0332 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_Stop\000"
+ 1704      5F52585F 
+ 1704      57414B45 
+ 1704      55505F49 
+ 1704      52515F53 
+ 1705              	.LASF22:
+ 1706 034a 7072696F 		.ascii	"priorityOffset\000"
+ 1706      72697479 
+ 1706      4F666673 
+ 1706      657400
+ 1707              	.LASF4:
+ 1708 0359 6C6F6E67 		.ascii	"long int\000"
+ 1708      20696E74 
+ 1708      00
+ 1709              	.LASF33:
+ 1710 0362 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\UART_RX_WAKEUP_IRQ.c\000"
+ 1710      6E657261 
+ 1710      7465645F 
+ 1710      536F7572 
+ 1710      63655C50 
+ 1711              	.LASF0:
+ 1712 0390 7369676E 		.ascii	"signed char\000"
+ 1712      65642063 
+ 1712      68617200 
+ 1713              	.LASF36:
+ 1714 039c 55415254 		.ascii	"UART_RX_WAKEUP_IRQ_GetPriority\000"
+ 1714      5F52585F 
+ 1714      57414B45 
+ 1714      55505F49 
+ 1714      52515F47 
+ 1715              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
