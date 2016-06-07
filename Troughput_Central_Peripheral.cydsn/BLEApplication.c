@@ -51,6 +51,11 @@ uint8_t KEYBOARD=FALSE;
 uint8_t AUTHFLAG=FALSE;
 uint8_t SleepMode=TURE;
 uint8_t Bond=FALSE;
+uint8_t ConnStaus=FALSE;
+uint8_t DeviceConned=FALSE;
+uint16_t m_throughput_server_handler;
+uint16_t m_throughput_cccd_handler;
+uint8_t  m_notify_permission = FALSE;
 /* All zeros passed as  argument passed to CyBle_GapRemoveDeviceFromWhiteList for 
 removing all the bonding data stored */
 CYBLE_GAP_BD_ADDR_T clearAllDevices = {{0,0,0,0,0,0},0};
@@ -103,12 +108,13 @@ uint8_t Baud_rate_idx='7';//默认是115200
 void StackEventHandler(uint32 eventCode, void *eventParam)
 {
     CYBLE_GAPC_ADV_REPORT_T	Scan_Result;
-//    CYBLE_API_RESULT_T API_RESULT=0;
+    CYBLE_API_RESULT_T API_RESULT=0;
     CYBLE_GATTC_FIND_INFO_RSP_PARAM_T DisAllCharResult;  
     uint8_t i=0;
     CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T * handleValueNotification;
     CYBLE_GATTS_WRITE_REQ_PARAM_T writeParam;  
-//    CYBLE_GATTC_READ_BY_TYPE_RSP_PARAM_T DisAllCharResult;
+    CYBLE_GATTC_FIND_INFO_REQ_T range;
+    CYBLE_GATTC_READ_BY_TYPE_RSP_PARAM_T ReadAllCharResult;
 //    CYBLE_GATT_HANDLE_VALUE_PAIR_T handleValuePair;
 //    uint32 PassKey=0;
 //    CYBLE_GATTC_READ_RSP_PARAM_T readParam;
@@ -118,7 +124,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             printf("BLE is Ready\r\n");
             while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
 //            StartScan=TRUE;     
-            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
+//            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
         break;
         case CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT:
             Scan_Result=*(CYBLE_GAPC_ADV_REPORT_T *)eventParam;
@@ -176,11 +182,15 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             else
             {
 //                CommandMode=THROUGHT_MODE;
-                printf("+CONN_EVT=%d,OK\r\n",Conn_or_Disconn_Idx);   
+                printf("+CONN_EVT=%d,OK\r\n",Conn_or_Disconn_Idx); 
+                DeviceConned = TURE;
+                range.startHandle=0x0001;//开始句柄不能从0开始，只能从1开始
+                range.endHandle=0xFFFF;  
+                CyBle_GattcDiscoverAllCharacteristics(cyBle_connHandle,range);//一旦连接完成就开始查找从机的所有的特征值  
 //                与从机连接成功后，主机发起连接间隔更新请求
-                CyBle_GapcConnectionParamUpdateRequest(cyBle_connHandle.bdHandle,&connParam);
+//                CyBle_GapcConnectionParamUpdateRequest(cyBle_connHandle.bdHandle,&connParam);
                 /* Initiate an MTU exchange request CYBLE_GATT_MTU*/
-                CyBle_GattcExchangeMtuReq(cyBle_connHandle,CYBLE_GATT_MTU);
+//                CyBle_GattcExchangeMtuReq(cyBle_connHandle,CYBLE_GATT_MTU);
             }
 //            //主机发送的MTU exchange request
 //            if(MTU_REQ_FLAG)
@@ -255,6 +265,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             }
             while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据                
 //            LowPower_EN=TURE;
+            ConnStaus=TURE;
             AUTHFLAG=FALSE;         
             CommandMode=AT_COMMAND_MODE;
             CTS_Write(CTS_OFF);
@@ -461,17 +472,26 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             }
             break;
         case CYBLE_EVT_GATTC_READ_BY_TYPE_RSP:
-//            DisAllCharResult=*((CYBLE_GATTC_READ_BY_TYPE_RSP_PARAM_T*)eventParam);
+            ReadAllCharResult=*((CYBLE_GATTC_READ_BY_TYPE_RSP_PARAM_T*)eventParam);
 //            printf("characteristic declaration is 0x%04X\r\n",DisAllCharResult.connHandle.bdHandle);
-//            printf("attrLen is %d\r\n",DisAllCharResult.attrData.attrLen);   
-//            for(i=0;i<DisAllCharResult.attrData.attrLen;)
-//            {
-//                printf("Attribute Handle is 0x%02X%02X\r\n",DisAllCharResult.attrData.attrValue[i+1],DisAllCharResult.attrData.attrValue[i]); 
-//                printf("Properties is 0x%02X\r\n",DisAllCharResult.attrData.attrValue[i+2]); 
-//                printf("Pointer Handle is 0x%02X%02X\r\n",DisAllCharResult.attrData.attrValue[i+4],DisAllCharResult.attrData.attrValue[i+3]); 
-//                printf("UUID is 0x%02X%02X\r\n",DisAllCharResult.attrData.attrValue[i+6],DisAllCharResult.attrData.attrValue[i+5]); 
-//                i+=7;
-//            }
+//            printf("attrLen is %d\r\n",ReadAllCharResult.attrData.attrLen);   
+            for(i=0;i<ReadAllCharResult.attrData.attrLen;)
+            {
+//                printf("Attribute Handle is 0x%02X%02X\r\n",ReadAllCharResult.attrData.attrValue[i+1],ReadAllCharResult.attrData.attrValue[i]); 
+//                printf("Properties is 0x%02X\r\n",ReadAllCharResult.attrData.attrValue[i+2]); 
+//                printf("Pointer Handle is 0x%02X%02X\r\n",ReadAllCharResult.attrData.attrValue[i+4],ReadAllCharResult.attrData.attrValue[i+3]); 
+//                printf("UUID is 0x%02X%02X\r\n",ReadAllCharResult.attrData.attrValue[i+6],ReadAllCharResult.attrData.attrValue[i+5]); 
+                if((ReadAllCharResult.attrData.attrValue[i+2]&0x10) == 0x10)//如果Nordic属性权限的做个标志位,并马上查找其CCCD的句柄
+                {
+//                    printf("Flag is Found! 0x%02X\r\n",ReadAllCharResult.attrData.attrValue[i+2]);
+                    m_throughput_server_handler = (ReadAllCharResult.attrData.attrValue[i+4]<<8)|ReadAllCharResult.attrData.attrValue[i+3];
+//                    printf("m_throughput_server_handler is 0x%04X\r\n",m_throughput_server_handler);
+                    range.startHandle=0x0001;//开始句柄不能从0开始，只能从1开始
+                    range.endHandle=0xFFFF;       
+                    API_RESULT=CyBle_GattcDiscoverAllCharacteristicDescriptors(cyBle_connHandle,&range);
+                }
+                i+=7;
+            }
 //            printf("uuid16 is 0x%04X\r\n",DisAllCharResult.uuid.uuid16); 
 //            printf("uuidFormat is 0x%04X\r\n",DisAllCharResult.uuidFormat); 
 //            printf("valueHandle is 0x%04X\r\n",DisAllCharResult.valueHandle);            
@@ -485,9 +505,30 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
 //            printf("byteCount is %d\r\n",DisAllCharResult.handleValueList.byteCount);
             for(i=0;i<DisAllCharResult.handleValueList.byteCount;)
             {                
-                printf("+DIS_EVT=0x%02X%02X,0x%02X%02X\r\n",
-                    DisAllCharResult.handleValueList.list[i+1],DisAllCharResult.handleValueList.list[i],
-                    DisAllCharResult.handleValueList.list[i+3],DisAllCharResult.handleValueList.list[i+2]);
+//                printf("+DIS_EVT=0x%02X%02X,0x%02X%02X\r\n",
+//                    DisAllCharResult.handleValueList.list[i+1],DisAllCharResult.handleValueList.list[i],
+//                    DisAllCharResult.handleValueList.list[i+3],DisAllCharResult.handleValueList.list[i+2]);
+                if(m_throughput_server_handler == ((DisAllCharResult.handleValueList.list[i+1]<<8)|(DisAllCharResult.handleValueList.list[i])))//找到具有通知权限属性的特征句柄时，做个标记
+                {
+                    m_notify_permission = TURE;
+                }
+                if(m_notify_permission)
+                {                    
+                    if(0x2902 == ((DisAllCharResult.handleValueList.list[i+3]<<8)|(DisAllCharResult.handleValueList.list[2])))//如果是透传服务下的CCCD则开启透传功能
+                    {
+                        m_notify_permission = FALSE;
+                        m_throughput_cccd_handler = (DisAllCharResult.handleValueList.list[i+1]<<8)|(DisAllCharResult.handleValueList.list[i]);
+                        writeRequestData.value.val[0]=0x01;
+                        writeRequestData.attrHandle=m_throughput_cccd_handler;
+                        API_RESULT=CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &writeRequestData);
+                        if(CYBLE_ERROR_OK==API_RESULT)
+                        {
+                            CommandMode=THROUGHT_MODE;
+//                            CTS_Write(CTS_ON);
+                            printf("+MODE=THROUGHT_MODE\r\n");
+                        }
+                    }
+                }
                 i=i+4;
             }
         break;
@@ -697,7 +738,7 @@ void SystemInitialization(void)
 //    isr_UserButton_StartEx(MY_ISR_USERBUTTON);
     LedInit();    
     CyBle_Start(StackEventHandler);
-    CyBle_GapFixAuthPassKey(TRUE,PASSKEY);
+//    CyBle_GapFixAuthPassKey(TRUE,PASSKEY);
 //    CyBle_ProcessEvents();
 }
 
@@ -1224,8 +1265,8 @@ void Parser_UartData(const char* SerialData)
             {
                 range.startHandle=0x0001;//开始句柄不能从0开始，只能从1开始
                 range.endHandle=0xFFFF;       
-//                API_RESULT=CyBle_GattcDiscoverAllCharacteristicDescriptors(cyBle_connHandle,&range);
-                CyBle_GattcDiscoverAllCharacteristics(cyBle_connHandle,range);
+                API_RESULT=CyBle_GattcDiscoverAllCharacteristicDescriptors(cyBle_connHandle,&range);
+//                CyBle_GattcDiscoverAllCharacteristics(cyBle_connHandle,range);
             }
             else
             {
@@ -1923,7 +1964,43 @@ void Parser_UartData(const char* SerialData)
             {
                 if(CYBLE_STATE_CONNECTED!=CyBle_GetState())
                 {
-                    
+                    CyBle_GapGetBondedDevicesList(&bondedDevList);//防止即使掉电后，再次发起清除绑定命令仍然有效
+                    if(bondedDevList.count)
+                        Bond=TURE;
+                    else
+                        Bond=FALSE;
+                    switch(idx)
+                    {
+                        case '0':
+                            if(CYBLE_STATE_CONNECTED!=CyBle_GetState())//非连接状态时，解除绑定才有效
+                            {                                                        
+                                if(Bond)
+                                {
+                                    CyBle_GapRemoveDeviceFromWhiteList(&clearAllDevices);//清除绑定先从白名单中清除再清除Flash中的信息
+                                    while(CYBLE_ERROR_OK != CyBle_StoreBondingData(1));
+                                    printf("+BOND=0\r\n");//清除绑定成功
+                                    Bond=FALSE;
+                                }                                             
+                                else
+                                {
+                                    printf("+BOND=2\r\n");//清除绑定失败 
+                                }
+                            }
+                            else
+                            {
+                                printf("AT+ERR=3\r\n");//当前的 BLE 状态下不支持该命令
+                            }
+                        break;
+                        case '?':
+                            if(Bond)
+                               printf("+BOND=1\r\n");//绑定成功 
+                            else
+                                printf("+BOND=0\r\n");//清除绑定成功
+                        break;                        
+                        default:
+                            printf("AT+ERR=5\r\n");//表示没有该AT命令
+                        break;                        
+                    }     
                 }
             }
         break;
@@ -2284,6 +2361,8 @@ void Master_Slave_UartHandler(uint8_t Role)
             {
                 printf("+AUTHKEY=SUCCESFULLY\r\n");
             }
+            UART_SpiUartClearRxBuffer();
+            RxFlag=OVER;//配对请求时输入完密码，要清除串口接收标志位和串口缓冲以防报错
         }
         else
         {

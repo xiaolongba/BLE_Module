@@ -37,10 +37,15 @@ extern uint8 buffer[20];
 extern uint16 negotiatedMtu;
 extern char SetDeviceName[23];
 extern uint8_t Bond;
+extern uint8_t ConnStaus;
+extern CYBLE_GAP_BD_ADDR_T clearAllDevices;
+//extern uint8_t DeviceConned;
 //extern CYBLE_CONN_HANDLE_T	connHandle;
 int main()
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
+    CYBLE_GAP_BONDED_DEV_ADDR_LIST_T bondedDevList;
+    
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
 //    uint8_t test[20]={0};
 //    uint32 test=12345;
@@ -82,6 +87,27 @@ int main()
 //            
 //        }
         Master_Slave_UartHandler(Role);
+        if(ConnStaus)
+        {
+            ConnStaus = FALSE;
+            CyBle_GapGetBondedDevicesList(&bondedDevList);//防止即使掉电后，再次发起清除绑定命令仍然有效
+            if(bondedDevList.count)
+                Bond=TURE;
+            else
+                Bond=FALSE;
+            CyBle_GapRemoveDeviceFromWhiteList(&clearAllDevices);//清除绑定先从白名单中清除再清除Flash中的信息
+            while(CYBLE_ERROR_OK != CyBle_StoreBondingData(1));
+            printf("+BOND=0\r\n");//清除绑定成功
+            Bond=FALSE;
+        }
+//        if(DeviceConned)
+//        {
+//            DeviceConned = FALSE;
+//            range.startHandle=0x0001;//开始句柄不能从0开始，只能从1开始
+//            range.endHandle=0xFFFF;  
+//            CyBle_GattcDiscoverAllCharacteristics(cyBle_connHandle,range);//一旦连接完成就开始查找从机的所有的特征值                
+//            CyBle_ProcessEvents();
+//        }
 //      保存Peer Device的信息到Flash中，即绑定主机端的信息，方便下次快速重连时不用再配对
         #ifdef RELEASE
         if((cyBle_pendingFlashWrite != 0u) &&

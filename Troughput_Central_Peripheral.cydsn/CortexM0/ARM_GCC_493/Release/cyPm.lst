@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
   30:.\Generated_Source\PSoC4/cyPm.c **** *  its main clock can be removed. It is identical to Active from a peripheral
   31:.\Generated_Source\PSoC4/cyPm.c **** *  point of view. Any enabled interrupts can cause wakeup from the  Sleep mode.
   32:.\Generated_Source\PSoC4/cyPm.c **** *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/cyPm.c **** * Parameters:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
   59              		.size	CySysPmSleep, .-CySysPmSleep
   60              		.section	.text.CySysPmDeepSleep,"ax",%progbits
   61              		.align	1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 3
 
 
   62              		.global	CySysPmDeepSleep
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
   89:.\Generated_Source\PSoC4/cyPm.c ****         CY_PM_PWR_CONTROL_REG &= (uint32) (~CY_PM_PWR_CONTROL_HIBERNATE);
   90:.\Generated_Source\PSoC4/cyPm.c ****     #endif /* (CY_IP_SRSSV2) */
   91:.\Generated_Source\PSoC4/cyPm.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 4
 
 
   92:.\Generated_Source\PSoC4/cyPm.c ****     #if (CY_IP_CPUSS && CY_IP_SRSSV2)
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  111 002a 2B68     		ldr	r3, [r5]
  112 002c 0193     		str	r3, [sp, #4]
  113              		.loc 1 107 0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 5
 
 
  114 002e FFF7FEFF 		bl	CySysClkWriteSysclkDiv
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  151              		.type	CySysPmHibernate, %function
  152              	CySysPmHibernate:
  153              	.LFB5:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 6
 
 
  124:.\Generated_Source\PSoC4/cyPm.c **** 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
    2:.\Generated_Source\PSoC4/cyPm.h **** * File Name: cyPm.h
    3:.\Generated_Source\PSoC4/cyPm.h **** * Version 5.30
    4:.\Generated_Source\PSoC4/cyPm.h **** *
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 7
 
 
    5:.\Generated_Source\PSoC4/cyPm.h **** *  Description:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
   59:.\Generated_Source\PSoC4/cyPm.h **** #if(CY_IP_SRSSV2)
   60:.\Generated_Source\PSoC4/cyPm.h **** 
   61:.\Generated_Source\PSoC4/cyPm.h ****     /* CySysPmSetWakeupPolarity() */
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 8
 
 
   62:.\Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_STOP_WAKEUP_ACTIVE_LOW        ((uint32)(0x0u))
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  116:.\Generated_Source\PSoC4/cyPm.h **** *       Register Constants
  117:.\Generated_Source\PSoC4/cyPm.h **** ***************************************/
  118:.\Generated_Source\PSoC4/cyPm.h **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 9
 
 
  119:.\Generated_Source\PSoC4/cyPm.h **** /* CM0 System Control Register Constants */
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  166              		.loc 2 172 0
  167 0006 1F4A     		ldr	r2, .L8
  168              	.LBE5:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 10
 
 
  169              	.LBE4:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  203 0030 1360     		str	r3, [r2]
  185:.\Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT3_PC */
  186:.\Generated_Source\PSoC4/cyPm.h **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 11
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 11
 
 
  187:.\Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT4_PC
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  240 0066 1368     		ldr	r3, [r2]
  241 0068 0B43     		orr	r3, r1
  242 006a 1360     		str	r3, [r2]
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 12
 
 
  179:.\Generated_Source\PSoC4/cyPm.c **** 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  281              		.section	.text.CySysPmSetWakeupPolarity,"ax",%progbits
  282              		.align	1
  283              		.global	CySysPmSetWakeupPolarity
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 13
 
 
  284              		.code	16
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  244:.\Generated_Source\PSoC4/cyPm.c ****         CY_NOP;
  245:.\Generated_Source\PSoC4/cyPm.c ****         CY_NOP;
  246:.\Generated_Source\PSoC4/cyPm.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 14
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 14
 
 
  247:.\Generated_Source\PSoC4/cyPm.c ****         /* Should never get to this WFI instruction */
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  305              		.loc 1 284 0 is_stmt 0 discriminator 1
  306 000e 8021     		mov	r1, #128
  307 0010 1368     		ldr	r3, [r2]
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 15
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 15
 
 
  308 0012 4902     		lsl	r1, r1, #9
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  302:.\Generated_Source\PSoC4/cyPm.c ****     *
  303:.\Generated_Source\PSoC4/cyPm.c ****     * Return:
  304:.\Generated_Source\PSoC4/cyPm.c ****     *  Reset reason.
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 16
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 16
 
 
  305:.\Generated_Source\PSoC4/cyPm.c ****     *  CY_PM_RESET_REASON_UNKN        - unknown
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  334:.\Generated_Source\PSoC4/cyPm.c ****             break;
  335:.\Generated_Source\PSoC4/cyPm.c ****         }
  336:.\Generated_Source\PSoC4/cyPm.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 17
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 17
 
 
  337:.\Generated_Source\PSoC4/cyPm.c ****         return (reason);
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  364:.\Generated_Source\PSoC4/cyPm.c ****         /* Check FREEZE state to avoid recurrent IO-Cells freeze attempt,
  365:.\Generated_Source\PSoC4/cyPm.c ****          * since the second call to this function will cause accidental switch
  366:.\Generated_Source\PSoC4/cyPm.c ****          * to the STOP mode (the system will enter STOP mode immediately after
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 18
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 18
 
 
  367:.\Generated_Source\PSoC4/cyPm.c ****          * writing to STOP bit since both UNLOCK and FREEZE have been set correctly
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  424 0030 003A0280 		.word	-2147337728
  425              		.cfi_endproc
  426              	.LFE9:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 19
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 19
 
 
  427              		.size	CySysPmFreezeIo, .-CySysPmFreezeIo
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  473              		.loc 1 248 0
  474              	@ 248 ".\Generated_Source\PSoC4\cyPm.c" 1
  475 0028 30BF     		WFI 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 20
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 20
 
 
  476              	
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  502              		.cfi_offset 14, -4
  415:.\Generated_Source\PSoC4/cyPm.c ****         uint8 interruptState;
  416:.\Generated_Source\PSoC4/cyPm.c **** 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 21
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 21
 
 
  417:.\Generated_Source\PSoC4/cyPm.c ****         interruptState = CyEnterCriticalSection();
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  533              		.loc 1 435 0
  534 0024 10BD     		pop	{r4, pc}
  535              	.L33:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 22
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 22
 
 
  536 0026 C046     		.align	2
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  590 0057 08       		.byte	0x8
  591 0058 07       		.byte	0x7
  592 0059 EF000000 		.4byte	.LASF7
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 23
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 23
 
 
  593 005d 03       		.uleb128 0x3
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  647 00ce 9A000000 		.4byte	.LASF18
  648 00d2 01       		.byte	0x1
  649 00d3 28       		.byte	0x28
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 24
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 24
 
 
  650 00d4 00000000 		.4byte	.LFB3
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  704 0152 0C       		.uleb128 0xc
  705 0153 3E000000 		.4byte	.LVL5
  706 0157 CA020000 		.4byte	0x2ca
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 25
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 25
 
 
  707 015b 0B       		.uleb128 0xb
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  761 01cf 83000000 		.4byte	0x83
  762 01d3 39000000 		.4byte	.LLST3
  763 01d7 11       		.uleb128 0x11
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 26
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 26
 
 
  764 01d8 2D010000 		.4byte	.LASF20
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  818 0264 E2       		.byte	0xe2
  819 0265 00000000 		.4byte	.LFB6
  820 0269 30000000 		.4byte	.LFE6-.LFB6
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 27
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 27
 
 
  821 026d 01       		.uleb128 0x1
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  875              	.Ldebug_abbrev0:
  876 0000 01       		.uleb128 0x1
  877 0001 11       		.uleb128 0x11
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 28
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 28
 
 
  878 0002 01       		.byte	0x1
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  932 0038 00       		.byte	0
  933 0039 49       		.uleb128 0x49
  934 003a 13       		.uleb128 0x13
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 29
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 29
 
 
  935 003b 00       		.byte	0
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  989 0074 03       		.uleb128 0x3
  990 0075 0E       		.uleb128 0xe
  991 0076 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 30
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 30
 
 
  992 0077 0B       		.uleb128 0xb
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  1046 00b4 1D       		.uleb128 0x1d
  1047 00b5 00       		.byte	0
  1048 00b6 31       		.uleb128 0x31
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 31
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 31
 
 
  1049 00b7 13       		.uleb128 0x13
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  1103 00ee 03       		.uleb128 0x3
  1104 00ef 0E       		.uleb128 0xe
  1105 00f0 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 32
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 32
 
 
  1106 00f1 0B       		.uleb128 0xb
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  1160 0128 00       		.byte	0
  1161 0129 14       		.uleb128 0x14
  1162 012a 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 33
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 33
 
 
  1163 012b 01       		.byte	0x1
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  1217 001b 0100     		.2byte	0x1
  1218 001d 54       		.byte	0x54
  1219 001e 00000000 		.4byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 34
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 34
 
 
  1220 0022 00000000 		.4byte	0
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  1274 00ae 23000000 		.4byte	.LVL20-1
  1275 00b2 0100     		.2byte	0x1
  1276 00b4 50       		.byte	0x50
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 35
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 35
 
 
  1277 00b5 00000000 		.4byte	0
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  1331 0060 00000000 		.4byte	0
  1332 0064 00000000 		.4byte	0
  1333              		.section	.debug_line,"",%progbits
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 36
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 36
 
 
  1334              	.Ldebug_line0:
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  1354              	.LASF7:
  1355 00ef 6C6F6E67 		.ascii	"long long unsigned int\000"
  1355      206C6F6E 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 37
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 37
 
 
  1355      6720756E 
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  1376              	.LASF11:
  1377 01e1 75696E74 		.ascii	"uint32\000"
  1377      333200
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 38
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 38
 
 
  1378              	.LASF34:
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 1
  1401 0288 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\cyPm.c\000"
  1401      6E657261 
  1401      7465645F 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccD5sv5Q.s 			page 39
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccP0afpG.s 			page 39
 
 
  1401      536F7572 

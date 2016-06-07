@@ -1,4 +1,4 @@
---------------- Build Started: 04/18/2016 11:23:39 Project: Troughput_Central_Peripheral, Configuration: ARM GCC 4.9-2015-q1-update Release ---------------
+--------------- Build Started: 06/07/2016 22:18:56 Project: Troughput_Central_Peripheral, Configuration: ARM GCC 4.9-2015-q1-update Release ---------------
 cydsfit.exe -.appdatapath "C:\Users\Helon\AppData\Local\Cypress Semiconductor\PSoC Creator\3.3" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p "G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\Troughput_Central_Peripheral.cyprj" -d CYBL10161-56LQXI -s "G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 Elaborating Design...
 HDL Generation ...
@@ -18,14 +18,14 @@ Clean Temporary Files ...
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/main.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\main.c -o .\CortexM0\ARM_GCC_493\Release\main.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/BLEApplication.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\BLEApplication.c -o .\CortexM0\ARM_GCC_493\Release\BLEApplication.o
 .\BLEApplication.c: In function 'Parser_UartData':
-.\BLEApplication.c:906:50: warning: passing argument 2 of 'WriteUserSFlashRow' from incompatible pointer type
+.\BLEApplication.c:947:50: warning: passing argument 2 of 'WriteUserSFlashRow' from incompatible pointer type
                              WriteUserSFlashRow(1,DeviceNameLen,1,0x00);//灏嗚澶囧悕瀛楅暱搴﹀啓鍏Flash涓紝鎺夌數鏈夋晥
                                                   ^
 In file included from .\BLEApplication.c:17:0:
 .\WriteUserSFlash.h:51:8: note: expected 'uint32 *' but argument is of type 'uint8 *'
  uint32 WriteUserSFlashRow(uint8 userRowNUmber, uint32 *dataPointer,uint8_t datalength,uint8_t address);     
         ^
-.\BLEApplication.c:907:50: warning: passing argument 2 of 'WriteUserSFlashRow' from incompatible pointer type
+.\BLEApplication.c:948:50: warning: passing argument 2 of 'WriteUserSFlashRow' from incompatible pointer type
                              WriteUserSFlashRow(2,Name,DeviceNameLen[0],0x00);//灏嗚澶囧悕鍐欏叆SFlash涓紝鎺夌數鏈夋晥
                                                   ^
 In file included from .\BLEApplication.c:17:0:
@@ -79,6 +79,6 @@ arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_493\Release\Troughput_Central_
 arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.elf .\CortexM0\ARM_GCC_493\Release\main.o .\CortexM0\ARM_GCC_493\Release\BLEApplication.o .\CortexM0\ARM_GCC_493\Release\BLEClient.o .\CortexM0\ARM_GCC_493\Release\WriteUserSFlash.o .\CortexM0\ARM_GCC_493\Release\cymetadata.o .\CortexM0\ARM_GCC_493\Release\Cm0Start.o .\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.a "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\BLE_v3_10\Library\gccCyBLEStack_BLE_SOC_CENTRAL_PERIPHERAL.a" "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_493\Release\CyComponentLibrary.a" -mcpu=cortex-m0 -mthumb -g -ffunction-sections -Os -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_493\Release/Troughput_Central_Peripheral.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
 cyelftool.exe -C "G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.elf" --flash_row_size 128 --flash_size 131072
 cyelftool.exe -S "G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.elf"
-Flash used: 104832 of 131072 bytes (80.0%).
-SRAM used: 14720 of 16384 bytes (89.8%). Stack: 1024 bytes. Heap: 512 bytes.
---------------- Build Succeeded: 04/18/2016 11:24:00 ---------------
+Flash used: 105088 of 131072 bytes (80.2%).
+SRAM used: 14728 of 16384 bytes (89.9%). Stack: 1024 bytes. Heap: 512 bytes.
+--------------- Build Succeeded: 06/07/2016 22:19:23 ---------------

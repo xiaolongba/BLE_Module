@@ -159,7 +159,7 @@
     CYBLE_GAP_IOCAP_NOINPUT_NOOUTPUT
     CYBLE_GAP_IOCAP_KEYBOARD_DISPLAY
 */
-#define CYBLE_IO_CAPABILITY                         (CYBLE_GAP_IOCAP_DISPLAY_ONLY)
+#define CYBLE_IO_CAPABILITY                         (CYBLE_GAP_IOCAP_KEYBOARD_ONLY)
 #define CYBLE_PAIRING_METHOD                        (0x00u)
 #define CYBLE_BONDING_REQUIREMENT                   (0x00u)
 
