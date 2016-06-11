@@ -47,6 +47,7 @@
 #include "Timer.h"
 #include "CTS.h"
 #include "CTS_aliases.h"
+#include "Wdt_Isr.h"
 #include "BLE_bless_isr.h"
 #include "UART_SCBCLK.h"
 #include "UART_rx_wake.h"

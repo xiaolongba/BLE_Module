@@ -1,5 +1,5 @@
 # Troughput_Central_Peripheral
-# 2016-06-07 14:19:03Z
+# 2016-06-11 13:00:03Z
 
 # IO_0@[IOP=(6)][IoId=(0)] is reserved: KhzXtalEnabled
 dont_use_io iocell 6 0
@@ -35,3 +35,5 @@ set_location "\UART:SCB_IRQ\" interrupt -1 -1 10
 set_location "\UART:SCB\" m0s8scbcell -1 -1 1
 set_location "TimerInterrupt" interrupt -1 -1 19
 set_location "\Timer:cy_m0s8_tcpwm_1\" m0s8tcpwmcell -1 -1 2
+set_location "Wdt_Isr" interrupt -1 -1 8
+set_location "WDT" m0s8wdtcell -1 -1 0

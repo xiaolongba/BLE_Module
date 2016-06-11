@@ -1206,6 +1206,7 @@
 <dep name=".\Generated_Source\PSoC4\UART_uart_rx_i2c_sda_spi_mosi_aliases.h" />
 <dep name=".\Generated_Source\PSoC4\UART_uart_tx_i2c_scl_spi_miso.h" />
 <dep name=".\Generated_Source\PSoC4\UART_uart_tx_i2c_scl_spi_miso_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Wdt_Isr.h" />
 <dep name=".\Generated_Source\PSoC4\core_cm0.h" />
 <dep name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
 <dep name=".\Generated_Source\PSoC4\core_cmFunc.h" />
@@ -1271,6 +1272,7 @@
 <file name=".\Generated_Source\PSoC4\UART_uart_rx_i2c_sda_spi_mosi_aliases.h" />
 <file name=".\Generated_Source\PSoC4\UART_uart_tx_i2c_scl_spi_miso.h" />
 <file name=".\Generated_Source\PSoC4\UART_uart_tx_i2c_scl_spi_miso_aliases.h" />
+<file name=".\Generated_Source\PSoC4\Wdt_Isr.h" />
 <file name=".\Generated_Source\PSoC4\core_cm0.h" />
 <file name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
 <file name=".\Generated_Source\PSoC4\core_cmFunc.h" />
@@ -1336,6 +1338,7 @@
 <dep name=".\Generated_Source\PSoC4\UART_uart_rx_i2c_sda_spi_mosi_aliases.h" />
 <dep name=".\Generated_Source\PSoC4\UART_uart_tx_i2c_scl_spi_miso.h" />
 <dep name=".\Generated_Source\PSoC4\UART_uart_tx_i2c_scl_spi_miso_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Wdt_Isr.h" />
 <dep name=".\Generated_Source\PSoC4\core_cm0.h" />
 <dep name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
 <dep name=".\Generated_Source\PSoC4\core_cmFunc.h" />
@@ -1402,6 +1405,7 @@
 <dep name=".\Generated_Source\PSoC4\UART_uart_rx_i2c_sda_spi_mosi_aliases.h" />
 <dep name=".\Generated_Source\PSoC4\UART_uart_tx_i2c_scl_spi_miso.h" />
 <dep name=".\Generated_Source\PSoC4\UART_uart_tx_i2c_scl_spi_miso_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Wdt_Isr.h" />
 <dep name=".\Generated_Source\PSoC4\core_cm0.h" />
 <dep name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
 <dep name=".\Generated_Source\PSoC4\core_cmFunc.h" />
@@ -1467,6 +1471,7 @@
 <dep name=".\Generated_Source\PSoC4\UART_uart_rx_i2c_sda_spi_mosi_aliases.h" />
 <dep name=".\Generated_Source\PSoC4\UART_uart_tx_i2c_scl_spi_miso.h" />
 <dep name=".\Generated_Source\PSoC4\UART_uart_tx_i2c_scl_spi_miso_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Wdt_Isr.h" />
 <dep name=".\Generated_Source\PSoC4\core_cm0.h" />
 <dep name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
 <dep name=".\Generated_Source\PSoC4\core_cmFunc.h" />
@@ -2045,6 +2050,17 @@
 <dep name=".\Generated_Source\PSoC4\cytypes.h" />
 </file>
 <file name=".\Generated_Source\PSoC4\UART_tx_PM.c" />
+<file name=".\CortexM0\ARM_GCC_493\Release\Wdt_Isr.o">
+<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
+<dep name=".\Generated_Source\PSoC4\CyLib.h" />
+<dep name=".\Generated_Source\PSoC4\Wdt_Isr.c" />
+<dep name=".\Generated_Source\PSoC4\Wdt_Isr.h" />
+<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC4\cytypes.h" />
+<dep name=".\cyapicallbacks.h" />
+</file>
+<file name=".\Generated_Source\PSoC4\Wdt_Isr.c" />
 <file name=".\CortexM0\ARM_GCC_493\Release\cyPm.o">
 <dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
 <dep name=".\Generated_Source\PSoC4\CyLib.h" />
@@ -2222,6 +2238,7 @@
 <dep name=".\CortexM0\ARM_GCC_493\Release\UART_rx_wake.o" />
 <dep name=".\CortexM0\ARM_GCC_493\Release\UART_rx_wake_PM.o" />
 <dep name=".\CortexM0\ARM_GCC_493\Release\UART_RX_WAKEUP_IRQ.o" />
+<dep name=".\CortexM0\ARM_GCC_493\Release\Wdt_Isr.o" />
 <dep name=".\CortexM0\ARM_GCC_493\Release\Troughput_Central_Peripheral.a" />
 <dep name="${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_493\Release\CyComponentLibrary.a" />
 </file>
@@ -2360,6 +2377,7 @@
 <name_val_pair name=".\Generated_Source\PSoC4\UART_tx_PM.c" v="-mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects" />
 <name_val_pair name=".\Generated_Source\PSoC4\CTS_PM.c" v="-mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects" />
 <name_val_pair name=".\Generated_Source\PSoC4\UART_rx_wake_PM.c" v="-mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects" />
+<name_val_pair name=".\Generated_Source\PSoC4\Wdt_Isr.c" v="-mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects" />
 </name>
 </genericCmdLineData>
 <codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\Helon\AppData\Local\Cypress Semiconductor\PSoC Creator\3.3&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p &quot;G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\Troughput_Central_Peripheral.cyprj&quot; -d CYBL10161-56LQXI -s &quot;G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\Generated_Source\PSoC4&quot; -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
@@ -2996,6 +3014,25 @@
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC4\API\pins.h</v>
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC4\API\aliases.h</v>
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC4\API\pins_PM.c</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_gsref_v2_0\cy_gsref_v2_0.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_gsref_v2_0\cy_gsref_v2_0.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_gsref_v2_0\cy_gsref_v2_0.cystate</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_gsref_v2_0\cy_gsref_v2_0.cyprimitive</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_gsref_v2_0\Custom\custom.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_gsref_v2_0\Custom\cycenteredtextcontrol.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_gsref_v2_0\Custom\cycenteredtextcontrol.designer.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_gsref_v2_0\Custom\cygsrefidcontrol.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_gsref_v2_0\Custom\cygsrefidcontrol.designer.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_gsref_v2_0\Custom\cycenteredtextcontrol.resx</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_gsref_v2_0\Custom\cygsrefidcontrol.resx</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_gsref_v2_0</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\cy_isr_v1_70.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\cy_isr_v1_70.primitive</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\cy_isr_v1_70.cystate</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\Custom\custom.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\PSoC4\API\intc.c</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\PSoC4\API\intc.h</v>
 <v>.\Troughput_Central_Peripheral.cydwr</v>
 <v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\cy_boot_v5_30\PSoC4\API\cm0gcc.ld</v>
 <v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\cy_boot_v5_30\PSoC4\API\Cm0RealView.scat</v>
@@ -3157,20 +3194,22 @@
 <v>.\Generated_Source\PSoC4\UART_rx_wake_PM.c</v>
 <v>.\Generated_Source\PSoC4\UART_RX_WAKEUP_IRQ.c</v>
 <v>.\Generated_Source\PSoC4\UART_RX_WAKEUP_IRQ.h</v>
+<v>.\Generated_Source\PSoC4\Wdt_Isr.c</v>
+<v>.\Generated_Source\PSoC4\Wdt_Isr.h</v>
 </gen_list>
 <warp_dep>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 </warp_dep>
-<deps_time v="131097827470492909" />
+<deps_time v="131101236058905931" />
 <top_block v="TopDesign" />
 <last_generation v="0" />
 </CyGuid_925cc1e1-309e-4e08-b0a1-09a83c35b157>
 </dataGuid>
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
-<deps_time v="131097827631648393" />
+<deps_time v="131101236201084063" />
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
 <dataGuid v="504337dd-7d07-4bc7-9057-90e60cf6c469">

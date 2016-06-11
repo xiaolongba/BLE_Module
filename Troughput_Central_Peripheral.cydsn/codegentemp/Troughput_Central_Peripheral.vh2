@@ -2,7 +2,7 @@
 --	Conversion of Troughput_Central_Peripheral.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Jun 07 22:19:01 2016
+--	Sat Jun 11 21:00:02 2016
 --
 
 USE cypress.cypress.all;
@@ -98,6 +98,7 @@ SIGNAL tmpFB_0__CTS_net_0 : bit;
 SIGNAL tmpIO_0__CTS_net_0 : bit;
 TERMINAL tmpSIOVREF__CTS_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__CTS_net_0 : bit;
+SIGNAL Net_91 : bit;
 BEGIN
 
 zero <=  ('0') ;
@@ -535,5 +536,11 @@ CTS:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__CTS_net_0);
+WdtInt:cy_gsref_v1_0
+	GENERIC MAP(guid=>"1563FAA8-0748-4a1c-9785-CED309984BE3")
+	PORT MAP(sig_out=>Net_91);
+Wdt_Isr:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10")
+	PORT MAP(int_signal=>Net_91);
 
 END R_T_L;

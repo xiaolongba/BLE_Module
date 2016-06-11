@@ -1,5 +1,5 @@
 -- Project:   Troughput_Central_Peripheral
--- Generated: 06/07/2016 22:19:03
+-- Generated: 06/11/2016 21:00:03
 -- PSoC Creator  3.3 CP2
 
 ENTITY Troughput_Central_Peripheral IS
@@ -48,6 +48,7 @@ ARCHITECTURE __DEFAULT__ OF Troughput_Central_Peripheral IS
     SIGNAL Net_82 : bit;
     SIGNAL Net_90 : bit;
     SIGNAL Status_LED(0)__PA : bit;
+    SIGNAL WDT_INT_OUT : bit;
     SIGNAL \BLE:Net_15\ : bit;
     SIGNAL \UART:Net_1053\ : bit;
     SIGNAL \UART:Net_1055\ : bit;
@@ -92,6 +93,8 @@ ARCHITECTURE __DEFAULT__ OF Troughput_Central_Peripheral IS
     ATTRIBUTE Location OF \UART:SCB\ : LABEL IS "F(SCB,1)";
     ATTRIBUTE Location OF TimerInterrupt : LABEL IS "[IntrContainer=(0)][IntrId=(19)]";
     ATTRIBUTE Location OF \Timer:cy_m0s8_tcpwm_1\ : LABEL IS "F(TCPWM,2)";
+    ATTRIBUTE Location OF Wdt_Isr : LABEL IS "[IntrContainer=(0)][IntrId=(8)]";
+    ATTRIBUTE Location OF WDT : LABEL IS "F(WDT,0)";
     COMPONENT interrupt
         PORT (
             interrupt : IN std_ulogic;
@@ -289,6 +292,10 @@ ARCHITECTURE __DEFAULT__ OF Troughput_Central_Peripheral IS
             line_out : OUT std_ulogic;
             line_out_compl : OUT std_ulogic;
             interrupt : OUT std_ulogic);
+    END COMPONENT;
+    COMPONENT m0s8wdtcell
+        PORT (
+            wdt_int : OUT std_ulogic);
     END COMPONENT;
     COMPONENT p4blecell
         PORT (
@@ -845,5 +852,16 @@ BEGIN
             line_out => Net_74,
             line_out_compl => Net_75,
             interrupt => Net_82);
+
+    Wdt_Isr:interrupt
+        GENERIC MAP(
+            int_type => "10")
+        PORT MAP(
+            interrupt => WDT_INT_OUT,
+            clock => ClockBlock_HFCLK);
+
+    WDT:m0s8wdtcell
+        PORT MAP(
+            wdt_int => WDT_INT_OUT);
 
 END __DEFAULT__;

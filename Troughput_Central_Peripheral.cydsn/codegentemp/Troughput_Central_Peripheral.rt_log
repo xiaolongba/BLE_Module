@@ -13,7 +13,7 @@ I1206: Completed Reading of file Troughput_Central_Peripheral.sdc
 I1204: Reading architecture from file C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\dev/psoc4/3/proc_route_arch-rrg.cydata
 I1206: Completed Reading of file C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\dev/psoc4/3/proc_route_arch-rrg.cydata
 I1209: Started routing
-I1223: Total Nets : 5 
+I1223: Total Nets : 6 
 I1212: Iteration  1 :     0 unrouted : 0 seconds
 I1215: Routing is successful
 I1207: Completed routing

@@ -579,6 +579,17 @@
 #define Timer_cy_m0s8_tcpwm_1__TR_CTRL1 CYREG_TCPWM_CNT2_TR_CTRL1
 #define Timer_cy_m0s8_tcpwm_1__TR_CTRL2 CYREG_TCPWM_CNT2_TR_CTRL2
 
+/* Wdt_Isr */
+#define Wdt_Isr__INTC_CLR_EN_REG CYREG_CM0_ICER
+#define Wdt_Isr__INTC_CLR_PD_REG CYREG_CM0_ICPR
+#define Wdt_Isr__INTC_MASK 0x100u
+#define Wdt_Isr__INTC_NUMBER 8u
+#define Wdt_Isr__INTC_PRIOR_MASK 0xC0u
+#define Wdt_Isr__INTC_PRIOR_NUM 3u
+#define Wdt_Isr__INTC_PRIOR_REG CYREG_CM0_IPR2
+#define Wdt_Isr__INTC_SET_EN_REG CYREG_CM0_ISER
+#define Wdt_Isr__INTC_SET_PD_REG CYREG_CM0_ISPR
+
 /* Status_LED */
 #define Status_LED__0__DR CYREG_GPIO_PRT2_DR
 #define Status_LED__0__DR_CLR CYREG_GPIO_PRT2_DR_CLR
@@ -849,7 +860,7 @@
 #define CYDEV_VDDD_MV 3300
 #define CYDEV_VDDR 3.3
 #define CYDEV_VDDR_MV 3300
-#define CYDEV_WDT_GENERATE_ISR 1u
+#define CYDEV_WDT_GENERATE_ISR 0u
 #define CYIPBLOCK_m0s8bless_VERSION 1
 #define CYIPBLOCK_m0s8cpussv2_VERSION 1
 #define CYIPBLOCK_m0s8ioss_VERSION 1

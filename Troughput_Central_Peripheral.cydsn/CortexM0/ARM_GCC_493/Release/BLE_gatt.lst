@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
   30:.\Generated_Source\PSoC4/BLE_gatt.c ****         CY_ALIGN(CYDEV_FLS_ROW_SIZE) const CY_BLE_FLASH_STORAGE cyBle_flashStorage CY_SECTION(".cy_
   31:.\Generated_Source\PSoC4/BLE_gatt.c ****     #elif defined (__GNUC__)
   32:.\Generated_Source\PSoC4/BLE_gatt.c ****         const CY_BLE_FLASH_STORAGE cyBle_flashStorage CY_SECTION(".cy_checksum_exclude")
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/BLE_gatt.c ****             CY_ALIGN(CYDEV_FLS_ROW_SIZE) =
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
   87:.\Generated_Source\PSoC4/BLE_gatt.c ****         },
   88:.\Generated_Source\PSoC4/BLE_gatt.c ****         {
   89:.\Generated_Source\PSoC4/BLE_gatt.c ****             0x00u, 0x00u, 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 3
 
 
   90:.\Generated_Source\PSoC4/BLE_gatt.c ****             0x00u, 0x00u, 
@@ -157,7 +157,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  123:.\Generated_Source\PSoC4/BLE_gatt.c ****     0x00u, 0x00u, 
  124:.\Generated_Source\PSoC4/BLE_gatt.c **** 
  125:.\Generated_Source\PSoC4/BLE_gatt.c ****     /* Peripheral Preferred Connection Parameters */
- 126:.\Generated_Source\PSoC4/BLE_gatt.c ****     0x06u, 0x00u, 0x28u, 0x00u, 0x00u, 0x00u, 0xE8u, 0x03u, 
+ 126:.\Generated_Source\PSoC4/BLE_gatt.c ****     0x06u, 0x00u, 0x28u, 0x00u, 0x00u, 0x00u, 0x64u, 0x00u, 
  127:.\Generated_Source\PSoC4/BLE_gatt.c **** 
  128:.\Generated_Source\PSoC4/BLE_gatt.c ****     /* Service Changed */
  129:.\Generated_Source\PSoC4/BLE_gatt.c ****     0x00u, 0x00u, 0x00u, 0x00u, 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  144:.\Generated_Source\PSoC4/BLE_gatt.c **** CYBLE_GATTS_ATT_GEN_VAL_LEN_T cyBle_attValuesLen[CYBLE_GATT_DB_ATT_VAL_COUNT] = {
  145:.\Generated_Source\PSoC4/BLE_gatt.c ****     { 0x0017u, (void *)&cyBle_attValues[0] }, /* Device Name */
  146:.\Generated_Source\PSoC4/BLE_gatt.c ****     { 0x0002u, (void *)&cyBle_attValues[23] }, /* Appearance */
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 4
 
 
  147:.\Generated_Source\PSoC4/BLE_gatt.c ****     { 0x0008u, (void *)&cyBle_attValues[25] }, /* Peripheral Preferred Connection Parameters */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  201:.\Generated_Source\PSoC4/BLE_gatt.c **** *  CYBLE_ERROR_OK						 | GATT database was reinitialized successfully.
  202:.\Generated_Source\PSoC4/BLE_gatt.c **** *  CYBLE_ERROR_INVALID_STATE             | If the function is called in any state except CYBLE_STAT
  203:.\Generated_Source\PSoC4/BLE_gatt.c **** *  CYBLE_ERROR_INVALID_PARAMETER         | If the Database has zero entries or is a NULL pointer.
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 5
 
 
  204:.\Generated_Source\PSoC4/BLE_gatt.c **** * 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
   63              		.align	1
   64              		.global	CyBle_GattsWriteEventHandler
   65              		.code	16
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 6
 
 
   66              		.thumb_func
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
   91 0010 221C     		mov	r2, r4
   92 0012 3533     		add	r3, r3, #53
   93 0014 FFF7FEFF 		bl	CyBle_GattsWriteAttributeValue
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 7
 
 
   94              	.LVL5:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  265:.\Generated_Source\PSoC4/BLE_gatt.c **** }
  131              		.loc 1 265 0
  132 0042 281C     		mov	r0, r5
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 8
 
 
  133              		@ sp needed
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  187 004c 00000000 		.word	0
  188 0050 0500     		.short	5
  189 0052 012A     		.short	10753
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 9
 
 
  190 0054 01020000 		.word	513
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  244 00dc 0C00     		.short	12
  245 00de 0028     		.short	10240
  246 00e0 01000000 		.word	1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 10
 
 
  247 00e4 1100     		.short	17
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  301              		.size	cyBle_attValuesLen, 64
  302              	cyBle_attValuesLen:
  303 0000 1700     		.short	23
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 11
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 11
 
 
  304 0002 0000     		.space	2
@@ -658,11 +658,11 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  358 005c 00       		.byte	0
  359 005d 00       		.byte	0
  360 005e 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 12
 
 
- 361 005f E8       		.byte	-24
- 362 0060 03       		.byte	3
+ 361 005f 64       		.byte	100
+ 362 0060 00       		.byte	0
  363 0061 00       		.byte	0
  364 0062 00       		.byte	0
  365 0063 00       		.byte	0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  415 0095 00       		.byte	0
  416 0096 00       		.byte	0
  417 0097 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 13
 
 
  418              		.section	.cy_checksum_exclude,"a",%progbits
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  472 0031 00       		.byte	0
  473 0032 00       		.byte	0
  474 0033 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 14
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 14
 
 
  475 0034 00       		.byte	0
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  529 006a 00       		.byte	0
  530 006b 00       		.byte	0
  531 006c 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 15
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 15
 
 
  532 006d 00       		.byte	0
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  586 00a3 00       		.byte	0
  587 00a4 00       		.byte	0
  588 00a5 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 16
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 16
 
 
  589 00a6 00       		.byte	0
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  643 00dc 00       		.byte	0
  644 00dd 00       		.byte	0
  645 00de 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 17
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 17
 
 
  646 00df 00       		.byte	0
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  700 0115 00       		.byte	0
  701 0116 00       		.byte	0
  702 0117 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 18
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 18
 
 
  703 0118 00       		.byte	0
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  757 014e 00       		.byte	0
  758 014f 00       		.byte	0
  759 0150 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 19
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 19
 
 
  760 0151 00       		.byte	0
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  814 0187 00       		.byte	0
  815 0188 00       		.byte	0
  816 0189 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 20
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 20
 
 
  817 018a 00       		.byte	0
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  871 01c0 00       		.byte	0
  872 01c1 00       		.byte	0
  873 01c2 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 21
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 21
 
 
  874 01c3 00       		.byte	0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  928 01f9 00       		.byte	0
  929 01fa 00       		.byte	0
  930 01fb 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 22
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 22
 
 
  931 01fc 00       		.byte	0
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  985 0232 00       		.byte	0
  986 0233 00       		.byte	0
  987 0234 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 23
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 23
 
 
  988 0235 00       		.byte	0
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1042 026b 00       		.byte	0
  1043 026c 00       		.byte	0
  1044 026d 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 24
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 24
 
 
  1045 026e 00       		.byte	0
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1095 000c F2230000 		.4byte	.LASF486
  1096 0010 01       		.byte	0x1
  1097 0011 421D0000 		.4byte	.LASF487
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 25
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 25
 
 
  1098 0015 3D080000 		.4byte	.LASF488
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1152 0083 04       		.uleb128 0x4
  1153 0084 B4020000 		.4byte	.LASF11
  1154 0088 02       		.byte	0x2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 26
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 26
 
 
  1155 0089 3A01     		.2byte	0x13a
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1209 00f1 08       		.uleb128 0x8
  1210 00f2 8F1C0000 		.4byte	.LASF25
  1211 00f6 22       		.sleb128 34
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 27
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 27
 
 
  1212 00f7 08       		.uleb128 0x8
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1266 0164 08       		.uleb128 0x8
  1267 0165 76020000 		.4byte	.LASF44
  1268 0169 C100     		.sleb128 65
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 28
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 28
 
 
  1269 016b 08       		.uleb128 0x8
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1323 01e9 08       		.uleb128 0x8
  1324 01ea AE390000 		.4byte	.LASF63
  1325 01ee D400     		.sleb128 84
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 29
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 29
 
 
  1326 01f0 08       		.uleb128 0x8
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1380 026e 00       		.byte	0
  1381 026f 07       		.uleb128 0x7
  1382 0270 02       		.byte	0x2
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 30
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 30
 
 
  1383 0271 03       		.byte	0x3
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1437 02de 08       		.uleb128 0x8
  1438 02df 1E200000 		.4byte	.LASF99
  1439 02e3 11       		.sleb128 17
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 31
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 31
 
 
  1440 02e4 08       		.uleb128 0x8
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1494 0354 AB       		.byte	0xab
  1495 0355 52040000 		.4byte	0x452
  1496 0359 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 32
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 32
 
 
  1497 035a E82A0000 		.4byte	.LASF115
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1551 03c6 B9110000 		.4byte	.LASF133
  1552 03ca 8001     		.sleb128 128
  1553 03cc 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 33
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 33
 
 
  1554 03cd CF170000 		.4byte	.LASF134
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1608 044b FB260000 		.4byte	.LASF152
  1609 044f FF01     		.sleb128 255
  1610 0451 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 34
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 34
 
 
  1611 0452 04       		.uleb128 0x4
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1665 04c5 77000000 		.4byte	0x77
  1666 04c9 06       		.byte	0x6
  1667 04ca 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 35
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 35
 
 
  1668 04cb 04       		.uleb128 0x4
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1722 0536 C3       		.byte	0xc3
  1723 0537 54050000 		.4byte	0x554
  1724 053b 0F       		.uleb128 0xf
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 36
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 36
 
 
  1725 053c 592C0000 		.4byte	.LASF166
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1779 05a5 C01A0000 		.4byte	.LASF173
  1780 05a9 06       		.byte	0x6
  1781 05aa E7       		.byte	0xe7
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 37
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 37
 
 
  1782 05ab 77000000 		.4byte	0x77
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1836 061b 04       		.byte	0x4
  1837 061c 20060000 		.4byte	0x620
  1838 0620 13       		.uleb128 0x13
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 38
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 38
 
 
  1839 0621 30060000 		.4byte	0x630
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1893 068f 08       		.byte	0x8
  1894 0690 A5       		.byte	0xa5
  1895 0691 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 39
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 39
 
 
  1896 0695 8D02     		.2byte	0x28d
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  1950 070a BB0E0000 		.4byte	.LASF197
  1951 070e 8602     		.sleb128 262
  1952 0710 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 40
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 40
 
 
  1953 0711 EA000000 		.4byte	.LASF198
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2007 078f 32140000 		.4byte	.LASF216
  2008 0793 9902     		.sleb128 281
  2009 0795 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 41
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 41
 
 
  2010 0796 8F310000 		.4byte	.LASF217
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2064 0814 2B030000 		.4byte	.LASF235
  2065 0818 AC02     		.sleb128 300
  2066 081a 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 42
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 42
 
 
  2067 081b 6B000000 		.4byte	.LASF236
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2121 0899 E7340000 		.4byte	.LASF254
  2122 089d BF02     		.sleb128 319
  2123 089f 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 43
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 43
 
 
  2124 08a0 18080000 		.4byte	.LASF255
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2178 091e 022B0000 		.4byte	.LASF273
  2179 0922 D202     		.sleb128 338
  2180 0924 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 44
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 44
 
 
  2181 0925 28260000 		.4byte	.LASF274
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2235 09a3 D5140000 		.4byte	.LASF292
  2236 09a7 E502     		.sleb128 357
  2237 09a9 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 45
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 45
 
 
  2238 09aa E7220000 		.4byte	.LASF293
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2292 0a28 A20B0000 		.4byte	.LASF311
  2293 0a2c F802     		.sleb128 376
  2294 0a2e 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 46
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 46
 
 
  2295 0a2f 6C310000 		.4byte	.LASF312
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2349 0aad EB200000 		.4byte	.LASF330
  2350 0ab1 8B03     		.sleb128 395
  2351 0ab3 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 47
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 47
 
 
  2352 0ab4 540C0000 		.4byte	.LASF331
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2406 0b32 353B0000 		.4byte	.LASF349
  2407 0b36 9E03     		.sleb128 414
  2408 0b38 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 48
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 48
 
 
  2409 0b39 56270000 		.4byte	.LASF350
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2463 0bb7 FD0B0000 		.4byte	.LASF368
  2464 0bbb B103     		.sleb128 433
  2465 0bbd 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 49
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 49
 
 
  2466 0bbe 6C070000 		.4byte	.LASF369
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2520 0c3c D7050000 		.4byte	.LASF387
  2521 0c40 C403     		.sleb128 452
  2522 0c42 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 50
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 50
 
 
  2523 0c43 4B2B0000 		.4byte	.LASF388
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2577 0cc1 9C270000 		.4byte	.LASF406
  2578 0cc5 D703     		.sleb128 471
  2579 0cc7 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 51
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 51
 
 
  2580 0cc8 B2030000 		.4byte	.LASF407
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2634 0d46 901D0000 		.4byte	.LASF425
  2635 0d4a EA03     		.sleb128 490
  2636 0d4c 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 52
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 52
 
 
  2637 0d4d AF2C0000 		.4byte	.LASF426
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2691 0dcb 381A0000 		.4byte	.LASF444
  2692 0dcf FD03     		.sleb128 509
  2693 0dd1 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 53
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 53
 
 
  2694 0dd2 430E0000 		.4byte	.LASF445
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2748 0e4d BF07     		.2byte	0x7bf
  2749 0e4f 7E0E0000 		.4byte	0xe7e
  2750 0e53 08       		.uleb128 0x8
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 54
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 54
 
 
  2751 0e54 590D0000 		.4byte	.LASF462
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2805 0ec4 01       		.uleb128 0x1
  2806 0ec5 41       		.byte	0x41
  2807 0ec6 1D       		.uleb128 0x1d
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 55
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 55
 
 
  2808 0ec7 01       		.uleb128 0x1
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2862 0f2d 7E100000 		.4byte	0x107e
  2863 0f31 21       		.uleb128 0x21
  2864 0f32 38000000 		.4byte	.LVL9
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 56
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 56
 
 
  2865 0f36 1D       		.uleb128 0x1d
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2919 0fa4 42200000 		.4byte	.LASF478
  2920 0fa8 01       		.byte	0x1
  2921 0fa9 9B       		.byte	0x9b
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 57
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 57
 
 
  2922 0faa B40F0000 		.4byte	0xfb4
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  2976 1022 26       		.uleb128 0x26
  2977 1023 FA300000 		.4byte	.LASF483
  2978 1027 06       		.byte	0x6
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 58
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 58
 
 
  2979 1028 4E01     		.2byte	0x14e
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3033 0001 11       		.uleb128 0x11
  3034 0002 01       		.byte	0x1
  3035 0003 25       		.uleb128 0x25
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 59
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 59
 
 
  3036 0004 0E       		.uleb128 0xe
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3090 003a 13       		.uleb128 0x13
  3091 003b 00       		.byte	0
  3092 003c 00       		.byte	0
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 60
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 60
 
 
  3093 003d 06       		.uleb128 0x6
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3147 0073 0B       		.uleb128 0xb
  3148 0074 0B       		.uleb128 0xb
  3149 0075 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 61
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 61
 
 
  3150 0076 0B       		.uleb128 0xb
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3204 00ac 0E       		.uleb128 0xe
  3205 00ad 3A       		.uleb128 0x3a
  3206 00ae 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 62
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 62
 
 
  3207 00af 3B       		.uleb128 0x3b
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3261 00e5 00       		.byte	0
  3262 00e6 00       		.byte	0
  3263 00e7 14       		.uleb128 0x14
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 63
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 63
 
 
  3264 00e8 05       		.uleb128 0x5
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3318 011e 00       		.byte	0
  3319 011f 49       		.uleb128 0x49
  3320 0120 13       		.uleb128 0x13
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 64
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 64
 
 
  3321 0121 2F       		.uleb128 0x2f
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3375 015a 00       		.byte	0
  3376 015b 1D       		.uleb128 0x1d
  3377 015c 8A8201   		.uleb128 0x410a
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 65
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 65
 
 
  3378 015f 00       		.byte	0
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3432 019c 3A       		.uleb128 0x3a
  3433 019d 0B       		.uleb128 0xb
  3434 019e 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 66
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 66
 
 
  3435 019f 0B       		.uleb128 0xb
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3489 01d5 0E       		.uleb128 0xe
  3490 01d6 3A       		.uleb128 0x3a
  3491 01d7 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 67
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 67
 
 
  3492 01d8 3B       		.uleb128 0x3b
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3546 0061 1E000000 		.4byte	.LVL7
  3547 0065 44000000 		.4byte	.LVL11
  3548 0069 0100     		.2byte	0x1
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 68
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 68
 
 
  3549 006b 55       		.byte	0x55
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3585              	.LASF236:
  3586 006b 4359424C 		.ascii	"CYBLE_EVT_BCSC_READ_CHAR_RESPONSE\000"
  3586      455F4556 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 69
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 69
 
 
  3586      545F4243 
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3604      545F4353 
  3604      4353435F 
  3604      52454144 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 70
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 70
 
 
  3605              	.LASF264:
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3624      44455343 
  3625              	.LASF413:
  3626 02e2 4359424C 		.ascii	"CYBLE_EVT_RSCSC_WRITE_DESCR_RESPONSE\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 71
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 71
 
 
  3626      455F4556 
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3644      455F4556 
  3644      545F5450 
  3644      53535F4E 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 72
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 72
 
 
  3644      4F544946 
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3662      44415441 
  3663              	.LASF76:
  3664 0573 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_RX_CREDIT_IND\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 73
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 73
 
 
  3664      455F4556 
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3682      4353435F 
  3682      494E4449 
  3683              	.LASF61:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 74
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 74
 
 
  3684 067e 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_NTF\000"
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3702 0786 4359424C 		.ascii	"CYBLE_EVT_BMSC_READ_CHAR_RESPONSE\000"
  3702      455F4556 
  3702      545F424D 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 75
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 75
 
 
  3702      53435F52 
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3720      4541445F 
  3721              	.LASF268:
  3722 08eb 4359424C 		.ascii	"CYBLE_EVT_CPSS_INDICATION_DISABLED\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 76
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 76
 
 
  3722      455F4556 
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3740      53535F49 
  3740      4E444943 
  3741              	.LASF193:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 77
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 77
 
 
  3742 0a2f 4359424C 		.ascii	"CYBLE_LONG_TERM_KEY_REQUEST_REPLY\000"
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3760      455F4552 
  3760      524F525F 
  3760      43484152 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 78
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 78
 
 
  3760      5F49535F 
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3780      455F4556 
  3780      545F4849 
  3780      4453535F 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 79
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 79
 
 
  3780      53555350 
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3800      455F4556 
  3800      545F5253 
  3800      4353535F 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 80
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 80
 
 
  3800      494E4449 
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3819              	.LASF175:
  3820 0eb1 61747448 		.ascii	"attHandle\000"
  3820      616E646C 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 81
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 81
 
 
  3820      6500
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3838      54415F4C 
  3839              	.LASF421:
  3840 0fee 4359424C 		.ascii	"CYBLE_EVT_SCPSC_WRITE_DESCR_RESPONSE\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 82
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 82
 
 
  3840      455F4556 
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3859              	.LASF325:
  3860 10f6 4359424C 		.ascii	"CYBLE_EVT_GLSC_READ_DESCR_RESPONSE\000"
  3860      455F4556 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 83
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 83
 
 
  3860      545F474C 
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3879      455F4556 
  3879      545F4354 
  3879      53435F57 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 84
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 84
 
 
  3879      52495445 
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3897      4F544946 
  3898              	.LASF345:
  3899 137f 4359424C 		.ascii	"CYBLE_EVT_HPSC_WRITE_DESCR_RESPONSE\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 85
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 85
 
 
  3899      455F4556 
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3917      64656444 
  3917      6576436F 
  3917      756E7400 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 86
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 86
 
 
  3918              	.LASF281:
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3936              	.LASF187:
  3937 15e0 61747456 		.ascii	"attValuesCCCDFlashMemory\000"
  3937      616C7565 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 87
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 87
 
 
  3937      73434343 
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3955      4341505F 
  3955      434F4E4E 
  3956              	.LASF223:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 88
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 88
 
 
  3957 1718 4359424C 		.ascii	"CYBLE_EVT_ANSC_WRITE_CHAR_RESPONSE\000"
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3975      455F4556 
  3975      545F5041 
  3975      5353435F 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 89
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 89
 
 
  3975      52454144 
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  3993      7400
  3994              	.LASF374:
  3995 1982 4359424C 		.ascii	"CYBLE_EVT_IPSC_READ_DESCR_RESPONSE\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 90
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 90
 
 
  3995      455F4556 
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4013      616C7565 
  4013      55756964 
  4013      00
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 91
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 91
 
 
  4014              	.LASF146:
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4032              	.LASF289:
  4033 1bee 4359424C 		.ascii	"CYBLE_EVT_CSCSC_WRITE_CHAR_RESPONSE\000"
  4033      455F4556 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 92
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 92
 
 
  4033      545F4353 
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4051      676500
  4052              	.LASF375:
  4053 1cfc 4359424C 		.ascii	"CYBLE_EVT_IPSC_WRITE_DESCR_RESPONSE\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 93
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 93
 
 
  4053      455F4556 
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4071      545F4850 
  4071      53435F52 
  4071      4541445F 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 94
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 94
 
 
  4072              	.LASF97:
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4091      54545F45 
  4091      52525F50 
  4091      524F4345 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 95
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 95
 
 
  4092              	.LASF392:
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4111 20aa 4359424C 		.ascii	"CYBLE_EVT_ESSS_EXEC_WRITE_REQ\000"
  4111      455F4556 
  4111      545F4553 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 96
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 96
 
 
  4111      53535F45 
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4131      54545F45 
  4131      52525F49 
  4131      4E535546 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 97
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 97
 
 
  4132              	.LASF161:
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4151      53535F4E 
  4151      4F544946 
  4152              	.LASF240:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 98
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 98
 
 
  4153 230c 4359424C 		.ascii	"CYBLE_EVT_BLSS_INDICATION_DISABLED\000"
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4169      545F424C 
  4169      53535F4E 
  4169      4F544946 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 99
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 99
 
 
  4170              	.LASF125:
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4189 25b7 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST\000"
  4189      455F4556 
  4189      545F4741 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 100
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 100
 
 
  4189      505F5041 
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4207      53435F52 
  4207      4541445F 
  4208              	.LASF461:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 101
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 101
 
 
  4209 26e1 4359424C 		.ascii	"CYBLE_DEBUG_EVT_BLESS_INT\000"
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4227 27e8 4359424C 		.ascii	"CYBLE_EVT_HRSC_READ_CHAR_RESPONSE\000"
  4227      455F4556 
  4227      545F4852 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 102
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 102
 
 
  4227      53435F52 
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4245      53535F4E 
  4245      4F544946 
  4246              	.LASF383:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 103
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 103
 
 
  4247 292c 4359424C 		.ascii	"CYBLE_EVT_LNSS_INDICATION_CONFIRMED\000"
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4265      455F4556 
  4265      545F5449 
  4265      4D454F55 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 104
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 104
 
 
  4265      5400
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4285      616C7565 
  4285      00
  4286              	.LASF388:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 105
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 105
 
 
  4287 2b4b 4359424C 		.ascii	"CYBLE_EVT_LNSC_NOTIFICATION\000"
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4305 2c4e 636F6E6E 		.ascii	"connHandle\000"
  4305      48616E64 
  4305      6C6500
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 106
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 106
 
 
  4306              	.LASF166:
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4325 2d79 4359424C 		.ascii	"CYBLE_EVT_HIDSC_READ_CHAR_RESPONSE\000"
  4325      455F4556 
  4325      545F4849 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 107
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 107
 
 
  4325      4453435F 
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4345      455F4556 
  4345      545F4553 
  4345      53535F4E 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 108
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 108
 
 
  4345      4F544946 
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4364              	.LASF262:
  4365 2fbf 4359424C 		.ascii	"CYBLE_EVT_CGMSC_WRITE_CHAR_RESPONSE\000"
  4365      455F4556 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 109
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 109
 
 
  4365      545F4347 
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4385      48415244 
  4385      57415245 
  4386              	.LASF135:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 110
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 110
 
 
  4387 30c3 4359424C 		.ascii	"CYBLE_GATT_ERR_CPS_INAPPROPRIATE_CONNECTION_PARAMET"
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4405              	.LASF220:
  4406 31f4 4359424C 		.ascii	"CYBLE_EVT_ANSS_CHAR_WRITE\000"
  4406      455F4556 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 111
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 111
 
 
  4406      545F414E 
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4424      7400
  4425              	.LASF148:
  4426 330a 4359424C 		.ascii	"CYBLE_GATT_ERR_ANCS_INVALID_PARAMETER\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 112
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 112
 
 
  4426      455F4741 
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4444      455F4556 
  4444      545F4741 
  4444      5454535F 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 113
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 113
 
 
  4444      494E4449 
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4462      57524954 
  4463              	.LASF326:
  4464 355d 4359424C 		.ascii	"CYBLE_EVT_GLSC_WRITE_DESCR_RESPONSE\000"
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 114
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 114
 
 
  4464      455F4556 
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4482      455F4556 
  4482      545F5750 
  4482      5453435F 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 115
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 115
 
 
  4482      57524954 
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4502      616C4C65 
  4502      6E00
  4503              	.LASF184:
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 116
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 116
 
 
  4504 37c2 63636364 		.ascii	"cccdHandle\000"
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4523              	.LASF192:
  4524 38c5 4359424C 		.ascii	"CYBLE_PASSKEY_ENTRY_REQUEST_REPLY\000"
  4524      455F5041 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 117
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 117
 
 
  4524      53534B45 
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4542      545F4353 
  4542      4353435F 
  4542      52454144 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 118
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 118
 
 
  4543              	.LASF10:
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 1
  4562      545F4852 
  4562      53535F4E 
  4562      4F544946 
-ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc5xWmae.s 			page 119
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccJN5PoN.s 			page 119
 
 
  4563              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

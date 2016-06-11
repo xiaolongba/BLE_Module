@@ -154,6 +154,8 @@
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\UART_rx_wake_PM.c</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\UART_RX_WAKEUP_IRQ.c</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\UART_RX_WAKEUP_IRQ.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\Wdt_Isr.c</File>
+          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\Wdt_Isr.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="G:\Project\LiYangLiu---BLE Module\Code\Troughpur_Central_Peripheral\Troughput_Central_Peripheral.cydsn\Export\ARM_GCC_Generic\BLE_v3_10">

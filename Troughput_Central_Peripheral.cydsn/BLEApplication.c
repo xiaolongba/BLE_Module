@@ -56,6 +56,7 @@ uint8_t DeviceConned=FALSE;
 uint16_t m_throughput_server_handler;
 uint16_t m_throughput_cccd_handler;
 uint8_t  m_notify_permission = FALSE;
+uint8_t idx=0;    
 /* All zeros passed as  argument passed to CyBle_GapRemoveDeviceFromWhiteList for 
 removing all the bonding data stored */
 CYBLE_GAP_BD_ADDR_T clearAllDevices = {{0,0,0,0,0,0},0};
@@ -134,8 +135,10 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
         case CYBLE_EVT_GAPC_SCAN_START_STOP:
             if(STOP_SCAN_FLAG)
             {
-                STOP_SCAN_FLAG=FALSE;             
-                printf("+SCAN_STOP\r\n");
+                STOP_SCAN_FLAG=FALSE;     
+//                idx=SerialData[9];
+                Connect_Device(idx);  
+//                printf("+SCAN_STOP\r\n");
             }
             
         break;
@@ -174,7 +177,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
 //                handleValuePair.attrHandle=CYBLE_TROUGHPUT_SERVICE_CUSTOM_CHARACTERISTIC_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE;
 //                 printf("+WRITE=%d\r\n",CyBle_GattsWriteAttributeValue(&handleValuePair,0,&cyBle_connHandle,CYBLE_GATT_DB_PEER_INITIATED));                
 //                CommandMode=THROUGHT_MODE;
-                CyBle_L2capLeConnectionParamUpdateRequest(cyBle_connHandle.bdHandle,&connParam);
+//                CyBle_L2capLeConnectionParamUpdateRequest(cyBle_connHandle.bdHandle,&connParam);
                 #ifdef RELEASE
                 CyBle_GapAuthReq(cyBle_connHandle.bdHandle,&cyBle_authInfo);
                 #endif
@@ -188,7 +191,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
                 range.endHandle=0xFFFF;  
                 CyBle_GattcDiscoverAllCharacteristics(cyBle_connHandle,range);//一旦连接完成就开始查找从机的所有的特征值  
 //                与从机连接成功后，主机发起连接间隔更新请求
-//                CyBle_GapcConnectionParamUpdateRequest(cyBle_connHandle.bdHandle,&connParam);
+                CyBle_GapcConnectionParamUpdateRequest(cyBle_connHandle.bdHandle,&connParam);
                 /* Initiate an MTU exchange request CYBLE_GATT_MTU*/
 //                CyBle_GattcExchangeMtuReq(cyBle_connHandle,CYBLE_GATT_MTU);
             }
@@ -836,8 +839,7 @@ void Parser_UartData(const char* SerialData)
 {
     if(NULL==SerialData)
         return;
-    uint8_t At_Command_Idex=0,i=0;
-    uint8_t idx=0;    
+    uint8_t At_Command_Idex=0,i=0;   
     int16_t AdvMin,AdvMax;
     char8 Name[27]={0};
     char AdvData[31]={0};
@@ -1239,7 +1241,7 @@ void Parser_UartData(const char* SerialData)
 //                        停止广播
 //                            CyBle_GappStopAdvertisement();
 //                        开始扫描
-                            CyBle_GapcStartScan(CYBLE_SCANNING_FAST);
+//                            CyBle_GapcStartScan(CYBLE_SCANNING_FAST);
                             Role=Central;
                             printf("AT+OK\r\n");
 //                            printf("+ROLE:<Central>\r\n");
@@ -1348,8 +1350,19 @@ void Parser_UartData(const char* SerialData)
         case CONNT:
             if(Role==Central)
             {
-                idx=SerialData[9];
-                Connect_Device(idx);      
+                if(CYBLE_STATE_DISCONNECTED!=CyBle_GetState())
+                {
+                    CyBle_GapcStopScan();     
+                    STOP_SCAN_FLAG = TURE;
+                    idx=SerialData[9];
+                }
+                else
+                {
+                    idx=SerialData[9];
+                    Connect_Device(idx); 
+                }
+                
+//                Connect_Device(idx);      
             }
             else
             {
@@ -2202,6 +2215,7 @@ void Master_Slave_UartHandler(uint8_t Role)
     uint32 passkey=0;
     uint32 pow;
     uint8   index;
+    uint8  i;
     uint8   uartTxData[negotiatedMtu - 3];
     CYBLE_API_RESULT_T API_RESULT=0;
     uint16_t uartTxDataLength;
@@ -2281,6 +2295,20 @@ void Master_Slave_UartHandler(uint8_t Role)
                 memset(RX_BUFFER,0,sizeof(RX_BUFFER));
                 printf("+MODE=THROUGHT_MODE\r\n");
                 return;
+            }
+            if(0==memcmp("AT+RESET=1",uartTxData,10))//在透传模式下，判断是不是要复位，因为透传模式下会认为串口接收的数据都是透传数据       
+            {
+                printf("AT+OK\r\n");
+                while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成
+                CySoftwareReset();
+            }
+            if(0==memcmp("AT+DISCONN",uartTxData,10))//在透传模式下，判断是不是断开连接，因为透传模式下会认为串口接收的数据都是透传数据       
+            {
+                printf("AT+OK\r\n");
+                while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成
+                CyBle_GapDisconnect(cyBle_connHandle.bdHandle);
+        
+                
             }
             else if(Peripheral==Role)//从机给主机发送透传数据
             {

@@ -39,8 +39,74 @@ extern char SetDeviceName[23];
 extern uint8_t Bond;
 extern uint8_t ConnStaus;
 extern CYBLE_GAP_BD_ADDR_T clearAllDevices;
+#define WDT_COUNTER                 (CY_SYS_WDT_COUNTER1)
+#define WDT_COUNTER_MASK            (CY_SYS_WDT_COUNTER1_MASK)
+#define WDT_INTERRUPT_SOURCE        (CY_SYS_WDT_COUNTER1_INT) 
+#define WDT_COUNTER_ENABLE          (1u)
+#define WDT_1SEC                    (32767u)
 //extern uint8_t DeviceConned;
 //extern CYBLE_CONN_HANDLE_T	connHandle;
+
+/*******************************************************************************
+* Function Name: Timer_Interrupt
+********************************************************************************
+*
+* Summary:
+*  Handles the Interrupt Service Routine for the WDT timer.
+*  It is called from common WDT ISR located in BLE component. 
+*
+*******************************************************************************/
+void Timer_Interrupt(void)
+{
+    if(CySysWdtGetInterruptSource() & WDT_INTERRUPT_SOURCE)
+    {
+//        static uint8 led = LED_OFF;
+//        
+//        /* Blink LED to indicate that device advertises */
+//        if(CYBLE_STATE_ADVERTISING == CyBle_GetState())
+//        {
+//            led ^= LED_OFF;
+//            Advertising_LED_Write(led);
+//        }
+//        
+//        /* Indicate that timer is raised to the main loop */
+//        mainTimer++;
+        
+        /* Clears interrupt request  */
+//        CySysWatchdogFeed(WDT_COUNTER);
+//        CySysWdtClearInterrupt(WDT_INTERRUPT_SOURCE);
+    }
+}
+
+/*******************************************************************************
+* Function Name: WDT_Start
+********************************************************************************
+*
+* Summary:
+*  Configures WDT(counter 2) to trigger an interrupt every second.
+*
+*******************************************************************************/
+
+void WDT_Start(void)
+{
+    /* Unlock the WDT registers for modification */
+    CySysWdtUnlock(); 
+    /* Setup ISR callback */
+    Wdt_Isr_StartEx(Timer_Interrupt);
+    /* Write the mode to generate interrupt on match */
+    CySysWdtWriteMode(WDT_COUNTER, CY_SYS_WDT_MODE_INT_RESET);
+    /* Configure the WDT counter clear on a match setting */
+    CySysWdtWriteClearOnMatch(WDT_COUNTER, WDT_COUNTER_ENABLE);
+    /* Configure the WDT counter match comparison value */
+    CySysWdtWriteMatch(WDT_COUNTER, WDT_1SEC);//定时1秒
+    /* Reset WDT counter */
+    CySysWdtResetCounters(CY_SYS_WDT_COUNTER1_RESET);
+    /* Enable the specified WDT counter */
+    CySysWdtEnable(WDT_COUNTER_MASK);
+    /* Lock out configuration changes to the Watchdog timer registers */
+//    CySysWdtLock();    //不要锁定,否则无法正常喂狗
+}
+
 int main()
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
@@ -61,7 +127,8 @@ int main()
     {
         CyBle_GapSetLocalName(SetDeviceName);
     }
-    SystemInitialization();  
+    SystemInitialization(); 
+    WDT_Start();
 //     printf("+AUTHKEY=%6ld\r\n",test);
     for(;;)
     {
@@ -86,6 +153,7 @@ int main()
 //        {
 //            
 //        }
+        CySysWdtResetCounters(CY_SYS_WDT_COUNTER1_RESET);//喂狗
         Master_Slave_UartHandler(Role);
         if(ConnStaus)
         {
@@ -97,7 +165,7 @@ int main()
                 Bond=FALSE;
             CyBle_GapRemoveDeviceFromWhiteList(&clearAllDevices);//清除绑定先从白名单中清除再清除Flash中的信息
             while(CYBLE_ERROR_OK != CyBle_StoreBondingData(1));
-            printf("+BOND=0\r\n");//清除绑定成功
+//            printf("+BOND=0\r\n");//清除绑定成功
             Bond=FALSE;
         }
 //        if(DeviceConned)
